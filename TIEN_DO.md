@@ -93,3 +93,6 @@ Quyết định 14/11/2026: bộ cài chỉ Windows và macOS; Linux phát tri�
 |---|---|---|
 | MT-16 | YÊU CẦU 5.2 ghi vùng phụ trợ KET_LUAN "dòng 200-250"; workbook ẩn dòng **201–251** (dòng 200 là tiêu đề "PHỤ TRỢ (ẨN)", dòng 251 chỉ có ô tính phụ AG:AI) | Phần mềm ẩn 200–251 (gồm cả hai cách hiểu). Anh xác nhận nếu muốn khác |
 | MT-17 | YÊU CẦU 5.2 mục 8 liệt kê MAU_THUAN, KIEM_THU, CSDL ở trang Tham khảo | Theo quyết định của anh ngày 14/11: chỉ tính ẩn, không hiện |
+
+### Quyết định 14/11/2026 (09:55)
+- Chủ dự án **thống nhất 14 màn hình giao diện chính** của bản 1.0.0 (Tóm tắt, Nhập liệu, Theo lĩnh vực, Luận giải, Tìm kiếm, Phân tích, Đại vận, Theo dõi, Ngũ hành thiếu, Chuyên đề, Tham khảo, Danh sách lá số, So sánh hai lá, Xuất/In) – giữ nguyên như ảnh `anh_gd6/`.
