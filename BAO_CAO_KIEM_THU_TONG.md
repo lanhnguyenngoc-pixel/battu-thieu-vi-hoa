@@ -357,3 +357,13 @@ T7 + T9 từ mã nguồn, cài → tự kiểm khi chặn mạng → gỡ: **Đ�
 | **T10 – mới**: ngày sinh phối ngẫu (đủ ngày giờ / chỉ năm / trống), việc lớn tìm giờ sinh (3–12 việc, nửa số lá ở chế độ Không rõ giờ), đánh giá thực tế 15 năm/lá – 20 lá, đáp án LibreOffice | **577.140 / 577.140** (Hôn nhân 23.960, Không rõ giờ 16.140, Theo dõi 100.120); đường nhập giao diện → ô: 6.840 / 6.840; lưu – mở lại: ĐẠT |
 
 Chi tiết: tai_lieu/BAO_CAO_KIEM_THU_1.4.0_CHI_TIET.md.
+
+## Bộ cài 1.4.0 – GitHub Actions lượt 43567005410
+
+T7 + T9 + T10 từ mã nguồn, cài → tự kiểm khi chặn mạng (dấu vân tay 1ec29dbd79e31c4e trùng bản gốc) → gỡ: **ĐẠT** trên Windows, macOS arm64, macOS x86_64.
+
+| Tệp | SHA-256 |
+|---|---|
+| BatTuThieuViHoa_Setup_1.4.0_Windows.exe | 78eb37aa79cafe05116ae12278701ebd10d947f287913302b3b75a29dca60e62 |
+| BatTuThieuViHoa_1.4.0_macOS_arm64.dmg | 4f28cdd6716b6351c09da0c19ae8eee0803dc2cd93400764584a330ab0d70540 |
+| BatTuThieuViHoa_1.4.0_macOS_x86_64.dmg | 701c27c52f6b7c59bc88762b9ffa621f62d5acaf2f609e7f7703559d58452949 |
