@@ -96,3 +96,28 @@ jobs:
         with:
           name: BatTuThieuViHoa-macOS-${{ matrix.kien_truc }}
           path: dist_cai/
+  gom_bo_cai:
+    # Gom bộ cài của mọi máy vào nhánh "bo-cai" (cắt phần 45 MB, kèm SHA-256) để tải được qua git.
+    needs: [windows, macos]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: bo_cai
+      - name: Ghi nhánh bo-cai
+        run: |
+          set -e
+          mkdir out && cd bo_cai
+          for f in $(find . -type f \( -name '*.exe' -o -name '*.dmg' -o -name '*.txt' -o -name '*.log' -o -name '*.pdf' -o -name '*.json' -o -name '*.xlsx' \)); do
+            d="../out/$(dirname "$f")"; mkdir -p "$d"
+            n=$(basename "$f")
+            if [ $(stat -c%s "$f") -gt 47000000 ]; then split -b 45m -d -a 2 "$f" "$d/$n.phan"; else cp "$f" "$d/$n"; fi
+            sha256sum "$f" >> ../out/SHA256SUMS.txt
+          done
+          cd ../out
+          git init -q -b bo-cai && git config user.name "github-actions" && git config user.email "actions@github.com"
+          git add -A && git commit -q -m "Bộ cài – lượt ${{ github.run_id }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" bo-cai
