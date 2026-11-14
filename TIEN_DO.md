@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ5 – Kết luận & giao diện hoàn chỉnh: XONG** · GĐ6 đang làm · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.0.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -66,8 +66,30 @@ Không có.
 | GĐ | Nội dung | Trạng thái |
 |---|---|---|
 | 5 | KET_LUAN, LUAN_GIAI, tham khảo, giao diện hoàn chỉnh, SQLite, so sánh | **Xong** – T1 856.410/856.410; T1b 7×865.710; T8 2×1.587.135; T2 24.048/24.048 (48 khóa); T1-501 14.053.050/14.053.050; T3 710/710; T4 510/510; T6 12/12; tốc độ ~0,7 s/lá |
-| 6 | Xuất PDF/XLSX/JSON, bộ cài (GitHub Actions), hướng dẫn | Đang làm |
+| 6 | Xuất PDF/XLSX/JSON + in; bộ cài Windows/macOS; kiểm thử tổng T1–T8; hướng dẫn sử dụng; README build | **Xong** – xem bảng GĐ6 |
 
 ### Quyết định GĐ5 (14/11/2026)
 - MAU_THUAN, KIEM_THU, CSDL: chỉ tính ẩn trong lõi (vẫn kiểm thử T1), KHÔNG hiển thị trên giao diện.
 - Trang tham khảo hiển thị: TRANG_CHU, HUONG_DAN, THAM_KHAO.
+
+## GĐ6 (14/11/2026)
+| Việc | Kết quả |
+|---|---|
+| Xuất **PDF** (Qt, phông Inter): thông tin lá, khối KẾT LUẬN, 2 biểu đồ, mục chọn (mặc định KET_LUAN B–K + bảng Ngũ hành thiếu), "Trang x/y", ngày in, phiên bản quy tắc | Xong – 28 trang mặc định, 0,6 s |
+| **In** (QPrintDialog, cùng bộ dựng trang với PDF) | Xong |
+| Xuất **XLSX** – 30 sheet đúng địa chỉ ô, gộp ô, độ rộng, cột/dòng ẩn, định dạng số, màu định dạng có điều kiện; sheet THONG_TIN | Xong – 0,8 s |
+| Xuất **JSON** – dữ liệu nhập + {sheet: {ô: giá trị}} mọi ô công thức 33 sheet | Xong – 0,05 s |
+| Cột/dòng ẩn của workbook (ô tính phụ) áp vào giao diện, PDF, XLSX (`bo_cuc.an_cot/an_dong`) | Xong |
+| Bộ cài: PyInstaller + Inno Setup (tiếng Việt, có gỡ cài đặt) + .dmg (arm64, x86_64); quy trình GitHub Actions cài → tự kiểm khi chặn mạng → gỡ | Cấu hình xong; bản Linux tự kiểm đạt khi không có mạng (`unshare -rn`) |
+| Tự kiểm bản đã cài `--tu-kiem`: dấu vân tay SHA-256 toàn bộ kết quả 3 lá + xuất 3 định dạng | Xong |
+| Kiểm thử tổng T1–T8 + T7 (20 lá ngẫu nhiên mới, oracle_dump.py) | **100%** – BAO_CAO_KIEM_THU_TONG.md |
+| Hướng dẫn sử dụng PDF có hình (13 trang), README build | Xong |
+| Đề xuất bố cục giao diện hiện/ẩn (tai_lieu/DE_XUAT_GIAO_DIEN.md) | Chờ duyệt |
+
+Quyết định 14/11/2026: bộ cài chỉ Windows và macOS; Linux phát triển sau.
+
+### MÂU THUẪN nhỏ (ghi nhận, không đổi kết quả)
+| Mã | Nội dung | Xử lý |
+|---|---|---|
+| MT-16 | YÊU CẦU 5.2 ghi vùng phụ trợ KET_LUAN "dòng 200-250"; workbook ẩn dòng **201–251** (dòng 200 là tiêu đề "PHỤ TRỢ (ẨN)", dòng 251 chỉ có ô tính phụ AG:AI) | Phần mềm ẩn 200–251 (gồm cả hai cách hiểu). Anh xác nhận nếu muốn khác |
+| MT-17 | YÊU CẦU 5.2 mục 8 liệt kê MAU_THUAN, KIEM_THU, CSDL ở trang Tham khảo | Theo quyết định của anh ngày 14/11: chỉ tính ẩn, không hiện |
