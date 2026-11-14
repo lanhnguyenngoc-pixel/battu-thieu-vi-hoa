@@ -1,0 +1,224 @@
+[
+ {
+  "id": "T7_01",
+  "ngay": 18,
+  "thang": 4,
+  "nam": 1916,
+  "gio": 18,
+  "phut": 30,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_02",
+  "ngay": 15,
+  "thang": 1,
+  "nam": 2027,
+  "gio": 7,
+  "phut": 55,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_03",
+  "ngay": 27,
+  "thang": 7,
+  "nam": 1906,
+  "gio": 19,
+  "phut": 41,
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_04",
+  "ngay": 9,
+  "thang": 12,
+  "nam": 2001,
+  "gio": 7,
+  "phut": 30,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_05",
+  "ngay": 19,
+  "thang": 9,
+  "nam": 2067,
+  "gio": 6,
+  "phut": 15,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_06",
+  "ngay": 10,
+  "thang": 8,
+  "nam": 2001,
+  "gio": 23,
+  "phut": 55,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_07",
+  "ngay": 27,
+  "thang": 6,
+  "nam": 2044,
+  "gio": 5,
+  "phut": 55,
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_08",
+  "ngay": 5,
+  "thang": 11,
+  "nam": 2062,
+  "gio": 19,
+  "phut": 4,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_09",
+  "ngay": 12,
+  "thang": 2,
+  "nam": 1946,
+  "gio": 16,
+  "phut": 55,
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_10",
+  "ngay": 27,
+  "thang": 3,
+  "nam": 2074,
+  "gio": 14,
+  "phut": 5,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_11",
+  "ngay": 9,
+  "thang": 12,
+  "nam": 1996,
+  "gio": 4,
+  "phut": 5,
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_12",
+  "ngay": 16,
+  "thang": 7,
+  "nam": 1938,
+  "gio": 16,
+  "phut": 15,
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_13",
+  "ngay": 11,
+  "thang": 3,
+  "nam": 2054,
+  "gio": 19,
+  "phut": 45,
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_14",
+  "ngay": 7,
+  "thang": 9,
+  "nam": 2100,
+  "gio": 15,
+  "phut": 5,
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_15",
+  "can": [
+   "Tân",
+   "Nhâm",
+   "Tân",
+   "Tân"
+  ],
+  "chi": [
+   "Sửu",
+   "Tuất",
+   "Mão",
+   "Dậu"
+  ],
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_16",
+  "can": [
+   "Mậu",
+   "Quý",
+   "Tân",
+   "Quý"
+  ],
+  "chi": [
+   "Dần",
+   "Dậu",
+   "Mùi",
+   "Hợi"
+  ],
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_17",
+  "can": [
+   "Giáp",
+   "Canh",
+   "Đinh",
+   "Canh"
+  ],
+  "chi": [
+   "Tuất",
+   "Thìn",
+   "Mùi",
+   "Dần"
+  ],
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_18",
+  "can": [
+   "Nhâm",
+   "Kỷ",
+   "Giáp",
+   "Canh"
+  ],
+  "chi": [
+   "Thìn",
+   "Mão",
+   "Tí",
+   "Dần"
+  ],
+  "gioi_tinh": "Nữ"
+ },
+ {
+  "id": "T7_19",
+  "can": [
+   "Canh",
+   "Ất",
+   "Đinh",
+   "Bính"
+  ],
+  "chi": [
+   "Tí",
+   "Hợi",
+   "Mùi",
+   "Thân"
+  ],
+  "gioi_tinh": "Nam"
+ },
+ {
+  "id": "T7_20",
+  "can": [
+   "Bính",
+   "Quý",
+   "Mậu",
+   "Mậu"
+  ],
+  "chi": [
+   "Thân",
+   "Hợi",
+   "Tuất",
+   "Ngọ"
+  ],
+  "gioi_tinh": "Nam"
+ }
+]

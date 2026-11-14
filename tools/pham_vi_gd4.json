@@ -1,0 +1,30 @@
+{
+ "giai_doan": 4,
+ "ghi_chu": "GĐ1–4 (LỆNH 4): + LUC_THAN, HON_NHAN, MENH_CUC, TAI_LOC, TO_CHAT, SU_NGHIEP, SUC_KHOE, THAN_SAT, SAO, BAO_PHU, KHONG_RO_GIO",
+ "sheets": {
+  "CSDL": "all",
+  "NHAP_LIEU": "all",
+  "TRUNG_GIAN": "all",
+  "DAI_VAN": "all",
+  "KIEM_THU": "all",
+  "PP1_DINH_TINH": "all",
+  "PP2_DINH_LUONG": "all",
+  "THONG_CAN": "all",
+  "DOI_CHIEU": "all",
+  "DUNG_HY_KY": "all",
+  "LUU_NIEN": "all",
+  "THEO_DOI": "all",
+  "NGU_HANH_THIEU": "all",
+  "LUC_THAN": "all",
+  "HON_NHAN": "all",
+  "MENH_CUC": "all",
+  "TAI_LOC": "all",
+  "TO_CHAT": "all",
+  "SU_NGHIEP": "all",
+  "SUC_KHOE": "all",
+  "THAN_SAT": "all",
+  "SAO": "all",
+  "BAO_PHU": "all",
+  "KHONG_RO_GIO": "all"
+ }
+}

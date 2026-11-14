@@ -1,0 +1,4 @@
+{"giai_doan": 2,
+ "ghi_chu": "GĐ1 + GĐ2 (LỆNH 2): PP1_DINH_TINH, PP2_DINH_LUONG, THONG_CAN, DOI_CHIEU, DUNG_HY_KY",
+ "sheets": {"CSDL": "all", "NHAP_LIEU": "all", "TRUNG_GIAN": "all", "DAI_VAN": ["C5:C28"], "KIEM_THU": "all",
+            "PP1_DINH_TINH": "all", "PP2_DINH_LUONG": "all", "THONG_CAN": "all", "DOI_CHIEU": "all", "DUNG_HY_KY": "all"}}

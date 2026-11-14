@@ -1,0 +1,94 @@
+# Dựng bộ cài Windows (.exe, Inno Setup, có gỡ cài đặt) và macOS (.dmg) – MT-09.
+# Mỗi máy: (1) kiểm thử T7 từ mã nguồn (20 lá, 570.940 ô, phải 100%); (2) PyInstaller; (3) dựng bộ cài;
+# (4) CÀI → chạy tự kiểm khi CHẶN MẠNG (dấu vân tay SHA-256 toàn bộ kết quả 3 lá + xuất PDF/XLSX/JSON) → GỠ → kiểm đã gỡ sạch.
+name: dong-goi
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+env:
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: utf-8
+  QT_QPA_PLATFORM: offscreen
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Cài thư viện
+        run: python -m pip install -r requirements.txt pyinstaller==6.16.0
+      - name: Kiểm thử T7 (mã nguồn, Windows)
+        run: python -m tests.t7_ngau_nhien
+      - name: PyInstaller
+        run: pyinstaller --noconfirm dong_goi/battu.spec
+      - name: Inno Setup
+        shell: pwsh
+        run: |
+          choco install innosetup -y --no-progress
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" dong_goi\battu_windows.iss
+      - name: Cài – tự kiểm không mạng – gỡ
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $setup = Get-ChildItem dist_cai\*.exe | Select-Object -First 1
+          $p = Start-Process $setup.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/ALLUSERS','/LOG=cai.log' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "Cài lỗi $($p.ExitCode)" }
+          $dir = "$env:ProgramFiles\BatTuThieuViHoa"; $exe = "$dir\BatTuThieuViHoa.exe"
+          if (!(Test-Path $exe)) { throw 'Không thấy tệp chạy sau khi cài' }
+          $key = Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall' | Where-Object { $_.GetValue('DisplayName') -like 'B*Thi*Hoa*' }
+          if (!$key) { throw 'Không có mục gỡ cài đặt trong Settings > Apps' }
+          New-NetFirewallRule -DisplayName 'chan_mang_battu' -Direction Outbound -Program $exe -Action Block | Out-Null
+          $tk = "$env:RUNNER_TEMP\tu_kiem"
+          $r = Start-Process $exe -ArgumentList '--tu-kiem', $tk -Wait -PassThru
+          Get-Content "$tk\tu_kiem.txt" -Encoding UTF8
+          if ($r.ExitCode -ne 0) { throw "Tự kiểm LỖI $($r.ExitCode)" }
+          Copy-Item "$tk\*" dist_cai\ ; Copy-Item cai.log dist_cai\
+          $u = Start-Process "$dir\unins000.exe" -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait -PassThru
+          Start-Sleep -Seconds 5
+          if (Test-Path $exe) { throw 'Gỡ chưa sạch: còn tệp chạy' }
+          $key2 = Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall' | Where-Object { $_.GetValue('DisplayName') -like 'B*Thi*Hoa*' }
+          if ($key2) { throw 'Gỡ chưa sạch: còn mục trong Settings > Apps' }
+          "Cài: ĐẠT · Tự kiểm khi chặn mạng: ĐẠT · Gỡ: ĐẠT (gỡ mã $($u.ExitCode))" | Tee-Object dist_cai\kiem_cai_go_windows.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: BatTuThieuViHoa-Windows, path: dist_cai/ }
+  macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: macos-14, kien_truc: arm64 }
+          - { os: macos-15-intel, kien_truc: x86_64 }
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.kien_truc == 'x86_64' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Cài thư viện
+        run: python -m pip install -r requirements.txt pyinstaller==6.16.0
+      - name: Kiểm thử T7 (mã nguồn, macOS)
+        run: python -m tests.t7_ngau_nhien
+      - name: PyInstaller
+        run: pyinstaller --noconfirm dong_goi/battu.spec
+      - name: Tạo .dmg
+        run: |
+          set -e
+          APP="dist/Bát Tự Thiệu Vĩ Hoa.app"
+          codesign --force --deep -s - "$APP"
+          mkdir -p dmg_goc dist_cai && cp -R "$APP" dmg_goc/ && ln -s /Applications dmg_goc/Applications
+          hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder dmg_goc -ov -format UDZO "dist_cai/BatTuThieuViHoa_1.0.0_macOS_${{ matrix.kien_truc }}.dmg"
+      - name: Cài – tự kiểm không mạng – gỡ
+        run: |
+          set -e
+          DMG=$(ls dist_cai/*.dmg); hdiutil attach "$DMG" -nobrowse -mountpoint /tmp/battu_dmg
+          cp -R "/tmp/battu_dmg/Bát Tự Thiệu Vĩ Hoa.app" /Applications/ && hdiutil detach /tmp/battu_dmg
+          BIN="/Applications/Bát Tự Thiệu Vĩ Hoa.app/Contents/MacOS/BatTuThieuViHoa"
+          test -x "$BIN"
+          sandbox-exec -p '(version 1)(allow default)(deny network*)' "$BIN" --tu-kiem "$RUNNER_TEMP/tu_kiem"
+          cat "$RUNNER_TEMP/tu_kiem/tu_kiem.txt"; cp "$RUNNER_TEMP"/tu_kiem/* dist_cai/
+          rm -rf "/Applications/Bát Tự Thiệu Vĩ Hoa.app"; test ! -e "/Applications/Bát Tự Thiệu Vĩ Hoa.app"
+          echo "Cài: ĐẠT · Tự kiểm khi chặn mạng (sandbox-exec deny network): ĐẠT · Gỡ: ĐẠT" | tee dist_cai/kiem_cai_go_macos_${{ matrix.kien_truc }}.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: BatTuThieuViHoa-macOS-${{ matrix.kien_truc }}, path: dist_cai/ }

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+dist/
+dist_cai/
+tests/dap_an_mo_rong/*
+!tests/dap_an_mo_rong/T7_NGAU_NHIEN/
+*.log

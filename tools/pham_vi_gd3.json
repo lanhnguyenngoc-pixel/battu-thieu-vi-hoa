@@ -1,0 +1,19 @@
+{
+ "giai_doan": 3,
+ "ghi_chu": "GĐ1–3 (LỆNH 3): + DAI_VAN toàn bộ, LUU_NIEN, THEO_DOI, NGU_HANH_THIEU",
+ "sheets": {
+  "CSDL": "all",
+  "NHAP_LIEU": "all",
+  "TRUNG_GIAN": "all",
+  "DAI_VAN": "all",
+  "KIEM_THU": "all",
+  "PP1_DINH_TINH": "all",
+  "PP2_DINH_LUONG": "all",
+  "THONG_CAN": "all",
+  "DOI_CHIEU": "all",
+  "DUNG_HY_KY": "all",
+  "LUU_NIEN": "all",
+  "THEO_DOI": "all",
+  "NGU_HANH_THIEU": "all"
+ }
+}

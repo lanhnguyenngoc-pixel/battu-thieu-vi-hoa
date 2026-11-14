@@ -1,0 +1,125 @@
+# -*- coding: utf-8 -*-
+"""Tạo HƯỚNG DẪN SỬ DỤNG (PDF, có hình) từ ảnh giao diện thật.
+Dùng: QT_QPA_PLATFORM=offscreen python tools/tao_huong_dan.py <thư_mục_ảnh> <ra.pdf>"""
+import os, sys
+os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from ui.giao_dien import tao_app
+from PySide6.QtGui import QImage
+
+CSS = """
+body { font-family: 'Inter'; font-size: 9.6pt; color: #1e2140; }
+h1 { font-size: 22pt; color: #3730a3; margin: 0 0 6pt 0; }
+h2 { font-size: 14pt; color: #3730a3; margin: 18pt 0 6pt 0; border-bottom: 1px solid #c7c2f5; }
+h3 { font-size: 11pt; margin: 10pt 0 4pt 0; }
+td { padding: 3pt 5pt; border: 0.5px solid #d9dbe9; vertical-align: top; }
+th { padding: 3pt 5pt; background: #f3f0ff; color: #4338ca; text-align: left; }
+.chu_y { background: #fff7e6; color: #92400e; padding: 6pt; }
+.nho { color: #6b7090; font-size: 8.4pt; }
+"""
+
+H = []
+def anh(ten, chu=''):
+    H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
+
+
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.0.0 (quy tắc 6.3)</b></p>')
+H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, chuyển nguyên vẹn từ '
+         'bộ công cụ Excel bản 6.3: <b>mọi kết quả trùng 100% với workbook</b> (đã kiểm trên hàng chục triệu ô). Phần mềm chạy hoàn toàn '
+         'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
+H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa. Các dòng ghi "quy ước kỹ thuật" hoặc '
+         '"lời khuyên của công cụ" không phải câu chữ của sách.</p>')
+
+H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
+H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.0.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
+         'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
+         '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
+         '<tr><td><b>macOS</b> 11 trở lên</td><td>Mở tệp <b>.dmg</b> (bản <i>arm64</i> cho máy chip Apple M, bản <i>x86_64</i> cho máy Intel), '
+         'kéo biểu tượng vào thư mục <i>Applications</i>. Lần đầu mở: nhấp chuột phải vào ứng dụng → <i>Mở</i> → <i>Mở</i> '
+         '(phần mềm chưa ký với Apple).</td><td>Kéo ứng dụng từ <i>Applications</i> vào Thùng rác.</td></tr></table>')
+H.append('<p>Lá số đã lưu nằm trong tệp <b>la_so.sqlite</b>: Windows <i>%APPDATA%\\BatTuThieuViHoa</i>; macOS '
+         '<i>~/Library/Application Support/BatTuThieuViHoa</i>. Gỡ phần mềm <b>không xóa</b> tệp này (để không mất lá số); muốn sao lưu '
+         'hãy chép tệp này sang nơi khác.</p>')
+
+H.append('<h2>2. Bố cục màn hình</h2><p>Thanh bên trái có 12 mục, chia 3 nhóm:</p>'
+         '<table width="100%" cellspacing="0"><tr><th width="24%">Mục</th><th>Dùng để</th></tr>'
+         '<tr><td>★ Tóm tắt</td><td>Màn hình đầu: 9 dòng KẾT LUẬN của 9 lĩnh vực (KET_LUAN dòng 3–12), nút Xuất/In, Lưu.</td></tr>'
+         '<tr><td>✎ Nhập liệu</td><td>Nhập ngày giờ sinh hoặc tứ trụ; kết quả tính lại ngay khi sửa.</td></tr>'
+         '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K của KET_LUAN (mỗi mục mở đầu bằng dòng KẾT LUẬN), Luận giải, Đọc nhanh, Đối chiếu sự việc; ô tìm kiếm.</td></tr>'
+         '<tr><td>◫ Trung gian · ⚖ Phân tích · ↯ Vận trình · ☯ Ngũ hành thiếu · ◎ Chuyên đề · ◷ Không rõ giờ</td><td>Bảng chi tiết từng sheet cho người nghiên cứu (giữ đúng tên, thứ tự bảng, câu ghi chú như Excel).</td></tr>'
+         '<tr><td>❐ Tham khảo</td><td>Trang chủ, Hướng dẫn của workbook, Tham khảo ngoài sách, bảng Tiết khí 1899–2101 (chỉ đọc).</td></tr>'
+         '<tr><td>☰ Danh sách lá số · ⇄ So sánh hai lá</td><td>Lưu, tìm, nhóm, ghi chú; đặt hai lá cạnh nhau.</td></tr></table>')
+H.append('<p>Trong mọi bảng: rê chuột lên ô để xem địa chỉ ô Excel (ví dụ <i>KET_LUAN!C29</i>) và toàn văn ô dài.</p>')
+
+H.append('<h2>3. Nhập lá số</h2>')
+anh('13_nhap_lieu.png', 'Màn hình Nhập liệu: cột trái nhập, cột phải tứ trụ và các kiểm tra, cảnh báo nguyên văn workbook')
+H.append('<p>Chọn một trong ba cách: <b>Dương lịch</b> (ngày, tháng, năm 1899–2101, giờ, phút, múi giờ – mặc định UTC+7), '
+         '<b>Âm lịch</b> (đánh dấu <i>Tháng nhuận</i> nếu sinh tháng nhuận; phần mềm đổi sang dương lịch rồi tính), hoặc '
+         '<b>Tự nhập can chi</b> 4 trụ. Chọn giới tính và <b>năm xem</b> (mặc định năm hiện tại). Không biết giờ sinh: bật '
+         '<i>Không rõ giờ sinh</i> – phần mềm tính đủ 12 giờ (mục ◷ Không rõ giờ). <i>Tùy chọn nâng cao</i>: chọn vượng suy dùng cho kết luận, '
+         'chế độ Ngũ hành thiếu, số ngày tới tiết Lập (sinh tháng Thìn/Mùi/Tuất/Sửu), tháng/ngày âm cho phương hướng kết hôn.</p>'
+         '<p>Ô màu vàng nhạt ở cột phải là <b>cảnh báo</b> nguyên văn workbook: sát ranh giới giờ (±10 phút), sát giao tiết (±1 ngày), '
+         'thiếu số ngày tới tiết Lập, PP1 cần luận giải, PP1 ≠ PP2.</p>')
+
+H.append('<h2>4. Tóm tắt – đọc kết luận trước</h2>')
+anh('01_tom_tat.png', 'TÓM TẮT: mỗi thẻ là dòng KẾT LUẬN của một lĩnh vực; bấm "Chi tiết mục …" để mở căn cứ')
+H.append('<p>Người mới học nên đọc theo thứ tự: <b>Tóm tắt → Theo lĩnh vực (mục C Bản mệnh) → Luận giải</b>. '
+         'Mỗi dòng có ghi nguồn sách (ví dụ <i>P1 tr.70</i> = Phần 1 trang 70).</p>')
+
+H.append('<h2>5. Theo lĩnh vực, Luận giải và tìm kiếm</h2>')
+anh('02_linh_vuc_C_ban_menh.png', 'Mục C – Bản mệnh: khung KẾT LUẬN ở trên, căn cứ chi tiết ở dưới; chữ đỏ đậm = điểm tốt theo cờ của workbook')
+anh('05_tim_kiem.png', 'Tìm kiếm: gõ từ khóa rồi Enter; bấm một kết quả để nhảy tới ô')
+H.append('<h3>Màu sắc (định dạng có điều kiện của workbook)</h3><table width="100%" cellspacing="0">'
+         '<tr><th width="30%">Dấu hiệu</th><th>Ý nghĩa</th></tr>'
+         '<tr><td><font color="#c00000"><b>Chữ đỏ đậm</b></font></td><td>Điểm tốt/thuận: dụng thần (KET_LUAN), đại vận thuận (DAI_VAN), năm đáng chú ý trong LUU_NIEN, '
+         'người thân Tốt/Khá (LUC_THAN, HON_NHAN), THUẬN/NGHIÊNG THUẬN/VỀ GIÀU… (MENH_CUC, SU_NGHIEP, SUC_KHOE), dòng có cờ trong LUAN_GIAI mục 7.</td></tr>'
+         '<tr><td><span style="background:#ffe699">Nền vàng</span></td><td>Dòng của năm xem trong THEO_DOI.</td></tr>'
+         '<tr><td><span style="background:#e2efda">Nền xanh</span> / <span style="background:#fbe4e1">nền hồng</span></td><td>Năm "Tốt" / "Xấu" trong THEO_DOI.</td></tr></table>')
+
+H.append('<h2>6. Phân tích, Vận trình, Ngũ hành thiếu, Chuyên đề, Không rõ giờ</h2>')
+anh('17_phan_tich.png', 'Phân tích: PP1 định tính, PP2 định lượng, Thông căn, Đối chiếu, Dụng – hỷ – kỵ thần')
+anh('06_dai_van_dinh_dang_dk.png', 'Vận trình – Đại vận (đỏ đậm: vận thuận)')
+anh('16_ngu_hanh_thieu.png', 'Ngũ hành thiếu: chọn chế độ PA2 – Theo sách / PA1 – Theo trang; biểu đồ năng lực và biểu đồ đại vận')
+anh('15_chuyen_de_luc_than.png', 'Chuyên đề: 10 thẻ (Lục thân, Hôn nhân, Mệnh cục, Tài lộc, Tố chất, Sự nghiệp, Sức khỏe, Thần sát, Sao, Bảo phù)')
+
+H.append('<h2>7. Lưu, tìm, so sánh lá số</h2>')
+anh('09_danh_sach_la_so.png', 'Danh sách lá số: tìm theo tên, nhóm, ghi chú, tứ trụ, ngày sinh; lọc theo nhóm')
+H.append('<p>Bấm <b>💾 Lưu lá số</b> (ở Tóm tắt hoặc Danh sách) → đặt tên, nhóm, ghi chú. <b>Mở</b> (hoặc bấm đúp) để nạp lại – phần mềm '
+         'tính lại từ dữ liệu nhập và cho kết quả như lúc lưu (mỗi bản ghi lưu kèm phiên bản quy tắc; nếu quy tắc khác, phần mềm báo). '
+         '<b>Ghi đè</b> thay dữ liệu nhập bằng lá đang xem; <b>Sửa</b> đổi tên/nhóm/ghi chú; <b>Xóa</b> không hoàn tác. '
+         'Chọn 2 lá (giữ Ctrl) → <b>So sánh</b>.</p>')
+anh('12_so_sanh_hai_la.png', 'So sánh hai lá: khối KẾT LUẬN đặt cạnh nhau, dòng khác nhau tô nền vàng')
+
+H.append('<h2>8. Xuất và in</h2>')
+anh('14_hop_xuat_in.png', 'Hộp thoại Xuất / In')
+H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Định dạng</th><th>Nội dung</th></tr>'
+         '<tr><td>PDF / In</td><td>Thông tin lá số, khối KẾT LUẬN, 2 biểu đồ (năng lực ngũ hành, đại vận), các mục đã chọn (mặc định KET_LUAN B–K và bảng Ngũ hành thiếu); '
+         'mỗi trang có "Trang x/y", ngày in, phiên bản quy tắc. Bảng quá rộng (Lưu niên 100 năm, Theo dõi) xem ở bản XLSX.</td></tr>'
+         '<tr><td>XLSX</td><td>30 sheet đúng bố cục workbook (địa chỉ ô, ô gộp, độ rộng, cột/dòng ẩn, màu định dạng có điều kiện), không có công thức; sheet THONG_TIN ghi dữ liệu nhập và phiên bản.</td></tr>'
+         '<tr><td>JSON</td><td>Dữ liệu nhập + toàn bộ kết quả {sheet: {ô: giá trị}} của mọi ô công thức (33 sheet).</td></tr></table>')
+
+H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing="0">'
+         '<tr><th width="34%">Câu hỏi</th><th>Trả lời</th></tr>'
+         '<tr><td>Kết quả có giống file Excel không?</td><td>Có – trùng 100% ở mọi ô có công thức với cùng dữ liệu nhập (xem Báo cáo kiểm thử).</td></tr>'
+         '<tr><td>Vì sao PP1 và PP2 khác nhau?</td><td>Hai phương pháp của sách; xem mục ⚖ Phân tích → Đối chiếu. Lựa chọn dùng cho kết luận đặt ở Nhập liệu → Tùy chọn nâng cao (C14).</td></tr>'
+         '<tr><td>Sinh tháng nhuận âm lịch?</td><td>Chọn Âm lịch và đánh dấu Tháng nhuận; phần mềm đổi đúng sang dương lịch.</td></tr>'
+         '<tr><td>Có cần Internet?</td><td>Không. Phần mềm không gửi dữ liệu đi đâu.</td></tr></table>')
+H.append('<p class="nho">Nguồn sách: Thiệu Vĩ Hoa, <i>Dự đoán theo Tứ trụ</i> (Phần 1, Phần 2) và các sách tham khảo ghi trong sheet HUONG_DAN, THAM_KHAO của workbook.</p>')
+
+
+def main():
+    thu_muc, ra = sys.argv[1], sys.argv[2]
+    app = tao_app([])
+    from export.xuat_pdf import html_ra_pdf
+    import re
+    anh_ = {'anh://' + t: QImage(os.path.join(thu_muc, t)) for t in set(re.findall(r'anh://([\w.]+)', ''.join(H)))}
+    for k, v in anh_.items():
+        if v.isNull(): raise SystemExit('Thiếu ảnh ' + k)
+    n = html_ra_pdf('<html><body>' + ''.join(H) + '</body></html>', ra, 'Hướng dẫn sử dụng – Bát Tự Thiệu Vĩ Hoa', anh_, CSS)
+    print('Hướng dẫn sử dụng:', ra, n, 'trang')
+
+
+if __name__ == '__main__':
+    main()
