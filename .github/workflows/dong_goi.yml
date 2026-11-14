@@ -58,8 +58,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { os: macos-14, kien_truc: arm64 }
-          - { os: macos-15-intel, kien_truc: x86_64 }
+          - os: macos-14
+            kien_truc: arm64
+          - os: macos-15-intel
+            kien_truc: x86_64
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.kien_truc == 'x86_64' }}
     steps:
@@ -91,4 +93,6 @@ jobs:
           rm -rf "/Applications/Bát Tự Thiệu Vĩ Hoa.app"; test ! -e "/Applications/Bát Tự Thiệu Vĩ Hoa.app"
           echo "Cài: ĐẠT · Tự kiểm khi chặn mạng (sandbox-exec deny network): ĐẠT · Gỡ: ĐẠT" | tee dist_cai/kiem_cai_go_macos_${{ matrix.kien_truc }}.txt
       - uses: actions/upload-artifact@v4
-        with: { name: BatTuThieuViHoa-macOS-${{ matrix.kien_truc }}, path: dist_cai/ }
+        with:
+          name: BatTuThieuViHoa-macOS-${{ matrix.kien_truc }}
+          path: dist_cai/
