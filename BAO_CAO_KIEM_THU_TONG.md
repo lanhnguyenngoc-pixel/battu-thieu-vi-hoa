@@ -329,3 +329,13 @@ T7 + T9 từ mã nguồn, cài → tự kiểm khi chặn mạng → gỡ: **Đ�
 | BatTuThieuViHoa_Setup_1.2.0_Windows.exe | d788f6bfc101483207bc74dcfccc660efcf34c28651f0c3b111a93ee24b0aca9 |
 | BatTuThieuViHoa_1.2.0_macOS_arm64.dmg | 408e0876f215db59a6833cad48ca1a91f9a3eef306bc83a819f0bc8cc907b271 |
 | BatTuThieuViHoa_1.2.0_macOS_x86_64.dmg | 8be5d183c582c1aacb86894c782e7936290b0111f80a2740af16ea139f5f4196 |
+
+## Bộ cài 1.3.0 (trình bày dạng văn bản đọc) – GitHub Actions lượt 43560182791
+
+T7 + T9 từ mã nguồn, cài → tự kiểm khi chặn mạng → gỡ: **ĐẠT** trên Windows, macOS arm64, macOS x86_64.
+
+| Tệp | SHA-256 |
+|---|---|
+| BatTuThieuViHoa_Setup_1.3.0_Windows.exe | 4c4b565c7611ffad800967a0c45eba268b6e2c714b604939d3a8d2c4760b29df |
+| BatTuThieuViHoa_1.3.0_macOS_arm64.dmg | 30076c13e81e8f180bdfd3ee42c7c320bf38fb980aefc2220e4a0459293857bb |
+| BatTuThieuViHoa_1.3.0_macOS_x86_64.dmg | 01eb968634455268e52e0b7073b25d95ac95640cc3aa20e409000645a9661c05 |
