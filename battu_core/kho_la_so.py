@@ -99,4 +99,38 @@ class Kho:
             if any(chu in (x or '').lower() for x in (r['ten'], r['ghi_chu'], r['nhom'], r['tu_tru'], ngay)): ra.append(r)
         return ra
 
+    # ---- sao lưu / khôi phục (bản 1.4.0)
+    def sao_luu(self, duong_dan):
+        """Chép toàn bộ kho ra một tệp .sqlite (dùng cơ chế backup của SQLite – an toàn cả khi kho đang mở)."""
+        if os.path.abspath(duong_dan) == os.path.abspath(self.duong_dan): raise ValueError('Tệp sao lưu trùng tệp kho.')
+        if os.path.exists(duong_dan): os.remove(duong_dan)
+        dich = sqlite3.connect(duong_dan)
+        try: self.db.backup(dich)
+        finally: dich.close()
+        return self.db.execute('SELECT COUNT(*) FROM la_so').fetchone()[0]
+
+    def khoi_phuc(self, duong_dan):
+        """Nhập các lá số từ một tệp sao lưu vào kho hiện tại (gộp, không xóa gì). Lá trùng hoàn toàn
+        (cùng tên, nhóm, dữ liệu nhập) thì bỏ qua. Trả (số lá đã thêm, số lá bỏ qua vì trùng)."""
+        nguon = sqlite3.connect('file:%s?mode=ro' % duong_dan, uri=True); nguon.row_factory = sqlite3.Row
+        try:
+            cot = {r[1] for r in nguon.execute('PRAGMA table_info(la_so)')}
+            can = {'ten', 'nhom', 'ghi_chu', 'nhap', 'phien_ban', 'nguon_sha', 'anh_chup', 'tu_tru', 'tao_luc', 'sua_luc'}
+            if not can <= cot: raise ValueError('Tệp này không phải bản sao lưu kho lá số.')
+            co = {(r['ten'], r['nhom'], r['nhap']) for r in self.db.execute('SELECT ten, nhom, nhap FROM la_so')}
+            them = bo = 0
+            for r in nguon.execute('SELECT * FROM la_so ORDER BY id'):
+                json.loads(r['nhap'])                                   # dữ liệu hỏng → lỗi, không ghi gì
+                if (r['ten'], r['nhom'], r['nhap']) in co: bo += 1; continue
+                self.db.execute('INSERT INTO la_so (ten, nhom, ghi_chu, nhap, phien_ban, nguon_sha, anh_chup, tu_tru, tao_luc, sua_luc)'
+                                ' VALUES (?,?,?,?,?,?,?,?,?,?)', tuple(r[k] for k in ('ten', 'nhom', 'ghi_chu', 'nhap', 'phien_ban',
+                                                                                       'nguon_sha', 'anh_chup', 'tu_tru', 'tao_luc', 'sua_luc')))
+                co.add((r['ten'], r['nhom'], r['nhap'])); them += 1
+            self.db.commit()
+        except Exception:
+            self.db.rollback(); raise
+        finally:
+            nguon.close()
+        return them, bo
+
     def dong(self): self.db.close()

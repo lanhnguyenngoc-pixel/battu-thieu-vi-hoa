@@ -3,7 +3,7 @@
 Tham khảo (TRANG_CHU, HUONG_DAN, THAM_KHAO, TIET_KHI – chỉ đọc), Danh sách lá số (SQLite), So sánh hai lá.
 MAU_THUAN, KIEM_THU, CSDL: chỉ tính ẩn trong lõi, không hiện (quyết định 14/11/2026).
 Mọi chữ hiển thị lấy nguyên văn từ lõi tính / workbook – giao diện không tự tính quy tắc."""
-import json, html
+import json, os, html
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (QWidget, QFrame, QLabel, QPushButton, QHBoxLayout, QVBoxLayout, QGridLayout, QLineEdit,
@@ -264,7 +264,10 @@ class TrangDanhSach(QWidget):
         self.n_xoa = QPushButton('Xóa'); self.n_ss = QPushButton('⇄  So sánh 2 lá đã chọn')
         for b in (self.n_ghi, self.n_mo, self.n_sua, self.n_xoa, self.n_ss): b.setObjectName('nut_phu')
         for b in (self.n_luu, self.n_mo, self.n_ghi, self.n_sua, self.n_xoa, self.n_ss): hb.addWidget(b)
-        hb.addStretch(); v.addLayout(hb)
+        hb.addStretch()
+        self.n_sl = QPushButton('⤓  Sao lưu kho…'); self.n_kp = QPushButton('⤒  Khôi phục từ bản sao lưu…')
+        for b in (self.n_sl, self.n_kp): b.setObjectName('nut_phu'); hb.addWidget(b)
+        v.addLayout(hb)
         self.bang = QTableWidget(0, len(self.COT)); self.bang.setHorizontalHeaderLabels(self.COT)
         self.bang.setSelectionBehavior(QAbstractItemView.SelectRows); self.bang.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.bang.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive); self.bang.horizontalHeader().setStretchLastSection(True)
@@ -275,6 +278,31 @@ class TrangDanhSach(QWidget):
         self.n_luu.clicked.connect(self.luu); self.n_ghi.clicked.connect(self.ghi_de); self.n_mo.clicked.connect(self.mo)
         self.n_sua.clicked.connect(self.sua); self.n_xoa.clicked.connect(self.xoa); self.n_ss.clicked.connect(self._ss)
         self.bang.doubleClicked.connect(lambda _: self.mo())
+        self.n_sl.clicked.connect(self.sao_luu); self.n_kp.clicked.connect(self.khoi_phuc)
+        self.nap_nhom(); self.nap()
+
+    def sao_luu(self):
+        import datetime
+        from PySide6.QtWidgets import QFileDialog, QMessageBox
+        ten = 'SaoLuu_LaSo_%s.sqlite' % datetime.date.today().strftime('%Y%m%d')
+        p, _ = QFileDialog.getSaveFileName(self, 'Sao lưu kho lá số', os.path.join(os.path.expanduser('~'), ten), 'Kho lá số (*.sqlite)')
+        if not p: return
+        try:
+            n = self.kho.sao_luu(p)
+            QMessageBox.information(self, 'Sao lưu', 'Đã sao lưu %d lá số vào:\n%s' % (n, p))
+        except Exception as e:
+            QMessageBox.warning(self, 'Sao lưu', 'Không sao lưu được: %s' % e)
+
+    def khoi_phuc(self):
+        from PySide6.QtWidgets import QFileDialog, QMessageBox
+        p, _ = QFileDialog.getOpenFileName(self, 'Khôi phục từ bản sao lưu', os.path.expanduser('~'), 'Kho lá số (*.sqlite)')
+        if not p: return
+        try:
+            them, bo = self.kho.khoi_phuc(p)
+            QMessageBox.information(self, 'Khôi phục', 'Đã thêm %d lá số%s. Các lá đang có trong kho được giữ nguyên.' % (
+                them, (' (bỏ qua %d lá đã có)' % bo) if bo else ''))
+        except Exception as e:
+            QMessageBox.warning(self, 'Khôi phục', 'Không khôi phục được: %s' % e)
         self.nap_nhom(); self.nap()
 
     def hien(self, kq): self.kq = kq

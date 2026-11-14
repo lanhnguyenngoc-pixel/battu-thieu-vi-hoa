@@ -339,3 +339,21 @@ T7 + T9 từ mã nguồn, cài → tự kiểm khi chặn mạng → gỡ: **Đ�
 | BatTuThieuViHoa_Setup_1.3.0_Windows.exe | 4c4b565c7611ffad800967a0c45eba268b6e2c714b604939d3a8d2c4760b29df |
 | BatTuThieuViHoa_1.3.0_macOS_arm64.dmg | 30076c13e81e8f180bdfd3ee42c7c320bf38fb980aefc2220e4a0459293857bb |
 | BatTuThieuViHoa_1.3.0_macOS_x86_64.dmg | 01eb968634455268e52e0b7073b25d95ac95640cc3aa20e409000645a9661c05 |
+
+## Bản 1.4.0 (14/11/2026) – ô nhập bổ sung, sao lưu kho – chạy lại toàn bộ T1–T10
+
+| Kiểm thử | Kết quả |
+|---|---|
+| T1 (30 lá × mọi ô công thức) | 856.410 / 856.410 |
+| T1b (7 biến thể hợp lệ) | 7 × 865.710 – đạt 100% (B1 cũ giữ để đối chứng, như trước) |
+| T2 / T1-501 | 24.048 / 24.048 · 14.053.050 / 14.053.050 |
+| T3 lịch · âm lịch | 710 / 710 · 74.144 / 74.144 |
+| T4 hợp xung | 510 / 510 |
+| T5 xuất | JSON 142.735 · XLSX 143.800 · PDF 5/5 lá |
+| T6 kho lá số (thêm sao lưu, khôi phục, từ chối tệp sai) | 12 / 12 lá, 8 / 8 hạng mục |
+| T7 (20 lá ngẫu nhiên) | 570.940 / 570.940 |
+| T8 ngũ hành thiếu (PA1, PA2) | 1.587.135 / 1.587.135 mỗi chế độ |
+| T9 sự việc | 577.140 / 577.140 |
+| **T10 – mới**: ngày sinh phối ngẫu (đủ ngày giờ / chỉ năm / trống), việc lớn tìm giờ sinh (3–12 việc, nửa số lá ở chế độ Không rõ giờ), đánh giá thực tế 15 năm/lá – 20 lá, đáp án LibreOffice | **577.140 / 577.140** (Hôn nhân 23.960, Không rõ giờ 16.140, Theo dõi 100.120); đường nhập giao diện → ô: 6.840 / 6.840; lưu – mở lại: ĐẠT |
+
+Chi tiết: tai_lieu/BAO_CAO_KIEM_THU_1.4.0_CHI_TIET.md.

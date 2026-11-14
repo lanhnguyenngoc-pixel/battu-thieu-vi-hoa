@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.3.0 · Quy tắc 6.3'
+PHIEN_BAN = 'Phiên bản 1.4.0 · Quy tắc 6.3'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -209,6 +209,12 @@ class TrangNhap(QWidget):
         hgt = QHBoxLayout(); hgt.addWidget(lbl('Giới tính', 'nhan')); self.gt = Seg(['Nam', 'Nữ']); hgt.addWidget(self.gt)
         hgt.addSpacing(12); hgt.addWidget(lbl('Năm xem', 'nhan')); self.nam_xem = o_so(1900, 2200, datetime.date.today().year, 90)
         hgt.addWidget(self.nam_xem); cv.addLayout(hgt)
+        # ngày sinh phối ngẫu (tùy chọn) – dùng cho phần hợp tuổi ở Hôn nhân
+        cv.addWidget(lbl('Ngày sinh dương lịch của vợ/chồng (tùy chọn – có thể chỉ nhập năm)', 'nhan', True))
+        hp = QHBoxLayout(); hp.setSpacing(6)
+        self.pn = [o_tuy_chon(t) for t in ('ngày', 'tháng', 'năm', 'giờ', 'phút')]
+        for w in self.pn: hp.addWidget(w)
+        cv.addLayout(hp)
         # nâng cao
         self.nut_nc = QPushButton('▸  Tùy chọn nâng cao'); self.nut_nc.setObjectName('nut_phu'); self.nut_nc.setCheckable(True)
         cv.addWidget(self.nut_nc)
@@ -250,7 +256,7 @@ class TrangNhap(QWidget):
             w.valueChanged.connect(self.hen.start)
         for w in self.cb_can + self.cb_chi + [self.mui, self.gio_xem, self.vs, self.nht, self.mau]:
             w.currentIndexChanged.connect(self.hen.start)
-        for w in [self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.ho_ten]:
+        for w in [self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.ho_ten] + self.pn:
             w.textChanged.connect(self.hen.start)
         for w in [self.krg, self.a_nhuan]: w.toggled.connect(self.hen.start)
         self.cach.doi.connect(self.doi_cach); self.gt.doi.connect(lambda _: self.hen.start())
@@ -287,16 +293,25 @@ class TrangNhap(QWidget):
         s.la_mau = self.mau.currentText()
         s.so_ngay_toi_tiet_lap = doc_tuy_chon(self.c11, True); s.so_ngay_den_tiet = doc_tuy_chon(self.c28, True)
         s.so_gio_le = doc_tuy_chon(self.c29, True); s.thang_am = doc_tuy_chon(self.c32); s.ngay_am = doc_tuy_chon(self.c33)
-        if getattr(self, '_phoi_ngau', None): s.phoi_ngau = list(self._phoi_ngau)   # giữ dữ liệu của lá đã mở
+        s.phoi_ngau = self.doc_phoi_ngau()
         if getattr(self, '_ghi_chu', None): s.ghi_chu = self._ghi_chu
         s.su_kien = [list(x) for x in getattr(self, '_su_kien', [])]
+        s.viec_tim_gio = [list(x) for x in getattr(self, '_viec_tim_gio', [])]
+        s.theo_doi = {int(k): list(v) for k, v in getattr(self, '_theo_doi', {}).items()}
         return s
+
+    def doc_phoi_ngau(self):
+        """Chỉ có năm → NHAP_LIEU C34 = năm (như hướng dẫn của workbook); có ngày/tháng → C34:G34 = ngày|tháng|năm|giờ|phút."""
+        d, m, y, h, mi = [doc_tuy_chon(w) for w in self.pn]
+        if d is None and m is None and h is None and mi is None:
+            return [y, None, None, None, None]
+        return [d, m, y, h, mi]
 
     def dat_la_so(self, s):
         """Nạp lá số đã lưu vào ô nhập rồi tính lại (mở lại từ Danh sách lá số)."""
         ws = [self.d_ngay, self.d_thang, self.d_nam, self.a_ngay, self.a_thang, self.a_nam, self.gio, self.phut, self.nam_xem,
               self.mui, self.gio_xem, self.vs, self.nht, self.mau, self.krg, self.a_nhuan, self.ho_ten,
-              self.c30, self.c11, self.c28, self.c29, self.c32, self.c33] + self.cb_can + self.cb_chi
+              self.c30, self.c11, self.c28, self.c29, self.c32, self.c33] + self.cb_can + self.cb_chi + self.pn
         for w in ws: w.blockSignals(True)
         try:
             self.ho_ten.setText(s.ho_ten or '')
@@ -315,11 +330,16 @@ class TrangNhap(QWidget):
             so = lambda x: '' if x is None else ('%g' % x)
             self.c30.setText(so(s.nam_sinh_tru_nam)); self.c11.setText(so(s.so_ngay_toi_tiet_lap)); self.c28.setText(so(s.so_ngay_den_tiet))
             self.c29.setText(so(s.so_gio_le)); self.c32.setText(so(s.thang_am)); self.c33.setText(so(s.ngay_am))
+            pn = list(s.phoi_ngau or []) + [None] * 5
+            if pn[0] is not None and all(x is None for x in pn[1:5]) and pn[0] >= 1900:   # chỉ nhập năm
+                pn = [None, None, pn[0], None, None]
+            for w, x in zip(self.pn, pn[:5]): w.setText(so(x))
         finally:
             for w in ws: w.blockSignals(False)
         for k, p in enumerate(self.trang_nhap): p.setVisible(k == i)
         self.w_gio.setVisible(i != 2)
-        self._phoi_ngau = list(s.phoi_ngau); self._ghi_chu = s.ghi_chu; self._su_kien = [list(x) for x in (s.su_kien or [])]
+        self._ghi_chu = s.ghi_chu; self._su_kien = [list(x) for x in (s.su_kien or [])]
+        self._viec_tim_gio = [list(x) for x in (s.viec_tim_gio or [])]; self._theo_doi = dict(s.theo_doi or {})
         self.hen.stop(); self.tinh()
 
     def chip(self, text, kind=None):
@@ -535,7 +555,9 @@ class TrangKhongRoGio(QWidget):
         h.addWidget(lbl('Giờ đang xem', 'nhan')); self.gio = QComboBox(); self.gio.addItems(CHI); h.addWidget(self.gio)
         h.addStretch(); v.addLayout(h)
         self.tom = lbl('', 'chip_info', True); v.addWidget(self.tom)
-        self.bang = BangSheet('KHONG_RO_GIO'); v.addWidget(self.bang, 1)
+        from ui.trang_v14 import BangViecTimGio
+        self.tab = QTabWidget(); self.viec = BangViecTimGio(); self.bang = BangSheet('KHONG_RO_GIO')
+        self.tab.addTab(self.viec, 'Việc lớn đã xảy ra'); self.tab.addTab(self.bang, 'Bảng 12 giờ'); v.addWidget(self.tab, 1)
         self.gio.currentTextChanged.connect(self.doi_gio.emit); self.kq = None
 
     def hien(self, kq):
@@ -543,6 +565,7 @@ class TrangKhongRoGio(QWidget):
         self.gio.blockSignals(True); self.gio.setCurrentText(kq.la_so.gio_dang_xem); self.gio.blockSignals(False)
         o = lambda r: hien_thi_o(E, 'KHONG_RO_GIO', r)
         self.tom.setText('Chế độ: %s · giờ đang xem %s → trụ giờ %s · việc đã nhập / khớp: %s / %s' % (o('C5'), kq.la_so.gio_dang_xem, o('C27'), o('E23'), o('F23')))
+        self.viec.hien(kq)
         if self.isVisible(): self.bang.hien(E)
 
     def showEvent(self, e):
@@ -577,11 +600,14 @@ class CuaSoChinh(QMainWindow):
         self.t_nht = TrangNguHanhThieu()
         self.t_cd = TrangBangNhieuSheet('Chuyên đề', '10 sheet · 7.469 ô công thức · sức khỏe chỉ tham khảo, không phải chẩn đoán', SHEET_CHUYEN_DE)
         self.t_krg = TrangKhongRoGio(); self.t_tk = TrangThamKhao()
+        from ui.trang_v14 import TrangDoiChieu
+        self.t_dc = TrangDoiChieu()
         self.t_ds = TrangDanhSach(self.kho); self.t_ss = TrangSoSanh(self.kho)
         # (nhãn, trang, nhóm): 'A' đọc lá số – luôn hiện; 'CG' chỉ ở chế độ chuyên gia; 'KRG' khi bật Không rõ giờ hoặc chuyên gia
         self.muc = [('✎   Nhập liệu', self.t_nhap, 'A'), ('☷   Lá số', self.t_ls, 'A'), ('★   Luận giải chung', self.t_tt, 'A'),
                     ('❦   Luận giải chi tiết', self.t_lg, 'A'), ('↯   Vận trình', self.t_vt, 'A'), ('▤   Theo lĩnh vực', self.t_lv, 'A'),
                     ('☯   Ngũ hành thiếu', self.t_nht, 'A'), ('✓   Kiểm chứng sự việc', self.t_sk, 'A'),
+                    ('⚑   Đối chiếu thực tế', self.t_dc, 'A'),
                     ('◷   Không rõ giờ', self.t_krg, 'KRG'), ('◫   Trung gian', self.t_tg, 'CG'), ('⚖   Phân tích', self.t_pt, 'CG'),
                     ('◎   Chuyên đề', self.t_cd, 'CG'), ('❐   Tham khảo', self.t_tk, 'A'), ('☰   Danh sách lá số', self.t_ds, 'A'),
                     ('⇄   So sánh hai lá', self.t_ss, 'A')]
@@ -589,7 +615,7 @@ class CuaSoChinh(QMainWindow):
         for i, (t, w, nhom) in enumerate(self.muc):
             b = QPushButton(t); b.setObjectName('nav'); b.setCheckable(True); b.setCursor(Qt.PointingHandCursor)
             self.nav.addButton(b, i); sv.addWidget(b); self.trang.addWidget(w)
-            if i in (7, 11): sv.addSpacing(6)
+            if i in (8, 12): sv.addSpacing(6)
         sv.addStretch()
         self.cg = QCheckBox('Chế độ chuyên gia'); self.cg.setObjectName('cg')
         self.cg.setToolTip('Hiện thêm Trung gian, Phân tích, Chuyên đề, Lưu niên 100 năm, Theo dõi và địa chỉ ô Excel khi rê chuột')
@@ -607,12 +633,17 @@ class CuaSoChinh(QMainWindow):
         self.t_ds.mo_la.connect(lambda s, i: (self.t_nhap.dat_la_so(s), self.di(self.t_tt)))
         self.t_ds.so_sanh.connect(lambda a, b: (self.di(self.t_ss), self.t_ss.nap(a, b)))
         self.t_sk.doi_su_kien.connect(self._doi_su_kien)
+        self.t_krg.viec.doi.connect(lambda ds: self._dat_nhap('_viec_tim_gio', ds))
+        self.t_dc.doi.connect(lambda d: self._dat_nhap('_theo_doi', d))
         self.cg.setChecked(self.cai_dat.value('chuyen_gia', False, type=bool))
         self.cg.toggled.connect(self._doi_che_do)
         self._ap_che_do()
         if self.t_nhap.kq:
             for t in ds: t.hien(self.t_nhap.kq)
         self.di(self.t_nhap)                                 # màn hình đầu: Nhập liệu (duyệt 14/11/2026)
+
+    def _dat_nhap(self, ten, gt):
+        setattr(self.t_nhap, ten, gt); self.t_nhap.hen.stop(); self.t_nhap.tinh()
 
     def _doi_su_kien(self, ds):
         self.t_nhap._su_kien = ds; self.t_nhap.hen.stop(); self.t_nhap.tinh()

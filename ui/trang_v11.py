@@ -227,7 +227,7 @@ class TrangSuKien(QWidget):
         M = model(); self.loai = [''] + M.danh_sach_chon.get('SU_KIEN', {}).get('C6:C35', [])
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(10)
         h = QHBoxLayout(); h.addWidget(lbl('Kiểm chứng sự việc', 'tieude')); h.addStretch()
-        self.n_ap = QPushButton('✔  Áp dụng & tính lại'); self.n_ap.setObjectName('nut_chinh')
+        self.n_ap = QPushButton('✔  Áp dụng && tính lại'); self.n_ap.setObjectName('nut_chinh')
         self.n_xoa = QPushButton('Xóa hết'); self.n_xoa.setObjectName('nut_phu')
         h.addWidget(self.n_xoa); h.addWidget(self.n_ap); v.addLayout(h)
         self.hd = lbl('', 'mo', True); v.addWidget(self.hd)

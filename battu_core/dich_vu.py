@@ -31,6 +31,10 @@ def tinh(la_so: LaSo) -> KetQua:
         if all(isinstance(x, str) and x for x in can + chi) and (can != la_so.can or chi != la_so.chi):
             la_so.can, la_so.chi = can, chi
             E = Engine(la_so.o_nhap())
+    if la_so.theo_doi:
+        # Đánh giá thực tế nhập theo NĂM; dòng của năm do lõi tính (THEO_DOI A12:A111 không phụ thuộc cột N/O/P).
+        nam = [E.gia_tri('THEO_DOI', 'A%d' % r) for r in range(12, 112)]
+        E = Engine(la_so.o_nhap(nam))
     E.tinh_tat_ca()   # mọi sheet đã cài ở giai đoạn hiện tại
     return KetQua(la_so, E, (time.time() - t0) * 1000)
 

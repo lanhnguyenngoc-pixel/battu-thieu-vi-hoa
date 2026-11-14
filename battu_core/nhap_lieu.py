@@ -25,6 +25,8 @@ class LoiNhap(ValueError):
 
 
 SO_DONG_SU_KIEN = 30
+SO_VIEC_TIM_GIO = 12                 # KHONG_RO_GIO C11:E22
+SO_NAM_THEO_DOI = 100                # THEO_DOI N/O/P dòng 12–111
 
 
 @dataclass
@@ -55,12 +57,16 @@ class LaSo:
     la_mau: str = 'Tự nhập'              # C13 (lá số mẫu trong KIEM_THU)
     che_do_nht: str = 'PA2 – Theo sách'  # NGU_HANH_THIEU E3
     su_kien: list = field(default_factory=list)  # SU_KIEN B6:D35 – [[năm, loại sự việc, ghi chú], …] tối đa 30 dòng
+    viec_tim_gio: list = field(default_factory=list)  # KHONG_RO_GIO C11:E22 – [[năm, loại việc, ghi chú], …] tối đa 12
+    theo_doi: dict = field(default_factory=dict)      # THEO_DOI N/O/P – {năm: [thực tế, sự kiện, đánh giá]}
 
     def to_dict(self): return asdict(self)
 
     @classmethod
     def from_dict(cls, d):
-        x = cls(); [setattr(x, k, v) for k, v in d.items() if hasattr(x, k)]; return x
+        x = cls(); [setattr(x, k, v) for k, v in d.items() if hasattr(x, k)]
+        x.theo_doi = {int(k): list(v) for k, v in (x.theo_doi or {}).items()}   # JSON đổi khóa năm thành chuỗi
+        return x
 
     # ------------------------------------------------------------------
     def ngay_duong(self):
@@ -86,8 +92,9 @@ class LaSo:
             return self.ngay, self.thang, self.nam
         return None
 
-    def o_nhap(self):
-        """→ {sheet: {ô: giá trị}} đúng như người dùng nhập vào workbook (None = để trống)."""
+    def o_nhap(self, nam_theo_doi=None):
+        """→ {sheet: {ô: giá trị}} đúng như người dùng nhập vào workbook (None = để trống).
+        nam_theo_doi: danh sách năm ở THEO_DOI A12:A111 (do lõi tính ra) để đặt đánh giá thực tế đúng dòng năm."""
         nl = {}
         nl['C9'] = 'Không rõ giờ' if self.khong_ro_gio else 'Biết giờ'
         nl['C10'] = self.gioi_tinh
@@ -127,8 +134,25 @@ class LaSo:
             sk['B%d' % r] = float(nam) if nam not in (None, '') else None
             sk['C%d' % r] = loai or None
             sk['D%d' % r] = ghi or None
+        krg = {'C6': self.gio_dang_xem}
+        for i, dong in enumerate((self.viec_tim_gio or [])[:SO_VIEC_TIM_GIO]):   # KHONG_RO_GIO C11:E22
+            nam, loai, ghi = (list(dong) + [None, None, None])[:3]
+            r = 11 + i
+            krg['C%d' % r] = float(nam) if nam not in (None, '') else None
+            krg['D%d' % r] = loai or None
+            krg['E%d' % r] = ghi or None
+        td = {}
+        if self.theo_doi and nam_theo_doi:
+            for i, nam in enumerate(list(nam_theo_doi)[:SO_NAM_THEO_DOI]):
+                if not isinstance(nam, (int, float)) or isinstance(nam, bool): continue
+                g = self.theo_doi.get(int(nam))
+                if not g: continue
+                tt, sk_, dg = (list(g) + [None, None, None])[:3]
+                r = 12 + i
+                td['N%d' % r] = tt or None; td['O%d' % r] = sk_ or None; td['P%d' % r] = dg or None
         ra = {'NHAP_LIEU': nl,
-              'KHONG_RO_GIO': {'C6': self.gio_dang_xem},
+              'KHONG_RO_GIO': krg,
               'NGU_HANH_THIEU': {'E3': self.che_do_nht}}
         if sk: ra['SU_KIEN'] = sk
+        if td: ra['THEO_DOI'] = td
         return ra

@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.3.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.4.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -143,3 +143,14 @@ Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tín
 - Thẻ đại vận (Lá số): bỏ dòng Hóa giải toàn thư (theo yêu cầu) – chỉ còn Xu thế theo Thiệu Vĩ Hoa.
 - Bộ làm sạch: bỏ thêm ghi chú kỹ thuật trong ngoặc có "Excel", "sheet", "ô E3", "chốt <ngày>".
 - Chỉ đổi trình bày; T5, T7, tự kiểm đạt.
+
+## Bản 1.4.0 (14/11/2026) – ô nhập còn thiếu so với workbook, sao lưu kho
+| Việc | Kết quả |
+|---|---|
+| Ngày sinh vợ/chồng (NHAP_LIEU C34:G34) | Ô nhập ở màn hình Nhập liệu; chỉ nhập năm → C34 = năm (như hướng dẫn của workbook) |
+| Việc lớn để tìm giờ sinh (KHONG_RO_GIO C11:E22) | Thẻ "Việc lớn đã xảy ra" trong mục Không rõ giờ (12 dòng, 8 loại việc lấy từ danh sách chọn của workbook) |
+| Đánh giá thực tế (THEO_DOI N/O/P) | Trang mới "⚑ Đối chiếu thực tế"; nhập theo năm, phần mềm đặt đúng dòng năm do lõi tính |
+| Sao lưu / khôi phục kho | Danh sách lá số → Sao lưu kho… / Khôi phục… (khôi phục chỉ thêm, bỏ qua lá trùng) |
+| Kiểm thử | Toàn bộ T1–T10 đạt 100%; T10 mới 577.140 / 577.140 |
+| Không đổi quy tắc | Không sửa workbook; mọi ô nhập mới là ô nhập sẵn có của workbook 6.3 |
+| Chờ duyệt | tai_lieu/DE_XUAT_QUY_TAC_SAU_1.4.md, tai_lieu/RA_SOAT_GIA_DINH_6.3.xlsx |

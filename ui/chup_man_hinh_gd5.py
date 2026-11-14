@@ -25,7 +25,7 @@ def nhap_dl(ten, d, m, y, h, p=0, gt=0):
 
 # 1. TÓM TẮT – màn hình đầu
 nhap_dl('Lá mẫu 26/11/1957', 26, 11, 1957, 6); w.di(w.t_tt); chup('01_tom_tat.png')
-id1 = kho.luu(t.kq, 'Lá mẫu 26/11/1957', 'Sách TVH', 'lá trong dap_an_o')
+id1 = kho.luu(t.kq, 'Lá mẫu 26/11/1957', 'Sách TVH', 'lá ví dụ trong sách')
 # 2–5. Theo lĩnh vực: C bản mệnh, H sức khỏe, LUAN_GIAI (đỏ đậm theo cờ L), tìm kiếm
 w.di(w.t_lv); w.t_lv.mo('C'); chup('02_linh_vuc_C_ban_menh.png')
 w.t_lv.mo('H'); chup('03_linh_vuc_H_suc_khoe.png')
@@ -74,3 +74,29 @@ sk.ap_dung(); app.processEvents(); chup('21_kiem_chung_su_viec.png')
 w.di(w.t_tt); chup('22_che_do_thuong_thanh_ben.png')
 w.cg.setChecked(True); app.processEvents(); chup('23_che_do_chuyen_gia_thanh_ben.png')
 id9 = kho.luu(t.kq, 'Lá có sự việc', '', ''); s9 = kho.la_so(id9); print('Lưu/mở lại sự việc:', s9.su_kien)
+# --- bản 1.4.0: ô nhập bổ sung (phối ngẫu, việc lớn tìm giờ sinh, đối chiếu thực tế), sao lưu kho
+w.cg.setChecked(False)
+nhap_dl('Lá 1985', 15, 3, 1985, 10, 30)
+for x, v in zip(t.pn, ['12', '5', '1987', '8', '30']): x.setText(v)
+t.hen.stop(); t.tinh(); w.di(w.t_nhap); chup('24_nhap_phoi_ngau.png')
+t.krg.setChecked(True); app.processEvents(); t.hen.stop(); t.tinh()
+vv = w.t_krg.viec
+for i, (nam, loai, ghi) in enumerate([(2012, 'Kết hôn', 'cưới'), (2015, 'Sinh con', ''), (2019, 'Thăng tiến – phát tài', 'lên trưởng phòng'),
+                                       (2008, 'Mất cha – cha bệnh nạn', '')]):
+    vv.bang.item(i, 0).setText(str(nam)); vv.cb[i].setCurrentText(loai); vv.bang.item(i, 2).setText(ghi)
+vv.ap_dung(); w.di(w.t_krg); w.t_krg.tab.setCurrentIndex(0); chup('25_viec_lon_tim_gio.png')
+t.krg.setChecked(False); app.processEvents(); t.hen.stop(); t.tinh()
+dc = w.t_dc; w.di(dc); app.processEvents()
+ghi = {2005: ('Xấu', 'thi trượt', 'Đúng'), 2008: ('Xấu', 'mất cha', 'Đúng'), 2012: ('Tốt', 'cưới', 'Một phần'),
+       2015: ('Tốt', 'sinh con', 'Đúng'), 2019: ('Tốt', 'thăng chức', 'Đúng'), 2021: ('Bình thường', '', 'Chưa rõ')}
+k = len(dc.COT_XEM)
+for i, nam in enumerate(dc.nam):
+    if nam in ghi:
+        a, b, c = ghi[nam]; dc.cb_n[i].setCurrentText(a); dc.bang.item(i, k + 1).setText(b); dc.cb_p[i].setCurrentText(c)
+dc.ap_dung(); app.processEvents()
+for i, nam in enumerate(dc.nam):
+    if nam == 2003: dc.bang.scrollToItem(dc.bang.item(i, 0), V.PositionAtTop); break
+chup('26_doi_chieu_thuc_te.png')
+w.t_ds.nap(); w.di(w.t_ds); chup('27_danh_sach_sao_luu.png')
+id10 = kho.luu(t.kq, 'Lá 1.4.0', '', ''); s10 = kho.la_so(id10)
+print('Lưu/mở lại ô nhập bổ sung:', s10.phoi_ngau, len(s10.viec_tim_gio), len(s10.theo_doi))

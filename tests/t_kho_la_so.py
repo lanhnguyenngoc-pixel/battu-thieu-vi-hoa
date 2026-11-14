@@ -27,6 +27,15 @@ def chay(n=12):
     }
     kho.sua_thong_tin(ids[0], 'Tên mới', 'Nhóm X', 'ghi chú mới'); kiem['sửa thông tin'] = kho.lay(ids[0])['ten'] == 'Tên mới' and len(kho.tim('ghi chú mới')) == 1
     kho.xoa(ids[1]); kiem['xóa'] = kho.lay(ids[1]) is None and len(kho.tim()) == len(ds) - 1
+    # sao lưu / khôi phục (1.4.0): sao lưu → kho mới trống khôi phục đủ; khôi phục lần hai bỏ qua hết vì trùng
+    tm = tempfile.mkdtemp(); p_sl = os.path.join(tm, 'sl.sqlite')
+    n_sl = kho.sao_luu(p_sl); kho2 = Kho(os.path.join(tm, 'moi.sqlite'))
+    a = kho2.khoi_phuc(p_sl); b = kho2.khoi_phuc(p_sl)
+    giong = sorted((r['ten'], r['nhap'], r['anh_chup']) for r in kho2.tim()) == sorted((r['ten'], r['nhap'], r['anh_chup']) for r in kho.tim())
+    kiem['sao lưu'] = n_sl == len(ds) - 1
+    kiem['khôi phục'] = a == (len(ds) - 1, 0) and b == (0, len(ds) - 1) and giong
+    try: kho2.khoi_phuc(os.path.join(os.path.dirname(os.path.abspath(__file__)), 't8_chuan.json')); kiem['tệp sai bị từ chối'] = False
+    except Exception: kiem['tệp sai bị từ chối'] = len(kho2.tim()) == len(ds) - 1
     return len(ids), dung, loi, kiem, time.time() - t0
 
 

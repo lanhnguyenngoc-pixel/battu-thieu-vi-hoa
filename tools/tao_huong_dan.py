@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.3.0 (quy tắc 6.3)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.4.0 (quy tắc 6.3)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.3; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.3.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.4.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -55,6 +55,7 @@ H.append('<h2>2. Bố cục màn hình và Chế độ chuyên gia</h2><p>Thanh 
          '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K theo lĩnh vực, trình bày dạng văn bản đọc (mỗi mục mở đầu bằng khung KẾT LUẬN, rồi căn cứ chi tiết) và ô tìm kiếm.</td></tr>'
          '<tr><td>☯ Ngũ hành thiếu</td><td>Mục I, II, ★, III, IV, V và 2 biểu đồ.</td></tr>'
          '<tr><td>✓ Kiểm chứng sự việc</td><td>Nhập sự việc đã xảy ra để đối chiếu với lá số.</td></tr>'
+         '<tr><td>⚑ Đối chiếu thực tế</td><td>Ghi từng năm đã qua tốt hay xấu và luận giải đúng đến đâu; phần mềm cho biết PP1 hay PP2 khớp đời thực hơn.</td></tr>'
          '<tr><td colspan="2"><b>Chuyên gia – hiện khi bật công tắc</b></td></tr>'
          '<tr><td>◫ Trung gian · ⚖ Phân tích · ◎ Chuyên đề</td><td>Bảng chi tiết các bước tính (tứ trụ trung gian, PP1, PP2, thông căn, đối chiếu, dụng thần, 10 chuyên đề); thẻ Lưu niên 100 năm và Theo dõi trong Vận trình; số dòng/cột của bảng.</td></tr>'
          '<tr><td>◷ Không rõ giờ</td><td>Hiện khi bật "Không rõ giờ sinh" (hoặc ở chế độ chuyên gia).</td></tr>'
@@ -64,12 +65,15 @@ anh('22_che_do_thuong_thanh_ben.png', 'Chế độ thường (trái) – bật C
 H.append('<p>Trong mọi bảng: rê chuột lên ô để xem toàn văn ô dài và <b>chú giải thuật ngữ</b> có trong ô.</p>')
 
 H.append('<h2>3. Nhập lá số</h2>')
-anh('13_nhap_lieu.png', 'Màn hình Nhập liệu: cột trái nhập, cột phải tứ trụ và các kiểm tra, cảnh báo')
+anh('24_nhap_phoi_ngau.png', 'Màn hình Nhập liệu: cột trái nhập (có ngày sinh vợ/chồng), cột phải tứ trụ và các kiểm tra, cảnh báo')
 H.append('<p>Chọn một trong ba cách: <b>Dương lịch</b> (ngày, tháng, năm 1899–2101, giờ, phút, múi giờ – mặc định UTC+7), '
          '<b>Âm lịch</b> (đánh dấu <i>Tháng nhuận</i> nếu sinh tháng nhuận; phần mềm đổi sang dương lịch rồi tính), hoặc '
          '<b>Tự nhập can chi</b> 4 trụ. Chọn giới tính và <b>năm xem</b> (mặc định năm hiện tại). Không biết giờ sinh: bật '
          '<i>Không rõ giờ sinh</i> – phần mềm tính đủ 12 giờ (mục ◷ Không rõ giờ). <i>Tùy chọn nâng cao</i>: chọn vượng suy dùng cho kết luận, '
          'chế độ Ngũ hành thiếu, số ngày tới tiết Lập (sinh tháng Thìn/Mùi/Tuất/Sửu), tháng/ngày âm cho phương hướng kết hôn.</p>'
+         '<p><b>Ngày sinh của vợ/chồng</b> (tùy chọn): nhập ngày, tháng, năm, giờ, phút dương lịch – hoặc chỉ nhập năm – để mục Hôn nhân '
+         'xét hợp tuổi theo nạp âm và can chi. Trụ năm của người kia đổi tại Lập xuân (P2 tr.268): nếu chỉ nhập năm, phần mềm coi như sinh sau '
+         'Lập xuân và có ghi cảnh báo.</p>'
          '<p>Ô màu vàng nhạt ở cột phải là <b>cảnh báo</b>: sát ranh giới giờ (±10 phút), sát giao tiết (±1 ngày), '
          'thiếu số ngày tới tiết Lập, PP1 cần luận giải, PP1 ≠ PP2.</p>')
 
@@ -106,12 +110,24 @@ H.append('<h2>6b. Kiểm chứng sự việc</h2>')
 anh('21_kiem_chung_su_viec.png', 'Nhập năm và loại sự việc đã xảy ra, bấm Áp dụng – các cột bên phải tính từ lưu niên của đúng năm đó')
 H.append('<p>Nhập tối đa 30 sự việc: năm dương lịch, chọn <b>loại sự việc</b> (10 loại), ghi chú tùy ý; bấm <b>✔ Áp dụng &amp; tính lại</b>. '
          'Dòng "Kết quả" cho biết bao nhiêu sự việc có dấu hiệu cùng loại trong lá số. Sự việc được lưu cùng lá số. Đây là công cụ kiểm tra, không phải tiên đoán.</p>')
+H.append('<h3>Không rõ giờ sinh – tìm giờ theo việc lớn đã xảy ra</h3>')
+anh('25_viec_lon_tim_gio.png', 'Không rõ giờ → thẻ "Việc lớn đã xảy ra": nhập năm và loại việc, bấm Áp dụng')
+H.append('<p>Theo cách của sách (P2 tr.445): khi không biết giờ sinh, căn cứ một số việc lớn đã xảy ra để tìm giờ. Nhập tối đa 12 việc '
+         '(8 loại: kết hôn, ly hôn, bất lợi cho cha, cho mẹ, tai nạn – bệnh nặng, thăng tiến – phát tài, thất bại – kiện tụng, sinh con). '
+         'Cột "Với giờ đang xem" cho biết việc đó có khớp dấu hiệu năm của giờ đang xem không; thẻ <b>Bảng 12 giờ</b> xếp giờ khớp nhiều việc nhất lên đầu.</p>')
+H.append('<h2>6c. Đối chiếu thực tế</h2>')
+anh('26_doi_chieu_thuc_te.png', 'Đối chiếu thực tế: ghi năm đó Tốt / Bình thường / Xấu, sự kiện và đánh giá luận giải; ✔/✗ = khớp xu thế PP1, PP2')
+H.append('<p>Với các năm đã qua, chọn <b>Thực tế năm đó</b> (Tốt / Bình thường / Xấu), ghi sự kiện, chọn <b>Đánh giá luận giải</b> '
+         '(Đúng / Một phần / Sai / Chưa rõ) rồi bấm <b>✔ Áp dụng &amp; tính lại</b>. Ô tóm tắt ở trên cho tỉ lệ khớp của PP1 và PP2; khi đã ghi '
+         'từ 5 năm có sự việc rõ, phần mềm gợi ý nên dùng phương pháp nào (P1 tr.125) – đổi ở Nhập liệu → Tùy chọn nâng cao. Dữ liệu được lưu cùng lá số.</p>')
 H.append('<h2>7. Lưu, tìm, so sánh lá số</h2>')
-anh('09_danh_sach_la_so.png', 'Danh sách lá số: tìm theo tên, nhóm, ghi chú, tứ trụ, ngày sinh; lọc theo nhóm')
+anh('27_danh_sach_sao_luu.png', 'Danh sách lá số: tìm theo tên, nhóm, ghi chú, tứ trụ, ngày sinh; lọc theo nhóm; sao lưu và khôi phục')
 H.append('<p>Bấm <b>💾 Lưu lá số</b> (ở Luận giải chung hoặc Danh sách) → đặt tên, nhóm, ghi chú. <b>Mở</b> (hoặc bấm đúp) để nạp lại – phần mềm '
          'tính lại từ dữ liệu nhập và cho kết quả như lúc lưu (mỗi bản ghi lưu kèm phiên bản quy tắc; nếu quy tắc khác, phần mềm báo). '
          '<b>Ghi đè</b> thay dữ liệu nhập bằng lá đang xem; <b>Sửa</b> đổi tên/nhóm/ghi chú; <b>Xóa</b> không hoàn tác. '
-         'Chọn 2 lá (giữ Ctrl) → <b>So sánh</b>.</p>')
+         'Chọn 2 lá (giữ Ctrl) → <b>So sánh</b>.</p>'
+         '<p><b>⤓ Sao lưu kho…</b> chép toàn bộ lá số ra một tệp (.sqlite) – nên làm định kỳ hoặc trước khi đổi máy. '
+         '<b>⤒ Khôi phục từ bản sao lưu…</b> thêm các lá trong tệp sao lưu vào kho hiện tại; lá đã có thì bỏ qua, không xóa lá nào.</p>')
 anh('12_so_sanh_hai_la.png', 'So sánh hai lá: khối KẾT LUẬN đặt cạnh nhau, dòng khác nhau tô nền vàng')
 
 H.append('<h2>8. Xuất và in</h2>')

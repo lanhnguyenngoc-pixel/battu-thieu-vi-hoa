@@ -23,6 +23,8 @@ jobs:
         run: python -m tests.t7_ngau_nhien
       - name: Kiểm thử T9 – nhập sự việc
         run: python -m tests.t9_su_kien
+      - name: Kiểm thử T10 – ô nhập bổ sung
+        run: python -m tests.t10_bo_sung
       - name: PyInstaller
         run: pyinstaller --noconfirm dong_goi/battu.spec
       - name: Inno Setup
@@ -76,6 +78,8 @@ jobs:
         run: python -m tests.t7_ngau_nhien
       - name: Kiểm thử T9 – nhập sự việc
         run: python -m tests.t9_su_kien
+      - name: Kiểm thử T10 – ô nhập bổ sung
+        run: python -m tests.t10_bo_sung
       - name: PyInstaller
         run: pyinstaller --noconfirm dong_goi/battu.spec
       - name: Tạo .dmg
@@ -84,7 +88,7 @@ jobs:
           APP="dist/Bát Tự Thiệu Vĩ Hoa.app"
           codesign --force --deep -s - "$APP"
           mkdir -p dmg_goc dist_cai && cp -R "$APP" dmg_goc/ && ln -s /Applications dmg_goc/Applications
-          hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder dmg_goc -ov -format UDZO "dist_cai/BatTuThieuViHoa_1.3.0_macOS_${{ matrix.kien_truc }}.dmg"
+          hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder dmg_goc -ov -format UDZO "dist_cai/BatTuThieuViHoa_1.4.0_macOS_${{ matrix.kien_truc }}.dmg"
       - name: Cài – tự kiểm không mạng – gỡ
         run: |
           set -e

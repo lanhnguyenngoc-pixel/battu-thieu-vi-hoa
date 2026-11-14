@@ -42,7 +42,7 @@ L += ['## T1b – Nhánh tùy chọn (MT-05) và T1-KRG (MT-04) – đáp án l�
       'Kiểm chính oracle mở rộng: biến thể KRG0 (mặc định) trùng dap_an_o **%d / %d** ô.' % (dk, nk), '',
       '| Biến thể | Mô tả | Số lá | Ô khớp / tổng (sheet đã cài) | Kết quả |', '|---|---|---|---|---|']
 for ten, b_ in t1b.BT.items():
-    if ten.startswith(('T2_', 'T8', 'T7_')) or not os.path.isdir(os.path.join(MR, ten)): continue
+    if ten.startswith(('T2_', 'T8', 'T7_', 'T10_')) or not os.path.isdir(os.path.join(MR, ten)): continue
     n_, tg, dg, lg = t1b.chay_bien_the(KT, MR, ten)
     kq = 'ĐẠT 100%' if not lg else 'LỆCH %d' % len(lg)
     if ten == 'B1_KHONG_RO_GIO' and lg: kq += ' – đáp án hỏng do Bảng dữ liệu LibreOffice (MT-13), thay bằng B1b'
@@ -118,4 +118,16 @@ if 'SU_KIEN' in S.PHAM_VI:
           '| Lưu SQLite → mở lại giữ nguyên sự việc | %s |' % ('ĐẠT' if ok9 else 'LỖI'), '']
     for x in l9[:30]: L.append('- LỆCH %r' % (x,))
     print('T9', sum(d9.values()), '/', sum(t9.values()), db9, tb9, ok9)
+if 'SU_KIEN' in S.PHAM_VI:
+    from tests import t10_bo_sung
+    n10, t10, d10, l10, (db10, tb10, lb10), ok10 = t10_bo_sung.chay()
+    L += ['## T10 – Ô nhập bổ sung (bản 1.4.0): phối ngẫu, việc lớn tìm giờ sinh, đánh giá thực tế – 20 lá T7, '
+          'đáp án tools/oracle_mo_rong.py (T10_BO_SUNG)', '', '| Hạng mục | Kết quả |', '|---|---|',
+          '| Mọi ô công thức 33 sheet | %d / %d |' % (sum(d10.values()), sum(t10.values())),
+          '| Riêng Hôn nhân / Không rõ giờ / Theo dõi | %d / %d · %d / %d · %d / %d |' % (
+              d10['HON_NHAN'], t10['HON_NHAN'], d10['KHONG_RO_GIO'], t10['KHONG_RO_GIO'], d10['THEO_DOI'], t10['THEO_DOI']),
+          '| Đường nhập giao diện → ô workbook (C34:G34, C11:E22, N/O/P theo năm) | %d / %d ô |' % (db10, tb10),
+          '| Lưu SQLite → mở lại giữ nguyên | %s |' % ('ĐẠT' if ok10 else 'LỖI'), '']
+    for x in (l10 + lb10)[:30]: L.append('- LỆCH %r' % (x,))
+    print('T10', sum(d10.values()), '/', sum(t10.values()), db10, tb10, ok10)
 open(RA, 'w').write('\n'.join(L) + '\n'); print('Ghi', RA)
