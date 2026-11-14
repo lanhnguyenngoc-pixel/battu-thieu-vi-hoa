@@ -100,3 +100,6 @@ chup('26_doi_chieu_thuc_te.png')
 w.t_ds.nap(); w.di(w.t_ds); chup('27_danh_sach_sao_luu.png')
 id10 = kho.luu(t.kq, 'Lá 1.4.0', '', ''); s10 = kho.la_so(id10)
 print('Lưu/mở lại ô nhập bổ sung:', s10.phoi_ngau, len(s10.viec_tim_gio), len(s10.theo_doi))
+# 28. Thống kê đối chiếu thực tế trên cả kho (đề xuất 3.8)
+from ui.trang_ket_qua import HopThongKe
+w.t_ds.nap(); w.di(w.t_ds); hk = HopThongKe(w, kho); app.processEvents(); hk.grab().save(os.path.join(out, '28_thong_ke_doi_chieu.png')); print('28_thong_ke_doi_chieu.png'); hk.close()

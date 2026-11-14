@@ -34,6 +34,18 @@ def chay(n=12):
     giong = sorted((r['ten'], r['nhap'], r['anh_chup']) for r in kho2.tim()) == sorted((r['ten'], r['nhap'], r['anh_chup']) for r in kho.tim())
     kiem['sao lưu'] = n_sl == len(ds) - 1
     kiem['khôi phục'] = a == (len(ds) - 1, 0) and b == (0, len(ds) - 1) and giong
+    # thống kê đối chiếu (1.4.x): tổng = cộng các ô THEO_DOI E4 (số năm), E5×E4, E6×E4 (số năm khớp PP1, PP2) của từng lá
+    from battu_core.thong_ke import thong_ke
+    kho3 = Kho(os.path.join(tm, 'tk.sqlite')); mong = [0, 0.0, 0.0]
+    for i, x in enumerate(ds[:3]):
+        s = LaSo(ho_ten=x['id'], ngay=x['ngay'], thang=x['thang'], nam=x['nam'], gio=x['gio'], phut=x['phut'], gioi_tinh=x['gioi_tinh'], nam_xem=2026,
+                 theo_doi={x['nam'] + 20 + j: [['Tốt', 'Xấu', 'Bình thường'][(i + j) % 3], None, ['Đúng', 'Sai', 'Một phần', 'Chưa rõ'][j % 4]] for j in range(6 + i)})
+        kq = tinh(s); kho3.luu(kq, x['id']); E = kq.E
+        e4 = E.gia_tri('THEO_DOI', 'E4'); mong[0] += e4; mong[1] += E.gia_tri('THEO_DOI', 'E5') * e4; mong[2] += E.gia_tri('THEO_DOI', 'E6') * e4
+    kho3.luu(tinh(LaSo(ngay=1, thang=1, nam=1990, gio=1, phut=0)), 'không ghi')
+    tk = thong_ke(kho3)
+    kiem['thống kê đối chiếu'] = (tk['so_la'], tk['so_nam'], round(tk['ty_le_pp1'] * tk['so_nam']), round(tk['ty_le_pp2'] * tk['so_nam'])) == \
+        (3, mong[0], round(mong[1]), round(mong[2])) and sum(tk['danh_gia'].values()) == 6 + 7 + 8
     try: kho2.khoi_phuc(os.path.join(os.path.dirname(os.path.abspath(__file__)), 't8_chuan.json')); kiem['tệp sai bị từ chối'] = False
     except Exception: kiem['tệp sai bị từ chối'] = len(kho2.tim()) == len(ds) - 1
     return len(ids), dung, loi, kiem, time.time() - t0

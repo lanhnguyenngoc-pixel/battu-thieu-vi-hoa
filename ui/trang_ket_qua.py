@@ -265,8 +265,9 @@ class TrangDanhSach(QWidget):
         for b in (self.n_ghi, self.n_mo, self.n_sua, self.n_xoa, self.n_ss): b.setObjectName('nut_phu')
         for b in (self.n_luu, self.n_mo, self.n_ghi, self.n_sua, self.n_xoa, self.n_ss): hb.addWidget(b)
         hb.addStretch()
+        self.n_tk = QPushButton('⚑  Thống kê đối chiếu')
         self.n_sl = QPushButton('⤓  Sao lưu kho…'); self.n_kp = QPushButton('⤒  Khôi phục từ bản sao lưu…')
-        for b in (self.n_sl, self.n_kp): b.setObjectName('nut_phu'); hb.addWidget(b)
+        for b in (self.n_tk, self.n_sl, self.n_kp): b.setObjectName('nut_phu'); hb.addWidget(b)
         v.addLayout(hb)
         self.bang = QTableWidget(0, len(self.COT)); self.bang.setHorizontalHeaderLabels(self.COT)
         self.bang.setSelectionBehavior(QAbstractItemView.SelectRows); self.bang.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -279,6 +280,7 @@ class TrangDanhSach(QWidget):
         self.n_sua.clicked.connect(self.sua); self.n_xoa.clicked.connect(self.xoa); self.n_ss.clicked.connect(self._ss)
         self.bang.doubleClicked.connect(lambda _: self.mo())
         self.n_sl.clicked.connect(self.sao_luu); self.n_kp.clicked.connect(self.khoi_phuc)
+        self.n_tk.clicked.connect(lambda: HopThongKe(self, self.kho).exec())
         self.nap_nhom(); self.nap()
 
     def sao_luu(self):
@@ -430,3 +432,53 @@ class TrangSoSanh(QWidget):
         self.bang.resizeRowsToContents()
         for i in range(self.bang.rowCount()):
             if self.bang.rowHeight(i) > 220: self.bang.setRowHeight(i, 220)
+
+
+class HopThongKe(QDialog):
+    """Thống kê đối chiếu thực tế trên cả kho lá số (cộng các ô kết quả Theo dõi của từng lá; không thêm quy tắc)."""
+    def __init__(self, cha, kho):
+        super().__init__(cha); self.setWindowTitle('Thống kê đối chiếu thực tế'); self.resize(1000, 640); self.kho = kho
+        from PySide6.QtWidgets import QProgressBar, QApplication
+        v = QVBoxLayout(self); v.setContentsMargins(20, 18, 20, 18); v.setSpacing(10)
+        v.addWidget(lbl('Thống kê đối chiếu thực tế trên cả kho', 'tieude'))
+        v.addWidget(lbl('Cộng các năm đã ghi ở trang Đối chiếu thực tế của mọi lá số đã lưu: phương pháp vượng suy nào (PP1 hay PP2) '
+                        'khớp đời thực hơn, và luận giải đúng đến đâu. Chỉ là thống kê, không đổi kết luận của lá nào.', 'mo', True))
+        self.tom = lbl('', None, True); v.addWidget(self.tom)
+        self.bang = QTableWidget(0, 8); self.bang.verticalHeader().setVisible(False)
+        self.bang.setHorizontalHeaderLabels(['Tên', 'Tứ trụ', 'Số năm', 'Khớp PP1', 'Khớp PP2', 'Đúng / Một phần / Sai / Chưa rõ', 'Đang dùng', 'Gợi ý'])
+        self.bang.setEditTriggers(QAbstractItemView.NoEditTriggers); self.bang.horizontalHeader().setStretchLastSection(True)
+        for i, w in enumerate([160, 230, 70, 80, 80, 240, 140]): self.bang.setColumnWidth(i, w)
+        v.addWidget(self.bang, 1)
+        h = QHBoxLayout(); h.addStretch()
+        self.n_x = QPushButton('Xuất Excel…'); self.n_x.setObjectName('nut_phu'); self.n_d = QPushButton('Đóng'); self.n_d.setObjectName('nut_chinh')
+        h.addWidget(self.n_x); h.addWidget(self.n_d); v.addLayout(h)
+        self.n_d.clicked.connect(self.accept); self.n_x.clicked.connect(self.xuat)
+        self.show(); QApplication.processEvents()
+        from battu_core.thong_ke import thong_ke
+        self.tom.setText('Đang tính…'); QApplication.processEvents()
+        self.kq = thong_ke(kho, lambda i, n: (self.tom.setText('Đang tính lá %d / %d…' % (i, n)), QApplication.processEvents()))
+        self.hien()
+
+    def hien(self):
+        k = self.kq; pt = lambda x: '–' if x is None else '%.0f%%' % (100 * x)
+        if not k['so_la']:
+            self.tom.setText('Chưa có lá số nào được ghi thực tế. Mở một lá số → trang ⚑ Đối chiếu thực tế → ghi các năm đã qua → lưu lá số.')
+            self.n_x.setEnabled(False); return
+        d = k['danh_gia']
+        self.tom.setText('<b>%d lá · %d năm đã ghi</b> — khớp xu thế: <b>PP1 %s</b>, <b>PP2 %s</b> · đánh giá luận giải: Đúng %d · Một phần %d · '
+                         'Sai %d · Chưa rõ %d — tỉ lệ đúng (một phần tính ½): <b>%s</b>' % (
+                             k['so_la'], k['so_nam'], pt(k['ty_le_pp1']), pt(k['ty_le_pp2']), d['Đúng'], d['Một phần'], d['Sai'], d['Chưa rõ'],
+                             pt(k['ty_le_dung'])))
+        self.bang.setRowCount(len(k['tung_la']))
+        for i, x in enumerate(k['tung_la']):
+            dg = ' / '.join(str(x['danh_gia'].get(t, 0)) for t in ('Đúng', 'Một phần', 'Sai', 'Chưa rõ'))
+            for j, t in enumerate([x['ten'], x['tu_tru'], str(x['so_nam']), str(x['khop_pp1']), str(x['khop_pp2']), dg, x['dang_dung'], x['goi_y']]):
+                it = QTableWidgetItem(t); it.setToolTip(t) if len(t) > 30 else None; self.bang.setItem(i, j, it)
+
+    def xuat(self):
+        from PySide6.QtWidgets import QFileDialog, QMessageBox
+        from battu_core.thong_ke import xuat_xlsx
+        p, _ = QFileDialog.getSaveFileName(self, 'Xuất thống kê', os.path.join(os.path.expanduser('~'), 'ThongKe_DoiChieu.xlsx'), 'Excel (*.xlsx)')
+        if not p: return
+        try: xuat_xlsx(self.kq, p); QMessageBox.information(self, 'Xuất thống kê', 'Đã lưu: ' + p)
+        except Exception as e: QMessageBox.warning(self, 'Xuất thống kê', 'Không lưu được: %s' % e)

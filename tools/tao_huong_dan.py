@@ -127,7 +127,10 @@ H.append('<p>Bấm <b>💾 Lưu lá số</b> (ở Luận giải chung hoặc Dan
          '<b>Ghi đè</b> thay dữ liệu nhập bằng lá đang xem; <b>Sửa</b> đổi tên/nhóm/ghi chú; <b>Xóa</b> không hoàn tác. '
          'Chọn 2 lá (giữ Ctrl) → <b>So sánh</b>.</p>'
          '<p><b>⤓ Sao lưu kho…</b> chép toàn bộ lá số ra một tệp (.sqlite) – nên làm định kỳ hoặc trước khi đổi máy. '
-         '<b>⤒ Khôi phục từ bản sao lưu…</b> thêm các lá trong tệp sao lưu vào kho hiện tại; lá đã có thì bỏ qua, không xóa lá nào.</p>')
+         '<b>⤒ Khôi phục từ bản sao lưu…</b> thêm các lá trong tệp sao lưu vào kho hiện tại; lá đã có thì bỏ qua, không xóa lá nào.</p>'
+         '<p><b>⚑ Thống kê đối chiếu</b> cộng các năm đã ghi ở trang Đối chiếu thực tế của mọi lá đã lưu: tỉ lệ khớp của PP1, PP2 và tỉ lệ '
+         'luận giải đúng trên cả kho; xuất được ra Excel. Càng nhiều lá có sự việc thật, con số càng có ý nghĩa.</p>')
+anh('28_thong_ke_doi_chieu.png', 'Thống kê đối chiếu thực tế trên cả kho lá số')
 anh('12_so_sanh_hai_la.png', 'So sánh hai lá: khối KẾT LUẬN đặt cạnh nhau, dòng khác nhau tô nền vàng')
 
 H.append('<h2>8. Xuất và in</h2>')

@@ -153,4 +153,7 @@ Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tín
 | Sao lưu / khôi phục kho | Danh sách lá số → Sao lưu kho… / Khôi phục… (khôi phục chỉ thêm, bỏ qua lá trùng) |
 | Kiểm thử | Toàn bộ T1–T10 đạt 100%; T10 mới 577.140 / 577.140 |
 | Không đổi quy tắc | Không sửa workbook; mọi ô nhập mới là ô nhập sẵn có của workbook 6.3 |
-| Chờ duyệt | tai_lieu/DE_XUAT_QUY_TAC_SAU_1.4.md, tai_lieu/RA_SOAT_GIA_DINH_6.3.xlsx |
+| Thống kê đối chiếu trên cả kho (đề xuất 3.8 – duyệt 14/11/2026) | Danh sách lá số → ⚑ Thống kê đối chiếu: cộng ô Theo dõi (N, Q, R, P) của mọi lá; xuất Excel. Kiểm: tổng trùng cộng E4, E5×E4, E6×E4 từng lá |
+| Phân tích 3.1 (duyệt 14/11/2026) | tai_lieu/PHAN_TICH_3_1_DUNG_THAN.md: dụng thần khớp sách 40/73 lá; 3 thay đổi thử không cải thiện rõ → đề xuất giữ quy tắc |
+| Quyết định 14/11/2026 | 3.3 giữ giờ đồng hồ nơi sinh; 3.4 giữ đổi ngày lúc 23 giờ (P1 tr.45) – không thêm tùy chọn |
+| Chờ duyệt | 3.2: 94 giả định (tai_lieu/GIA_DINH_6.3_CHI_TIET.md, RA_SOAT_GIA_DINH_6.3.xlsx) |
