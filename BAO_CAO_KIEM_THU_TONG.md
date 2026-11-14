@@ -309,3 +309,13 @@ Mỗi máy: T7 (570.940 ô) + T9 (577.140 ô) từ mã nguồn → PyInstaller �
 | BatTuThieuViHoa_Setup_1.1.0_Windows.exe | 42,3 MB | 0c85a2ddc1393126c01b240cd17152b3128ca9489ed368fdf7256cff05354a5e |
 | BatTuThieuViHoa_1.1.0_macOS_arm64.dmg | 51,8 MB | 38676658c0848f065aa815f49d365daab11f68249c784a67ec1b5f7068051f9b |
 | BatTuThieuViHoa_1.1.0_macOS_x86_64.dmg | 56,2 MB | 027be5561b9264a698cf1716304539081d0420ef9214c8abbf9f22c505b925ed |
+
+## Bộ cài 1.1.1 (chỉ đổi thứ tự / tên mục giao diện) – GitHub Actions lượt 43553939270
+
+T7 + T9 từ mã nguồn, cài → tự kiểm khi chặn mạng → gỡ: **ĐẠT** trên Windows, macOS arm64, macOS x86_64.
+
+| Tệp | SHA-256 |
+|---|---|
+| BatTuThieuViHoa_Setup_1.1.1_Windows.exe | ec18622ec4cdcca590db86bad9c267aa1043b3e847fdff04d56b5c57638243d7 |
+| BatTuThieuViHoa_1.1.1_macOS_arm64.dmg | 67a14737d7168f993223e63b7e2aa34b194a09f09f8f5c480a08277f7ee6759d |
+| BatTuThieuViHoa_1.1.1_macOS_x86_64.dmg | 8f9eef56dbef74390751acaa142426864febc7615510a8b033417917338b99fa |
