@@ -80,7 +80,7 @@ Không có.
 | Xuất **XLSX** – 30 sheet đúng địa chỉ ô, gộp ô, độ rộng, cột/dòng ẩn, định dạng số, màu định dạng có điều kiện; sheet THONG_TIN | Xong – 0,8 s |
 | Xuất **JSON** – dữ liệu nhập + {sheet: {ô: giá trị}} mọi ô công thức 33 sheet | Xong – 0,05 s |
 | Cột/dòng ẩn của workbook (ô tính phụ) áp vào giao diện, PDF, XLSX (`bo_cuc.an_cot/an_dong`) | Xong |
-| Bộ cài: PyInstaller + Inno Setup (tiếng Việt, có gỡ cài đặt) + .dmg (arm64, x86_64); quy trình GitHub Actions cài → tự kiểm khi chặn mạng → gỡ | Cấu hình xong; bản Linux tự kiểm đạt khi không có mạng (`unshare -rn`) |
+| Bộ cài: Windows .exe (Inno Setup tiếng Việt, có gỡ cài đặt) 42,3 MB; macOS .dmg arm64 51,7 MB, x86_64 56,2 MB – dựng trên kho riêng tư lanhnguyenngoc-pixel/battu-thieu-vi-hoa (GitHub Actions) | **Xong** – cả 3 máy: cài ĐẠT, tự kiểm khi chặn mạng ĐẠT (dấu vân tay trùng bản gốc), gỡ ĐẠT |
 | Tự kiểm bản đã cài `--tu-kiem`: dấu vân tay SHA-256 toàn bộ kết quả 3 lá + xuất 3 định dạng | Xong |
 | Kiểm thử tổng T1–T8 + T7 (20 lá ngẫu nhiên mới, oracle_dump.py) | **100%** – BAO_CAO_KIEM_THU_TONG.md |
 | Hướng dẫn sử dụng PDF có hình (13 trang), README build | Xong |

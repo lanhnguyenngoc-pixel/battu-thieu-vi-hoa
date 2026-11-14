@@ -283,3 +283,25 @@ tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–
 | XLSX | mở lại, mọi ô công thức của 30 sheet hiển thị trùng JSON; giữ gộp ô, cột/dòng ẩn | 144075 / 144075 |
 | PDF | số trang, "Trang i/n" mỗi trang, khối KẾT LUẬN, phiên bản quy tắc | 5 / 5 lá |
 
+
+## Bộ cài – kiểm cài / gỡ / chạy không mạng (GitHub Actions, lượt 43547513998)
+
+Mỗi máy: chạy T7 từ mã nguồn (570.940 ô) → PyInstaller → bộ cài → **cài → tự kiểm khi chặn mạng → gỡ → kiểm gỡ sạch**.
+Tự kiểm = dấu vân tay SHA-256 toàn bộ kết quả (JSON {sheet: {ô: giá trị}}) của 3 lá chuẩn (có 1 lá Không rõ giờ) + xuất PDF/XLSX/JSON.
+
+| Máy | T7 mã nguồn | Cài | Chặn mạng | Tự kiểm 3 lá (dấu vân tay) | Xuất | Gỡ |
+|---|---|---|---|---|---|---|
+| Windows Server (x64) – Inno Setup | 570.940/570.940 | ĐẠT | Tường lửa chặn chiều ra của BatTuThieuViHoa.exe | ĐẠT c9fa2c11 · cd14e7bd · 1ec29dbd | PDF 28 trang, XLSX, JSON | ĐẠT (mất tệp chạy + mục Settings > Apps) |
+| macOS 15 – Apple M (arm64) – .dmg | 570.940/570.940 | ĐẠT | sandbox-exec deny network | ĐẠT – trùng | ĐẠT | ĐẠT |
+| macOS 15 – Intel (x86_64) – .dmg | 570.940/570.940 | ĐẠT | sandbox-exec deny network | ĐẠT – trùng | ĐẠT | ĐẠT |
+| Linux (bản gốc, đối chứng) | 570.940/570.940 | – | unshare -rn | ĐẠT – trùng | ĐẠT | – |
+
+Dấu vân tay trùng tuyệt đối giữa 4 hệ điều hành → kết quả không phụ thuộc máy.
+
+| Tệp | Dung lượng | SHA-256 |
+|---|---|---|
+| BatTuThieuViHoa_Setup_1.0.0_Windows.exe | 42,3 MB | 22a77b2e2fd4de36d39a3b09a2095bb5f56b9a1948c264183f14047faffecf0f |
+| BatTuThieuViHoa_1.0.0_macOS_arm64.dmg | 51,7 MB | b281bc7aac9348ece864a1910dc6306aa7722cb3c6ca9ad268a3ced76d39f9ac |
+| BatTuThieuViHoa_1.0.0_macOS_x86_64.dmg | 56,2 MB | 102971c5516e4f13d1a372a86fd9d4bb8cb257e25a0f4538055cba20fa2c6fa6 |
+
+Chưa ký số: Windows SmartScreen / macOS Gatekeeper hỏi lần đầu (xem Hướng dẫn sử dụng mục 1).
