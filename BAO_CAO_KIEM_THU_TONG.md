@@ -385,3 +385,12 @@ Workbook 6.4 (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9b
 | T9 · T10 | 577.180 / 577.180 · 577.180 / 577.180 |
 
 Chi tiết: tai_lieu/BAO_CAO_KIEM_THU_1.5.0_CHI_TIET.md.
+
+### Bộ cài 1.5.0 – GitHub Actions lượt 43579035837
+T7 + T9 + T10 từ mã nguồn, cài → tự kiểm khi chặn mạng (dấu vân tay e5e9ee4c438df4b4 trùng bản gốc) → gỡ: **ĐẠT** trên Windows, macOS arm64, macOS x86_64.
+
+| Tệp | SHA-256 |
+|---|---|
+| BatTuThieuViHoa_Setup_1.5.0_Windows.exe | 1f7f7c6d8d3c4364806c8181a45107d24c26666e237dfeb959335ea24e57aad8 |
+| BatTuThieuViHoa_1.5.0_macOS_arm64.dmg | b4128601b0af514fff9c9e2648d737c9f8518db3f4a6d00936e4887fd5ea0223 |
+| BatTuThieuViHoa_1.5.0_macOS_x86_64.dmg | 3a29e50fcf5ea78ed1eb07259ad4bceb8c2148421a108b9ea8995da8b3418985 |
