@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.4.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.5.0** (quy tắc 6.4) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -157,3 +157,11 @@ Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tín
 | Phân tích 3.1 (duyệt 14/11/2026) | tai_lieu/PHAN_TICH_3_1_DUNG_THAN.md: dụng thần khớp sách 40/73 lá; 3 thay đổi thử không cải thiện rõ → đề xuất giữ quy tắc |
 | Quyết định 14/11/2026 | 3.3 giữ giờ đồng hồ nơi sinh; 3.4 giữ đổi ngày lúc 23 giờ (P1 tr.45) – không thêm tùy chọn |
 | Chờ duyệt | 3.2: 94 giả định (tai_lieu/GIA_DINH_6.3_CHI_TIET.md, RA_SOAT_GIA_DINH_6.3.xlsx) |
+
+## Bản 1.5.0 – quy tắc 6.4 (14/11/2026)
+| Việc | Kết quả |
+|---|---|
+| Quyết định | Phương án A (duyệt 14/11/2026): giữ dụng thần theo bảng P1 tr.108, P2 tr.380-384; thêm ghi chú "dụng thần theo cách bổ hành khuyết" |
+| Workbook 6.4 | G142 – tools/step17.py (vá XML theo cách 06_MA_THAM_CHIEU/build_excel, LibreOffice tính lại). Chỉ thêm DUNG_HY_KY dòng 197–199 và nối vào KET_LUAN C52; MAU_THUAN dòng 168 |
+| Phần mềm | Dịch lại từ 6.4; ghi chú hiện ở mục B – Bản mệnh; 13/85 lá ví dụ có ghi chú |
+| Kiểm thử | Lấy lại toàn bộ đáp án trên 6.4; T1–T10 đạt 100% |

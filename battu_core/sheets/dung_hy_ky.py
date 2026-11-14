@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DUNG_HY_KY – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.3.xlsx (SHA-256 7ae759658d290172bbbf7b6642e24532239e3b9ea54ca71e2696802411bca4c5).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1816,6 +1816,20 @@ def f279(E, r, c):
     #   c tạng phủ được nêu. Không thay thế ý kiến bác sĩ. [Lời khuyên của công cụ – không phải câu sách]"
     return ' ► Lời khuyên: các nhận định sức khỏe, thọ – yểu là xu hướng theo bảng của sách, không phải tiên đoán; giữ nếp sống lành mạnh, khám định kỳ, chú ý các tạng phủ được nêu. Không thay thế ý kiến bác sĩ. [Lời khuyên của công cụ – không phải câu sách]'
 
+def f280(E, r, c):
+    # Ô C198
+    # = IF($D$198<0,"","Dụng thần theo cách bổ hành khuyết: "&INDEX(HANH_TEN,MOD($C$5+$D$198,5)+1)&" ("&INDEX(NHOM_TEN,$D$198+1)&") – tứ trụ không có chữ nào,
+    #    lộ hay tàng, thuộc nhóm này. Khi giải ví dụ, sách nhiều lần lấy nhóm đang khuyết làm dụng thần (dụng thần khuyết thì chờ đại vận, lưu niên đưa tới – 
+    #   P1 tr.97). Chỉ là ghi chú để cân nhắc, không thay dụng thần "&INDEX(HANH_TEN,$C$157+1)&" ("&INDEX(NHOM_TEN,$C$156+1)&") đã chọn theo bảng P1 tr.108, P
+    #   2 tr.380-384.")
+    return ('' if X.truthy(X.lt(E.v(8,198,4),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dụng thần theo cách bổ hành khuyết: ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,3),E.v(8,198,4)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,198,4),1.0))),') – tứ trụ không có chữ nào, lộ hay tàng, thuộc nhóm này. Khi giải ví dụ, sách nhiều lần lấy nhóm đang khuyết làm dụng thần (dụng thần khuyết thì chờ đại vận, lưu niên đưa tới – P1 tr.97). Chỉ là ghi chú để cân nhắc, không thay dụng thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,157,3),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,156,3),1.0))),') đã chọn theo bảng P1 tr.108, P2 tr.380-384.'))
+
+def f281(E, r, c):
+    # Ô D198
+    # = IF(OR($C$160<>"",$C$155=2,$C$156<0),-1,IF($C$155=1,IF(OR($C$156=1,$C$156=2,$C$156=3),IF(AND($C$156<>3,$C$21=0),3,IF(AND($C$156<>1,$C$19=0),1,IF(AND($C
+    #   $156<>2,$C$20=0),2,-1))),-1),IF(OR($C$156=0,$C$156=4),IF(AND($C$156<>4,$C$22=0),4,IF(AND($C$156<>0,$C$18=0),0,-1)),-1)))
+    return (X.neg(1.0) if X.truthy(X.OR(X.ne(E.v(8,160,3),''), X.eq(E.v(8,155,3),2.0), X.lt(E.v(8,156,3),0.0))) else (((3.0 if X.truthy(X.AND(X.ne(E.v(8,156,3),3.0), X.eq(E.v(8,21,3),0.0))) else (1.0 if X.truthy(X.AND(X.ne(E.v(8,156,3),1.0), X.eq(E.v(8,19,3),0.0))) else (2.0 if X.truthy(X.AND(X.ne(E.v(8,156,3),2.0), X.eq(E.v(8,20,3),0.0))) else X.neg(1.0)))) if X.truthy(X.OR(X.eq(E.v(8,156,3),1.0), X.eq(E.v(8,156,3),2.0), X.eq(E.v(8,156,3),3.0))) else X.neg(1.0)) if X.truthy(X.eq(E.v(8,155,3),1.0)) else ((4.0 if X.truthy(X.AND(X.ne(E.v(8,156,3),4.0), X.eq(E.v(8,22,3),0.0))) else (0.0 if X.truthy(X.AND(X.ne(E.v(8,156,3),0.0), X.eq(E.v(8,18,3),0.0))) else X.neg(1.0))) if X.truthy(X.OR(X.eq(E.v(8,156,3),0.0), X.eq(E.v(8,156,3),4.0))) else X.neg(1.0))))
+
 CELLS = {
     'C5': (f0, 5, 3),
     'D5': (f1, 5, 4),
@@ -2182,4 +2196,6 @@ CELLS = {
     'D193': (f277, 193, 4),
     'D194': (f278, 194, 4),
     'D195': (f279, 195, 4),
+    'C198': (f280, 198, 3),
+    'D198': (f281, 198, 4),
 }

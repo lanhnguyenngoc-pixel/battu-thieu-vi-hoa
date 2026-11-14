@@ -1,12 +1,12 @@
-# Phần mềm Bát Tự Thiệu Vĩ Hoa – mã nguồn (phiên bản 1.4.0, quy tắc 6.3)
+# Phần mềm Bát Tự Thiệu Vĩ Hoa – mã nguồn (phiên bản 1.5.0, quy tắc 6.4)
 
-Chuyển workbook **BAT_TU_THIEU_VI_HOA_6.3.xlsx** (SHA-256 `7ae75965…bca4c5`) thành phần mềm chạy không cần mạng.
+Chuyển workbook **BAT_TU_THIEU_VI_HOA_6.4.xlsx** (SHA-256 `b554826c…ae0e6c`) thành phần mềm chạy không cần mạng.
 Kết quả phải trùng workbook 100% ở mọi ô công thức (đáp án do LibreOffice tính – MT-01).
 
 ## Chạy thử
 - **Windows:** cài Python 3.12 (python.org, chọn "Add to PATH"), bấm đúp `chay_thu.bat`. Lần đầu tự cài PySide6.
 - **macOS / Linux:** `./chay_thu.sh`
-- Người dùng cuối: dùng bộ cài (`BatTuThieuViHoa_Setup_1.4.0_Windows.exe`, `BatTuThieuViHoa_1.4.0_macOS_<arm64|x86_64>.dmg`) – xem `tai_lieu/HUONG_DAN_SU_DUNG.pdf`.
+- Người dùng cuối: dùng bộ cài (`BatTuThieuViHoa_Setup_1.5.0_Windows.exe`, `BatTuThieuViHoa_1.5.0_macOS_<arm64|x86_64>.dmg`) – xem `tai_lieu/HUONG_DAN_SU_DUNG.pdf`.
 
 ## Trạng thái
 Hoàn thành (GĐ6): toàn bộ 33 sheet (28.581 ô công thức + 288 ô Bảng dữ liệu tính bằng vòng 12 giờ) khớp workbook 100% – xem TIEN_DO.md.
@@ -56,7 +56,7 @@ Dựng tay (trên chính máy đích, Python 3.12):
 python -m pip install -r requirements.txt pyinstaller==6.16.0
 pyinstaller --noconfirm dong_goi/battu.spec            # → dist/BatTuThieuViHoa/ (Windows) hoặc dist/Bát Tự Thiệu Vĩ Hoa.app (macOS)
 # Windows: cài Inno Setup 6.5+ rồi
-"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" dong_goi\battu_windows.iss   # → dist_cai\BatTuThieuViHoa_Setup_1.4.0_Windows.exe
+"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" dong_goi\battu_windows.iss   # → dist_cai\BatTuThieuViHoa_Setup_1.5.0_Windows.exe
 # macOS:
 hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder "dist/Bát Tự Thiệu Vĩ Hoa.app" -format UDZO BatTuThieuViHoa.dmg
 dist/BatTuThieuViHoa/BatTuThieuViHoa --tu-kiem /tmp/tk   # tự kiểm; mã thoát 0 = ĐẠT

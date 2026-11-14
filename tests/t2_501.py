@@ -38,13 +38,15 @@ def da_cai(sheet, ref):
 
 
 def chay(kt, mr):
+    global KQ
+    KQ = 'ket_qua_6.4' if os.path.isdir(os.path.join(kt, 'ket_qua_6.4')) else 'ket_qua_6.3'
     M = model(); F = cell_modules()
     khoa = {k: v for k, v in READ.items() if da_cai(*v)}
     tk = collections.Counter(); dk = collections.Counter(); lk = []
     to = collections.Counter(); do = collections.Counter(); lo = []; n = 0; t0 = time.time(); thieu = 0
     for tag, f in NGUON:
         cases = json.load(open(os.path.join(kt, 'bo_la', f), encoding='utf-8'))
-        res = json.load(open(os.path.join(kt, 'ket_qua_6.3', 'res_' + f), encoding='utf-8'))
+        res = json.load(open(os.path.join(kt, KQ, 'res_' + f), encoding='utf-8'))
         for i, (c, r) in enumerate(zip(cases, res)):
             assert c['id'] == r['id']
             nhap = {'C13': 'Tự nhập', 'C12': 'Không', 'C10': 'Nam', 'C11': None}

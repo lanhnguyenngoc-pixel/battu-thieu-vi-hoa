@@ -23,8 +23,8 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.4.0 (quy tắc 6.3)</b></p>')
-H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.3; '
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.5.0 (quy tắc 6.4)</b></p>')
+H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.4; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
 H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa. Các dòng ghi "quy ước kỹ thuật" hoặc '
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.4.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.5.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -143,7 +143,10 @@ H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Định dạng
 
 H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing="0">'
          '<tr><th width="34%">Câu hỏi</th><th>Trả lời</th></tr>'
-         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.3 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
+         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.4 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
+         '<tr><td>Dòng "Dụng thần theo cách bổ hành khuyết" là gì?</td><td>Khi trong phe dụng thần có nhóm không có chữ nào trong tứ trụ, phần mềm ghi thêm nhóm đó '
+         '(mục B – Bản mệnh). Khi giải ví dụ, Thiệu Vĩ Hoa nhiều lần lấy nhóm đang khuyết làm dụng thần (P1 tr.97). Đây chỉ là ghi chú để cân nhắc, '
+         'không thay dụng thần đã chọn.</td></tr>'
          '<tr><td>Vì sao PP1 và PP2 khác nhau?</td><td>Hai phương pháp của sách; xem mục ⚖ Phân tích → Đối chiếu. Lựa chọn dùng cho kết luận đặt ở Nhập liệu → Tùy chọn nâng cao.</td></tr>'
          '<tr><td>Sinh tháng nhuận âm lịch?</td><td>Chọn Âm lịch và đánh dấu Tháng nhuận; phần mềm đổi đúng sang dương lịch.</td></tr>'
          '<tr><td>Có cần Internet?</td><td>Không. Phần mềm không gửi dữ liệu đi đâu.</td></tr></table>')

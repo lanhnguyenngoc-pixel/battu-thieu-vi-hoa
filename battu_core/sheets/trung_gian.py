@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet TRUNG_GIAN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.3.xlsx (SHA-256 7ae759658d290172bbbf7b6642e24532239e3b9ea54ca71e2696802411bca4c5).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 

@@ -1,0 +1,2849 @@
+[
+ {
+  "ten": "P1 tr.72",
+  "nguon": "P1 tr.72-73",
+  "sach_tt": "Nhược",
+  "sach_dung": "Chính ấn (kỵ Thiên tài)",
+  "sach_d": "Thổ",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 30.0,
+   "Hỏa": 133.2,
+   "Thổ": 51.0,
+   "Kim": 19.200000000000003,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thủy",
+   "Thổ",
+   "Hỏa"
+  ],
+  "thang": 6,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 2.0,
+   "Tài": 2.0,
+   "Quan sát": 3.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P1-VD4 (nam)",
+  "nguon": "P1 tr.186-187",
+  "sach_tt": "Vượng, tỉ kiếp nhiều",
+  "sach_dung": "Chính quan (Bính trong Tị)",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Thực thương)",
+  "hy": "Mộc (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": null,
+  "tool_d": "Thủy",
+  "loai": "6 Khác",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 106.0,
+   "Thủy": 129.6
+  },
+  "can_lo": [
+   "Thủy",
+   "Kim",
+   "Thủy"
+  ],
+  "thang": 8,
+  "g_sach": "Quan sát",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 4.0,
+   "Tài": 0.0,
+   "Quan sát": 0.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P1-VD6 (nam)",
+  "nguon": "P1 tr.188-189",
+  "sach_tt": "Quá vượng",
+  "sach_dung": "Thiên tài (Mậu trong Dần)",
+  "sach_d": "Thổ",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Tài)",
+  "hy": "Hỏa (Thực thương)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Thổ",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 108.0,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 3.0,
+   "Thủy": 86.39999999999999
+  },
+  "can_lo": [
+   "Thủy",
+   "Kim",
+   "Mộc"
+  ],
+  "thang": 11,
+  "g_sach": "Tài",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 5.0,
+   "Thực thương": 2.0,
+   "Tài": 2.0,
+   "Quan sát": 1.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P1-VD7 (nữ)",
+  "nguon": "P1 tr.189-190",
+  "sach_tt": "Vượng, ấn nhiều",
+  "sach_dung": "Thiên tài",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Thực thương)",
+  "hy": "Mộc (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": null,
+  "tool_d": "Thủy",
+  "loai": "4 Sách lấy hỷ thần của công cụ",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 22.0,
+   "Hỏa": 30.0,
+   "Thổ": 93.6,
+   "Kim": 45.0,
+   "Thủy": 36.0
+  },
+  "can_lo": [
+   "Kim",
+   "Hỏa",
+   "Thổ"
+  ],
+  "thang": 10,
+  "g_sach": "Tài",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 2.0,
+   "Tài": 0.0,
+   "Quan sát": 3.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P1-VD8 (nam)",
+  "nguon": "P1 tr.191",
+  "sach_tt": "Vượng",
+  "sach_dung": "Thiên tài",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "hy": "Hỏa (Tài)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "BẮT BUỘC",
+  "db": "Hỏa",
+  "tool_d": "Thổ",
+  "loai": "3 Sách lấy hành điều hậu",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 18.0,
+   "Hỏa": 22.0,
+   "Thổ": 43.199999999999996,
+   "Kim": 30.0,
+   "Thủy": 86.4
+  },
+  "can_lo": [
+   "Mộc",
+   "Hỏa",
+   "Thủy"
+  ],
+  "thang": 1,
+  "g_sach": "Tài",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 1.0,
+   "Tài": 2.0,
+   "Quan sát": 3.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P1-VD9 (nam)",
+  "nguon": "P1 tr.192-193",
+  "sach_tt": "Vượng",
+  "sach_dung": "Thiên tài (Quý trong Tí)",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Tài)",
+  "hy": "Kim (Thực thương)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Hỏa",
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 40.800000000000004,
+   "Hỏa": 87.0,
+   "Thổ": 15.0,
+   "Kim": 17.6000088,
+   "Thủy": 30.0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Hỏa",
+   "Mộc"
+  ],
+  "thang": 9,
+  "g_sach": "Tài",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 1.0,
+   "Tài": 1.0,
+   "Quan sát": 2.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P1-VD10 (nữ)",
+  "nguon": "P1 tr.193-194",
+  "sach_tt": "Nhược, tài nhiều",
+  "sach_dung": "Tỉ kiên",
+  "sach_d": "Thổ",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Kim (Thực thương)",
+  "hy": "Thủy (Tài)",
+  "cach": "Tòng tài",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Hỏa",
+  "tool_d": "Kim",
+  "loai": "1 Công cụ nhận cách đặc biệt",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 0,
+   "Thủy": 220.79999999999998
+  },
+  "can_lo": [
+   "Thủy",
+   "Thủy",
+   "Hỏa"
+  ],
+  "thang": 0,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 0.0,
+   "Thực thương": 0.0,
+   "Tài": 6.0,
+   "Quan sát": 0.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P1-VD11 (nữ)",
+  "nguon": "P1 tr.194-195",
+  "sach_tt": "Vượng",
+  "sach_dung": "Chính tài",
+  "sach_d": "Thổ",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Kim (Quan sát)",
+  "hy": "Thổ (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Kim",
+  "tool_d": "Kim",
+  "loai": "4 Sách lấy hỷ thần của công cụ",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 102.0,
+   "Hỏa": 6.0,
+   "Thổ": 24.0,
+   "Kim": 18.0,
+   "Thủy": 16.8
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Thổ"
+  ],
+  "thang": 10,
+  "g_sach": "Tài",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 2.0,
+   "Tài": 3.0,
+   "Quan sát": 2.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P1-VD12 (nữ)",
+  "nguon": "P1 tr.195-196",
+  "sach_tt": "Nhược",
+  "sach_dung": "Kiếp tài",
+  "sach_d": "Thổ",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Tỉ kiếp)",
+  "hy": "Hỏa (Ấn)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 3.0,
+   "Hỏa": 9.0,
+   "Thổ": 86.39999999999999,
+   "Kim": 87.0,
+   "Thủy": 21.6
+  },
+  "can_lo": [
+   "Kim",
+   "Thủy",
+   "Thủy"
+  ],
+  "thang": 7,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 4.0,
+   "Tài": 5.0,
+   "Quan sát": 1.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P1-VD13 (nam)",
+  "nguon": "P1 tr.196",
+  "sach_tt": "Vượng",
+  "sach_dung": "Thất sát",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Quan sát)",
+  "hy": "Thủy (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 79.2,
+   "Hỏa": 0,
+   "Thổ": 86.4,
+   "Kim": 30.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thổ",
+   "Mộc",
+   "Thổ"
+  ],
+  "thang": 3,
+  "g_sach": "Quan sát",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 2.0,
+   "Tài": 1.0,
+   "Quan sát": 3.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P1-VD14 (nam)",
+  "nguon": "P1 tr.196-197",
+  "sach_tt": "Nhược",
+  "sach_dung": "Chính ấn",
+  "sach_d": "Thổ",
+  "tt": "NHƯỢC (Theo PP2)",
+  "dung": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 30.0,
+   "Hỏa": 126.0,
+   "Thổ": 9.0,
+   "Kim": 51.2,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thủy",
+   "Thổ",
+   "Hỏa"
+  ],
+  "thang": 6,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 1.0,
+   "Tài": 1.0,
+   "Quan sát": 2.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P1-VD15 (nam)",
+  "nguon": "P1 tr.198",
+  "sach_tt": "Nhược có ấn",
+  "sach_dung": "Chính ấn",
+  "sach_d": "Thủy",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thủy (Ấn)",
+  "hy": "Mộc (Tỉ kiếp)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Kim",
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 84.0,
+   "Hỏa": 37.0,
+   "Thổ": 32.4,
+   "Kim": 30.0,
+   "Thủy": 19.200000000000003
+  },
+  "can_lo": [
+   "Mộc",
+   "Hỏa",
+   "Thủy"
+  ],
+  "thang": 10,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 4.0,
+   "Tài": 1.0,
+   "Quan sát": 1.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "Khúc trực VD1",
+  "nguon": "P2 tr.369",
+  "sach_tt": "Cách Khúc trực",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tỉ kiếp)",
+  "hy": "Thủy (Ấn)",
+  "cach": "Khúc trực",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 230.39999999999998,
+   "Hỏa": 18.0,
+   "Thổ": 4.800000000000001,
+   "Kim": 0,
+   "Thủy": 60.0
+  },
+  "can_lo": [
+   "Thủy",
+   "Mộc",
+   "Mộc"
+  ],
+  "thang": 2,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 5.0,
+   "Thực thương": 2.0,
+   "Tài": 2.0,
+   "Quan sát": 0.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "Viêm thượng VD1",
+  "nguon": "P2 tr.370",
+  "sach_tt": "Cách Viêm thượng",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Tỉ kiếp)",
+  "hy": "Mộc (Ấn)",
+  "cach": "Viêm thượng",
+  "dh": "Thủy",
+  "muc": "BẮT BUỘC",
+  "db": null,
+  "tool_d": "Hỏa",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 3.0,
+   "Hỏa": 248.39999999999998,
+   "Thổ": 9.0,
+   "Kim": 0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Hỏa",
+   "Mộc"
+  ],
+  "thang": 6,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 6.0,
+   "Thực thương": 1.0,
+   "Tài": 0.0,
+   "Quan sát": 0.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "Gia tường VD3",
+  "nguon": "P2 tr.371",
+  "sach_tt": "Cách Gia tường",
+  "sach_dung": "Thổ",
+  "sach_d": "Thổ",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Tỉ kiếp)",
+  "hy": "Kim (Thực thương)",
+  "cach": "Gia tường",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": "Hỏa",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 3.0,
+   "Hỏa": 27.0,
+   "Thổ": 262.8,
+   "Kim": 9.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thổ",
+   "Thổ",
+   "Thổ"
+  ],
+  "thang": 4,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 7.0,
+   "Thực thương": 2.0,
+   "Tài": 1.0,
+   "Quan sát": 2.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "Tòng cách VD1",
+  "nguon": "P2 tr.372",
+  "sach_tt": "Cách Tòng cách",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Kim (Tỉ kiếp)",
+  "hy": "Thổ (Ấn)",
+  "cach": "Tòng cách",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": null,
+  "tool_d": "Kim",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 3.0,
+   "Kim": 237.6,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thổ",
+   "Kim",
+   "Mộc"
+  ],
+  "thang": 9,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 6.0,
+   "Thực thương": 0.0,
+   "Tài": 0.0,
+   "Quan sát": 0.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "Nhuận hạ VD1",
+  "nguon": "P2 tr.373",
+  "sach_tt": "Cách Nhuận hạ",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Tỉ kiếp)",
+  "hy": "Kim (Ấn)",
+  "cach": "Nhuận hạ",
+  "dh": "Hỏa",
+  "muc": "BẮT BUỘC",
+  "db": null,
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 3.0,
+   "Thủy": 237.6
+  },
+  "can_lo": [
+   "Thủy",
+   "Thủy",
+   "Kim"
+  ],
+  "thang": 0,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 6.0,
+   "Thực thương": 0.0,
+   "Tài": 0.0,
+   "Quan sát": 0.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "Tòng tài VD1",
+  "nguon": "P2 tr.374",
+  "sach_tt": "Cách Tòng tài",
+  "sach_dung": "Thực thương sinh tài",
+  "sach_d": "Hỏa",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Tỉ kiếp)",
+  "hy": "Thủy (Ấn)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": "Hỏa",
+  "tool_d": "Mộc",
+  "loai": "5 Trùng bảng dụng thần dự bị",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 27.0,
+   "Hỏa": 72.0,
+   "Thổ": 134.4,
+   "Kim": 9.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thổ",
+   "Hỏa",
+   "Hỏa"
+  ],
+  "thang": 4,
+  "g_sach": "Thực thương",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 5.0,
+   "Tài": 5.0,
+   "Quan sát": 2.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "Tòng sát VD1",
+  "nguon": "P2 tr.374",
+  "sach_tt": "Cách Tòng sát",
+  "sach_dung": "Tài",
+  "sach_d": "Kim",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Kim (Tài)",
+  "hy": "Thủy (Quan sát)",
+  "cach": "Tòng sát",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Kim",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 21.599999999999998,
+   "Kim": 30.0,
+   "Thủy": 120.0
+  },
+  "can_lo": [
+   "Thủy",
+   "Thủy",
+   "Kim"
+  ],
+  "thang": 1,
+  "g_sach": "Tài",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 0.0,
+   "Thực thương": 1.0,
+   "Tài": 2.0,
+   "Quan sát": 6.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "Tòng nhi VD2",
+  "nguon": "P2 tr.375",
+  "sach_tt": "Cách Tòng nhi",
+  "sach_dung": "Thực thương",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Theo PP1)",
+  "dung": "Kim (Thực thương)",
+  "hy": "Thủy (Tài)",
+  "cach": "Tòng nhi",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Kim",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 63.0,
+   "Kim": 151.2,
+   "Thủy": 49.0
+  },
+  "can_lo": [
+   "Thổ",
+   "Kim",
+   "Thủy"
+  ],
+  "thang": 9,
+  "g_sach": "Thực thương",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 4.0,
+   "Tài": 3.0,
+   "Quan sát": 0.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "Hóa mộc VD1",
+  "nguon": "P2 tr.375",
+  "sach_tt": "Cách hóa mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "hy": "Thủy (Quan sát)",
+  "cach": "Hóa mộc",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": "Kim",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 163.2,
+   "Hỏa": 63.0,
+   "Thổ": 7.2,
+   "Kim": 12.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Kim",
+   "Thủy"
+  ],
+  "thang": 2,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 3.0,
+   "Tài": 1.0,
+   "Quan sát": 0.0,
+   "Ấn": 5.0
+  }
+ },
+ {
+  "ten": "Hóa thủy VD8",
+  "nguon": "P2 tr.376",
+  "sach_tt": "Cách hóa thủy",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thủy (Thực thương)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "Hóa thủy",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Hỏa",
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 9.0,
+   "Kim": 18.0,
+   "Thủy": 248.39999999999998
+  },
+  "can_lo": [
+   "Thủy",
+   "Thủy",
+   "Hỏa"
+  ],
+  "thang": 1,
+  "g_sach": "Thực thương",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 7.0,
+   "Tài": 0.0,
+   "Quan sát": 0.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-397 VD1",
+  "nguon": "P2 tr.397",
+  "sach_tt": "Vượng – thân thiên vượng, thổ nhiều kỵ; dụng thất sát giáp mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Quan sát)",
+  "hy": "Thủy (Tài)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Hỏa",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 18.0,
+   "Hỏa": 24.0,
+   "Thổ": 102.0,
+   "Kim": 24.0,
+   "Thủy": 50.4
+  },
+  "can_lo": [
+   "Thủy",
+   "Kim",
+   "Hỏa"
+  ],
+  "thang": 11,
+  "g_sach": "Quan sát",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 2.0,
+   "Tài": 4.0,
+   "Quan sát": 3.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-398 VD2",
+  "nguon": "P2 tr.398",
+  "sach_tt": "Nhược – thất lệnh, không gốc, thân nhược; dụng kim",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "hy": "Hỏa (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "2 Vượng suy khác sách",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 66.0,
+   "Hỏa": 22.0,
+   "Thổ": 25.2,
+   "Kim": 9.0,
+   "Thủy": 76.80000000000001
+  },
+  "can_lo": [
+   "Mộc",
+   "Hỏa",
+   "Thủy"
+  ],
+  "thang": 10,
+  "g_sach": "Ấn",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 1.0,
+   "Tài": 4.0,
+   "Quan sát": 1.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-399 VD3",
+  "nguon": "P2 tr.399",
+  "sach_tt": "Vượng – thân vượng ấn vượng; dụng thủy mộc",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Quan sát)",
+  "hy": "Mộc (Tài)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": null,
+  "tool_d": "Hỏa",
+  "loai": "3 Sách lấy hành điều hậu",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 60.0,
+   "Thổ": 50.4,
+   "Kim": 118.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Kim",
+   "Hỏa",
+   "Hỏa"
+  ],
+  "thang": 10,
+  "g_sach": "Thực thương",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 5.0,
+   "Thực thương": 0.0,
+   "Tài": 0.0,
+   "Quan sát": 4.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-400 VD4",
+  "nguon": "P2 tr.400 (trụ ngày điền Quý Mão theo lịch)",
+  "sach_tt": "Vượng – nhật chủ cực vượng; dụng giáp mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Tỉ kiếp)",
+  "hy": "Kim (Ấn)",
+  "cach": "Nhuận hạ",
+  "dh": "Hỏa",
+  "muc": "BẮT BUỘC",
+  "db": null,
+  "tool_d": "Thủy",
+  "loai": "1 Công cụ nhận cách đặc biệt",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 72.0,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 0,
+   "Thủy": 208.79999999999998
+  },
+  "can_lo": [
+   "Thủy",
+   "Mộc",
+   "Thủy"
+  ],
+  "thang": 0,
+  "g_sach": "Thực thương",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 5.0,
+   "Thực thương": 2.0,
+   "Tài": 0.0,
+   "Quan sát": 0.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P2-400 VD5",
+  "nguon": "P2 tr.400-401",
+  "sach_tt": "Vượng – thân vượng sát vượng ấn vượng; dụng thủy mộc",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Thực thương)",
+  "hy": "Mộc (Tài)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": null,
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 6.0,
+   "Hỏa": 116.39999999999999,
+   "Thổ": 45.0,
+   "Kim": 38.400000000000006,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Thổ",
+   "Mộc"
+  ],
+  "thang": 10,
+  "g_sach": "Thực thương",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 0.0,
+   "Tài": 1.0,
+   "Quan sát": 4.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-401 VD6",
+  "nguon": "P2 tr.401-402",
+  "sach_tt": "Vượng – không được lệnh nhưng được trợ, vẫn mạnh; dụng tài canh kim",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Thực thương)",
+  "hy": "Kim (Tài)",
+  "cach": "Tòng nhi",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": "Kim",
+  "tool_d": "Thổ",
+  "loai": "1 Công cụ nhận cách đặc biệt",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 117.0,
+   "Thổ": 61.199999999999996,
+   "Kim": 48.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Kim",
+   "Thổ"
+  ],
+  "thang": 10,
+  "g_sach": "Tài",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 5.0,
+   "Tài": 5.0,
+   "Quan sát": 1.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P2-402 VD7",
+  "nguon": "P2 tr.402",
+  "sach_tt": "Nhược – nhật chủ cực suy; dụng giáp mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 9.0,
+   "Hỏa": 19.200000000000003,
+   "Thổ": 0,
+   "Kim": 0,
+   "Thủy": 140.4
+  },
+  "can_lo": [
+   "Hỏa",
+   "Thổ",
+   "Thủy"
+  ],
+  "thang": 11,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 1.0,
+   "Tài": 0.0,
+   "Quan sát": 5.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-403 VD8",
+  "nguon": "P2 tr.403",
+  "sach_tt": "Nhược – thân yếu; dụng hỏa (điều hầu)",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Hỏa",
+  "tool_d": "Thổ",
+  "loai": "5 Trùng bảng dụng thần dự bị",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 39.6,
+   "Hỏa": 36.0,
+   "Thổ": 36.0,
+   "Kim": 27.0,
+   "Thủy": 87.0
+  },
+  "can_lo": [
+   "Thủy",
+   "Thủy",
+   "Hỏa"
+  ],
+  "thang": 2,
+  "g_sach": "Quan sát",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 4.0,
+   "Tài": 2.0,
+   "Quan sát": 3.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P2-404 VD9",
+  "nguon": "P2 tr.404",
+  "sach_tt": "Vượng – vẫn cường vượng; dụng thiên tài kỷ thổ thông quan",
+  "sach_dung": "Thổ",
+  "sach_d": "Thổ",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thủy (Ấn)",
+  "hy": "Mộc (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": "Hỏa",
+  "tool_d": "Thủy",
+  "loai": "2 Vượng suy khác sách",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 45.6,
+   "Hỏa": 45.0,
+   "Thổ": 13.0,
+   "Kim": 54.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Kim"
+  ],
+  "thang": 8,
+  "g_sach": "Tài",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 3.0,
+   "Tài": 4.0,
+   "Quan sát": 4.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-404 VD10",
+  "nguon": "P2 tr.404-405",
+  "sach_tt": "Vượng – nhật chủ cường vượng; dụng bính hỏa",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "hy": "Hỏa (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thổ",
+  "tool_d": "Thổ",
+  "loai": "4 Sách lấy hỷ thần của công cụ",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 129.6,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 0,
+   "Thủy": 102.0
+  },
+  "can_lo": [
+   "Thổ",
+   "Mộc",
+   "Thủy"
+  ],
+  "thang": 2,
+  "g_sach": "Tài",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 4.0,
+   "Tài": 0.0,
+   "Quan sát": 1.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P2-405 VD11",
+  "nguon": "P2 tr.405",
+  "sach_tt": "Vượng – nhật chủ cực vượng; dụng đinh hỏa",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Mộc",
+  "loai": "6 Khác",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 27.200000000000003,
+   "Hỏa": 36.0,
+   "Thổ": 39.0,
+   "Kim": 97.2,
+   "Thủy": 48.0
+  },
+  "can_lo": [
+   "Mộc",
+   "Thủy",
+   "Kim"
+  ],
+  "thang": 8,
+  "g_sach": "Quan sát",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 3.0,
+   "Tài": 2.0,
+   "Quan sát": 2.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P2-406 VD12",
+  "nguon": "P2 tr.406",
+  "sach_tt": "Vượng – cực vượng; dụng tài ất mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Hỏa",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 8.8,
+   "Hỏa": 3.0,
+   "Thổ": 120.0,
+   "Kim": 115.20001439999999,
+   "Thủy": 9.0
+  },
+  "can_lo": [
+   "Thổ",
+   "Kim",
+   "Thổ"
+  ],
+  "thang": 9,
+  "g_sach": "Tài",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 1.0,
+   "Tài": 1.0,
+   "Quan sát": 1.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P2-406 VD13",
+  "nguon": "P2 tr.406-407",
+  "sach_tt": "Nhược – nguyên thần cực yếu; dụng giáp mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 9.0,
+   "Hỏa": 21.0,
+   "Thổ": 61.199999999999996,
+   "Kim": 43.0,
+   "Thủy": 70.4
+  },
+  "can_lo": [
+   "Thủy",
+   "Kim",
+   "Thổ"
+  ],
+  "thang": 10,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 3.0,
+   "Tài": 3.0,
+   "Quan sát": 4.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-407 VD14",
+  "nguon": "P2 tr.407-408",
+  "sach_tt": "Nhược – văn bản vừa nói thân vượng vừa nói nhật nguyên yếu; dụng mão (tỉ) [lời giải không dứt khoát]",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Theo PP1)",
+  "dung": "Hỏa (Thực thương)",
+  "hy": "Thổ (Tài)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Hỏa",
+  "loai": "2 Vượng suy khác sách",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 18.0,
+   "Hỏa": 40.8,
+   "Thổ": 55.0,
+   "Kim": 43.2,
+   "Thủy": 51.0
+  },
+  "can_lo": [
+   "Kim",
+   "Thủy",
+   "Hỏa"
+  ],
+  "thang": 5,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 0.0,
+   "Thực thương": 2.0,
+   "Tài": 4.0,
+   "Quan sát": 5.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P2-408 VD15",
+  "nguon": "P2 tr.408-409",
+  "sach_tt": "Nhược – nhâm thủy không có nguồn nên không vượng; dụng nhâm thủy",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thủy (Tỉ kiếp)",
+  "hy": "Kim (Ấn)",
+  "cach": "Nhuận hạ",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 45.0,
+   "Hỏa": 40.800000000000004,
+   "Thổ": 27.0,
+   "Kim": 0,
+   "Thủy": 116.39999999999999
+  },
+  "can_lo": [
+   "Thủy",
+   "Mộc",
+   "Hỏa"
+  ],
+  "thang": 4,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 2.0,
+   "Tài": 2.0,
+   "Quan sát": 2.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P2-410 VD17",
+  "nguon": "P2 tr.410-411",
+  "sach_tt": "Vượng – nhật nguyên quá mạnh; dụng thất sát",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Quan sát)",
+  "hy": "Kim (Tài)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "BẮT BUỘC",
+  "db": "Thủy",
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 9.0,
+   "Hỏa": 122.39999999999999,
+   "Thổ": 48.0,
+   "Kim": 43.2,
+   "Thủy": 21.0
+  },
+  "can_lo": [
+   "Kim",
+   "Kim",
+   "Thủy"
+  ],
+  "thang": 5,
+  "g_sach": "Quan sát",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 4.0,
+   "Tài": 3.0,
+   "Quan sát": 2.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-411 VD18",
+  "nguon": "P2 tr.411-412",
+  "sach_tt": "Cách đặc biệt – chuyển nhược thành vượng, tòng cách; dụng kim",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": null,
+  "tool_d": "Mộc",
+  "loai": "6 Khác",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 17.6,
+   "Hỏa": 0,
+   "Thổ": 6.0,
+   "Kim": 144.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thổ",
+   "Thổ",
+   "Kim"
+  ],
+  "thang": 5,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 0.0,
+   "Tài": 1.0,
+   "Quan sát": 0.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-412 VD19",
+  "nguon": "P2 tr.412",
+  "sach_tt": "Vượng – thân vượng; dụng tài quý thủy",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Quan sát)",
+  "hy": "Thủy (Tài)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Mộc",
+  "loai": "3 Sách lấy hành điều hậu",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 21.0,
+   "Thổ": 140.4,
+   "Kim": 90.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Thổ",
+   "Kim",
+   "Kim"
+  ],
+  "thang": 7,
+  "g_sach": "Tài",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 4.0,
+   "Tài": 1.0,
+   "Quan sát": 1.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-413 VD20",
+  "nguon": "P2 tr.413",
+  "sach_tt": "Nhược – toàn cục nhiều thực thương; dụng thiên ấn trong tháng [lời giải không dứt khoát]",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "hy": "Hỏa (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thổ",
+  "tool_d": "Thổ",
+  "loai": "2 Vượng suy khác sách",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 110.4,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 14.400007200000001,
+   "Thủy": 60.0
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Thủy"
+  ],
+  "thang": 8,
+  "g_sach": "Ấn",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 5.0,
+   "Tài": 1.0,
+   "Quan sát": 2.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-414 VD21",
+  "nguon": "P2 tr.414",
+  "sach_tt": "Nhược – thực thần trùng điệp; dụng ấn bính hỏa [lời giải không dứt khoát]",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Hỏa (Ấn)",
+  "hy": "Thổ (Tỉ kiếp)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Hỏa",
+  "tool_d": "Hỏa",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 12.0,
+   "Hỏa": 51.0,
+   "Thổ": 75.0,
+   "Kim": 93.6,
+   "Thủy": 9.0
+  },
+  "can_lo": [
+   "Kim",
+   "Mộc",
+   "Hỏa"
+  ],
+  "thang": 8,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 3.0,
+   "Tài": 3.0,
+   "Quan sát": 2.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-415 VD22",
+  "nguon": "P2 tr.415",
+  "sach_tt": "Nhược – nhật trụ vẫn yếu; dụng mộc ấn",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Mộc",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 24.0,
+   "Hỏa": 7.2,
+   "Thổ": 3.0,
+   "Kim": 76.0,
+   "Thủy": 144.0
+  },
+  "can_lo": [
+   "Thủy",
+   "Thủy",
+   "Kim"
+  ],
+  "thang": 0,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 1.0,
+   "Tài": 3.0,
+   "Quan sát": 3.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-416 VD23",
+  "nguon": "P2 tr.416",
+  "sach_tt": "Nhược – cân bằng lại nhật chủ vẫn là nhược; dụng mậu thổ",
+  "sach_dung": "Thổ",
+  "sach_d": "Thổ",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 31.0,
+   "Hỏa": 46.8,
+   "Thổ": 90.0,
+   "Kim": 26.400000000000002,
+   "Thủy": 21.0
+  },
+  "can_lo": [
+   "Mộc",
+   "Thổ",
+   "Thủy"
+  ],
+  "thang": 5,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 2.0,
+   "Tài": 2.0,
+   "Quan sát": 2.0,
+   "Ấn": 5.0
+  }
+ },
+ {
+  "ten": "P2-417 VD25",
+  "nguon": "P2 tr.417-418",
+  "sach_tt": "Vượng – thân vượng, thủy lạnh kim hàn; dụng hỏa",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Hỏa",
+  "tool_d": "Thổ",
+  "loai": "2 Vượng suy khác sách",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 30.0,
+   "Hỏa": 0,
+   "Thổ": 78.0,
+   "Kim": 72.0,
+   "Thủy": 26.4
+  },
+  "can_lo": [
+   "Kim",
+   "Thổ",
+   "Thổ"
+  ],
+  "thang": 0,
+  "g_sach": "Quan sát",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 2.0,
+   "Tài": 2.0,
+   "Quan sát": 1.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P2-418 VD26",
+  "nguon": "P2 tr.418-419",
+  "sach_tt": "Vượng – thổ nhiều kim bị vùi lấp; dụng ất mộc (năm 1955 ghi Nhâm Thìn – nghi OCR) [lời giải không dứt khoát]",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "2 Vượng suy khác sách",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 30.0,
+   "Hỏa": 48.0,
+   "Thổ": 72.0,
+   "Kim": 36.0,
+   "Thủy": 16.8
+  },
+  "can_lo": [
+   "Thủy",
+   "Hỏa",
+   "Mộc"
+  ],
+  "thang": 7,
+  "g_sach": "Tài",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 0.0,
+   "Thực thương": 2.0,
+   "Tài": 4.0,
+   "Quan sát": 4.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P2-419 VD27",
+  "nguon": "P2 tr.419-420",
+  "sach_tt": "Vượng – ấn vượng sinh thân; dụng tài tân kim",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "hy": "Thủy (Quan sát)",
+  "cach": "Hóa mộc",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Mộc",
+  "loai": "1 Công cụ nhận cách đặc biệt",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 151.2,
+   "Hỏa": 54.0,
+   "Thổ": 52.800000000000004,
+   "Kim": 3.0,
+   "Thủy": 9.0
+  },
+  "can_lo": [
+   "Thổ",
+   "Hỏa",
+   "Thủy"
+  ],
+  "thang": 2,
+  "g_sach": "Tài",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 4.0,
+   "Tài": 1.0,
+   "Quan sát": 1.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P2-420 VD28",
+  "nguon": "P2 tr.420",
+  "sach_tt": "Nhược – nhật chủ rất suy nhược; dụng canh kim",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Kim (Ấn)",
+  "hy": "Thủy (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Kim",
+  "loai": "Khớp",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 36.0,
+   "Hỏa": 52.0,
+   "Thổ": 100.8,
+   "Kim": 18.0,
+   "Thủy": 19.200000000000003
+  },
+  "can_lo": [
+   "Mộc",
+   "Thủy",
+   "Thổ"
+  ],
+  "thang": 7,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 3.0,
+   "Tài": 4.0,
+   "Quan sát": 5.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-421 VD29",
+  "nguon": "P2 tr.421",
+  "sach_tt": "Không nêu – dụng điều hầu đinh hỏa; không nói vượng nhược",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Theo PP1)",
+  "dung": "Kim (Quan sát)",
+  "hy": "Thổ (Tài)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Kim",
+  "tool_d": "Kim",
+  "loai": "3 Sách lấy hành điều hậu",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 30.0,
+   "Hỏa": 21.0,
+   "Thổ": 45.6,
+   "Kim": 24.0,
+   "Thủy": 28.8
+  },
+  "can_lo": [
+   "Thủy",
+   "Mộc",
+   "Kim"
+  ],
+  "thang": 1,
+  "g_sach": "Thực thương",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 2.0,
+   "Tài": 4.0,
+   "Quan sát": 4.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P2-422 VD30",
+  "nguon": "P2 tr.422",
+  "sach_tt": "Nhược – nhật nguyên thiên về nhược; dụng ấn canh kim",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Kim (Ấn)",
+  "hy": "Thủy (Tỉ kiếp)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Kim",
+  "loai": "Khớp",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 81.0,
+   "Hỏa": 30.0,
+   "Thổ": 50.4,
+   "Kim": 45.0,
+   "Thủy": 38.400000000000006
+  },
+  "can_lo": [
+   "Thủy",
+   "Kim",
+   "Mộc"
+  ],
+  "thang": 10,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 4.0,
+   "Tài": 4.0,
+   "Quan sát": 4.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-422 VD31",
+  "nguon": "P2 tr.422-423 (trụ ngày điền Quý Tị theo lịch)",
+  "sach_tt": "Vượng – lấy thổ khắc thân làm dụng (ngầm: thân vượng), hỏa hỷ [lời giải không dứt khoát]",
+  "sach_dung": "Thổ",
+  "sach_d": "Thổ",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Tài)",
+  "hy": "Mộc (Thực thương)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "BẮT BUỘC",
+  "db": "Hỏa",
+  "tool_d": "Hỏa",
+  "loai": "6 Khác",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 10.0,
+   "Hỏa": 15.200000000000001,
+   "Thổ": 30.0,
+   "Kim": 33.0,
+   "Thủy": 127.19999999999999
+  },
+  "can_lo": [
+   "Kim",
+   "Thổ",
+   "Thủy"
+  ],
+  "thang": 0,
+  "g_sach": "Quan sát",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 1.0,
+   "Tài": 2.0,
+   "Quan sát": 3.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-423 VD32",
+  "nguon": "P2 tr.423-424",
+  "sach_tt": "Trung hòa – từ nhược chuyển thành trung hòa; dụng ấn",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Mộc",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 87.0,
+   "Hỏa": 26.400000000000002,
+   "Thổ": 52.0,
+   "Kim": 9.0,
+   "Thủy": 44.4
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Thổ"
+  ],
+  "thang": 11,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 3.0,
+   "Tài": 1.0,
+   "Quan sát": 3.0,
+   "Ấn": 5.0
+  }
+ },
+ {
+  "ten": "P2-424 VD33",
+  "nguon": "P2 tr.424-425",
+  "sach_tt": "Nhược – nhật chủ rất yếu; dụng chính ấn",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Hỏa (Ấn)",
+  "hy": "Thổ (Tỉ kiếp)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Hỏa",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 9.600000000000001,
+   "Hỏa": 9.0,
+   "Thổ": 78.0,
+   "Kim": 98.4000096,
+   "Thủy": 24.0
+  },
+  "can_lo": [
+   "Thổ",
+   "Thủy",
+   "Kim"
+  ],
+  "thang": 9,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 3.0,
+   "Tài": 2.0,
+   "Quan sát": 2.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-425 VD34",
+  "nguon": "P2 tr.425-426",
+  "sach_tt": "Nhược – cực nhược do xì hơi; dụng ất mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Hỏa (Tỉ kiếp)",
+  "hy": "Mộc (Ấn)",
+  "cach": "Viêm thượng",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": null,
+  "tool_d": "Hỏa",
+  "loai": "1 Công cụ nhận cách đặc biệt",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 9.0,
+   "Hỏa": 130.79999999999998,
+   "Thổ": 120.0,
+   "Kim": 7.2,
+   "Thủy": 3.0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Thổ",
+   "Thổ"
+  ],
+  "thang": 10,
+  "g_sach": "Ấn",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 4.0,
+   "Tài": 1.0,
+   "Quan sát": 1.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P2-426 VD35",
+  "nguon": "P2 tr.426-427",
+  "sach_tt": "Nhược – thực thương quá vượng; dụng bính hỏa [lời giải không dứt khoát]",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Tỉ kiếp)",
+  "hy": "Hỏa (Ấn)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Thổ",
+  "loai": "4 Sách lấy hỷ thần của công cụ",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 38.400000000000006,
+   "Hỏa": 21.0,
+   "Thổ": 78.0,
+   "Kim": 43.200007199999995,
+   "Thủy": 21.0
+  },
+  "can_lo": [
+   "Mộc",
+   "Thủy",
+   "Thổ"
+  ],
+  "thang": 8,
+  "g_sach": "Ấn",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 5.0,
+   "Thực thương": 2.0,
+   "Tài": 3.0,
+   "Quan sát": 2.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P2-427 VD36",
+  "nguon": "P2 tr.427",
+  "sach_tt": "Vượng – hỏa nhiều, có quan chế, tương đối cân bằng; dụng kim",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Theo PP1)",
+  "dung": "Thủy (Quan sát)",
+  "hy": "Kim (Tài)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "BẮT BUỘC",
+  "db": "Thủy",
+  "tool_d": "Thủy",
+  "loai": "4 Sách lấy hỷ thần của công cụ",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 70.8,
+   "Thổ": 15.0,
+   "Kim": 14.4,
+   "Thủy": 78.0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Thủy",
+   "Thủy"
+  ],
+  "thang": 5,
+  "g_sach": "Tài",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 4.0,
+   "Thực thương": 3.0,
+   "Tài": 2.0,
+   "Quan sát": 3.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P2-428 VD37",
+  "nguon": "P2 tr.428",
+  "sach_tt": "Vượng – thân vượng; dụng hỏa",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Mộc",
+  "loai": "6 Khác",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 24.0,
+   "Hỏa": 21.0,
+   "Thổ": 55.0,
+   "Kim": 75.6,
+   "Thủy": 21.0
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Thủy"
+  ],
+  "thang": 8,
+  "g_sach": "Quan sát",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 2.0,
+   "Tài": 4.0,
+   "Quan sát": 3.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P2-429 VD38",
+  "nguon": "P2 tr.429",
+  "sach_tt": "Trung hòa – vẫn là mệnh trung hòa; dụng mộc (nam lấy vượng làm phúc)",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Tỉ kiếp)",
+  "hy": "Thủy (Ấn)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Kim",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 57.0,
+   "Hỏa": 21.0,
+   "Thổ": 43.199999999999996,
+   "Kim": 36.0,
+   "Thủy": 40.800000000000004
+  },
+  "can_lo": [
+   "Thủy",
+   "Kim",
+   "Mộc"
+  ],
+  "thang": 10,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 2.0,
+   "Tài": 3.0,
+   "Quan sát": 2.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P2-430 VD39",
+  "nguon": "P2 tr.430",
+  "sach_tt": "Vượng – mẹ vượng con mạnh, thân vượng; cần hỏa luyện",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Quan sát)",
+  "hy": "Mộc (Tài)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Hỏa",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 46.0,
+   "Hỏa": 0,
+   "Thổ": 45.6,
+   "Kim": 63.0,
+   "Thủy": 7.2
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Kim"
+  ],
+  "thang": 10,
+  "g_sach": "Quan sát",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 2.0,
+   "Tài": 4.0,
+   "Quan sát": 1.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P2-430 VD40",
+  "nguon": "P2 tr.430-431",
+  "sach_tt": "Nhược – thân nhược tài sát vượng; dụng kim thủy",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Thực thương)",
+  "hy": "Hỏa (Tài)",
+  "cach": "Tòng tài",
+  "dh": "Thủy",
+  "muc": "CẦN (bổ trợ)",
+  "db": "Hỏa",
+  "tool_d": "Mộc",
+  "loai": "1 Công cụ nhận cách đặc biệt",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 190.79999999999998,
+   "Thổ": 45.0,
+   "Kim": 0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Thổ",
+   "Hỏa"
+  ],
+  "thang": 10,
+  "g_sach": "Ấn",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 0.0,
+   "Thực thương": 0.0,
+   "Tài": 6.0,
+   "Quan sát": 2.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P3 tr.583 VD1",
+  "nguon": "P3 tr.583-587",
+  "sach_tt": "Nhược – nhật nguyên càng nhược… không đến nỗi quá nhược; dụng Thủy (thực thương – vì thiếu thủy, thổ táo)",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Kim",
+  "tool_d": "Thổ",
+  "loai": "3 Sách lấy hành điều hậu",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 35.0,
+   "Hỏa": 78.0,
+   "Thổ": 54.0,
+   "Kim": 24.0,
+   "Thủy": 0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Hỏa",
+   "Kim"
+  ],
+  "thang": 7,
+  "g_sach": "Thực thương",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 0.0,
+   "Tài": 4.0,
+   "Quan sát": 5.0,
+   "Ấn": 3.0
+  }
+ },
+ {
+  "ten": "P3 tr.588 VD2",
+  "nguon": "P3 tr.587-590",
+  "sach_tt": "Vượng – Tứ trụ khá vượng; dụng Thủy",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Tài)",
+  "hy": "Kim (Thực thương)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Hỏa",
+  "tool_d": "Thủy",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 100.8,
+   "Thổ": 78.0,
+   "Kim": 2.4000000000000004,
+   "Thủy": 33.0
+  },
+  "can_lo": [
+   "Thủy",
+   "Hỏa",
+   "Mộc"
+  ],
+  "thang": 6,
+  "g_sach": "Tài",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 1.0,
+   "Tài": 2.0,
+   "Quan sát": 0.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P3 tr.591 VD3",
+  "nguon": "P3 tr.591-594",
+  "sach_tt": "Vượng – nhật chủ nguyên thần e rằng vượng quá; dụng Kim (quan sát)",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Tài)",
+  "hy": "Hỏa (Thực thương)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": null,
+  "tool_d": "Thổ",
+  "loai": "6 Khác",
+  "nc": "Mộc",
+  "do": {
+   "Mộc": 144.0,
+   "Hỏa": 0,
+   "Thổ": 0,
+   "Kim": 0,
+   "Thủy": 120.0
+  },
+  "can_lo": [
+   "Thủy",
+   "Mộc",
+   "Mộc"
+  ],
+  "thang": 0,
+  "g_sach": "Quan sát",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 0.0,
+   "Tài": 0.0,
+   "Quan sát": 0.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P3 tr.595 VD4",
+  "nguon": "P3 tr.595-599",
+  "sach_tt": "Vượng – thân vượng; dụng Thủy (thực thần, điều hầu)",
+  "sach_dung": "Thủy",
+  "sach_d": "Thủy",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Quan sát)",
+  "hy": "Mộc (Tài)",
+  "cach": "",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Hỏa",
+  "loai": "3 Sách lấy hành điều hậu",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 76.8,
+   "Thổ": 33.0,
+   "Kim": 55.2,
+   "Thủy": 36.0
+  },
+  "can_lo": [
+   "Kim",
+   "Thủy",
+   "Hỏa"
+  ],
+  "thang": 6,
+  "g_sach": "Thực thương",
+  "g_tool": "Quan sát",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 3.0,
+   "Tài": 0.0,
+   "Quan sát": 3.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P3 tr.600 VD5",
+  "nguon": "P3 tr.600-604",
+  "sach_tt": "Nhược – nhật nguyên rất nhược; dụng Kim (ấn)",
+  "sach_dung": "Kim",
+  "sach_d": "Kim",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thủy (Tỉ kiếp)",
+  "hy": "Kim (Ấn)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Thủy",
+  "loai": "4 Sách lấy hỷ thần của công cụ",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 147.0,
+   "Hỏa": 27.0,
+   "Thổ": 82.8,
+   "Kim": 0,
+   "Thủy": 16.8
+  },
+  "can_lo": [
+   "Mộc",
+   "Thổ",
+   "Mộc"
+  ],
+  "thang": 4,
+  "g_sach": "Ấn",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 5.0,
+   "Tài": 1.0,
+   "Quan sát": 3.0,
+   "Ấn": 0.0
+  }
+ },
+ {
+  "ten": "P3 tr.605 VD6",
+  "nguon": "P3 tr.605-608",
+  "sach_tt": "Vượng – Tứ trụ nhiều thủy… thủy là kị thần; dụng Hỏa (điều hầu)",
+  "sach_dung": "Hỏa",
+  "sach_d": "Hỏa",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Tài)",
+  "hy": "Mộc (Thực thương)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "BẮT BUỘC",
+  "db": "Hỏa",
+  "tool_d": "Hỏa",
+  "loai": "Khớp",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 10.0,
+   "Hỏa": 15.200000000000001,
+   "Thổ": 30.0,
+   "Kim": 33.0,
+   "Thủy": 127.19999999999999
+  },
+  "can_lo": [
+   "Kim",
+   "Thổ",
+   "Thủy"
+  ],
+  "thang": 0,
+  "g_sach": "Tài",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 3.0,
+   "Thực thương": 1.0,
+   "Tài": 2.0,
+   "Quan sát": 3.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "P3 tr.609 VD7",
+  "nguon": "P3 tr.608-613",
+  "sach_tt": "Trung hòa – nhật chủ từ nhược biến thành trung hòa; dụng Mộc (ấn)",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Mộc",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 87.0,
+   "Hỏa": 26.400000000000002,
+   "Thổ": 52.0,
+   "Kim": 9.0,
+   "Thủy": 44.4
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Thổ"
+  ],
+  "thang": 11,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 3.0,
+   "Tài": 1.0,
+   "Quan sát": 3.0,
+   "Ấn": 5.0
+  }
+ },
+ {
+  "ten": "P3 tr.614 VD8",
+  "nguon": "P3 tr.614-617",
+  "sach_tt": "Vượng – Tứ trụ này thân vượng; dụng Mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Kim",
+  "do": {
+   "Mộc": 24.0,
+   "Hỏa": 21.0,
+   "Thổ": 55.0,
+   "Kim": 75.6,
+   "Thủy": 21.0
+  },
+  "can_lo": [
+   "Mộc",
+   "Mộc",
+   "Thủy"
+  ],
+  "thang": 8,
+  "g_sach": "Tài",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 2.0,
+   "Tài": 4.0,
+   "Quan sát": 3.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "P3 tr.618 VD9",
+  "nguon": "P3 tr.618-622",
+  "sach_tt": "Nhược – thân cực nhược… nhật chủ vẫn yếu; dụng Mộc (ấn)",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "cach": "",
+  "dh": "Hỏa",
+  "muc": "CẦN",
+  "db": "Mộc",
+  "tool_d": "Mộc",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 24.0,
+   "Hỏa": 7.2,
+   "Thổ": 3.0,
+   "Kim": 76.0,
+   "Thủy": 144.0
+  },
+  "can_lo": [
+   "Thủy",
+   "Thủy",
+   "Kim"
+  ],
+  "thang": 0,
+  "g_sach": "Ấn",
+  "g_tool": "Ấn",
+  "pp1": {
+   "Tỉ kiếp": 1.0,
+   "Thực thương": 1.0,
+   "Tài": 3.0,
+   "Quan sát": 3.0,
+   "Ấn": 1.0
+  }
+ },
+ {
+  "ten": "P3 tr.623 VD10",
+  "nguon": "P3 tr.622-626",
+  "sach_tt": "Vượng – nhâm thuỷ sinh tháng 8 được lệnh… kim nhiều; dụng Mộc",
+  "sach_dung": "Mộc",
+  "sach_d": "Mộc",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Tài)",
+  "hy": "Mộc (Thực thương)",
+  "cach": "",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Mộc",
+  "tool_d": "Hỏa",
+  "loai": "4 Sách lấy hỷ thần của công cụ",
+  "nc": "Thủy",
+  "do": {
+   "Mộc": 7.2,
+   "Hỏa": 36.0,
+   "Thổ": 9.0,
+   "Kim": 91.2,
+   "Thủy": 66.0
+  },
+  "can_lo": [
+   "Hỏa",
+   "Hỏa",
+   "Kim"
+  ],
+  "thang": 9,
+  "g_sach": "Thực thương",
+  "g_tool": "Tài",
+  "pp1": {
+   "Tỉ kiếp": 2.0,
+   "Thực thương": 1.0,
+   "Tài": 2.0,
+   "Quan sát": 1.0,
+   "Ấn": 4.0
+  }
+ },
+ {
+  "ten": "Gia tường VD2",
+  "nguon": "P2 tr.371; HTL tr.149",
+  "sach_tt": "Cách Gia tường (tứ trụ thuần thổ)",
+  "sach_dung": "Thổ",
+  "sach_d": "Thổ",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Tỉ kiếp)",
+  "hy": "Kim (Thực thương)",
+  "cach": "Gia tường",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 21.0,
+   "Hỏa": 27.0,
+   "Thổ": 262.8,
+   "Kim": 9.0,
+   "Thủy": 4.800000000000001
+  },
+  "can_lo": [
+   "Thổ",
+   "Thổ",
+   "Thổ"
+  ],
+  "thang": 7,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 7.0,
+   "Thực thương": 1.0,
+   "Tài": 2.0,
+   "Quan sát": 3.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "HTL Gia tường VD1",
+  "nguon": "HTL tr.149 (= P2 tr.371 VD1)",
+  "sach_tt": "Cách Gia tường",
+  "sach_dung": "Thổ",
+  "sach_d": "Thổ",
+  "tt": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Tỉ kiếp)",
+  "hy": "Kim (Thực thương)",
+  "cach": "Gia tường",
+  "dh": "Thủy",
+  "muc": "CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Thổ",
+  "do": {
+   "Mộc": 12.0,
+   "Hỏa": 12.0,
+   "Thổ": 259.2,
+   "Kim": 12.0,
+   "Thủy": 9.600000000000001
+  },
+  "can_lo": [
+   "Thổ",
+   "Thổ",
+   "Thủy"
+  ],
+  "thang": 7,
+  "g_sach": "Tỉ kiếp",
+  "g_tool": "Tỉ kiếp",
+  "pp1": {
+   "Tỉ kiếp": 7.0,
+   "Thực thương": 2.0,
+   "Tài": 2.0,
+   "Quan sát": 2.0,
+   "Ấn": 2.0
+  }
+ },
+ {
+  "ten": "HTL Tòng tài VD1",
+  "nguon": "HTL tr.151",
+  "sach_tt": "Cách Tòng tài (Ất–Canh hóa kim)",
+  "sach_dung": "Thực thương sinh tài",
+  "sach_d": "Thổ",
+  "tt": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thổ (Thực thương)",
+  "hy": "Kim (Tài)",
+  "cach": "Tòng tài",
+  "dh": null,
+  "muc": "KHÔNG CẦN",
+  "db": "Thủy",
+  "tool_d": "Thổ",
+  "loai": "Khớp",
+  "nc": "Hỏa",
+  "do": {
+   "Mộc": 0,
+   "Hỏa": 0,
+   "Thổ": 60.0,
+   "Kim": 162.0,
+   "Thủy": 9.0
+  },
+  "can_lo": [
+   "Kim",
+   "Mộc",
+   "Thổ"
+  ],
+  "thang": 9,
+  "g_sach": "Thực thương",
+  "g_tool": "Thực thương",
+  "pp1": {
+   "Tỉ kiếp": 0.0,
+   "Thực thương": 2.0,
+   "Tài": 6.0,
+   "Quan sát": 1.0,
+   "Ấn": 0.0
+  }
+ }
+]

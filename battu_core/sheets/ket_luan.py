@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet KET_LUAN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.3.xlsx (SHA-256 7ae759658d290172bbbf7b6642e24532239e3b9ea54ca71e2696802411bca4c5).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -805,8 +805,9 @@ def f116(E, r, c):
 
 def f117(E, r, c):
     # Ô C52
-    # = DUNG_HY_KY!$C$145&IF(AND(DUNG_HY_KY!$C$145<>"",DUNG_HY_KY!$C$151<>""),CHAR(10),"")&DUNG_HY_KY!$C$151
-    return X.cat(X.cat(E.v(8,145,3),(X.CHAR(10.0) if X.truthy(X.AND(X.ne(E.v(8,145,3),''), X.ne(E.v(8,151,3),''))) else '')),E.v(8,151,3))
+    # = DUNG_HY_KY!$C$145&IF(AND(DUNG_HY_KY!$C$145<>"",DUNG_HY_KY!$C$151<>""),CHAR(10),"")&DUNG_HY_KY!$C$151&IF(AND(DUNG_HY_KY!$C$145&DUNG_HY_KY!$C$151<>"",DU
+    #   NG_HY_KY!$C$198<>""),CHAR(10),"")&DUNG_HY_KY!$C$198
+    return X.cat(X.cat(X.cat(X.cat(E.v(8,145,3),(X.CHAR(10.0) if X.truthy(X.AND(X.ne(E.v(8,145,3),''), X.ne(E.v(8,151,3),''))) else '')),E.v(8,151,3)),(X.CHAR(10.0) if X.truthy(X.AND(X.ne(X.cat(E.v(8,145,3),E.v(8,151,3)),''), X.ne(E.v(8,198,3),''))) else '')),E.v(8,198,3))
 
 def f118(E, r, c):
     # Ô C55

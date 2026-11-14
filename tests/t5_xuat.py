@@ -63,7 +63,7 @@ def chay(n=5):
         pp = os.path.join(tmp, 'a.pdf'); so = xuat_pdf(kq, pp)
         n_, txt = doc_pdf(pp)
         pdf.append(n_ == so and n_ > 0 and all(('Trang %d/%d' % (k + 1, n_)) in t for k, t in enumerate(txt))
-                   and 'Luận giải chung' in txt[0] and 'Quy tắc 6.3' in txt[0] and an_ok)
+                   and 'Luận giải chung' in txt[0] and 'Quy tắc 6.4' in txt[0] and an_ok)
     return tj, dj, tx, dx, lech, pdf, time.time() - t0
 
 

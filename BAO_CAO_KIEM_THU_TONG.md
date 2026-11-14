@@ -367,3 +367,21 @@ T7 + T9 + T10 từ mã nguồn, cài → tự kiểm khi chặn mạng (dấu v�
 | BatTuThieuViHoa_Setup_1.4.0_Windows.exe | 78eb37aa79cafe05116ae12278701ebd10d947f287913302b3b75a29dca60e62 |
 | BatTuThieuViHoa_1.4.0_macOS_arm64.dmg | 4f28cdd6716b6351c09da0c19ae8eee0803dc2cd93400764584a330ab0d70540 |
 | BatTuThieuViHoa_1.4.0_macOS_x86_64.dmg | 701c27c52f6b7c59bc88762b9ffa621f62d5acaf2f609e7f7703559d58452949 |
+
+## Bản 1.5.0 – quy tắc 6.4 (G142, phương án A: ghi chú dụng thần theo cách bổ hành khuyết) – 14/11/2026
+
+Workbook 6.4 (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c) = 6.3 + đúng 9 ô (DUNG_HY_KY B197:B199, C198, D198; KET_LUAN B52, C52; TRANG_CHU B3; MAU_THUAN dòng 168) – đã so từng ô với 6.3. **Toàn bộ đáp án LibreOffice lấy lại trên 6.4** (dap_an_o, ket_qua 501 lá, 12 bộ biến thể, T7, T8, T9, T10), rồi chạy lại T1–T10:
+
+| Kiểm thử | Kết quả |
+|---|---|
+| T1 (30 lá) | 856.470 / 856.470 |
+| T1b (7 biến thể) | 7 × 865.770 (B1 cũ để đối chứng như trước) |
+| T2 / T1-501 | 24.048 / 24.048 · 14.054.052 / 14.054.052 |
+| T3 · âm lịch · T4 | 710 / 710 · 74.144 / 74.144 · 510 / 510 |
+| T5 xuất | JSON 142.745 · XLSX 143.810 · PDF 5/5 |
+| T6 kho lá số | 12 / 12, mọi hạng mục ĐẠT |
+| T7 | 570.980 / 570.980 |
+| T8 (PA1, PA2) | 1.587.245 / 1.587.245 mỗi chế độ |
+| T9 · T10 | 577.180 / 577.180 · 577.180 / 577.180 |
+
+Chi tiết: tai_lieu/BAO_CAO_KIEM_THU_1.5.0_CHI_TIET.md.

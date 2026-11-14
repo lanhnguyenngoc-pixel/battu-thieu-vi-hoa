@@ -74,3 +74,51 @@ Con số 30/64 báo lượt trước lấy từ bảng ảnh chụp tĩnh trong 
 | 31 | P2-422 VD31 (P2 tr.422-423 (trụ ngày điền Quý Tị theo lịch)) | Thổ | Hỏa (Tài) | Mộc (Thực thương) | Hỏa BẮT BUỘC | Vượng – lấy thổ khắc thân làm  / VƯỢNG | 6. Thân vượng: công cụ chọn tài, sách chọn quan sát/khác |
 | 32 | P2-428 VD37 (P2 tr.428) | Hỏa | Mộc (Tài) | Thủy (Thực thương) | –  | Vượng – thân vượng; dụng hỏa / VƯỢNG | 6. Thân vượng: công cụ chọn tài, sách chọn quan sát/khác |
 | 33 | P3 tr.591 VD3 (P3 tr.591-594) | Kim | Thổ (Tài) | Hỏa (Thực thương) | Hỏa CẦN | Vượng – nhật chủ nguyên thần e / VƯỢNG | 6. Thân vượng: công cụ chọn tài, sách chọn quan sát/khác |
+## Bổ sung: tìm quy luật chung của tác giả (14/11/2026)
+
+| Giả thuyết | Kiểm trên 73 lá | Kết luận |
+|---|---|---|
+| Thân vượng thì sách chuộng **tài** | Theo sách: 16/31 lá vượng chọn tài, 10 quan sát, 5 thực thương. "Luôn chọn tài" khớp 12/30 lá, công cụ khớp 11/30 | Có xu hướng, không đủ thành luật |
+| Sách chọn hành **yếu / khuyết** | Ở 33 lá lệch: dụng của sách thuộc 2 hành yếu nhất (theo độ PP2) ở 22 lá; dụng của công cụ là hành mạnh nhất ở 9 lá. Sách chọn nhóm khuyết (0 chữ) ở 11 lá, công cụ ở 4 lá | **Xu hướng rõ nhất** – "bổ chỗ thiếu" |
+| Luật thử: "phe dụng có nhóm khuyết → lấy nhóm khuyết (ưu tiên quan sát)" | 44/73 (thêm 5, mất 1) | Nhưng đổi dụng thần **108/423 lá chính cách** trong bộ 501 lá; thứ tự ưu tiên chọn sau khi xem dữ liệu → dễ "học thuộc" mẫu |
+| Lấy hành yếu nhất trong phe | 33/73 | Kém công cụ |
+| Mùa sinh: đông → Hỏa, hạ → Thủy | Sách 4/18 và 5/17 lá | Không phải luật |
+| Điều hậu mọi mức "CẦN" | 35/73 | Kém công cụ |
+
+Kết luận: không có một luật duy nhất. Tác giả luận tổng thể từng lá; xu hướng nổi bật là bổ hành thiếu hoặc khuyết (sách cũng nói dụng thần khuyết thì chờ vận – P1 tr.97). Bằng chứng còn mỏng (5 lá thêm đúng) so với mức thay đổi (1/4 số lá đổi dụng thần), nên không đề xuất đổi quy tắc. Nếu được duyệt, có thể thêm **dòng ghi chú "dụng thần thay thế: nhóm X đang khuyết"** – không đổi kết luận.
+
+## Nghiên cứu mở rộng: tỉ lệ ngũ hành và luật kết hợp (14/11/2026)
+
+Dữ liệu: 73 lá Thiệu Vĩ Hoa (TVH), 356 lá Trích Thiên Tủy (TTT – lời bình Nhậm Thiết Tiều, nhãn dụng thần đã có trong hồ sơ), 37 lá Hoàng Thăng Long (HTL). Công cụ tính lại cả 466 lá.
+
+### 1. Tỉ lệ độ (PP2) của nhóm được chọn làm dụng thần (chính cách)
+
+| Bộ | Số lá | = 0% | < 10% | 10–20% | 20–30% | ≥ 30% | Trung vị | Dụng là nhóm khuyết (0 chữ) |
+|---|---|---|---|---|---|---|---|---|
+| TVH – sách | 54 | 12 | 13 | 17 | 3 | 9 | **10%** | **9** |
+| TVH – công cụ | 54 | 8 | 11 | 14 | 8 | 13 | 16% | 2 |
+| TTT – sách | 285 | 20 | 50 | 67 | 66 | 82 | **21%** | 12 |
+| TTT – công cụ | 285 | 18 | 81 | 77 | 53 | 56 | 15% | 4 |
+
+→ Thiệu Vĩ Hoa chọn nhóm **yếu hoặc khuyết** (một nửa số lá dưới 10%); Nhậm Thiết Tiều ngược lại, chọn nhóm **mạnh hơn**. Công cụ nằm giữa hai người.
+
+Theo trạng thái (TVH): thân vượng, sách chọn thực thương khi nhóm này gần như vắng (trung vị 2%), chọn quan sát khi quan sát ~10% (lúc không chọn ~14–20%); thân nhược, ấn được chọn ở trung vị 10%.
+
+### 2. Luật kết hợp tốt nhất (dò 1.300 phương án, kiểm chéo bỏ-một-lá)
+
+"Giữ dụng thần của công cụ; nhưng nếu trong phe dụng có nhóm **khuyết hẳn** (0 chữ cả lộ lẫn tàng) thì lấy nhóm khuyết – thân vượng ưu tiên Quan sát → Thực thương → Tài; thân nhược ưu tiên Ấn → Tỉ kiếp."
+
+| | Hiện tại | Luật kết hợp |
+|---|---|---|
+| TVH (73 lá) | 40 (55%) | **45 (62%)**; kiểm chéo bỏ-một-lá **44** |
+| TTT (356 lá) | 117 | 94 (kém đi) |
+| HTL (37 lá) | 21 | 19 |
+| Bộ 501 lá: số lá đổi dụng thần | – | 108 / 423 lá chính cách (chỉ áp cho thân vượng: 72 / 423) |
+
+Dùng ngưỡng % độ PP2 thay cho "khuyết hẳn": kiểm chéo còn 38/73, kém hơn hiện tại → mốc có ý nghĩa là **khuyết**, không phải một tỉ lệ phần trăm.
+
+### 3. Đánh giá
+
+- Luật kết hợp phản ánh đúng **phong cách Thiệu Vĩ Hoa** (bổ hành khuyết), qua được kiểm chéo (+4 lá), nhưng mẫu nhỏ: 5 lá thêm đúng, 1 lá mất (kiểm định dấu: chưa có ý nghĩa thống kê).
+- Luật này làm **kém đi** trên sách Trích Thiên Tủy → đây là cách chọn riêng của từng tác giả, không phải quy luật chung của môn học.
+- Sách là nhận định của tác giả, không phải sự việc thật; muốn biết luật nào "đúng thực tế" cần dữ liệu sự việc (Đối chiếu thực tế + Thống kê 3.8).
