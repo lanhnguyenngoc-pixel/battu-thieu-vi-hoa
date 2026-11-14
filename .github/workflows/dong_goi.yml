@@ -58,7 +58,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: macos-14
+          - os: macos-15
             kien_truc: arm64
           - os: macos-15-intel
             kien_truc: x86_64
