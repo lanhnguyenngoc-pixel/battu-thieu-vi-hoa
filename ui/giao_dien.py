@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.1.2 · Quy tắc 6.3'
+PHIEN_BAN = 'Phiên bản 1.2.0 · Quy tắc 6.3'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -323,6 +323,7 @@ class TrangNhap(QWidget):
         self.hen.stop(); self.tinh()
 
     def chip(self, text, kind=None):
+        text = lam_sach(text) if isinstance(text, str) else text
         if not text: return
         if kind is None:
             kind = 'chip_ok' if text.startswith('✔') else 'chip_warn' if (text.startswith('⚠') or 'CẢNH BÁO' in text or 'KHÔNG KHỚP' in text) \
@@ -369,7 +370,7 @@ class TrangNhap(QWidget):
             self.chip('Tiết: %s → %s · năm can chi (theo Lập xuân): %s' % (o('DAI_VAN', 'C12'), o('DAI_VAN', 'C13'), so_hien(o('DAI_VAN', 'C14'))), 'chip_info')
         self.chip(o('DAI_VAN', 'C16'))
         kv = o('DAI_VAN', 'C21'); nd = o('DAI_VAN', 'C17')
-        self.chip('Khởi vận %s tuổi (%s; số ngày đến tiết %s; DAI_VAN C17–C21). Bảng đại vận đầy đủ có ở Giai đoạn 3.' % (
+        self.chip('Khởi vận %s tuổi (%s; số ngày đến tiết %s).' % (
             so_hien(kv), 'thuận' if o('DAI_VAN', 'C7') == 1 else 'nghịch', ('%.2f' % nd) if isinstance(nd, float) else 'không có'), 'chip_info')
         if s.cach_nhap == 'canchi': self.chip(o('NHAP_LIEU', 'D45'))
         self.da_tinh.emit(kq)
@@ -413,7 +414,7 @@ class TrangTrungGian(QWidget):
 
 
 from ui.bang_sheet import BangSheet
-from battu_core.hien_thi import hien_thi_o
+from export.lam_sach import hien_thi_sach as hien_thi_o, lam_sach
 from PySide6.QtWidgets import QTabWidget
 
 SHEET_PHAN_TICH = [('PP1_DINH_TINH', 'PP1 – định tính'), ('PP2_DINH_LUONG', 'PP2 – định lượng'), ('THONG_CAN', 'Thông căn'),

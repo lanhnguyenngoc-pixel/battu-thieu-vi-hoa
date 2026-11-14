@@ -9,6 +9,13 @@ from openpyxl.utils import get_column_letter
 from battu_core import xl as X
 from battu_core.du_lieu import model, ref_of
 from battu_core.dinh_dang_dk import kieu_sheet
+from export.lam_sach import lam_sach, TEN
+
+
+def ten_trang(sh):
+    """Tên trang tính tiếng Việt trong bản XLSX (không dùng tên sheet nội bộ)."""
+    t = {'DOI_CHIEU': 'Đối chiếu', 'TIET_KHI': 'Tiết khí', 'SAO': 'Bảng sao'}.get(sh) or TEN.get(sh, sh)
+    return t[:1].upper() + t[1:31]
 from export.noi_dung import SHEET_AN, DONG_PHU_TRO_KL, TEN_PHAN_MEM, thong_tin_la, chu_ky, ngay_in, la_tieu_de
 
 NEN_TIEU_DE = PatternFill('solid', fgColor='F3F0FF')
@@ -20,16 +27,16 @@ def _gia_tri(v):
 
 
 def xuat_xlsx(kq, duong_dan):
-    E = kq.E; M = model(); wb = Workbook(); ws0 = wb.active; ws0.title = 'THONG_TIN'
+    E = kq.E; M = model(); wb = Workbook(); ws0 = wb.active; ws0.title = 'Thông tin'
     ws0['A1'] = TEN_PHAN_MEM + ' – kết quả lá số'; ws0['A1'].font = Font(bold=True, size=14)
     dong = 3
     for k, v in thong_tin_la(kq) + [('Phiên bản quy tắc', chu_ky()), ('Ngày xuất', ngay_in()),
-                                     ('Ghi chú', 'Bản xuất không chứa công thức; địa chỉ ô trùng workbook 6.3. Nội dung sức khỏe chỉ tham khảo, không phải chẩn đoán.')]:
+                                     ('Ghi chú', 'Nội dung sức khỏe chỉ tham khảo, không phải chẩn đoán.')]:
         ws0.cell(dong, 1, k).font = Font(bold=True); ws0.cell(dong, 2, v); dong += 1
     ws0.column_dimensions['A'].width = 34; ws0.column_dimensions['B'].width = 110
     for sh in M.sheets:
-        if sh in SHEET_AN: continue
-        si = M.si[sh]; ws = wb.create_sheet(sh); fc = M.formula_cells[si]; dd = M.dinh_dang.get(sh, {})
+        if sh in SHEET_AN or sh in ('HUONG_DAN', 'TRANG_CHU', 'NHAP_LIEU'): continue    # hướng dẫn thao tác Excel: không đưa vào
+        si = M.si[sh]; ws = wb.create_sheet(ten_trang(sh)); fc = M.formula_cells[si]; dd = M.dinh_dang.get(sh, {})
         dk = kieu_sheet(E, sh); bc = M.bo_cuc.get(sh, {})
         o = set(E.consts[si]) | set(fc) | {(r, c) for (s_, r, c) in E.dt if s_ == si}
         for (r, c) in o:
@@ -38,6 +45,7 @@ def xuat_xlsx(kq, duong_dan):
             else:
                 v = E.consts[si].get((r, c))
             if v is None or v == '': continue
+            if isinstance(v, str): v = lam_sach(v)              # bỏ tham chiếu nội bộ workbook
             x = ws.cell(r, c, v)
             ma = dd.get(ref_of(r, c))
             if ma and ma != 'General' and isinstance(v, (int, float)) and not isinstance(v, bool): x.number_format = ma

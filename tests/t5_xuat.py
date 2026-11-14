@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """T5 – Xuất PDF / XLSX / JSON (YÊU CẦU 5.4) trên lá T7 (đáp án oracle_dump.py):
 (a) JSON: mọi ô {sheet: {ô: giá trị}} trùng đáp án oracle (đổi true/false → 1/0 như getDataArray);
-(b) XLSX: mở lại bằng openpyxl, mọi ô công thức của 30 sheet hiển thị trùng giá trị JSON; giữ ô gộp, cột/dòng ẩn;
+(b) XLSX: mở lại bằng openpyxl, mọi ô công thức của 28 sheet hiển thị trùng giá trị JSON (chữ: sau làm sạch tham chiếu nội bộ); giữ ô gộp, cột/dòng ẩn;
 (c) PDF: số trang > 0, mỗi trang có "Trang i/n", có khối KẾT LUẬN và phiên bản quy tắc (đọc lại bằng QtPdf).
 Dùng: QT_QPA_PLATFORM=offscreen python -m tests.t5_xuat [số_lá]"""
 import sys, os, json, tempfile, time, collections, datetime
@@ -13,8 +13,9 @@ from battu_core.dich_vu import KetQua
 from battu_core.nhap_lieu import LaSo
 from tests.so_dap_an import oracle_nhap, khop, ten_tep
 from export.xuat_json import du_lieu, xuat_json
-from export.xuat_xlsx import xuat_xlsx
+from export.xuat_xlsx import xuat_xlsx, ten_trang
 from export.noi_dung import SHEET_AN
+from export.lam_sach import lam_sach
 
 GOC = os.path.dirname(os.path.abspath(__file__))
 
@@ -49,19 +50,20 @@ def chay(n=5):
         from openpyxl import load_workbook
         wb = load_workbook(px)
         for sh, o in d.items():
-            if sh in SHEET_AN: continue
-            ws = wb[sh]
+            if sh in SHEET_AN or sh in ('HUONG_DAN', 'TRANG_CHU', 'NHAP_LIEU'): continue
+            ws = wb[ten_trang(sh)]
             for ref, v in o.items():
                 x = ws[ref].value; tx['XLSX'] += 1
                 if isinstance(x, datetime.datetime): x = to_excel(x)      # ô định dạng ngày giờ → số sê-ri
+                if isinstance(v, str): v = lam_sach(v)          # XLSX hiển thị chữ đã bỏ tham chiếu nội bộ
                 ok = (x is None and v == '') or x == v or (isinstance(v, float) and isinstance(x, (int, float)) and khop(float(x), v))
                 if ok: dx['XLSX'] += 1
                 else: lech.append((c['id'], 'XLSX', sh, ref, x, v))
-        an_ok = wb['KET_LUAN'].row_dimensions[201].hidden and wb['LUC_THAN'].column_dimensions['M'].hidden and len(wb['KET_LUAN'].merged_cells.ranges) > 0
+        an_ok = wb[ten_trang('KET_LUAN')].row_dimensions[201].hidden and wb[ten_trang('LUC_THAN')].column_dimensions['M'].hidden and len(wb[ten_trang('KET_LUAN')].merged_cells.ranges) > 0
         pp = os.path.join(tmp, 'a.pdf'); so = xuat_pdf(kq, pp)
         n_, txt = doc_pdf(pp)
         pdf.append(n_ == so and n_ > 0 and all(('Trang %d/%d' % (k + 1, n_)) in t for k, t in enumerate(txt))
-                   and 'KẾT LUẬN' in txt[0] and 'Quy tắc 6.3' in txt[0] and an_ok)
+                   and 'Luận giải chung' in txt[0] and 'Quy tắc 6.3' in txt[0] and an_ok)
     return tj, dj, tx, dx, lech, pdf, time.time() - t0
 
 

@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.1.2** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.2.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -119,3 +119,20 @@ Quyết định 14/11/2026: MT-16 không cần thực hiện (giữ như hiện 
 - Thẻ đại vận (màn hình Lá số): **XU THẾ chính theo Thiệu Vĩ Hoa** (DAI_VAN dòng 54/69 theo phương pháp khuyến nghị – như DAI_VAN!C106) in đậm; mức **Hóa giải toàn thư** (dòng 102, HG tr.83 – workbook ghi "chỉ hiển thị") in nhỏ bên dưới; trạng thái nhật can và tàng can chuyển vào chú giải khi rê chuột.
 - Bỏ các ghi chú kỹ thuật thừa (theo đánh dấu của chủ dự án): tiêu đề dài KET_LUAN B3 ở Luận giải chung, "Kiểm tra và ghi chú (nguyên văn workbook)", "(dòng 37-38)", thời gian tính (ms), các nhãn số ô công thức / tên sheet / địa chỉ ô (C14, E3…), dòng chú thích cờ DAI_VAN dòng 106, đường dẫn tệp lá số; PDF bỏ tên sheet ở tiêu đề mục. Địa chỉ ô nguồn của chú giải chỉ hiện ở Chế độ chuyên gia.
 - Chỉ đổi giao diện; lõi tính không đổi.
+
+## Bản 1.2.0 (14/11/2026) – phần mềm độc lập với workbook
+Quyết định của chủ dự án: phần mềm và bộ công cụ Excel khi hoàn thiện là **độc lập**; mọi chữ người đọc thấy không được trỏ về sheet/ô của workbook.
+
+| Việc | Cách làm |
+|---|---|
+| **Lớp làm sạch khi hiển thị** (`export/lam_sach.py`) áp cho giao diện, PDF, XLSX, chú giải | Bỏ: tên sheet + địa chỉ ô/dòng/cột ("(DOI_CHIEU C33)", "PP1_DINH_TINH!C91", "chi tiết LUU_NIEN cột BN", "(dòng 37-38)", "(G11)"), danh sách sheet trong ngoặc ("[TAI_LOC, MENH_CUC]"), mã giả định G…, mã quy tắc nội bộ (TC66, HN31, CM14, UH3b…); "xem SHEET …" đổi thành tên mục của phần mềm ("xem Sự nghiệp"); trỏ tới phần chỉ chạy ẩn (MAU_THUAN, KIEM_THU, CSDL) thì bỏ. **Giữ nguyên** nội dung luận đoán và trích dẫn sách (P1 tr…, P2 tr…, HG tr…, UH tr…), ký hiệu PP1/PP2/PA1/PA2 |
+| Lõi tính | **Không đổi** – giá trị gốc vẫn trùng workbook 100% (T1–T9 dùng giá trị gốc); JSON xuất giá trị gốc (dữ liệu đối soát) |
+| Mục Tham khảo | Bỏ Trang chủ và Hướng dẫn của workbook (chỉ hướng dẫn thao tác Excel); còn Tham khảo ngoài sách, Tiết khí |
+| XLSX | Tên trang tính tiếng Việt (Luận giải chung, Đại vận…); bỏ trang Nhập liệu/Trang chủ/Hướng dẫn của Excel |
+| Bảng ở chế độ thường | Ẩn số dòng/chữ cột kiểu Excel; chế độ chuyên gia vẫn hiện |
+| Chú thích kỹ thuật GĐ1 còn sót ("…DAI_VAN C17–C21. Bảng đại vận đầy đủ có ở Giai đoạn 3") | Đã bỏ |
+| PDF | Đầu trang "Phiên bản 1.2.0 · Quy tắc 6.3" (không ghi mã workbook) |
+| Hướng dẫn sử dụng | Viết lại, không nhắc workbook/sheet/ô |
+| Kiểm thử | T5 (xuất, chữ XLSX so sau làm sạch) 100%; T7 570.940/570.940; T9 577.140/577.140; tự kiểm ĐẠT |
+
+Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tính; workbook 6.3 giữ nguyên (SHA-256 7ae75965…bca4c5).

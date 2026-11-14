@@ -10,6 +10,7 @@ from battu_core.dinh_dang_dk import kieu_sheet
 from battu_core import sheets as S
 
 PHIEN_BAN_QUY_TAC = '6.3'
+PHIEN_BAN_PM = '1.2.0'
 TEN_PHAN_MEM = 'Bát Tự Thiệu Vĩ Hoa'
 SHEET_AN = ('MAU_THUAN', 'KIEM_THU', 'CSDL')          # chỉ tính ẩn (quyết định 14/11/2026)
 DONG_PHU_TRO_KL = range(200, 252)
@@ -47,12 +48,16 @@ MUC_XUAT = [('KL_%s' % chu, _tieu_de_kl(chu), 'KET_LUAN', dong_muc_kl(i)) for i,
 MUC_MAC_DINH = ['KL_%s' % chu for chu, _, _ in MUC_KL] + ['NGU_HANH_THIEU']
 
 
-def chu_o(E, sheet, r, c):
+def chu_o(E, sheet, r, c, sach=True):
+    """Chữ hiển thị của ô; sach=True: bỏ tham chiếu nội bộ của workbook (export.lam_sach)."""
+    from export.lam_sach import lam_sach
     M = model(); si = M.si[sheet]
-    if (r, c) in M.formula_cells[si]: return hien_thi_o(E, sheet, ref_of(r, c))
-    v = E.consts[si].get((r, c))
-    if v is None: return ''
-    return hien_thi_o(E, sheet, ref_of(r, c)) if isinstance(v, (int, float)) else str(v)
+    if (r, c) in M.formula_cells[si]: t = hien_thi_o(E, sheet, ref_of(r, c))
+    else:
+        v = E.consts[si].get((r, c))
+        if v is None: return ''
+        t = hien_thi_o(E, sheet, ref_of(r, c)) if isinstance(v, (int, float)) else str(v)
+    return lam_sach(t) if sach else t
 
 
 def la_tieu_de(t):
@@ -115,7 +120,7 @@ def thong_tin_la(kq):
 
 
 def chu_ky():
-    return 'Quy tắc %s · workbook SHA-256 %s…' % (PHIEN_BAN_QUY_TAC, S.NGUON_SHA256[:12])
+    return 'Phiên bản %s · Quy tắc %s' % (PHIEN_BAN_PM, PHIEN_BAN_QUY_TAC)
 
 
 def ngay_in():

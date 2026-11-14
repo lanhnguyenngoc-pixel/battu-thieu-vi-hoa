@@ -29,7 +29,8 @@ def tu_dien(E):
             if not m: continue
             k = m.group(1).strip(); kl = k.lower()
             if kl in _BO or len(kl) < 2 or kl in ra: continue
-            ra[kl] = (k, cau.strip(), '%s!%s' % (sh, ref_of(r, c)))
+            from export.lam_sach import lam_sach
+            ra[kl] = (k, lam_sach(cau.strip()), '%s!%s' % (sh, ref_of(r, c)))
     return list(ra.values())
 
 

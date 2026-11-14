@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QWidget, QFrame, QLabel, QPushButton, QHBoxLayout
                                QComboBox, QScrollArea, QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem,
                                QStackedWidget, QTabWidget, QDialog, QDialogButtonBox, QPlainTextEdit, QMessageBox,
                                QAbstractItemView, QHeaderView, QSplitter, QFormLayout)
-from battu_core.hien_thi import hien_thi_o
+from export.lam_sach import hien_thi_sach as hien_thi_o
 from battu_core.du_lieu import model, ref_of, rc
 from battu_core.kho_la_so import Kho, anh_chup
 from battu_core.dich_vu import tinh
@@ -37,12 +37,13 @@ def cuon(w):
 
 
 def chu_o(E, sheet, ref):
-    """Chữ hiển thị của một ô (ô công thức hoặc ô hằng)."""
+    """Chữ hiển thị của một ô (ô công thức hoặc ô hằng), đã bỏ tham chiếu nội bộ workbook."""
     M = model(); si = M.si[sheet]; r, c = rc(ref)
     if (r, c) in M.formula_cells[si]: return hien_thi_o(E, sheet, ref)
     v = E.consts[si].get((r, c))
     if v is None: return ''
-    return hien_thi_o(E, sheet, ref) if isinstance(v, (int, float)) else str(v)
+    from export.lam_sach import lam_sach
+    return hien_thi_o(E, sheet, ref) if isinstance(v, (int, float)) else lam_sach(str(v))
 
 
 def dong_muc(i):
@@ -179,7 +180,7 @@ class TrangLinhVuc(QWidget):
 
 
 # ---------------------------------------------------------------- THAM KHẢO (chỉ đọc)
-THAM_KHAO = [('TRANG_CHU', 'Trang chủ'), ('HUONG_DAN', 'Hướng dẫn'), ('THAM_KHAO', 'Tham khảo ngoài sách'), ('TIET_KHI', 'Tiết khí 1899–2101')]
+THAM_KHAO = [('THAM_KHAO', 'Tham khảo ngoài sách'), ('TIET_KHI', 'Tiết khí 1899–2101')]   # Trang chủ, Hướng dẫn của workbook: chỉ hướng dẫn thao tác Excel → bỏ
 
 
 class TrangThamKhao(QWidget):

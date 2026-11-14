@@ -6,7 +6,7 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QFont
 from PySide6.QtWidgets import QTableWidget, QTableWidgetItem, QAbstractItemView, QHeaderView
 from battu_core.du_lieu import model, ref_of
-from battu_core.hien_thi import hien_thi_o
+from export.lam_sach import hien_thi_sach as hien_thi_o, lam_sach
 from battu_core.dinh_dang_dk import kieu_sheet
 from battu_core.thuat_ngu import tu_dien, tim
 
@@ -51,6 +51,7 @@ class BangSheet(QTableWidget):
     def hien(self, E):
         M = model(); si = M.si[self.sheet]; fc = M.formula_cells[si]
         dk = kieu_sheet(E, self.sheet); td = tu_dien(E); cg = CHE_DO['chuyen_gia']
+        self.horizontalHeader().setVisible(cg); self.verticalHeader().setVisible(cg)
         self.setUpdatesEnabled(False)
         for i, r in enumerate(self.dong):
             for c in range(1, self.nc + 1):
@@ -62,7 +63,7 @@ class BangSheet(QTableWidget):
                     if v is None:
                         if self.item(i, c - 1): self.setItem(i, c - 1, None)
                         continue
-                    t = hien_thi_o(E, self.sheet, ref) if isinstance(v, (int, float)) else str(v)
+                    t = hien_thi_o(E, self.sheet, ref) if isinstance(v, (int, float)) else lam_sach(str(v))
                 it = QTableWidgetItem(t)
                 gy = '' if (r, c) in fc else '\n\n'.join(('• %s  (%s)' % (cau, o)) if cg else ('• ' + cau) for k, cau, o in tim(t, td, 3))
                 dau = ('%s!%s%s' % (self.sheet, ref, '  (ô công thức)' if (r, c) in fc else '')) if cg else ''
