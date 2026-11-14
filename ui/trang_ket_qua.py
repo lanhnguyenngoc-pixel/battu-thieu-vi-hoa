@@ -95,8 +95,10 @@ class TrangTomTat(QWidget):
 
 # ---------------------------------------------------------------- THEO LĨNH VỰC + TÌM KIẾM
 class TrangLinhVuc(QWidget):
+    """Mục B–K theo lĩnh vực. Chế độ thường: dạng văn bản đọc (ui.bai_doc); chế độ chuyên gia: lưới ô gốc."""
     def __init__(self):
         super().__init__()
+        from ui.bai_doc import BaiDoc
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(10)
         h = QHBoxLayout(); h.addWidget(lbl('Theo lĩnh vực', 'tieude')); h.addStretch()
         self.o_tim = QLineEdit(); self.o_tim.setPlaceholderText('🔍  Tìm trong kết luận, luận giải… (Enter)'); self.o_tim.setMinimumWidth(360)
@@ -110,7 +112,7 @@ class TrangLinhVuc(QWidget):
         sp.addWidget(self.ds)
         self.ngan = QStackedWidget(); sp.addWidget(self.ngan); sp.setStretchFactor(1, 1)
         v.addWidget(sp, 1)
-        self.muc = []                     # (khóa, sheet, BangSheet, nhãn KẾT LUẬN hoặc None, dòng KL)
+        self.muc = []                     # (khóa, sheet, BangSheet, nhãn KẾT LUẬN, dòng KL, BaiDoc, ngăn đọc/lưới, dòng tiêu đề)
         for i, (chu, r0, rkl) in enumerate(MUC_KL):
             w = QWidget(); wl = QVBoxLayout(w); wl.setContentsMargins(0, 0, 0, 0); wl.setSpacing(8)
             kl = None
@@ -119,24 +121,34 @@ class TrangLinhVuc(QWidget):
                 sk = cuon(kl); sk.setMaximumHeight(210); wl.addWidget(sk)
             if chu == 'H':
                 wl.addWidget(lbl('Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa.', 'chip_warn', True))
-            b = BangSheet('KET_LUAN', dong=dong_muc(i)); wl.addWidget(b, 1)
-            self.ngan.addWidget(w); self.muc.append((chu, 'KET_LUAN', b, kl, rkl))
+            hai = QStackedWidget(); bd = BaiDoc(); b = BangSheet('KET_LUAN', dong=dong_muc(i))
+            hai.addWidget(bd); hai.addWidget(b); wl.addWidget(hai, 1)
+            self.ngan.addWidget(w); self.muc.append((chu, 'KET_LUAN', b, kl, rkl, bd, hai, r0))
             self.ds.addItem(QListWidgetItem('%s' % chu))
         for sh, ten in TRANG_THEM:
-            b = BangSheet(sh); self.ngan.addWidget(b); self.muc.append((sh, sh, b, None, None)); self.ds.addItem(QListWidgetItem(ten))
+            hai = QStackedWidget(); bd = BaiDoc(); b = BangSheet(sh); hai.addWidget(bd); hai.addWidget(b)
+            self.ngan.addWidget(hai); self.muc.append((sh, sh, b, None, None, bd, hai, None)); self.ds.addItem(QListWidgetItem(ten))
         self.ds.currentRowChanged.connect(self._chon)
         self.o_tim.returnPressed.connect(self.tim); self.kq_tim.itemClicked.connect(self._toi)
         self.kq = None; self._da_ve = set()
         self.ds.setCurrentRow(1)
 
+    @staticmethod
+    def _cg():
+        from ui.bang_sheet import CHE_DO
+        return CHE_DO['chuyen_gia']
+
     def hien(self, kq):
-        self.kq = kq; self._da_ve = set(); E = kq.E
+        self.kq = kq; self._da_ve = set(); E = kq.E; cg = self._cg()
         for i, (chu, r0, rkl) in enumerate(MUC_KL):
             self.ds.item(i).setText(chu_o(E, 'KET_LUAN', 'B%d' % r0) or chu)
-            _, _, _, kl, _ = self.muc[i]
+            kl = self.muc[i][3]
             if kl: kl.setText('<b>%s</b><br>%s' % (html.escape(chu_o(E, 'KET_LUAN', 'B%d' % rkl)),
                                                     html.escape(chu_o(E, 'KET_LUAN', 'C%d' % rkl)).replace('\n', '<br>')))
-        self._ve();
+        for j, (sh, _) in enumerate(TRANG_THEM):            # Luận giải (bảng ô), Đối chiếu sự việc: đã có trang riêng → chỉ chuyên gia
+            self.ds.setRowHidden(len(MUC_KL) + j, (not cg) and sh in ('LUAN_GIAI', 'SU_KIEN'))
+        if self.ds.isRowHidden(self.ds.currentRow()): self.ds.setCurrentRow(1)
+        self._ve()
         if self.kq_tim.isVisible(): self.tim()
 
     def _chon(self, i):
@@ -145,7 +157,12 @@ class TrangLinhVuc(QWidget):
     def _ve(self):
         i = self.ngan.currentIndex()
         if not self.kq or i < 0 or i in self._da_ve or not self.isVisible(): return
-        self.muc[i][2].hien(self.kq.E); self._da_ve.add(i)
+        k, sh, b, kl, rkl, bd, hai, r0 = self.muc[i]
+        if self._cg():
+            b.hien(self.kq.E); hai.setCurrentIndex(1)
+        else:
+            bd.hien(self.kq.E, sh, dong_muc(i) if sh == 'KET_LUAN' else None, bo_dong={r0, rkl}); hai.setCurrentIndex(0)
+        self._da_ve.add(i)
 
     def showEvent(self, e):
         super().showEvent(e); self._ve()
@@ -157,8 +174,10 @@ class TrangLinhVuc(QWidget):
     def tim(self):
         chu = self.o_tim.text().strip().lower(); self.kq_tim.clear()
         if not chu or not self.kq: self.kq_tim.setVisible(False); return
-        E = self.kq.E; M = model(); n = 0
-        for i, (k, sh, b, _, _) in enumerate(self.muc):
+        E = self.kq.E; M = model(); n = 0; cg = self._cg()
+        for i, m in enumerate(self.muc):
+            k, sh, b = m[0], m[1], m[2]
+            if self.ds.isRowHidden(i): continue
             si = M.si[sh]
             for r, c in b.o_hien():
                     if (r, c) not in M.formula_cells[si] and (r, c) not in E.consts[si]: continue
@@ -166,8 +185,9 @@ class TrangLinhVuc(QWidget):
                     j = t.lower().find(chu)
                     if j < 0: continue
                     doan = t[max(0, j - 40): j + 80].replace('\n', ' ')
-                    it = QListWidgetItem('%s · %s!%s   …%s…' % (self.ds.item(i).text()[:38], sh, ref_of(r, c), doan))
-                    it.setData(Qt.UserRole, (i, r, c)); self.kq_tim.addItem(it); n += 1
+                    noi = ('%s!%s   ' % (sh, ref_of(r, c))) if cg else ''
+                    it = QListWidgetItem('%s · %s…%s…' % (self.ds.item(i).text()[:38], noi, doan))
+                    it.setData(Qt.UserRole, (i, r, c, t[j:j + 40])); self.kq_tim.addItem(it); n += 1
                     if n >= 300: break
             if n >= 300: break
         if n == 0: self.kq_tim.addItem('Không tìm thấy "%s".' % self.o_tim.text().strip())
@@ -176,7 +196,11 @@ class TrangLinhVuc(QWidget):
     def _toi(self, it):
         d = it.data(Qt.UserRole)
         if not d: return
-        i, r, c = d; self.ds.setCurrentRow(i); self.muc[i][2].toi_o(r, c)
+        i, r, c, doan = d; self.ds.setCurrentRow(i)
+        if self._cg(): self.muc[i][2].toi_o(r, c)
+        else:
+            bd = self.muc[i][5]; bd.moveCursor(bd.textCursor().MoveOperation.Start)
+            bd.find(doan.split('\n')[0][:30])
 
 
 # ---------------------------------------------------------------- THAM KHẢO (chỉ đọc)

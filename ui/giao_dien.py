@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.2.0 · Quy tắc 6.3'
+PHIEN_BAN = 'Phiên bản 1.3.0 · Quy tắc 6.3'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -471,8 +471,9 @@ class TrangBangNhieuSheet(QWidget):
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
         h = QHBoxLayout(); h.addWidget(lbl(tieu_de, 'tieude')); h.addStretch(); v.addLayout(h)
         self.tab = QTabWidget(); self.tab.setDocumentMode(True); self.bang = {}
+        from ui.bai_doc import KhungDocLuoi
         for sh, ten in ds:
-            b = BangSheet(sh); self.bang[sh] = b; self.tab.addTab(b, ten)
+            b = KhungDocLuoi(sh); self.bang[sh] = b; self.tab.addTab(b, ten)
         v.addWidget(self.tab, 1); self.kq = None; self._da_ve = set()
         self.tab.currentChanged.connect(lambda _: self._ve())
 
@@ -506,7 +507,8 @@ class TrangNguHanhThieu(QWidget):
         c2 = QFrame(); c2.setObjectName('the'); l2 = QVBoxLayout(c2); l2.setContentsMargins(12, 12, 12, 12)
         self.bd2 = BieuDoDaiVan(); l2.addWidget(self.bd2); hb.addWidget(c2, 6)
         v.addLayout(hb, 5)
-        self.bang = BangSheet('NGU_HANH_THIEU'); v.addWidget(self.bang, 4)
+        from ui.bai_doc import KhungDocLuoi
+        self.bang = KhungDocLuoi('NGU_HANH_THIEU'); v.addWidget(self.bang, 4)
         self.che_do.currentTextChanged.connect(self.doi_che_do.emit)
         self.kq = None
 

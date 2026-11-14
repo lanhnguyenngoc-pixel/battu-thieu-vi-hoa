@@ -113,14 +113,12 @@ class TrangLaSo(QWidget):
             mau_xt = '#c00000' if xt == 'Tốt' else '#6b7280' if xt == 'Xấu' else '#1e2140'
             a.setText("<span style='font-size:15px;font-weight:800;color:%s'>%s</span><br>"
                       "<span style='color:#7b809c'>từ %s tuổi<br>%s–%s</span><br>%s<br>"
-                      "<span style='color:#7b809c;font-size:10px'>XU THẾ</span><br><b style='font-size:14px;color:%s'>%s</b><br>"
-                      "<span style='color:#9094ad;font-size:10px'>Hóa giải toàn thư</span><br><span style='color:#9094ad'>%s</span>%s"
+                      "<span style='color:#7b809c;font-size:10px'>XU THẾ</span><br><b style='font-size:14px;color:%s'>%s</b>%s"
                       % (k.get('chu', '#1e2140'), html.escape(d(35, c)), d(36, c), d(37, c), d(38, c), html.escape(d(39, c)),
-                         mau_xt, html.escape(xt), html.escape(d(102, c)), '<br><b style="color:#4f46e5">◀ ĐANG HÀNH</b>' if dang else ''))
+                         mau_xt, html.escape(xt), '<br><b style="color:#4f46e5">◀ ĐANG HÀNH</b>' if dang else ''))
             a.setAlignment(Qt.AlignHCenter | Qt.AlignTop)
             f.setStyleSheet('#the{border:2px solid #7c3aed;}' if dang else '')
-            f.setToolTip('%s – năm %s–%s\nNhật can tại chi vận: %s\nTàng can chi vận: %s\n\nXu thế: theo sách Thiệu Vĩ Hoa.\n'
-                         'Hóa giải toàn thư (tr.83): chấm thêm theo vai trò can – chi vận, chỉ để tham khảo.\n\n%s'
+            f.setToolTip('%s – năm %s–%s\nNhật can tại chi vận: %s\nTàng can chi vận: %s\n\nXu thế: theo sách Thiệu Vĩ Hoa.\n\n%s'
                          % (d(35, c), d(37, c), d(38, c), d(41, c), d(40, c), goi_y('đại vận ' + d(39, c), td)))
 
 

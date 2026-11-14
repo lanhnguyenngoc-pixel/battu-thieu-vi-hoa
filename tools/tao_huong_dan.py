@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.2.0 (quy tắc 6.3)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.3.0 (quy tắc 6.3)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.3; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.2.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.3.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -52,7 +52,7 @@ H.append('<h2>2. Bố cục màn hình và Chế độ chuyên gia</h2><p>Thanh 
          '<tr><td>★ Luận giải chung</td><td>9 dòng kết luận của 9 lĩnh vực; nút Nhập/sửa, Xuất/In, Lưu.</td></tr>'
          '<tr><td>❦ Luận giải chi tiết</td><td>Bài đọc liền mạch 8 mục + đánh giá tổng thể + 6 ý cho từng kết luận; chữ gạch chân có chú giải.</td></tr>'
          '<tr><td>↯ Vận trình</td><td>Đại vận (thêm Lưu niên 100 năm, Theo dõi ở chế độ chuyên gia).</td></tr>'
-         '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K theo lĩnh vực (mỗi mục mở đầu bằng dòng KẾT LUẬN) và ô tìm kiếm.</td></tr>'
+         '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K theo lĩnh vực, trình bày dạng văn bản đọc (mỗi mục mở đầu bằng khung KẾT LUẬN, rồi căn cứ chi tiết) và ô tìm kiếm.</td></tr>'
          '<tr><td>☯ Ngũ hành thiếu</td><td>Mục I, II, ★, III, IV, V và 2 biểu đồ.</td></tr>'
          '<tr><td>✓ Kiểm chứng sự việc</td><td>Nhập sự việc đã xảy ra để đối chiếu với lá số.</td></tr>'
          '<tr><td colspan="2"><b>Chuyên gia – hiện khi bật công tắc</b></td></tr>'
@@ -80,10 +80,8 @@ H.append('<p>Người mới học nên đọc theo thứ tự trên thanh bên: 
 
 H.append('<h2>4b. Lá số trực quan</h2>')
 anh('18_la_so_truc_quan.png', 'Lá số: can chi lớn tô màu theo hành (Mộc xanh lá, Hỏa đỏ, Thổ nâu, Kim vàng, Thủy xanh dương); trụ ngày (nhật chủ) nền tím')
-H.append('<p>Mỗi thẻ đại vận ghi: tuổi và năm bắt đầu – kết thúc, thập thần của can vận, <b>XU THẾ</b> theo sách Thiệu Vĩ Hoa '
-         '(Tốt – chữ đỏ đậm / Thường / Xấu, theo phương pháp khuyến nghị) và dòng nhỏ <i>Hóa giải toàn thư</i> (Đại cát, Tiểu cát, Bình…: '
-         'cách chấm bổ sung theo vai trò dụng – hỷ – kỵ của can và chi vận, sách Tứ trụ hóa giải toàn thư tr.68-70, 83 – chỉ để tham khảo). '
-         'Rê chuột lên thẻ để xem trạng thái nhật can tại chi vận và tàng can.</p>')
+H.append('<p>Mỗi thẻ đại vận ghi: tuổi và năm bắt đầu – kết thúc, thập thần của can vận và <b>XU THẾ</b> theo sách Thiệu Vĩ Hoa '
+         '(Tốt – chữ đỏ đậm / Thường / Xấu). Rê chuột lên thẻ để xem trạng thái nhật can tại chi vận và tàng can.</p>')
 H.append('<h2>5. Theo lĩnh vực, Luận giải và tìm kiếm</h2>')
 anh('02_linh_vuc_C_ban_menh.png', 'Mục C – Bản mệnh: khung KẾT LUẬN ở trên, căn cứ chi tiết ở dưới; chữ đỏ đậm = điểm tốt')
 anh('05_tim_kiem.png', 'Tìm kiếm: gõ từ khóa rồi Enter; bấm một kết quả để nhảy tới chỗ đó')

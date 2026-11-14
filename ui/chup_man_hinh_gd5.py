@@ -33,9 +33,9 @@ w.t_lv.mo('LUAN_GIAI'); app.processEvents(); w.t_lv.muc[10][2].toi_o(71, 1); chu
 w.t_lv.o_tim.setText('dụng thần'); w.t_lv.tim(); chup('05_tim_kiem.png')
 w.t_lv.o_tim.setText(''); w.t_lv.tim()
 # 6. Định dạng có điều kiện: Vận trình – Đại vận (đỏ đậm theo C106), Lưu niên (CW), Theo dõi (Tốt/Xấu)
-w.di(w.t_vt); w.t_vt.tab.setCurrentIndex(0); app.processEvents(); w.t_vt.bang['DAI_VAN'].scrollToItem(w.t_vt.bang['DAI_VAN'].item(28, 2), V.PositionAtTop)
+w.di(w.t_vt); w.t_vt.tab.setCurrentIndex(0); app.processEvents(); w.t_vt.bang['DAI_VAN'].luoi.scrollToItem(w.t_vt.bang['DAI_VAN'].luoi.item(28, 2), V.PositionAtTop)
 chup('06_dai_van_dinh_dang_dk.png')
-w.t_vt.tab.setCurrentIndex(2); app.processEvents(); w.t_vt.bang['THEO_DOI'].scrollToItem(w.t_vt.bang['THEO_DOI'].item(10, 0), V.PositionAtTop)
+w.t_vt.tab.setCurrentIndex(2); app.processEvents(); w.t_vt.bang['THEO_DOI'].luoi.scrollToItem(w.t_vt.bang['THEO_DOI'].luoi.item(10, 0), V.PositionAtTop)
 chup('07_theo_doi_tot_xau.png')
 # 8. Tham khảo
 w.di(w.t_tk); w.t_tk.tab.setCurrentIndex(0); chup('08_tham_khao_trang_chu.png')
@@ -59,7 +59,7 @@ w.di(w.t_nhap); chup('13_nhap_lieu.png')
 from ui.hop_xuat import HopXuat
 w.di(w.t_tt); app.processEvents(); h = HopXuat(w, t.kq); h.show(); app.processEvents(); h.grab().save(os.path.join(out, '14_hop_xuat_in.png')); print('14_hop_xuat_in.png'); h.close()
 # 15. Chuyên đề – Lục thân (đỏ đậm Tốt/Khá), 16. Không rõ giờ, 17. Ngũ hành thiếu
-w.di(w.t_cd); w.t_cd.tab.setCurrentIndex(0); app.processEvents(); w.t_cd.bang['LUC_THAN'].scrollToItem(w.t_cd.bang['LUC_THAN'].item(26, 0), V.PositionAtTop); chup('15_chuyen_de_luc_than.png')
+w.di(w.t_cd); w.t_cd.tab.setCurrentIndex(0); app.processEvents(); w.t_cd.bang['LUC_THAN'].luoi.scrollToItem(w.t_cd.bang['LUC_THAN'].luoi.item(26, 0), V.PositionAtTop); chup('15_chuyen_de_luc_than.png')
 w.di(w.t_nht); chup('16_ngu_hanh_thieu.png')
 w.di(w.t_pt); chup('17_phan_tich.png')
 # --- bản 1.1.0: chế độ thường + màn hình mới

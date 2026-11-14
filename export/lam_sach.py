@@ -57,6 +57,9 @@ def _bo_ma(m):
 def lam_sach(t):
     if not isinstance(t, str) or not t: return t
     s = _MUC_KL.sub(r'xem mục \1 (Theo lĩnh vực)', t)
+    for _ in range(2):                                                # ghi chú kỹ thuật trong ngoặc: Excel, sheet, ô, ngày chốt
+        s = re.sub(r'\s*\([^()]*(?:\bExcel\b|\bsheet\b|\bô\s+[A-Z]{1,2}\d|\bchốt\s+\d)[^()]*\)', '', s)
+    s = re.sub(r'\bcác sheet\b', 'các phần', s); s = re.sub(r'\bsheet này\b', 'phần này', s)
     s = _GIA_DINH.sub('', s)
     s = _DS_SHEET.sub('', s)                                          # [TAI_LOC, MENH_CUC]  (DOI_CHIEU)
     s = re.sub(r'\s*\(\s*(?:sheet\s+)?' + SH + CHI_DAN + r'\s*\)', '', s)      # (DOI_CHIEU C33)  (MENH_CUC dòng 16-22)

@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.2.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.3.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -136,3 +136,10 @@ Quyết định của chủ dự án: phần mềm và bộ công cụ Excel khi
 | Kiểm thử | T5 (xuất, chữ XLSX so sau làm sạch) 100%; T7 570.940/570.940; T9 577.140/577.140; tự kiểm ĐẠT |
 
 Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tính; workbook 6.3 giữ nguyên (SHA-256 7ae75965…bca4c5).
+
+## Bản 1.3.0 (14/11/2026) – trình bày dạng văn bản đọc
+- **Theo lĩnh vực B–K**, **Vận trình – Đại vận**, **Ngũ hành thiếu** (và Đọc nhanh): chế độ thường trình bày dạng văn bản đọc (`ui/bai_doc.py`): tiêu đề, "Hạng mục: nội dung", các dòng liền nhau gộp thành một bảng gọn không số dòng/chữ cột, hạng mục dài thành tiêu đề + đoạn văn; giữ màu nhấn và chú giải thuật ngữ. Lưới ô gốc chỉ ở chế độ chuyên gia.
+- Theo lĩnh vực: ẩn mục "Luận giải chi tiết (bảng ô)" và "Đối chiếu sự việc" ở chế độ thường (đã có trang riêng); kết quả tìm kiếm không hiện địa chỉ ô.
+- Thẻ đại vận (Lá số): bỏ dòng Hóa giải toàn thư (theo yêu cầu) – chỉ còn Xu thế theo Thiệu Vĩ Hoa.
+- Bộ làm sạch: bỏ thêm ghi chú kỹ thuật trong ngoặc có "Excel", "sheet", "ô E3", "chốt <ngày>".
+- Chỉ đổi trình bày; T5, T7, tự kiểm đạt.
