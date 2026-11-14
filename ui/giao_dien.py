@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.1.1 · Quy tắc 6.3'
+PHIEN_BAN = 'Phiên bản 1.1.2 · Quy tắc 6.3'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -176,7 +176,7 @@ class TrangNhap(QWidget):
             g0.addWidget(lbl(t, 'nhan'), 0, i); g0.addWidget(w, 1, i)
         self.d_am = lbl('', 'mo'); g0.addWidget(self.d_am, 2, 0, 1, 2)
         self.nut_am = QPushButton('Điền theo âm lịch quy đổi'); self.nut_am.setObjectName('nut_phu')
-        self.nut_am.setToolTip('MT-12: điền tháng/ngày âm (C32, C33) – dùng cho phương hướng kết hôn'); g0.addWidget(self.nut_am, 2, 2)
+        self.nut_am.setToolTip('Điền tháng/ngày âm lịch quy đổi – dùng cho phương hướng kết hôn'); g0.addWidget(self.nut_am, 2, 2)
         self.trang_nhap.append(p0); cv.addWidget(p0)
         # âm lịch
         p1 = QWidget(); g1 = QGridLayout(p1); g1.setContentsMargins(0, 0, 0, 0); g1.setHorizontalSpacing(8)
@@ -193,7 +193,7 @@ class TrangNhap(QWidget):
             g2.addWidget(lbl(t, 'nhan'), 0, i)
             a = QComboBox(); a.addItems(CAN); b = QComboBox(); b.addItems(CHI)
             g2.addWidget(a, 1, i); g2.addWidget(b, 2, i); self.cb_can.append(a); self.cb_chi.append(b)
-        g2.addWidget(lbl('Năm sinh dương lịch của trụ năm (C30, để tự suy khởi vận)', 'nhan'), 3, 0, 1, 4)
+        g2.addWidget(lbl('Năm sinh dương lịch của trụ năm (để tự suy khởi vận)', 'nhan'), 3, 0, 1, 4)
         self.c30 = o_tuy_chon('vd 1963'); g2.addWidget(self.c30, 4, 0, 1, 2)
         self.trang_nhap.append(p2); cv.addWidget(p2)
         # giờ
@@ -218,9 +218,9 @@ class TrangNhap(QWidget):
         self.mau = QComboBox(); self.mau.addItems(self.la_mau)
         self.c11 = o_tuy_chon('tự tính', True); self.c28 = o_tuy_chon('trống', True); self.c29 = o_tuy_chon('trống', True)
         self.c32 = o_tuy_chon('1–12'); self.c33 = o_tuy_chon('1–30')
-        rows = [('Vượng suy dùng cho kết luận (C14)', self.vs), ('Ngũ hành thiếu (E3)', self.nht), ('Lá số mẫu trong sách (C13)', self.mau),
-                ('Số ngày tới tiết Lập (C11)', self.c11), ('Số ngày đến tiết lệnh (C28)', self.c28), ('Số giờ lẻ (C29)', self.c29),
-                ('Tháng sinh âm (C32)', self.c32), ('Ngày sinh âm (C33)', self.c33)]
+        rows = [('Vượng suy dùng cho kết luận', self.vs), ('Ngũ hành thiếu', self.nht), ('Lá số mẫu trong sách', self.mau),
+                ('Số ngày tới tiết Lập', self.c11), ('Số ngày đến tiết lệnh', self.c28), ('Số giờ lẻ', self.c29),
+                ('Tháng sinh âm', self.c32), ('Ngày sinh âm', self.c33)]
         for i, (t, w) in enumerate(rows):
             gn.addWidget(lbl(t, 'nhan'), i, 0); gn.addWidget(w, i, 1)
         self.nc.setVisible(False); cv.addWidget(self.nc)
@@ -232,14 +232,13 @@ class TrangNhap(QWidget):
         # ---------------- cột kết quả
         kq = QFrame(); kq.setObjectName('the'); bong(kq)
         kv = QVBoxLayout(kq); kv.setContentsMargins(24, 22, 24, 22); kv.setSpacing(14)
-        hh = QHBoxLayout(); hh.addWidget(lbl('Tứ trụ', 'tieude')); hh.addStretch(); self.thoi_gian = lbl('', 'badge'); hh.addWidget(self.thoi_gian)
+        hh = QHBoxLayout(); hh.addWidget(lbl('Tứ trụ', 'tieude')); hh.addStretch(); self.thoi_gian = lbl('', 'badge'); self.thoi_gian.setVisible(False); hh.addWidget(self.thoi_gian)
         kv.addLayout(hh)
         self.dong_phu = lbl('', 'mo', True); kv.addWidget(self.dong_phu)
         ht = QHBoxLayout(); ht.setSpacing(12)
         self.tru = [TruWidget('Năm'), TruWidget('Tháng'), TruWidget('Ngày', True), TruWidget('Giờ')]
         for t in self.tru: ht.addWidget(t)
         kv.addLayout(ht)
-        kv.addWidget(lbl('Kiểm tra và ghi chú (nguyên văn workbook)', 'tieude_the'))
         self.chip_box = QWidget(); self.chips = QVBoxLayout(self.chip_box); self.chips.setContentsMargins(0, 0, 0, 0)
         self.chips.setSpacing(8); kv.addWidget(self.chip_box)
         kv.addStretch()
@@ -351,7 +350,7 @@ class TrangNhap(QWidget):
         o = kq.o
         self.thoi_gian.setText('%.0f ms' % kq.ms)
         ten = (s.ho_ten + ' · ') if s.ho_ten else ''
-        self.dong_phu.setText(ten + '%s · %s' % (s.gioi_tinh, o('NHAP_LIEU', 'C41')))
+        self.dong_phu.setText(ten + s.gioi_tinh)
         cols = 'CDEF'
         for i, t in enumerate(self.tru):
             c = cols[i]
@@ -381,9 +380,9 @@ class TrangTrungGian(QWidget):
         super().__init__()
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
         the = QFrame(); the.setObjectName('the'); bong(the); tv = QVBoxLayout(the); tv.setContentsMargins(20, 18, 20, 18)
-        h = QHBoxLayout(); h.addWidget(lbl('Trung gian', 'tieude')); h.addStretch(); h.addWidget(lbl('TRUNG_GIAN · 225 ô công thức', 'badge'))
+        h = QHBoxLayout(); h.addWidget(lbl('Trung gian', 'tieude')); h.addStretch()
         tv.addLayout(h)
-        tv.addWidget(lbl('Thập thần, tàng can, 12 cung, hội – hợp – xung. Rê chuột vào ô để xem địa chỉ Excel.', 'mo'))
+        tv.addWidget(lbl('Thập thần, tàng can, 12 cung, hội – hợp – xung.', 'mo'))
         self.bang = QTableWidget(); self.bang.setColumnCount(6)
         self.bang.setHorizontalHeaderLabels(['Hạng mục', 'Năm', 'Tháng', 'Ngày', 'Giờ', 'Căn cứ / diễn giải'])
         self.bang.verticalHeader().setVisible(False); self.bang.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -428,7 +427,7 @@ class TrangPhanTich(QWidget):
     def __init__(self):
         super().__init__()
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(14)
-        h = QHBoxLayout(); h.addWidget(lbl('Phân tích', 'tieude')); h.addStretch(); h.addWidget(lbl('PP1 · PP2 · Thông căn · Đối chiếu · Dụng thần – 1.272 ô công thức', 'badge'))
+        h = QHBoxLayout(); h.addWidget(lbl('Phân tích', 'tieude')); h.addStretch()
         v.addLayout(h)
         self.the = QHBoxLayout(); self.the.setSpacing(12); v.addLayout(self.the)
         self.the_w = []
@@ -469,7 +468,7 @@ class TrangBangNhieuSheet(QWidget):
     def __init__(self, tieu_de, badge, ds):
         super().__init__(); self.ds = ds
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
-        h = QHBoxLayout(); h.addWidget(lbl(tieu_de, 'tieude')); h.addStretch(); h.addWidget(lbl(badge, 'badge')); v.addLayout(h)
+        h = QHBoxLayout(); h.addWidget(lbl(tieu_de, 'tieude')); h.addStretch(); v.addLayout(h)
         self.tab = QTabWidget(); self.tab.setDocumentMode(True); self.bang = {}
         for sh, ten in ds:
             b = BangSheet(sh); self.bang[sh] = b; self.tab.addTab(b, ten)
@@ -496,9 +495,9 @@ class TrangNguHanhThieu(QWidget):
         super().__init__()
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
         h = QHBoxLayout(); h.addWidget(lbl('Ngũ hành thiếu', 'tieude')); h.addSpacing(16)
-        h.addWidget(lbl('Chế độ tính mục I, II (E3)', 'nhan')); self.che_do = QComboBox(); self.che_do.addItems(CHE_DO_NHT)
+        h.addWidget(lbl('Chế độ tính mục I, II', 'nhan')); self.che_do = QComboBox(); self.che_do.addItems(CHE_DO_NHT)
         self.che_do.setMinimumWidth(190); h.addWidget(self.che_do); h.addStretch()
-        h.addWidget(lbl('Phương pháp riêng – chỉ tham khảo (G29)', 'badge')); v.addLayout(h)
+        h.addWidget(lbl('Phương pháp riêng – chỉ tham khảo', 'badge')); v.addLayout(h)
         self.tom = lbl('', 'chip_info', True); v.addWidget(self.tom)
         hb = QHBoxLayout(); hb.setSpacing(14)
         c1 = QFrame(); c1.setObjectName('the'); l1 = QVBoxLayout(c1); l1.setContentsMargins(12, 12, 12, 12)
@@ -530,8 +529,8 @@ class TrangKhongRoGio(QWidget):
         super().__init__()
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
         h = QHBoxLayout(); h.addWidget(lbl('Không rõ giờ', 'tieude')); h.addSpacing(16)
-        h.addWidget(lbl('Giờ đang xem (KHONG_RO_GIO C6)', 'nhan')); self.gio = QComboBox(); self.gio.addItems(CHI); h.addWidget(self.gio)
-        h.addStretch(); h.addWidget(lbl('12 giờ tính bằng vòng lặp (thay Bảng dữ liệu Excel – MT-13)', 'badge')); v.addLayout(h)
+        h.addWidget(lbl('Giờ đang xem', 'nhan')); self.gio = QComboBox(); self.gio.addItems(CHI); h.addWidget(self.gio)
+        h.addStretch(); v.addLayout(h)
         self.tom = lbl('', 'chip_info', True); v.addWidget(self.tom)
         self.bang = BangSheet('KHONG_RO_GIO'); v.addWidget(self.bang, 1)
         self.gio.currentTextChanged.connect(self.doi_gio.emit); self.kq = None

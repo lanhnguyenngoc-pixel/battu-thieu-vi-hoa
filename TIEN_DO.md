@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.1.1** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.1.2** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -114,3 +114,8 @@ Quyết định 14/11/2026: MT-16 không cần thực hiện (giữ như hiện 
 ## Bản 1.1.1 (14/11/2026)
 - Quyết định: màn hình đầu tiên là **Nhập liệu**; thứ tự thanh bên: Nhập liệu → Lá số → **Luận giải chung** (tên cũ Tóm tắt) → **Luận giải chi tiết** (tên cũ Luận giải) → Vận trình → Theo lĩnh vực → Ngũ hành thiếu → Kiểm chứng sự việc → (chuyên gia: Không rõ giờ, Trung gian, Phân tích, Chuyên đề) → Tham khảo → Danh sách lá số → So sánh hai lá.
 - Chỉ đổi giao diện, không đổi lõi tính; T7 + T9 + tự kiểm chạy lại trên Windows/macOS khi dựng bộ cài.
+
+## Bản 1.1.2 (14/11/2026)
+- Thẻ đại vận (màn hình Lá số): **XU THẾ chính theo Thiệu Vĩ Hoa** (DAI_VAN dòng 54/69 theo phương pháp khuyến nghị – như DAI_VAN!C106) in đậm; mức **Hóa giải toàn thư** (dòng 102, HG tr.83 – workbook ghi "chỉ hiển thị") in nhỏ bên dưới; trạng thái nhật can và tàng can chuyển vào chú giải khi rê chuột.
+- Bỏ các ghi chú kỹ thuật thừa (theo đánh dấu của chủ dự án): tiêu đề dài KET_LUAN B3 ở Luận giải chung, "Kiểm tra và ghi chú (nguyên văn workbook)", "(dòng 37-38)", thời gian tính (ms), các nhãn số ô công thức / tên sheet / địa chỉ ô (C14, E3…), dòng chú thích cờ DAI_VAN dòng 106, đường dẫn tệp lá số; PDF bỏ tên sheet ở tiêu đề mục. Địa chỉ ô nguồn của chú giải chỉ hiện ở Chế độ chuyên gia.
+- Chỉ đổi giao diện; lõi tính không đổi.

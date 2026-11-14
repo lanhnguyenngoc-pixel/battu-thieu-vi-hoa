@@ -72,14 +72,14 @@ def dung_tai_lieu(kq, muc=None, bieu_do=True):
     for k, v in thong_tin_la(kq): h.append('<tr><td><b>%s</b></td><td>%s</td></tr>' % (_e(k), _e(v)))
     h.append('<tr><td><b>Phiên bản</b></td><td>%s · in ngày %s</td></tr></table>' % (_e(chu_ky()), ngay_in()))
     # khối kết luận (KET_LUAN B2:C12)
-    h.append('<h2>%s</h2>' % _e(o('B3')))
+    h.append('<h2>Luận giải chung</h2>')
     if o('B2').strip(): h.append('<p class="cb">%s</p>' % _e(o('B2')))
     h.append('<table class="bang" width="100%" cellspacing="0">')
     for r in range(4, 13):
         h.append('<tr><td class="td" width="22%%">%s</td><td>%s</td></tr>' % (_e(o('B%d' % r)), _e(o('C%d' % r))))
-    h.append('</table><p class="nho">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa. Mỗi dòng là dòng KẾT LUẬN của mục lĩnh vực tương ứng (KET_LUAN C–K).</p>')
+    h.append('</table><p class="nho">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa.</p>')
     if bieu_do:
-        h.append('<h2>Biểu đồ (NGU_HANH_THIEU mục IV, V)</h2>')
+        h.append('<h2>Biểu đồ năng lực và đại vận</h2>')
         for i, img in enumerate(anh_bieu_do(E)):
             url = QUrl('bieudo://%d' % i); doc.addResource(QTextDocument.ImageResource, url, img)
             h.append('<p><img src="bieudo://%d" width="640"></p>' % i)
@@ -87,7 +87,7 @@ def dung_tai_lieu(kq, muc=None, bieu_do=True):
     for k in muc:
         if k not in ten: continue
         t, sh, d = ten[k]
-        h.append('<h2>%s <span class="nho">(%s)</span></h2>' % (_e(t), sh))
+        h.append('<h2>%s</h2>' % _e(t))
         if k == 'KL_H' or sh == 'SUC_KHOE': h.append('<p class="cb">Chỉ tham khảo, không phải chẩn đoán y khoa.</p>')
         h.append(_bang_html(khoi(E, sh, d)))
     h.append('</body></html>')

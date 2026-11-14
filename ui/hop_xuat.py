@@ -18,15 +18,15 @@ class HopXuat(QDialog):
         super().__init__(cha); self.kq = kq
         self.setWindowTitle('Xuất / In lá số'); self.resize(560, 640)
         v = QVBoxLayout(self); v.setSpacing(10)
-        t = QLabel('Bản PDF / in luôn có: thông tin lá số, khối KẾT LUẬN (Luận giải chung), số trang, ngày in, phiên bản quy tắc.\n'
-                   'Chọn thêm các mục dưới đây (mặc định: các mục KET_LUAN B–K và bảng Ngũ hành thiếu).')
+        t = QLabel('Bản PDF / in luôn có: thông tin lá số, Luận giải chung, số trang, ngày in, phiên bản quy tắc.\n'
+                   'Chọn thêm các mục dưới đây (mặc định: các mục theo lĩnh vực B–K và bảng Ngũ hành thiếu).')
         t.setWordWrap(True); v.addWidget(t)
         hh = QHBoxLayout(); a = QPushButton('Chọn tất cả'); b = QPushButton('Bỏ chọn'); c = QPushButton('Mặc định')
         for x in (a, b, c): x.setObjectName('nut_phu'); hh.addWidget(x)
         hh.addStretch(); v.addLayout(hh)
         self.ds = QListWidget(); v.addWidget(self.ds, 1)
         for k, ten, sh, _ in MUC_XUAT:
-            it = QListWidgetItem('%s   (%s)' % (ten, sh)); it.setData(Qt.UserRole, k)
+            it = QListWidgetItem(ten); it.setData(Qt.UserRole, k)
             it.setFlags(it.flags() | Qt.ItemIsUserCheckable); it.setCheckState(Qt.Checked if k in MUC_MAC_DINH else Qt.Unchecked)
             self.ds.addItem(it)
         a.clicked.connect(lambda: self._dat(lambda k: True)); b.clicked.connect(lambda: self._dat(lambda k: False))

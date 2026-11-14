@@ -61,8 +61,7 @@ class TrangTomTat(QWidget):
     def __init__(self):
         super().__init__()
         nen = QWidget(); v = QVBoxLayout(nen); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
-        h = QHBoxLayout(); hv = QVBoxLayout(); hv.addWidget(lbl('Luận giải chung', 'tieude'))
-        self.tieu_de = lbl('', 'tieude_the', True); hv.addWidget(self.tieu_de); h.addLayout(hv, 1)
+        h = QHBoxLayout(); h.addWidget(lbl('Luận giải chung', 'tieude'), 1)
         b1 = QPushButton('✎  Nhập / sửa lá số'); b1.setObjectName('nut_phu'); b1.clicked.connect(self.yeu_cau_nhap.emit)
         b2 = QPushButton('💾  Lưu lá số'); b2.setObjectName('nut_chinh'); b2.clicked.connect(self.yeu_cau_luu.emit)
         b3 = QPushButton('⤓  Xuất / In'); b3.setObjectName('nut_phu'); b3.clicked.connect(self.yeu_cau_xuat.emit)
@@ -85,7 +84,6 @@ class TrangTomTat(QWidget):
     def hien(self, kq):
         E = kq.E; o = lambda r: chu_o(E, 'KET_LUAN', r)
         ten = kq.la_so.ho_ten
-        self.tieu_de.setText(o('B3') or 'TÓM TẮT')
         tru = ' · '.join(o('%s15' % c) for c in 'CDEF')
         self.dau.setText(('<b>%s</b> — ' % html.escape(ten) if ten else '') + 'Tứ trụ (năm · tháng · ngày · giờ): <b>%s</b> · %s · năm xem %s'
                          % (tru, kq.la_so.gioi_tinh, chu_o(E, 'NHAP_LIEU', 'C31')))
@@ -188,7 +186,7 @@ class TrangThamKhao(QWidget):
     def __init__(self):
         super().__init__()
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
-        h = QHBoxLayout(); h.addWidget(lbl('Tham khảo', 'tieude')); h.addStretch(); h.addWidget(lbl('Chỉ đọc · nguyên văn workbook 6.3', 'badge')); v.addLayout(h)
+        h = QHBoxLayout(); h.addWidget(lbl('Tham khảo', 'tieude')); h.addStretch(); v.addLayout(h)
         self.tab = QTabWidget(); self.tab.setDocumentMode(True); self.bang = []
         for sh, ten in THAM_KHAO:
             b = BangSheet(sh); self.bang.append(b); self.tab.addTab(b, ten)
@@ -231,7 +229,7 @@ class TrangDanhSach(QWidget):
         super().__init__(); self.kho = kho or Kho(); self.kq = None; self.id_dang_mo = None
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
         h = QHBoxLayout(); h.addWidget(lbl('Danh sách lá số', 'tieude')); h.addStretch()
-        h.addWidget(lbl('Lưu tại: ' + self.kho.duong_dan, 'mo')); v.addLayout(h)
+        self.setToolTip('Lá số lưu tại: ' + self.kho.duong_dan); v.addLayout(h)
         ht = QHBoxLayout()
         self.o_tim = QLineEdit(); self.o_tim.setPlaceholderText('🔍  Tìm theo tên, nhóm, ghi chú, tứ trụ, ngày sinh'); ht.addWidget(self.o_tim, 1)
         self.cb_nhom = QComboBox(); self.cb_nhom.setMinimumWidth(180); ht.addWidget(self.cb_nhom); v.addLayout(ht)
@@ -324,7 +322,7 @@ class TrangSoSanh(QWidget):
         super().__init__(); self.kho = kho; self.kq = None
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
         h = QHBoxLayout(); h.addWidget(lbl('So sánh hai lá số', 'tieude')); h.addStretch()
-        h.addWidget(lbl('Đặt cạnh nhau khối KẾT LUẬN (KET_LUAN B4:C12)', 'badge')); v.addLayout(h)
+        v.addLayout(h)
         hc = QHBoxLayout(); self.cb = [QComboBox(), QComboBox()]
         for i, c in enumerate(self.cb):
             c.setMinimumWidth(300); hc.addWidget(lbl('Lá %d' % (i + 1), 'nhan')); hc.addWidget(c)

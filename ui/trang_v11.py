@@ -37,8 +37,9 @@ def cuon(w):
 
 def goi_y(t, td):
     """Chú giải (nguyên văn workbook) cho các thuật ngữ có trong chữ t."""
+    from ui.bang_sheet import CHE_DO
     h = tim(t, td)
-    return '\n\n'.join('• %s\n   (%s)' % (cau, o) for k, cau, o in h)
+    return '\n\n'.join(('• %s\n   (%s)' % (cau, o)) if CHE_DO['chuyen_gia'] else ('• ' + cau) for k, cau, o in h)
 
 
 # ---------------------------------------------------------------- LÁ SỐ TRỰC QUAN
@@ -76,7 +77,7 @@ class TrangLaSo(QWidget):
     def __init__(self):
         super().__init__()
         nen = QWidget(); v = QVBoxLayout(nen); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(14)
-        h = QHBoxLayout(); h.addWidget(lbl('Lá số', 'tieude')); h.addStretch(); h.addWidget(lbl('Bảng lập tứ trụ – KET_LUAN mục B · DAI_VAN · LUC_THAN', 'badge'))
+        h = QHBoxLayout(); h.addWidget(lbl('Lá số', 'tieude')); h.addStretch()
         v.addLayout(h)
         self.tt = lbl('', 'mo', True); v.addWidget(self.tt)
         ht = QHBoxLayout(); ht.setSpacing(12); self.tru = [TheTru() for _ in range(4)]
@@ -90,8 +91,7 @@ class TrangLaSo(QWidget):
             a = QLabel(); a.setAlignment(Qt.AlignCenter); a.setWordWrap(True); fl.addWidget(a)
             self.dv_box.addWidget(f); self.dv.append((f, a))
         v.addLayout(self.dv_box)
-        self.dv_chu = lbl('Rê chuột lên ô để xem chú giải. Chữ đỏ đậm: vận tốt theo cờ của workbook (DAI_VAN dòng 106).', 'mo', True)
-        v.addWidget(self.dv_chu); v.addStretch()
+        v.addStretch()
         lo = QVBoxLayout(self); lo.setContentsMargins(0, 0, 0, 0); lo.addWidget(cuon(nen))
 
     def hien(self, kq):
@@ -106,16 +106,22 @@ class TrangLaSo(QWidget):
         nap = next((x for x in lt if x and not re.fullmatch(r'[\d.]+', x) and '(' in x), '')
         self.ghi.setText((('Nạp âm năm: <b>%s</b> · ' % html.escape(nap)) if nap else '') + html.escape(o(24, 3)))
         dk = kieu_sheet(E, 'DAI_VAN'); d = lambda r, c: chu_o(E, 'DAI_VAN', r, c)
+        dong_xt = 69 if chu_o(E, 'DOI_CHIEU', 33, 3) == '2' else 54        # như DAI_VAN!C106: phương pháp khuyến nghị
         for i, (f, a) in enumerate(self.dv):
             c = 3 + i; dang = bool(d(44, c).strip())
-            k = dk.get((35, c), {})
-            mau = k.get('chu', '#1e2140'); dam = '800' if k.get('dam') or dang else '600'
-            a.setText("<span style='font-size:15px;font-weight:%s;color:%s'>%s</span><br><span style='color:#7b809c'>từ %s tuổi · %s–%s</span><br>"
-                      "%s<br><span style='color:#5b6080'>%s</span><br><i>%s</i>%s"
-                      % (dam, mau, html.escape(d(35, c)), d(36, c), d(37, c), d(38, c), html.escape(d(39, c)),
-                         html.escape(d(41, c)), html.escape(d(102, c)), '<br><b style="color:#4f46e5">◀ ĐANG HÀNH</b>' if dang else ''))
+            k = dk.get((35, c), {}); xt = d(dong_xt, c)
+            mau_xt = '#c00000' if xt == 'Tốt' else '#6b7280' if xt == 'Xấu' else '#1e2140'
+            a.setText("<span style='font-size:15px;font-weight:800;color:%s'>%s</span><br>"
+                      "<span style='color:#7b809c'>từ %s tuổi<br>%s–%s</span><br>%s<br>"
+                      "<span style='color:#7b809c;font-size:10px'>XU THẾ</span><br><b style='font-size:14px;color:%s'>%s</b><br>"
+                      "<span style='color:#9094ad;font-size:10px'>Hóa giải toàn thư</span><br><span style='color:#9094ad'>%s</span>%s"
+                      % (k.get('chu', '#1e2140'), html.escape(d(35, c)), d(36, c), d(37, c), d(38, c), html.escape(d(39, c)),
+                         mau_xt, html.escape(xt), html.escape(d(102, c)), '<br><b style="color:#4f46e5">◀ ĐANG HÀNH</b>' if dang else ''))
+            a.setAlignment(Qt.AlignHCenter | Qt.AlignTop)
             f.setStyleSheet('#the{border:2px solid #7c3aed;}' if dang else '')
-            f.setToolTip('%s – năm %s–%s\nTàng can chi vận: %s\n\n%s' % (d(35, c), d(37, c), d(38, c), d(40, c), goi_y('đại vận ' + d(39, c), td)))
+            f.setToolTip('%s – năm %s–%s\nNhật can tại chi vận: %s\nTàng can chi vận: %s\n\nXu thế: theo sách Thiệu Vĩ Hoa.\n'
+                         'Hóa giải toàn thư (tr.83): chấm thêm theo vai trò can – chi vận, chỉ để tham khảo.\n\n%s'
+                         % (d(35, c), d(37, c), d(38, c), d(41, c), d(40, c), goi_y('đại vận ' + d(39, c), td)))
 
 
 # ---------------------------------------------------------------- LUẬN GIẢI – BÀI ĐỌC
@@ -137,7 +143,7 @@ class TrangLuanGiai(QWidget):
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(10)
         h = QHBoxLayout(); h.addWidget(lbl('Luận giải chi tiết', 'tieude')); h.addStretch()
         self.o_tim = QLineEdit(); self.o_tim.setPlaceholderText('🔍  Tìm trong bài (Enter = tiếp)'); self.o_tim.setMinimumWidth(280)
-        h.addWidget(self.o_tim); h.addWidget(lbl('LUAN_GIAI · chữ gạch chấm = có chú giải (rê chuột)', 'badge')); v.addLayout(h)
+        h.addWidget(self.o_tim); v.addLayout(h)
         self.bai = QTextBrowser(); self.bai.setOpenLinks(False); self.bai.document().setDefaultStyleSheet(CSS_BAI)
         self.bai.setStyleSheet('QTextBrowser{background:white;border:1px solid #e7e8f3;border-radius:16px;padding:18px 26px;}')
         v.addWidget(self.bai, 1)
@@ -149,7 +155,9 @@ class TrangLuanGiai(QWidget):
         s = u.toString() if isinstance(u, QUrl) else str(u)
         if not s.startswith('tn:'): QToolTip.hideText(); return
         k, cau, o = self.td[int(s[3:])]
-        QToolTip.showText(QCursor.pos(), '<b>%s</b><br>%s<br><span style="color:#7b809c">%s</span>' % (html.escape(k), html.escape(cau), o), self.bai)
+        from ui.bang_sheet import CHE_DO
+        nguon = ('<br><span style="color:#7b809c">%s</span>' % o) if CHE_DO['chuyen_gia'] else ''
+        QToolTip.showText(QCursor.pos(), '<b>%s</b><br>%s%s' % (html.escape(k), html.escape(cau), nguon), self.bai)
 
     def _lk(self, t):
         """Escape + gắn liên kết chú giải cho lần xuất hiện đầu của mỗi thuật ngữ trong đoạn."""
@@ -204,9 +212,9 @@ class TrangLuanGiai(QWidget):
             if nhan or noi:
                 H.append('<p><span class="%s">&nbsp;%s&nbsp;</span> %s</p>' % (st, html.escape(nhan), self._lk(noi)))
         xa_bang()
-        H.append('<h2>Chú giải thuật ngữ (nguyên văn workbook)</h2><table cellspacing="0" width="100%">')
+        H.append('<h2>Chú giải thuật ngữ</h2><table cellspacing="0" width="100%">')
         for k, cau, oo in self.td:
-            H.append('<tr><td width="20%%"><b>%s</b></td><td>%s <span class="nho">(%s)</span></td></tr>' % (html.escape(k), html.escape(cau), oo))
+            H.append('<tr><td width="20%%"><b>%s</b></td><td>%s</td></tr>' % (html.escape(k), html.escape(cau)))
         H.append('</table></body></html>')
         y = self.bai.verticalScrollBar().value()
         self.bai.setHtml(''.join(H)); self.bai.verticalScrollBar().setValue(y); self._da = True

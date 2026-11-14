@@ -64,7 +64,7 @@ class BangSheet(QTableWidget):
                         continue
                     t = hien_thi_o(E, self.sheet, ref) if isinstance(v, (int, float)) else str(v)
                 it = QTableWidgetItem(t)
-                gy = '' if (r, c) in fc else '\n\n'.join('• %s  (%s)' % (cau, o) for k, cau, o in tim(t, td, 3))
+                gy = '' if (r, c) in fc else '\n\n'.join(('• %s  (%s)' % (cau, o)) if cg else ('• ' + cau) for k, cau, o in tim(t, td, 3))
                 dau = ('%s!%s%s' % (self.sheet, ref, '  (ô công thức)' if (r, c) in fc else '')) if cg else ''
                 tt = '\n'.join(x for x in (dau, t[:1500] if len(t) > 80 else '', gy) if x)
                 if tt: it.setToolTip(tt)
