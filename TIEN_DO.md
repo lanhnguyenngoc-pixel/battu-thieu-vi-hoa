@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.1.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.1.1** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -110,3 +110,7 @@ Quyết định 14/11/2026: bộ cài chỉ Windows và macOS; Linux phát tri�
 | Hướng dẫn sử dụng 18 trang (thêm Chế độ chuyên gia, Lá số, Luận giải, Kiểm chứng sự việc) | Xong |
 
 Quyết định 14/11/2026: MT-16 không cần thực hiện (giữ như hiện tại: ẩn KET_LUAN 200–251). Đề xuất giao diện (DE_XUAT_GIAO_DIEN.md) – 5 phần đã duyệt và làm xong ở bản 1.1.0.
+
+## Bản 1.1.1 (14/11/2026)
+- Quyết định: màn hình đầu tiên là **Nhập liệu**; thứ tự thanh bên: Nhập liệu → Lá số → **Luận giải chung** (tên cũ Tóm tắt) → **Luận giải chi tiết** (tên cũ Luận giải) → Vận trình → Theo lĩnh vực → Ngũ hành thiếu → Kiểm chứng sự việc → (chuyên gia: Không rõ giờ, Trung gian, Phân tích, Chuyên đề) → Tham khảo → Danh sách lá số → So sánh hai lá.
+- Chỉ đổi giao diện, không đổi lõi tính; T7 + T9 + tự kiểm chạy lại trên Windows/macOS khi dựng bộ cài.

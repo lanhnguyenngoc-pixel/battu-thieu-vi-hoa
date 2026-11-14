@@ -21,7 +21,7 @@ MUC_KL = [('B', 14, None), ('C', 28, 29), ('D', 67, 68), ('E', 78, 79), ('F', 92
           ('H', 134, 135), ('I', 159, 160), ('J', 178, 179), ('K', 192, 193)]
 DONG_AN_KL = (200, 251)            # vùng phụ trợ ẩn (dòng 200-250; dòng 251 chỉ có ô tính phụ AG:AI)
 TOM_TAT = list(range(4, 13))       # B4:C12 ↔ mục C…K (MT-07)
-TRANG_THEM = [('LUAN_GIAI', 'Luận giải (8 mục + tổng thể)'), ('DOC_NHANH', 'Đọc nhanh'), ('SU_KIEN', 'Đối chiếu sự việc')]
+TRANG_THEM = [('LUAN_GIAI', 'Luận giải chi tiết (bảng ô)'), ('DOC_NHANH', 'Đọc nhanh'), ('SU_KIEN', 'Đối chiếu sự việc')]
 
 
 def lbl(text, name=None, wrap=False):
@@ -61,7 +61,8 @@ class TrangTomTat(QWidget):
     def __init__(self):
         super().__init__()
         nen = QWidget(); v = QVBoxLayout(nen); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
-        h = QHBoxLayout(); self.tieu_de = lbl('', 'tieude', True); h.addWidget(self.tieu_de, 1)
+        h = QHBoxLayout(); hv = QVBoxLayout(); hv.addWidget(lbl('Luận giải chung', 'tieude'))
+        self.tieu_de = lbl('', 'tieude_the', True); hv.addWidget(self.tieu_de); h.addLayout(hv, 1)
         b1 = QPushButton('✎  Nhập / sửa lá số'); b1.setObjectName('nut_phu'); b1.clicked.connect(self.yeu_cau_nhap.emit)
         b2 = QPushButton('💾  Lưu lá số'); b2.setObjectName('nut_chinh'); b2.clicked.connect(self.yeu_cau_luu.emit)
         b3 = QPushButton('⤓  Xuất / In'); b3.setObjectName('nut_phu'); b3.clicked.connect(self.yeu_cau_xuat.emit)

@@ -18,7 +18,7 @@ class HopXuat(QDialog):
         super().__init__(cha); self.kq = kq
         self.setWindowTitle('Xuất / In lá số'); self.resize(560, 640)
         v = QVBoxLayout(self); v.setSpacing(10)
-        t = QLabel('Bản PDF / in luôn có: thông tin lá số, khối KẾT LUẬN (TÓM TẮT), số trang, ngày in, phiên bản quy tắc.\n'
+        t = QLabel('Bản PDF / in luôn có: thông tin lá số, khối KẾT LUẬN (Luận giải chung), số trang, ngày in, phiên bản quy tắc.\n'
                    'Chọn thêm các mục dưới đây (mặc định: các mục KET_LUAN B–K và bảng Ngũ hành thiếu).')
         t.setWordWrap(True); v.addWidget(t)
         hh = QHBoxLayout(); a = QPushButton('Chọn tất cả'); b = QPushButton('Bỏ chọn'); c = QPushButton('Mặc định')

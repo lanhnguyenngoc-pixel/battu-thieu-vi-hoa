@@ -135,7 +135,7 @@ class TrangLuanGiai(QWidget):
     def __init__(self):
         super().__init__()
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(10)
-        h = QHBoxLayout(); h.addWidget(lbl('Luận giải', 'tieude')); h.addStretch()
+        h = QHBoxLayout(); h.addWidget(lbl('Luận giải chi tiết', 'tieude')); h.addStretch()
         self.o_tim = QLineEdit(); self.o_tim.setPlaceholderText('🔍  Tìm trong bài (Enter = tiếp)'); self.o_tim.setMinimumWidth(280)
         h.addWidget(self.o_tim); h.addWidget(lbl('LUAN_GIAI · chữ gạch chấm = có chú giải (rê chuột)', 'badge')); v.addLayout(h)
         self.bai = QTextBrowser(); self.bai.setOpenLinks(False); self.bai.document().setDefaultStyleSheet(CSS_BAI)

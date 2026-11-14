@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.1.0 · Quy tắc 6.3'
+PHIEN_BAN = 'Phiên bản 1.1.1 · Quy tắc 6.3'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -577,8 +577,8 @@ class CuaSoChinh(QMainWindow):
         self.t_krg = TrangKhongRoGio(); self.t_tk = TrangThamKhao()
         self.t_ds = TrangDanhSach(self.kho); self.t_ss = TrangSoSanh(self.kho)
         # (nhãn, trang, nhóm): 'A' đọc lá số – luôn hiện; 'CG' chỉ ở chế độ chuyên gia; 'KRG' khi bật Không rõ giờ hoặc chuyên gia
-        self.muc = [('★   Tóm tắt', self.t_tt, 'A'), ('☷   Lá số', self.t_ls, 'A'), ('✎   Nhập liệu', self.t_nhap, 'A'),
-                    ('▤   Theo lĩnh vực', self.t_lv, 'A'), ('❦   Luận giải', self.t_lg, 'A'), ('↯   Vận trình', self.t_vt, 'A'),
+        self.muc = [('✎   Nhập liệu', self.t_nhap, 'A'), ('☷   Lá số', self.t_ls, 'A'), ('★   Luận giải chung', self.t_tt, 'A'),
+                    ('❦   Luận giải chi tiết', self.t_lg, 'A'), ('↯   Vận trình', self.t_vt, 'A'), ('▤   Theo lĩnh vực', self.t_lv, 'A'),
                     ('☯   Ngũ hành thiếu', self.t_nht, 'A'), ('✓   Kiểm chứng sự việc', self.t_sk, 'A'),
                     ('◷   Không rõ giờ', self.t_krg, 'KRG'), ('◫   Trung gian', self.t_tg, 'CG'), ('⚖   Phân tích', self.t_pt, 'CG'),
                     ('◎   Chuyên đề', self.t_cd, 'CG'), ('❐   Tham khảo', self.t_tk, 'A'), ('☰   Danh sách lá số', self.t_ds, 'A'),
@@ -610,7 +610,7 @@ class CuaSoChinh(QMainWindow):
         self._ap_che_do()
         if self.t_nhap.kq:
             for t in ds: t.hien(self.t_nhap.kq)
-        self.di(self.t_tt)                                   # TÓM TẮT là màn hình đầu
+        self.di(self.t_nhap)                                 # màn hình đầu: Nhập liệu (duyệt 14/11/2026)
 
     def _doi_su_kien(self, ds):
         self.t_nhap._su_kien = ds; self.t_nhap.hen.stop(); self.t_nhap.tinh()
