@@ -1,6 +1,6 @@
 # TIẾN ĐỘ – PHẦN MỀM BÁT TỰ THIỆU VĨ HOA (theo workbook 6.3)
 
-Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.0.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
+Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng gói, kiểm thử tổng, hướng dẫn: XONG** · Phiên bản phần mềm **1.1.0** (quy tắc 6.3) · Nguồn: workbook SHA-256 `7ae75965…bca4c5`
 
 ## Quyết định đã duyệt
 - 13/11/2026: MT-01 … MT-11 (KE_HOACH_GIAI_DOAN_0.md).
@@ -96,3 +96,17 @@ Quyết định 14/11/2026: bộ cài chỉ Windows và macOS; Linux phát tri�
 
 ### Quyết định 14/11/2026 (09:55)
 - Chủ dự án **thống nhất 14 màn hình giao diện chính** của bản 1.0.0 (Tóm tắt, Nhập liệu, Theo lĩnh vực, Luận giải, Tìm kiếm, Phân tích, Đại vận, Theo dõi, Ngũ hành thiếu, Chuyên đề, Tham khảo, Danh sách lá số, So sánh hai lá, Xuất/In) – giữ nguyên như ảnh `anh_gd6/`.
+
+## Bản 1.1.0 (14/11/2026) – 5 phần giao diện đã duyệt
+| Việc | Kết quả |
+|---|---|
+| **Chế độ chuyên gia** (công tắc ở thanh bên, ghi nhớ): thường = Tóm tắt, Lá số, Nhập liệu, Theo lĩnh vực, Luận giải, Vận trình (Đại vận), Ngũ hành thiếu, Kiểm chứng sự việc, Tham khảo, Danh sách, So sánh; chuyên gia thêm Trung gian, Phân tích, Chuyên đề, Lưu niên 100 năm, Theo dõi, địa chỉ ô Excel; Không rõ giờ hiện khi bật Không rõ giờ | Xong |
+| **Lá số trực quan**: 4 trụ (KET_LUAN dòng 15–23), màu theo hành đọc từ chữ trong ô, nạp âm năm (LUC_THAN dòng 5), thập thần 5 nhóm (KET_LUAN C24), dải 10 đại vận (DAI_VAN dòng 35–44, 102; tô theo cờ dòng 106) | Xong |
+| **Luận giải dạng bài đọc** (LUAN_GIAI phần A, bảng vận trình mục 7 có tô đỏ theo cờ L, phần B 6 ý dạng thẻ) + tìm trong bài | Xong |
+| **Chú giải thuật ngữ** khi rê chuột – NGUYÊN VĂN workbook: LUAN_GIAI cột E "Thuật ngữ bằng lời thường" + ô ghi chú dạng "X = …" (KET_LUAN G17…); 18 thuật ngữ, có số trang sách; bảng chú giải cuối trang Luận giải; áp vào mọi bảng | Xong |
+| **Nhập sự việc SU_KIEN** B6:D35 (30 dòng; 10 loại sự việc trích tự động từ Data validation của workbook – `danh_sach_chon`); lưu cùng lá số | Xong |
+| Kiểm thử tổng chạy lại + **T9** (20 lá × 6 sự việc, oracle mới) | **100%** – BAO_CAO_KIEM_THU_TONG.md |
+| Bộ cài 1.1.0 Windows / macOS arm64 / macOS x86_64: cài – tự kiểm chặn mạng – gỡ | **ĐẠT cả 3 máy** |
+| Hướng dẫn sử dụng 18 trang (thêm Chế độ chuyên gia, Lá số, Luận giải, Kiểm chứng sự việc) | Xong |
+
+Quyết định 14/11/2026: MT-16 không cần thực hiện (giữ như hiện tại: ẩn KET_LUAN 200–251). Đề xuất giao diện (DE_XUAT_GIAO_DIEN.md) – 5 phần đã duyệt và làm xong ở bản 1.1.0.

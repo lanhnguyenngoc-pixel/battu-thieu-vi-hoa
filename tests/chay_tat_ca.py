@@ -42,7 +42,7 @@ L += ['## T1b – Nhánh tùy chọn (MT-05) và T1-KRG (MT-04) – đáp án l�
       'Kiểm chính oracle mở rộng: biến thể KRG0 (mặc định) trùng dap_an_o **%d / %d** ô.' % (dk, nk), '',
       '| Biến thể | Mô tả | Số lá | Ô khớp / tổng (sheet đã cài) | Kết quả |', '|---|---|---|---|---|']
 for ten, b_ in t1b.BT.items():
-    if ten.startswith(('T2_', 'T8')) or not os.path.isdir(os.path.join(MR, ten)): continue
+    if ten.startswith(('T2_', 'T8', 'T7_')) or not os.path.isdir(os.path.join(MR, ten)): continue
     n_, tg, dg, lg = t1b.chay_bien_the(KT, MR, ten)
     kq = 'ĐẠT 100%' if not lg else 'LỆCH %d' % len(lg)
     if ten == 'B1_KHONG_RO_GIO' and lg: kq += ' – đáp án hỏng do Bảng dữ liệu LibreOffice (MT-13), thay bằng B1b'

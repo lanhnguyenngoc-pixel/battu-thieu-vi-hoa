@@ -1,6 +1,6 @@
-# BÁO CÁO KIỂM THỬ TỔNG – GIAI ĐOẠN 6
+# BÁO CÁO KIỂM THỬ TỔNG – BẢN 1.1.0 (quy tắc 6.3)
 
-Ngày chạy: 14/11/2026 08:48 · Nguồn: workbook SHA-256 `7ae759658d290172bbbf7b6642e24532239e3b9ea54ca71e2696802411bca4c5`
+Ngày chạy: 14/11/2026 10:09 · Nguồn: workbook SHA-256 `7ae759658d290172bbbf7b6642e24532239e3b9ea54ca71e2696802411bca4c5`
 
 Phạm vi đã cài: CSDL (toàn sheet), NHAP_LIEU (toàn sheet), TRUNG_GIAN (toàn sheet), DAI_VAN (toàn sheet), KIEM_THU (toàn sheet), PP1_DINH_TINH (toàn sheet), PP2_DINH_LUONG (toàn sheet), THONG_CAN (toàn sheet), DOI_CHIEU (toàn sheet), DUNG_HY_KY (toàn sheet), LUU_NIEN (toàn sheet), THEO_DOI (toàn sheet), NGU_HANH_THIEU (toàn sheet), LUC_THAN (toàn sheet), HON_NHAN (toàn sheet), MENH_CUC (toàn sheet), TAI_LOC (toàn sheet), TO_CHAT (toàn sheet), SU_NGHIEP (toàn sheet), SUC_KHOE (toàn sheet), THAN_SAT (toàn sheet), SAO (toàn sheet), BAO_PHU (toàn sheet), KHONG_RO_GIO (toàn sheet), KET_LUAN (toàn sheet), LUAN_GIAI (toàn sheet), DOC_NHANH (toàn sheet), SU_KIEN (toàn sheet), TRANG_CHU (toàn sheet), THAM_KHAO (toàn sheet)
 
@@ -19,10 +19,11 @@ Phạm vi đã cài: CSDL (toàn sheet), NHAP_LIEU (toàn sheet), TRUNG_GIAN (to
 | T6 | kho lá số SQLite (mở lại như lúc lưu + 5 thao tác) | 12 / 12 · 5 / 5 | ĐẠT 100% |
 | **T7** | **20 lá ngẫu nhiên MỚI**, oracle_dump.py, 33 sheet, không mượn ô | **570.940 / 570.940** | **ĐẠT 100%** |
 | T8 | ngũ hành thiếu: 55 lá × PA1/PA2, mọi sheet | 3.174.270 / 3.174.270 | ĐẠT 100% |
+| **T9** (mới, 1.1.0) | **nhập sự việc SU_KIEN: 20 lá × 6 sự việc, mọi ô 33 sheet** | **577.140 / 577.140** (SU_KIEN 8.420 / 8.420) | **ĐẠT 100%** |
 
 Biến thể B1 (đáp án LibreOffice cũ khi Không rõ giờ, 860.359/865.710) là **đáp án hỏng do lỗi Bảng dữ liệu của LibreOffice (MT-13)**, đã thay bằng B1b (đạt 100%) – giữ lại trong bảng T1b để đối chứng.
 
-## T1 – Đáp án từng ô (05_KIEM_THU/dap_an_o, 30 lá, 33.3 giây)
+## T1 – Đáp án từng ô (05_KIEM_THU/dap_an_o, 30 lá, 32.8 giây)
 
 | Sheet | Ô khớp / tổng | Kết quả |
 |---|---|---|
@@ -90,7 +91,7 @@ Kiểm chính oracle mở rộng: biến thể KRG0 (mặc định) trùng dap_a
 | KRG_VONG | Mặc định + Bảng dữ liệu KHONG_RO_GIO tính bằng vòng 12 giờ (MT-13) | 30 | 865710 / 865710 | ĐẠT 100% |
 | B1b_KHONG_RO_GIO | NHAP_LIEU C9 = Không rõ giờ; Bảng dữ liệu tính bằng vòng 12 giờ (MT-13) – thay B1 | 30 | 865710 / 865710 | ĐẠT 100% |
 
-## T2 – Kết quả chính 501 lá (bo_la + ket_qua_6.3, 554.7 giây)
+## T2 – Kết quả chính 501 lá (bo_la + ket_qua_6.3, 553.2 giây)
 
 (a) Khóa của scripts/uno_run59.py thuộc sheet đã cài (đọc như uno_run59: getString theo định dạng ô):
 
@@ -182,7 +183,7 @@ Khóa thuộc giai đoạn sau (so khi cài sheet tương ứng):
 | SU_KIEN | 210921 / 210921 |
 | **Tổng** | **14053050 / 14053050** |
 
-## T4 – Hợp/xung (hop_xung, 510 lá gồm 9 ca biên, 1.9 giây)
+## T4 – Hợp/xung (hop_xung, 510 lá gồm 9 ca biên, 1.7 giây)
 
 So trùng từng giá trị scripts/run_hop.py đã ghi (đọc như run_hop: getString/getValue). Gói hồ sơ không ghi văn bản "6 bất biến"; các giá trị so ở đây là dữ liệu mà các bất biến được tính trên đó.
 
@@ -226,7 +227,7 @@ Lá ngày giờ dương lịch (từ data39, dv16), tứ trụ theo lịch tiế
 
 ## T6 – Kho lá số SQLite (YÊU CẦU 5.3)
 
-Lưu 12 lá (t8_chuan.json, có lá Không rõ giờ) → mở lại → tính lại; so khối TÓM TẮT KET_LUAN B2:C12 + tứ trụ với ảnh chụp lúc lưu (17.3 giây).
+Lưu 12 lá (t8_chuan.json, có lá Không rõ giờ) → mở lại → tính lại; so khối TÓM TẮT KET_LUAN B2:C12 + tứ trụ với ảnh chụp lúc lưu (16.9 giây).
 
 | Hạng mục | Kết quả |
 |---|---|
@@ -239,7 +240,7 @@ Lưu 12 lá (t8_chuan.json, có lá Không rõ giờ) → mở lại → tính l
 
 ## T7 – 20 lá NGẪU NHIÊN MỚI (oracle_dump.py nguyên bản, không mượn ô nào)
 
-tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–2100, 6 lá tự nhập can chi; 14.7 giây.
+tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–2100, 6 lá tự nhập can chi; 14.6 giây.
 
 | Sheet | Ô khớp / tổng | Kết quả |
 |---|---|---|
@@ -275,7 +276,7 @@ tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–
 | SU_KIEN | 8420 / 8420 | ĐẠT 100% |
 | **Tổng** | **570940 / 570940** | ĐẠT 100% |
 
-## T5 – Xuất PDF / XLSX / JSON (5 lá T7, 16.5 giây)
+## T5 – Xuất PDF / XLSX / JSON (5 lá T7, 17.0 giây)
 
 | Định dạng | Kiểm | Kết quả |
 |---|---|---|
@@ -283,25 +284,28 @@ tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–
 | XLSX | mở lại, mọi ô công thức của 30 sheet hiển thị trùng JSON; giữ gộp ô, cột/dòng ẩn | 144075 / 144075 |
 | PDF | số trang, "Trang i/n" mỗi trang, khối KẾT LUẬN, phiên bản quy tắc | 5 / 5 lá |
 
+## T9 – Nhập sự việc SU_KIEN (bản 1.1.0): 20 lá T7 × 6 sự việc, đáp án tools/oracle_mo_rong.py (T7_SU_KIEN)
 
-## Bộ cài – kiểm cài / gỡ / chạy không mạng (GitHub Actions, lượt 43547513998)
+| Hạng mục | Kết quả |
+|---|---|
+| Mọi ô công thức 33 sheet | 577140 / 577140 |
+| Riêng SU_KIEN | 8420 / 8420 |
+| Đường nhập LaSo.su_kien → ô SU_KIEN B/C/D trùng ô oracle đã nhập | 20 / 20 lá |
+| Lưu SQLite → mở lại giữ nguyên sự việc | ĐẠT |
 
-Mỗi máy: chạy T7 từ mã nguồn (570.940 ô) → PyInstaller → bộ cài → **cài → tự kiểm khi chặn mạng → gỡ → kiểm gỡ sạch**.
-Tự kiểm = dấu vân tay SHA-256 toàn bộ kết quả (JSON {sheet: {ô: giá trị}}) của 3 lá chuẩn (có 1 lá Không rõ giờ) + xuất PDF/XLSX/JSON.
 
-| Máy | T7 mã nguồn | Cài | Chặn mạng | Tự kiểm 3 lá (dấu vân tay) | Xuất | Gỡ |
-|---|---|---|---|---|---|---|
-| Windows Server (x64) – Inno Setup | 570.940/570.940 | ĐẠT | Tường lửa chặn chiều ra của BatTuThieuViHoa.exe | ĐẠT c9fa2c11 · cd14e7bd · 1ec29dbd | PDF 28 trang, XLSX, JSON | ĐẠT (mất tệp chạy + mục Settings > Apps) |
-| macOS 15 – Apple M (arm64) – .dmg | 570.940/570.940 | ĐẠT | sandbox-exec deny network | ĐẠT – trùng | ĐẠT | ĐẠT |
-| macOS 15 – Intel (x86_64) – .dmg | 570.940/570.940 | ĐẠT | sandbox-exec deny network | ĐẠT – trùng | ĐẠT | ĐẠT |
-| Linux (bản gốc, đối chứng) | 570.940/570.940 | – | unshare -rn | ĐẠT – trùng | ĐẠT | – |
+## Bộ cài 1.1.0 – kiểm cài / gỡ / chạy không mạng (GitHub Actions, lượt 43550138905)
 
-Dấu vân tay trùng tuyệt đối giữa 4 hệ điều hành → kết quả không phụ thuộc máy.
+Mỗi máy: T7 (570.940 ô) + T9 (577.140 ô) từ mã nguồn → PyInstaller → bộ cài → **cài → tự kiểm khi chặn mạng → gỡ → kiểm gỡ sạch**.
+
+| Máy | T7 + T9 | Cài | Chặn mạng | Tự kiểm 3 lá (dấu vân tay trùng bản gốc) | Gỡ |
+|---|---|---|---|---|---|
+| Windows (x64) – Inno Setup | ĐẠT | ĐẠT | Tường lửa chặn chiều ra | ĐẠT | ĐẠT |
+| macOS 15 – Apple M (arm64) | ĐẠT | ĐẠT | sandbox-exec deny network | ĐẠT | ĐẠT |
+| macOS 15 – Intel (x86_64) | ĐẠT | ĐẠT | sandbox-exec deny network | ĐẠT | ĐẠT |
 
 | Tệp | Dung lượng | SHA-256 |
 |---|---|---|
-| BatTuThieuViHoa_Setup_1.0.0_Windows.exe | 42,3 MB | 22a77b2e2fd4de36d39a3b09a2095bb5f56b9a1948c264183f14047faffecf0f |
-| BatTuThieuViHoa_1.0.0_macOS_arm64.dmg | 51,7 MB | b281bc7aac9348ece864a1910dc6306aa7722cb3c6ca9ad268a3ced76d39f9ac |
-| BatTuThieuViHoa_1.0.0_macOS_x86_64.dmg | 56,2 MB | 102971c5516e4f13d1a372a86fd9d4bb8cb257e25a0f4538055cba20fa2c6fa6 |
-
-Chưa ký số: Windows SmartScreen / macOS Gatekeeper hỏi lần đầu (xem Hướng dẫn sử dụng mục 1).
+| BatTuThieuViHoa_Setup_1.1.0_Windows.exe | 42,3 MB | 0c85a2ddc1393126c01b240cd17152b3128ca9489ed368fdf7256cff05354a5e |
+| BatTuThieuViHoa_1.1.0_macOS_arm64.dmg | 51,8 MB | 38676658c0848f065aa815f49d365daab11f68249c784a67ec1b5f7068051f9b |
+| BatTuThieuViHoa_1.1.0_macOS_x86_64.dmg | 56,2 MB | 027be5561b9264a698cf1716304539081d0420ef9214c8abbf9f22c505b925ed |
