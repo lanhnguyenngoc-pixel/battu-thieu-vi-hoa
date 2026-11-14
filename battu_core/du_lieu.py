@@ -57,6 +57,7 @@ class Model:
         self.formula_cells = [set(rc(x) for x in hs['o_cong_thuc'].get(s, [])) for s in self.sheets]
         self.data_tables = hs.get('data_tables', {})
         self.dinh_dang = hs.get('dinh_dang_o_cong_thuc', {})
+        self.danh_sach_chon = hs.get('danh_sach_chon', {})   # {sheet: {sqref: [lựa chọn]}} – Data validation của workbook
         self.bo_cuc = hs.get('bo_cuc', {})   # ô gộp, độ rộng cột (chỉ để hiển thị)
         self.names = json.load(open(os.path.join(DATA, 'nen', 'defined_names_5.9.json'), encoding='utf-8'))
 

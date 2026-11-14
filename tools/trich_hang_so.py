@@ -7,7 +7,7 @@ Không gõ tay ô nào. Ghi SHA-256 nguồn vào tệp ra.
 Dùng: python trich_hang_so.py <workbook.xlsx> <thư_mục_04_DU_LIEU_NEN> <battu_core/data>"""
 import sys, os, json, shutil, hashlib, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from doc_xlsx import doc, dinh_dang, bo_cuc
+from doc_xlsx import doc, dinh_dang, bo_cuc, danh_sach_chon
 from openpyxl.utils.cell import range_boundaries, coordinate_from_string, column_index_from_string
 
 wbp, nen, out = sys.argv[1:4]
@@ -44,6 +44,7 @@ json.dump({'nguon': os.path.basename(wbp), 'sha256': sha, 'ghi_chu': 'Trích t�
            'hang_so': hs,
            'dinh_dang_o_cong_thuc': {s: {r: f for r, f in dinh_dang(wbp)[s].items() if cells[s].get(r, ('v',))[0] == 'f'} for s in sheets},
            'bo_cuc': bo_cuc(wbp),
+           'danh_sach_chon': danh_sach_chon(wbp),
            'o_cong_thuc': {s: sorted(r for r, v in cells[s].items() if v[0] == 'f') for s in sheets}}, open(os.path.join(out, 'hang_so_sheet.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
 
 # Kiểm chéo: CSDL json và TIET_KHI csv phải trùng ô hằng trong workbook

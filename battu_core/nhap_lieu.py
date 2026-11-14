@@ -24,6 +24,9 @@ class LoiNhap(ValueError):
     pass
 
 
+SO_DONG_SU_KIEN = 30
+
+
 @dataclass
 class LaSo:
     ho_ten: str = ''
@@ -51,6 +54,7 @@ class LaSo:
     vuong_suy: str = 'Theo khuyến nghị'  # C14
     la_mau: str = 'Tự nhập'              # C13 (lá số mẫu trong KIEM_THU)
     che_do_nht: str = 'PA2 – Theo sách'  # NGU_HANH_THIEU E3
+    su_kien: list = field(default_factory=list)  # SU_KIEN B6:D35 – [[năm, loại sự việc, ghi chú], …] tối đa 30 dòng
 
     def to_dict(self): return asdict(self)
 
@@ -116,6 +120,15 @@ class LaSo:
             for col in 'CDEFG': nl[col + '26'] = None
             for i, col in enumerate('CDEF'):
                 nl[col + '7'] = self.can[i] or None; nl[col + '8'] = self.chi[i] or None
-        return {'NHAP_LIEU': nl,
-                'KHONG_RO_GIO': {'C6': self.gio_dang_xem},
-                'NGU_HANH_THIEU': {'E3': self.che_do_nht}}
+        sk = {}
+        for i, dong in enumerate((self.su_kien or [])[:SO_DONG_SU_KIEN]):      # SU_KIEN B6:D35 (ô nhập của workbook)
+            nam, loai, ghi = (list(dong) + [None, None, None])[:3]
+            r = 6 + i
+            sk['B%d' % r] = float(nam) if nam not in (None, '') else None
+            sk['C%d' % r] = loai or None
+            sk['D%d' % r] = ghi or None
+        ra = {'NHAP_LIEU': nl,
+              'KHONG_RO_GIO': {'C6': self.gio_dang_xem},
+              'NGU_HANH_THIEU': {'E3': self.che_do_nht}}
+        if sk: ra['SU_KIEN'] = sk
+        return ra

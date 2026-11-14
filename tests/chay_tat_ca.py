@@ -107,4 +107,15 @@ if 'KET_LUAN' in S.PHAM_VI:
           '| PDF | số trang, "Trang i/n" mỗi trang, khối KẾT LUẬN, phiên bản quy tắc | %d / %d lá |' % (sum(p5), len(p5)), '']
     for x in l5[:30]: L.append('- LỆCH %r' % (x,))
     print('T5', dj, dx, p5)
+if 'SU_KIEN' in S.PHAM_VI:
+    from tests import t9_su_kien
+    n9, t9, d9, l9, (db9, tb9), ok9 = t9_su_kien.chay()
+    L += ['## T9 – Nhập sự việc SU_KIEN (bản 1.1.0): 20 lá T7 × 6 sự việc, đáp án tools/oracle_mo_rong.py (T7_SU_KIEN)', '',
+          '| Hạng mục | Kết quả |', '|---|---|',
+          '| Mọi ô công thức 33 sheet | %d / %d |' % (sum(d9.values()), sum(t9.values())),
+          '| Riêng SU_KIEN | %d / %d |' % (d9['SU_KIEN'], t9['SU_KIEN']),
+          '| Đường nhập LaSo.su_kien → ô SU_KIEN B/C/D trùng ô oracle đã nhập | %d / %d lá |' % (db9, tb9),
+          '| Lưu SQLite → mở lại giữ nguyên sự việc | %s |' % ('ĐẠT' if ok9 else 'LỖI'), '']
+    for x in l9[:30]: L.append('- LỆCH %r' % (x,))
+    print('T9', sum(d9.values()), '/', sum(t9.values()), db9, tb9, ok9)
 open(RA, 'w').write('\n'.join(L) + '\n'); print('Ghi', RA)

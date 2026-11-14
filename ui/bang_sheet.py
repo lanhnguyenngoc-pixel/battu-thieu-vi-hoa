@@ -8,6 +8,9 @@ from PySide6.QtWidgets import QTableWidget, QTableWidgetItem, QAbstractItemView,
 from battu_core.du_lieu import model, ref_of
 from battu_core.hien_thi import hien_thi_o
 from battu_core.dinh_dang_dk import kieu_sheet
+from battu_core.thuat_ngu import tu_dien, tim
+
+CHE_DO = {'chuyen_gia': False}      # True: hiện địa chỉ ô Excel trong chú giải
 
 
 def kich_thuoc(sheet):
@@ -47,7 +50,7 @@ class BangSheet(QTableWidget):
 
     def hien(self, E):
         M = model(); si = M.si[self.sheet]; fc = M.formula_cells[si]
-        dk = kieu_sheet(E, self.sheet)
+        dk = kieu_sheet(E, self.sheet); td = tu_dien(E); cg = CHE_DO['chuyen_gia']
         self.setUpdatesEnabled(False)
         for i, r in enumerate(self.dong):
             for c in range(1, self.nc + 1):
@@ -61,7 +64,10 @@ class BangSheet(QTableWidget):
                         continue
                     t = hien_thi_o(E, self.sheet, ref) if isinstance(v, (int, float)) else str(v)
                 it = QTableWidgetItem(t)
-                it.setToolTip('%s!%s%s%s' % (self.sheet, ref, '  (ô công thức)' if (r, c) in fc else '', ('\n' + t[:1500]) if len(t) > 80 else ''))
+                gy = '' if (r, c) in fc else '\n\n'.join('• %s  (%s)' % (cau, o) for k, cau, o in tim(t, td, 3))
+                dau = ('%s!%s%s' % (self.sheet, ref, '  (ô công thức)' if (r, c) in fc else '')) if cg else ''
+                tt = '\n'.join(x for x in (dau, t[:1500] if len(t) > 80 else '', gy) if x)
+                if tt: it.setToolTip(tt)
                 if (r, c) in fc: it.setForeground(QColor('#1e2140'))
                 else: it.setForeground(QColor('#4b5070'))
                 if (r, c) not in fc and isinstance(t, str) and len(t) > 6 and t[:1].isupper() and (t.isupper() or t[:2] in ('A.', 'B.', 'C.', 'D.', 'E.', 'F.', 'G.', 'H.', 'I.', 'J.', 'K.')):

@@ -1441,5 +1441,390 @@
    "THAM_KHAO"
   ],
   "them_o": {}
+ },
+ "T7_SU_KIEN": {
+  "mo_ta": "Bản 1.1.0 – nhập sự việc SU_KIEN B6:D11 (6 sự việc/lá, năm theo năm sinh) trên 20 lá T7",
+  "rieng": {
+   "T7_01": {
+    "SU_KIEN": {
+     "B6": 1919.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1938.0,
+     "C7": "Người thân mất",
+     "B8": 1943.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1951.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 1964.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 1977.0,
+     "C11": "Tài chính – khó khăn"
+    }
+   },
+   "T7_02": {
+    "SU_KIEN": {
+     "B6": 2030.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2049.0,
+     "C7": "Người thân mất",
+     "B8": 2054.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2062.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2075.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2088.0,
+     "C11": "Hôn nhân – kết hôn"
+    }
+   },
+   "T7_03": {
+    "SU_KIEN": {
+     "B6": 1909.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1928.0,
+     "C7": "Người thân mất",
+     "B8": 1933.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1941.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 1954.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 1967.0,
+     "C11": "Tai nạn – pháp lý"
+    }
+   },
+   "T7_04": {
+    "SU_KIEN": {
+     "B6": 2004.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2023.0,
+     "C7": "Người thân mất",
+     "B8": 2028.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2036.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2049.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2062.0,
+     "C11": "Khác"
+    }
+   },
+   "T7_05": {
+    "SU_KIEN": {
+     "B6": 2070.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2089.0,
+     "C7": "Người thân mất",
+     "B8": 2094.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2100.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2100.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2100.0,
+     "C11": "Công việc – mất việc, sự cố"
+    }
+   },
+   "T7_06": {
+    "SU_KIEN": {
+     "B6": 2004.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2023.0,
+     "C7": "Người thân mất",
+     "B8": 2028.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2036.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2049.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2062.0,
+     "C11": "Tài chính – thuận lợi"
+    }
+   },
+   "T7_07": {
+    "SU_KIEN": {
+     "B6": 2047.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2066.0,
+     "C7": "Người thân mất",
+     "B8": 2071.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2079.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2092.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2100.0,
+     "C11": "Công việc – mất việc, sự cố"
+    }
+   },
+   "T7_08": {
+    "SU_KIEN": {
+     "B6": 2065.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2084.0,
+     "C7": "Người thân mất",
+     "B8": 2089.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2097.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2100.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2100.0,
+     "C11": "Tai nạn – pháp lý"
+    }
+   },
+   "T7_09": {
+    "SU_KIEN": {
+     "B6": 1949.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1968.0,
+     "C7": "Người thân mất",
+     "B8": 1973.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1981.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 1994.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2007.0,
+     "C11": "Công việc – thuận lợi"
+    }
+   },
+   "T7_10": {
+    "SU_KIEN": {
+     "B6": 2077.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2096.0,
+     "C7": "Người thân mất",
+     "B8": 2100.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2100.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2100.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2100.0,
+     "C11": "Có con (sinh con)"
+    }
+   },
+   "T7_11": {
+    "SU_KIEN": {
+     "B6": 1999.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2018.0,
+     "C7": "Người thân mất",
+     "B8": 2023.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2031.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2044.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2057.0,
+     "C11": "Hôn nhân – kết hôn"
+    }
+   },
+   "T7_12": {
+    "SU_KIEN": {
+     "B6": 1941.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1960.0,
+     "C7": "Người thân mất",
+     "B8": 1965.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1973.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 1986.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 1999.0,
+     "C11": "Công việc – thuận lợi"
+    }
+   },
+   "T7_13": {
+    "SU_KIEN": {
+     "B6": 2057.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2076.0,
+     "C7": "Người thân mất",
+     "B8": 2081.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2089.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2100.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2100.0,
+     "C11": "Người thân mất"
+    }
+   },
+   "T7_14": {
+    "SU_KIEN": {
+     "B6": 2100.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 2100.0,
+     "C7": "Người thân mất",
+     "B8": 2100.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 2100.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2100.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2100.0,
+     "C11": "Công việc – mất việc, sự cố"
+    }
+   },
+   "T7_15": {
+    "SU_KIEN": {
+     "B6": 1963.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1982.0,
+     "C7": "Người thân mất",
+     "B8": 1987.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1995.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2008.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2021.0,
+     "C11": "Công việc – mất việc, sự cố"
+    }
+   },
+   "T7_16": {
+    "SU_KIEN": {
+     "B6": 1963.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1982.0,
+     "C7": "Người thân mất",
+     "B8": 1987.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1995.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2008.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2021.0,
+     "C11": "Có con (sinh con)"
+    }
+   },
+   "T7_17": {
+    "SU_KIEN": {
+     "B6": 1963.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1982.0,
+     "C7": "Người thân mất",
+     "B8": 1987.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1995.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2008.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2021.0,
+     "C11": "Người thân mất"
+    }
+   },
+   "T7_18": {
+    "SU_KIEN": {
+     "B6": 1963.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1982.0,
+     "C7": "Người thân mất",
+     "B8": 1987.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1995.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2008.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2021.0,
+     "C11": "Tai nạn – pháp lý"
+    }
+   },
+   "T7_19": {
+    "SU_KIEN": {
+     "B6": 1963.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1982.0,
+     "C7": "Người thân mất",
+     "B8": 1987.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1995.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2008.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2021.0,
+     "C11": "Công việc – mất việc, sự cố"
+    }
+   },
+   "T7_20": {
+    "SU_KIEN": {
+     "B6": 1963.0,
+     "C6": "Tài chính – thuận lợi",
+     "D6": "ghi chú 0",
+     "B7": 1982.0,
+     "C7": "Người thân mất",
+     "B8": 1987.0,
+     "C8": "Có con (sinh con)",
+     "D8": "ghi chú 2",
+     "B9": 1995.0,
+     "C9": "Tài chính – khó khăn",
+     "B10": 2008.0,
+     "C10": "Tai nạn – pháp lý",
+     "D10": "ghi chú 4",
+     "B11": 2021.0,
+     "C11": "Người thân mất"
+    }
+   }
+  }
  }
 }

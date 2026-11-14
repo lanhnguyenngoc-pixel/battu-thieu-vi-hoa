@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.0.0 (quy tắc 6.3)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.1.0 (quy tắc 6.3)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, chuyển nguyên vẹn từ '
          'bộ công cụ Excel bản 6.3: <b>mọi kết quả trùng 100% với workbook</b> (đã kiểm trên hàng chục triệu ô). Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.0.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.1.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -43,15 +43,24 @@ H.append('<p>Lá số đã lưu nằm trong tệp <b>la_so.sqlite</b>: Windows <
          '<i>~/Library/Application Support/BatTuThieuViHoa</i>. Gỡ phần mềm <b>không xóa</b> tệp này (để không mất lá số); muốn sao lưu '
          'hãy chép tệp này sang nơi khác.</p>')
 
-H.append('<h2>2. Bố cục màn hình</h2><p>Thanh bên trái có 12 mục, chia 3 nhóm:</p>'
-         '<table width="100%" cellspacing="0"><tr><th width="24%">Mục</th><th>Dùng để</th></tr>'
-         '<tr><td>★ Tóm tắt</td><td>Màn hình đầu: 9 dòng KẾT LUẬN của 9 lĩnh vực (KET_LUAN dòng 3–12), nút Xuất/In, Lưu.</td></tr>'
+H.append('<h2>2. Bố cục màn hình và Chế độ chuyên gia</h2><p>Thanh bên trái chia 3 nhóm. Công tắc <b>Chế độ chuyên gia</b> ở cuối thanh bên '
+         '(phần mềm ghi nhớ lựa chọn) hiện thêm các bảng chi tiết dành cho người nghiên cứu.</p>'
+         '<table width="100%" cellspacing="0"><tr><th width="26%">Mục</th><th>Dùng để</th></tr>'
+         '<tr><td colspan="2"><b>Đọc lá số – luôn hiện</b></td></tr>'
+         '<tr><td>★ Tóm tắt</td><td>Màn hình đầu: 9 dòng KẾT LUẬN của 9 lĩnh vực (KET_LUAN dòng 3–12); nút Nhập/sửa, Xuất/In, Lưu.</td></tr>'
+         '<tr><td>☷ Lá số</td><td>Lá số trực quan: 4 trụ can chi màu theo ngũ hành, thập thần, tàng can, trạng thái nhật can; nạp âm năm; dải 10 đại vận (vận đang hành viền tím).</td></tr>'
          '<tr><td>✎ Nhập liệu</td><td>Nhập ngày giờ sinh hoặc tứ trụ; kết quả tính lại ngay khi sửa.</td></tr>'
-         '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K của KET_LUAN (mỗi mục mở đầu bằng dòng KẾT LUẬN), Luận giải, Đọc nhanh, Đối chiếu sự việc; ô tìm kiếm.</td></tr>'
-         '<tr><td>◫ Trung gian · ⚖ Phân tích · ↯ Vận trình · ☯ Ngũ hành thiếu · ◎ Chuyên đề · ◷ Không rõ giờ</td><td>Bảng chi tiết từng sheet cho người nghiên cứu (giữ đúng tên, thứ tự bảng, câu ghi chú như Excel).</td></tr>'
-         '<tr><td>❐ Tham khảo</td><td>Trang chủ, Hướng dẫn của workbook, Tham khảo ngoài sách, bảng Tiết khí 1899–2101 (chỉ đọc).</td></tr>'
-         '<tr><td>☰ Danh sách lá số · ⇄ So sánh hai lá</td><td>Lưu, tìm, nhóm, ghi chú; đặt hai lá cạnh nhau.</td></tr></table>')
-H.append('<p>Trong mọi bảng: rê chuột lên ô để xem địa chỉ ô Excel (ví dụ <i>KET_LUAN!C29</i>) và toàn văn ô dài.</p>')
+         '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K của KET_LUAN (mỗi mục mở đầu bằng dòng KẾT LUẬN) và ô tìm kiếm.</td></tr>'
+         '<tr><td>❦ Luận giải</td><td>Bài đọc liền mạch 8 mục + đánh giá tổng thể + 6 ý cho từng kết luận; chữ gạch chân có chú giải.</td></tr>'
+         '<tr><td>↯ Vận trình · ☯ Ngũ hành thiếu</td><td>Đại vận; mục I, II, ★, III, IV, V và 2 biểu đồ.</td></tr>'
+         '<tr><td>✓ Kiểm chứng sự việc</td><td>Nhập sự việc đã xảy ra để đối chiếu với lá số (SU_KIEN).</td></tr>'
+         '<tr><td colspan="2"><b>Chuyên gia – hiện khi bật công tắc</b></td></tr>'
+         '<tr><td>◫ Trung gian · ⚖ Phân tích · ◎ Chuyên đề</td><td>Bảng chi tiết từng sheet (giữ tên, thứ tự bảng, câu ghi chú như Excel); thẻ Lưu niên 100 năm và Theo dõi trong Vận trình; địa chỉ ô Excel khi rê chuột.</td></tr>'
+         '<tr><td>◷ Không rõ giờ</td><td>Hiện khi bật "Không rõ giờ sinh" (hoặc ở chế độ chuyên gia).</td></tr>'
+         '<tr><td colspan="2"><b>Tham khảo và quản lý</b></td></tr>'
+         '<tr><td>❐ Tham khảo · ☰ Danh sách lá số · ⇄ So sánh</td><td>Trang chủ, Hướng dẫn, Tham khảo ngoài sách, Tiết khí; lưu/tìm/nhóm lá số; đặt hai lá cạnh nhau.</td></tr></table>')
+anh('22_che_do_thuong_thanh_ben.png', 'Chế độ thường (trái) – bật Chế độ chuyên gia để hiện thêm Trung gian, Phân tích, Chuyên đề')
+H.append('<p>Trong mọi bảng: rê chuột lên ô để xem toàn văn ô dài và <b>chú giải thuật ngữ</b> có trong ô; ở chế độ chuyên gia còn thấy địa chỉ ô Excel (ví dụ <i>KET_LUAN!C29</i>).</p>')
 
 H.append('<h2>3. Nhập lá số</h2>')
 anh('13_nhap_lieu.png', 'Màn hình Nhập liệu: cột trái nhập, cột phải tứ trụ và các kiểm tra, cảnh báo nguyên văn workbook')
@@ -68,9 +77,15 @@ anh('01_tom_tat.png', 'TÓM TẮT: mỗi thẻ là dòng KẾT LUẬN của mộ
 H.append('<p>Người mới học nên đọc theo thứ tự: <b>Tóm tắt → Theo lĩnh vực (mục C Bản mệnh) → Luận giải</b>. '
          'Mỗi dòng có ghi nguồn sách (ví dụ <i>P1 tr.70</i> = Phần 1 trang 70).</p>')
 
+H.append('<h2>4b. Lá số trực quan</h2>')
+anh('18_la_so_truc_quan.png', 'Lá số: can chi lớn tô màu theo hành (Mộc xanh lá, Hỏa đỏ, Thổ nâu, Kim vàng, Thủy xanh dương); trụ ngày (nhật chủ) nền tím')
 H.append('<h2>5. Theo lĩnh vực, Luận giải và tìm kiếm</h2>')
 anh('02_linh_vuc_C_ban_menh.png', 'Mục C – Bản mệnh: khung KẾT LUẬN ở trên, căn cứ chi tiết ở dưới; chữ đỏ đậm = điểm tốt theo cờ của workbook')
 anh('05_tim_kiem.png', 'Tìm kiếm: gõ từ khóa rồi Enter; bấm một kết quả để nhảy tới ô')
+anh('19_luan_giai_bai_doc.png', 'Luận giải dạng bài đọc: nhãn KẾT LUẬN, CÁT TƯỜNG, [Sách], [Kinh nghiệm]; chữ gạch chân – rê chuột xem chú giải')
+H.append('<p><b>Chú giải thuật ngữ</b> lấy nguyên văn từ workbook (LUAN_GIAI cột "Thuật ngữ bằng lời thường" và các ô ghi chú như KET_LUAN G17), '
+         'có số trang sách; danh sách đầy đủ ở cuối trang Luận giải.</p>')
+anh('20_chu_giai_thuat_ngu.png', 'Bảng chú giải thuật ngữ cuối trang Luận giải')
 H.append('<h3>Màu sắc (định dạng có điều kiện của workbook)</h3><table width="100%" cellspacing="0">'
          '<tr><th width="30%">Dấu hiệu</th><th>Ý nghĩa</th></tr>'
          '<tr><td><font color="#c00000"><b>Chữ đỏ đậm</b></font></td><td>Điểm tốt/thuận: dụng thần (KET_LUAN), đại vận thuận (DAI_VAN), năm đáng chú ý trong LUU_NIEN, '
@@ -84,6 +99,10 @@ anh('06_dai_van_dinh_dang_dk.png', 'Vận trình – Đại vận (đỏ đậm:
 anh('16_ngu_hanh_thieu.png', 'Ngũ hành thiếu: chọn chế độ PA2 – Theo sách / PA1 – Theo trang; biểu đồ năng lực và biểu đồ đại vận')
 anh('15_chuyen_de_luc_than.png', 'Chuyên đề: 10 thẻ (Lục thân, Hôn nhân, Mệnh cục, Tài lộc, Tố chất, Sự nghiệp, Sức khỏe, Thần sát, Sao, Bảo phù)')
 
+H.append('<h2>6b. Kiểm chứng sự việc</h2>')
+anh('21_kiem_chung_su_viec.png', 'Nhập năm và loại sự việc đã xảy ra, bấm Áp dụng – các cột bên phải tính từ lưu niên của đúng năm đó')
+H.append('<p>Nhập tối đa 30 sự việc: năm dương lịch, chọn <b>loại sự việc</b> (10 loại của workbook), ghi chú tùy ý; bấm <b>✔ Áp dụng &amp; tính lại</b>. '
+         'Dòng "Kết quả" cho biết bao nhiêu sự việc có dấu hiệu cùng loại trong lá số. Sự việc được lưu cùng lá số. Đây là công cụ kiểm tra, không phải tiên đoán.</p>')
 H.append('<h2>7. Lưu, tìm, so sánh lá số</h2>')
 anh('09_danh_sach_la_so.png', 'Danh sách lá số: tìm theo tên, nhóm, ghi chú, tứ trụ, ngày sinh; lọc theo nhóm')
 H.append('<p>Bấm <b>💾 Lưu lá số</b> (ở Tóm tắt hoặc Danh sách) → đặt tên, nhóm, ghi chú. <b>Mở</b> (hoặc bấm đúp) để nạp lại – phần mềm '

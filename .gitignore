@@ -6,4 +6,5 @@ dist/
 dist_cai/
 tests/dap_an_mo_rong/*
 !tests/dap_an_mo_rong/T7_NGAU_NHIEN/
+!tests/dap_an_mo_rong/T7_SU_KIEN/
 *.log

@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.0.0 · Quy tắc 6.3'
+PHIEN_BAN = 'Phiên bản 1.1.0 · Quy tắc 6.3'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -30,6 +30,8 @@ QMainWindow, #nen { background: #f4f5fb; }
 #nav:hover { background: rgba(255,255,255,0.12); }
 #nav:checked { background: white; color: #4338ca; font-weight: 700; }
 #nav:disabled { color: rgba(255,255,255,0.38); }
+#cg { color: white; font-size: 12px; font-weight: 600; }
+#cg::indicator:checked { background: #fbbf24; }
 #phienban { color: rgba(255,255,255,0.7); font-size: 11px; }
 #the { background: white; border: 1px solid #e7e8f3; border-radius: 20px; }
 #tieude { font-size: 22px; font-weight: 800; }
@@ -288,6 +290,7 @@ class TrangNhap(QWidget):
         s.so_gio_le = doc_tuy_chon(self.c29, True); s.thang_am = doc_tuy_chon(self.c32); s.ngay_am = doc_tuy_chon(self.c33)
         if getattr(self, '_phoi_ngau', None): s.phoi_ngau = list(self._phoi_ngau)   # giữ dữ liệu của lá đã mở
         if getattr(self, '_ghi_chu', None): s.ghi_chu = self._ghi_chu
+        s.su_kien = [list(x) for x in getattr(self, '_su_kien', [])]
         return s
 
     def dat_la_so(self, s):
@@ -317,7 +320,7 @@ class TrangNhap(QWidget):
             for w in ws: w.blockSignals(False)
         for k, p in enumerate(self.trang_nhap): p.setVisible(k == i)
         self.w_gio.setVisible(i != 2)
-        self._phoi_ngau = list(s.phoi_ngau); self._ghi_chu = s.ghi_chu
+        self._phoi_ngau = list(s.phoi_ngau); self._ghi_chu = s.ghi_chu; self._su_kien = [list(x) for x in (s.su_kien or [])]
         self.hen.stop(); self.tinh()
 
     def chip(self, text, kind=None):
@@ -551,55 +554,90 @@ SHEET_CHUYEN_DE = [('LUC_THAN', 'Lục thân'), ('HON_NHAN', 'Hôn nhân'), ('ME
 
 
 class CuaSoChinh(QMainWindow):
+    """Thanh bên: tầng Đọc lá số (luôn hiện) + tầng Chuyên gia (bật bằng công tắc, ghi nhớ) + Tham khảo / Quản lý."""
     def __init__(self, kho=None):
-        super().__init__(); self.setWindowTitle('Bát Tự Thiệu Vĩ Hoa'); self.resize(1380, 880)
+        super().__init__(); self.setWindowTitle('Bát Tự Thiệu Vĩ Hoa'); self.resize(1400, 900)
+        from PySide6.QtCore import QSettings
         from ui.trang_ket_qua import TrangTomTat, TrangLinhVuc, TrangThamKhao, TrangDanhSach, TrangSoSanh
+        from ui.trang_v11 import TrangLaSo, TrangLuanGiai, TrangSuKien
+        from ui import bang_sheet
         from battu_core.kho_la_so import Kho
-        self.kho = kho or Kho()
+        self.kho = kho or Kho(); self.cai_dat = QSettings('BatTuThieuViHoa', 'BatTuThieuViHoa')
         nen = QWidget(); nen.setObjectName('nen'); self.setCentralWidget(nen)
         h = QHBoxLayout(nen); h.setContentsMargins(0, 0, 0, 0); h.setSpacing(0)
-        sb = QFrame(); sb.setObjectName('sidebar'); sb.setFixedWidth(230)
-        sv = QVBoxLayout(sb); sv.setContentsMargins(18, 26, 18, 20); sv.setSpacing(5)
-        sv.addWidget(lbl('☯  Bát Tự', 'logo')); sv.addWidget(lbl('Theo sách Thiệu Vĩ Hoa', 'logo_phu')); sv.addSpacing(18)
-        self.t_nhap = TrangNhap(); self.t_tt = TrangTomTat(); self.t_lv = TrangLinhVuc(); self.t_tg = TrangTrungGian()
-        self.t_pt = TrangPhanTich()
+        sb = QFrame(); sb.setObjectName('sidebar'); sb.setFixedWidth(236)
+        sv = QVBoxLayout(sb); sv.setContentsMargins(18, 24, 18, 18); sv.setSpacing(3)
+        sv.addWidget(lbl('☯  Bát Tự', 'logo')); sv.addWidget(lbl('Theo sách Thiệu Vĩ Hoa', 'logo_phu')); sv.addSpacing(14)
+        self.t_nhap = TrangNhap(); self.t_tt = TrangTomTat(); self.t_ls = TrangLaSo(); self.t_lv = TrangLinhVuc()
+        self.t_lg = TrangLuanGiai(); self.t_sk = TrangSuKien(); self.t_tg = TrangTrungGian(); self.t_pt = TrangPhanTich()
         self.t_vt = TrangBangNhieuSheet('Vận trình', 'DAI_VAN 658 · LUU_NIEN 11.148 · THEO_DOI 5.006 ô công thức',
                                         [('DAI_VAN', 'Đại vận'), ('LUU_NIEN', 'Lưu niên 100 năm (A:DG)'), ('THEO_DOI', 'Theo dõi')])
         self.t_nht = TrangNguHanhThieu()
         self.t_cd = TrangBangNhieuSheet('Chuyên đề', '10 sheet · 7.469 ô công thức · sức khỏe chỉ tham khảo, không phải chẩn đoán', SHEET_CHUYEN_DE)
         self.t_krg = TrangKhongRoGio(); self.t_tk = TrangThamKhao()
         self.t_ds = TrangDanhSach(self.kho); self.t_ss = TrangSoSanh(self.kho)
-        muc = [('★   Tóm tắt', self.t_tt), ('✎   Nhập liệu', self.t_nhap), ('▤   Theo lĩnh vực', self.t_lv),
-               ('◫   Trung gian', self.t_tg), ('⚖   Phân tích', self.t_pt), ('↯   Vận trình', self.t_vt),
-               ('☯   Ngũ hành thiếu', self.t_nht), ('◎   Chuyên đề', self.t_cd), ('◷   Không rõ giờ', self.t_krg),
-               ('❐   Tham khảo', self.t_tk), ('☰   Danh sách lá số', self.t_ds), ('⇄   So sánh hai lá', self.t_ss)]
+        # (nhãn, trang, nhóm): 'A' đọc lá số – luôn hiện; 'CG' chỉ ở chế độ chuyên gia; 'KRG' khi bật Không rõ giờ hoặc chuyên gia
+        self.muc = [('★   Tóm tắt', self.t_tt, 'A'), ('☷   Lá số', self.t_ls, 'A'), ('✎   Nhập liệu', self.t_nhap, 'A'),
+                    ('▤   Theo lĩnh vực', self.t_lv, 'A'), ('❦   Luận giải', self.t_lg, 'A'), ('↯   Vận trình', self.t_vt, 'A'),
+                    ('☯   Ngũ hành thiếu', self.t_nht, 'A'), ('✓   Kiểm chứng sự việc', self.t_sk, 'A'),
+                    ('◷   Không rõ giờ', self.t_krg, 'KRG'), ('◫   Trung gian', self.t_tg, 'CG'), ('⚖   Phân tích', self.t_pt, 'CG'),
+                    ('◎   Chuyên đề', self.t_cd, 'CG'), ('❐   Tham khảo', self.t_tk, 'A'), ('☰   Danh sách lá số', self.t_ds, 'A'),
+                    ('⇄   So sánh hai lá', self.t_ss, 'A')]
         self.nav = QButtonGroup(self); self.trang = QStackedWidget()
-        for i, (t, w) in enumerate(muc):
+        for i, (t, w, nhom) in enumerate(self.muc):
             b = QPushButton(t); b.setObjectName('nav'); b.setCheckable(True); b.setCursor(Qt.PointingHandCursor)
             self.nav.addButton(b, i); sv.addWidget(b); self.trang.addWidget(w)
-            if i in (2, 8): sv.addSpacing(8)
-        sv.addStretch(); sv.addWidget(lbl(PHIEN_BAN, 'phienban'))
+            if i in (7, 11): sv.addSpacing(6)
+        sv.addStretch()
+        self.cg = QCheckBox('Chế độ chuyên gia'); self.cg.setObjectName('cg')
+        self.cg.setToolTip('Hiện thêm Trung gian, Phân tích, Chuyên đề, Lưu niên 100 năm, Theo dõi và địa chỉ ô Excel khi rê chuột')
+        sv.addWidget(self.cg); sv.addSpacing(6); sv.addWidget(lbl(PHIEN_BAN, 'phienban'))
         h.addWidget(sb); h.addWidget(self.trang, 1)
         self.nav.idClicked.connect(self.trang.setCurrentIndex)
-        ds = (self.t_tt, self.t_lv, self.t_tg, self.t_pt, self.t_vt, self.t_nht, self.t_cd, self.t_krg, self.t_tk, self.t_ds, self.t_ss)
+        ds = [w for _, w, _ in self.muc if w is not self.t_nhap]
         for t in ds: self.t_nhap.da_tinh.connect(t.hien)
+        self.t_nhap.da_tinh.connect(lambda kq: self._ap_che_do())
         self.t_nht.doi_che_do.connect(lambda x: self.t_nhap.nht.setCurrentText(x))
         self.t_krg.doi_gio.connect(lambda x: self.t_nhap.gio_xem.setCurrentText(x))
-        self.t_tt.mo_muc.connect(lambda chu: (self.di(2), self.t_lv.mo(chu)))
-        self.t_tt.yeu_cau_nhap.connect(lambda: self.di(1)); self.t_tt.yeu_cau_luu.connect(self.t_ds.luu)
+        self.t_tt.mo_muc.connect(lambda chu: (self.di(self.t_lv), self.t_lv.mo(chu)))
+        self.t_tt.yeu_cau_nhap.connect(lambda: self.di(self.t_nhap)); self.t_tt.yeu_cau_luu.connect(self.t_ds.luu)
         self.t_tt.yeu_cau_xuat.connect(self.xuat)
-        self.t_ds.mo_la.connect(lambda s, i: (self.t_nhap.dat_la_so(s), self.di(0)))
-        self.t_ds.so_sanh.connect(lambda a, b: (self.di(11), self.t_ss.nap(a, b)))
+        self.t_ds.mo_la.connect(lambda s, i: (self.t_nhap.dat_la_so(s), self.di(self.t_tt)))
+        self.t_ds.so_sanh.connect(lambda a, b: (self.di(self.t_ss), self.t_ss.nap(a, b)))
+        self.t_sk.doi_su_kien.connect(self._doi_su_kien)
+        self.cg.setChecked(self.cai_dat.value('chuyen_gia', False, type=bool))
+        self.cg.toggled.connect(self._doi_che_do)
+        self._ap_che_do()
         if self.t_nhap.kq:
             for t in ds: t.hien(self.t_nhap.kq)
-        self.di(0)                                  # TÓM TẮT là màn hình đầu
+        self.di(self.t_tt)                                   # TÓM TẮT là màn hình đầu
+
+    def _doi_su_kien(self, ds):
+        self.t_nhap._su_kien = ds; self.t_nhap.hen.stop(); self.t_nhap.tinh()
+
+    def _doi_che_do(self, on):
+        self.cai_dat.setValue('chuyen_gia', bool(on)); self._ap_che_do()
+        if self.t_nhap.kq:                                   # vẽ lại bảng để cập nhật chú giải / địa chỉ ô
+            for _, w, _ in self.muc:
+                if w is not self.t_nhap: w.hien(self.t_nhap.kq)
+
+    def _ap_che_do(self):
+        from ui import bang_sheet
+        cg = self.cg.isChecked(); krg = self.t_nhap.krg.isChecked(); bang_sheet.CHE_DO['chuyen_gia'] = cg
+        for i, (_, w, nhom) in enumerate(self.muc):
+            hien = nhom == 'A' or (nhom == 'CG' and cg) or (nhom == 'KRG' and (cg or krg))
+            self.nav.button(i).setVisible(hien)
+            if not hien and self.trang.currentWidget() is w: self.di(self.t_tt)
+        for j in (1, 2): self.t_vt.tab.setTabVisible(j, cg)    # Lưu niên 100 năm, Theo dõi: chuyên gia
+        if not cg and self.t_vt.tab.currentIndex() in (1, 2): self.t_vt.tab.setCurrentIndex(0)
 
     def xuat(self):
         if not self.t_nhap.kq: return
         from ui.hop_xuat import HopXuat
         HopXuat(self, self.t_nhap.kq).exec()
 
-    def di(self, i):
+    def di(self, w):
+        i = w if isinstance(w, int) else self.trang.indexOf(w)
         self.nav.button(i).setChecked(True); self.trang.setCurrentIndex(i)
 
 

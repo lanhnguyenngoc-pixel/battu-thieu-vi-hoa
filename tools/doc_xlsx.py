@@ -140,3 +140,32 @@ def bo_cuc(path):
                    if _attrs(rm.group(1)).get('hidden') in ('1', 'true')]
         out[name] = {'gop': gop, 'rong': rong, 'an_cot': an_cot, 'an_dong': an_dong}
     return out
+
+
+def danh_sach_chon(path):
+    """{sheet: {sqref: [lựa chọn…]}} – danh sách chọn (Data validation kiểu list, giá trị viết trực tiếp) của workbook.
+    Ưu tiên <x12ac:list> (giữ đúng mục có dấu phẩy trong ngoặc kép), nếu không có thì đọc <formula1>."""
+    import csv, io
+    z = zipfile.ZipFile(path)
+    wbx = z.read('xl/workbook.xml').decode('utf-8'); rels = z.read('xl/_rels/workbook.xml.rels').decode('utf-8')
+    rid2t = {}
+    for m in re.finditer(r'<Relationship\s([^>]*)/?>', rels):
+        a = _attrs(m.group(1)); rid2t[a.get('Id')] = a.get('Target')
+    out = {}
+    for m in re.finditer(r'<sheet\s([^>]*)/>', wbx):
+        a = _attrs(m.group(1)); name = html.unescape(a['name'])
+        rid = re.search(r'r:id="([^"]+)"', m.group(1)).group(1)
+        tgt = rid2t[rid].lstrip('/'); tgt = tgt if tgt.startswith('xl/') else 'xl/' + tgt
+        x = z.read(tgt).decode('utf-8')
+        for dv in re.finditer(r'<dataValidation\s([^>]*)>(.*?)</dataValidation>', x, re.S):
+            da = _attrs(dv.group(1))
+            if da.get('type') != 'list': continue
+            lst = re.search(r'<x12ac:list>(.*?)</x12ac:list>', dv.group(2), re.S)
+            if lst: muc = next(csv.reader(io.StringIO(html.unescape(lst.group(1)))))
+            else:
+                f1 = re.search(r'<formula1>(.*?)</formula1>', dv.group(2), re.S)
+                f1 = html.unescape(f1.group(1)) if f1 else ''
+                if not (f1.startswith('"') and f1.endswith('"')): continue      # danh sách theo tên vùng (CHI_TEN…) – bỏ qua
+                muc = f1[1:-1].split(',')
+            out.setdefault(name, {})[da['sqref']] = [s.strip() for s in muc]
+    return out
