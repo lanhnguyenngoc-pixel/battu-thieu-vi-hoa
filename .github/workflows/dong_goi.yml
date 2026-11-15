@@ -29,6 +29,8 @@ jobs:
         run: python -m tests.t11_hien_thi
       - name: Kiểm thử T12 – quan hệ can chi, hồ sơ dữ kiện
         run: python -m tests.t12_quan_he
+      - name: Kiểm thử T13 – phán đoán, gỡ mâu thuẫn
+        run: python -m tests.t13_phan_doan
       - name: PyInstaller
         run: pyinstaller --noconfirm dong_goi/battu.spec
       - name: Inno Setup
@@ -88,6 +90,8 @@ jobs:
         run: python -m tests.t11_hien_thi
       - name: Kiểm thử T12 – quan hệ can chi, hồ sơ dữ kiện
         run: python -m tests.t12_quan_he
+      - name: Kiểm thử T13 – phán đoán, gỡ mâu thuẫn
+        run: python -m tests.t13_phan_doan
       - name: PyInstaller
         run: pyinstaller --noconfirm dong_goi/battu.spec
       - name: Tạo .dmg

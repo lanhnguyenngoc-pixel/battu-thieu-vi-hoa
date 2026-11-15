@@ -1,0 +1,56 @@
+{
+  "_ghi_chu": "Quy tắc lớp tổng hợp (đề xuất hoàn thiện 15/11/2026, giai đoạn T3). Chủ dự án duyệt và sửa tệp này; mã (battu_core/tong_hop/phan_doan.py) chỉ đọc. Mọi số là quy ước kỹ thuật của lớp tổng hợp, không phải câu sách; sau khi chạy ổn sẽ chuyển vào workbook thành quy tắc 6.6.",
+  "phien_ban": "T3-1",
+
+  "vai_tro_hanh": {
+    "_ghi_chu": "Điểm của một hành theo vai trò với nhật chủ. 'phe_gay_mat_can_bang' = hành còn lại của phe gây lệch (thân vượng: ấn/tỉ không phải kỵ; thân nhược: tài/quan/thực không phải kỵ). 'nhan_co_loi' = hành nhàn thần nhưng cùng chiều cân bằng (thân vượng: khắc – tiết – hao; thân nhược: sinh – trợ). Khi vượng suy sát ngưỡng (mục vuong_suy) thân chỉ lệch nhẹ nên hành phe gây lệch chỉ trừ 'phe_gay_mat_can_bang_khi_sat_nguong'.",
+    "dung": 2.0, "hy": 1.0, "ky": -2.0, "phe_gay_mat_can_bang": -1.0, "nhan_co_loi": 0.5, "nhan": 0.0,
+    "phe_gay_mat_can_bang_khi_sat_nguong": -0.5
+  },
+
+  "dai_van": {
+    "_ghi_chu": "Điểm vận = điểm can (chủ 5 năm đầu) + điểm chi (chủ 5 năm sau) + điều chỉnh quan hệ với tứ trụ. Mức xếp theo ngưỡng (≥).",
+    "xung_chi_dung": -1.0, "xung_chi_ky": 0.5, "xung_toi_da_lan": 2,
+    "xung_cung_phu_the": -0.5, "thien_khac_dia_xung": -1.0,
+    "hop_thanh_hanh_dung": 1.0, "hop_thanh_hanh_ky": -1.0,
+    "hinh_moi_lan": -0.25, "hinh_toi_da": -0.5, "tam_hinh": -1.0,
+    "nguong": {"Rất tốt": 3.5, "Tốt": 1.0, "Trung bình": -1.0, "Xấu": -4.5},
+    "nguong_nua": {"Rất tốt": 2.0, "Tốt": 0.75, "Trung bình": -0.75, "Xấu": -2.0}
+  },
+
+  "luu_nien": {
+    "_ghi_chu": "Điểm năm = điểm can năm + điểm chi năm + quan hệ năm–tứ trụ + quan hệ năm–đại vận + he_so_van × điểm nửa đại vận đang chủ (can nếu 5 năm đầu, chi nếu 5 năm sau). Năm có dấu hiệu hạn nặng (workbook LUU_NIEN 'Số dấu hiệu nặng') bị trừ và không được xếp cao hơn 'tran_khi_han_nang'.",
+    "he_so_van": 0.5,
+    "xung_chi_dung": -1.5, "xung_chi_ky": 0.5, "xung_toi_da_lan": 2,
+    "xung_cung_phu_the": -1.0, "thien_khac_dia_xung": -1.0,
+    "hop_thanh_hanh_dung": 1.0, "hop_thanh_hanh_ky": -1.0,
+    "hop_cung_phu_the": 0.5, "tai_hop_nhat_chu": 0.5,
+    "hinh_moi_lan": -0.25, "hinh_toi_da": -0.5, "tam_hinh": -1.0,
+    "xung_dai_van": -0.5,
+    "han_nang_moi_dau_hieu": -1.0, "tran_khi_han_nang": "Tốt",
+    "nguong": {"Rất tốt": 3.5, "Tốt": 1.0, "Trung bình": -1.0, "Xấu": -4.5}
+  },
+
+  "tho_yeu": {
+    "_ghi_chu": "Bảng P1 tr.173 của workbook chỉ so một tiêu chí (Thực thương với Ấn). Khi có từ 'so_dau_hieu_nguoc' dấu hiệu ngược chiều trở lên thì không dùng chữ 'yểu' mà ghi 'căn cứ ngược chiều'.",
+    "so_dau_hieu_nguoc": 2,
+    "dau_hieu_tot": ["thân vượng", "nguyệt đức", "thiên đức", "sức khỏe chung thuận", "có cứu", "bình sinh ít bệnh"]
+  },
+
+  "luc_than": {
+    "_ghi_chu": "Trọng số nguồn khi các nguồn nói trái nhau (chủ dự án duyệt 15/11/2026).",
+    "trong_so_nguon": {"Thiệu Vĩ Hoa": 4, "Uyên Hải Tử Bình": 3, "Cùng Thông Bảo Giám": 2, "Trích Thiên Tủy": 2, "Hóa giải toàn thư": 2, "Tham khảo": 1},
+    "tu_xau": ["không có con", "khó có con", "cô đơn", "khắc", "kém", "vất vả", "ít nhờ", "xa cách", "yếu thế", "ít con"],
+    "tu_tot": ["khỏe", "nhờ được", "có năng lực", "tốt", "phúc lộc", "che chở"]
+  },
+
+  "vuong_suy": {
+    "_ghi_chu": "Phe mình (PP2, % tổng độ) trong khoảng này thì coi là sát ngưỡng: nêu thêm giả thuyết ngược lại và gợi ý kiểm chứng bằng sự việc đã qua.",
+    "sat_nguong_tu": 38.0, "sat_nguong_den": 48.0
+  },
+
+  "loc_theo_tuoi": {
+    "_ghi_chu": "Ẩn hoặc đổi cách đọc các mục không hợp tuổi / hoàn cảnh (tuổi thực tại năm xem).",
+    "an_thoi_diem_ket_hon_tu_tuoi": 45, "an_moc_hoc_tap_tu_tuoi": 30
+  }
+}

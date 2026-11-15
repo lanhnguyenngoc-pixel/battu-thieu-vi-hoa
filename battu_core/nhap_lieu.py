@@ -59,6 +59,9 @@ class LaSo:
     su_kien: list = field(default_factory=list)  # SU_KIEN B6:D35 – [[năm, loại sự việc, ghi chú], …] tối đa 30 dòng
     viec_tim_gio: list = field(default_factory=list)  # KHONG_RO_GIO C11:E22 – [[năm, loại việc, ghi chú], …] tối đa 12
     theo_doi: dict = field(default_factory=dict)      # THEO_DOI N/O/P – {năm: [thực tế, sự kiện, đánh giá]}
+    # Lớp tổng hợp (đề xuất hoàn thiện 15/11/2026, B4) – KHÔNG phải ô nhập workbook, không đổi kết quả tính:
+    tinh_trang_hon_nhan: str = ''        # '' | 'Độc thân' | 'Đã kết hôn' | 'Ly hôn' | 'Góa'
+    so_con: int = None                   # None = không nhập
 
     def to_dict(self): return asdict(self)
 
