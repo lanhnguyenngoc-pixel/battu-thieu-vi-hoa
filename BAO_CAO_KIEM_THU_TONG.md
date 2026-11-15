@@ -451,3 +451,7 @@ Lõi tính và 33 sheet không đổi; các kiểm thử chạy được từ m�
 | Tự kiểm (`--tu-kiem`) | 3 lá ĐẠT (dấu vân tay không đổi); luận giải tổng hợp 5 trang + Word ĐẠT |
 
 T1–T4, T8 cần thư mục hồ sơ HO_SO_PM (đáp án LibreOffice) – không chạy lại vì lõi tính không đổi.
+
+### Bộ cài 1.7.0 – GitHub Actions lượt 43708367332
+T7 + T9 + T10 + T11–T15 từ mã nguồn, cài → tự kiểm khi chặn mạng (3 lá ĐẠT, dấu vân tay ae7e52ec3c4b99e7 trùng bản gốc; luận giải tổng hợp ≤ 5 trang + Word ĐẠT) → gỡ: **ĐẠT** trên Windows, macOS arm64 (chạy lại do GitHub thiếu máy arm64 lần đầu), macOS x86_64.
+Gói tải về: BatTuThieuViHoa-Windows (41 MB), BatTuThieuViHoa-macOS-arm64 (48 MB), BatTuThieuViHoa-macOS-x86_64 (52 MB).
