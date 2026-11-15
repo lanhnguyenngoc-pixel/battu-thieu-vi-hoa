@@ -422,3 +422,12 @@ T7 + T9 + T10 từ mã nguồn (575.060 · 581.260 · 581.260 ô), cài → tự
 | BatTuThieuViHoa-Windows | c2639028dd92d44cdfca444c6f39989a72c166c42fd40e313082458e53916a32 |
 | BatTuThieuViHoa-macOS-arm64 | 68d402793cc10f9b4f4afd29716b4769ae5e60a4fa687fddb26b8d094a9dac08 |
 | BatTuThieuViHoa-macOS-x86_64 | 61b9fb9b4af321fecd474d4388941c8d4dba798d97a7b3dd481f20de9c2de6dc |
+
+## Bản 1.6.1 – tốc độ giao diện (lõi tính không đổi) – 15/11/2026
+GitHub Actions lượt 43681188963: T7 575.060 · T9 581.260 · T10 581.260 ô; cài → tự kiểm khi chặn mạng (ae7e52ec3c4b99e7) → gỡ: **ĐẠT** trên Windows, macOS arm64, macOS x86_64. Ở máy dựng: T5, T6 đạt.
+
+| Gói tải về (zip) | SHA-256 của gói |
+|---|---|
+| BatTuThieuViHoa-Windows | 3e281b02e3f848e7e5a85121a96b0301efb4139e0c3ee66a1814e59d17e0e2d3 |
+| BatTuThieuViHoa-macOS-arm64 | 2656eb2d40a5d147766793cea22aa8d9d8ce253d9527c9fa10e4b510ab13c6f3 |
+| BatTuThieuViHoa-macOS-x86_64 | c87ebfcbbb6816d7e3b2408559fe925e24caa58ef48226cd618ce92db3496760 |
