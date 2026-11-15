@@ -463,3 +463,14 @@ Gói tải về: BatTuThieuViHoa-Windows (41 MB), BatTuThieuViHoa-macOS-arm64 (4
 | Vượng – nhược, mọi lá P1–P3 | 65 lá | 57 (88%) | 56 (86%) |
 | Vượng – nhược, 50 lá ngẫu nhiên | 50 lá | 44 (88%) | 43 (86%) |
 T11–T15 chạy lại: ĐẠT.
+
+## 1.8.0 – Quy tắc 6.6
+| Kiểm thử | Kết quả |
+|---|---|
+| LibreOffice 6.6 – 9 lá (6 lá quy tắc tác động) | 261 567 / 261 567 ô |
+| T7 (đáp án sinh lại từ 6.6) | 575 060 / 575 060 ô |
+| T9, T10 (đáp án sinh lại từ 6.6) | 581 260 / 581 260 ô mỗi bộ |
+| T5, T11–T16, kho lá số, tự kiểm | ĐẠT |
+| T16 đại vận | 126/171 (74%), ngược chiều 35 |
+| Vượng – nhược 65 lá TVH / 366 lá sách khác | 59 / 289 |
+T1–T4, T8 cần HO_SO_PM (không có trên máy chủ) – thay bằng bộ LibreOffice 9 lá ở trên.

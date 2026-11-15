@@ -23,8 +23,8 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.7.1 (quy tắc 6.5)</b></p>')
-H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.5; '
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.8.0 (quy tắc 6.6)</b></p>')
+H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.6; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
 H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa. Các dòng ghi "quy ước kỹ thuật" hoặc '
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.7.1_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.8.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -50,7 +50,7 @@ H.append('<h2>2. Bố cục màn hình và Chế độ chuyên gia</h2><p>Thanh 
          '<tr><td>✎ Nhập liệu</td><td><b>Màn hình đầu tiên</b> khi mở phần mềm: nhập ngày giờ sinh hoặc tứ trụ; sửa xong bấm <b>▶ Luận giải</b> (hoặc Enter, F5). Phần mềm tính ở nền nên vẫn dùng được trong lúc tính; lá đã tính được nhớ lại, mở lại không phải tính lại.</td></tr>'
          '<tr><td>☷ Lá số</td><td>Lá số trực quan: 4 trụ can chi màu theo ngũ hành, thập thần, tàng can, trạng thái nhật can; nạp âm năm; dải 10 đại vận (vận đang hành viền tím).</td></tr>'
          '<tr><td>★ Luận giải chung</td><td>9 dòng kết luận của 9 lĩnh vực; nút Nhập/sửa, Xuất/In, Lưu.</td></tr>'
-         '<tr><td>✦ Luận giải tổng hợp</td><td><b>Mới ở 1.7.1.</b> Bản luận giải khoảng 5 trang A4 (tóm tắt nhanh + 10 lĩnh vực), mỗi việc một kết luận đã gỡ mâu thuẫn; xuất PDF, Word; tùy chọn ✨ Nâng cao bằng AI.</td></tr>'
+         '<tr><td>✦ Luận giải tổng hợp</td><td><b>Mới ở 1.7.0.</b> Bản luận giải khoảng 5 trang A4 (tóm tắt nhanh + 10 lĩnh vực), mỗi việc một kết luận đã gỡ mâu thuẫn; xuất PDF, Word; tùy chọn ✨ Nâng cao bằng AI.</td></tr>'
          '<tr><td>❦ Luận giải chi tiết</td><td>Bài đọc liền mạch 8 mục + đánh giá tổng thể + 6 ý cho từng kết luận; chữ gạch chân có chú giải.</td></tr>'
          '<tr><td>↯ Vận trình</td><td>Đại vận (thêm Lưu niên 100 năm, Theo dõi ở chế độ chuyên gia).</td></tr>'
          '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K theo lĩnh vực, trình bày dạng văn bản đọc (mỗi mục mở đầu bằng khung KẾT LUẬN, rồi căn cứ chi tiết) và ô tìm kiếm.</td></tr>'
@@ -124,7 +124,7 @@ anh('26_doi_chieu_thuc_te.png', 'Đối chiếu thực tế: ghi năm đó Tốt
 H.append('<p>Với các năm đã qua, chọn <b>Thực tế năm đó</b> (Tốt / Bình thường / Xấu), ghi sự kiện, chọn <b>Đánh giá luận giải</b> '
          '(Đúng / Một phần / Sai / Chưa rõ) rồi bấm <b>✔ Áp dụng &amp; tính lại</b>. Ô tóm tắt ở trên cho tỉ lệ khớp của PP1 và PP2; khi đã ghi '
          'từ 5 năm có sự việc rõ, phần mềm gợi ý nên dùng phương pháp nào (P1 tr.125) – đổi ở Nhập liệu → Tùy chọn nâng cao. Dữ liệu được lưu cùng lá số.</p>')
-H.append('<h2>6c. Luận giải tổng hợp (mới ở 1.7.1)</h2>')
+H.append('<h2>6c. Luận giải tổng hợp (mới ở 1.7.0)</h2>')
 anh('26_luan_giai_tong_hop.png', 'Luận giải tổng hợp: bản ~5 trang, nút Xuất PDF / Xuất Word, ✨ Nâng cao bằng AI, 🔑 khóa API')
 H.append('<p>Bản <b>không cần mạng</b> do phần mềm tự soạn: tóm tắt nhanh rồi 10 mục – lá số, bản mệnh, tính cách, học vấn – sự nghiệp, '
          'tài lộc, hôn nhân – con cái, cha mẹ – anh em, sức khỏe, đại vận – lưu niên, hóa giải – kết luận. Mỗi đại vận và mỗi năm chỉ có '
@@ -162,7 +162,10 @@ H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Định dạng
 
 H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing="0">'
          '<tr><th width="34%">Câu hỏi</th><th>Trả lời</th></tr>'
-         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.5 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
+         '<tr><td>Quy tắc 6.6 khác 6.5 ở đâu?</td><td>Khi hai phương pháp xét vượng suy cho kết quả khác nhau, nếu phần trăm phe mình theo PP2 '
+         'ở xa ngưỡng 40% (dưới 36% hoặc từ 52% trở lên) thì theo PP2; còn lại giữ cách chọn cũ. Kiểm chứng trên 431 lá có lời giải: '
+         '65 lá Thiệu Vĩ Hoa đúng 59 (trước 57), 366 lá sách khác đúng 289 (trước 242); đại vận khớp sách 126/171 (trước 123).</td></tr>'
+         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.6 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
          '<tr><td>Dòng "Dụng thần theo cách bổ hành khuyết" là gì?</td><td>Khi trong phe dụng thần có nhóm không có chữ nào trong tứ trụ, phần mềm ghi thêm nhóm đó '
          '(mục B – Bản mệnh). Khi giải ví dụ, Thiệu Vĩ Hoa nhiều lần lấy nhóm đang khuyết làm dụng thần (P1 tr.97). Đây chỉ là ghi chú để cân nhắc, '
          'không thay dụng thần đã chọn.</td></tr>'

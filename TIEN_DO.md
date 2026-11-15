@@ -211,3 +211,8 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Sửa: hướng tốt/xấu của mỗi đại vận và mỗi nửa vận lấy theo KẾT LUẬN ĐẠI VẬN của workbook (mục F, P1 tr.124–125); điểm riêng chỉ dùng để nâng lên "Rất tốt/Rất xấu" khi cùng hướng và để ghi lý do. Kết quả: 123/171 (72%).
 - Vượng – nhược trên 65 lá ví dụ P1–P3: lớp tổng hợp 57 (88%), workbook 56 (86%); 50 lá rút ngẫu nhiên: 44 (88%) so với 43 (86%).
 - Thêm kiểm thử T16 (tests/t16_sach.py) vào quy trình đóng gói: lớp tổng hợp không được khớp sách kém hơn workbook.
+
+## 1.8.0 – Quy tắc 6.6 (15/11/2026)
+- Workbook 6.6 = 6.5 + một quy tắc vượng suy (DOI_CHIEU C30 = 36%, D30 = 52%, C33, C36): khi PP1 và PP2 khác nhau mà phe mình PP2 xa ngưỡng 40% (dưới 36% hoặc từ 52%) thì theo PP2. Bỏ điều kiện cũ (chỉ khi PP1 khẳng định vượng và PP2 < 30%) vì đã nằm trong quy tắc mới.
+- Kiểm chứng trên 431 lá có lời giải vượng suy: 65 lá Thiệu Vĩ Hoa 57 → 59; 366 lá sách khác 242 → 289 (66% → 79%); kiểm chéo chia đôi 20 lần 68,7% → 77,2%. Đại vận khớp sách 123 → 126/171, ngược chiều 38 → 35. Dụng thần không đổi (21/38 – việc của đợt 2).
+- Dựng lại bằng tools/dung_lai.sh; LibreOffice (oracle_mo_rong) trên 9 lá, gồm 6 lá có quy tắc tác động: 261 567 / 261 567 ô khớp. Sinh lại đáp án T7/T9/T10 từ 6.6 (chỉ 3 lá T7_01/02/06 đổi – đúng các lá quy tắc tác động); dấu vân tay tự kiểm sinh lại (lá Tự kiểm 3 đổi theo quy tắc).

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """T16 – Đối chiếu lớp tổng hợp với chính các ví dụ của Thiệu Vĩ Hoa (bộ 3 cuốn P1–P3).
   (a) Đại vận: 54 lá có nhãn tốt/xấu từ lời sách (tai_lieu/giai_doan_A/nhan_dai_van_sach.py), 171 vận.
-      Hướng (tốt/xấu) của lớp tổng hợp phải khớp sách KHÔNG KÉM workbook 6.5 (mục F, P1 tr.124–125).
+      Hướng (tốt/xấu) của lớp tổng hợp phải khớp sách KHÔNG KÉM workbook (mục F, P1 tr.124–125).
   (b) Vượng – nhược: mọi lá ví dụ P1–P3 có kết luận vượng/nhược của sách (tests/cases501_*.json)
       và 50 lá rút ngẫu nhiên (hạt giống cố định) – tỉ lệ khớp của lớp tổng hợp ≥ workbook.
 Dùng: python -m tests.t16_sach"""
