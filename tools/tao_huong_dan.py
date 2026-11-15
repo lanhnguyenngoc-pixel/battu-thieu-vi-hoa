@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.8.1 (quy tắc 6.6)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.8.2 (quy tắc 6.6)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.6; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.8.1_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.8.2_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -168,6 +168,10 @@ H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing=
          '<tr><td>"Ứng viên dụng thần thay thế" là gì?</td><td>Từ quy tắc 6.6, ngoài dụng thần chính công cụ ghi thêm các hành mà sách cũng có thể chọn: '
          'dụng thần theo phù ức khi đang ưu tiên điều hầu, dụng thần nếu luận như chính cách, hành điều hầu theo mùa, các ứng viên sau khi dụng thần đã mạnh ngang phe mình. '
          'Chỉ để tham khảo – dụng thần chính không đổi. Ô Dụng thần ở Lá số luôn theo đúng phương pháp đang dùng (PP1 hoặc PP2).</td></tr>'
+         '<tr><td>Nhập sự việc đã qua để làm gì?</td><td>Ở trang Kiểm chứng sự việc, nhập năm và loại sự việc (kết hôn, có con, công việc / tài chính thuận lợi hoặc khó khăn, bệnh nặng, tai nạn – pháp lý, người thân mất). '
+         'Từ bản 1.8.2 công cụ so từng sự việc với xếp hạng năm theo PP1 và theo PP2 rồi gợi ý nên giữ hay đổi phương pháp (cần ít nhất 2 sự việc tốt/xấu rõ; đổi khi một bên hơn từ 2 sự việc trở lên). '
+         'Bản luận giải tổng hợp còn so dụng thần chính với các ứng viên dụng thần thay thế theo các năm đó. Sách khuyên lấy thực tế để kiểm nghiệm (P2 tr.445).</td></tr>'
+         '<tr><td>Vì sao thọ – yểu ghi “căn cứ ngược chiều”?</td><td>Bảng P1 tr.173 chỉ so Thực thương với Ấn. Từ quy tắc 6.6, khi bảng nghiêng về yểu nhưng lá số có từ 2 dấu hiệu thọ trở lên (thân vượng, thiên đức, nguyệt đức, sức khỏe chung thuận, bệnh có cứu, bình sinh ít bệnh) thì công cụ không dùng chữ “yểu”.</td></tr>'
          '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.6 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
          '<tr><td>Dòng "Dụng thần theo cách bổ hành khuyết" là gì?</td><td>Khi trong phe dụng thần có nhóm không có chữ nào trong tứ trụ, phần mềm ghi thêm nhóm đó '
          '(mục B – Bản mệnh). Khi giải ví dụ, Thiệu Vĩ Hoa nhiều lần lấy nhóm đang khuyết làm dụng thần (P1 tr.97). Đây chỉ là ghi chú để cân nhắc, '

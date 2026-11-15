@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet MENH_CUC – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 ef3858360c0984a0528d265328dcd5caaf8d951a2feed88333eec94b8b316638).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 c1e0254833a8f522615199e1e0140460e912227d0b9ffc88b9164ebc26d3e0b3).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1737,6 +1737,54 @@ def f277(E, r, c):
     #   hương pháp – không áp dụng.","ĐỦ ("&J94&") ⇒ "&G94&".")
     return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Trụ tháng: '),E.v(23,10,4)),' '),E.v(23,11,4)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,4),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,4),1.0))),')'),' → Quy tắc (P1 tr.172): Sinh tháng Hợi, Tí, Sửu mà không có hỏa; hoặc sinh tháng Tị, Ngọ, Mùi mà không có thủy → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(18,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(18,r,c-1)),') ⇒ '),E.v(18,r,c-4)),'.')))
 
+def f278(E, r, c):
+    # Ô C97
+    # = IF(LEFT(DOI_CHIEU!$C$34,5)="VƯỢNG",1,0)
+    return (1.0 if X.truthy(X.eq(X.LEFT(E.v(7,34,3), 5.0),'VƯỢNG')) else 0.0)
+
+def f279(E, r, c):
+    # Ô C98
+    # = IF(THAN_SAT!$H$86="Có",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(12,86,8),'Có')) else 0.0)
+
+def f280(E, r, c):
+    # Ô C99
+    # = IF(THAN_SAT!$H$85="Có",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(12,85,8),'Có')) else 0.0)
+
+def f281(E, r, c):
+    # Ô C100
+    # = IF(LEFT(SUC_KHOE!$J$6,5)="THUẬN",1,0)
+    return (1.0 if X.truthy(X.eq(X.LEFT(E.v(22,6,10), 5.0),'THUẬN')) else 0.0)
+
+def f282(E, r, c):
+    # Ô C101
+    # = IF(AND(ISNUMBER(SEARCH("CÓ CỨU",DUNG_HY_KY!$C$174)),NOT(ISNUMBER(SEARCH("KHÔNG CÓ CỨU",DUNG_HY_KY!$C$174))),NOT(ISNUMBER(SEARCH("KHÔNG CỨU",DUNG_HY_KY
+    #   !$C$174)))),1,0)
+    return (1.0 if X.truthy(X.AND(X.ISNUMBER(lambda: X.SEARCH('CÓ CỨU', E.v(8,174,3))), X.NOT(X.ISNUMBER(lambda: X.SEARCH('KHÔNG CÓ CỨU', E.v(8,174,3)))), X.NOT(X.ISNUMBER(lambda: X.SEARCH('KHÔNG CỨU', E.v(8,174,3)))))) else 0.0)
+
+def f283(E, r, c):
+    # Ô C102
+    # = IF(ISNUMBER(SEARCH("ít bệnh",KET_LUAN!$C$156)),1,0)
+    return (1.0 if X.truthy(X.ISNUMBER(lambda: X.SEARCH('ít bệnh', E.v(3,156,3)))) else 0.0)
+
+def f284(E, r, c):
+    # Ô C103
+    # = SUM(C97:C102)
+    return X.SUM(E.rg(18,r-6,c,r-1,c))
+
+def f285(E, r, c):
+    # Ô C104
+    # = IF(AND($U$21="YỂU",C103>=2),"CĂN CỨ NGƯỢC CHIỀU","")
+    return ('CĂN CỨ NGƯỢC CHIỀU' if X.truthy(X.AND(X.eq(E.v(18,21,21),'YỂU'), X.ge(E.v(18,r-1,c),2.0))) else '')
+
+def f286(E, r, c):
+    # Ô C105
+    # = IF(C104="","","Bảng P1 tr.173 nghiêng về yểu (chỉ so Thực thương với Ấn), nhưng có "&C103&" dấu hiệu ngược chiều: "&MID(IF(C97=1,", thân vượng","")&IF
+    #   (C98=1,", nguyệt đức","")&IF(C99=1,", thiên đức","")&IF(C100=1,", sức khỏe chung thuận","")&IF(C101=1,", có cứu","")&IF(C102=1,", bình sinh ít bệnh","
+    #   "),3,300)&". Đọc là thể chất nền tốt, đời có giai đoạn thử thách sức khỏe – chú ý các năm hạn.")
+    return ('' if X.truthy(X.eq(E.v(18,r-1,c),'')) else X.cat(X.cat(X.cat(X.cat('Bảng P1 tr.173 nghiêng về yểu (chỉ so Thực thương với Ấn), nhưng có ',E.v(18,r-2,c)),' dấu hiệu ngược chiều: '),X.MID(X.cat(X.cat(X.cat(X.cat(X.cat((', thân vượng' if X.truthy(X.eq(E.v(18,r-8,c),1.0)) else ''),(', nguyệt đức' if X.truthy(X.eq(E.v(18,r-7,c),1.0)) else '')),(', thiên đức' if X.truthy(X.eq(E.v(18,r-6,c),1.0)) else '')),(', sức khỏe chung thuận' if X.truthy(X.eq(E.v(18,r-5,c),1.0)) else '')),(', có cứu' if X.truthy(X.eq(E.v(18,r-4,c),1.0)) else '')),(', bình sinh ít bệnh' if X.truthy(X.eq(E.v(18,r-3,c),1.0)) else '')), 3.0, 300.0)),'. Đọc là thể chất nền tốt, đời có giai đoạn thử thách sức khỏe – chú ý các năm hạn.'))
+
 CELLS = {
     'C6': (f0, 6, 3),
     'D6': (f1, 6, 4),
@@ -2057,4 +2105,13 @@ CELLS = {
     'F94': (f276, 94, 6),
     'J94': (f185, 94, 10),
     'K94': (f277, 94, 11),
+    'C97': (f278, 97, 3),
+    'C98': (f279, 98, 3),
+    'C99': (f280, 99, 3),
+    'C100': (f281, 100, 3),
+    'C101': (f282, 101, 3),
+    'C102': (f283, 102, 3),
+    'C103': (f284, 103, 3),
+    'C104': (f285, 104, 3),
+    'C105': (f286, 105, 3),
 }

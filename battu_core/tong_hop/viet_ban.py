@@ -229,6 +229,11 @@ def soan(hs, pd, la_so=None, ho_ten=''):
         B.append(('p', '**Ứng viên dụng thần thay thế (tham khảo).** %s %s' % (
             '; '.join(x.strip('• ').split(':')[0] + ' – ' + _cau(x.split(':', 1)[1], 1) for x in bm['ung_vien_dung'].split('\n') if ':' in x),
             (bm.get('muc_chac_dung') or '').split(';')[0] + '.')))
+    if la_so is not None and any(r and r[0] for r in (getattr(la_so, 'su_kien', None) or [])):
+        from battu_core.tong_hop.phan_doan import dung_than_su_kien
+        kd = dung_than_su_kien(hs, la_so)
+        B.append(('p', '**Kiểm chứng bằng sự việc đã qua (P2 tr.445).** %s%s' % (
+            (bm.get('goi_y_su_kien') or '').replace('⇒', '–'), (' ' + kd['ket_luan']) if kd else '')))
     m = re.search(r'Cứu ứng:(.*?(?:KHÔNG CÓ CỨU|KHÔNG CỨU|CÓ CỨU)[^.;\n]*)', bm.get('ket_luan') or '', re.S)
     if m: B.append(('p', '**Bệnh và thuốc.** %s.' % re.sub(r'\s+', ' ', m.group(1)).replace('→', '–').strip().rstrip('.')))
     rows = []

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DOI_CHIEU – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 ef3858360c0984a0528d265328dcd5caaf8d951a2feed88333eec94b8b316638).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 c1e0254833a8f522615199e1e0140460e912227d0b9ffc88b9164ebc26d3e0b3).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -575,8 +575,9 @@ def f92(E, r, c):
 def f93(E, r, c):
     # Ô C49
     # = IF(C31=C32,"Hai phương pháp thống nhất: nhật chủ "&UPPER(C31)&"; dùng kết luận chung.","Hai phương pháp khác nhau; công cụ khuyến nghị "&D33&" (nhật c
-    #   hủ "&C34&", độ tin "&LOWER(C35)&"). Nếu các năm đã qua ở dòng 7 khớp phương pháp còn lại nhiều hơn thì nên đổi theo phương pháp đó.")
-    return (X.cat(X.cat('Hai phương pháp thống nhất: nhật chủ ',X.UPPER(E.v(7,r-18,c))),'; dùng kết luận chung.') if X.truthy(X.eq(E.v(7,r-18,c),E.v(7,r-17,c))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Hai phương pháp khác nhau; công cụ khuyến nghị ',E.v(7,r-16,c+1)),' (nhật chủ '),E.v(7,r-15,c)),', độ tin '),X.LOWER(E.v(7,r-14,c))),'). Nếu các năm đã qua ở dòng 7 khớp phương pháp còn lại nhiều hơn thì nên đổi theo phương pháp đó.'))
+    #   hủ "&C34&", độ tin "&LOWER(C35)&"). Nếu các năm đã qua ở dòng 7 khớp phương pháp còn lại nhiều hơn thì nên đổi theo phương pháp đó.")&IF(COUNTIF(SU_KI
+    #   EN!$V$6:$V$35,1)+COUNTIF(SU_KIEN!$V$6:$V$35,-1)>=2,CHAR(10)&"Sự việc đã nhập (SU_KIEN): "&SU_KIEN!$B$38,"")
+    return X.cat((X.cat(X.cat('Hai phương pháp thống nhất: nhật chủ ',X.UPPER(E.v(7,r-18,c))),'; dùng kết luận chung.') if X.truthy(X.eq(E.v(7,r-18,c),E.v(7,r-17,c))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Hai phương pháp khác nhau; công cụ khuyến nghị ',E.v(7,r-16,c+1)),' (nhật chủ '),E.v(7,r-15,c)),', độ tin '),X.LOWER(E.v(7,r-14,c))),'). Nếu các năm đã qua ở dòng 7 khớp phương pháp còn lại nhiều hơn thì nên đổi theo phương pháp đó.')),(X.cat(X.cat(X.CHAR(10.0),'Sự việc đã nhập (SU_KIEN): '),E.v(32,38,2)) if X.truthy(X.ge(X.add(X.COUNTIF(E.rg(32,6,22,35,22), 1.0),X.COUNTIF(E.rg(32,6,22,35,22), X.neg(1.0))),2.0)) else ''))
 
 def f94(E, r, c):
     # Ô C50

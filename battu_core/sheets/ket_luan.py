@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet KET_LUAN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 ef3858360c0984a0528d265328dcd5caaf8d951a2feed88333eec94b8b316638).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 c1e0254833a8f522615199e1e0140460e912227d0b9ffc88b9164ebc26d3e0b3).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1435,8 +1435,12 @@ def f213(E, r, c):
     # = IF(LUU_NIEN!$B$5<=18,"(Lưu ý tuổi: chưa thành niên – mục con cái là xu hướng xa, chưa xét lúc này.)"&CHAR(10),"")&LUC_THAN!D34&CHAR(10)&"Vì sao (dữ ki
     #   ện → điểm, P1 tr.159): "&LUC_THAN!G34&IF(OR(LUC_THAN!H34="",LEFT(LUC_THAN!H34,5)="Thời "),"",CHAR(10)&LUC_THAN!H34)&CHAR(10)&SUBSTITUTE(LUC_THAN!K34,"
     #   Chỉ cần đề phòng khi gặp","Ứng rõ nhất khi gặp")&IF(LUC_THAN!$AM$34="","",CHAR(10)&"Câu sách bổ sung (bản 5.0, LUC_THAN bảng E3 – không đổi mức chấm ở
-    #    trên): "&LUC_THAN!$AM$34)
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat('(Lưu ý tuổi: chưa thành niên – mục con cái là xu hướng xa, chưa xét lúc này.)',X.CHAR(10.0)) if X.truthy(X.le(E.v(15,5,2),18.0)) else ''),E.v(16,r-80,c+1)),X.CHAR(10.0)),'Vì sao (dữ kiện → điểm, P1 tr.159): '),E.v(16,r-80,c+4)),('' if X.truthy(X.OR(X.eq(E.v(16,r-80,c+5),''), X.eq(X.LEFT(E.v(16,r-80,c+5), 5.0),'Thời '))) else X.cat(X.CHAR(10.0),E.v(16,r-80,c+5)))),X.CHAR(10.0)),X.SUBSTITUTE(E.v(16,r-80,c+8), 'Chỉ cần đề phòng khi gặp', 'Ứng rõ nhất khi gặp')),('' if X.truthy(X.eq(E.v(16,34,39),'')) else X.cat(X.cat(X.CHAR(10.0),'Câu sách bổ sung (bản 5.0, LUC_THAN bảng E3 – không đổi mức chấm ở trên): '),E.v(16,34,39))))
+    #    trên): "&LUC_THAN!$AM$34)&IF(AND(OR(ISNUMBER(SEARCH("không có con",C126)),ISNUMBER(SEARCH("khó có con",C126)),ISNUMBER(SEARCH("ít con",C126)),ISNUMBE
+    #   R(SEARCH("không có con",C128)),ISNUMBER(SEARCH("khó có con",C128)),ISNUMBER(SEARCH("ít con",C128))),LEFT(LUC_THAN!D34,3)<>"KÉM",LEFT(LUC_THAN!D34,3)<>
+    #   "XẤU"),CHAR(10)&"Đối chiếu nguồn (quy tắc 6.6): Uyên Hải Tử Bình / Hóa giải toàn thư có câu xấu hơn về con cái (dòng 126, 128). Giữ kết luận Thiệu Vĩ 
+    #   Hoa theo thứ tự tin cậy đã duyệt (Thiệu Vĩ Hoa > Uyên Hải Tử Bình > Cùng Thông Bảo Giám, Trích Thiên Tủy, Hóa giải toàn thư > tham khảo); nên xem là đ
+    #   iểm cần lưu ý.","")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat('(Lưu ý tuổi: chưa thành niên – mục con cái là xu hướng xa, chưa xét lúc này.)',X.CHAR(10.0)) if X.truthy(X.le(E.v(15,5,2),18.0)) else ''),E.v(16,r-80,c+1)),X.CHAR(10.0)),'Vì sao (dữ kiện → điểm, P1 tr.159): '),E.v(16,r-80,c+4)),('' if X.truthy(X.OR(X.eq(E.v(16,r-80,c+5),''), X.eq(X.LEFT(E.v(16,r-80,c+5), 5.0),'Thời '))) else X.cat(X.CHAR(10.0),E.v(16,r-80,c+5)))),X.CHAR(10.0)),X.SUBSTITUTE(E.v(16,r-80,c+8), 'Chỉ cần đề phòng khi gặp', 'Ứng rõ nhất khi gặp')),('' if X.truthy(X.eq(E.v(16,34,39),'')) else X.cat(X.cat(X.CHAR(10.0),'Câu sách bổ sung (bản 5.0, LUC_THAN bảng E3 – không đổi mức chấm ở trên): '),E.v(16,34,39)))),(X.cat(X.CHAR(10.0),'Đối chiếu nguồn (quy tắc 6.6): Uyên Hải Tử Bình / Hóa giải toàn thư có câu xấu hơn về con cái (dòng 126, 128). Giữ kết luận Thiệu Vĩ Hoa theo thứ tự tin cậy đã duyệt (Thiệu Vĩ Hoa > Uyên Hải Tử Bình > Cùng Thông Bảo Giám, Trích Thiên Tủy, Hóa giải toàn thư > tham khảo); nên xem là điểm cần lưu ý.') if X.truthy(X.AND(X.OR(X.ISNUMBER(lambda: X.SEARCH('không có con', E.v(3,r+12,c))), X.ISNUMBER(lambda: X.SEARCH('khó có con', E.v(3,r+12,c))), X.ISNUMBER(lambda: X.SEARCH('ít con', E.v(3,r+12,c))), X.ISNUMBER(lambda: X.SEARCH('không có con', E.v(3,r+14,c))), X.ISNUMBER(lambda: X.SEARCH('khó có con', E.v(3,r+14,c))), X.ISNUMBER(lambda: X.SEARCH('ít con', E.v(3,r+14,c)))), X.ne(X.LEFT(E.v(16,r-80,c+1), 3.0),'KÉM'), X.ne(X.LEFT(E.v(16,r-80,c+1), 3.0),'XẤU'))) else ''))
 
 def f214(E, r, c):
     # Ô H114
@@ -1708,15 +1712,16 @@ def f254(E, r, c):
 
 def f255(E, r, c):
     # Ô C143
-    # = MENH_CUC!D21&CHAR(10)&MENH_CUC!G21&CHAR(10)&MENH_CUC!K21&CHAR(10)&"► Ý nghĩa cụ thể: "&IF(MENH_CUC!$U$21="YỂU","“người yểu là người nguyên khí mỏng, d
-    #   ụng thần được ít khí, tứ trụ thiên về khô” (P1 tr.171): sức khỏe dễ suy kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201
-    #   )",IF(MENH_CUC!$U$21="THỌ","“người thọ tức người nguyên khí dày, dụng thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn","cân b
-    #   ằng: hai chiều ngang nhau, tốt xấu tùy vận"))&". "&IF(AND($AB$87="",$AC$87=""),"Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì 
-    #   giảm – DAI_VAN dòng 55) các đại vận đều ở mức Thường, nên không vận nào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong v
-    #   ận sinh trợ đúng nhu cầu ("&IF($AD$87="","không có",$AD$87)&"); phần xấu dễ nổi hơn trong bại vận ("&IF($AE$87="","không có",$AE$87)&"). Mức độ cụ thể
-    #    xem từng năm ở sheet LUU_NIEN.","Khi nào thể hiện rõ: phần tốt nổi lên trong đại vận TỐT ("&IF($AB$87="","không có",$AB$87)&"); phần xấu nổi lên tron
-    #   g đại vận XẤU ("&IF($AC$87="","không có",$AC$87)&").")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(18,r-122,c+1),X.CHAR(10.0)),E.v(18,r-122,c+4)),X.CHAR(10.0)),E.v(18,r-122,c+8)),X.CHAR(10.0)),'► Ý nghĩa cụ thể: '),('“người yểu là người nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô” (P1 tr.171): sức khỏe dễ suy kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201)' if X.truthy(X.eq(E.v(18,21,21),'YỂU')) else ('“người thọ tức người nguyên khí dày, dụng thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn' if X.truthy(X.eq(E.v(18,21,21),'THỌ')) else 'cân bằng: hai chiều ngang nhau, tốt xấu tùy vận'))),'. '),(X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì giảm – DAI_VAN dòng 55) các đại vận đều ở mức Thường, nên không vận nào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong vận sinh trợ đúng nhu cầu (',('không có' if X.truthy(X.eq(E.v(3,87,30),'')) else E.v(3,87,30))),'); phần xấu dễ nổi hơn trong bại vận ('),('không có' if X.truthy(X.eq(E.v(3,87,31),'')) else E.v(3,87,31))),'). Mức độ cụ thể xem từng năm ở sheet LUU_NIEN.') if X.truthy(X.AND(X.eq(E.v(3,87,28),''), X.eq(E.v(3,87,29),''))) else X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: phần tốt nổi lên trong đại vận TỐT (',('không có' if X.truthy(X.eq(E.v(3,87,28),'')) else E.v(3,87,28))),'); phần xấu nổi lên trong đại vận XẤU ('),('không có' if X.truthy(X.eq(E.v(3,87,29),'')) else E.v(3,87,29))),').')))
+    # = IF(MENH_CUC!$C$104<>"","CĂN CỨ NGƯỢC CHIỀU (quy tắc 6.6) – "&MENH_CUC!$C$105&CHAR(10)&"Bảng gốc: ","")&MENH_CUC!D21&CHAR(10)&MENH_CUC!G21&CHAR(10)&MEN
+    #   H_CUC!K21&CHAR(10)&"► Ý nghĩa cụ thể: "&IF(MENH_CUC!$U$21="YỂU","“người yểu là người nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô” (P1 
+    #   tr.171): sức khỏe dễ suy kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201)",IF(MENH_CUC!$U$21="THỌ","“người thọ tức ngườ
+    #   i nguyên khí dày, dụng thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn","cân bằng: hai chiều ngang nhau, tốt xấu tùy vận"))&"
+    #   . "&IF(AND($AB$87="",$AC$87=""),"Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì giảm – DAI_VAN dòng 55) các đại vận đều ở mức T
+    #   hường, nên không vận nào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong vận sinh trợ đúng nhu cầu ("&IF($AD$87="","không
+    #    có",$AD$87)&"); phần xấu dễ nổi hơn trong bại vận ("&IF($AE$87="","không có",$AE$87)&"). Mức độ cụ thể xem từng năm ở sheet LUU_NIEN.","Khi nào thể h
+    #   iện rõ: phần tốt nổi lên trong đại vận TỐT ("&IF($AB$87="","không có",$AB$87)&"); phần xấu nổi lên trong đại vận XẤU ("&IF($AC$87="","không có",$AC$87
+    #   )&").")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat('CĂN CỨ NGƯỢC CHIỀU (quy tắc 6.6) – ',E.v(18,105,3)),X.CHAR(10.0)),'Bảng gốc: ') if X.truthy(X.ne(E.v(18,104,3),'')) else ''),E.v(18,r-122,c+1)),X.CHAR(10.0)),E.v(18,r-122,c+4)),X.CHAR(10.0)),E.v(18,r-122,c+8)),X.CHAR(10.0)),'► Ý nghĩa cụ thể: '),('“người yểu là người nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô” (P1 tr.171): sức khỏe dễ suy kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201)' if X.truthy(X.eq(E.v(18,21,21),'YỂU')) else ('“người thọ tức người nguyên khí dày, dụng thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn' if X.truthy(X.eq(E.v(18,21,21),'THỌ')) else 'cân bằng: hai chiều ngang nhau, tốt xấu tùy vận'))),'. '),(X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì giảm – DAI_VAN dòng 55) các đại vận đều ở mức Thường, nên không vận nào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong vận sinh trợ đúng nhu cầu (',('không có' if X.truthy(X.eq(E.v(3,87,30),'')) else E.v(3,87,30))),'); phần xấu dễ nổi hơn trong bại vận ('),('không có' if X.truthy(X.eq(E.v(3,87,31),'')) else E.v(3,87,31))),'). Mức độ cụ thể xem từng năm ở sheet LUU_NIEN.') if X.truthy(X.AND(X.eq(E.v(3,87,28),''), X.eq(E.v(3,87,29),''))) else X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: phần tốt nổi lên trong đại vận TỐT (',('không có' if X.truthy(X.eq(E.v(3,87,28),'')) else E.v(3,87,28))),'); phần xấu nổi lên trong đại vận XẤU ('),('không có' if X.truthy(X.eq(E.v(3,87,29),'')) else E.v(3,87,29))),').')))
 
 def f256(E, r, c):
     # Ô H143

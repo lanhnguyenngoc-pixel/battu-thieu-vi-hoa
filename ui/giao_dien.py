@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau, KetQua
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.8.1 · Quy tắc 6.6'
+PHIEN_BAN = 'Phiên bản 1.8.2 · Quy tắc 6.6'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -573,7 +573,7 @@ class TrangBangNhieuSheet(QWidget):
         super().showEvent(e); self._ve()
 
 
-from ui.trang_ngu_hanh_thieu import TrangNguHanhThieu as _TrangNHT  # bản 1.8.1: trang đọc, tách lý thuyết / kết quả
+from ui.trang_ngu_hanh_thieu import TrangNguHanhThieu as _TrangNHT  # bản 1.8.2: trang đọc, tách lý thuyết / kết quả
 
 
 class TrangKhongRoGio(QWidget):

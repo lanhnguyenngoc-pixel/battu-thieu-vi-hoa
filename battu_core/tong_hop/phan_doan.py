@@ -187,6 +187,10 @@ def _muc_kl(hs, muc, nhan):
 def tho_yeu(hs):
     qt = quy_tac()['tho_yeu']; bm = hs['ban_menh']
     goc = _muc_kl(hs, 'H. Sức khỏe', 'Thọ – yểu')
+    if 'Bảng gốc: ' in goc: goc = goc.split('Bảng gốc: ', 1)[1]      # quy tắc 6.6 đã ghi trong workbook
+    if bm.get('tho_yeu_6_6'):
+        return {'muc': 'Căn cứ ngược chiều', 'goc_workbook': goc.split('.')[0], 'dien_giai': bm.get('tho_yeu_6_6_dg', ''),
+                'dau_hieu_tot': re.findall(r'(thân vượng|nguyệt đức|thiên đức|sức khỏe chung thuận|có cứu|bình sinh ít bệnh)', bm.get('tho_yeu_6_6_dg', ''))}
     tot = []
     if re.match(r'\s*VƯỢNG', (bm.get('vuong_suy') or '').upper()): tot.append('thân vượng')
     ts = (bm.get('than_sat_hieu_luc') or '').upper()
@@ -310,3 +314,35 @@ def phan_doan(hs, la_so=None):
     if ty['muc'] == 'Căn cứ ngược chiều': doi.append('Thọ – yểu: workbook "%s" → "căn cứ ngược chiều"' % ty['goc_workbook'])
     return {'phien_ban_quy_tac': quy_tac()['phien_ban'], 'dai_van': dv, 'luu_nien': ln, 'tho_yeu': ty, 'tai_loc': tai_loc(hs),
             'luc_than': luc_than(hs), 'vuong_suy': vuong_suy(hs, dv), 'an_muc': an_muc(hs, la_so), 'doi_chieu': doi}
+
+
+# ---------------------------------------------------------------- kiểm chứng dụng thần bằng sự việc đã qua (1.8.2)
+_TOT_SK = ('Công việc – thuận lợi', 'Tài chính – thuận lợi', 'Hôn nhân – kết hôn', 'Có con (sinh con)')
+_XAU_SK = ('Công việc – mất việc, sự cố', 'Tài chính – khó khăn', 'Sức khỏe – bệnh nặng (bản thân hoặc người thân)',
+           'Tai nạn – pháp lý', 'Người thân mất')
+_HT = ['Mộc', 'Hỏa', 'Thổ', 'Kim', 'Thủy']
+
+
+def dung_than_su_kien(hs, la_so):
+    """So dụng thần chính với các ứng viên thay thế bằng sự việc đã qua (P2 tr.445: lấy thực tế kiểm nghiệm).
+    Năm có hành X ở can hoặc chi (bản khí) → X 'đến'; năm có hành khắc X → X 'bị khắc'. Sự việc tốt ủng hộ X khi X đến,
+    phản đối khi X bị khắc; sự việc xấu ngược lại. CHỈ THAM KHẢO – không đổi dụng thần."""
+    sk = [r for r in (getattr(la_so, 'su_kien', None) or []) if r and isinstance(r[0], (int, float)) and len(r) > 1]
+    cuc = [(int(r[0]), 1 if r[1] in _TOT_SK else -1) for r in sk if r[1] in _TOT_SK + _XAU_SK]
+    bm = hs['ban_menh']; chinh = bm.get('hanh_dung')
+    uv = re.findall(r'(Mộc|Hỏa|Thổ|Kim|Thủy) \(', bm.get('ung_vien_dung') or '')
+    ds = [h for h in [chinh] + uv if h in _HT]
+    ds = list(dict.fromkeys(ds))
+    if len(cuc) < 2 or len(ds) < 2: return None
+    diem = {}
+    for h in ds:
+        x = _HT.index(h); d = 0
+        for nam, dau in cuc:
+            hc, hz = Q.HANH_CAN[(nam - 4) % 10], Q.HANH_CHI[(nam - 4) % 12]
+            if x in (hc, hz): d += dau
+            if (x - 2) % 5 in (hc, hz): d -= dau          # hành khắc X: (X+3)%5 khắc X  ⇔  khắc = (x-2)%5
+        diem[h] = d
+    tot = max(ds, key=lambda h: diem[h])
+    kl = ('Sự việc đã qua ủng hộ dụng thần chính %s.' % chinh if tot == chinh or diem[tot] - diem[chinh] < 2 else
+          'Sự việc đã qua hợp ứng viên %s hơn dụng thần chính %s (điểm %+d so với %+d) – nên cân nhắc thêm ứng viên này.' % (tot, chinh, diem[tot], diem[chinh]))
+    return {'so_su_viec': len(cuc), 'diem': diem, 'ket_luan': kl}

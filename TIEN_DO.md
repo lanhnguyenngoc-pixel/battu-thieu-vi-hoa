@@ -223,3 +223,11 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Đo trên sách: 38 lá P2 tr.397–431 – dụng chính khớp 20 (53%), chính hoặc ứng viên 24 (63%); 247 lá TTT + HTL – 106 (43%) → 142 (57%).
 - Trang Ngũ hành thiếu: 3 thẻ Kết quả lá số / Lý thuyết – cách tính / Bảng gốc (ui/trang_ngu_hanh_thieu.py).
 - Kiểm: LibreOffice 14 lá 407 022 / 407 022 ô; đáp án T7/T9/T10 sinh lại (thêm 10 ô mục O mỗi lá); T5, T7, T9–T16, kho lá số, tự kiểm: ĐẠT.
+
+## 1.8.2 – ba quy tắc lớp tổng hợp vào workbook 6.6 + gợi ý từ sự việc đã qua (15/11/2026)
+- Thọ – yểu: MENH_CUC dòng 96–105 (6 dấu hiệu thọ: thân vượng, nguyệt đức, thiên đức, sức khỏe chung thuận, bệnh có cứu, bình sinh ít bệnh); bảng P1 tr.173 nghiêng yểu mà có ≥ 2 dấu hiệu → "CĂN CỨ NGƯỢC CHIỀU" ở KET_LUAN C143/C135. Lớp tổng hợp đọc thẳng kết quả này.
+- Lưu niên: LUU_NIEN AA30:AA129, AL30:AL129 – năm có dấu hiệu hạn nặng (BM > 0) không xếp "Rất tốt" (hạ "Tốt vừa").
+- Lục thân: KET_LUAN C114 – khi Uyên Hải / Hóa giải toàn thư có câu xấu hơn về con cái mà kết luận Thiệu Vĩ Hoa không kém, ghi đối chiếu nguồn theo thứ tự tin cậy đã duyệt.
+- Sự việc đã qua: SU_KIEN cột phụ T:X, dòng 37–39 – so mỗi sự việc tốt/xấu với xếp hạng năm (P1 tr.133) theo PP1 và PP2, gợi ý giữ/đổi phương pháp (≥ 2 sự việc; đổi khi hơn ≥ 2); DOI_CHIEU C49 và trang Kiểm chứng sự việc hiện gợi ý; bản luận giải tổng hợp so thêm dụng thần chính với ứng viên thay thế (phan_doan.dung_than_su_kien – tham khảo).
+- TRANG_CHU B3 ghi nội dung bản 6.6.
+- Kiểm: LibreOffice 14 lá 409 262 / 409 262 ô; T7 578 460, T9/T10 584 660 ô (đáp án sinh lại); T5, T11–T16, kho, tự kiểm: ĐẠT.

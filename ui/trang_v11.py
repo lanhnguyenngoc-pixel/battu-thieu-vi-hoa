@@ -279,7 +279,7 @@ class TrangSuKien(QWidget):
 
     def hien(self, kq):
         self.kq = kq; E = kq.E; M = model()
-        self.hd.setText(chu_o(E, 'SU_KIEN', 2, 2)); self.kq_lbl.setText(chu_o(E, 'SU_KIEN', 3, 2))
+        self.hd.setText(chu_o(E, 'SU_KIEN', 2, 2)); self.kq_lbl.setText(chu_o(E, 'SU_KIEN', 3, 2) + ('\n' + chu_o(E, 'SU_KIEN', 38, 2) if any(r and r[0] for r in (kq.la_so.su_kien or [])) else ''))
         self.bang.setHorizontalHeaderLabels([chu_o(E, 'SU_KIEN', 5, c) for c in (2, 3, 4)] + [chu_o(E, 'SU_KIEN', 5, c) for c in self.cot_kq])
         sk = list(kq.la_so.su_kien or [])
         for i in range(SO_DONG_SU_KIEN):
