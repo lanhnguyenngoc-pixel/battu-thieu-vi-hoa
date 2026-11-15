@@ -39,7 +39,7 @@ def kiem(ten, B, pd, tmp, pdf=True):
     loi = []; h2 = [k[1] for k in B if k[0] == 'h2']
     if len(h2) != len(MUC) or any(not h.startswith(m) for h, m in zip(h2, MUC)): loi.append((ten, 'mục', h2))
     bang = [k for k in B if k[0] == 'bang']
-    dvb = next((b for b in bang if b[1][0] == 'Đại vận'), None); lnb = next((b for b in bang if b[1][0].startswith('Năm')), None)
+    dvb = next((b for b in bang if b[1][0] == 'Đại vận'), None); lnb = next((b for b in bang if 'tuổi mụ' in b[1][0]), None)
     if dvb:
         ten_dv = [r[0].split(' (')[0] for r in dvb[2]]
         if len(ten_dv) != len(set(ten_dv)): loi.append((ten, 'đại vận lặp', ten_dv))

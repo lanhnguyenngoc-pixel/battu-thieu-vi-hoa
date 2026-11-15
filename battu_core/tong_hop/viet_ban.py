@@ -443,6 +443,16 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     return B
 
 
+def _chu(B):
+    """Toàn bộ chữ của các khối (để tìm, kiểm tra)."""
+    ra = []
+    for k in B:
+        if k[0] in ('h1', 'h2', 'p', 'nho'): ra.append(k[1])
+        elif k[0] == 'ul': ra += k[1]
+        elif k[0] == 'bang': ra += list(k[1]) + [o for r in k[2] for o in r]
+    return '\n'.join(ra)
+
+
 def ban_luan_giai(kq):
     """Từ KetQua (battu_core.dich_vu) → (khối, hồ sơ, phán đoán)."""
     s = kq.la_so
