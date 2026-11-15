@@ -175,3 +175,13 @@ Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tín
 | Đính chính | P1-VD14 không phải sửa (sách P1 tr.196 là giờ Đinh Dậu – dữ liệu nghiên cứu nhập nhầm, đã sửa); DT-2a vốn đã có trong 6.4, 6.5 đổi cách đếm "có mặt" |
 | Kiểm thử | Đáp án LibreOffice lấy lại toàn bộ trên 6.5; T1–T10 đạt 100% (tai_lieu/BAO_CAO_KIEM_THU_1.6.0_CHI_TIET.md); tự kiểm ĐẠT, dấu vân tay mới ae7e52ec… |
 | Chi tiết | tai_lieu/giai_doan_A/GIAI_DOAN_D_TRIEN_KHAI.md |
+
+## Bản 1.6.1 (15/11/2026) – tốc độ giao diện
+| Việc | Kết quả |
+|---|---|
+| Nhập liệu | Sửa ô không tính ngay; bấm **▶ Luận giải** (hoặc Enter, F5). Báo "Thông tin đã thay đổi" khi kết quả đang hiện là của thông tin cũ |
+| Tính ở nền | Giao diện không đứng trong lúc tính (khựng lâu nhất 0,12 giây khi đo) |
+| Vẽ trang | Chỉ vẽ trang đang mở; sửa lỗi vẽ trang Vận trình khi đang ẩn |
+| Nhớ kết quả | 6 lá tính gần nhất được nhớ – tính lại cùng lá 0,1 giây |
+| Mở phần mềm | Lá mặc định tính ở nền |
+| Kiểm thử | Lõi tính không đổi; T5, T6, T7, T9, T10, tự kiểm đạt |

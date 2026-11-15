@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Chụp ảnh màn hình GĐ5 (offscreen) + chạy thử luồng lưu / mở / tìm / so sánh lá số trên tệp SQLite tạm."""
 import os, sys, tempfile
-os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
+os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen'); os.environ.setdefault('BATTU_DONG_BO', '1')
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from ui.giao_dien import tao_app, CuaSoChinh
 from battu_core.kho_la_so import Kho

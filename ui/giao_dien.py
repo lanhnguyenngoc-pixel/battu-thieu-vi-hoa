@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Giao diện GĐ1 (bản thô): màn hình NHẬP LIỆU + thẻ TRUNG_GIAN.
 Mọi giá trị hiển thị lấy từ lõi tính (battu_core) – giao diện không tự tính quy tắc."""
-import os, sys, datetime
-from PySide6.QtCore import Qt, QTimer, Signal
+import os, sys, datetime, threading
+from PySide6.QtCore import Qt, QTimer, Signal, QObject
 from PySide6.QtGui import QFont, QFontDatabase, QColor, QIntValidator, QDoubleValidator
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QFrame, QLabel, QPushButton, QHBoxLayout,
                                QVBoxLayout, QGridLayout, QStackedWidget, QLineEdit, QSpinBox, QComboBox,
@@ -11,10 +11,10 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QFrame, QLabe
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
-from battu_core.dich_vu import tinh, danh_sach_la_mau
+from battu_core.dich_vu import tinh, danh_sach_la_mau, KetQua
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.6.0 · Quy tắc 6.5'
+PHIEN_BAN = 'Phiên bản 1.6.1 · Quy tắc 6.5'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -153,6 +153,10 @@ class TruWidget(QFrame):
         self.ts.setText(ts or '')
 
 
+class _BaoXong(QObject):
+    xong = Signal(object, object)
+
+
 class TrangNhap(QWidget):
     da_tinh = Signal(object)
 
@@ -164,7 +168,7 @@ class TrangNhap(QWidget):
         cot = QFrame(); cot.setObjectName('the'); bong(cot); cot.setFixedWidth(470)
         cv = QVBoxLayout(cot); cv.setContentsMargins(24, 22, 24, 22); cv.setSpacing(12)
         cv.addWidget(lbl('Lá số mới', 'tieude'))
-        cv.addWidget(lbl('Nhập ngày giờ sinh hoặc tứ trụ. Kết quả tính lại ngay khi bạn sửa.', 'mo', True))
+        cv.addWidget(lbl('Nhập ngày giờ sinh hoặc tứ trụ rồi bấm Luận giải (hoặc phím Enter).', 'mo', True))
         self.ho_ten = QLineEdit(); self.ho_ten.setPlaceholderText('Họ tên (không bắt buộc)')
         cv.addWidget(self.ho_ten)
         self.cach = Seg(['Dương lịch', 'Âm lịch', 'Tự nhập can chi']); cv.addWidget(self.cach)
@@ -232,6 +236,11 @@ class TrangNhap(QWidget):
         self.nc.setVisible(False); cv.addWidget(self.nc)
         cv.addStretch()
         self.loi = lbl('', 'chip_err', True); self.loi.setVisible(False); cv.addWidget(self.loi)
+        # nút Luận giải (cách làm phổ biến: sửa xong mới tính, tính ở nền – giao diện không đứng)
+        self.trang_thai = lbl('', 'chip_warn', True); self.trang_thai.setVisible(False); cv.addWidget(self.trang_thai)
+        self.nut_tinh = QPushButton('▶  Luận giải'); self.nut_tinh.setObjectName('nut_chinh'); self.nut_tinh.setCursor(Qt.PointingHandCursor)
+        self.nut_tinh.setMinimumHeight(42); self.nut_tinh.setToolTip('Tính và luận giải lá số (phím tắt: Enter hoặc F5)')
+        self.nut_tinh.clicked.connect(lambda: self.tinh()); cv.addWidget(self.nut_tinh)
         sc = QScrollArea(); sc.setWidgetResizable(True); sc.setWidget(cot); sc.setFixedWidth(490)
         sc.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         root.addWidget(sc)
@@ -251,7 +260,8 @@ class TrangNhap(QWidget):
         sc2 = QScrollArea(); sc2.setWidgetResizable(True); sc2.setWidget(kq)
         root.addWidget(sc2, 1)
         # tín hiệu
-        self.hen = QTimer(self); self.hen.setSingleShot(True); self.hen.setInterval(120); self.hen.timeout.connect(self.tinh)
+        # sửa ô nhập chỉ đánh dấu "đã thay đổi"; tính khi bấm Luận giải / Enter / F5
+        self.hen = QTimer(self); self.hen.setSingleShot(True); self.hen.setInterval(120); self.hen.timeout.connect(self._da_doi)
         for w in [self.d_ngay, self.d_thang, self.d_nam, self.a_ngay, self.a_thang, self.a_nam, self.gio, self.phut, self.nam_xem]:
             w.valueChanged.connect(self.hen.start)
         for w in self.cb_can + self.cb_chi + [self.mui, self.gio_xem, self.vs, self.nht, self.mau]:
@@ -260,11 +270,17 @@ class TrangNhap(QWidget):
             w.textChanged.connect(self.hen.start)
         for w in [self.krg, self.a_nhuan]: w.toggled.connect(self.hen.start)
         self.cach.doi.connect(self.doi_cach); self.gt.doi.connect(lambda _: self.hen.start())
+        from PySide6.QtGui import QShortcut, QKeySequence
+        for k in (Qt.Key_Return, Qt.Key_Enter):
+            QShortcut(QKeySequence(k), self, lambda: self.tinh(), context=Qt.WidgetWithChildrenShortcut)
+        self._ban = False; self._cho = False; self._nho = {}
+        self._bao = _BaoXong(); self._bao.xong.connect(self._xong)
         self.nut_am.clicked.connect(self.dien_am)
         self.nut_nc.toggled.connect(lambda on: (self.nc.setVisible(on), self.nut_nc.setText(('▾' if on else '▸') + '  Tùy chọn nâng cao')))
         self.kq = None
         self.doi_cach(0)
-        self.tinh()
+        if os.environ.get('BATTU_DONG_BO'): self.tinh()
+        else: QTimer.singleShot(0, lambda: self.tinh())        # mở cửa sổ trước, tính lá mặc định ở nền
 
     def dien_am(self):
         try:
@@ -350,7 +366,14 @@ class TrangNhap(QWidget):
                 else 'chip_err' if text.startswith('LỖI') else 'chip_info'
         self.chips.addWidget(lbl(text, kind, True))
 
-    def tinh(self):
+    def _da_doi(self):
+        """Ô nhập vừa đổi: báo kết quả đang hiện là của thông tin cũ."""
+        if self.kq is None and not self._ban: return
+        self.trang_thai.setText('Thông tin đã thay đổi – bấm Luận giải (hoặc Enter) để cập nhật kết quả.'); self.trang_thai.setVisible(True)
+
+    def tinh(self, dong_bo=None):
+        """Tính lá số. Mặc định tính ở luồng nền (giao diện vẫn dùng được); lá đã tính được nhớ lại."""
+        self.hen.stop()
         s = self.la_so()
         # hiển thị ngày quy đổi
         try:
@@ -363,9 +386,37 @@ class TrangNhap(QWidget):
         try:
             if s.cach_nhap == 'am':
                 dd, mm, yy = s.ngay_duong(); self.a_duong.setText('Dương lịch: %02d/%02d/%d' % (dd, mm, yy))
-            kq = tinh(s)
+            khoa = repr(sorted((k, repr(v)) for k, v in s.o_nhap().items()))
         except LoiNhap as e:
             self.loi.setText('⚠ ' + str(e)); self.loi.setVisible(True); return
+        if khoa in self._nho:                                   # lá đã tính: dùng lại
+            import copy
+            c = self._nho[khoa]; ls = copy.copy(c.la_so); ls.ho_ten, ls.ghi_chu = s.ho_ten, s.ghi_chu
+            self._xong(KetQua(ls, c.E, c.ms), None); return
+        if self._ban: self._cho = True; return                  # đang tính: tính lại lần nữa khi xong
+        dong_bo = bool(os.environ.get('BATTU_DONG_BO')) if dong_bo is None else dong_bo
+        self._ban = True; self.nut_tinh.setEnabled(False); self.nut_tinh.setText('⏳  Đang tính…')
+        self.trang_thai.setVisible(False); QApplication.setOverrideCursor(Qt.BusyCursor)
+
+        def chay():
+            try: self._bao.xong.emit((khoa, tinh(s)), None)
+            except Exception as e: self._bao.xong.emit(None, e)
+        if dong_bo: chay()
+        else: threading.Thread(target=chay, daemon=True).start()
+
+    def _xong(self, goi, loi):
+        if self._ban:
+            self._ban = False; QApplication.restoreOverrideCursor()
+            self.nut_tinh.setEnabled(True); self.nut_tinh.setText('▶  Luận giải')
+        if self._cho:
+            self._cho = False; self.tinh(); return
+        if loi is not None:
+            self.loi.setText('⚠ ' + str(loi)); self.loi.setVisible(True); return
+        if isinstance(goi, tuple):
+            khoa, kq = goi; self._nho[khoa] = kq
+            while len(self._nho) > 6: self._nho.pop(next(iter(self._nho)))
+        else: kq = goi
+        s = kq.la_so; self.trang_thai.setVisible(False)
         self.loi.setVisible(False)
         self.kq = kq
         o = kq.o
@@ -501,7 +552,7 @@ class TrangBangNhieuSheet(QWidget):
         self.kq = kq; self._da_ve = set(); self._ve()
 
     def _ve(self):
-        if not self.kq or not self.isVisible() and self._da_ve: return
+        if not self.kq or not self.isVisible(): return
         sh = self.ds[self.tab.currentIndex()][0]
         if sh in self._da_ve: return
         self.bang[sh].hien(self.kq.E); self._da_ve.add(sh)
@@ -623,8 +674,12 @@ class CuaSoChinh(QMainWindow):
         h.addWidget(sb); h.addWidget(self.trang, 1)
         self.nav.idClicked.connect(self.trang.setCurrentIndex)
         ds = [w for _, w, _ in self.muc if w is not self.t_nhap]
-        for t in ds: self.t_nhap.da_tinh.connect(t.hien)
-        self.t_nhap.da_tinh.connect(lambda kq: self._ap_che_do())
+        # chỉ vẽ trang đang mở; trang khác vẽ khi được mở (danh sách, so sánh luôn nhận kết quả để lưu/so)
+        self._kq = None; self._da_ve = set(); self._luon = {self.t_ds, self.t_ss}
+        self.t_nhap.da_tinh.connect(self._nhan_kq)
+        self.trang.currentChanged.connect(lambda _: self._ve_trang())
+        from PySide6.QtGui import QShortcut, QKeySequence
+        QShortcut(QKeySequence(Qt.Key_F5), self, lambda: self.t_nhap.tinh())
         self.t_nht.doi_che_do.connect(lambda x: self.t_nhap.nht.setCurrentText(x))
         self.t_krg.doi_gio.connect(lambda x: self.t_nhap.gio_xem.setCurrentText(x))
         self.t_tt.mo_muc.connect(lambda chu: (self.di(self.t_lv), self.t_lv.mo(chu)))
@@ -638,21 +693,29 @@ class CuaSoChinh(QMainWindow):
         self.cg.setChecked(self.cai_dat.value('chuyen_gia', False, type=bool))
         self.cg.toggled.connect(self._doi_che_do)
         self._ap_che_do()
-        if self.t_nhap.kq:
-            for t in ds: t.hien(self.t_nhap.kq)
+        if self.t_nhap.kq: self._nhan_kq(self.t_nhap.kq)
         self.di(self.t_nhap)                                 # màn hình đầu: Nhập liệu (duyệt 14/11/2026)
 
     def _dat_nhap(self, ten, gt):
-        setattr(self.t_nhap, ten, gt); self.t_nhap.hen.stop(); self.t_nhap.tinh()
+        setattr(self.t_nhap, ten, gt); self.t_nhap.tinh()
 
     def _doi_su_kien(self, ds):
-        self.t_nhap._su_kien = ds; self.t_nhap.hen.stop(); self.t_nhap.tinh()
+        self.t_nhap._su_kien = ds; self.t_nhap.tinh()
+
+    def _nhan_kq(self, kq):
+        self._kq = kq; self._da_ve = set()
+        for w in self._luon: w.hien(kq); self._da_ve.add(w)
+        self._ap_che_do(); self._ve_trang()
+
+    def _ve_trang(self):
+        w = self.trang.currentWidget()
+        if self._kq is None or w is self.t_nhap or w in self._da_ve: return
+        w.hien(self._kq); self._da_ve.add(w)
 
     def _doi_che_do(self, on):
         self.cai_dat.setValue('chuyen_gia', bool(on)); self._ap_che_do()
-        if self.t_nhap.kq:                                   # vẽ lại bảng để cập nhật chú giải / địa chỉ ô
-            for _, w, _ in self.muc:
-                if w is not self.t_nhap: w.hien(self.t_nhap.kq)
+        if self._kq:                                          # vẽ lại để cập nhật chú giải / địa chỉ ô
+            self._da_ve = set(self._luon); self._ve_trang()
 
     def _ap_che_do(self):
         from ui import bang_sheet

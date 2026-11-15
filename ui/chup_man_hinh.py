@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Chụp ảnh màn hình giao diện (chạy không cần màn hình: QT_QPA_PLATFORM=offscreen)."""
 import os, sys
-os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
+os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen'); os.environ.setdefault('BATTU_DONG_BO', '1')
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from ui.giao_dien import tao_app, CuaSoChinh
 
