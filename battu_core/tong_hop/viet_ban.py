@@ -225,6 +225,10 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     vsd = _cau(bm.get('vi_sao_dung'), 3)
     if vsd: B.append(('p', '**Vì sao chọn dụng thần.** %s' % vsd.replace('PP1: ', '')))
     if bm.get('dieu_hau'): B.append(('p', '**Điều hầu.** %s' % _cau(bm['dieu_hau'], 2)))
+    if bm.get('ung_vien_dung'):
+        B.append(('p', '**Ứng viên dụng thần thay thế (tham khảo).** %s %s' % (
+            '; '.join(x.strip('• ').split(':')[0] + ' – ' + _cau(x.split(':', 1)[1], 1) for x in bm['ung_vien_dung'].split('\n') if ':' in x),
+            (bm.get('muc_chac_dung') or '').split(';')[0] + '.')))
     m = re.search(r'Cứu ứng:(.*?(?:KHÔNG CÓ CỨU|KHÔNG CỨU|CÓ CỨU)[^.;\n]*)', bm.get('ket_luan') or '', re.S)
     if m: B.append(('p', '**Bệnh và thuốc.** %s.' % re.sub(r'\s+', ' ', m.group(1)).replace('→', '–').strip().rstrip('.')))
     rows = []

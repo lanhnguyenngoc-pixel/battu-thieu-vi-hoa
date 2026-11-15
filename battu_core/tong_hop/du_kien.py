@@ -68,6 +68,7 @@ def _ban_menh(E):
             'cach_cuc': g('Cách cục'), 'dung_than': dung, 'hy_than': hy, 'ky_than': ky,
             'hanh_dung': _hanh_dau(dung), 'hanh_hy': _hanh_dau(hy), 'hanh_ky': _hanh_dau(ky),
             'vi_sao_dung': g('Vì sao chọn dụng'), 'dieu_hau': g('Điều hầu'), 'menh_cuc': g('Kết luận mệnh cục'),
+            'ung_vien_dung': _s(E.gia_tri('DUNG_HY_KY', 'C226')), 'muc_chac_dung': _s(E.gia_tri('DUNG_HY_KY', 'C227')),
             'than_sat_hieu_luc': g('Có hiệu lực'), 'than_sat_vo_hieu': g('Có nhưng vô hiệu'),
             'quy_nhan': g('QUÝ NHÂN'), 'van_xuong': g('VĂN XƯƠNG'), 'thong_can': g('Kết luận thông căn')}
 

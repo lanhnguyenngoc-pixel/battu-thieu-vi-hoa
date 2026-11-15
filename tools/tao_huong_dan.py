@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.8.0 (quy tắc 6.6)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.8.1 (quy tắc 6.6)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.6; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.8.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.8.1_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -54,7 +54,7 @@ H.append('<h2>2. Bố cục màn hình và Chế độ chuyên gia</h2><p>Thanh 
          '<tr><td>❦ Luận giải chi tiết</td><td>Bài đọc liền mạch 8 mục + đánh giá tổng thể + 6 ý cho từng kết luận; chữ gạch chân có chú giải.</td></tr>'
          '<tr><td>↯ Vận trình</td><td>Đại vận (thêm Lưu niên 100 năm, Theo dõi ở chế độ chuyên gia).</td></tr>'
          '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K theo lĩnh vực, trình bày dạng văn bản đọc (mỗi mục mở đầu bằng khung KẾT LUẬN, rồi căn cứ chi tiết) và ô tìm kiếm.</td></tr>'
-         '<tr><td>☯ Ngũ hành thiếu</td><td>Mục I, II, ★, III, IV, V và 2 biểu đồ.</td></tr>'
+         '<tr><td>☯ Ngũ hành thiếu</td><td>Trang đọc 3 thẻ (từ 1.8.1): <b>Kết quả lá số</b> (2 biểu đồ, kết luận chung, bảng mục I–V), <b>Lý thuyết – cách tính</b> (thang điểm, ngưỡng, cách tính từng tiêu chí), <b>Bảng gốc</b> (lưới ô như workbook).</td></tr>'
          '<tr><td>✓ Kiểm chứng sự việc</td><td>Nhập sự việc đã xảy ra để đối chiếu với lá số.</td></tr>'
          '<tr><td>⚑ Đối chiếu thực tế</td><td>Ghi từng năm đã qua tốt hay xấu và luận giải đúng đến đâu; phần mềm cho biết PP1 hay PP2 khớp đời thực hơn.</td></tr>'
          '<tr><td colspan="2"><b>Chuyên gia – hiện khi bật công tắc</b></td></tr>'
@@ -107,7 +107,7 @@ H.append('<h3>Màu sắc</h3><table width="100%" cellspacing="0">'
 H.append('<h2>6. Phân tích, Vận trình, Ngũ hành thiếu, Chuyên đề, Không rõ giờ</h2>')
 anh('17_phan_tich.png', 'Phân tích: PP1 định tính, PP2 định lượng, Thông căn, Đối chiếu, Dụng – hỷ – kỵ thần')
 anh('06_dai_van_dinh_dang_dk.png', 'Vận trình – Đại vận: đầu trang là Kết luận đại vận – mức của từng vận, vì sao 5 năm đầu / 5 năm sau, tài lộc, công danh; căn cứ sách ẩn sau liên kết')
-anh('16_ngu_hanh_thieu.png', 'Ngũ hành thiếu: chọn chế độ PA2 – Theo sách / PA1 – Theo trang; biểu đồ năng lực và biểu đồ đại vận')
+anh('16_ngu_hanh_thieu.png', 'Ngũ hành thiếu: chọn chế độ PA2 – Theo sách / PA1 – Theo trang; thẻ Kết quả lá số (biểu đồ + bảng), Lý thuyết – cách tính, Bảng gốc')
 anh('15_chuyen_de_luc_than.png', 'Chuyên đề: 10 thẻ (Lục thân, Hôn nhân, Mệnh cục, Tài lộc, Tố chất, Sự nghiệp, Sức khỏe, Thần sát, Sao, Bảo phù)')
 
 H.append('<h2>6b. Kiểm chứng sự việc</h2>')
@@ -165,6 +165,9 @@ H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing=
          '<tr><td>Quy tắc 6.6 khác 6.5 ở đâu?</td><td>Khi hai phương pháp xét vượng suy cho kết quả khác nhau, nếu phần trăm phe mình theo PP2 '
          'ở xa ngưỡng 40% (dưới 36% hoặc từ 52% trở lên) thì theo PP2; còn lại giữ cách chọn cũ. Kiểm chứng trên 431 lá có lời giải: '
          '65 lá Thiệu Vĩ Hoa đúng 59 (trước 57), 366 lá sách khác đúng 289 (trước 242); đại vận khớp sách 126/171 (trước 123).</td></tr>'
+         '<tr><td>"Ứng viên dụng thần thay thế" là gì?</td><td>Từ quy tắc 6.6, ngoài dụng thần chính công cụ ghi thêm các hành mà sách cũng có thể chọn: '
+         'dụng thần theo phù ức khi đang ưu tiên điều hầu, dụng thần nếu luận như chính cách, hành điều hầu theo mùa, các ứng viên sau khi dụng thần đã mạnh ngang phe mình. '
+         'Chỉ để tham khảo – dụng thần chính không đổi. Ô Dụng thần ở Lá số luôn theo đúng phương pháp đang dùng (PP1 hoặc PP2).</td></tr>'
          '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.6 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
          '<tr><td>Dòng "Dụng thần theo cách bổ hành khuyết" là gì?</td><td>Khi trong phe dụng thần có nhóm không có chữ nào trong tứ trụ, phần mềm ghi thêm nhóm đó '
          '(mục B – Bản mệnh). Khi giải ví dụ, Thiệu Vĩ Hoa nhiều lần lấy nhóm đang khuyết làm dụng thần (P1 tr.97). Đây chỉ là ghi chú để cân nhắc, '

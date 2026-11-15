@@ -216,3 +216,10 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Workbook 6.6 = 6.5 + một quy tắc vượng suy (DOI_CHIEU C30 = 36%, D30 = 52%, C33, C36): khi PP1 và PP2 khác nhau mà phe mình PP2 xa ngưỡng 40% (dưới 36% hoặc từ 52%) thì theo PP2. Bỏ điều kiện cũ (chỉ khi PP1 khẳng định vượng và PP2 < 30%) vì đã nằm trong quy tắc mới.
 - Kiểm chứng trên 431 lá có lời giải vượng suy: 65 lá Thiệu Vĩ Hoa 57 → 59; 366 lá sách khác 242 → 289 (66% → 79%); kiểm chéo chia đôi 20 lần 68,7% → 77,2%. Đại vận khớp sách 123 → 126/171, ngược chiều 38 → 35. Dụng thần không đổi (21/38 – việc của đợt 2).
 - Dựng lại bằng tools/dung_lai.sh; LibreOffice (oracle_mo_rong) trên 9 lá, gồm 6 lá có quy tắc tác động: 261 567 / 261 567 ô khớp. Sinh lại đáp án T7/T9/T10 từ 6.6 (chỉ 3 lá T7_01/02/06 đổi – đúng các lá quy tắc tác động); dấu vân tay tự kiểm sinh lại (lá Tự kiểm 3 đổi theo quy tắc).
+
+## 1.8.1 – DT-3, DT-1, trang Ngũ hành thiếu (15/11/2026)
+- DT-3 (workbook 6.6): KET_LUAN C36:C38 (Dụng/Hỷ/Kỵ thần) và 30 ô THAN_SAT theo phương pháp khuyến nghị (DOI_CHIEU C33; DUNG_HY_KY C155, C157:C159) – trước đây luôn lấy PP1 nên có thể ghi khác hành mà đại vận, lưu niên đang dùng.
+- DT-1 (workbook 6.6): DUNG_HY_KY mục O (dòng 221–227) – ứng viên dụng thần thay thế (phù ức khi ưu tiên điều hầu; nếu luận chính cách; điều hầu theo mùa; dụng thần đã mạnh ngang phe mình → ứng viên sau theo P1 tr.99) và mức chắc chắn; KET_LUAN C39 ghi thêm dòng ứng viên; lớp tổng hợp ghi vào mục 2 bản luận giải. Không đổi dụng thần chính.
+- Đo trên sách: 38 lá P2 tr.397–431 – dụng chính khớp 20 (53%), chính hoặc ứng viên 24 (63%); 247 lá TTT + HTL – 106 (43%) → 142 (57%).
+- Trang Ngũ hành thiếu: 3 thẻ Kết quả lá số / Lý thuyết – cách tính / Bảng gốc (ui/trang_ngu_hanh_thieu.py).
+- Kiểm: LibreOffice 14 lá 407 022 / 407 022 ô; đáp án T7/T9/T10 sinh lại (thêm 10 ô mục O mỗi lá); T5, T7, T9–T16, kho lá số, tự kiểm: ĐẠT.

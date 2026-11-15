@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet KET_LUAN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 95e9ed5d62a4f6c74da13bdf98244e3546380c714a7a8bc5da90c014ef7d900d).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 ef3858360c0984a0528d265328dcd5caaf8d951a2feed88333eec94b8b316638).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -505,8 +505,8 @@ def f69(E, r, c):
 
 def f70(E, r, c):
     # Ô C36
-    # = DUNG_HY_KY!$C$106
-    return E.v(8,106,3)
+    # = IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$106,DUNG_HY_KY!$C$106)
+    return (E.v(8,106,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,106,3))
 
 def f71(E, r, c):
     # Ô D36
@@ -538,8 +538,8 @@ def f75(E, r, c):
 
 def f76(E, r, c):
     # Ô C37
-    # = DUNG_HY_KY!$C$107
-    return E.v(8,107,3)
+    # = IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$107,DUNG_HY_KY!$C$107)
+    return (E.v(8,107,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,107,3))
 
 def f77(E, r, c):
     # Ô D37
@@ -571,8 +571,8 @@ def f81(E, r, c):
 
 def f82(E, r, c):
     # Ô C38
-    # = DUNG_HY_KY!$C$108
-    return E.v(8,108,3)
+    # = IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$108,DUNG_HY_KY!$C$108)
+    return (E.v(8,108,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,108,3))
 
 def f83(E, r, c):
     # Ô D38
@@ -609,8 +609,9 @@ def f88(E, r, c):
     # Ô C39
     # = DUNG_HY_KY!$C$147&CHAR(10)&DUNG_HY_KY!$C$148&CHAR(10)&"⇒ "&DUNG_HY_KY!$C$149&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$218,DUNG_HY_KY!$C$218)<>"",CHAR(10)
     #   &IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$218,DUNG_HY_KY!$C$218),"")&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$205,DUNG_HY_KY!$C$205)<>"",CHAR(10)&"Cách cục: "&
-    #   IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$202,DUNG_HY_KY!$C$202)&" chưa thành cách – "&IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$205,DUNG_HY_KY!$C$205)&".","")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(8,147,3),X.CHAR(10.0)),E.v(8,148,3)),X.CHAR(10.0)),'⇒ '),E.v(8,149,3)),(X.cat(X.CHAR(10.0),(E.v(8,218,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,218,3))) if X.truthy(X.ne((E.v(8,218,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,218,3)),'')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.CHAR(10.0),'Cách cục: '),(E.v(8,202,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,202,3))),' chưa thành cách – '),(E.v(8,205,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,205,3))),'.') if X.truthy(X.ne((E.v(8,205,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,205,3)),'')) else ''))
+    #   IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$202,DUNG_HY_KY!$C$202)&" chưa thành cách – "&IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$205,DUNG_HY_KY!$C$205)&".","")&IF(D
+    #   UNG_HY_KY!$C$226<>"",CHAR(10)&"Ứng viên dụng thần thay thế (tham khảo): "&DUNG_HY_KY!$C$226,"")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(8,147,3),X.CHAR(10.0)),E.v(8,148,3)),X.CHAR(10.0)),'⇒ '),E.v(8,149,3)),(X.cat(X.CHAR(10.0),(E.v(8,218,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,218,3))) if X.truthy(X.ne((E.v(8,218,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,218,3)),'')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.CHAR(10.0),'Cách cục: '),(E.v(8,202,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,202,3))),' chưa thành cách – '),(E.v(8,205,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,205,3))),'.') if X.truthy(X.ne((E.v(8,205,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,205,3)),'')) else '')),(X.cat(X.cat(X.CHAR(10.0),'Ứng viên dụng thần thay thế (tham khảo): '),E.v(8,226,3)) if X.truthy(X.ne(E.v(8,226,3),'')) else ''))
 
 def f89(E, r, c):
     # Ô H39

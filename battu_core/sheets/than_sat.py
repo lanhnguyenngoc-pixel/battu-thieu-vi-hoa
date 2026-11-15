@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet THAN_SAT – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 95e9ed5d62a4f6c74da13bdf98244e3546380c714a7a8bc5da90c014ef7d900d).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 ef3858360c0984a0528d265328dcd5caaf8d951a2feed88333eec94b8b316638).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -249,8 +249,8 @@ def f44(E, r, c):
 
 def f45(E, r, c):
     # Ô I27, I31, I35, I39, I43, I47
-    # = IF(E27=0,"",IF(TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$109,"dụng thần",IF(TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$110,"hỷ thần","")))
-    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,3),E.v(8,109,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,3),E.v(8,110,3))) else '')))
+    # = IF(E27=0,"",IF(TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$157,"dụng thần",IF(TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$158,"hỷ thần","")))
+    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,3),E.v(8,157,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,3),E.v(8,158,3))) else '')))
 
 def f46(E, r, c):
     # Ô J27, J31, J35, J39, J43, J47
@@ -280,8 +280,8 @@ def f50(E, r, c):
 
 def f51(E, r, c):
     # Ô I28, I32, I36, I40, I44, I48
-    # = IF(E28=0,"",IF(TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$109,"dụng thần",IF(TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$110,"hỷ thần","")))
-    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,4),E.v(8,109,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,4),E.v(8,110,3))) else '')))
+    # = IF(E28=0,"",IF(TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$157,"dụng thần",IF(TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$158,"hỷ thần","")))
+    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,4),E.v(8,157,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,4),E.v(8,158,3))) else '')))
 
 def f52(E, r, c):
     # Ô J28, J32, J36, J40, J44, J48
@@ -311,8 +311,8 @@ def f56(E, r, c):
 
 def f57(E, r, c):
     # Ô I29, I33, I37, I41, I45, I49
-    # = IF(E29=0,"",IF(TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$109,"dụng thần",IF(TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$110,"hỷ thần","")))
-    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,5),E.v(8,109,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,5),E.v(8,110,3))) else '')))
+    # = IF(E29=0,"",IF(TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$157,"dụng thần",IF(TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$158,"hỷ thần","")))
+    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,5),E.v(8,157,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,5),E.v(8,158,3))) else '')))
 
 def f58(E, r, c):
     # Ô J29, J33, J37, J41, J45, J49
@@ -342,8 +342,8 @@ def f62(E, r, c):
 
 def f63(E, r, c):
     # Ô I30, I34, I38, I42, I46, I50
-    # = IF(E30=0,"",IF(TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$109,"dụng thần",IF(TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$110,"hỷ thần","")))
-    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,6),E.v(8,109,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,6),E.v(8,110,3))) else '')))
+    # = IF(E30=0,"",IF(TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$157,"dụng thần",IF(TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$158,"hỷ thần","")))
+    return ('' if X.truthy(X.eq(E.v(12,r,c-4),0.0)) else ('dụng thần' if X.truthy(X.eq(E.v(23,9,6),E.v(8,157,3))) else ('hỷ thần' if X.truthy(X.eq(E.v(23,9,6),E.v(8,158,3))) else '')))
 
 def f64(E, r, c):
     # Ô J30, J34, J38, J42, J46, J50
@@ -602,12 +602,12 @@ def f109(E, r, c):
 
 def f110(E, r, c):
     # Ô I87
-    # = TRIM(IF(COUNTIF($C$87:$F$87,"có")>0,"• Công danh thuận lợi (không bị hình xung khắc phá). ","")&IF(AND(COUNTIF($C$87:$F$87,"có")>0,DUNG_HY_KY!$C$7=0),
-    #   "• Thân nhược mà có lộc không bị phá: quý mệnh. ","")&IF(AND((COUNTIF($C$87:$F$87,"có*")>0),DUNG_HY_KY!$C$7=1),"• Thân vượng lộc nhiều: nên có quan/th
-    #   ực thương khắc tiết. ","")&IF(AND(NOT(COUNTIF($C$87:$F$87,"có")>0),(COUNTIF($C$87:$F$87,"có*")>0)),"• Lộc bị xung phá: quan thì mất chức, người thường
-    #    cơm áo không đủ, bôn ba. ","")&IF(AND((COUNTIF($C$87:$F$87,"có*")>0),COUNTIFS(SAO!$Q$5:$Q$20,1,SAO!$N$5:$N$20,1)>0),"• Lộc nhập không vong: có lộc nh
-    #   ư không. ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(('• Công danh thuận lợi (không bị hình xung khắc phá). ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có'),0.0)) else ''),('• Thân nhược mà có lộc không bị phá: quý mệnh. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có'),0.0), X.eq(E.v(8,7,3),0.0))) else '')),('• Thân vượng lộc nhiều: nên có quan/thực thương khắc tiết. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có*'),0.0), X.eq(E.v(8,7,3),1.0))) else '')),('• Lộc bị xung phá: quan thì mất chức, người thường cơm áo không đủ, bôn ba. ' if X.truthy(X.AND(X.NOT(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có'),0.0)), X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có*'),0.0))) else '')),('• Lộc nhập không vong: có lộc như không. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có*'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,17,20,17), 1.0, E.rg(13,5,14,20,14), 1.0),0.0))) else '')))
+    # = TRIM(IF(COUNTIF($C$87:$F$87,"có")>0,"• Công danh thuận lợi (không bị hình xung khắc phá). ","")&IF(AND(COUNTIF($C$87:$F$87,"có")>0,DUNG_HY_KY!$C$155=0
+    #   ),"• Thân nhược mà có lộc không bị phá: quý mệnh. ","")&IF(AND((COUNTIF($C$87:$F$87,"có*")>0),DUNG_HY_KY!$C$155=1),"• Thân vượng lộc nhiều: nên có qua
+    #   n/thực thương khắc tiết. ","")&IF(AND(NOT(COUNTIF($C$87:$F$87,"có")>0),(COUNTIF($C$87:$F$87,"có*")>0)),"• Lộc bị xung phá: quan thì mất chức, người th
+    #   ường cơm áo không đủ, bôn ba. ","")&IF(AND((COUNTIF($C$87:$F$87,"có*")>0),COUNTIFS(SAO!$Q$5:$Q$20,1,SAO!$N$5:$N$20,1)>0),"• Lộc nhập không vong: có lộ
+    #   c như không. ",""))
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(('• Công danh thuận lợi (không bị hình xung khắc phá). ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có'),0.0)) else ''),('• Thân nhược mà có lộc không bị phá: quý mệnh. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có'),0.0), X.eq(E.v(8,155,3),0.0))) else '')),('• Thân vượng lộc nhiều: nên có quan/thực thương khắc tiết. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có*'),0.0), X.eq(E.v(8,155,3),1.0))) else '')),('• Lộc bị xung phá: quan thì mất chức, người thường cơm áo không đủ, bôn ba. ' if X.truthy(X.AND(X.NOT(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có'),0.0)), X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có*'),0.0))) else '')),('• Lộc nhập không vong: có lộc như không. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,87,3,87,6), 'có*'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,17,20,17), 1.0, E.rg(13,5,14,20,14), 1.0),0.0))) else '')))
 
 def f111(E, r, c):
     # Ô C88
@@ -632,12 +632,12 @@ def f114(E, r, c):
 def f115(E, r, c):
     # Ô I88
     # = TRIM(IF((COUNTIF($C$88:$F$88,"có*")>0),"• Hung nhiều cát ít; dễ tai nạn khi bị hợp, xung, hình hoặc gặp tuế vận. ","")&IF(AND((COUNTIF($C$88:$F$88,"có
-    #   *")>0),DUNG_HY_KY!$C$7=0),"• Thân nhược: kình dương giúp thân (nhưng ""như làm bạn với hổ""). ","")&IF(AND((COUNTIF($C$88:$F$88,"có*")>0),DUNG_HY_KY!$
-    #   C$7=1),"• Thân vượng: cái xấu của kình dương càng tăng. ","")&IF(LEN($C$88)>0,"• Ở trụ năm: phá cái tổ tiên để lại. ","")&IF(LEN($D$88)>0,"• Ở trụ thá
-    #   ng: tính ngang ngược, khác người. ","")&IF(LEN($E$88)>0,"• Ở trụ ngày: tính nóng; vợ hay bệnh. ","")&IF(LEN($F$88)>0,"• Ở trụ giờ: khắc vợ con, cuối đ
-    #   ời hay gặp họa. ","")&IF(AND((COUNTIF($C$88:$F$88,"có*")>0),COUNTIF(SAO!$F$5:$F$20,"Thất sát")>0),"• Có cả thất sát: ""có sát có kình dương thì lập cô
-    #   ng kiến nghiệp"". ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(('• Hung nhiều cát ít; dễ tai nạn khi bị hợp, xung, hình hoặc gặp tuế vận. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0)) else ''),('• Thân nhược: kình dương giúp thân (nhưng "như làm bạn với hổ"). ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0), X.eq(E.v(8,7,3),0.0))) else '')),('• Thân vượng: cái xấu của kình dương càng tăng. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0), X.eq(E.v(8,7,3),1.0))) else '')),('• Ở trụ năm: phá cái tổ tiên để lại. ' if X.truthy(X.gt(X.LEN(E.v(12,88,3)),0.0)) else '')),('• Ở trụ tháng: tính ngang ngược, khác người. ' if X.truthy(X.gt(X.LEN(E.v(12,88,4)),0.0)) else '')),('• Ở trụ ngày: tính nóng; vợ hay bệnh. ' if X.truthy(X.gt(X.LEN(E.v(12,88,5)),0.0)) else '')),('• Ở trụ giờ: khắc vợ con, cuối đời hay gặp họa. ' if X.truthy(X.gt(X.LEN(E.v(12,88,6)),0.0)) else '')),('• Có cả thất sát: "có sát có kình dương thì lập công kiến nghiệp". ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0), X.gt(X.COUNTIF(E.rg(13,5,6,20,6), 'Thất sát'),0.0))) else '')))
+    #   *")>0),DUNG_HY_KY!$C$155=0),"• Thân nhược: kình dương giúp thân (nhưng ""như làm bạn với hổ""). ","")&IF(AND((COUNTIF($C$88:$F$88,"có*")>0),DUNG_HY_KY
+    #   !$C$155=1),"• Thân vượng: cái xấu của kình dương càng tăng. ","")&IF(LEN($C$88)>0,"• Ở trụ năm: phá cái tổ tiên để lại. ","")&IF(LEN($D$88)>0,"• Ở trụ
+    #    tháng: tính ngang ngược, khác người. ","")&IF(LEN($E$88)>0,"• Ở trụ ngày: tính nóng; vợ hay bệnh. ","")&IF(LEN($F$88)>0,"• Ở trụ giờ: khắc vợ con, cu
+    #   ối đời hay gặp họa. ","")&IF(AND((COUNTIF($C$88:$F$88,"có*")>0),COUNTIF(SAO!$F$5:$F$20,"Thất sát")>0),"• Có cả thất sát: ""có sát có kình dương thì lậ
+    #   p công kiến nghiệp"". ",""))
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(('• Hung nhiều cát ít; dễ tai nạn khi bị hợp, xung, hình hoặc gặp tuế vận. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0)) else ''),('• Thân nhược: kình dương giúp thân (nhưng "như làm bạn với hổ"). ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0), X.eq(E.v(8,155,3),0.0))) else '')),('• Thân vượng: cái xấu của kình dương càng tăng. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0), X.eq(E.v(8,155,3),1.0))) else '')),('• Ở trụ năm: phá cái tổ tiên để lại. ' if X.truthy(X.gt(X.LEN(E.v(12,88,3)),0.0)) else '')),('• Ở trụ tháng: tính ngang ngược, khác người. ' if X.truthy(X.gt(X.LEN(E.v(12,88,4)),0.0)) else '')),('• Ở trụ ngày: tính nóng; vợ hay bệnh. ' if X.truthy(X.gt(X.LEN(E.v(12,88,5)),0.0)) else '')),('• Ở trụ giờ: khắc vợ con, cuối đời hay gặp họa. ' if X.truthy(X.gt(X.LEN(E.v(12,88,6)),0.0)) else '')),('• Có cả thất sát: "có sát có kình dương thì lập công kiến nghiệp". ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,88,3,88,6), 'có*'),0.0), X.gt(X.COUNTIF(E.rg(13,5,6,20,6), 'Thất sát'),0.0))) else '')))
 
 def f116(E, r, c):
     # Ô C89
@@ -690,11 +690,11 @@ def f124(E, r, c):
 def f125(E, r, c):
     # Ô I90
     # = TRIM(IF((COUNTIF($C$90:$F$90,"có*")>0),"• Hung tinh: đề phòng bệnh tật, thương tật, hình pháp (""không gặp là tốt nhất""). ","")&IF(AND((COUNTIF($C$90
-    #   :$F$90,"có*")>0),COUNTIFS(SAO!$W$5:$W$20,1,SAO!$C$5:$C$20,"Bản khí",SAO!$H$5:$H$20,DUNG_HY_KY!$C$111)>0),"• Kiếp sát là kỵ thần: tính cường bạo, đến t
+    #   :$F$90,"có*")>0),COUNTIFS(SAO!$W$5:$W$20,1,SAO!$C$5:$C$20,"Bản khí",SAO!$H$5:$H$20,DUNG_HY_KY!$C$159)>0),"• Kiếp sát là kỵ thần: tính cường bạo, đến t
     #   uế vận cướp đoạt rất hung. ","")&IF(AND((COUNTIF($C$90:$F$90,"có*")>0),OR(COUNTIFS(SAO!$W$5:$W$20,1,SAO!$C$5:$C$20,"Bản khí",SAO!$H$5:$H$20,DUNG_HY_KY
-    #   !$C$109)>0,COUNTIFS(SAO!$W$5:$W$20,1,SAO!$C$5:$C$20,"Bản khí",SAO!$H$5:$H$20,DUNG_HY_KY!$C$110)>0)),"• Kiếp sát là dụng/hỷ thần: hiếu học, quả đoán, d
+    #   !$C$157)>0,COUNTIFS(SAO!$W$5:$W$20,1,SAO!$C$5:$C$20,"Bản khí",SAO!$H$5:$H$20,DUNG_HY_KY!$C$158)>0)),"• Kiếp sát là dụng/hỷ thần: hiếu học, quả đoán, d
     #   ễ thành công. ",""))
-    return X.TRIM(X.cat(X.cat(('• Hung tinh: đề phòng bệnh tật, thương tật, hình pháp ("không gặp là tốt nhất"). ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,90,3,90,6), 'có*'),0.0)) else ''),('• Kiếp sát là kỵ thần: tính cường bạo, đến tuế vận cướp đoạt rất hung. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,90,3,90,6), 'có*'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,23,20,23), 1.0, E.rg(13,5,3,20,3), 'Bản khí', E.rg(13,5,8,20,8), E.v(8,111,3)),0.0))) else '')),('• Kiếp sát là dụng/hỷ thần: hiếu học, quả đoán, dễ thành công. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,90,3,90,6), 'có*'),0.0), X.OR(X.gt(X.COUNTIFS(E.rg(13,5,23,20,23), 1.0, E.rg(13,5,3,20,3), 'Bản khí', E.rg(13,5,8,20,8), E.v(8,109,3)),0.0), X.gt(X.COUNTIFS(E.rg(13,5,23,20,23), 1.0, E.rg(13,5,3,20,3), 'Bản khí', E.rg(13,5,8,20,8), E.v(8,110,3)),0.0)))) else '')))
+    return X.TRIM(X.cat(X.cat(('• Hung tinh: đề phòng bệnh tật, thương tật, hình pháp ("không gặp là tốt nhất"). ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,90,3,90,6), 'có*'),0.0)) else ''),('• Kiếp sát là kỵ thần: tính cường bạo, đến tuế vận cướp đoạt rất hung. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,90,3,90,6), 'có*'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,23,20,23), 1.0, E.rg(13,5,3,20,3), 'Bản khí', E.rg(13,5,8,20,8), E.v(8,159,3)),0.0))) else '')),('• Kiếp sát là dụng/hỷ thần: hiếu học, quả đoán, dễ thành công. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,90,3,90,6), 'có*'),0.0), X.OR(X.gt(X.COUNTIFS(E.rg(13,5,23,20,23), 1.0, E.rg(13,5,3,20,3), 'Bản khí', E.rg(13,5,8,20,8), E.v(8,157,3)),0.0), X.gt(X.COUNTIFS(E.rg(13,5,23,20,23), 1.0, E.rg(13,5,3,20,3), 'Bản khí', E.rg(13,5,8,20,8), E.v(8,158,3)),0.0)))) else '')))
 
 def f126(E, r, c):
     # Ô C91
@@ -859,12 +859,12 @@ def f154(E, r, c):
 
 def f155(E, r, c):
     # Ô I96
-    # = TRIM(IF(COUNTIF($C$96:$F$96,"có")>0,"• Thông minh, gặp việc có người giúp, gặp hung hóa cát. ","")&IF(AND(COUNTIF($C$96:$F$96,"có")>0,DUNG_HY_KY!$C$7=
-    #   1),"• Thân vượng: phúc quý càng tăng, ít bệnh. ","")&IF(AND(COUNTIF($C$96:$F$96,"có")>0,DUNG_HY_KY!$C$7=0),"• Thân nhược: bệnh nhiều hoặc giảm phúc. "
-    #   ,"")&IF(AND(COUNTIF($C$96:$F$96,"có")>0,OR(COUNTIF($C$85:$F$85,"có")>0,COUNTIF($C$86:$F$86,"có")>0)),"• Gặp cả thiên/nguyệt đức: quý vô cùng. ","")&IF
-    #   (AND((COUNTIF($C$96:$F$96,"có*")>0),COUNTIFS(SAO!$P$5:$P$20,1,SAO!$N$5:$N$20,1)>0),"• Quý nhân gặp tuần không: giảm lực. ","")&IF(AND(NOT(COUNTIF($C$9
-    #   6:$F$96,"có")>0),(COUNTIF($C$96:$F$96,"có*")>0)),"• Bị hình xung khắc hại: như không có. ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(('• Thông minh, gặp việc có người giúp, gặp hung hóa cát. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0)) else ''),('• Thân vượng: phúc quý càng tăng, ít bệnh. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0), X.eq(E.v(8,7,3),1.0))) else '')),('• Thân nhược: bệnh nhiều hoặc giảm phúc. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0), X.eq(E.v(8,7,3),0.0))) else '')),('• Gặp cả thiên/nguyệt đức: quý vô cùng. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0), X.OR(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.gt(X.COUNTIF(E.rg(12,86,3,86,6), 'có'),0.0)))) else '')),('• Quý nhân gặp tuần không: giảm lực. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có*'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,16,20,16), 1.0, E.rg(13,5,14,20,14), 1.0),0.0))) else '')),('• Bị hình xung khắc hại: như không có. ' if X.truthy(X.AND(X.NOT(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0)), X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có*'),0.0))) else '')))
+    # = TRIM(IF(COUNTIF($C$96:$F$96,"có")>0,"• Thông minh, gặp việc có người giúp, gặp hung hóa cát. ","")&IF(AND(COUNTIF($C$96:$F$96,"có")>0,DUNG_HY_KY!$C$15
+    #   5=1),"• Thân vượng: phúc quý càng tăng, ít bệnh. ","")&IF(AND(COUNTIF($C$96:$F$96,"có")>0,DUNG_HY_KY!$C$155=0),"• Thân nhược: bệnh nhiều hoặc giảm phú
+    #   c. ","")&IF(AND(COUNTIF($C$96:$F$96,"có")>0,OR(COUNTIF($C$85:$F$85,"có")>0,COUNTIF($C$86:$F$86,"có")>0)),"• Gặp cả thiên/nguyệt đức: quý vô cùng. ",""
+    #   )&IF(AND((COUNTIF($C$96:$F$96,"có*")>0),COUNTIFS(SAO!$P$5:$P$20,1,SAO!$N$5:$N$20,1)>0),"• Quý nhân gặp tuần không: giảm lực. ","")&IF(AND(NOT(COUNTIF(
+    #   $C$96:$F$96,"có")>0),(COUNTIF($C$96:$F$96,"có*")>0)),"• Bị hình xung khắc hại: như không có. ",""))
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(('• Thông minh, gặp việc có người giúp, gặp hung hóa cát. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0)) else ''),('• Thân vượng: phúc quý càng tăng, ít bệnh. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0), X.eq(E.v(8,155,3),1.0))) else '')),('• Thân nhược: bệnh nhiều hoặc giảm phúc. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0), X.eq(E.v(8,155,3),0.0))) else '')),('• Gặp cả thiên/nguyệt đức: quý vô cùng. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0), X.OR(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.gt(X.COUNTIF(E.rg(12,86,3,86,6), 'có'),0.0)))) else '')),('• Quý nhân gặp tuần không: giảm lực. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có*'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,16,20,16), 1.0, E.rg(13,5,14,20,14), 1.0),0.0))) else '')),('• Bị hình xung khắc hại: như không có. ' if X.truthy(X.AND(X.NOT(X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có'),0.0)), X.gt(X.COUNTIF(E.rg(12,96,3,96,6), 'có*'),0.0))) else '')))
 
 def f156(E, r, c):
     # Ô C102
@@ -959,10 +959,10 @@ def f170(E, r, c):
     #   AN!$E$5*12+TRUNG_GIAN!$E$6)=76),(COUNTIFS(SAO!$F$5:$F$20,"Chính quan",SAO!$X$5:$X$20,1)>0)),"• Ngày Canh Tuất/Canh Thìn mà trụ có quan: “là không tốt”
     #    ","")&IF(AND(OR((TRUNG_GIAN!$E$5*12+TRUNG_GIAN!$E$6)=58,(TRUNG_GIAN!$E$5*12+TRUNG_GIAN!$E$6)=100),OR((COUNTIFS(SAO!$F$5:$F$20,"Chính tài",SAO!$X$5:$X
     #   $20,1)>0),(COUNTIFS(SAO!$F$5:$F$20,"Thiên tài",SAO!$X$5:$X$20,1)>0))),"• Ngày Mậu Tuất/Nhâm Thìn mà trụ có tài: “là không tốt” ","")&IF(AND((IF(DOI_CH
-    #   IEU!$C$33=2,DUNG_HY_KY!$D$7,DUNG_HY_KY!$C$7)=1),NOT((COUNTIFS(SAO!$F$5:$F$20,"Chính quan",SAO!$X$5:$X$20,1)>0)),NOT((COUNTIFS(SAO!$F$5:$F$20,"Thất sát
-    #   ",SAO!$X$5:$X$20,1)>0))),"• “Thân vượng thì phát phúc to” ","")&IF(THAN_SAT!$E$11=1,"• “Có hình xung phá hại thì người đó nghèo rách, kiệt quệ” ",""))
-    #   ,"")
-    return (X.TRIM(X.cat(X.cat(X.cat(X.cat('• “Tính cách thông tuệ, ưa sát phạt”; “việc hôn nhân thường trắc trở” ',('• Ngày Canh Tuất/Canh Thìn mà trụ có quan: “là không tốt” ' if X.truthy(X.AND(X.OR(X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),82.0), X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),76.0)), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính quan', E.rg(13,5,24,20,24), 1.0),0.0))) else '')),('• Ngày Mậu Tuất/Nhâm Thìn mà trụ có tài: “là không tốt” ' if X.truthy(X.AND(X.OR(X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),58.0), X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),100.0)), X.OR(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính tài', E.rg(13,5,24,20,24), 1.0),0.0), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên tài', E.rg(13,5,24,20,24), 1.0),0.0)))) else '')),('• “Thân vượng thì phát phúc to” ' if X.truthy(X.AND(X.eq((E.v(8,7,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,7,3)),1.0), X.NOT(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính quan', E.rg(13,5,24,20,24), 1.0),0.0)), X.NOT(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thất sát', E.rg(13,5,24,20,24), 1.0),0.0)))) else '')),('• “Có hình xung phá hại thì người đó nghèo rách, kiệt quệ” ' if X.truthy(X.eq(E.v(12,11,5),1.0)) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
+    #   IEU!$C$33=2,DUNG_HY_KY!$D$7,DUNG_HY_KY!$C$155)=1),NOT((COUNTIFS(SAO!$F$5:$F$20,"Chính quan",SAO!$X$5:$X$20,1)>0)),NOT((COUNTIFS(SAO!$F$5:$F$20,"Thất s
+    #   át",SAO!$X$5:$X$20,1)>0))),"• “Thân vượng thì phát phúc to” ","")&IF(THAN_SAT!$E$11=1,"• “Có hình xung phá hại thì người đó nghèo rách, kiệt quệ” ",""
+    #   )),"")
+    return (X.TRIM(X.cat(X.cat(X.cat(X.cat('• “Tính cách thông tuệ, ưa sát phạt”; “việc hôn nhân thường trắc trở” ',('• Ngày Canh Tuất/Canh Thìn mà trụ có quan: “là không tốt” ' if X.truthy(X.AND(X.OR(X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),82.0), X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),76.0)), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính quan', E.rg(13,5,24,20,24), 1.0),0.0))) else '')),('• Ngày Mậu Tuất/Nhâm Thìn mà trụ có tài: “là không tốt” ' if X.truthy(X.AND(X.OR(X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),58.0), X.eq(X.add(X.mul(E.v(23,5,5),12.0),E.v(23,6,5)),100.0)), X.OR(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính tài', E.rg(13,5,24,20,24), 1.0),0.0), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên tài', E.rg(13,5,24,20,24), 1.0),0.0)))) else '')),('• “Thân vượng thì phát phúc to” ' if X.truthy(X.AND(X.eq((E.v(8,7,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,155,3)),1.0), X.NOT(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính quan', E.rg(13,5,24,20,24), 1.0),0.0)), X.NOT(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thất sát', E.rg(13,5,24,20,24), 1.0),0.0)))) else '')),('• “Có hình xung phá hại thì người đó nghèo rách, kiệt quệ” ' if X.truthy(X.eq(E.v(12,11,5),1.0)) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
 
 def f171(E, r, c):
     # Ô C105
@@ -1201,10 +1201,10 @@ def f209(E, r, c):
 
 def f210(E, r, c):
     # Ô I112
-    # = IF(H112="Có",TRIM(IF(NOT(AND((IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$7,DUNG_HY_KY!$C$7)=1),(THAN_SAT!$H$96="Có"))),"• “Nếu không vượng lại không có cát th
-    #   ần quý nhân phù trợ, thì không bệnh tật luôn cũng là người gầy mòn ốm yếu” ","")&IF(AND((IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$7,DUNG_HY_KY!$C$7)=1),(THA
-    #   N_SAT!$H$96="Có")),"• “Sinh vượng và còn có quý nhân phù trợ thì … phù hợp với công việc nghiên cứu y học, y dược, … làm nghề y” ","")),"")
-    return (X.TRIM(X.cat(('• “Nếu không vượng lại không có cát thần quý nhân phù trợ, thì không bệnh tật luôn cũng là người gầy mòn ốm yếu” ' if X.truthy(X.NOT(X.AND(X.eq((E.v(8,7,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,7,3)),1.0), X.eq(E.v(12,96,8),'Có')))) else ''),('• “Sinh vượng và còn có quý nhân phù trợ thì … phù hợp với công việc nghiên cứu y học, y dược, … làm nghề y” ' if X.truthy(X.AND(X.eq((E.v(8,7,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,7,3)),1.0), X.eq(E.v(12,96,8),'Có'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
+    # = IF(H112="Có",TRIM(IF(NOT(AND((IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$7,DUNG_HY_KY!$C$155)=1),(THAN_SAT!$H$96="Có"))),"• “Nếu không vượng lại không có cát 
+    #   thần quý nhân phù trợ, thì không bệnh tật luôn cũng là người gầy mòn ốm yếu” ","")&IF(AND((IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$7,DUNG_HY_KY!$C$155)=1),
+    #   (THAN_SAT!$H$96="Có")),"• “Sinh vượng và còn có quý nhân phù trợ thì … phù hợp với công việc nghiên cứu y học, y dược, … làm nghề y” ","")),"")
+    return (X.TRIM(X.cat(('• “Nếu không vượng lại không có cát thần quý nhân phù trợ, thì không bệnh tật luôn cũng là người gầy mòn ốm yếu” ' if X.truthy(X.NOT(X.AND(X.eq((E.v(8,7,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,155,3)),1.0), X.eq(E.v(12,96,8),'Có')))) else ''),('• “Sinh vượng và còn có quý nhân phù trợ thì … phù hợp với công việc nghiên cứu y học, y dược, … làm nghề y” ' if X.truthy(X.AND(X.eq((E.v(8,7,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,155,3)),1.0), X.eq(E.v(12,96,8),'Có'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
 
 def f211(E, r, c):
     # Ô C113

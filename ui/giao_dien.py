@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau, KetQua
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.8.0 · Quy tắc 6.6'
+PHIEN_BAN = 'Phiên bản 1.8.1 · Quy tắc 6.6'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -573,39 +573,7 @@ class TrangBangNhieuSheet(QWidget):
         super().showEvent(e); self._ve()
 
 
-class TrangNguHanhThieu(QWidget):
-    doi_che_do = Signal(str)
-
-    def __init__(self):
-        super().__init__()
-        v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(12)
-        h = QHBoxLayout(); h.addWidget(lbl('Ngũ hành thiếu', 'tieude')); h.addSpacing(16)
-        h.addWidget(lbl('Chế độ tính mục I, II', 'nhan')); self.che_do = QComboBox(); self.che_do.addItems(CHE_DO_NHT)
-        self.che_do.setMinimumWidth(190); h.addWidget(self.che_do); h.addStretch()
-        h.addWidget(lbl('Phương pháp riêng – chỉ tham khảo', 'badge')); v.addLayout(h)
-        self.tom = lbl('', 'chip_info', True); v.addWidget(self.tom)
-        hb = QHBoxLayout(); hb.setSpacing(14)
-        c1 = QFrame(); c1.setObjectName('the'); l1 = QVBoxLayout(c1); l1.setContentsMargins(12, 12, 12, 12)
-        self.bd1 = BieuDoNangLuc(); l1.addWidget(self.bd1); hb.addWidget(c1, 4)
-        c2 = QFrame(); c2.setObjectName('the'); l2 = QVBoxLayout(c2); l2.setContentsMargins(12, 12, 12, 12)
-        self.bd2 = BieuDoDaiVan(); l2.addWidget(self.bd2); hb.addWidget(c2, 6)
-        v.addLayout(hb, 5)
-        from ui.bai_doc import KhungDocLuoi
-        self.bang = KhungDocLuoi('NGU_HANH_THIEU'); v.addWidget(self.bang, 4)
-        self.che_do.currentTextChanged.connect(self.doi_che_do.emit)
-        self.kq = None
-
-    def hien(self, kq):
-        self.kq = kq; E = kq.E
-        self.che_do.blockSignals(True); self.che_do.setCurrentText(kq.la_so.che_do_nht); self.che_do.blockSignals(False)
-        o = lambda r: hien_thi_o(E, 'NGU_HANH_THIEU', r)
-        self.tom.setText('Mục I: %s → %s · Mục II: %s → %s' % (o('E15'), o('F15'), o('E27'), o('F27')))
-        self.bd1.dat(E); self.bd2.dat(E)
-        if self.isVisible(): self.bang.hien(E)
-
-    def showEvent(self, e):
-        super().showEvent(e)
-        if self.kq: self.bang.hien(self.kq.E)
+from ui.trang_ngu_hanh_thieu import TrangNguHanhThieu as _TrangNHT  # bản 1.8.1: trang đọc, tách lý thuyết / kết quả
 
 
 class TrangKhongRoGio(QWidget):
@@ -660,7 +628,7 @@ class CuaSoChinh(QMainWindow):
         self.t_lg = TrangLuanGiai(); self.t_sk = TrangSuKien(); self.t_tg = TrangTrungGian(); self.t_pt = TrangPhanTich()
         self.t_vt = TrangBangNhieuSheet('Vận trình', 'DAI_VAN 658 · LUU_NIEN 11.148 · THEO_DOI 5.006 ô công thức',
                                         [('DAI_VAN', 'Đại vận'), ('LUU_NIEN', 'Lưu niên 100 năm (A:DG)'), ('THEO_DOI', 'Theo dõi')])
-        self.t_nht = TrangNguHanhThieu()
+        self.t_nht = _TrangNHT(CHE_DO_NHT, lbl)
         self.t_cd = TrangBangNhieuSheet('Chuyên đề', '10 sheet · 7.469 ô công thức · sức khỏe chỉ tham khảo, không phải chẩn đoán', SHEET_CHUYEN_DE)
         self.t_krg = TrangKhongRoGio(); self.t_tk = TrangThamKhao()
         from ui.trang_v14 import TrangDoiChieu

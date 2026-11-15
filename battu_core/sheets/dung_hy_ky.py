@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DUNG_HY_KY – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 95e9ed5d62a4f6c74da13bdf98244e3546380c714a7a8bc5da90c014ef7d900d).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 ef3858360c0984a0528d265328dcd5caaf8d951a2feed88333eec94b8b316638).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1955,6 +1955,53 @@ def f302(E, r, c):
     # = IF(C218="","","P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần")
     return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần')
 
+def f303(E, r, c):
+    # Ô C222, D222
+    # = IF(OR(C$72<>"",C$91="TH",C$214<0,C$217=C$214),"","• "&INDEX(HANH_TEN,MOD(C$5+C$214,5)+1)&" ("&INDEX(NHOM_TEN,C$214+1)&")"&": dụng thần theo phù ức (P1
+    #    tr.99) – công cụ đang ưu tiên điều hầu."&CHAR(10))
+    return ('' if X.truthy(X.OR(X.ne(E.v(8,72,c),''), X.eq(E.v(8,91,c),'TH'), X.lt(E.v(8,214,c),0.0), X.eq(E.v(8,217,c),E.v(8,214,c)))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,214,c)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,214,c),1.0))),')'),': dụng thần theo phù ức (P1 tr.99) – công cụ đang ưu tiên điều hầu.'),X.CHAR(10.0)))
+
+def f304(E, r, c):
+    # Ô C223, D223
+    # = IF(OR(C$72="",C$217<0),"","• "&INDEX(HANH_TEN,MOD(C$5+C$217,5)+1)&" ("&INDEX(NHOM_TEN,C$217+1)&")"&": dụng thần nếu luận như chính cách – có lá đủ điề
+    #   u kiện cách đặc biệt mà tác giả vẫn luận chính cách (P2 tr.400, 419, 430)."&CHAR(10))
+    return ('' if X.truthy(X.OR(X.eq(E.v(8,72,c),''), X.lt(E.v(8,217,c),0.0))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,217,c)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,217,c),1.0))),')'),': dụng thần nếu luận như chính cách – có lá đủ điều kiện cách đặc biệt mà tác giả vẫn luận chính cách (P2 tr.400, 419, 430).'),X.CHAR(10.0)))
+
+def f305(E, r, c):
+    # Ô C224, D224
+    # = IF(OR($C$215<0,C$91="TH",C$103<0),"",IF(OR(MOD($C$215-C$5,5)=C$103,MOD($C$215-C$5,5)=C$104,AND(C222<>"",MOD($C$215-C$5,5)=C$214),AND(C223<>"",MOD($C$2
+    #   15-C$5,5)=C$217)),"","• "&INDEX(HANH_TEN,MOD(C$5+MOD($C$215-C$5,5),5)+1)&" ("&INDEX(NHOM_TEN,MOD($C$215-C$5,5)+1)&")"&": hành điều hầu theo mùa (P1 tr
+    #   .76–79, 100), hiện chiếm "&TEXT(N($C$216),"0%")&" tổng độ."&CHAR(10)))
+    return ('' if X.truthy(X.OR(X.lt(E.v(8,215,3),0.0), X.eq(E.v(8,91,c),'TH'), X.lt(E.v(8,103,c),0.0))) else ('' if X.truthy(X.OR(X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,103,c)), X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,104,c)), X.AND(X.ne(E.v(8,r-2,c),''), X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,214,c))), X.AND(X.ne(E.v(8,r-1,c),''), X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,217,c))))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),1.0))),')'),': hành điều hầu theo mùa (P1 tr.76–79, 100), hiện chiếm '),X.TEXT(X.N(E.v(8,216,3)), '0%')),' tổng độ.'),X.CHAR(10.0))))
+
+def f306(E, r, c):
+    # Ô C225, D225
+    # = IF(OR(C$72<>"",C$7<>1,C$103<1,C$103>3,SUM($D$12:$D$16)=0),"",IF(INDEX($D$12:$D$16,C$103+1)<$D$12+$D$16,"",IF(LEN(IF(AND(C$93>=0,C$93<>C$103,INDEX(C$20
+    #   9:C$213,MAX(0,C$93)+1)=1),INDEX(HANH_TEN,MOD(C$5+C$93,5)+1)&" ("&INDEX(NHOM_TEN,C$93+1)&")"&", ","")&IF(AND(C$94>=0,C$94<>C$103,INDEX(C$209:C$213,MAX(
+    #   0,C$94)+1)=1),INDEX(HANH_TEN,MOD(C$5+C$94,5)+1)&" ("&INDEX(NHOM_TEN,C$94+1)&")"&", ","")&IF(AND(C$95>=0,C$95<>C$103,INDEX(C$209:C$213,MAX(0,C$95)+1)=1
+    #   ),INDEX(HANH_TEN,MOD(C$5+C$95,5)+1)&" ("&INDEX(NHOM_TEN,C$95+1)&")"&", ",""))=0,"","• "&LEFT(IF(AND(C$93>=0,C$93<>C$103,INDEX(C$209:C$213,MAX(0,C$93)+
+    #   1)=1),INDEX(HANH_TEN,MOD(C$5+C$93,5)+1)&" ("&INDEX(NHOM_TEN,C$93+1)&")"&", ","")&IF(AND(C$94>=0,C$94<>C$103,INDEX(C$209:C$213,MAX(0,C$94)+1)=1),INDEX(
+    #   HANH_TEN,MOD(C$5+C$94,5)+1)&" ("&INDEX(NHOM_TEN,C$94+1)&")"&", ","")&IF(AND(C$95>=0,C$95<>C$103,INDEX(C$209:C$213,MAX(0,C$95)+1)=1),INDEX(HANH_TEN,MOD
+    #   (C$5+C$95,5)+1)&" ("&INDEX(NHOM_TEN,C$95+1)&")"&", ",""),LEN(IF(AND(C$93>=0,C$93<>C$103,INDEX(C$209:C$213,MAX(0,C$93)+1)=1),INDEX(HANH_TEN,MOD(C$5+C$9
+    #   3,5)+1)&" ("&INDEX(NHOM_TEN,C$93+1)&")"&", ","")&IF(AND(C$94>=0,C$94<>C$103,INDEX(C$209:C$213,MAX(0,C$94)+1)=1),INDEX(HANH_TEN,MOD(C$5+C$94,5)+1)&" ("
+    #   &INDEX(NHOM_TEN,C$94+1)&")"&", ","")&IF(AND(C$95>=0,C$95<>C$103,INDEX(C$209:C$213,MAX(0,C$95)+1)=1),INDEX(HANH_TEN,MOD(C$5+C$95,5)+1)&" ("&INDEX(NHOM_
+    #   TEN,C$95+1)&")"&", ",""))-2)&": dụng thần "&INDEX(HANH_TEN,MOD(C$5+C$103,5)+1)&" đã chiếm "&TEXT(INDEX($D$12:$D$16,C$103+1)/SUM($D$12:$D$16),"0%")&" t
+    #   ổng độ, không kém phe mình ("&TEXT(($D$12+$D$16)/SUM($D$12:$D$16),"0%")&") – sách có lá bỏ dụng thần đã chế áp đủ để lấy các ứng viên sau theo thứ tự 
+    #   P1 tr.99 (P2 tr.427)."&CHAR(10))))
+    return ('' if X.truthy(X.OR(X.ne(E.v(8,72,c),''), X.ne(E.v(8,7,c),1.0), X.lt(E.v(8,103,c),1.0), X.gt(E.v(8,103,c),3.0), X.eq(X.SUM(E.rg(8,12,4,16,4)),0.0))) else ('' if X.truthy(X.lt(X.INDEX(E.rg(8,12,4,16,4), X.add(E.v(8,103,c),1.0)),X.add(E.v(8,12,4),E.v(8,16,4)))) else ('' if X.truthy(X.eq(X.LEN(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,93,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,93,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,93,c),0.0), X.ne(E.v(8,93,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,93,c,93,c)),1.0)),1.0))) else ''),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,94,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,94,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,94,c),0.0), X.ne(E.v(8,94,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,94,c,94,c)),1.0)),1.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,95,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,95,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,95,c),0.0), X.ne(E.v(8,95,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,95,c,95,c)),1.0)),1.0))) else ''))),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.LEFT(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,93,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,93,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,93,c),0.0), X.ne(E.v(8,93,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,93,c,93,c)),1.0)),1.0))) else ''),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,94,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,94,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,94,c),0.0), X.ne(E.v(8,94,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,94,c,94,c)),1.0)),1.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,95,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,95,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,95,c),0.0), X.ne(E.v(8,95,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,95,c,95,c)),1.0)),1.0))) else '')), X.sub(X.LEN(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,93,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,93,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,93,c),0.0), X.ne(E.v(8,93,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,93,c,93,c)),1.0)),1.0))) else ''),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,94,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,94,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,94,c),0.0), X.ne(E.v(8,94,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,94,c,94,c)),1.0)),1.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,95,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,95,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,95,c),0.0), X.ne(E.v(8,95,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,95,c,95,c)),1.0)),1.0))) else ''))),2.0))),': dụng thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,103,c)), 5.0),1.0))),' đã chiếm '),X.TEXT(X.div(X.INDEX(E.rg(8,12,4,16,4), X.add(E.v(8,103,c),1.0)),X.SUM(E.rg(8,12,4,16,4))), '0%')),' tổng độ, không kém phe mình ('),X.TEXT(X.div(X.add(E.v(8,12,4),E.v(8,16,4)),X.SUM(E.rg(8,12,4,16,4))), '0%')),') – sách có lá bỏ dụng thần đã chế áp đủ để lấy các ứng viên sau theo thứ tự P1 tr.99 (P2 tr.427).'),X.CHAR(10.0)))))
+
+def f307(E, r, c):
+    # Ô C226
+    # = IF(IF(DOI_CHIEU!$C$33=2,D222&D223&D224&D225,C222&C223&C224&C225)="","",LEFT(IF(DOI_CHIEU!$C$33=2,D222&D223&D224&D225,C222&C223&C224&C225),LEN(IF(DOI_C
+    #   HIEU!$C$33=2,D222&D223&D224&D225,C222&C223&C224&C225))-1))
+    return ('' if X.truthy(X.eq((X.cat(X.cat(X.cat(E.v(8,r-4,c+1),E.v(8,r-3,c+1)),E.v(8,r-2,c+1)),E.v(8,r-1,c+1)) if X.truthy(X.eq(E.v(7,33,3),2.0)) else X.cat(X.cat(X.cat(E.v(8,r-4,c),E.v(8,r-3,c)),E.v(8,r-2,c)),E.v(8,r-1,c))),'')) else X.LEFT((X.cat(X.cat(X.cat(E.v(8,r-4,c+1),E.v(8,r-3,c+1)),E.v(8,r-2,c+1)),E.v(8,r-1,c+1)) if X.truthy(X.eq(E.v(7,33,3),2.0)) else X.cat(X.cat(X.cat(E.v(8,r-4,c),E.v(8,r-3,c)),E.v(8,r-2,c)),E.v(8,r-1,c))), X.sub(X.LEN((X.cat(X.cat(X.cat(E.v(8,r-4,c+1),E.v(8,r-3,c+1)),E.v(8,r-2,c+1)),E.v(8,r-1,c+1)) if X.truthy(X.eq(E.v(7,33,3),2.0)) else X.cat(X.cat(X.cat(E.v(8,r-4,c),E.v(8,r-3,c)),E.v(8,r-2,c)),E.v(8,r-1,c)))),1.0)))
+
+def f308(E, r, c):
+    # Ô C227
+    # = IF(C226="","CAO – các nguyên tắc chọn dụng thần cùng chỉ một hành.","CẦN CÂN NHẮC – có "&(LEN(C226)-LEN(SUBSTITUTE(C226,"•",""))+0)&" ứng viên khác; n
+    #   ếu các năm đã qua hợp ứng viên nào hơn thì nên theo ứng viên đó (P2 tr.445; P1 tr.201).")
+    return ('CAO – các nguyên tắc chọn dụng thần cùng chỉ một hành.' if X.truthy(X.eq(E.v(8,r-1,c),'')) else X.cat(X.cat('CẦN CÂN NHẮC – có ',X.add(X.sub(X.LEN(E.v(8,r-1,c)),X.LEN(X.SUBSTITUTE(E.v(8,r-1,c), '•', ''))),0.0)),' ứng viên khác; nếu các năm đã qua hợp ứng viên nào hơn thì nên theo ứng viên đó (P2 tr.445; P1 tr.201).'))
+
 CELLS = {
     'C5': (f0, 5, 3),
     'D5': (f1, 5, 4),
@@ -2355,4 +2402,14 @@ CELLS = {
     'D218': (f301, 218, 4),
     'C219': (f302, 219, 3),
     'D219': (f302, 219, 4),
+    'C222': (f303, 222, 3),
+    'D222': (f303, 222, 4),
+    'C223': (f304, 223, 3),
+    'D223': (f304, 223, 4),
+    'C224': (f305, 224, 3),
+    'D224': (f305, 224, 4),
+    'C225': (f306, 225, 3),
+    'D225': (f306, 225, 4),
+    'C226': (f307, 226, 3),
+    'C227': (f308, 227, 3),
 }
