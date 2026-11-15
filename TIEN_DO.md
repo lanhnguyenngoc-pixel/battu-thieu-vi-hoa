@@ -21,6 +21,7 @@ Cập nhật: 14/11/2026 · Giai đoạn hiện tại: **GĐ6 – Xuất, đóng
 | 5 | Dịch 6 sheet cuối: KET_LUAN 537, LUAN_GIAI 950, DOC_NHANH 13, SU_KIEN 421, TRANG_CHU 4, THAM_KHAO 12 – **toàn bộ 33 sheet** | Xong |
 | 5 | Định dạng có điều kiện: 17 quy tắc dịch nguyên văn (`tools/dich_dinh_dang_dk.py`) | Xong |
 | 5 | Giao diện: **TÓM TẮT là màn hình đầu**; Theo lĩnh vực B–K (ẩn dòng 200–251) + LUAN_GIAI, DOC_NHANH, SU_KIEN + tìm kiếm; Tham khảo (TRANG_CHU, HUONG_DAN, THAM_KHAO, TIET_KHI); Danh sách lá số SQLite (lưu/sửa/xóa/tìm/nhóm/ghi chú/ghi đè); So sánh hai lá | Xong (ảnh `anh_gd5/`) |
+| T1 (đề xuất hoàn thiện 15/11/2026) | Lớp hiển thị/in, KHÔNG đổi giá trị ô: (C1) bản in giữ nguyên văn câu sách tại chỗ, màn hình hiện ý chính thay cho "(xem căn cứ sách)" – `ui/trich_dan.py`, `export/xuat_pdf.py`; (C2) chữ bị workbook rút gọn `LEFT(x,N)&"…"` (LUAN_GIAI 54 ô, THEO_DOI 100 ô) hiện đầy đủ – `export/khoi_phuc_cat.py`; (C3) tuổi đại vận ghi kèm năm dương lịch – `export/ghi_tuoi.py`. Kiểm thử mới T11 (`tests/t11_hien_thi.py`) | Xong – T5, T7, T9, T10, T11, kho lá số ĐẠT |
 
 ## Mức khớp (phần mềm so đáp án)
 | Sheet | Ô | T1 (30 lá) | T1-501 (501 lá) |

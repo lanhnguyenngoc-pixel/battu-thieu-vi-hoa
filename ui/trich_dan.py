@@ -15,14 +15,26 @@ _TRANG = r'(?:P1|P2|HG|UH)\s*tr\.\s*\d+(?:\s*[–\-]\s*\d+)?(?:\s*[,;]\s*(?:(?:P
 _CAU = re.compile(r'[“"]([^”"]{2,400})[”"]\s*(?:[–—-]\s*)?\(?(' + _TRANG + r')\)?')
 
 
-def tach(t):
-    """→ (nội dung luận giải, [các trích dẫn]). Không tách được thì trả nguyên văn."""
+def _y_chinh(cau, toi_da=70):
+    """Ý chính của câu sách dài để hiện tại chỗ (cắt ở ranh giới từ); câu đầy đủ nằm trong 'Căn cứ sách'."""
+    if len(cau) <= toi_da: return cau
+    cat = cau[:toi_da].rsplit(' ', 1)[0].rstrip(' ,;:–-')
+    return cat + ' …'
+
+
+def tach(t, giu_cau=False):
+    """→ (nội dung luận giải, [các trích dẫn]). Không tách được thì trả nguyên văn.
+    giu_cau=True (bản in, PDF): câu sách giữ NGUYÊN VĂN tại chỗ kèm số trang (bọc giữa \x01 và \x02 để lớp in
+    trình bày chữ thường), không đưa vào danh sách trích dẫn.
+    giu_cau=False (màn hình): câu ngắn giữ tại chỗ, câu dài hiện ý chính; câu đầy đủ ở liên kết "Căn cứ sách"."""
     if not t: return '', []
     cits = []
 
     def _cau(m):
-        cits.append('“%s” (%s)' % (m.group(1).strip(), m.group(2).strip().rstrip(';,. ')))
-        return '“%s”' % m.group(1).strip() if len(m.group(1)) <= 25 else '(xem căn cứ sách)'
+        cau, trang = m.group(1).strip(), m.group(2).strip().rstrip(';,. ')
+        if giu_cau: return '\x01“%s” – %s\x02' % (cau, trang)   # \x01…\x02: đánh dấu câu sách cho lớp in
+        cits.append('“%s” (%s)' % (cau, trang))
+        return '“%s”' % (cau if len(cau) <= 25 else _y_chinh(cau))
 
     def _ng(m):
         x = m.group(0).strip()[1:-1].strip()
@@ -43,7 +55,7 @@ def tach(t):
 
 def chi_la_trich(noi, cits):
     """Nội dung chính chỉ là câu sách (tách xong không còn ý luận giải) → hiển thị nguyên văn, chữ thường."""
-    con = re.sub(r'[^\wÀ-ỹ]+', '', re.sub(r'\(xem căn cứ sách\)', '', re.sub(r'^[^:]{0,60}:', '', noi)))
+    con = re.sub(r'[^\wÀ-ỹ]+', '', re.sub(r'“[^”]* …”|\(xem căn cứ sách\)', '', re.sub(r'^[^:]{0,60}:', '', noi)))
     return bool(cits) and any(('“' in c or '"' in c) for c in cits) and len(con) < 12
 
 

@@ -25,6 +25,8 @@ jobs:
         run: python -m tests.t9_su_kien
       - name: Kiểm thử T10 – ô nhập bổ sung
         run: python -m tests.t10_bo_sung
+      - name: Kiểm thử T11 – lớp hiển thị, bản in
+        run: python -m tests.t11_hien_thi
       - name: PyInstaller
         run: pyinstaller --noconfirm dong_goi/battu.spec
       - name: Inno Setup
@@ -80,6 +82,8 @@ jobs:
         run: python -m tests.t9_su_kien
       - name: Kiểm thử T10 – ô nhập bổ sung
         run: python -m tests.t10_bo_sung
+      - name: Kiểm thử T11 – lớp hiển thị, bản in
+        run: python -m tests.t11_hien_thi
       - name: PyInstaller
         run: pyinstaller --noconfirm dong_goi/battu.spec
       - name: Tạo .dmg

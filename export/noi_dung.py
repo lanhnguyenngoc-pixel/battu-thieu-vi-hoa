@@ -49,14 +49,19 @@ MUC_MAC_DINH = ['KL_%s' % chu for chu, _, _ in MUC_KL] + ['NGU_HANH_THIEU']
 
 
 def chu_o(E, sheet, r, c, sach=True):
-    """Chữ hiển thị của ô; sach=True: bỏ tham chiếu nội bộ của workbook (export.lam_sach)."""
+    """Chữ hiển thị của ô; sach=True: bỏ tham chiếu nội bộ của workbook (export.lam_sach).
+    Chữ bị workbook rút gọn LEFT(…,N)&"…" được hiện đầy đủ (export.khoi_phuc_cat); khoảng tuổi đại vận được ghi kèm
+    năm dương lịch (export.ghi_tuoi) – giá trị ô không đổi."""
     from export.lam_sach import lam_sach
+    from export.khoi_phuc_cat import khoi_phuc
+    from export.ghi_tuoi import them_nam
     M = model(); si = M.si[sheet]
-    if (r, c) in M.formula_cells[si]: t = hien_thi_o(E, sheet, ref_of(r, c))
+    if (r, c) in M.formula_cells[si]: t = khoi_phuc(E, sheet, r, c, hien_thi_o(E, sheet, ref_of(r, c)))
     else:
         v = E.consts[si].get((r, c))
         if v is None: return ''
         t = hien_thi_o(E, sheet, ref_of(r, c)) if isinstance(v, (int, float)) else str(v)
+    if (r, c) in M.formula_cells[si]: t = them_nam(E, t)
     return lam_sach(t) if sach else t
 
 

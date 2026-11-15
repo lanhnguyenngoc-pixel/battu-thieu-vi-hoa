@@ -99,5 +99,11 @@ def lam_sach(t):
 
 
 def hien_thi_sach(E, sheet, ref):
+    """Chữ hiển thị trên màn hình: bỏ tham chiếu nội bộ, hiện đầy đủ chữ bị workbook rút gọn (export.khoi_phuc_cat),
+    ghi kèm năm dương lịch cho khoảng tuổi đại vận (export.ghi_tuoi)."""
     from battu_core.hien_thi import hien_thi_o
-    return lam_sach(hien_thi_o(E, sheet, ref))
+    from battu_core.du_lieu import rc
+    from export.khoi_phuc_cat import khoi_phuc
+    from export.ghi_tuoi import them_nam
+    r, c = rc(ref)
+    return lam_sach(them_nam(E, khoi_phuc(E, sheet, r, c, hien_thi_o(E, sheet, ref))))

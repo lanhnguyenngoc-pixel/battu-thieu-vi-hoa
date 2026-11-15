@@ -40,11 +40,13 @@ def _e(t): return html.escape(t).replace('\n', '<br>')
 
 
 def _kl(t, dam=True):
-    """Kết luận của công cụ (đậm) + căn cứ sách ở dòng riêng, chữ thường (bản in không có liên kết để bấm)."""
+    """Kết luận của công cụ (đậm) + căn cứ sách ở dòng riêng, chữ thường (bản in không có liên kết để bấm).
+    Câu sách giữ nguyên văn tại chỗ (giu_cau): bản in không để dòng "(xem căn cứ sách)" thay cho nội dung."""
     from ui.trich_dan import tach, chi_la_trich
-    noi, cits = tach(t)
+    noi, cits = tach(t, giu_cau=True)
     if chi_la_trich(noi, cits): return _e(t)
-    h = ('<b>%s</b>' % _e(noi)) if dam else _e(noi)
+    if dam: h = '<b>%s</b>' % _e(noi).replace('\x01', '</b><span style="font-weight:normal">').replace('\x02', '</span><b>')
+    else: h = _e(noi).replace('\x01', '').replace('\x02', '')
     if cits: h += '<br><span style="font-weight:normal;color:#5b6078;font-size:8pt">Căn cứ sách: %s</span>' % _e('; '.join(cits))
     return h
 
