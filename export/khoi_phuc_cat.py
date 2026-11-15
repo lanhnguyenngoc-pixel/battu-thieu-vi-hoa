@@ -27,23 +27,41 @@ class _BoCat(ast.NodeTransformer):
         return n
 
 
+def _sinh_san():
+    """Bảng sinh sẵn export/_khong_cat_sinh.py (tools/sinh_khong_cat.py) nếu khớp nguồn sheet hiện tại; không thì None.
+    Bộ cài không kèm mã nguồn .py của sheet nên phải dùng bảng này."""
+    from battu_core import sheets as S
+    try:
+        from export import _khong_cat_sinh as G
+    except ImportError:
+        return None
+    return G.BAN_SAO if getattr(G, 'NGUON_SHA256', None) == S.NGUON_SHA256 else None
+
+
+def _tu_ma_nguon(m, fn):
+    """Dựng bản sao không cắt từ mã nguồn (khi chạy từ mã nguồn mà chưa sinh lại bảng)."""
+    cay = ast.parse(textwrap.dedent(inspect.getsource(fn)))
+    bc = _BoCat(); cay = ast.fix_missing_locations(bc.visit(cay))
+    if not bc.so: return None
+    ns = {}
+    exec(compile(cay, '<khong_cat %s.%s>' % (m.__name__, fn.__name__), 'exec'), m.__dict__.copy(), ns)
+    return ns[fn.__name__]
+
+
 def _ban_sao(sheet):
     if sheet in _BAN_SAO: return _BAN_SAO[sheet]
     from battu_core import sheets as S
     ten = S.MODULES.get(sheet); kq = {}
     if ten:
         m = importlib.import_module('battu_core.sheets.' + ten)
-        sao = {}
+        sinh = _sinh_san()
+        sao = dict(sinh.get(sheet, {})) if sinh is not None else {}
         for ref, (fn, r, c) in m.CELLS.items():
             if fn.__name__ not in sao:
-                cay = ast.parse(textwrap.dedent(inspect.getsource(fn)))
-                bc = _BoCat(); cay = ast.fix_missing_locations(bc.visit(cay))
-                if bc.so:
-                    ns = {}
-                    exec(compile(cay, '<khong_cat %s.%s>' % (ten, fn.__name__), 'exec'), m.__dict__.copy(), ns)
-                    sao[fn.__name__] = ns[fn.__name__]
+                if sinh is not None: sao[fn.__name__] = None
                 else:
-                    sao[fn.__name__] = None
+                    try: sao[fn.__name__] = _tu_ma_nguon(m, fn)
+                    except (OSError, TypeError, SyntaxError): sao[fn.__name__] = None     # không có mã nguồn: hiện như workbook
             if sao[fn.__name__]: kq[(r, c)] = (sao[fn.__name__], r, c)
     _BAN_SAO[sheet] = kq
     return kq

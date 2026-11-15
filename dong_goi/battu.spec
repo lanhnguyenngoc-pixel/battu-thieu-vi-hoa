@@ -10,9 +10,9 @@ datas = [(os.path.join(GOC, 'battu_core', 'data'), os.path.join('battu_core', 'd
 sys.path.insert(0, GOC)
 import glob
 # Module sheet được lõi nạp động theo tên (engine.cell_modules) → liệt kê tường minh mọi tệp .py
-hidden = ['%s.%s' % (pk, os.path.splitext(os.path.basename(f))[0]) for pk in ('battu_core', 'battu_core.sheets', 'battu_core.xl', 'export', 'ui')
+hidden = ['%s.%s' % (pk, os.path.splitext(os.path.basename(f))[0]) for pk in ('battu_core', 'battu_core.sheets', 'battu_core.xl', 'battu_core.tong_hop', 'export', 'ui')
           for f in glob.glob(os.path.join(GOC, *pk.split('.'), '*.py')) if not f.endswith('__init__.py')]
-hidden += ['battu_core.sheets', 'battu_core.xl', 'export', 'ui', 'dau_van_tay_chuan']
+hidden += ['battu_core.sheets', 'battu_core.xl', 'battu_core.tong_hop', 'export', 'ui', 'dau_van_tay_chuan']
 a = Analysis([os.path.join(GOC, 'battu_app.py')], pathex=[GOC], datas=datas, hiddenimports=hidden,
              excludes=['tkinter', 'PySide6.QtWebEngineCore', 'PySide6.QtWebEngineWidgets', 'PySide6.Qt3DCore',
                        'PySide6.QtMultimedia', 'PySide6.QtQuick', 'PySide6.QtQml', 'PySide6.QtNetworkAuth', 'tests', 'tools'],

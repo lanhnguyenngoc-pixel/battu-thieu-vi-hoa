@@ -8,3 +8,4 @@ $PY -I tools/trich_hang_so.py "$1" "$2" battu_core/data
 $PY -I tools/dich_cong_thuc.py "$1" "${3:-tools/pham_vi_hien_tai.json}" battu_core/sheets
 $PY -I tools/phu_thuoc.py "$1" battu_core/sheets
 $PY -I tools/dich_dinh_dang_dk.py "$1" battu_core/sheets
+$PY -I tools/sinh_khong_cat.py      # bản sao "không cắt" cho lớp hiển thị (export/_khong_cat_sinh.py)
