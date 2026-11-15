@@ -127,7 +127,8 @@ def _luu_nien(E, nam_dau, so_nam):
         h = E.raw(si, 29, c)
         if isinstance(h, str):
             for k, ten in _LN_COT.items():
-                if h.strip().startswith(k) and ten not in cot.values(): cot[c] = ten
+                # nhãn ngắn so TRÙNG KHỚP ('Đại vận' ≠ 'Đại vận số'); nhãn dài (có thể bị cắt trong workbook) so phần đầu
+                if (h.strip() == k or (len(k) > 14 and h.strip().startswith(k))) and ten not in cot.values(): cot[c] = ten
     c_nam = next(c for c, t in cot.items() if t == 'nam')
     ra = []
     for r in range(30, 130):

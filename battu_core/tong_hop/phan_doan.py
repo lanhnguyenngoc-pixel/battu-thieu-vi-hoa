@@ -184,6 +184,7 @@ def tai_loc(hs):
     kl = _muc_kl(hs, 'E. Tài lộc', 'KẾT LUẬN TÀI LỘC')
     m = re.search(r'MỨC PHÚ QUÝ TỔNG HỢP:\s*([A-ZÀ-Ỹ ]+?)\s*\(', kl)
     muc = m.group(1).strip().capitalize() if m else ''
+    if not muc: muc = re.split(r'[.(]', kl)[0].strip().capitalize()      # cách đặc biệt: workbook không xếp mức tổng hợp
     tp = {'Bậc giàu': _muc_kl(hs, 'E. Tài lộc', 'Bậc giàu').split('.')[0], 'Giàu – nghèo (bảng P1 tr.173)': _muc_kl(hs, 'E. Tài lộc', 'Giàu – nghèo').split('(')[0].strip(),
           'Tài vận': _muc_kl(hs, 'E. Tài lộc', 'Tài vận').split('(')[0].strip()}
     return {'muc': muc, 'thanh_phan': tp,
