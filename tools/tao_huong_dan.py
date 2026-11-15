@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.6.1 (quy tắc 6.5)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.7.0 (quy tắc 6.5)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.5; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.6.1_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.7.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -50,6 +50,7 @@ H.append('<h2>2. Bố cục màn hình và Chế độ chuyên gia</h2><p>Thanh 
          '<tr><td>✎ Nhập liệu</td><td><b>Màn hình đầu tiên</b> khi mở phần mềm: nhập ngày giờ sinh hoặc tứ trụ; sửa xong bấm <b>▶ Luận giải</b> (hoặc Enter, F5). Phần mềm tính ở nền nên vẫn dùng được trong lúc tính; lá đã tính được nhớ lại, mở lại không phải tính lại.</td></tr>'
          '<tr><td>☷ Lá số</td><td>Lá số trực quan: 4 trụ can chi màu theo ngũ hành, thập thần, tàng can, trạng thái nhật can; nạp âm năm; dải 10 đại vận (vận đang hành viền tím).</td></tr>'
          '<tr><td>★ Luận giải chung</td><td>9 dòng kết luận của 9 lĩnh vực; nút Nhập/sửa, Xuất/In, Lưu.</td></tr>'
+         '<tr><td>✦ Luận giải tổng hợp</td><td><b>Mới ở 1.7.0.</b> Bản luận giải khoảng 5 trang A4 (tóm tắt nhanh + 10 lĩnh vực), mỗi việc một kết luận đã gỡ mâu thuẫn; xuất PDF, Word; tùy chọn ✨ Nâng cao bằng AI.</td></tr>'
          '<tr><td>❦ Luận giải chi tiết</td><td>Bài đọc liền mạch 8 mục + đánh giá tổng thể + 6 ý cho từng kết luận; chữ gạch chân có chú giải.</td></tr>'
          '<tr><td>↯ Vận trình</td><td>Đại vận (thêm Lưu niên 100 năm, Theo dõi ở chế độ chuyên gia).</td></tr>'
          '<tr><td>▤ Theo lĩnh vực</td><td>Các mục B–K theo lĩnh vực, trình bày dạng văn bản đọc (mỗi mục mở đầu bằng khung KẾT LUẬN, rồi căn cứ chi tiết) và ô tìm kiếm.</td></tr>'
@@ -123,6 +124,21 @@ anh('26_doi_chieu_thuc_te.png', 'Đối chiếu thực tế: ghi năm đó Tốt
 H.append('<p>Với các năm đã qua, chọn <b>Thực tế năm đó</b> (Tốt / Bình thường / Xấu), ghi sự kiện, chọn <b>Đánh giá luận giải</b> '
          '(Đúng / Một phần / Sai / Chưa rõ) rồi bấm <b>✔ Áp dụng &amp; tính lại</b>. Ô tóm tắt ở trên cho tỉ lệ khớp của PP1 và PP2; khi đã ghi '
          'từ 5 năm có sự việc rõ, phần mềm gợi ý nên dùng phương pháp nào (P1 tr.125) – đổi ở Nhập liệu → Tùy chọn nâng cao. Dữ liệu được lưu cùng lá số.</p>')
+H.append('<h2>6c. Luận giải tổng hợp (mới ở 1.7.0)</h2>')
+anh('26_luan_giai_tong_hop.png', 'Luận giải tổng hợp: bản ~5 trang, nút Xuất PDF / Xuất Word, ✨ Nâng cao bằng AI, 🔑 khóa API')
+H.append('<p>Bản <b>không cần mạng</b> do phần mềm tự soạn: tóm tắt nhanh rồi 10 mục – lá số, bản mệnh, tính cách, học vấn – sự nghiệp, '
+         'tài lộc, hôn nhân – con cái, cha mẹ – anh em, sức khỏe, đại vận – lưu niên, hóa giải – kết luận. Mỗi đại vận và mỗi năm chỉ có '
+         '<b>một mức</b> (Rất tốt, Tốt, Trung bình, Xấu, Rất xấu), có lý do; khi các nguồn sách nói trái nhau, phần mềm giữ kết luận '
+         'Thiệu Vĩ Hoa và ghi chú nguồn khác. Ở màn hình Nhập liệu có thêm ô <b>Hôn nhân</b> và <b>Số con</b> (tùy chọn) để bỏ những mục không '
+         'còn hợp (ví dụ "thời điểm kết hôn" khi đã kết hôn). Trọng số, ngưỡng của lớp tổng hợp nằm trong tệp '
+         '<i>battu_core/data/quy_tac_tong_hop.json</i>.</p>')
+H.append('<h3>Nâng cao bằng AI (tùy chọn)</h3><p>Cần Internet và <b>khóa API Anthropic của bạn</b> (tạo ở console.anthropic.com → API Keys; '
+         'phí tính vào tài khoản của bạn). Bấm 🔑 để dán khóa và chọn mô hình (mặc định Claude Sonnet 5.5). Khóa lưu trong kho khóa của '
+         'Windows / macOS trên máy bạn. Bấm <b>✨ Nâng cao bằng AI</b>: phần mềm báo ước lượng số token và hỏi trước khi gửi; chỉ gửi tứ trụ, '
+         'năm sinh và các kết luận đã tính – <b>không gửi họ tên, ngày giờ sinh</b>. Bản AI được bộ kiểm tra đối chiếu tứ trụ, dụng – hỷ – kỵ, '
+         'năm đại vận, can chi và mức từng năm; sai một chỗ là không dùng và giữ bản không mạng. Bản AI đạt được lưu trên máy, mở lại không '
+         'tốn phí. Dùng nút <i>Bản không mạng / Bản AI</i> để so; xuất PDF / Word là bản đang xem.</p>')
+
 H.append('<h2>7. Lưu, tìm, so sánh lá số</h2>')
 anh('27_danh_sach_sao_luu.png', 'Danh sách lá số: tìm theo tên, nhóm, ghi chú, tứ trụ, ngày sinh; lọc theo nhóm; sao lưu và khôi phục')
 H.append('<p>Bấm <b>💾 Lưu lá số</b> (ở Luận giải chung hoặc Danh sách) → đặt tên, nhóm, ghi chú. <b>Mở</b> (hoặc bấm đúp) để nạp lại – phần mềm '
@@ -152,7 +168,8 @@ H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing=
          'không thay dụng thần đã chọn.</td></tr>'
          '<tr><td>Vì sao PP1 và PP2 khác nhau?</td><td>Hai phương pháp của sách; xem mục ⚖ Phân tích → Đối chiếu. Lựa chọn dùng cho kết luận đặt ở Nhập liệu → Tùy chọn nâng cao.</td></tr>'
          '<tr><td>Sinh tháng nhuận âm lịch?</td><td>Chọn Âm lịch và đánh dấu Tháng nhuận; phần mềm đổi đúng sang dương lịch.</td></tr>'
-         '<tr><td>Có cần Internet?</td><td>Không. Phần mềm không gửi dữ liệu đi đâu.</td></tr></table>')
+         '<tr><td>Có cần Internet?</td><td>Không. Phần mềm không gửi dữ liệu đi đâu – trừ khi bạn tự bấm ✨ Nâng cao bằng AI (khi đó chỉ gửi tứ trụ và kết luận đã tính, không họ tên).</td></tr>'
+         '<tr><td>Vì sao mức năm ở Luận giải tổng hợp khác bảng Lưu niên?</td><td>Bảng Lưu niên giữ nguyên workbook 6.5. Lớp tổng hợp xét thêm chi năm, xung hợp với tứ trụ (nhất là chi mang dụng thần, cung vợ chồng) và dấu hiệu hạn nặng để mỗi năm chỉ còn một kết luận. Khi đã chạy ổn, các quy tắc này sẽ được đưa vào workbook (quy tắc 6.6).</td></tr></table>')
 H.append('<p class="nho">Nguồn sách: Thiệu Vĩ Hoa, <i>Dự đoán theo Tứ trụ</i> (Phần 1, Phần 2) và các sách tham khảo ghi ở mục Tham khảo.</p>')
 
 

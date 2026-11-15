@@ -38,6 +38,12 @@ def tu_kiem(thu_muc):
     n = xuat_pdf(kq, os.path.join(thu_muc, 'tu_kiem.pdf')); xuat_xlsx(kq, os.path.join(thu_muc, 'tu_kiem.xlsx'))
     xuat_json(kq, os.path.join(thu_muc, 'tu_kiem.json'))
     dong.append('Xuất PDF %d trang, XLSX, JSON: ĐẠT' % n)
+    from battu_core.tong_hop.viet_ban import ban_luan_giai
+    from export.xuat_luan_giai import xuat_pdf as pdf_th, xuat_docx
+    from export.khoi_phuc_cat import _sinh_san
+    B, _, _ = ban_luan_giai(kq); m = pdf_th(B, os.path.join(thu_muc, 'tu_kiem_tong_hop.pdf')); xuat_docx(B, os.path.join(thu_muc, 'tu_kiem_tong_hop.docx'))
+    ok = 1 <= m <= 5 and _sinh_san() is not None; dat &= ok
+    dong.append('Luận giải tổng hợp (không mạng) %d trang, Word; bảng hiện chữ đầy đủ có sẵn: %s' % (m, 'ĐẠT' if ok else 'LỖI'))
     dong.append('KẾT QUẢ: ' + ('ĐẠT' if dat else 'LỖI'))
     open(os.path.join(thu_muc, 'tu_kiem.txt'), 'w', encoding='utf-8').write('\n'.join(dong) + '\n')
     print('\n'.join(dong))

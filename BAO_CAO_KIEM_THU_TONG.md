@@ -431,3 +431,23 @@ GitHub Actions lượt 43681188963: T7 575.060 · T9 581.260 · T10 581.260 ô; 
 | BatTuThieuViHoa-Windows | 3e281b02e3f848e7e5a85121a96b0301efb4139e0c3ee66a1814e59d17e0e2d3 |
 | BatTuThieuViHoa-macOS-arm64 | 2656eb2d40a5d147766793cea22aa8d9d8ce253d9527c9fa10e4b510ab13c6f3 |
 | BatTuThieuViHoa-macOS-x86_64 | c87ebfcbbb6816d7e3b2408559fe925e24caa58ef48226cd618ce92db3496760 |
+
+
+## Bản 1.7.0 – lớp tổng hợp (không đổi lõi tính, quy tắc 6.5) – 15/11/2026
+
+Lõi tính và 33 sheet không đổi; các kiểm thử chạy được từ mã nguồn:
+
+| Kiểm thử | Kết quả |
+|---|---|
+| T7 (20 lá ngẫu nhiên, mọi ô 33 sheet) | 575.060 / 575.060 |
+| T9 · T10 | 581.260 / 581.260 · 581.260 / 581.260 |
+| T5 xuất | JSON 143.765 · XLSX 144.825 · PDF 5/5 |
+| Kho lá số | mọi hạng mục ĐẠT |
+| **T11** lớp hiển thị/in (20 lá) | 129.860 ô; 1.595 ô khôi phục chữ cắt; 0 "(xem căn cứ sách)" trống – ĐẠT |
+| **T12** quan hệ can chi, hồ sơ dữ kiện | khớp hợp/xung workbook trên 521 lá (bán hợp 210, lục hợp 118, xung 94, cục 3 chi 240 cặp/chi) – ĐẠT |
+| **T13** phán đoán | bất biến trên 20 lá (200 đại vận, 132 năm) + kết luận chuẩn lá mẫu – ĐẠT |
+| **T14** bản luận giải tổng hợp | 21 lá, PDF 4–5 trang, đủ mục, không mâu thuẫn, .docx hợp lệ – ĐẠT |
+| **T15** nâng cao bằng AI (giả lập API) | riêng tư, yêu cầu HTTP, bộ kiểm tra chặn bản sai, lỗi mạng/khóa, lưu đệm, giao diện – ĐẠT |
+| Tự kiểm (`--tu-kiem`) | 3 lá ĐẠT (dấu vân tay không đổi); luận giải tổng hợp 5 trang + Word ĐẠT |
+
+T1–T4, T8 cần thư mục hồ sơ HO_SO_PM (đáp án LibreOffice) – không chạy lại vì lõi tính không đổi.

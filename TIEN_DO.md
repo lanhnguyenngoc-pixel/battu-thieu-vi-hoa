@@ -190,3 +190,18 @@ Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tín
 | Nhớ kết quả | 6 lá tính gần nhất được nhớ – tính lại cùng lá 0,1 giây |
 | Mở phần mềm | Lá mặc định tính ở nền |
 | Kiểm thử | Lõi tính không đổi; T5, T6, T7, T9, T10, tự kiểm đạt |
+
+## Bản 1.7.0 (15/11/2026) – lớp tổng hợp, luận giải tổng hợp ~5 trang, nâng cao bằng AI
+Theo bản "Đề xuất hoàn thiện phần mềm Bát Tự Thiệu Vĩ Hoa" (chủ dự án duyệt 15/11/2026; phương án trung gian: làm lớp tổng hợp trước,
+khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển vào workbook thành quy tắc 6.6).
+| Việc | Kết quả |
+|---|---|
+| Lõi tính, workbook | KHÔNG đổi (quy tắc 6.5; dấu vân tay tự kiểm giữ nguyên ae7e52ec…, a33f9009…, eba9c43a…) |
+| T1 hiển thị, in | Câu sách in đủ; chữ bị cắt "…" hiện đủ; tuổi đại vận kèm năm dương lịch |
+| T2 dữ kiện | Quan hệ can chi đủ loại (khớp hợp/xung workbook trên 521 lá); hồ sơ dữ kiện |
+| T3 phán đoán | Một kết luận cho mỗi đại vận/năm/lĩnh vực; quy tắc ở `battu_core/data/quy_tac_tong_hop.json` (T3-1) |
+| T4 bản luận giải | Tóm tắt + 10 mục, khoảng 5 trang; PDF, Word; trang "✦ Luận giải tổng hợp"; ô Hôn nhân, Số con |
+| T5 AI (tùy chọn) | Claude API bằng khóa của người dùng; không gửi họ tên; bộ kiểm tra dữ kiện; lưu đệm |
+| Tự kiểm bộ cài | Thêm bước dựng bản luận giải tổng hợp (PDF ≤ 5 trang, Word) khi chặn mạng |
+| Kiểm thử | T5, T7, T9, T10, T11–T15, kho lá số, tự kiểm: ĐẠT. T1–T4, T8 cần hồ sơ HO_SO_PM (không đổi lõi tính nên không ảnh hưởng) |
+| Hướng dẫn | tai_lieu/HUONG_DAN_SU_DUNG.pdf thêm mục 6c (Luận giải tổng hợp, AI), câu hỏi thường gặp |
