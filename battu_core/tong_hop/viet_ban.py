@@ -34,7 +34,7 @@ NHOM = {
     'Ấn': ('hiếu học, chuyên môn sâu, được người trên nâng đỡ', 'dễ ỷ lại, học nhiều làm ít, chần chừ',
            'hợp nghiên cứu, giáo dục, nghề cần bằng cấp và uy tín học thuật'),
     'Tỉ kiếp': ('tự lực, có bạn bè, cộng sự', 'dễ cạnh tranh, tranh giành, chi tiêu rộng',
-                'hợp hợp tác, làm nhóm, tự lập nghiệp với cộng sự tin cậy')}
+                'hợp tác, làm nhóm, tự lập nghiệp với cộng sự tin cậy')}
 HANH_INFO = {
     'Mộc': ('xanh lá', 'Đông', 'giáo dục, xuất bản, gỗ – nông lâm, dệt may, dược thảo', 'gan – mật, gân, mắt'),
     'Hỏa': ('đỏ, cam, hồng, tím', 'Nam', 'công nghệ thông tin, điện – điện tử, truyền thông, năng lượng, ẩm thực, văn hóa, giảng dạy',
