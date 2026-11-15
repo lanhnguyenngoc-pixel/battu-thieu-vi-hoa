@@ -413,3 +413,12 @@ Workbook 6.5 (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be662
 | Tự kiểm | ĐẠT – dấu vân tay ae7e52ec…, a33f9009…, eba9c43a… |
 
 Chi tiết: tai_lieu/BAO_CAO_KIEM_THU_1.6.0_CHI_TIET.md.
+
+### Bộ cài 1.6.0 – GitHub Actions lượt 43677520396
+T7 + T9 + T10 từ mã nguồn (575.060 · 581.260 · 581.260 ô), cài → tự kiểm khi chặn mạng (dấu vân tay ae7e52ec3c4b99e7 trùng bản gốc) → gỡ: **ĐẠT** trên Windows, macOS arm64, macOS x86_64.
+
+| Gói tải về (zip) | SHA-256 của gói |
+|---|---|
+| BatTuThieuViHoa-Windows | c2639028dd92d44cdfca444c6f39989a72c166c42fd40e313082458e53916a32 |
+| BatTuThieuViHoa-macOS-arm64 | 68d402793cc10f9b4f4afd29716b4769ae5e60a4fa687fddb26b8d094a9dac08 |
+| BatTuThieuViHoa-macOS-x86_64 | 61b9fb9b4af321fecd474d4388941c8d4dba798d97a7b3dd481f20de9c2de6dc |
