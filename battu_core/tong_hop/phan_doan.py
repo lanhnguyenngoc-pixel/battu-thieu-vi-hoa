@@ -109,6 +109,22 @@ def _vai_ly(vt, chu, la_can):
 
 
 # ---------------------------------------------------------------- đại vận, lưu niên
+def _muc_wb(t):
+    t = (t or '').strip().upper()
+    return {'RẤT TỐT': 'Rất tốt', 'TỐT': 'Tốt', 'RẤT XẤU': 'Rất xấu', 'XẤU': 'Xấu'}.get(t) or ('Trung bình' if t else '')
+
+
+def _muc_diem(x):
+    return 'Rất tốt' if x >= 2 else 'Tốt' if x >= 1 else 'Rất xấu' if x <= -2 else 'Xấu' if x <= -1 else 'Trung bình'
+
+
+def _cung_huong(wb, rieng):
+    """Giữ hướng của workbook; chỉ nâng lên 'Rất' khi điểm riêng cũng cùng hướng và ở mức 'Rất'."""
+    if wb == 'Tốt' and rieng == 'Rất tốt': return rieng
+    if wb == 'Xấu' and rieng == 'Rất xấu': return rieng
+    return wb
+
+
 def dai_van(hs, vt=None):
     vt = vt or VaiTro(hs); qt = quy_tac()['dai_van']; ra = []
     for d in hs['dai_van']:
@@ -116,11 +132,20 @@ def dai_van(hs, vt=None):
         dcan, lcan = _vai_ly(vt, d['can'], True); dchi, lchi = _vai_ly(vt, d['chi'], False)
         a, b, ly = _dieu_chinh(d.get('quan_he', []), vt, qt, hs['tu_tru'][2]['can'])
         nua1, nua2 = dcan + a, dchi + b; tong = nua1 + nua2
+        muc, m1, m2 = _muc(tong, qt['nguong']), _muc(nua1, qt['nguong_nua']), _muc(nua2, qt['nguong_nua'])
+        # Hướng của vận lấy theo KẾT LUẬN ĐẠI VẬN của workbook (P1 tr.124–125 – khớp sách 72% trên 171 vận ví dụ,
+        # điểm riêng của lớp tổng hợp chỉ khớp 41%). Điểm riêng chỉ dùng để phân "Rất" và ghi lý do.
+        wb = _muc_wb(d.get('ket_luan'))
+        if wb:
+            muc = _cung_huong(wb, muc)
+            if isinstance(d.get('diem_dau'), int): m1 = _cung_huong(_muc_diem(d['diem_dau']), m1)
+            if isinstance(d.get('diem_sau'), int): m2 = _cung_huong(_muc_diem(d['diem_sau']), m2)
+            ly.append('hướng vận theo workbook (P1 tr.124–125): %s' % (d.get('tom_tat_10_nam') or wb))
         ra.append({'ten': d['ten'], 'nam_bat_dau': d.get('nam_bat_dau'), 'nam_ket_thuc': d.get('nam_ket_thuc'),
                    'tuoi_bat_dau': d.get('tuoi_bat_dau'), 'dang_hanh': d.get('dang_hanh'),
-                   'diem': round(tong, 2), 'muc': _muc(tong, qt['nguong']),
-                   'diem_5_nam_dau': round(nua1, 2), 'muc_5_nam_dau': _muc(nua1, qt['nguong_nua']),
-                   'diem_5_nam_sau': round(nua2, 2), 'muc_5_nam_sau': _muc(nua2, qt['nguong_nua']),
+                   'diem': round(tong, 2), 'muc': muc,
+                   'diem_5_nam_dau': round(nua1, 2), 'muc_5_nam_dau': m1,
+                   'diem_5_nam_sau': round(nua2, 2), 'muc_5_nam_sau': m2,
                    'ly_do': [lcan, lchi] + ly, 'workbook': {'pp1': d.get('xu_the_pp1'), 'pp2': d.get('xu_the_pp2')}})
     return ra
 

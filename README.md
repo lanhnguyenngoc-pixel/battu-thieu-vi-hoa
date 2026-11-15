@@ -1,4 +1,4 @@
-# Phần mềm Bát Tự Thiệu Vĩ Hoa – mã nguồn (phiên bản 1.7.0, quy tắc 6.5 + lớp tổng hợp T3-1)
+# Phần mềm Bát Tự Thiệu Vĩ Hoa – mã nguồn (phiên bản 1.7.1, quy tắc 6.5 + lớp tổng hợp T3-1)
 
 Chuyển workbook **BAT_TU_THIEU_VI_HOA_6.4.xlsx** (SHA-256 `b554826c…ae0e6c`) thành phần mềm chạy không cần mạng.
 Kết quả phải trùng workbook 100% ở mọi ô công thức (đáp án do LibreOffice tính – MT-01).
@@ -6,7 +6,7 @@ Kết quả phải trùng workbook 100% ở mọi ô công thức (đáp án do 
 ## Chạy thử
 - **Windows:** cài Python 3.12 (python.org, chọn "Add to PATH"), bấm đúp `chay_thu.bat`. Lần đầu tự cài PySide6.
 - **macOS / Linux:** `./chay_thu.sh`
-- Người dùng cuối: dùng bộ cài (`BatTuThieuViHoa_Setup_1.7.0_Windows.exe`, `BatTuThieuViHoa_1.7.0_macOS_<arm64|x86_64>.dmg`) – xem `tai_lieu/HUONG_DAN_SU_DUNG.pdf`.
+- Người dùng cuối: dùng bộ cài (`BatTuThieuViHoa_Setup_1.7.1_Windows.exe`, `BatTuThieuViHoa_1.7.1_macOS_<arm64|x86_64>.dmg`) – xem `tai_lieu/HUONG_DAN_SU_DUNG.pdf`.
 
 ## Trạng thái
 Hoàn thành (GĐ6): toàn bộ 33 sheet (28.581 ô công thức + 288 ô Bảng dữ liệu tính bằng vòng 12 giờ) khớp workbook 100% – xem TIEN_DO.md.
@@ -25,7 +25,7 @@ Hoàn thành (GĐ6): toàn bộ 33 sheet (28.581 ô công thức + 288 ô Bảng
 | `ui/` | Giao diện PySide6 (font Inter, giấy phép OFL, kèm sẵn) |
 | `tools/` | Bộ dịch công thức, trích hằng số, oracle mở rộng, thí nghiệm LibreOffice |
 | `tests/` | Bộ kiểm thử T1, T1b, T3, âm lịch; `dap_an_mo_rong/` = đáp án T1b/KRG |
-| `battu_core/tong_hop/` | Lớp tổng hợp (1.7.0, chỉ đọc kết quả lõi): quan hệ can chi, hồ sơ dữ kiện, phán đoán gỡ mâu thuẫn (quy tắc `battu_core/data/quy_tac_tong_hop.json`), bản luận giải ~5 trang, nâng cao bằng AI (tùy chọn) |
+| `battu_core/tong_hop/` | Lớp tổng hợp (1.7.1, chỉ đọc kết quả lõi): quan hệ can chi, hồ sơ dữ kiện, phán đoán gỡ mâu thuẫn (quy tắc `battu_core/data/quy_tac_tong_hop.json`), bản luận giải ~5 trang, nâng cao bằng AI (tùy chọn) |
 | `export/` | Xuất PDF (Qt, kèm 2 biểu đồ, số trang, phiên bản quy tắc) / XLSX (bố cục workbook) / JSON; in |
 | `battu_app.py` | Điểm khởi chạy; `--tu-kiem <thư_mục>` = tự kiểm bản đã cài (dấu vân tay SHA-256 toàn bộ kết quả 3 lá) |
 | `dong_goi/` | PyInstaller (`battu.spec`), Inno Setup (`battu_windows.iss`, tiếng Việt), biểu tượng |
@@ -57,7 +57,7 @@ Dựng tay (trên chính máy đích, Python 3.12):
 python -m pip install -r requirements.txt pyinstaller==6.16.0
 pyinstaller --noconfirm dong_goi/battu.spec            # → dist/BatTuThieuViHoa/ (Windows) hoặc dist/Bát Tự Thiệu Vĩ Hoa.app (macOS)
 # Windows: cài Inno Setup 6.5+ rồi
-"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" dong_goi\battu_windows.iss   # → dist_cai\BatTuThieuViHoa_Setup_1.7.0_Windows.exe
+"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" dong_goi\battu_windows.iss   # → dist_cai\BatTuThieuViHoa_Setup_1.7.1_Windows.exe
 # macOS:
 hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder "dist/Bát Tự Thiệu Vĩ Hoa.app" -format UDZO BatTuThieuViHoa.dmg
 dist/BatTuThieuViHoa/BatTuThieuViHoa --tu-kiem /tmp/tk   # tự kiểm; mã thoát 0 = ĐẠT

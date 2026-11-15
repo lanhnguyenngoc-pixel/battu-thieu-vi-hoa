@@ -205,3 +205,9 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 | Tự kiểm bộ cài | Thêm bước dựng bản luận giải tổng hợp (PDF ≤ 5 trang, Word) khi chặn mạng |
 | Kiểm thử | T5, T7, T9, T10, T11–T15, kho lá số, tự kiểm: ĐẠT. T1–T4, T8 cần hồ sơ HO_SO_PM (không đổi lõi tính nên không ảnh hưởng) |
 | Hướng dẫn | tai_lieu/HUONG_DAN_SU_DUNG.pdf thêm mục 6c (Luận giải tổng hợp, AI), câu hỏi thường gặp |
+
+## 1.7.1 – đối chiếu với ví dụ sách (15/11/2026)
+- Chạy lớp tổng hợp trên chính các ví dụ của Thiệu Vĩ Hoa phát hiện hồi quy: điểm đại vận riêng của lớp tổng hợp chỉ khớp sách 70/171 vận (41%), kém workbook 6.5 (123/171 = 72%).
+- Sửa: hướng tốt/xấu của mỗi đại vận và mỗi nửa vận lấy theo KẾT LUẬN ĐẠI VẬN của workbook (mục F, P1 tr.124–125); điểm riêng chỉ dùng để nâng lên "Rất tốt/Rất xấu" khi cùng hướng và để ghi lý do. Kết quả: 123/171 (72%).
+- Vượng – nhược trên 65 lá ví dụ P1–P3: lớp tổng hợp 57 (88%), workbook 56 (86%); 50 lá rút ngẫu nhiên: 44 (88%) so với 43 (86%).
+- Thêm kiểm thử T16 (tests/t16_sach.py) vào quy trình đóng gói: lớp tổng hợp không được khớp sách kém hơn workbook.

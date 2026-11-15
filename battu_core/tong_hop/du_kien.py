@@ -88,7 +88,7 @@ _DV_NHAN = ['ĐẠI VẬN', 'Tuổi bắt đầu', 'Năm bắt đầu', 'Năm k�
 
 
 def _dai_van(E):
-    si = E.M.si['DAI_VAN']; dong = _nhan_cot(E, 'DAI_VAN', 2, 2, 30, 120)
+    si = E.M.si['DAI_VAN']; dong = _nhan_cot(E, 'DAI_VAN', 2, 2, 30, 200)
     def r_(nhan, thu=0):
         ds = [r for k, (r, _) in sorted(dong.items(), key=lambda x: x[1][0]) if k.startswith(nhan)]
         return ds[thu] if len(ds) > thu else None
@@ -105,6 +105,14 @@ def _dai_van(E):
             rr = r_(nhan); v = E.raw(si, rr, c) if rr else None
             d[k] = int(v) if isinstance(v, float) else _s(v)
         rr = r_('Đang hành'); d['dang_hanh'] = bool(rr and _s(E.raw(si, rr, c)))
+        # Kết luận đại vận theo cách của tác giả (P1 tr.124–125, đề xuất DV-1 đã duyệt) – DAI_VAN mục F
+        for k, nhan in (('ket_luan', 'KẾT LUẬN ĐẠI VẬN'), ('diem_dau', 'Điểm 5 năm đầu (phương pháp khuyến nghị)'),
+                        ('diem_sau', 'Điểm 5 năm sau (phương pháp khuyến nghị)'), ('tom_tat_10_nam', 'Tóm tắt 10 năm'),
+                        ('vi_sao_dau', 'Vì sao – 5 năm đầu'), ('vi_sao_sau', 'Vì sao – 5 năm sau'),
+                        ('tai_loc_van', 'Tài lộc trong vận'), ('cong_danh_van', 'Công danh trong vận')):
+            rr = next((r for kk, (r, _) in dong.items() if kk == nhan or (len(nhan) > 20 and kk.startswith(nhan))), None)
+            v = E.raw(si, rr, c) if rr else None
+            d[k] = (int(v) if k.startswith('diem') and isinstance(v, float) else _s(v))
         for i, r in enumerate(xt[:2]): d['xu_the_pp%d' % (i + 1)] = _s(E.raw(si, r, c))
         ra.append(d)
     return ra
