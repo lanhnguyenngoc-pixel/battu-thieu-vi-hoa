@@ -9,3 +9,4 @@ tests/dap_an_mo_rong/*
 !tests/dap_an_mo_rong/T7_SU_KIEN/
 !tests/dap_an_mo_rong/T10_BO_SUNG/
 *.log
+tai_lieu/giai_doan_A/*.pkl

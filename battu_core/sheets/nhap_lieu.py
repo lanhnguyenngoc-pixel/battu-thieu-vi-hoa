@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet NHAP_LIEU – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -76,11 +76,17 @@ def f7(E, r, c):
     return X.sub(X.MATCH(E.v(2,r-4,c), E.rg(24,18,1,29,1), 0.0),1.0)
 
 def f8(E, r, c):
+    # Ô C22
+    # = IF($C$13="Tự nhập",$C$10,IFERROR(IF(INDEX(KIEM_THU!$Y$6:$Y$90,MATCH($C$13,KIEM_THU!$B$6:$B$90,0))<>"",INDEX(KIEM_THU!$Y$6:$Y$90,MATCH($C$13,KIEM_THU!$
+    #   B$6:$B$90,0)),$C$10),$C$10))
+    return (E.v(2,10,3) if X.truthy(X.eq(E.v(2,13,3),'Tự nhập')) else X.IFERROR(lambda: (X.INDEX(E.rg(26,6,25,90,25), X.MATCH(E.v(2,13,3), E.rg(26,6,2,90,2), 0.0)) if X.truthy(X.ne(X.INDEX(E.rg(26,6,25,90,25), X.MATCH(E.v(2,13,3), E.rg(26,6,2,90,2), 0.0)),'')) else E.v(2,10,3)), lambda: E.v(2,10,3)))
+
+def f9(E, r, c):
     # Ô C23, D23, E23, F23
     # = C16&" "&C17
     return X.cat(X.cat(E.v(2,r-7,c),' '),E.v(2,r-6,c))
 
-def f9(E, r, c):
+def f10(E, r, c):
     # Ô D28
     # = IF(AND(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),ISNUMBER(DAI_VAN!$C$17)),"✔ TỰ TÍNH từ ngày giờ sinh: "&TEXT(DAI_VAN!$C$17,"0.00")&" ngày (
     #   "&IF(DAI_VAN!$C$7=1,"thuận, đến "&DAI_VAN!$C$13,"nghịch, lùi về "&DAI_VAN!$C$12)&") → khởi vận "&DAI_VAN!$D$20&". Không cần nhập ô C28.",IF(AND(NHAP_L
@@ -89,88 +95,88 @@ def f9(E, r, c):
     #   0; P2 tr.275-278)"))
     return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('✔ TỰ TÍNH từ ngày giờ sinh: ',X.TEXT(E.v(14,17,3), '0.00')),' ngày ('),(X.cat('thuận, đến ',E.v(14,13,3)) if X.truthy(X.eq(E.v(14,7,3),1.0)) else X.cat('nghịch, lùi về ',E.v(14,12,3)))),') → khởi vận '),E.v(14,20,4)),'. Không cần nhập ô C28.') if X.truthy(X.AND(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3))), X.ISNUMBER(lambda: E.v(14,17,3)))) else (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('✔ TỰ TÍNH từ tứ trụ + năm sinh C30: ',X.TEXT(E.v(2,53,3), '0.00')),' ngày → khởi vận '),E.v(14,20,4)),' (ngày sinh suy ra: '),E.v(2,52,4)),' – xem dòng 43-53). Không cần nhập ô C28.') if X.truthy(X.AND(X.eq(E.v(2,28,3),''), X.ISNUMBER(lambda: E.v(2,53,3)))) else 'Thuận: đếm tới tiết kế tiếp; nghịch: đếm lùi về tiết vừa qua (P1 tr.119-120; P2 tr.275-278)'))
 
-def f10(E, r, c):
+def f11(E, r, c):
     # Ô D30
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),"✔ TỰ TÍNH từ ngày giờ sinh: "&DAI_VAN!$C$14&" (năm đổi tại Lập xuân – P2 tr.268). Không cần nh
     #   ập ô C30.","Năm tính theo Lập xuân (P2 tr.268): sinh từ 1/1 đến trước Lập xuân (~4/2) thì nhập năm trước, vd 13/1/1981 → 1980")
     return (X.cat(X.cat('✔ TỰ TÍNH từ ngày giờ sinh: ',E.v(14,14,3)),' (năm đổi tại Lập xuân – P2 tr.268). Không cần nhập ô C30.') if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else 'Năm tính theo Lập xuân (P2 tr.268): sinh từ 1/1 đến trước Lập xuân (~4/2) thì nhập năm trước, vd 13/1/1981 → 1980')
 
-def f11(E, r, c):
+def f12(E, r, c):
     # Ô C37
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CAN_TEN,MOD(MOD(DAI_VAN!$C$14-1984,60),10)+1),"")
     return (X.INDEX(E.rg(24,5,1,14,1), X.add(X.MOD(X.MOD(X.sub(E.v(14,14,3),1984.0), 60.0), 10.0),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f12(E, r, c):
+def f13(E, r, c):
     # Ô D37
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CAN_TEN,MOD(MOD(MOD(MOD(DAI_VAN!$C$14-1984,60),10),5)*2+2+MOD(DAI_VAN!$C$15-2,12),10)+1),
     #   "")
     return (X.INDEX(E.rg(24,5,1,14,1), X.add(X.MOD(X.add(X.add(X.mul(X.MOD(X.MOD(X.MOD(X.sub(E.v(14,14,3),1984.0), 60.0), 10.0), 5.0),2.0),2.0),X.MOD(X.sub(E.v(14,15,3),2.0), 12.0)), 10.0),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f13(E, r, c):
+def f14(E, r, c):
     # Ô E37
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CAN_TEN,MOD(MOD(INT(DAI_VAN!$C$8+1/24)+8,60),10)+1),"")
     return (X.INDEX(E.rg(24,5,1,14,1), X.add(X.MOD(X.MOD(X.add(X.INT(X.add(E.v(14,8,3),X.div(1.0,24.0))),8.0), 60.0), 10.0),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f14(E, r, c):
+def f15(E, r, c):
     # Ô F37
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CAN_TEN,MOD(MOD(MOD(MOD(INT(DAI_VAN!$C$8+1/24)+8,60),10),5)*2+MOD(INT((ROUND(MOD(DAI_VAN!
     #   $C$8,1)*1440,0)+60)/120),12),10)+1),"")
     return (X.INDEX(E.rg(24,5,1,14,1), X.add(X.MOD(X.add(X.mul(X.MOD(X.MOD(X.MOD(X.add(X.INT(X.add(E.v(14,8,3),X.div(1.0,24.0))),8.0), 60.0), 10.0), 5.0),2.0),X.MOD(X.INT(X.div(X.add(X.ROUND(X.mul(X.MOD(E.v(14,8,3), 1.0),1440.0), 0.0),60.0),120.0)), 12.0)), 10.0),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f15(E, r, c):
+def f16(E, r, c):
     # Ô C38
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CHI_TEN,MOD(MOD(DAI_VAN!$C$14-1984,60),12)+1),"")
     return (X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.MOD(X.sub(E.v(14,14,3),1984.0), 60.0), 12.0),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f16(E, r, c):
+def f17(E, r, c):
     # Ô D38
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CHI_TEN,DAI_VAN!$C$15+1),"")
     return (X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(14,15,3),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f17(E, r, c):
+def f18(E, r, c):
     # Ô E38
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CHI_TEN,MOD(MOD(INT(DAI_VAN!$C$8+1/24)+8,60),12)+1),"")
     return (X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.MOD(X.add(X.INT(X.add(E.v(14,8,3),X.div(1.0,24.0))),8.0), 60.0), 12.0),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f18(E, r, c):
+def f19(E, r, c):
     # Ô F38
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),INDEX(CHI_TEN,MOD(INT((ROUND(MOD(DAI_VAN!$C$8,1)*1440,0)+60)/120),12)+1),"")
     return (X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.INT(X.div(X.add(X.ROUND(X.mul(X.MOD(E.v(14,8,3), 1.0),1440.0), 0.0),60.0),120.0)), 12.0),1.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f19(E, r, c):
+def f20(E, r, c):
     # Ô C39
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),MOD(MOD(DAI_VAN!$C$14-1984,60),10)&"|"&MOD(MOD(DAI_VAN!$C$14-1984,60),12),"")
     return (X.cat(X.cat(X.MOD(X.MOD(X.sub(E.v(14,14,3),1984.0), 60.0), 10.0),'|'),X.MOD(X.MOD(X.sub(E.v(14,14,3),1984.0), 60.0), 12.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f20(E, r, c):
+def f21(E, r, c):
     # Ô D39
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),MOD(MOD(MOD(MOD(DAI_VAN!$C$14-1984,60),10),5)*2+2+MOD(DAI_VAN!$C$15-2,12),10)&"|"&DAI_VAN!$C$15
     #   ,"")
     return (X.cat(X.cat(X.MOD(X.add(X.add(X.mul(X.MOD(X.MOD(X.MOD(X.sub(E.v(14,14,3),1984.0), 60.0), 10.0), 5.0),2.0),2.0),X.MOD(X.sub(E.v(14,15,3),2.0), 12.0)), 10.0),'|'),E.v(14,15,3)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f21(E, r, c):
+def f22(E, r, c):
     # Ô E39
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),MOD(MOD(INT(DAI_VAN!$C$8+1/24)+8,60),10)&"|"&MOD(MOD(INT(DAI_VAN!$C$8+1/24)+8,60),12),"")
     return (X.cat(X.cat(X.MOD(X.MOD(X.add(X.INT(X.add(E.v(14,8,3),X.div(1.0,24.0))),8.0), 60.0), 10.0),'|'),X.MOD(X.MOD(X.add(X.INT(X.add(E.v(14,8,3),X.div(1.0,24.0))),8.0), 60.0), 12.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f22(E, r, c):
+def f23(E, r, c):
     # Ô F39
     # = IF(AND(ISNUMBER(DAI_VAN!$C$11),ISNUMBER(DAI_VAN!$C$8)),MOD(MOD(MOD(MOD(INT(DAI_VAN!$C$8+1/24)+8,60),10),5)*2+MOD(INT((ROUND(MOD(DAI_VAN!$C$8,1)*1440,0
     #   )+60)/120),12),10)&"|"&MOD(INT((ROUND(MOD(DAI_VAN!$C$8,1)*1440,0)+60)/120),12),"")
     return (X.cat(X.cat(X.MOD(X.add(X.mul(X.MOD(X.MOD(X.MOD(X.add(X.INT(X.add(E.v(14,8,3),X.div(1.0,24.0))),8.0), 60.0), 10.0), 5.0),2.0),X.MOD(X.INT(X.div(X.add(X.ROUND(X.mul(X.MOD(E.v(14,8,3), 1.0),1440.0), 0.0),60.0),120.0)), 12.0)), 10.0),'|'),X.MOD(X.INT(X.div(X.add(X.ROUND(X.mul(X.MOD(E.v(14,8,3), 1.0),1440.0), 0.0),60.0),120.0)), 12.0)) if X.truthy(X.AND(X.ISNUMBER(lambda: E.v(14,11,3)), X.ISNUMBER(lambda: E.v(14,8,3)))) else '')
 
-def f23(E, r, c):
+def f24(E, r, c):
     # Ô C41
     # = IF($C$13<>"Tự nhập","Lá số mẫu "&$C$13,IF(AND($C$12="Tự động",C37<>""),"Ngày giờ sinh (dòng 37-38)","Ô tự nhập C7:F8"))
     return (X.cat('Lá số mẫu ',E.v(2,13,3)) if X.truthy(X.ne(E.v(2,13,3),'Tự nhập')) else ('Ngày giờ sinh (dòng 37-38)' if X.truthy(X.AND(X.eq(E.v(2,12,3),'Tự động'), X.ne(E.v(2,r-4,c),''))) else 'Ô tự nhập C7:F8'))
 
-def f24(E, r, c):
+def f25(E, r, c):
     # Ô C45
     # = IF(ISNUMBER($C$30),IF(MOD($C$30-1984,60)=MOD(6*TRUNG_GIAN!$C$5-5*TRUNG_GIAN!$C$6,60),1,IF(AND(MOD($C$30-1-1984,60)=MOD(6*TRUNG_GIAN!$C$5-5*TRUNG_GIAN!
     #   $C$6,60),OR(TRUNG_GIAN!$D$6=0,TRUNG_GIAN!$D$6=1)),2,0)),"")
     return ((1.0 if X.truthy(X.eq(X.MOD(X.sub(E.v(2,30,3),1984.0), 60.0),X.MOD(X.sub(X.mul(6.0,E.v(23,5,3)),X.mul(5.0,E.v(23,6,3))), 60.0))) else (2.0 if X.truthy(X.AND(X.eq(X.MOD(X.sub(X.sub(E.v(2,30,3),1.0),1984.0), 60.0),X.MOD(X.sub(X.mul(6.0,E.v(23,5,3)),X.mul(5.0,E.v(23,6,3))), 60.0)), X.OR(X.eq(E.v(23,6,4),0.0), X.eq(E.v(23,6,4),1.0)))) else 0.0)) if X.truthy(X.ISNUMBER(lambda: E.v(2,30,3))) else '')
 
-def f25(E, r, c):
+def f26(E, r, c):
     # Ô D45
     # = IF(ISNUMBER(DAI_VAN!$C$11),"Không cần – đã có ngày giờ sinh ở C26:G26 (khởi vận tính trực tiếp, xem D28).",IF($C$30="","Nhập năm sinh dương lịch của t
     #   rụ năm ở C30 (năm đổi tại Lập xuân).",IF(C45=1,"Khớp: năm "&$C$30&" là năm "&C16&" "&C17&".",IF(C45=2,"Khớp sau hiệu chỉnh: sinh tháng "&D17&" trước L
@@ -179,66 +185,66 @@ def f25(E, r, c):
     #   năm hợp lệ cách nhau 60 năm)."))))
     return ('Không cần – đã có ngày giờ sinh ở C26:G26 (khởi vận tính trực tiếp, xem D28).' if X.truthy(X.ISNUMBER(lambda: E.v(14,11,3))) else ('Nhập năm sinh dương lịch của trụ năm ở C30 (năm đổi tại Lập xuân).' if X.truthy(X.eq(E.v(2,30,3),'')) else (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Khớp: năm ',E.v(2,30,3)),' là năm '),E.v(2,r-29,c-1)),' '),E.v(2,r-28,c-1)),'.') if X.truthy(X.eq(E.v(2,r,c-1),1.0)) else (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Khớp sau hiệu chỉnh: sinh tháng ',E.v(2,r-28,c)),' trước Lập xuân nên năm dương lịch '),E.v(2,30,3)),' thuộc năm can chi '),X.sub(E.v(2,30,3),1.0)),' ('),E.v(2,r-29,c-1)),' '),E.v(2,r-28,c-1)),') – công cụ tự dùng '),X.sub(E.v(2,30,3),1.0)),' (P2 tr.268).') if X.truthy(X.eq(E.v(2,r,c-1),2.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('KHÔNG KHỚP: năm ',E.v(2,30,3)),' là năm '),X.INDEX(E.rg(24,5,1,14,1), X.add(X.MOD(X.sub(E.v(2,30,3),1984.0), 10.0),1.0))),' '),X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.sub(E.v(2,30,3),1984.0), 12.0),1.0))),', trụ năm đang dùng là '),E.v(2,r-29,c-1)),' '),E.v(2,r-28,c-1)),' – sửa C30 (các năm hợp lệ cách nhau 60 năm).')))))
 
-def f26(E, r, c):
+def f27(E, r, c):
     # Ô C46
     # = IF(AND(C45<>1,C45<>2),"",IFERROR(IF(AND(INDEX(TIET_CHI,($C$54-1899)*12+1+MOD(TRUNG_GIAN!$D$6-2,12))=TRUNG_GIAN!$D$6,INDEX(TIET_NAM,($C$54-1899)*12+1+M
     #   OD(TRUNG_GIAN!$D$6-2,12))=$C$54),($C$54-1899)*12+1+MOD(TRUNG_GIAN!$D$6-2,12),""),""))
     return ('' if X.truthy(X.AND(X.ne(E.v(2,r-1,c),1.0), X.ne(E.v(2,r-1,c),2.0))) else X.IFERROR(lambda: (X.add(X.add(X.mul(X.sub(E.v(2,54,3),1899.0),12.0),1.0),X.MOD(X.sub(E.v(23,6,4),2.0), 12.0)) if X.truthy(X.AND(X.eq(X.INDEX(E.rg(25,4,4,2439,4), X.add(X.add(X.mul(X.sub(E.v(2,54,3),1899.0),12.0),1.0),X.MOD(X.sub(E.v(23,6,4),2.0), 12.0))),E.v(23,6,4)), X.eq(X.INDEX(E.rg(25,4,5,2439,5), X.add(X.add(X.mul(X.sub(E.v(2,54,3),1899.0),12.0),1.0),X.MOD(X.sub(E.v(23,6,4),2.0), 12.0))),E.v(2,54,3)))) else ''), lambda: ''))
 
-def f27(E, r, c):
+def f28(E, r, c):
     # Ô D46
     # = IF(C46="","",INDEX(TIET_TEN,C46)&" → "&INDEX(TIET_TEN,C46+1)&" (tháng "&D17&" năm "&$C$54&")")
     return ('' if X.truthy(X.eq(E.v(2,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(25,4,3,2439,3), E.v(2,r,c-1)),' → '),X.INDEX(E.rg(25,4,3,2439,3), X.add(E.v(2,r,c-1),1.0))),' (tháng '),E.v(2,r-29,c)),' năm '),E.v(2,54,3)),')'))
 
-def f28(E, r, c):
+def f29(E, r, c):
     # Ô C47
     # = IF(C46="","",INDEX(TIET_UTC,C46)+DAI_VAN!$C$9/24)
     return ('' if X.truthy(X.eq(E.v(2,r-1,c),'')) else X.add(X.INDEX(E.rg(25,4,1,2439,1), E.v(2,r-1,c)),X.div(E.v(14,9,3),24.0)))
 
-def f29(E, r, c):
+def f30(E, r, c):
     # Ô C48
     # = IF(C46="","",INDEX(TIET_UTC,C46+1)+DAI_VAN!$C$9/24)
     return ('' if X.truthy(X.eq(E.v(2,r-2,c),'')) else X.add(X.INDEX(E.rg(25,4,1,2439,1), X.add(E.v(2,r-2,c),1.0)),X.div(E.v(14,9,3),24.0)))
 
-def f30(E, r, c):
+def f31(E, r, c):
     # Ô C49
     # = IF(C46="","",INT(C47+1/24)+MOD(MOD(6*TRUNG_GIAN!$E$5-5*TRUNG_GIAN!$E$6,60)-MOD(INT(C47+1/24)+8,60),60))
     return ('' if X.truthy(X.eq(E.v(2,r-3,c),'')) else X.add(X.INT(X.add(E.v(2,r-2,c),X.div(1.0,24.0))),X.MOD(X.sub(X.MOD(X.sub(X.mul(6.0,E.v(23,5,5)),X.mul(5.0,E.v(23,6,5))), 60.0),X.MOD(X.add(X.INT(X.add(E.v(2,r-2,c),X.div(1.0,24.0))),8.0), 60.0)), 60.0)))
 
-def f31(E, r, c):
+def f32(E, r, c):
     # Ô C50
     # = IF(C49="","",MAX(C49+(2*TRUNG_GIAN!$F$6-1)/24,C47))
     return ('' if X.truthy(X.eq(E.v(2,r-1,c),'')) else X.MAX(X.add(E.v(2,r-1,c),X.div(X.sub(X.mul(2.0,E.v(23,6,6)),1.0),24.0)), E.rg(2,r-3,c,r-3,c)))
 
-def f32(E, r, c):
+def f33(E, r, c):
     # Ô C51
     # = IF(C49="","",MIN(C49+(2*TRUNG_GIAN!$F$6+1)/24,C48))
     return ('' if X.truthy(X.eq(E.v(2,r-2,c),'')) else X.MIN(X.add(E.v(2,r-2,c),X.div(X.add(X.mul(2.0,E.v(23,6,6)),1.0),24.0)), E.rg(2,r-3,c,r-3,c)))
 
-def f33(E, r, c):
+def f34(E, r, c):
     # Ô C52
     # = IF(C49="","",IF(C51>C50,(C50+C51)/2,""))
     return ('' if X.truthy(X.eq(E.v(2,r-3,c),'')) else (X.div(X.add(E.v(2,r-2,c),E.v(2,r-1,c)),2.0) if X.truthy(X.gt(E.v(2,r-1,c),E.v(2,r-2,c))) else ''))
 
-def f34(E, r, c):
+def f35(E, r, c):
     # Ô D52
     # = IF(C49="","",IF(C52="","KHÔNG CÓ ngày nào trong tháng "&D17&" năm "&$C$54&" khớp trụ ngày "&E16&" "&E17&" và giờ "&F17&" – kiểm tra lại tứ trụ hoặc nă
     #   m sinh C30.","Khoảng "&TEXT(C52,"dd/mm/yyyy hh:mm")&" (giờ "&F17&": "&TEXT(C50,"hh:mm")&"–"&TEXT(C51,"hh:mm")&")"))
     return ('' if X.truthy(X.eq(E.v(2,r-3,c-1),'')) else (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('KHÔNG CÓ ngày nào trong tháng ',E.v(2,r-35,c)),' năm '),E.v(2,54,3)),' khớp trụ ngày '),E.v(2,r-36,c+1)),' '),E.v(2,r-35,c+1)),' và giờ '),E.v(2,r-35,c+2)),' – kiểm tra lại tứ trụ hoặc năm sinh C30.') if X.truthy(X.eq(E.v(2,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Khoảng ',X.TEXT(E.v(2,r,c-1), 'dd/mm/yyyy hh:mm')),' (giờ '),E.v(2,r-35,c+2)),': '),X.TEXT(E.v(2,r-2,c-1), 'hh:mm')),'–'),X.TEXT(E.v(2,r-1,c-1), 'hh:mm')),')')))
 
-def f35(E, r, c):
+def f36(E, r, c):
     # Ô C53
     # = IF(C52="","",IF(DAI_VAN!$C$7=1,C48-C52,C52-C47))
     return ('' if X.truthy(X.eq(E.v(2,r-1,c),'')) else (X.sub(E.v(2,r-5,c),E.v(2,r-1,c)) if X.truthy(X.eq(E.v(14,7,3),1.0)) else X.sub(E.v(2,r-1,c),E.v(2,r-6,c))))
 
-def f36(E, r, c):
+def f37(E, r, c):
     # Ô D53
     # = IF(C53="","",IF(DAI_VAN!$C$7=1,"Thuận: đến ","Nghịch: lùi về ")&IF(DAI_VAN!$C$7=1,INDEX(TIET_TEN,C46+1)&" "&TEXT(C48,"dd/mm/yyyy hh:mm"),INDEX(TIET_TE
     #   N,C46)&" "&TEXT(C47,"dd/mm/yyyy hh:mm"))&" → khởi vận "&INT(C53/3)&" tuổi "&ROUND((C53/3-INT(C53/3))*12,0)&" tháng (sai số ± "&TEXT((C51-C50)/2*120,"0
     #   ")&" ngày tuổi)")
     return ('' if X.truthy(X.eq(E.v(2,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(('Thuận: đến ' if X.truthy(X.eq(E.v(14,7,3),1.0)) else 'Nghịch: lùi về '),(X.cat(X.cat(X.INDEX(E.rg(25,4,3,2439,3), X.add(E.v(2,r-7,c-1),1.0)),' '),X.TEXT(E.v(2,r-5,c-1), 'dd/mm/yyyy hh:mm')) if X.truthy(X.eq(E.v(14,7,3),1.0)) else X.cat(X.cat(X.INDEX(E.rg(25,4,3,2439,3), E.v(2,r-7,c-1)),' '),X.TEXT(E.v(2,r-6,c-1), 'dd/mm/yyyy hh:mm')))),' → khởi vận '),X.INT(X.div(E.v(2,r,c-1),3.0))),' tuổi '),X.ROUND(X.mul(X.sub(X.div(E.v(2,r,c-1),3.0),X.INT(X.div(E.v(2,r,c-1),3.0))),12.0), 0.0)),' tháng (sai số ± '),X.TEXT(X.mul(X.div(X.sub(E.v(2,r-2,c-1),E.v(2,r-3,c-1)),2.0),120.0), '0')),' ngày tuổi)'))
 
-def f37(E, r, c):
+def f38(E, r, c):
     # Ô C54
     # = IF(C45=1,$C$30,IF(C45=2,$C$30-1,""))
     return (E.v(2,30,3) if X.truthy(X.eq(E.v(2,r-9,c),1.0)) else (X.sub(E.v(2,30,3),1.0) if X.truthy(X.eq(E.v(2,r-9,c),2.0)) else ''))
@@ -262,37 +268,38 @@ CELLS = {
     'D21': (f7, 21, 4),
     'E21': (f7, 21, 5),
     'F21': (f7, 21, 6),
-    'C23': (f8, 23, 3),
-    'D23': (f8, 23, 4),
-    'E23': (f8, 23, 5),
-    'F23': (f8, 23, 6),
-    'D28': (f9, 28, 4),
-    'D30': (f10, 30, 4),
-    'C37': (f11, 37, 3),
-    'D37': (f12, 37, 4),
-    'E37': (f13, 37, 5),
-    'F37': (f14, 37, 6),
-    'C38': (f15, 38, 3),
-    'D38': (f16, 38, 4),
-    'E38': (f17, 38, 5),
-    'F38': (f18, 38, 6),
-    'C39': (f19, 39, 3),
-    'D39': (f20, 39, 4),
-    'E39': (f21, 39, 5),
-    'F39': (f22, 39, 6),
-    'C41': (f23, 41, 3),
-    'C45': (f24, 45, 3),
-    'D45': (f25, 45, 4),
-    'C46': (f26, 46, 3),
-    'D46': (f27, 46, 4),
-    'C47': (f28, 47, 3),
-    'C48': (f29, 48, 3),
-    'C49': (f30, 49, 3),
-    'C50': (f31, 50, 3),
-    'C51': (f32, 51, 3),
-    'C52': (f33, 52, 3),
-    'D52': (f34, 52, 4),
-    'C53': (f35, 53, 3),
-    'D53': (f36, 53, 4),
-    'C54': (f37, 54, 3),
+    'C22': (f8, 22, 3),
+    'C23': (f9, 23, 3),
+    'D23': (f9, 23, 4),
+    'E23': (f9, 23, 5),
+    'F23': (f9, 23, 6),
+    'D28': (f10, 28, 4),
+    'D30': (f11, 30, 4),
+    'C37': (f12, 37, 3),
+    'D37': (f13, 37, 4),
+    'E37': (f14, 37, 5),
+    'F37': (f15, 37, 6),
+    'C38': (f16, 38, 3),
+    'D38': (f17, 38, 4),
+    'E38': (f18, 38, 5),
+    'F38': (f19, 38, 6),
+    'C39': (f20, 39, 3),
+    'D39': (f21, 39, 4),
+    'E39': (f22, 39, 5),
+    'F39': (f23, 39, 6),
+    'C41': (f24, 41, 3),
+    'C45': (f25, 45, 3),
+    'D45': (f26, 45, 4),
+    'C46': (f27, 46, 3),
+    'D46': (f28, 46, 4),
+    'C47': (f29, 47, 3),
+    'C48': (f30, 48, 3),
+    'C49': (f31, 49, 3),
+    'C50': (f32, 50, 3),
+    'C51': (f33, 51, 3),
+    'C52': (f34, 52, 3),
+    'D52': (f35, 52, 4),
+    'C53': (f36, 53, 3),
+    'D53': (f37, 53, 4),
+    'C54': (f38, 54, 3),
 }

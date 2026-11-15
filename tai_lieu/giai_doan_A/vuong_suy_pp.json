@@ -1,0 +1,1730 @@
+[
+ {
+  "ten": "P1-VD1 (nữ)",
+  "tt": "Nhâm Dần,Quý Sửu,Bính Thìn,Kỷ Hợi",
+  "g": "Nữ",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Kiêu",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -1 (P1 tr.71)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD2 (nam)",
+  "tt": "Quý Tị,Ất Sửu,Đinh Mão,Mậu Thân",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Kiêu",
+  "d1": "Mộc",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -2 (P1 tr.71)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD3 (nam)",
+  "tt": "Giáp Thìn,Giáp Tuất,Quý Sửu,Nhâm Tí",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Kiêu",
+  "d1": "Kim",
+  "d2": "Thổ",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD4 (nam)",
+  "tt": "Quý Tị,Canh Thân,Tân Dậu,Quý Tị",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Chính",
+  "d1": "Thủy",
+  "d2": "Thủy",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P1-VD5 (nữ)",
+  "tt": "Giáp Thìn,Đinh Mão,Bính Dần,Giáp Ngọ",
+  "g": "Nữ",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Khuyết",
+  "d1": "Thổ",
+  "d2": "Thổ",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   7.0,
+   0.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD6 (nam)",
+  "tt": "Nhâm Dần,Tân Hợi,Giáp Dần,Ất Hợi",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thiên",
+  "d1": "Thổ",
+  "d2": "Thổ",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   6.0,
+   1.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD7 (nữ)",
+  "tt": "Canh Tí,Bính Tuất,Tân Mão,Kỷ Sửu",
+  "g": "Nữ",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thiên",
+  "d1": "Thủy",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD8 (nam)",
+  "tt": "Giáp Thân,Đinh Sửu,Quý Tị,Nhâm Tí",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thiên",
+  "d1": "Thổ",
+  "d2": "Thổ",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD9 (nam)",
+  "tt": "Bính Ngọ,Đinh Dậu,Kỷ Mão,Giáp Tí",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thiên",
+  "d1": "Thủy",
+  "d2": "Thủy",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 1 trong 3 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD10 (nữ)",
+  "tt": "Nhâm Tí,Nhâm Tí,Mậu Tí,Bính Thìn",
+  "g": "Nữ",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Tỉ",
+  "d1": "Kim",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD11 (nữ)",
+  "tt": "Giáp Tuất,Giáp Tuất,Ất Hợi,Mậu Dần",
+  "g": "Nữ",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Chính",
+  "d1": "Kim",
+  "d2": "Kim",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng 2 (P1 tr.71)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD12 (nữ)",
+  "tt": "Canh Thân,Quý Mùi,Mậu Thân,Quý Sửu",
+  "g": "Nữ",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Kiếp",
+  "d1": "Thổ",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD13 (nam)",
+  "tt": "Mậu Tuất,Ất Mão,Kỷ Dậu,Mậu Thìn",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thất",
+  "d1": "Mộc",
+  "d2": "Kim",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng 2 (P1 tr.71)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P1-VD14 (nam)",
+  "tt": "Quý Mão,Mậu Ngọ,Tân Sửu,Đinh Dậu",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "V",
+  "p2": "N",
+  "dung_sach": "Chính",
+  "d1": "Mộc",
+  "d2": "Thổ",
+  "chon": "NHƯỢC (Theo PP2)",
+  "quy_tac": "Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P1-VD15 (nam)",
+  "tt": "Ất Mão,Bính Tuất,Ất Dậu,Nhâm Ngọ",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Chính",
+  "d1": "Thủy",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -2 (P1 tr.71)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "Khúc trực VD1",
+  "tt": "Quý Mão,Giáp Dần,Giáp Dần,Giáp Tí",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   7.0,
+   0.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "Viêm thượng VD1",
+  "tt": "Đinh Tị,Bính Ngọ,Bính Ngọ,Ất Mùi",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Hỏa",
+  "d2": "Hỏa",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   7.0,
+   0.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "Gia tường VD3",
+  "tt": "Kỷ Tị,Mậu Thìn,Mậu Tuất,Kỷ Mùi",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thổ",
+  "d1": "Thổ",
+  "d2": "Thổ",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   7.0,
+   0.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "Tòng cách VD1",
+  "tt": "Mậu Thân,Tân Dậu,Canh Tuất,Ất Dậu",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Kim",
+  "d1": "Kim",
+  "d2": "Kim",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   7.0,
+   0.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "Nhuận hạ VD1",
+  "tt": "Nhâm Thân,Nhâm Tí,Nhâm Thìn,Canh Tí",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thủy",
+  "d1": "Thủy",
+  "d2": "Thủy",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   7.0,
+   0.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "Tòng tài VD1",
+  "tt": "Mậu Tuất,Bính Thìn,Ất Mùi,Bính Tuất",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Thực",
+  "d1": "Mộc",
+  "d2": "Hỏa",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh nhưng không đắc địa, không được sinh, không được trợ → không được xem là vượng (P1 tr.70)",
+  "dem": [
+   0.0,
+   7.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "Tòng sát VD1",
+  "tt": "Nhâm Tí,Quý Sửu,Bính Tí,Canh Tí",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Tài",
+  "d1": "Kim",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, không đắc địa, không có ấn, không có tỉ kiếp (P1 tr.172)",
+  "dem": [
+   0.0,
+   7.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "Tòng nhi VD2",
+  "tt": "Mậu Tí,Tân Dậu,Kỷ Dậu,Nhâm Thân",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "N",
+  "dung_sach": "Thực",
+  "d1": "Kim",
+  "d2": "Kim",
+  "chon": "VƯỢNG (Theo PP1)",
+  "quy_tac": "Được lệnh + 1 trong 3 điều (P1 tr.70)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "Hóa mộc VD1",
+  "tt": "Bính Dần,Canh Dần,Đinh Mão,Nhâm Dần",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng 3 (P1 tr.71)",
+  "dem": [
+   6.0,
+   1.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "Hóa thủy VD8",
+  "tt": "Nhâm Tí,Quý Sửu,Tân Hợi,Bính Thân",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Thủy",
+  "d1": "Thủy",
+  "d2": "Thủy",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-397 VD1",
+  "tt": "Nhâm Thìn,Tân Hợi,Mậu Tuất,Bính Thìn",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình 4, phe khác 3 (P1 tr.71; P2 tr.455-457)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-398 VD2",
+  "tt": "Ất Mão,Bính Tuất,Quý Tị,Nhâm Tí",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Kim",
+  "d1": "Thổ",
+  "d2": "Thổ",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-399 VD3",
+  "tt": "Canh Tuất,Bính Tuất,Tân Tị,Đinh Dậu",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thủy",
+  "d1": "Hỏa",
+  "d2": "Hỏa",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   5.0,
+   2.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-400 VD4",
+  "tt": "Quý Sửu,Giáp Tí,Quý Mão,Quý Hợi",
+  "g": "Nữ",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Thủy",
+  "d2": "Thủy",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   5.0,
+   2.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-400 VD5",
+  "tt": "Bính Ngọ,Mậu Tuất,Canh Ngọ,Ất Dậu",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thủy",
+  "d1": "Thủy",
+  "d2": "Thủy",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng 1 (P1 tr.71)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-401 VD6",
+  "tt": "Đinh Tị,Canh Tuất,Đinh Tị,Mậu Thân",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Kim",
+  "d1": "Thổ",
+  "d2": "Thổ",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -1 (P1 tr.71)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-402 VD7",
+  "tt": "Bính Tí,Kỷ Hợi,Bính Thân,Nhâm Thìn",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-403 VD8",
+  "tt": "Nhâm Thìn,Nhâm Dần,Canh Tí,Bính Tuất",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Hỏa",
+  "d1": "Thổ",
+  "d2": "Thổ",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-404 VD9",
+  "tt": "Ất Tị,Giáp Thân,Ất Mùi,Tân Tị",
+  "g": "Nữ",
+  "sach": "V",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Thổ",
+  "d1": "Thủy",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-404 VD10",
+  "tt": "Mậu Thìn,Giáp Dần,Nhâm Tí,Quý Mão",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Thổ",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-405 VD11",
+  "tt": "Giáp Ngọ,Nhâm Thân,Tân Sửu,Canh Dần",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Mộc",
+  "d2": "Hỏa",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-406 VD12",
+  "tt": "Mậu Tuất,Tân Dậu,Tân Mão,Kỷ Sửu",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   6.0,
+   1.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-406 VD13",
+  "tt": "Nhâm Tí,Canh Tuất,Bính Thân,Kỷ Hợi",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   0.0,
+   7.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-407 VD14",
+  "tt": "Tân Sửu,Quý Tị,Ất Sửu,Đinh Sửu",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "V",
+  "p2": "N",
+  "dung_sach": "Mộc",
+  "d1": "Hỏa",
+  "d2": "Thủy",
+  "chon": "VƯỢNG (Theo PP1)",
+  "quy_tac": "Được lệnh + 1 trong 3 điều (P1 tr.70)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-408 VD15",
+  "tt": "Nhâm Tí,Giáp Thìn,Nhâm Thìn,Bính Ngọ",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Thủy",
+  "d1": "Thủy",
+  "d2": "Thủy",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -1 (P1 tr.71)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-409 VD16",
+  "tt": "Canh Ngọ,Nhâm Ngọ,Nhâm Thân,Giáp Thìn",
+  "g": "Nữ",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "—",
+  "d1": "Kim",
+  "d2": "Thổ",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -2 (P1 tr.71)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-410 VD17",
+  "tt": "Canh Tuất,Tân Tị,Bính Ngọ,Nhâm Thìn",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thủy",
+  "d1": "Thủy",
+  "d2": "Hỏa",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-411 VD18",
+  "tt": "Kỷ Dậu,Kỷ Tị,Tân Sửu,Tân Mão",
+  "g": "Nữ",
+  "sach": "?",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Kim",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng 1 (P1 tr.71)",
+  "dem": [
+   6.0,
+   1.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-412 VD19",
+  "tt": "Kỷ Dậu,Tân Mùi,Kỷ Sửu,Canh Ngọ",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thủy",
+  "d1": "Mộc",
+  "d2": "Kim",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-413 VD20",
+  "tt": "Ất Mão,Giáp Thân,Nhâm Dần,Quý Mão",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Kim",
+  "d1": "Thổ",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 1 trong 3 điều (P1 tr.70)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-414 VD21",
+  "tt": "Canh Thân,Giáp Thân,Mậu Ngọ,Bính Thìn",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Hỏa",
+  "d2": "Thủy",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-415 VD22",
+  "tt": "Nhâm Dần,Nhâm Tí,Đinh Dậu,Tân Sửu",
+  "g": "Nữ",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Thủy",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-416 VD23",
+  "tt": "Giáp Ngọ,Kỷ Tị,Tân Mão,Nhâm Thìn",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Thổ",
+  "d1": "Thổ",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-417 VD25",
+  "tt": "Canh Thìn,Mậu Tí,Canh Tuất,Kỷ Mão",
+  "g": "Nữ",
+  "sach": "V",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Thổ",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -3 (P1 tr.71)",
+  "dem": [
+   5.0,
+   2.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-418 VD26",
+  "tt": "Nhâm Thìn,Đinh Mùi,Tân Mùi,Giáp Ngọ",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Thổ",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≤1 điều (P1 tr.70)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-419 VD27",
+  "tt": "Kỷ Sửu,Bính Dần,Đinh Mão,Nhâm Dần",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Kim",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)",
+  "dem": [
+   5.0,
+   2.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-420 VD28",
+  "tt": "Ất Tị,Quý Mùi,Quý Tị,Kỷ Mùi",
+  "g": "Nữ",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Kim",
+  "d1": "Kim",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình 1, phe khác 6 (P1 tr.71; P2 tr.455-457)",
+  "dem": [
+   1.0,
+   6.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-421 VD29",
+  "tt": "Quý Sửu,Ất Sửu,Giáp Tuất,Canh Ngọ",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "V",
+  "p2": "N",
+  "dung_sach": "Hỏa",
+  "d1": "Kim",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Theo PP1)",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-422 VD30",
+  "tt": "Nhâm Dần,Canh Tuất,Quý Mùi,Giáp Dần",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Kim",
+  "d1": "Kim",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình 2, phe khác 5 (P1 tr.71; P2 tr.455-457)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-422 VD31",
+  "tt": "Canh Dần,Mậu Tí,Quý Tị,Nhâm Tí",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Thổ",
+  "d1": "Hỏa",
+  "d2": "Hỏa",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + đủ 3 điều (P1 tr.70)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-423 VD32",
+  "tt": "Giáp Thìn,Ất Hợi,Bính Tuất,Kỷ Hợi",
+  "g": "Nữ",
+  "sach": "?",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -2 (P1 tr.71)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-424 VD33",
+  "tt": "Kỷ Mùi,Quý Dậu,Mậu Dần,Canh Thân",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Hỏa",
+  "d1": "Hỏa",
+  "d2": "Hỏa",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng -2 (P1 tr.71)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-425 VD34",
+  "tt": "Bính Thìn,Mậu Tuất,Bính Ngọ,Mậu Tuất",
+  "g": "Nữ",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Hỏa",
+  "d2": "Thổ",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình 3, phe khác 4 (P1 tr.71; P2 tr.455-457)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-426 VD35",
+  "tt": "Giáp Dần,Nhâm Thân,Mậu Thân,Mậu Ngọ",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Thổ",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình 2, phe khác 5 (P1 tr.71; P2 tr.455-457)",
+  "dem": [
+   2.0,
+   5.0
+  ],
+  "tieu_chi": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-427 VD36",
+  "tt": "Bính Tí,Quý Tị,Bính Ngọ,Quý Tị",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "N",
+  "dung_sach": "Kim",
+  "d1": "Thủy",
+  "d2": "Hỏa",
+  "chon": "VƯỢNG (Theo PP1)",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   1.0,
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-428 VD37",
+  "tt": "Ất Mùi,Giáp Thân,Canh Tuất,Quý Mùi",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 1 trong 3 điều (P1 tr.70)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0,
+   1.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-429 VD38",
+  "tt": "Nhâm Thìn,Canh Tuất,Giáp Ngọ,Giáp Tí",
+  "g": "Nam",
+  "sach": "?",
+  "p1": "N",
+  "p2": "V",
+  "dung_sach": "Mộc",
+  "d1": "Mộc",
+  "d2": "Kim",
+  "chon": "NHƯỢC (Theo PP1)",
+  "quy_tac": "Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình 3, phe khác 4 (P1 tr.71; P2 tr.455-457)",
+  "dem": [
+   3.0,
+   4.0
+  ],
+  "tieu_chi": [
+   0.0,
+   0.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "ten": "P2-430 VD39",
+  "tt": "Giáp Thìn,Giáp Tuất,Tân Sửu,Tân Mão",
+  "g": "Nam",
+  "sach": "V",
+  "p1": "V",
+  "p2": "V",
+  "dung_sach": "Hỏa",
+  "d1": "Hỏa",
+  "d2": "Thủy",
+  "chon": "VƯỢNG (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh + 2 trong 3 điều (P1 tr.70)",
+  "dem": [
+   4.0,
+   3.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   0.0,
+   0.0,
+   1.0
+  ]
+ },
+ {
+  "ten": "P2-430 VD40",
+  "tt": "Bính Ngọ,Mậu Tuất,Nhâm Dần,Bính Ngọ",
+  "g": "Nam",
+  "sach": "N",
+  "p1": "N",
+  "p2": "N",
+  "dung_sach": "Kim",
+  "d1": "Mộc",
+  "d2": "Mộc",
+  "chon": "NHƯỢC (Cả hai (thống nhất))",
+  "quy_tac": "Được lệnh nhưng không đắc địa, không được sinh, không được trợ → không được xem là vượng (P1 tr.70)",
+  "dem": [
+   0.0,
+   7.0
+  ],
+  "tieu_chi": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ }
+]

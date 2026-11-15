@@ -1,0 +1,11 @@
+{"ghi_chu": "Sửa bộ mẫu tài lộc KIEM_THU dòng 137–152 (anh duyệt 14/11/2026). Áp vào workbook 6.5 cùng các thay đổi giai đoạn D; cột H–J tính lại sau vá.",
+ "sua": [
+  {"dong":143, "C":"P2-419 VD27", "D":"Kỷ Sửu,Bính Dần,Đinh Mão,Nhâm Dần", "E":"P2 tr.420", "F":"tài tinh tàng sâu trong kho cho nên người này có thể tích luỹ giàu có", "G":"Giàu", "ly_do":"câu cũ là của VD27, không phải VD28"},
+  {"dong":144, "F":"cuộc đời của cải không nhiều (thân nhược, tài là kị thần)", "E":"P2 tr.422", "ly_do":"câu 'tiểu phú quý' là của VD29; nhãn Vừa giữ nguyên"},
+  {"dong":145, "C":"P2-422 VD31", "D":"Canh Dần,Mậu Tí,Quý Tị,Nhâm Tí", "E":"P2 tr.423", "F":"cuối đời có thể giàu nhất một vùng", "G":"Giàu", "ly_do":"câu là của VD31, không phải VD32"},
+  {"dong":146, "F":"33–41 tuổi là 10 năm huy hoàng nhất, tài vận hanh thông (tài lớn nhờ quan)", "E":"P2 tr.426–427", "G":"Giàu", "ly_do":"câu 'tiền ít' là của VD34"},
+  {"dong":149, "C":"P1-VD8 (nam)", "D":"Giáp Thân,Đinh Sửu,Quý Tị,Nhâm Tí", "E":"P1 tr.191", "F":"phú chân chính… giàu sang đều có", "G":"Giàu", "ly_do":"câu là của P1-VD8, không phải P1-VD9"}
+ ],
+ "them_neu_mo_rong": [
+  {"C":"P2-425 VD34", "D":"Bính Thìn,Mậu Tuất,Bính Ngọ,Mậu Tuất", "E":"P2 tr.426", "F":"suốt đời tiền ít, khó khăn, dù giàu cũng không bền lâu", "G":"Thấp"}
+ ]}

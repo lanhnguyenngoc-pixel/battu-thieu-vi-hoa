@@ -39,7 +39,7 @@ def da_cai(sheet, ref):
 
 def chay(kt, mr):
     global KQ
-    KQ = 'ket_qua_6.4' if os.path.isdir(os.path.join(kt, 'ket_qua_6.4')) else 'ket_qua_6.3'
+    KQ = next((k for k in ('ket_qua_6.5', 'ket_qua_6.4', 'ket_qua_6.3') if os.path.isdir(os.path.join(kt, k))), 'ket_qua_6.3')
     M = model(); F = cell_modules()
     khoa = {k: v for k, v in READ.items() if da_cai(*v)}
     tk = collections.Counter(); dk = collections.Counter(); lk = []

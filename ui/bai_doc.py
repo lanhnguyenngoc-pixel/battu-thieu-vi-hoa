@@ -12,6 +12,7 @@ from PySide6.QtWidgets import QTextBrowser, QToolTip
 from battu_core.du_lieu import model
 from battu_core.thuat_ngu import tu_dien
 from export.noi_dung import khoi
+from ui.trich_dan import TrichDan, tach
 
 CSS = """
 body { font-family: 'Inter'; font-size: 10.5pt; color: #1e2140; }
@@ -39,10 +40,18 @@ class BaiDoc(QTextBrowser):
     def __init__(self):
         super().__init__(); self.setOpenLinks(False); self.document().setDefaultStyleSheet(CSS)
         self.setStyleSheet('QTextBrowser{background:white;border:1px solid #e7e8f3;border-radius:16px;padding:16px 24px;}')
-        self.highlighted.connect(self._goi_y); self.anchorClicked.connect(self._goi_y); self.td = []
+        self.highlighted.connect(self._goi_y); self.anchorClicked.connect(self._bam); self.td = []
+        self.tdan = TrichDan(); self._lai = None
+
+    def _bam(self, u):
+        if self.tdan.bam(u):
+            if self._lai: self._lai()
+            return
+        self._goi_y(u)
 
     def _goi_y(self, u):
         s = u.toString() if isinstance(u, QUrl) else str(u)
+        if s.startswith('cd:'): return
         if not s.startswith('tn:'): QToolTip.hideText(); return
         k, cau, o = self.td[int(s[3:])]
         QToolTip.showText(QCursor.pos(), '<b>%s</b><br>%s' % (html.escape(k), html.escape(cau)), self)
@@ -56,10 +65,19 @@ class BaiDoc(QTextBrowser):
         return s.replace('\n', '<br>')
 
     def hien(self, E, sheet, dong=None, bo_dong=(), mo_dau=''):
-        """Vẽ khối (sheet, dòng) dạng bài đọc; bo_dong: các dòng không vẽ (đã hiện ở chỗ khác)."""
-        self.td = tu_dien(E); b = khoi(E, sheet, dong); o = b['o']
+        """Vẽ khối (sheet, dòng) dạng bài đọc; bo_dong: các dòng không vẽ (đã hiện ở chỗ khác).
+        Nội dung công cụ luận giải in đậm; trích dẫn sách tách ra dòng riêng, ẩn sau liên kết "Căn cứ sách"."""
+        if self._lai is None or getattr(self, '_khoa', None) != (id(E), sheet):
+            self.tdan.mo = set(); self._khoa = (id(E), sheet)
+        self._lai = lambda d0=dong: self.hien(E, sheet, d0, bo_dong, mo_dau)
+        self.td = tu_dien(E); b = khoi(E, sheet, dong); o = b['o']; self.tdan.bat_dau()
         fc = model().formula_cells[model().si[sheet]]
-        H = ['<html><body>', mo_dau]; bang = []
+        H = ['<html><body>', mo_dau(self) if callable(mo_dau) else mo_dau]; bang = []
+        tdan = self.tdan
+
+        def o_bang(t):
+            noi, cits = tach(t)
+            return self._lk(noi) + (('<br>' + tdan.khoi(cits)) if cits else '')
 
         def o_dong(r):
             return [(c, o[(r, c)][0], o[(r, c)][1], b['gop'].get((r, c), (1, 1))[1]) for c in b['cot'] if (r, c) in o and o[(r, c)][0].strip()]
@@ -75,7 +93,7 @@ class BaiDoc(QTextBrowser):
                 cs = list(cs); thieu = rong - sum(n for *_, n in cs)
                 if thieu > 0: c_, t_, k_, n_ = cs[-1]; cs[-1] = (c_, t_, k_, n_ + thieu)
                 H.append('<tr>' + ''.join('<%s%s%s>%s</%s>' % (the, (' colspan="%d"' % n) if n > 1 else '',
-                                                              (' style="%s"' % ((_kieu(k) + ';' if _kieu(k) else '') + ('font-weight:600;color:#3b4064' if (i == 0 and the == 'td' and len(cs) > 1) else ''))), self._lk(t), the)
+                                                              (' style="%s"' % ((_kieu(k) + ';' if _kieu(k) else '') + ('font-weight:600;color:#3b4064' if (i == 0 and the == 'td' and len(cs) > 1) else ''))), o_bang(t), the)
                                           for i, (c, t, k, n) in enumerate(cs)) + '</tr>')
             H.append('</table>'); bang.clear()
         dong = [(r, o_dong(r)) for r in b['dong'] if r not in bo_dong]
@@ -90,12 +108,12 @@ class BaiDoc(QTextBrowser):
             if len(cs) == 1:
                 c, t, k, n = cs[0]
                 if k.get('tieu_de'): H.append('<h3>%s</h3>' % html.escape(t))
-                else: H.append('<p style="%s">%s</p>' % (_kieu(k), self._lk(t)))
+                else: H.append('<p>%s</p>' % tdan.html(t, self._lk, kieu=_kieu(k)))
             else:
                 (c1, t1, k1, _), (c2, t2, k2, _) = cs
                 if dai(cs):
-                    H.append('<h3>%s</h3><p style="%s">%s</p>' % (html.escape(t1.rstrip(':')), _kieu(k2), self._lk(t2))); continue
-                H.append('<p><span class="nhan">%s:</span> <span style="%s">%s</span></p>' % (html.escape(t1.rstrip(':')), _kieu(k2), self._lk(t2)))
+                    H.append('<h3>%s</h3><p>%s</p>' % (html.escape(t1.rstrip(':')), tdan.html(t2, self._lk, kieu=_kieu(k2)))); continue
+                H.append('<p><span class="nhan">%s:</span> %s</p>' % (html.escape(t1.rstrip(':')), tdan.html(t2, self._lk, kieu=_kieu(k2))))
         xa_bang(); H.append('</body></html>')
         y = self.verticalScrollBar().value(); self.setHtml(''.join(H)); self.verticalScrollBar().setValue(y)
 
@@ -113,4 +131,9 @@ class KhungDocLuoi(QStackedWidget):
     def hien(self, E):
         from ui.bang_sheet import CHE_DO
         if CHE_DO['chuyen_gia']: self.luoi.hien(E); self.setCurrentIndex(1)
+        elif self.sheet == 'DAI_VAN':
+            # chế độ thường: kết luận đại vận (mục F) ở đầu; ẩn bảng chấm điểm chi tiết (chỉ có ở chế độ chuyên gia)
+            from ui.trich_dan import dai_van_html
+            self.doc.hien(E, 'DAI_VAN', bo_dong=set(range(45, 75)) | set(range(95, 130)),
+                          mo_dau=lambda bd: dai_van_html(E, bd.tdan, bd._lk)); self.setCurrentIndex(0)
         else: self.doc.hien(E, self.sheet); self.setCurrentIndex(0)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet LUAN_GIAI – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1285,7 +1285,7 @@ def f171(E, r, c):
 
 def f172(E, r, c):
     # Ô F115
-    # = "Sao "&IF(NHAP_LIEU!$C$10="Nam","vợ (sao Tài)","chồng (sao Quan sát)")&" mức "&LOWER(HON_NHAN!$X$64)&"; sách có "&HON_NHAN!$AI$64&" dấu hiệu thuận, "&
+    # = "Sao "&IF(NHAP_LIEU!$C$22="Nam","vợ (sao Tài)","chồng (sao Quan sát)")&" mức "&LOWER(HON_NHAN!$X$64)&"; sách có "&HON_NHAN!$AI$64&" dấu hiệu thuận, "&
     #   HON_NHAN!$AG$64&" dấu hiệu bất lợi về hôn nhân → "&IF(OR(HON_NHAN!$X$64="Tốt",HON_NHAN!$X$64="Khá"),IF(HON_NHAN!$AG$64>HON_NHAN!$AI$64,"người phối ngẫ
     #   u có lực nhưng sự êm ấm dễ va chạm, xa cách; cần nhường nhịn, vun đắp.","người phối ngẫu có lực, giúp được mình; hôn nhân tương đối thuận."),IF(HON_NH
     #   AN!$X$64="Trung bình",IF(HON_NHAN!$AG$64>HON_NHAN!$AI$64,"hôn nhân bình thường nhưng dễ va chạm; cần nhường nhịn, vun đắp.","hôn nhân bình thường, tùy
@@ -1293,7 +1293,7 @@ def f172(E, r, c):
     #   t trợ lực hoặc hôn nhân nhiều trắc trở; cần nhường nhịn, vun đắp."))&IF(LUU_NIEN!$B$5>=40," (Lá số đã qua tuổi kết hôn thông thường: các ý như ‘nên kế
     #   t hôn muộn’ đọc là đặc điểm, không còn là lời khuyên.)",""))&IF(LUU_NIEN!$B$5<=18," (Lưu ý tuổi: chưa thành niên – ý về hôn nhân ở đây là xu hướng xa,
     #    chưa xét lúc này.)","")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Sao ',('vợ (sao Tài)' if X.truthy(X.eq(E.v(2,10,3),'Nam')) else 'chồng (sao Quan sát)')),' mức '),X.LOWER(E.v(17,64,24))),'; sách có '),E.v(17,64,35)),' dấu hiệu thuận, '),E.v(17,64,33)),' dấu hiệu bất lợi về hôn nhân → '),(('người phối ngẫu có lực nhưng sự êm ấm dễ va chạm, xa cách; cần nhường nhịn, vun đắp.' if X.truthy(X.gt(E.v(17,64,33),E.v(17,64,35))) else 'người phối ngẫu có lực, giúp được mình; hôn nhân tương đối thuận.') if X.truthy(X.OR(X.eq(E.v(17,64,24),'Tốt'), X.eq(E.v(17,64,24),'Khá'))) else X.cat((('hôn nhân bình thường nhưng dễ va chạm; cần nhường nhịn, vun đắp.' if X.truthy(X.gt(E.v(17,64,33),E.v(17,64,35))) else 'hôn nhân bình thường, tùy vận.') if X.truthy(X.eq(E.v(17,64,24),'Trung bình')) else ('người phối ngẫu ít trợ lực, hôn nhân nhiều trắc trở (dễ va chạm, xa cách); cần nhường nhịn, vun đắp.' if X.truthy(X.gt(E.v(17,64,33),0.0)) else 'người phối ngẫu ít trợ lực hoặc hôn nhân nhiều trắc trở; cần nhường nhịn, vun đắp.')),(' (Lá số đã qua tuổi kết hôn thông thường: các ý như ‘nên kết hôn muộn’ đọc là đặc điểm, không còn là lời khuyên.)' if X.truthy(X.ge(E.v(15,5,2),40.0)) else '')))),(' (Lưu ý tuổi: chưa thành niên – ý về hôn nhân ở đây là xu hướng xa, chưa xét lúc này.)' if X.truthy(X.le(E.v(15,5,2),18.0)) else ''))
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Sao ',('vợ (sao Tài)' if X.truthy(X.eq(E.v(2,22,3),'Nam')) else 'chồng (sao Quan sát)')),' mức '),X.LOWER(E.v(17,64,24))),'; sách có '),E.v(17,64,35)),' dấu hiệu thuận, '),E.v(17,64,33)),' dấu hiệu bất lợi về hôn nhân → '),(('người phối ngẫu có lực nhưng sự êm ấm dễ va chạm, xa cách; cần nhường nhịn, vun đắp.' if X.truthy(X.gt(E.v(17,64,33),E.v(17,64,35))) else 'người phối ngẫu có lực, giúp được mình; hôn nhân tương đối thuận.') if X.truthy(X.OR(X.eq(E.v(17,64,24),'Tốt'), X.eq(E.v(17,64,24),'Khá'))) else X.cat((('hôn nhân bình thường nhưng dễ va chạm; cần nhường nhịn, vun đắp.' if X.truthy(X.gt(E.v(17,64,33),E.v(17,64,35))) else 'hôn nhân bình thường, tùy vận.') if X.truthy(X.eq(E.v(17,64,24),'Trung bình')) else ('người phối ngẫu ít trợ lực, hôn nhân nhiều trắc trở (dễ va chạm, xa cách); cần nhường nhịn, vun đắp.' if X.truthy(X.gt(E.v(17,64,33),0.0)) else 'người phối ngẫu ít trợ lực hoặc hôn nhân nhiều trắc trở; cần nhường nhịn, vun đắp.')),(' (Lá số đã qua tuổi kết hôn thông thường: các ý như ‘nên kết hôn muộn’ đọc là đặc điểm, không còn là lời khuyên.)' if X.truthy(X.ge(E.v(15,5,2),40.0)) else '')))),(' (Lưu ý tuổi: chưa thành niên – ý về hôn nhân ở đây là xu hướng xa, chưa xét lúc này.)' if X.truthy(X.le(E.v(15,5,2),18.0)) else ''))
 
 def f173(E, r, c):
     # Ô G115

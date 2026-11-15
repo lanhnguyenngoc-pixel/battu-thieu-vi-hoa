@@ -39,6 +39,16 @@ def anh_bieu_do(E, rong=1500, cao=640):
 def _e(t): return html.escape(t).replace('\n', '<br>')
 
 
+def _kl(t, dam=True):
+    """Kết luận của công cụ (đậm) + căn cứ sách ở dòng riêng, chữ thường (bản in không có liên kết để bấm)."""
+    from ui.trich_dan import tach, chi_la_trich
+    noi, cits = tach(t)
+    if chi_la_trich(noi, cits): return _e(t)
+    h = ('<b>%s</b>' % _e(noi)) if dam else _e(noi)
+    if cits: h += '<br><span style="font-weight:normal;color:#5b6078;font-size:8pt">Căn cứ sách: %s</span>' % _e('; '.join(cits))
+    return h
+
+
 def _bang_html(b):
     if not b['dong']: return '<p class="nho">(không có nội dung)</p>'
     tong = sum(b['rong'][c] for c in b['cot']) or 1
@@ -57,7 +67,7 @@ def _bang_html(b):
             if k.get('nen'): st.append('background:%s' % k['nen'])
             cls = ' class="td"' if k.get('tieu_de') else ''
             h.append('<td%s%s%s%s>%s</td>' % (cls, ' rowspan="%d"' % rs if rs > 1 else '', ' colspan="%d"' % cs if cs > 1 else '',
-                                            ' style="%s"' % ';'.join(st) if st else '', _e(t)))
+                                            ' style="%s"' % ';'.join(st) if st else '', _kl(t, dam=False)))
         h.append('</tr>')
     h.append('</table>')
     return ''.join(h)
@@ -76,7 +86,7 @@ def dung_tai_lieu(kq, muc=None, bieu_do=True):
     if o('B2').strip(): h.append('<p class="cb">%s</p>' % _e(o('B2')))
     h.append('<table class="bang" width="100%" cellspacing="0">')
     for r in range(4, 13):
-        h.append('<tr><td class="td" width="22%%">%s</td><td>%s</td></tr>' % (_e(o('B%d' % r)), _e(o('C%d' % r))))
+        h.append('<tr><td class="td" width="22%%">%s</td><td>%s</td></tr>' % (_e(o('B%d' % r)), _kl(o('C%d' % r))))
     h.append('</table><p class="nho">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa.</p>')
     if bieu_do:
         h.append('<h2>Biểu đồ năng lực và đại vận</h2>')

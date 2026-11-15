@@ -1,0 +1,1462 @@
+[
+ {
+  "cau": "Nhật đóng ở tài tinh, giàu lên nhờ vợ",
+  "so_vd": 2,
+  "linh_vuc": [
+   "HN",
+   "TL"
+  ],
+  "nhan": {
+   "T": 2
+  },
+  "vi_du": [
+   "C15-4 (tr.468)",
+   "C15-4 (tr.468)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thân nhược không thắng tài thì vì của mà sinh nạn",
+  "so_vd": 2,
+  "linh_vuc": [
+   "SK",
+   "TL"
+  ],
+  "nhan": {
+   "V": 1,
+   "K": 1
+  },
+  "vi_du": [
+   "C18-9 (tr.528)",
+   "C18-9 (tr.528)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Tài vượng tổn thương ấn nên mẹ bị mất",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C12-10 (tr.443)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "tuổi nhỏ mẹ đi xa là vì tài nhiều khắc ấn",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C12-15 (tr.445)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thiên tài bị khắc là cha mất trước",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C12-16 (tr.446)"
+  ],
+  "trong_cong_cu": "LUC_THAN dòng 199",
+  "do_giong": 0.93
+ },
+ {
+  "cau": "Kiêu thần đoạt thực thần là cha nhất định chết",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C12-16 (tr.446)"
+  ],
+  "trong_cong_cu": "SUC_KHOE dòng 27",
+  "do_giong": 0.72
+ },
+ {
+  "cau": "Trụ năm, trụ tháng có tài, thực là tổ nghiệp ông cha hưng thịnh",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C13-4 (tr.449)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Tài gặp vượng địa thì nết nhà hưng thịnh",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C13-5 (tr.450)"
+  ],
+  "trong_cong_cu": "LUC_THAN dòng 142",
+  "do_giong": 0.79
+ },
+ {
+  "cau": "Thân, tài đều vượng…",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C13-5 (tr.450)"
+  ],
+  "trong_cong_cu": "MAU_THUAN dòng 152",
+  "do_giong": 0.75
+ },
+ {
+  "cau": "Trên trụ năm thương quan, lại còn phục kình dương",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C13-6 (tr.452)"
+  ],
+  "trong_cong_cu": "LUC_THAN dòng 181",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "Huynh đệ gặp trạch mã là chủ về anh em đi xa",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "V": 1
+  },
+  "vi_du": [
+   "C14-6 (tr.458)"
+  ],
+  "trong_cong_cu": "LUC_THAN dòng 234",
+  "do_giong": 0.94
+ },
+ {
+  "cau": "Trụ tháng gặp thương quan là anh em có tổn thất",
+  "so_vd": 1,
+  "linh_vuc": [
+   "LT"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C14-8 (tr.460)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Tài quan ấn thụ, tất vượng phu",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C15-1 (tr.467)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Nhật đóng ở tài kho, người đó sẽ giàu",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C15-3 (tr.467)"
+  ],
+  "trong_cong_cu": "HON_NHAN dòng 180",
+  "do_giong": 0.79
+ },
+ {
+  "cau": "nhất sát thanh thấu",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C15-5 (tr.468)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "sát gặp mộ địa, tất lấy chồng phú quý",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C15-5 (tr.468)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Vợ hiền lại đẹp, có uy vọng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C15-6 (tr.468)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương quan trùm ấn là người có vợ ban đầu là người giúp việc, sau thành vợ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "V": 1
+  },
+  "vi_du": [
+   "C15-7 (tr.468)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Nam gặp thương quan tất sẽ lấy vợ lần thứ hai",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-9 (tr.472)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "kình dương khắc vợ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-10 (tr.473)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "nhật đóng ở kình dương",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-11 (tr.473)"
+  ],
+  "trong_cong_cu": "HON_NHAN dòng 80",
+  "do_giong": 0.73
+ },
+ {
+  "cau": "thương quan",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-11 (tr.473)"
+  ],
+  "trong_cong_cu": "LUAN_GIAI dòng 114",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "thê gặp mộ địa",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-11 (tr.473)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Nam gặp kình dương thì khắc vợ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-17 (tr.475)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Kiêu ấn trùng trùng là người phụ nữ tử biệt sinh ly",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-22 (tr.481)"
+  ],
+  "trong_cong_cu": "HON_NHAN dòng 174",
+  "do_giong": 0.91
+ },
+ {
+  "cau": "Thương quan vượng địa là người khắc chồng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-24 (tr.482)"
+  ],
+  "trong_cong_cu": "HON_NHAN dòng 233",
+  "do_giong": 0.72
+ },
+ {
+  "cau": "Tỉ kiếp trùng trùng là chồng không còn tình nghĩa",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-25 (tr.482)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Tỉ kiếp trùng trùng là kết hôn 2 lần",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-26 (tr.482)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "không là vợ lẽ thì cũng là vợ kế",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-27 (tr.483)"
+  ],
+  "trong_cong_cu": "HON_NHAN dòng 97",
+  "do_giong": 0.97
+ },
+ {
+  "cau": "thương quan gặp quan",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-27 (tr.483)"
+  ],
+  "trong_cong_cu": "LUC_THAN dòng 290",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "thương quan gặp quan là có tai hoạ hôn nhân bất ngờ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-28 (tr.483)"
+  ],
+  "trong_cong_cu": "SUC_KHOE dòng 27",
+  "do_giong": 0.82
+ },
+ {
+  "cau": "Tứ trụ thuần âm là tượng khắc chồng tái giá",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-30 (tr.484)"
+  ],
+  "trong_cong_cu": "HON_NHAN dòng 96",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "thực kiêu cùng gặp thương quan",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-30 (tr.484)"
+  ],
+  "trong_cong_cu": "LUU_NIEN dòng 29",
+  "do_giong": 0.72
+ },
+ {
+  "cau": "Kiêu ấn trùng lặp… tử biệt sinh ly",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C15-30 (tr.484)"
+  ],
+  "trong_cong_cu": "HON_NHAN dòng 174",
+  "do_giong": 0.75
+ },
+ {
+  "cau": "Nữ gặp thìn tuất sửu mùi là người vừa khắc chồng lại khó nuôi con",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CC"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C16-11 (tr.511)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Nữ gặp thìn tuất sửu mùi là người vừa khắc chồng…",
+  "so_vd": 1,
+  "linh_vuc": [
+   "HN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C16-11 (tr.511)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thân nhược sát vượng thì không chết cũng tàn tật",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C16-12 (tr.511)"
+  ],
+  "trong_cong_cu": "SUC_KHOE dòng 84",
+  "do_giong": 0.79
+ },
+ {
+  "cau": "năm, tháng gặp tài, khắc ấn của giờ thì con không chết cũng tàn phế",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CC"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C16-13 (tr.512)"
+  ],
+  "trong_cong_cu": "LUC_THAN dòng 320",
+  "do_giong": 0.73
+ },
+ {
+  "cau": "Cung con cái gặp mộ thì con cái nhiều bệnh, hoặc tù, hoặc tàn phế",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CC"
+  ],
+  "nhan": {
+   "V": 1
+  },
+  "vi_du": [
+   "C16-15 (tr.512)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "thân vượng vô tài là người đi tu khó hoàn tục",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-1 (tr.517)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "thương quan bị chế phục thái quá nên phải tu hành để giữ được sự an nhàn",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-2 (tr.517)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "thuỷ nhiều, tài tuyệt, nhật nguyên không có nơi nương tựa",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-3 (tr.517)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "chi năm xung lộc lại gặp kiêu đoạt thực",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-4 (tr.517)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "thân tuyệt hưu tù, quan ở đất bệnh lại bị hợp",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-5 (tr.517)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "thân vượng không có nơi nương tựa",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-6 (tr.517)"
+  ],
+  "trong_cong_cu": "MAU_THUAN dòng 79",
+  "do_giong": 0.82
+ },
+ {
+  "cau": "hoả mùa hạ nóng…",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-7 (tr.518)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "thân tuyệt hưu tù",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-7 (tr.518)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "không có tài, quan tù là người không tu hành cũng là tín đồ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TU"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C17-8 (tr.518)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Tài đóng ở nhật nguyên hành đến vận tài thì phát",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C18-1 (tr.523)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 75",
+  "do_giong": 0.97
+ },
+ {
+  "cau": "Tài tinh có kho thì phát tài có chỗ chứa",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C18-2 (tr.523)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 63",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "tài kho gặp đất tam hợp tất phát vạn kim",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C18-2 (tr.523)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 254",
+  "do_giong": 0.82
+ },
+ {
+  "cau": "Tài nhiều lại được tỉ kiếp trợ giúp là nhà thịnh vượng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C18-4 (tr.524)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 77",
+  "do_giong": 0.85
+ },
+ {
+  "cau": "Tài ở vượng địa thì suốt đời của cải hùng hậu",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C18-4 (tr.524)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Vốn có tài tinh hành đến tài vận thì đại phát",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C18-5 (tr.524)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 19",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "Thương quan thực thần mừng được sinh tài",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C18-6 (tr.525)"
+  ],
+  "trong_cong_cu": "MAU_THUAN dòng 81",
+  "do_giong": 0.73
+ },
+ {
+  "cau": "Tỉ kiếp trùng trùng lại gặp tỉ kiếp là phá tài và ra cửa quan",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C18-10 (tr.528)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Tứ trụ kiếp nhiều lại hành vận tỉ kiếp thì nên giữ mình an phận",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C18-11 (tr.529)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 275",
+  "do_giong": 0.76
+ },
+ {
+  "cau": "Ấn kiêu gặp tài địa, không tỉ kiếp thì tai hoạ vô cùng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C18-14 (tr.530)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 274",
+  "do_giong": 0.78
+ },
+ {
+  "cau": "Kình dương, thất sát lại gặp thương quan, đó là người làm tướng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C19-1 (tr.538)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương quan có chế hoá là có quyền hành, đến vận tài địa thì sẽ được lên chức",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C19-3 (tr.538)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 195",
+  "do_giong": 0.97
+ },
+ {
+  "cau": "tam hình gặp quý thì thăng chức ngay",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C19-6 (tr.540)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 182",
+  "do_giong": 0.82
+ },
+ {
+  "cau": "thuần sát, thuần tài thân không tạp… quan ở cực phẩm",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C19-6 (tr.540)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương quan gặp quan, không bãi quan cũng mất chức",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C19-8 (tr.543)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 116",
+  "do_giong": 0.74
+ },
+ {
+  "cau": "Quan tinh bị hợp thì làm quan không lâu",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C19-8 (tr.543)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương quan gặp quan, không mất chức nhất định là ốm nặng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "V": 1
+  },
+  "vi_du": [
+   "C19-9 (tr.543)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 116",
+  "do_giong": 0.75
+ },
+ {
+  "cau": "Thương quan có chế ngự, lợi cho thi cử",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-1 (tr.548)"
+  ],
+  "trong_cong_cu": "MAU_THUAN dòng 79",
+  "do_giong": 0.74
+ },
+ {
+  "cau": "Kình dương nhiều lại gặp sát là đại quý, thi đỗ cao",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-4 (tr.549)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Kim thuỷ thương quan là người học giỏi",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-5 (tr.550)"
+  ],
+  "trong_cong_cu": "TO_CHAT dòng 50",
+  "do_giong": 0.74
+ },
+ {
+  "cau": "Ấn gặp hoa cái là ở hàn lâm tôn quý",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-5 (tr.550)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 137",
+  "do_giong": 0.76
+ },
+ {
+  "cau": "Ấn vượng, sát yếu thì có tên bảng vàng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-6 (tr.550)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Ấn thụ chủ về thông minh, nhưng thuỷ thổ hỗn tạp thì tất phải ngốc",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C20-7 (tr.550)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "nhật nguyên yếu, thương thực nhiều là người sợ đi học",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C20-8 (tr.551)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Đinh nhâm hoá mộc ở giờ dần thì văn chương cái thế",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-9 (tr.554)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 236",
+  "do_giong": 0.74
+ },
+ {
+  "cau": "Kình dương nhiều lại gặp sát thì danh nổi khắp thiên hạ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-10 (tr.555)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương quan hợp với sát thì danh tiếng lẫy lừng thiên hạ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-11 (tr.555)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Sát ấn tương sinh thì công danh hiển đạt",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-12 (tr.555)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương quan lẫn với ấn, có gan thi thố thì nổi tiếng bất ngờ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-13 (tr.555)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 242",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "Năm gặp quan quý nghệ thuật cao nổi tiếng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-14 (tr.556)"
+  ],
+  "trong_cong_cu": "SU_NGHIEP dòng 226",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "Quan lộc quý mã gặp hợp hình thì rất nhanh nổi tiếng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "CD"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "C20-15 (tr.556)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Nhâm thuỷ khắc bính hoả",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-1 (tr.561)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Kiêu gặp kiêu vượng, không bệnh thì tai hoạ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-2 (tr.561)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Kiêu, thực đóng ở trụ ngày, can chi lại gặp kiêu… kiêu đoạt thực tất bị bệnh",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-4 (tr.562)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Quan gặp thương quan, không bệnh cũng tai hoạ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-7 (tr.563)"
+  ],
+  "trong_cong_cu": "LUU_NIEN dòng 29",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "Trong trụ thương thực nhiều, tất có bệnh đau đầu",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-8 (tr.563)"
+  ],
+  "trong_cong_cu": "SUC_KHOE dòng 79",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "Thương quan nhiều thì chân tay, gân cốt bị thương hoặc tàn phế",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-10 (tr.564)"
+  ],
+  "trong_cong_cu": "SUC_KHOE dòng 86",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "Thương quan gặp quan thì tật bệnh, tàn phế",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-11 (tr.564)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Hoả gặp thuỷ khắc thì mắt mờ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-12 (tr.564)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương gặp thương lại gặp quan…",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-14 (tr.565)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Kiêu gặp kiêu vượng, không ốm thì cũng bị thương",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-15 (tr.565)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Kình dương xung khắc tuế quân là tai nạn rất nặng",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-16 (tr.566)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Tỉ kiếp gặp tài tất có tai hoạ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TH"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-25 (tr.571)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Kiêu thần đoạt thực, không ốm cũng tai hoạ",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SK"
+  ],
+  "nhan": {
+   "K": 1
+  },
+  "vi_du": [
+   "C21-26 (tr.572)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "Thương quan sinh tài là phú quý do trời đưa đến",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "P1-VD8 (nam) (tr.191)"
+  ],
+  "trong_cong_cu": "KIEM_THU dòng 154",
+  "do_giong": 0.85
+ },
+ {
+  "cau": "phú chân chính",
+  "so_vd": 1,
+  "linh_vuc": [
+   "TL"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "P1-VD8 (nam) (tr.191)"
+  ],
+  "trong_cong_cu": "KIEM_THU dòng 149",
+  "do_giong": 1.0
+ },
+ {
+  "cau": "ngày giờ tương hình gặp quý nên là người có quyền có chức",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "V": 1
+  },
+  "vi_du": [
+   "P1-VD9 (nam) (tr.192–193)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "thương quan có cả ấn, quý không nói hết được",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "P1-VD15 (nam) (tr.198–200)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ },
+ {
+  "cau": "ấn sát tương sinh là chủ về công danh",
+  "so_vd": 1,
+  "linh_vuc": [
+   "SN"
+  ],
+  "nhan": {
+   "T": 1
+  },
+  "vi_du": [
+   "P1-VD15 (nam) (tr.198–200)"
+  ],
+  "trong_cong_cu": "",
+  "do_giong": 0
+ }
+]

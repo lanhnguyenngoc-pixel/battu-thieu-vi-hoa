@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet PP1_DINH_TINH – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -758,20 +758,13 @@ def f137(E, r, c):
 
 def f138(E, r, c):
     # Ô C91
-    # = IF(AND(C62=1,C66=3),"Quá vượng",IF(AND(C62=1,C66=2),"Rất vượng",IF(AND(C62=1,C66=1),"Thân vượng",IF(AND(C62=1,C66=0),"Thân nhược",IF(AND(C66>=2,D66>=2
-    #   ),IF(D66=3,"Rất vượng","Thân vượng"),IF(AND(C66=1,C67=1),"Thân vượng",IF(C66>=2,IF(C88>0,"Thân vượng",IF(C88<0,"Thân nhược",IF(C89>D89,"Thân vượng",IF
-    #   (C89<D89,"Thân nhược","Trung hòa")))),IF(AND(C66=0,C68=1),"Quá nhược","Thân nhược"))))))))
-    return ('Quá vượng' if X.truthy(X.AND(X.eq(E.v(9,r-29,c),1.0), X.eq(E.v(9,r-25,c),3.0))) else ('Rất vượng' if X.truthy(X.AND(X.eq(E.v(9,r-29,c),1.0), X.eq(E.v(9,r-25,c),2.0))) else ('Thân vượng' if X.truthy(X.AND(X.eq(E.v(9,r-29,c),1.0), X.eq(E.v(9,r-25,c),1.0))) else ('Thân nhược' if X.truthy(X.AND(X.eq(E.v(9,r-29,c),1.0), X.eq(E.v(9,r-25,c),0.0))) else (('Rất vượng' if X.truthy(X.eq(E.v(9,r-25,c+1),3.0)) else 'Thân vượng') if X.truthy(X.AND(X.ge(E.v(9,r-25,c),2.0), X.ge(E.v(9,r-25,c+1),2.0))) else ('Thân vượng' if X.truthy(X.AND(X.eq(E.v(9,r-25,c),1.0), X.eq(E.v(9,r-24,c),1.0))) else (('Thân vượng' if X.truthy(X.gt(E.v(9,r-3,c),0.0)) else ('Thân nhược' if X.truthy(X.lt(E.v(9,r-3,c),0.0)) else ('Thân vượng' if X.truthy(X.gt(E.v(9,r-2,c),E.v(9,r-2,c+1))) else ('Thân nhược' if X.truthy(X.lt(E.v(9,r-2,c),E.v(9,r-2,c+1))) else 'Trung hòa')))) if X.truthy(X.ge(E.v(9,r-25,c),2.0)) else ('Quá nhược' if X.truthy(X.AND(X.eq(E.v(9,r-25,c),0.0), X.eq(E.v(9,r-23,c),1.0))) else 'Thân nhược'))))))))
+    # = IF($C$117=-1,"Thân nhược",IF($C$117=1,"Thân vượng",$C$115))
+    return ('Thân nhược' if X.truthy(X.eq(E.v(9,117,3),X.neg(1.0))) else ('Thân vượng' if X.truthy(X.eq(E.v(9,117,3),1.0)) else E.v(9,115,3)))
 
 def f139(E, r, c):
     # Ô C92
-    # = IF(AND(C62=1,C66=3),"Được lệnh + đủ 3 điều (P1 tr.70)",IF(AND(C62=1,C66=2),"Được lệnh + 2 trong 3 điều (P1 tr.70)",IF(AND(C62=1,C66=1),"Được lệnh + 1 
-    #   trong 3 điều (P1 tr.70)",IF(AND(C62=1,C66=0),"Được lệnh nhưng không đắc địa, không được sinh, không được trợ → không được xem là vượng (P1 tr.70)",IF(
-    #   AND(C66>=2,D66>=2),"Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)",IF(AND(C66=1,C67=1),"Không lệnh, 1 điều, có tam hợp/t
-    #   am hội ấn cục hoặc tỉ cục (P1 tr.70, quy tắc 4)",IF(C66>=2,IF(C88=0,"Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình "&
-    #   C89&", phe khác "&D89&" (P1 tr.71; P2 tr.455-457)","Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng "&C88&" (P1 tr.71)")
-    #   ,IF(AND(C66=0,C68=1),"Không lệnh, không đắc địa, không có ấn, không có tỉ kiếp (P1 tr.172)","Không lệnh, ≤1 điều (P1 tr.70)"))))))))
-    return ('Được lệnh + đủ 3 điều (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-30,c),1.0), X.eq(E.v(9,r-26,c),3.0))) else ('Được lệnh + 2 trong 3 điều (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-30,c),1.0), X.eq(E.v(9,r-26,c),2.0))) else ('Được lệnh + 1 trong 3 điều (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-30,c),1.0), X.eq(E.v(9,r-26,c),1.0))) else ('Được lệnh nhưng không đắc địa, không được sinh, không được trợ → không được xem là vượng (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-30,c),1.0), X.eq(E.v(9,r-26,c),0.0))) else ('Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)' if X.truthy(X.AND(X.ge(E.v(9,r-26,c),2.0), X.ge(E.v(9,r-26,c+1),2.0))) else ('Không lệnh, 1 điều, có tam hợp/tam hội ấn cục hoặc tỉ cục (P1 tr.70, quy tắc 4)' if X.truthy(X.AND(X.eq(E.v(9,r-26,c),1.0), X.eq(E.v(9,r-25,c),1.0))) else ((X.cat(X.cat(X.cat(X.cat('Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình ',E.v(9,r-3,c)),', phe khác '),E.v(9,r-3,c+1)),' (P1 tr.71; P2 tr.455-457)') if X.truthy(X.eq(E.v(9,r-4,c),0.0)) else X.cat(X.cat('Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng ',E.v(9,r-4,c)),' (P1 tr.71)')) if X.truthy(X.ge(E.v(9,r-26,c),2.0)) else ('Không lệnh, không đắc địa, không có ấn, không có tỉ kiếp (P1 tr.172)' if X.truthy(X.AND(X.eq(E.v(9,r-26,c),0.0), X.eq(E.v(9,r-24,c),1.0))) else 'Không lệnh, ≤1 điều (P1 tr.70)'))))))))
+    # = $C$116&IF(OR($C$117=-1,$C$117=1)," → bước 5 kiểm chứng: "&IF($C$117=-1,"đổi thành thân nhược","đổi thành thân vượng")&" (P1 tr.70–72)","")
+    return X.cat(E.v(9,116,3),(X.cat(X.cat(' → bước 5 kiểm chứng: ',('đổi thành thân nhược' if X.truthy(X.eq(E.v(9,117,3),X.neg(1.0))) else 'đổi thành thân vượng')),' (P1 tr.70–72)') if X.truthy(X.OR(X.eq(E.v(9,117,3),X.neg(1.0)), X.eq(E.v(9,117,3),1.0))) else ''))
 
 def f140(E, r, c):
     # Ô D96
@@ -1026,25 +1019,58 @@ def f161(E, r, c):
     # = "Nhật chủ "&TRUNG_GIAN!$E$10&" ("&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&") – "&UPPER(C91)&". Lý do: "&IF(C62=1,"được lệnh","không được lệnh")&", "&C66&"/3
     #    điều còn lại có mặt, "&D66&" điều mạnh"&IF(ISNUMBER(SEARCH("phân xử",C92)),"; phân xử a–d được "&C88,"")&". "&IF(OR(C91="Thân nhược",C91="Quá nhược")
     #   ,"Nhật chủ yếu → cần hành sinh – trợ (ấn, tỉ kiếp) làm dụng thần.",IF(C91="Trung hòa","Nhật chủ cân bằng → xem DUNG_HY_KY phần trung hòa.","Nhật chủ m
-    #   ạnh → cần hành khắc – tiết – hao (quan sát, thực thương, tài) làm dụng thần."))
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Nhật chủ ',E.v(23,10,5)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),') – '),X.UPPER(E.v(9,r-19,c))),'. Lý do: '),('được lệnh' if X.truthy(X.eq(E.v(9,r-48,c),1.0)) else 'không được lệnh')),', '),E.v(9,r-44,c)),'/3 điều còn lại có mặt, '),E.v(9,r-44,c+1)),' điều mạnh'),(X.cat('; phân xử a–d được ',E.v(9,r-22,c)) if X.truthy(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,r-18,c)))) else '')),'. '),('Nhật chủ yếu → cần hành sinh – trợ (ấn, tỉ kiếp) làm dụng thần.' if X.truthy(X.OR(X.eq(E.v(9,r-19,c),'Thân nhược'), X.eq(E.v(9,r-19,c),'Quá nhược'))) else ('Nhật chủ cân bằng → xem DUNG_HY_KY phần trung hòa.' if X.truthy(X.eq(E.v(9,r-19,c),'Trung hòa')) else 'Nhật chủ mạnh → cần hành khắc – tiết – hao (quan sát, thực thương, tài) làm dụng thần.')))
+    #   ạnh → cần hành khắc – tiết – hao (quan sát, thực thương, tài) làm dụng thần."))&IF($C$117<>0," Bước 5: "&$C$118,"")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Nhật chủ ',E.v(23,10,5)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),') – '),X.UPPER(E.v(9,r-19,c))),'. Lý do: '),('được lệnh' if X.truthy(X.eq(E.v(9,r-48,c),1.0)) else 'không được lệnh')),', '),E.v(9,r-44,c)),'/3 điều còn lại có mặt, '),E.v(9,r-44,c+1)),' điều mạnh'),(X.cat('; phân xử a–d được ',E.v(9,r-22,c)) if X.truthy(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,r-18,c)))) else '')),'. '),('Nhật chủ yếu → cần hành sinh – trợ (ấn, tỉ kiếp) làm dụng thần.' if X.truthy(X.OR(X.eq(E.v(9,r-19,c),'Thân nhược'), X.eq(E.v(9,r-19,c),'Quá nhược'))) else ('Nhật chủ cân bằng → xem DUNG_HY_KY phần trung hòa.' if X.truthy(X.eq(E.v(9,r-19,c),'Trung hòa')) else 'Nhật chủ mạnh → cần hành khắc – tiết – hao (quan sát, thực thương, tài) làm dụng thần.'))),(X.cat(' Bước 5: ',E.v(9,118,3)) if X.truthy(X.ne(E.v(9,117,3),0.0)) else ''))
 
 def f162(E, r, c):
     # Ô C111
-    # = IF(AND(C62=0,C66>=2,D66>=2,SUM(C49:F49)+SUM(C58:F58)=0,(IF(OR(C46=1,C51=1,C55=1),1,0)+IF(OR(D46=1,D51=1,D55=1),1,0)+IF(OR(E46=1,E51=1,E55=1),1,0)+IF(O
-    #   R(F46=1,F51=1,F55=1),1,0))=1),"⚠ LƯU Ý (P1 tr.71; giả định G21): mọi điều ""mạnh"" của PP1 chỉ đến từ MỘT chi ("&TRIM(IF(OR(C46=1,C51=1,C55=1),"chi Nă
-    #   m "&TRUNG_GIAN!$C$11&" ","")&IF(OR(D46=1,D51=1,D55=1),"chi Tháng "&TRUNG_GIAN!$D$11&" ","")&IF(OR(E46=1,E51=1,E55=1),"chi Ngày "&TRUNG_GIAN!$E$11&" ",
-    #   "")&IF(OR(F46=1,F51=1,F55=1),"chi Giờ "&TRUNG_GIAN!$F$11&" ",""))&"). Sách cảnh báo ngay sau quy tắc này: ""nếu trong đắc địa, thành phần trường sinh,
-    #    lộc, kình dương, mộ chiếm ít thì thành phần địa chi khắc tôi, làm hao tán, xì hơi tôi sẽ nhiều … nửa vượng, nửa nhược"". Vì vậy kết luận VƯỢNG của PP
-    #   1 kém c"&"hắc; nếu phân xử a–d thì tổng "&C88&" ("&IF(C88>0,"nghiêng vượng",IF(C88<0,"nghiêng nhược","cân bằng – trung hòa"))&"). Công cụ KHÔNG đổi kế
-    #   t quả PP1 (thử trên 58 lá có lời giải: không tăng độ đúng), chỉ cảnh báo – xem khuyến nghị ở DOI_CHIEU.","")
-    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('⚠ LƯU Ý (P1 tr.71; giả định G21): mọi điều "mạnh" của PP1 chỉ đến từ MỘT chi (',X.TRIM(X.cat(X.cat(X.cat((X.cat(X.cat('chi Năm ',E.v(23,11,3)),' ') if X.truthy(X.OR(X.eq(E.v(9,r-65,c),1.0), X.eq(E.v(9,r-60,c),1.0), X.eq(E.v(9,r-56,c),1.0))) else ''),(X.cat(X.cat('chi Tháng ',E.v(23,11,4)),' ') if X.truthy(X.OR(X.eq(E.v(9,r-65,c+1),1.0), X.eq(E.v(9,r-60,c+1),1.0), X.eq(E.v(9,r-56,c+1),1.0))) else '')),(X.cat(X.cat('chi Ngày ',E.v(23,11,5)),' ') if X.truthy(X.OR(X.eq(E.v(9,r-65,c+2),1.0), X.eq(E.v(9,r-60,c+2),1.0), X.eq(E.v(9,r-56,c+2),1.0))) else '')),(X.cat(X.cat('chi Giờ ',E.v(23,11,6)),' ') if X.truthy(X.OR(X.eq(E.v(9,r-65,c+3),1.0), X.eq(E.v(9,r-60,c+3),1.0), X.eq(E.v(9,r-56,c+3),1.0))) else '')))),'). Sách cảnh báo ngay sau quy tắc này: "nếu trong đắc địa, thành phần trường sinh, lộc, kình dương, mộ chiếm ít thì thành phần địa chi khắc tôi, làm hao tán, xì hơi tôi sẽ nhiều … nửa vượng, nửa nhược". Vì vậy kết luận VƯỢNG của PP1 kém c'),'hắc; nếu phân xử a–d thì tổng '),E.v(9,r-23,c)),' ('),('nghiêng vượng' if X.truthy(X.gt(E.v(9,r-23,c),0.0)) else ('nghiêng nhược' if X.truthy(X.lt(E.v(9,r-23,c),0.0)) else 'cân bằng – trung hòa'))),'). Công cụ KHÔNG đổi kết quả PP1 (thử trên 58 lá có lời giải: không tăng độ đúng), chỉ cảnh báo – xem khuyến nghị ở DOI_CHIEU.') if X.truthy(X.AND(X.eq(E.v(9,r-49,c),0.0), X.ge(E.v(9,r-45,c),2.0), X.ge(E.v(9,r-45,c+1),2.0), X.eq(X.add(X.SUM(E.rg(9,r-62,c,r-62,c+3)),X.SUM(E.rg(9,r-53,c,r-53,c+3))),0.0), X.eq(X.add(X.add(X.add((1.0 if X.truthy(X.OR(X.eq(E.v(9,r-65,c),1.0), X.eq(E.v(9,r-60,c),1.0), X.eq(E.v(9,r-56,c),1.0))) else 0.0),(1.0 if X.truthy(X.OR(X.eq(E.v(9,r-65,c+1),1.0), X.eq(E.v(9,r-60,c+1),1.0), X.eq(E.v(9,r-56,c+1),1.0))) else 0.0)),(1.0 if X.truthy(X.OR(X.eq(E.v(9,r-65,c+2),1.0), X.eq(E.v(9,r-60,c+2),1.0), X.eq(E.v(9,r-56,c+2),1.0))) else 0.0)),(1.0 if X.truthy(X.OR(X.eq(E.v(9,r-65,c+3),1.0), X.eq(E.v(9,r-60,c+3),1.0), X.eq(E.v(9,r-56,c+3),1.0))) else 0.0)),1.0))) else '')
+    # = IF($C$117=2,"⚠ VƯỢNG CẬN RANH GIỚI: "&$C$118,"")
+    return (X.cat('⚠ VƯỢNG CẬN RANH GIỚI: ',E.v(9,118,3)) if X.truthy(X.eq(E.v(9,117,3),2.0)) else '')
 
 def f163(E, r, c):
     # Ô C112
-    # = IF(OR(C111<>"",AND(ISNUMBER(SEARCH("phân xử",C92)),C88=0)),"NEED_REVIEW – cần luận giải (P1 tr.71): "&IF(C111<>"","mọi điều mạnh chỉ từ một chi","nửa 
+    # = IF(OR(C111<>"",AND(ISNUMBER(SEARCH("phân xử",C92)),C88=0)),"NEED_REVIEW – cần luận giải (P1 tr.71): "&IF(C111<>"","vượng cận ranh giới (bước 5)","nửa 
     #   vượng nửa nhược, phân xử a–d hòa – kết luận theo đếm chữ"),"AUTO_CONCLUSION – kết luận theo quy tắc P1 tr.70-71")
-    return (X.cat('NEED_REVIEW – cần luận giải (P1 tr.71): ',('mọi điều mạnh chỉ từ một chi' if X.truthy(X.ne(E.v(9,r-1,c),'')) else 'nửa vượng nửa nhược, phân xử a–d hòa – kết luận theo đếm chữ')) if X.truthy(X.OR(X.ne(E.v(9,r-1,c),''), X.AND(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,r-20,c))), X.eq(E.v(9,r-24,c),0.0)))) else 'AUTO_CONCLUSION – kết luận theo quy tắc P1 tr.70-71')
+    return (X.cat('NEED_REVIEW – cần luận giải (P1 tr.71): ',('vượng cận ranh giới (bước 5)' if X.truthy(X.ne(E.v(9,r-1,c),'')) else 'nửa vượng nửa nhược, phân xử a–d hòa – kết luận theo đếm chữ')) if X.truthy(X.OR(X.ne(E.v(9,r-1,c),''), X.AND(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,r-20,c))), X.eq(E.v(9,r-24,c),0.0)))) else 'AUTO_CONCLUSION – kết luận theo quy tắc P1 tr.70-71')
+
+def f164(E, r, c):
+    # Ô C115
+    # = IF(AND(C62=1,C66=3),"Quá vượng",IF(AND(C62=1,C66=2),"Rất vượng",IF(AND(C62=1,C66=1),"Thân vượng",IF(AND(C62=1,C66=0),"Thân nhược",IF(AND(C66>=2,D66>=2
+    #   ),IF(D66=3,"Rất vượng","Thân vượng"),IF(AND(C66=1,C67=1),"Thân vượng",IF(C66>=2,IF(C88>0,"Thân vượng",IF(C88<0,"Thân nhược",IF(C89>D89,"Thân vượng",IF
+    #   (C89<D89,"Thân nhược","Trung hòa")))),IF(AND(C66=0,C68=1),"Quá nhược","Thân nhược"))))))))
+    return ('Quá vượng' if X.truthy(X.AND(X.eq(E.v(9,r-53,c),1.0), X.eq(E.v(9,r-49,c),3.0))) else ('Rất vượng' if X.truthy(X.AND(X.eq(E.v(9,r-53,c),1.0), X.eq(E.v(9,r-49,c),2.0))) else ('Thân vượng' if X.truthy(X.AND(X.eq(E.v(9,r-53,c),1.0), X.eq(E.v(9,r-49,c),1.0))) else ('Thân nhược' if X.truthy(X.AND(X.eq(E.v(9,r-53,c),1.0), X.eq(E.v(9,r-49,c),0.0))) else (('Rất vượng' if X.truthy(X.eq(E.v(9,r-49,c+1),3.0)) else 'Thân vượng') if X.truthy(X.AND(X.ge(E.v(9,r-49,c),2.0), X.ge(E.v(9,r-49,c+1),2.0))) else ('Thân vượng' if X.truthy(X.AND(X.eq(E.v(9,r-49,c),1.0), X.eq(E.v(9,r-48,c),1.0))) else (('Thân vượng' if X.truthy(X.gt(E.v(9,r-27,c),0.0)) else ('Thân nhược' if X.truthy(X.lt(E.v(9,r-27,c),0.0)) else ('Thân vượng' if X.truthy(X.gt(E.v(9,r-26,c),E.v(9,r-26,c+1))) else ('Thân nhược' if X.truthy(X.lt(E.v(9,r-26,c),E.v(9,r-26,c+1))) else 'Trung hòa')))) if X.truthy(X.ge(E.v(9,r-49,c),2.0)) else ('Quá nhược' if X.truthy(X.AND(X.eq(E.v(9,r-49,c),0.0), X.eq(E.v(9,r-47,c),1.0))) else 'Thân nhược'))))))))
+
+def f165(E, r, c):
+    # Ô C116
+    # = IF(AND(C62=1,C66=3),"Được lệnh + đủ 3 điều (P1 tr.70)",IF(AND(C62=1,C66=2),"Được lệnh + 2 trong 3 điều (P1 tr.70)",IF(AND(C62=1,C66=1),"Được lệnh + 1 
+    #   trong 3 điều (P1 tr.70)",IF(AND(C62=1,C66=0),"Được lệnh nhưng không đắc địa, không được sinh, không được trợ → không được xem là vượng (P1 tr.70)",IF(
+    #   AND(C66>=2,D66>=2),"Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)",IF(AND(C66=1,C67=1),"Không lệnh, 1 điều, có tam hợp/t
+    #   am hội ấn cục hoặc tỉ cục (P1 tr.70, quy tắc 4)",IF(C66>=2,IF(C88=0,"Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình "&
+    #   C89&", phe khác "&D89&" (P1 tr.71; P2 tr.455-457)","Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng "&C88&" (P1 tr.71)")
+    #   ,IF(AND(C66=0,C68=1),"Không lệnh, không đắc địa, không có ấn, không có tỉ kiếp (P1 tr.172)","Không lệnh, ≤1 điều (P1 tr.70)"))))))))
+    return ('Được lệnh + đủ 3 điều (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-54,c),1.0), X.eq(E.v(9,r-50,c),3.0))) else ('Được lệnh + 2 trong 3 điều (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-54,c),1.0), X.eq(E.v(9,r-50,c),2.0))) else ('Được lệnh + 1 trong 3 điều (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-54,c),1.0), X.eq(E.v(9,r-50,c),1.0))) else ('Được lệnh nhưng không đắc địa, không được sinh, không được trợ → không được xem là vượng (P1 tr.70)' if X.truthy(X.AND(X.eq(E.v(9,r-54,c),1.0), X.eq(E.v(9,r-50,c),0.0))) else ('Không lệnh nhưng có ≥2 điều và các điều đó mạnh (P1 tr.70-71, quy tắc 3, 5)' if X.truthy(X.AND(X.ge(E.v(9,r-50,c),2.0), X.ge(E.v(9,r-50,c+1),2.0))) else ('Không lệnh, 1 điều, có tam hợp/tam hội ấn cục hoặc tỉ cục (P1 tr.70, quy tắc 4)' if X.truthy(X.AND(X.eq(E.v(9,r-50,c),1.0), X.eq(E.v(9,r-49,c),1.0))) else ((X.cat(X.cat(X.cat(X.cat('Không lệnh, ≥2 điều nhưng không mạnh → phân xử a–d hòa (0) → đếm chữ: phe mình ',E.v(9,r-27,c)),', phe khác '),E.v(9,r-27,c+1)),' (P1 tr.71; P2 tr.455-457)') if X.truthy(X.eq(E.v(9,r-28,c),0.0)) else X.cat(X.cat('Không lệnh, ≥2 điều nhưng không mạnh → nửa vượng nửa nhược, phân xử a–d, tổng ',E.v(9,r-28,c)),' (P1 tr.71)')) if X.truthy(X.ge(E.v(9,r-50,c),2.0)) else ('Không lệnh, không đắc địa, không có ấn, không có tỉ kiếp (P1 tr.172)' if X.truthy(X.AND(X.eq(E.v(9,r-50,c),0.0), X.eq(E.v(9,r-48,c),1.0))) else 'Không lệnh, ≤1 điều (P1 tr.70)'))))))))
+
+def f166(E, r, c):
+    # Ô C117
+    # = IF(ISNUMBER(SEARCH("phân xử",$C$116)),0,IF($C$62=0,IF(AND(ISNUMBER(SEARCH("vượng",$C$115)),$C$88<0,$D$89>$C$89),-1,IF(AND(NOT(ISNUMBER(SEARCH("vượng",
+    #   $C$115))),$C$88>0,$C$89>$D$89),1,0)),IF(AND(ISNUMBER(SEARCH("vượng",$C$115)),$C$88<0,$D$89>$C$89),2,0)))
+    return (0.0 if X.truthy(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,116,3)))) else ((X.neg(1.0) if X.truthy(X.AND(X.ISNUMBER(lambda: X.SEARCH('vượng', E.v(9,115,3))), X.lt(E.v(9,88,3),0.0), X.gt(E.v(9,89,4),E.v(9,89,3)))) else (1.0 if X.truthy(X.AND(X.NOT(X.ISNUMBER(lambda: X.SEARCH('vượng', E.v(9,115,3)))), X.gt(E.v(9,88,3),0.0), X.gt(E.v(9,89,3),E.v(9,89,4)))) else 0.0)) if X.truthy(X.eq(E.v(9,62,3),0.0)) else (2.0 if X.truthy(X.AND(X.ISNUMBER(lambda: X.SEARCH('vượng', E.v(9,115,3))), X.lt(E.v(9,88,3),0.0), X.gt(E.v(9,89,4),E.v(9,89,3)))) else 0.0)))
+
+def f167(E, r, c):
+    # Ô C118
+    # = IF(ISNUMBER(SEARCH("phân xử",$C$116)),"Kết luận sơ bộ đã dựa trên phân xử a–d (nửa vượng nửa nhược) nên giữ nguyên.",CHOOSE($C$117+2,"Không được lệnh;
+    #    các điều sinh trợ không mạnh, không giúp ích nhiều: phân xử a–d nghiêng về phe khắc (tổng "&$C$88&") và phe khắc–tiết–hao nhiều chữ hơn ("&$D$89&" so
+    #    với "&$C$89&") → đổi thành THÂN NHƯỢC.",IF($C$62=1,"Được lệnh; phân xử a–d và đếm chữ không cùng phủ định kết luận sơ bộ → giữ nguyên.","Phân xử a–d 
+    #   và đếm chữ không cùng phủ định kết luận sơ bộ → giữ nguyên."),"Không được lệnh nhưng phân xử a–d nghiêng về phe sinh–trợ (tổng "&$C$88&") và phe sinh–
+    #   trợ nhiều chữ hơn ("&$C$89&" so với "&$D$89&") → đổi thành THÂN VƯỢNG.","Được lệnh nên giữ THÂN VƯỢNG (lệnh là quan trọng nhất), nhưng phân xử a–d (tổ
+    #   ng "&$C$88&") và đếm chữ ("&$D$89&" chữ phe khắc so với "&$C$89&") đều nghiêng về phe khắc–tiết–hao → vượng cận ranh giới: gặp vận khắc–tiết dễ chuyển
+    #    nhược."))
+    return ('Kết luận sơ bộ đã dựa trên phân xử a–d (nửa vượng nửa nhược) nên giữ nguyên.' if X.truthy(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,116,3)))) else X.CHOOSE(X.add(E.v(9,117,3),2.0), lambda: X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Không được lệnh; các điều sinh trợ không mạnh, không giúp ích nhiều: phân xử a–d nghiêng về phe khắc (tổng ',E.v(9,88,3)),') và phe khắc–tiết–hao nhiều chữ hơn ('),E.v(9,89,4)),' so với '),E.v(9,89,3)),') → đổi thành THÂN NHƯỢC.'), lambda: ('Được lệnh; phân xử a–d và đếm chữ không cùng phủ định kết luận sơ bộ → giữ nguyên.' if X.truthy(X.eq(E.v(9,62,3),1.0)) else 'Phân xử a–d và đếm chữ không cùng phủ định kết luận sơ bộ → giữ nguyên.'), lambda: X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Không được lệnh nhưng phân xử a–d nghiêng về phe sinh–trợ (tổng ',E.v(9,88,3)),') và phe sinh–trợ nhiều chữ hơn ('),E.v(9,89,3)),' so với '),E.v(9,89,4)),') → đổi thành THÂN VƯỢNG.'), lambda: X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Được lệnh nên giữ THÂN VƯỢNG (lệnh là quan trọng nhất), nhưng phân xử a–d (tổng ',E.v(9,88,3)),') và đếm chữ ('),E.v(9,89,4)),' chữ phe khắc so với '),E.v(9,89,3)),') đều nghiêng về phe khắc–tiết–hao → vượng cận ranh giới: gặp vận khắc–tiết dễ chuyển nhược.')))
+
+def f168(E, r, c):
+    # Ô C119
+    # = "P1 tr.70 (quy tắc 3: các điều phải mạnh, giúp ích nhiều); P1 tr.71–72 (so sánh mức độ được sinh – bị khắc; phán đoán tổng hợp)"
+    return 'P1 tr.70 (quy tắc 3: các điều phải mạnh, giúp ích nhiều); P1 tr.71–72 (so sánh mức độ được sinh – bị khắc; phán đoán tổng hợp)'
 
 CELLS = {
     'C6': (f0, 6, 3),
@@ -1293,4 +1319,9 @@ CELLS = {
     'C110': (f161, 110, 3),
     'C111': (f162, 111, 3),
     'C112': (f163, 112, 3),
+    'C115': (f164, 115, 3),
+    'C116': (f165, 116, 3),
+    'C117': (f166, 117, 3),
+    'C118': (f167, 118, 3),
+    'C119': (f168, 119, 3),
 }

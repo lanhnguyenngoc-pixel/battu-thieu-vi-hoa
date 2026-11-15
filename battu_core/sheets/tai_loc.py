@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet TAI_LOC – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -228,32 +228,26 @@ def f34(E, r, c):
 
 def f35(E, r, c):
     # Ô C36, D36, E36, F36, G36, H36, I36, J36
-    # = IF(C35=1,"Cẩn trọng",IF(OR(C32=1,C33=1,C34=1),"Phát tài","—"))
-    return ('Cẩn trọng' if X.truthy(X.eq(E.v(19,r-1,c),1.0)) else ('Phát tài' if X.truthy(X.OR(X.eq(E.v(19,r-4,c),1.0), X.eq(E.v(19,r-3,c),1.0), X.eq(E.v(19,r-2,c),1.0))) else '—'))
+    # = C89
+    return E.v(19,r+53,c)
 
 def f36(E, r, c):
     # Ô C37
-    # = TRIM(IF(C36="Phát tài",DAI_VAN!C35&" ("&DAI_VAN!C36&"–"&(DAI_VAN!C36+9)&" tuổi: "&TRIM(IF(C32=1,"vận tài là dụng/hỷ; ","")&IF(C33=1,"vận tỉ kiếp thắng
-    #    tài; ","")&IF(C34=1,"xung mở kho tài; ",""))&") ","")&IF(D36="Phát tài",DAI_VAN!D35&" ("&DAI_VAN!D36&"–"&(DAI_VAN!D36+9)&" tuổi: "&TRIM(IF(D32=1,"vận
-    #    tài là dụng/hỷ; ","")&IF(D33=1,"vận tỉ kiếp thắng tài; ","")&IF(D34=1,"xung mở kho tài; ",""))&") ","")&IF(E36="Phát tài",DAI_VAN!E35&" ("&DAI_VAN!E3
-    #   6&"–"&(DAI_VAN!E36+9)&" tuổi: "&TRIM(IF(E32=1,"vận tài là dụng/hỷ; ","")&IF(E33=1,"vận tỉ kiếp thắng tài; ","")&IF(E34=1,"xung mở kho tài; ",""))&") "
-    #   ,"")&IF(F36="Phát tài",DAI_VAN!F35&" ("&DAI_VAN!F36&"–"&(DAI_VAN!F36+9)&" tuổi: "&TRIM(IF(F32=1,"vận tài là dụng/hỷ; ","")&IF(F33=1,"vận tỉ kiếp thắng
-    #    tài; ","")&IF(F34=1,"xung mở kho tài; ",""))&") ","")&IF(G36="Phát tài",DAI_VAN!G35&" ("&DAI_VAN!G36&"–"&(DAI_VAN!G36+9)&" tuổi: "&TRIM(IF(G32=1,"vận
-    #    tài là dụng/hỷ; ","")&IF(G33=1,"vận tỉ kiếp thắng tài; ","")&IF(G34=1,"xung mở kho tài; ",""))&") ","")&IF(H36="Phát tài",DAI_VAN!H35&" ("&DAI_VAN!H3
-    #   6&"–"&(DAI_VAN!H36+9)&" tuổi: "&TRIM(IF(H32=1,"vận tài là dụng/hỷ; ","")&IF(H33=1,"vận tỉ kiếp thắng tài; ","")&IF(H34=1,"xung mở kho tài; ",""))&") "
-    #   ,"")&IF(I36="Phát tài",DAI_VAN!I35&" ("&DAI_VAN!I36&"–"&(DAI_VAN!I36+9)&" tuổi: "&TRIM(IF(I32=1,"vận tài là dụng/hỷ; ","")&IF(I33=1,"vận tỉ kiếp thắng
-    #    tài; ","")&IF(I34=1,"xung mở kho tài; ",""))&") ","")&IF(J36="Phát tài",DAI_VAN!J35&" ("&DAI_VAN!J36&"–"&(DAI_VAN!J36+9)&" tuổi: "&TRIM(IF(J32=1,"vận
-    #    tài là dụng/hỷ; ","")&IF(J33=1,"vận tỉ kiếp thắng tài; ","")&IF(J34=1,"xung mở kho tài; ",""))&") ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c),' ('),E.v(14,r-1,c)),'–'),X.add(E.v(14,r-1,c),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c),'Phát tài')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+1),' ('),E.v(14,r-1,c+1)),'–'),X.add(E.v(14,r-1,c+1),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c+1),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c+1),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c+1),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c+1),'Phát tài')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+2),' ('),E.v(14,r-1,c+2)),'–'),X.add(E.v(14,r-1,c+2),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c+2),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c+2),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c+2),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c+2),'Phát tài')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+3),' ('),E.v(14,r-1,c+3)),'–'),X.add(E.v(14,r-1,c+3),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c+3),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c+3),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c+3),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c+3),'Phát tài')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+4),' ('),E.v(14,r-1,c+4)),'–'),X.add(E.v(14,r-1,c+4),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c+4),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c+4),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c+4),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c+4),'Phát tài')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+5),' ('),E.v(14,r-1,c+5)),'–'),X.add(E.v(14,r-1,c+5),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c+5),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c+5),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c+5),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c+5),'Phát tài')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+6),' ('),E.v(14,r-1,c+6)),'–'),X.add(E.v(14,r-1,c+6),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c+6),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c+6),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c+6),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c+6),'Phát tài')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+7),' ('),E.v(14,r-1,c+7)),'–'),X.add(E.v(14,r-1,c+7),9.0)),' tuổi: '),X.TRIM(X.cat(X.cat(('vận tài là dụng/hỷ; ' if X.truthy(X.eq(E.v(19,r-5,c+7),1.0)) else ''),('vận tỉ kiếp thắng tài; ' if X.truthy(X.eq(E.v(19,r-4,c+7),1.0)) else '')),('xung mở kho tài; ' if X.truthy(X.eq(E.v(19,r-3,c+7),1.0)) else '')))),') ') if X.truthy(X.eq(E.v(19,r-1,c+7),'Phát tài')) else '')))
+    # = TRIM(IF(C36="Tốt",DAI_VAN!C35&" ("&DAI_VAN!C36&"–"&(DAI_VAN!C36+9)&" tuổi: "&C90&") ","")&IF(D36="Tốt",DAI_VAN!D35&" ("&DAI_VAN!D36&"–"&(DAI_VAN!D36+9
+    #   )&" tuổi: "&D90&") ","")&IF(E36="Tốt",DAI_VAN!E35&" ("&DAI_VAN!E36&"–"&(DAI_VAN!E36+9)&" tuổi: "&E90&") ","")&IF(F36="Tốt",DAI_VAN!F35&" ("&DAI_VAN!F3
+    #   6&"–"&(DAI_VAN!F36+9)&" tuổi: "&F90&") ","")&IF(G36="Tốt",DAI_VAN!G35&" ("&DAI_VAN!G36&"–"&(DAI_VAN!G36+9)&" tuổi: "&G90&") ","")&IF(H36="Tốt",DAI_VAN
+    #   !H35&" ("&DAI_VAN!H36&"–"&(DAI_VAN!H36+9)&" tuổi: "&H90&") ","")&IF(I36="Tốt",DAI_VAN!I35&" ("&DAI_VAN!I36&"–"&(DAI_VAN!I36+9)&" tuổi: "&I90&") ","")&
+    #   IF(J36="Tốt",DAI_VAN!J35&" ("&DAI_VAN!J36&"–"&(DAI_VAN!J36+9)&" tuổi: "&J90&") ",""))
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c),' ('),E.v(14,r-1,c)),'–'),X.add(E.v(14,r-1,c),9.0)),' tuổi: '),E.v(19,r+53,c)),') ') if X.truthy(X.eq(E.v(19,r-1,c),'Tốt')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+1),' ('),E.v(14,r-1,c+1)),'–'),X.add(E.v(14,r-1,c+1),9.0)),' tuổi: '),E.v(19,r+53,c+1)),') ') if X.truthy(X.eq(E.v(19,r-1,c+1),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+2),' ('),E.v(14,r-1,c+2)),'–'),X.add(E.v(14,r-1,c+2),9.0)),' tuổi: '),E.v(19,r+53,c+2)),') ') if X.truthy(X.eq(E.v(19,r-1,c+2),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+3),' ('),E.v(14,r-1,c+3)),'–'),X.add(E.v(14,r-1,c+3),9.0)),' tuổi: '),E.v(19,r+53,c+3)),') ') if X.truthy(X.eq(E.v(19,r-1,c+3),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+4),' ('),E.v(14,r-1,c+4)),'–'),X.add(E.v(14,r-1,c+4),9.0)),' tuổi: '),E.v(19,r+53,c+4)),') ') if X.truthy(X.eq(E.v(19,r-1,c+4),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+5),' ('),E.v(14,r-1,c+5)),'–'),X.add(E.v(14,r-1,c+5),9.0)),' tuổi: '),E.v(19,r+53,c+5)),') ') if X.truthy(X.eq(E.v(19,r-1,c+5),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+6),' ('),E.v(14,r-1,c+6)),'–'),X.add(E.v(14,r-1,c+6),9.0)),' tuổi: '),E.v(19,r+53,c+6)),') ') if X.truthy(X.eq(E.v(19,r-1,c+6),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-2,c+7),' ('),E.v(14,r-1,c+7)),'–'),X.add(E.v(14,r-1,c+7),9.0)),' tuổi: '),E.v(19,r+53,c+7)),') ') if X.truthy(X.eq(E.v(19,r-1,c+7),'Tốt')) else '')))
 
 def f37(E, r, c):
     # Ô C38
-    # = TRIM(IF(C36="Cẩn trọng",DAI_VAN!C35&" ("&DAI_VAN!C36&"–"&(DAI_VAN!C36+9)&" tuổi) ","")&IF(D36="Cẩn trọng",DAI_VAN!D35&" ("&DAI_VAN!D36&"–"&(DAI_VAN!D3
-    #   6+9)&" tuổi) ","")&IF(E36="Cẩn trọng",DAI_VAN!E35&" ("&DAI_VAN!E36&"–"&(DAI_VAN!E36+9)&" tuổi) ","")&IF(F36="Cẩn trọng",DAI_VAN!F35&" ("&DAI_VAN!F36&"
-    #   –"&(DAI_VAN!F36+9)&" tuổi) ","")&IF(G36="Cẩn trọng",DAI_VAN!G35&" ("&DAI_VAN!G36&"–"&(DAI_VAN!G36+9)&" tuổi) ","")&IF(H36="Cẩn trọng",DAI_VAN!H35&" ("
-    #   &DAI_VAN!H36&"–"&(DAI_VAN!H36+9)&" tuổi) ","")&IF(I36="Cẩn trọng",DAI_VAN!I35&" ("&DAI_VAN!I36&"–"&(DAI_VAN!I36+9)&" tuổi) ","")&IF(J36="Cẩn trọng",DA
-    #   I_VAN!J35&" ("&DAI_VAN!J36&"–"&(DAI_VAN!J36+9)&" tuổi) ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c),' ('),E.v(14,r-2,c)),'–'),X.add(E.v(14,r-2,c),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c),'Cẩn trọng')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+1),' ('),E.v(14,r-2,c+1)),'–'),X.add(E.v(14,r-2,c+1),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c+1),'Cẩn trọng')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+2),' ('),E.v(14,r-2,c+2)),'–'),X.add(E.v(14,r-2,c+2),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c+2),'Cẩn trọng')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+3),' ('),E.v(14,r-2,c+3)),'–'),X.add(E.v(14,r-2,c+3),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c+3),'Cẩn trọng')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+4),' ('),E.v(14,r-2,c+4)),'–'),X.add(E.v(14,r-2,c+4),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c+4),'Cẩn trọng')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+5),' ('),E.v(14,r-2,c+5)),'–'),X.add(E.v(14,r-2,c+5),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c+5),'Cẩn trọng')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+6),' ('),E.v(14,r-2,c+6)),'–'),X.add(E.v(14,r-2,c+6),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c+6),'Cẩn trọng')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+7),' ('),E.v(14,r-2,c+7)),'–'),X.add(E.v(14,r-2,c+7),9.0)),' tuổi) ') if X.truthy(X.eq(E.v(19,r-2,c+7),'Cẩn trọng')) else '')))
+    # = TRIM(IF(C36="Xấu",DAI_VAN!C35&" ("&DAI_VAN!C36&"–"&(DAI_VAN!C36+9)&" tuổi: "&C90&") ","")&IF(D36="Xấu",DAI_VAN!D35&" ("&DAI_VAN!D36&"–"&(DAI_VAN!D36+9
+    #   )&" tuổi: "&D90&") ","")&IF(E36="Xấu",DAI_VAN!E35&" ("&DAI_VAN!E36&"–"&(DAI_VAN!E36+9)&" tuổi: "&E90&") ","")&IF(F36="Xấu",DAI_VAN!F35&" ("&DAI_VAN!F3
+    #   6&"–"&(DAI_VAN!F36+9)&" tuổi: "&F90&") ","")&IF(G36="Xấu",DAI_VAN!G35&" ("&DAI_VAN!G36&"–"&(DAI_VAN!G36+9)&" tuổi: "&G90&") ","")&IF(H36="Xấu",DAI_VAN
+    #   !H35&" ("&DAI_VAN!H36&"–"&(DAI_VAN!H36+9)&" tuổi: "&H90&") ","")&IF(I36="Xấu",DAI_VAN!I35&" ("&DAI_VAN!I36&"–"&(DAI_VAN!I36+9)&" tuổi: "&I90&") ","")&
+    #   IF(J36="Xấu",DAI_VAN!J35&" ("&DAI_VAN!J36&"–"&(DAI_VAN!J36+9)&" tuổi: "&J90&") ",""))
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c),' ('),E.v(14,r-2,c)),'–'),X.add(E.v(14,r-2,c),9.0)),' tuổi: '),E.v(19,r+52,c)),') ') if X.truthy(X.eq(E.v(19,r-2,c),'Xấu')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+1),' ('),E.v(14,r-2,c+1)),'–'),X.add(E.v(14,r-2,c+1),9.0)),' tuổi: '),E.v(19,r+52,c+1)),') ') if X.truthy(X.eq(E.v(19,r-2,c+1),'Xấu')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+2),' ('),E.v(14,r-2,c+2)),'–'),X.add(E.v(14,r-2,c+2),9.0)),' tuổi: '),E.v(19,r+52,c+2)),') ') if X.truthy(X.eq(E.v(19,r-2,c+2),'Xấu')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+3),' ('),E.v(14,r-2,c+3)),'–'),X.add(E.v(14,r-2,c+3),9.0)),' tuổi: '),E.v(19,r+52,c+3)),') ') if X.truthy(X.eq(E.v(19,r-2,c+3),'Xấu')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+4),' ('),E.v(14,r-2,c+4)),'–'),X.add(E.v(14,r-2,c+4),9.0)),' tuổi: '),E.v(19,r+52,c+4)),') ') if X.truthy(X.eq(E.v(19,r-2,c+4),'Xấu')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+5),' ('),E.v(14,r-2,c+5)),'–'),X.add(E.v(14,r-2,c+5),9.0)),' tuổi: '),E.v(19,r+52,c+5)),') ') if X.truthy(X.eq(E.v(19,r-2,c+5),'Xấu')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+6),' ('),E.v(14,r-2,c+6)),'–'),X.add(E.v(14,r-2,c+6),9.0)),' tuổi: '),E.v(19,r+52,c+6)),') ') if X.truthy(X.eq(E.v(19,r-2,c+6),'Xấu')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-3,c+7),' ('),E.v(14,r-2,c+7)),'–'),X.add(E.v(14,r-2,c+7),9.0)),' tuổi: '),E.v(19,r+52,c+7)),') ') if X.truthy(X.eq(E.v(19,r-2,c+7),'Xấu')) else '')))
 
 def f38(E, r, c):
     # Ô E42
@@ -1111,6 +1105,32 @@ def f136(E, r, c):
     #   thiên can (""địa chi phục tài, gọi là ám sinh"") → "&IF(J85="","chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.","ĐỦ ("&J85&") ⇒ "&G85&".")
     return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Các chữ liên quan (chỉ liệt kê loại có mặt): '),X.TRIM(X.cat(X.cat(X.cat((X.cat(X.cat('Chính tài tàng can: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), '<>Can')),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), '<>Can'),0.0)) else ''),(X.cat(X.cat('Thiên tài tàng can: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), '<>Can')),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), '<>Can'),0.0)) else '')),(X.cat(X.cat('Chính tài thiên can: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), 'Can')),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), 'Can'),0.0)) else '')),(X.cat(X.cat('Thiên tài thiên can: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), 'Can')),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên tài', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,3,20,3), 'Can'),0.0)) else '')))),' → Quy tắc (P2 tr.522; UH tr.173): Tài chỉ có trong tàng can, không lộ ở thiên can ("địa chi phục tài, gọi là ám sinh") → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(19,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(19,r,c-1)),') ⇒ '),E.v(19,r,c-4)),'.')))
 
+def f137(E, r, c):
+    # Ô C88, D88, E88, F88, G88, H88, I88, J88
+    # = IF(AND(NOT(IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$110,DAI_VAN!$C$109)=1),MOD(DAI_VAN!C$43-TRUNG_GIAN!$E$7,5)=2),1,IF(AND(IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$110,
+    #   DAI_VAN!$C$109)=1,MOD(DAI_VAN!C$42-TRUNG_GIAN!$E$7,5)=2,OR(MOD(DAI_VAN!C$43-TRUNG_GIAN!$E$7,5)=0,MOD(DAI_VAN!C$43-TRUNG_GIAN!$E$7,5)=4)),2,IF(AND(NOT(
+    #   IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$110,DAI_VAN!$C$109)=1),MOD(DAI_VAN!C$42-TRUNG_GIAN!$E$7,5)=0),3,IF(AND(IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$110,DAI_VAN!$C$
+    #   109)=1,MOD(DAI_VAN!C$42-TRUNG_GIAN!$E$7,5)=2),4,0))))
+    return (1.0 if X.truthy(X.AND(X.NOT(X.eq((E.v(14,110,3) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,109,3)),1.0)), X.eq(X.MOD(X.sub(E.v(14,43,c),E.v(23,7,5)), 5.0),2.0))) else (2.0 if X.truthy(X.AND(X.eq((E.v(14,110,3) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,109,3)),1.0), X.eq(X.MOD(X.sub(E.v(14,42,c),E.v(23,7,5)), 5.0),2.0), X.OR(X.eq(X.MOD(X.sub(E.v(14,43,c),E.v(23,7,5)), 5.0),0.0), X.eq(X.MOD(X.sub(E.v(14,43,c),E.v(23,7,5)), 5.0),4.0)))) else (3.0 if X.truthy(X.AND(X.NOT(X.eq((E.v(14,110,3) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,109,3)),1.0)), X.eq(X.MOD(X.sub(E.v(14,42,c),E.v(23,7,5)), 5.0),0.0))) else (4.0 if X.truthy(X.AND(X.eq((E.v(14,110,3) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,109,3)),1.0), X.eq(X.MOD(X.sub(E.v(14,42,c),E.v(23,7,5)), 5.0),2.0))) else 0.0))))
+
+def f138(E, r, c):
+    # Ô C89, D89, E89, F89, G89, H89, I89, J89
+    # = IF(OR(C88=1,C88=2),"Tốt",IF(OR(C88=3,C88=4),"Xấu",IF(DAI_VAN!C$119>0,"Tốt","Xấu")))
+    return ('Tốt' if X.truthy(X.OR(X.eq(E.v(19,r-1,c),1.0), X.eq(E.v(19,r-1,c),2.0))) else ('Xấu' if X.truthy(X.OR(X.eq(E.v(19,r-1,c),3.0), X.eq(E.v(19,r-1,c),4.0))) else ('Tốt' if X.truthy(X.gt(E.v(14,119,c),0.0)) else 'Xấu')))
+
+def f139(E, r, c):
+    # Ô C90, D90, E90, F90, G90, H90, I90, J90
+    # = CHOOSE(C88+1,"theo xu thế chung của vận","thân vượng, chi vận là tài nên 5 năm sau có tài","vận tài nhưng chi vận giúp thân gánh được tài nên có thể t
+    #   ụ tài","thân vượng gặp vận tỉ kiếp nên tranh tài, hao tài","thân nhược gặp vận tài nên tiền đến nhưng khó giữ")
+    return X.CHOOSE(X.add(E.v(19,r-2,c),1.0), lambda: 'theo xu thế chung của vận', lambda: 'thân vượng, chi vận là tài nên 5 năm sau có tài', lambda: 'vận tài nhưng chi vận giúp thân gánh được tài nên có thể tụ tài', lambda: 'thân vượng gặp vận tỉ kiếp nên tranh tài, hao tài', lambda: 'thân nhược gặp vận tài nên tiền đến nhưng khó giữ')
+
+def f140(E, r, c):
+    # Ô C91, D91, E91, F91, G91, H91, I91, J91
+    # = CHOOSE(C88+1,"P1 tr.124–125 (xu thế chung của vận)","P2 tr.522: trong trụ có tài, hành đến đất tài tất đại phát","P2 tr.416 (VD23): tài vận phải gặp v
+    #   ận thân vượng mới tụ tài; P2 tr.521: thân nhược tài nhiều, hành vận tỉ kiếp mới phát tài","P2 tr.527: thân vượng hành đến vận tỉ kiếp thì phá tài bại 
+    #   nghiệp","P2 tr.527: thân nhược không thắng tài thì vì của mà sinh nạn")
+    return X.CHOOSE(X.add(E.v(19,r-3,c),1.0), lambda: 'P1 tr.124–125 (xu thế chung của vận)', lambda: 'P2 tr.522: trong trụ có tài, hành đến đất tài tất đại phát', lambda: 'P2 tr.416 (VD23): tài vận phải gặp vận thân vượng mới tụ tài; P2 tr.521: thân nhược tài nhiều, hành vận tỉ kiếp mới phát tài', lambda: 'P2 tr.527: thân vượng hành đến vận tỉ kiếp thì phá tài bại nghiệp', lambda: 'P2 tr.527: thân nhược không thắng tài thì vì của mà sinh nạn')
+
 CELLS = {
     'C6': (f0, 6, 3),
     'D6': (f1, 6, 4),
@@ -1395,4 +1415,36 @@ CELLS = {
     'J85': (f40, 85, 10),
     'K85': (f136, 85, 11),
     'L85': (f42, 85, 12),
+    'C88': (f137, 88, 3),
+    'D88': (f137, 88, 4),
+    'E88': (f137, 88, 5),
+    'F88': (f137, 88, 6),
+    'G88': (f137, 88, 7),
+    'H88': (f137, 88, 8),
+    'I88': (f137, 88, 9),
+    'J88': (f137, 88, 10),
+    'C89': (f138, 89, 3),
+    'D89': (f138, 89, 4),
+    'E89': (f138, 89, 5),
+    'F89': (f138, 89, 6),
+    'G89': (f138, 89, 7),
+    'H89': (f138, 89, 8),
+    'I89': (f138, 89, 9),
+    'J89': (f138, 89, 10),
+    'C90': (f139, 90, 3),
+    'D90': (f139, 90, 4),
+    'E90': (f139, 90, 5),
+    'F90': (f139, 90, 6),
+    'G90': (f139, 90, 7),
+    'H90': (f139, 90, 8),
+    'I90': (f139, 90, 9),
+    'J90': (f139, 90, 10),
+    'C91': (f140, 91, 3),
+    'D91': (f140, 91, 4),
+    'E91': (f140, 91, 5),
+    'F91': (f140, 91, 6),
+    'G91': (f140, 91, 7),
+    'H91': (f140, 91, 8),
+    'I91': (f140, 91, 9),
+    'J91': (f140, 91, 10),
 }

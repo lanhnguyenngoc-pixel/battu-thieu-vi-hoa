@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DOI_CHIEU – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -465,16 +465,16 @@ def f81(E, r, c):
 
 def f82(E, r, c):
     # Ô C35
-    # = IF(AND(C33<>1,PP2_DINH_LUONG!$D$7<>""),"Thấp",IF(C33=0,IF(OR(AND(PP1_DINH_TINH!$C$62=1,PP1_DINH_TINH!$C$66>=2),PP2_DINH_LUONG!$C$101<$C$30,PP2_DINH_LU
-    #   ONG!$C$101>=$D$30),"Cao","Vừa"),IF(C33=1,IF(D31="YN","Thấp","Vừa"),IF(ABS(PP2_DINH_LUONG!$C$101-P_NGUONG)<$E$30,"Thấp","Vừa"))))
-    return ('Thấp' if X.truthy(X.AND(X.ne(E.v(7,r-2,c),1.0), X.ne(E.v(10,7,4),''))) else (('Cao' if X.truthy(X.OR(X.AND(X.eq(E.v(9,62,3),1.0), X.ge(E.v(9,66,3),2.0)), X.lt(E.v(10,101,3),E.v(7,30,3)), X.ge(E.v(10,101,3),E.v(7,30,4)))) else 'Vừa') if X.truthy(X.eq(E.v(7,r-2,c),0.0)) else (('Thấp' if X.truthy(X.eq(E.v(7,r-4,c+1),'YN')) else 'Vừa') if X.truthy(X.eq(E.v(7,r-2,c),1.0)) else ('Thấp' if X.truthy(X.lt(X.ABS(X.sub(E.v(10,101,3),E.v(24,95,2))),E.v(7,30,5))) else 'Vừa'))))
+    # = IF((IF(C33=2,C32,C31)="nhược")<>(C32="nhược"),"Thấp",IF(OR(PP1_DINH_TINH!$C$117=2,AND(PP2_DINH_LUONG!$C$101>=0.35,PP2_DINH_LUONG!$C$101<0.45)),"Vừa","
+    #   Cao"))
+    return ('Thấp' if X.truthy(X.ne(X.eq((E.v(7,r-3,c) if X.truthy(X.eq(E.v(7,r-2,c),2.0)) else E.v(7,r-4,c)),'nhược'),X.eq(E.v(7,r-3,c),'nhược'))) else ('Vừa' if X.truthy(X.OR(X.eq(E.v(9,117,3),2.0), X.AND(X.ge(E.v(10,101,3),0.35), X.lt(E.v(10,101,3),0.45)))) else 'Cao'))
 
 def f83(E, r, c):
     # Ô F35
-    # = CHOOSE(MATCH(C35,{"Cao","Vừa","Thấp"},0),"Cao: hai PP thống nhất và (được lệnh + ≥2 điều, hoặc PP2 xa ngưỡng). Trên 58 lá số của sách: đúng 26/28.","V
-    #   ừa: trên 58 lá số của sách nhóm này đúng khoảng 60% (14/23) – nên đối chiếu thêm với sự việc đã xảy ra.","Thấp: trên 58 lá số của sách đúng 4/7 – hai 
-    #   khả năng gần ngang nhau; nên kiểm nghiệm bằng sự việc đã qua.")
-    return X.CHOOSE(X.MATCH(E.v(7,r,c-3), X.Arr([['Cao', 'Vừa', 'Thấp']]), 0.0), lambda: 'Cao: hai PP thống nhất và (được lệnh + ≥2 điều, hoặc PP2 xa ngưỡng). Trên 58 lá số của sách: đúng 26/28.', lambda: 'Vừa: trên 58 lá số của sách nhóm này đúng khoảng 60% (14/23) – nên đối chiếu thêm với sự việc đã xảy ra.', lambda: 'Thấp: trên 58 lá số của sách đúng 4/7 – hai khả năng gần ngang nhau; nên kiểm nghiệm bằng sự việc đã qua.')
+    # = CHOOSE(MATCH(C35,{"Cao","Vừa","Thấp"},0),"Cao: hai phương pháp cùng kết luận, không cận ranh giới. Trên 68 lá số của sách: đúng 34/35.","Vừa: hai phươ
+    #   ng pháp cùng kết luận nhưng vượng cận ranh giới hoặc PP2 sát ngưỡng (35–45%) – nên đối chiếu thêm với sự việc đã xảy ra.","Thấp: hai phương pháp khác 
+    #   kết luận – kết luận chính theo khuyến nghị, xem thêm cách đọc còn lại; nên kiểm nghiệm bằng sự việc đã qua.")
+    return X.CHOOSE(X.MATCH(E.v(7,r,c-3), X.Arr([['Cao', 'Vừa', 'Thấp']]), 0.0), lambda: 'Cao: hai phương pháp cùng kết luận, không cận ranh giới. Trên 68 lá số của sách: đúng 34/35.', lambda: 'Vừa: hai phương pháp cùng kết luận nhưng vượng cận ranh giới hoặc PP2 sát ngưỡng (35–45%) – nên đối chiếu thêm với sự việc đã xảy ra.', lambda: 'Thấp: hai phương pháp khác kết luận – kết luận chính theo khuyến nghị, xem thêm cách đọc còn lại; nên kiểm nghiệm bằng sự việc đã qua.')
 
 def f84(E, r, c):
     # Ô C36
@@ -538,11 +538,11 @@ def f89(E, r, c):
 
 def f90(E, r, c):
     # Ô C46
-    # = "PP1: "&IF(PP1_DINH_TINH!$C$111<>"","kết luận vượng theo quy tắc thứ ba nhưng mọi điều mạnh chỉ từ một chi (xem cảnh báo P1 tr.71 dưới đây) → KÉM chắc
-    #    chắn",IF(D31="PX","kết luận nằm trong vùng ""nửa vượng nửa nhược"" phải phân xử a–d → KÉM chắc chắn","kết luận theo quy tắc trực tiếp ("&E31&") → chắ
-    #   c chắn hơn"))&". PP2: phe mình "&TEXT(D32,"0.0%")&IF(E32="SÁT NGƯỠNG 40%"," – sát ngưỡng 40% → KÉM chắc chắn"," – cách ngưỡng 40% rõ → chắc chắn hơn")
-    #   &"."&IF(PP1_DINH_TINH!$C$111<>"",CHAR(10)&PP1_DINH_TINH!$C$111,"")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('PP1: ',('kết luận vượng theo quy tắc thứ ba nhưng mọi điều mạnh chỉ từ một chi (xem cảnh báo P1 tr.71 dưới đây) → KÉM chắc chắn' if X.truthy(X.ne(E.v(9,111,3),'')) else ('kết luận nằm trong vùng "nửa vượng nửa nhược" phải phân xử a–d → KÉM chắc chắn' if X.truthy(X.eq(E.v(7,r-15,c+1),'PX')) else X.cat(X.cat('kết luận theo quy tắc trực tiếp (',E.v(7,r-15,c+2)),') → chắc chắn hơn')))),'. PP2: phe mình '),X.TEXT(E.v(7,r-14,c+1), '0.0%')),(' – sát ngưỡng 40% → KÉM chắc chắn' if X.truthy(X.eq(E.v(7,r-14,c+2),'SÁT NGƯỠNG 40%')) else ' – cách ngưỡng 40% rõ → chắc chắn hơn')),'.'),(X.cat(X.CHAR(10.0),E.v(9,111,3)) if X.truthy(X.ne(E.v(9,111,3),'')) else ''))
+    # = "PP1: "&IF(PP1_DINH_TINH!$C$111<>"","được lệnh nên vượng, nhưng phân xử a–d và đếm chữ đều nghiêng về phe khắc (vượng cận ranh giới) → KÉM chắc chắn",
+    #   IF(D31="PX","kết luận nằm trong vùng ""nửa vượng nửa nhược"" phải phân xử a–d → KÉM chắc chắn","kết luận theo quy tắc trực tiếp ("&E31&") → chắc chắn 
+    #   hơn"))&". PP2: phe mình "&TEXT(D32,"0.0%")&IF(E32="SÁT NGƯỠNG 40%"," – sát ngưỡng 40% → KÉM chắc chắn"," – cách ngưỡng 40% rõ → chắc chắn hơn")&"."&IF
+    #   (PP1_DINH_TINH!$C$111<>"",CHAR(10)&PP1_DINH_TINH!$C$111,"")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('PP1: ',('được lệnh nên vượng, nhưng phân xử a–d và đếm chữ đều nghiêng về phe khắc (vượng cận ranh giới) → KÉM chắc chắn' if X.truthy(X.ne(E.v(9,111,3),'')) else ('kết luận nằm trong vùng "nửa vượng nửa nhược" phải phân xử a–d → KÉM chắc chắn' if X.truthy(X.eq(E.v(7,r-15,c+1),'PX')) else X.cat(X.cat('kết luận theo quy tắc trực tiếp (',E.v(7,r-15,c+2)),') → chắc chắn hơn')))),'. PP2: phe mình '),X.TEXT(E.v(7,r-14,c+1), '0.0%')),(' – sát ngưỡng 40% → KÉM chắc chắn' if X.truthy(X.eq(E.v(7,r-14,c+2),'SÁT NGƯỠNG 40%')) else ' – cách ngưỡng 40% rõ → chắc chắn hơn')),'.'),(X.cat(X.CHAR(10.0),E.v(9,111,3)) if X.truthy(X.ne(E.v(9,111,3),'')) else ''))
 
 def f91(E, r, c):
     # Ô C47
@@ -586,6 +586,31 @@ def f95(E, r, c):
     #    "&D33&" ở dòng 33-34 là QUY ƯỚC KỸ THUẬT (giả định G11 – MAU_THUAN), không phải quy tắc của sách; muốn dùng một phương pháp cố định thì chọn Theo PP1
     #    / Theo PP2 ở NHAP_LIEU C14.")
     return ('Hai phương pháp thống nhất – không phải chọn.' if X.truthy(X.eq(E.v(7,r-20,c),E.v(7,r-19,c))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('HAI PHƯƠNG PHÁP CHO KẾT QUẢ KHÁC NHAU (PP1: ',X.UPPER(E.v(7,r-20,c))),'; PP2: '),X.UPPER(E.v(7,r-19,c))),'). Lựa chọn '),E.v(7,r-18,c+1)),' ở dòng 33-34 là QUY ƯỚC KỸ THUẬT (giả định G11 – MAU_THUAN), không phải quy tắc của sách; muốn dùng một phương pháp cố định thì chọn Theo PP1 / Theo PP2 ở NHAP_LIEU C14.'))
+
+def f96(E, r, c):
+    # Ô C52
+    # = IF(C35<>"Thấp","","Tham khảo thêm – nếu đọc theo "&IF(C33=2,"PP1 (xét lệnh trước)","PP2 (tính lực)")&": thân "&UPPER(IF(C33=2,C31,C32))&", dụng thần "
+    #   &IF(C33=2,DUNG_HY_KY!$C$106,DUNG_HY_KY!$D$106)&", hỷ thần "&IF(C33=2,DUNG_HY_KY!$C$107,DUNG_HY_KY!$D$107)&"; các đại vận thuận theo cách đọc này: "&IF
+    #   (IF(C33=2,TRIM(IF(DAI_VAN!C$54="Tốt",DAI_VAN!C$35&" ("&DAI_VAN!C$36&"–"&(DAI_VAN!C$36+9)&") ","")&IF(DAI_VAN!D$54="Tốt",DAI_VAN!D$35&" ("&DAI_VAN!D$36
+    #   &"–"&(DAI_VAN!D$36+9)&") ","")&IF(DAI_VAN!E$54="Tốt",DAI_VAN!E$35&" ("&DAI_VAN!E$36&"–"&(DAI_VAN!E$36+9)&") ","")&IF(DAI_VAN!F$54="Tốt",DAI_VAN!F$35&"
+    #    ("&DAI_VAN!F$36&"–"&(DAI_VAN!F$36+9)&") ","")&IF(DAI_VAN!G$54="Tốt",DAI_VAN!G$35&" ("&DAI_VAN!G$36&"–"&(DAI_VAN!G$36+9)&") ","")&IF(DAI_VAN!H$54="Tốt
+    #   ",DAI_VAN!H$35&" ("&DAI_VAN!H$36&"–"&(DAI_VAN!H$36+9)&") ","")&IF(DAI_VAN!I$54="Tốt",DAI_VAN!I$35&" ("&DAI_VAN!I$36&"–"&(DAI_VAN!I$36+9)&") ","")&IF(D
+    #   AI_VAN!J$54="Tốt",DAI_VAN!J$35&" ("&DAI_VAN!J$36&"–"&(DAI_VAN!J$36+9)&") ","")),TRIM(IF(DAI_VAN!C$69="Tốt",DAI_VAN!C$35&" ("&DAI_VAN!C$36&"–"&(DAI_VAN
+    #   !C$36+9)&") ","")&IF(DAI_VAN!D$69="Tốt",DAI_VAN!D$35&" ("&DAI_VAN!D$36&"–"&(DAI_VAN!D$36+9)&") ","")&IF(DAI_VAN!E$69="Tốt",DAI_VAN!E$35&" ("&DAI_VAN!E
+    #   $36&"–"&(DAI_VAN!E$36+9)&") ","")&IF(DAI_VAN!F$69="Tốt",DAI_VAN!F$35&" ("&DAI_VAN!F$36&"–"&(DAI_VAN!F$36+9)&") ","")&IF(DAI_VAN!G$69="Tốt",DAI_VAN!G$3
+    #   5&" ("&DAI_VAN!G$36&"–"&(DAI_VAN!G$36+9)&") ","")&IF(DAI_VAN!H$69="Tốt",DAI_VAN!H$35&" ("&DAI_VAN!H$36&"–"&(DAI_VAN!H$36+9)&") ","")&IF(DAI_VAN!I$69="
+    #   Tốt",DAI_VAN!I$35&" ("&DAI_VAN!I$36&"–"&(DAI_VAN!I$36+9)&") ","")&IF(DAI_VAN!J$69="Tốt",DAI_VAN!J$35&" ("&DAI_VAN!J$36&"–"&(DAI_VAN!J$36+9)&") ","")))
+    #   ="","không có",IF(C33=2,TRIM(IF(DAI_VAN!C$54="Tốt",DAI_VAN!C$35&" ("&DAI_VAN!C$36&"–"&(DAI_VAN!C$36+9)&") ","")&IF(DAI_VAN!D$54="Tốt",DAI_VAN!D$35&" (
+    #   "&DAI_VAN!D$36&"–"&(DAI_VAN!D$36+9)&") ","")&IF(DAI_VAN!E$54="Tốt",DAI_VAN!E$35&" ("&DAI_VAN!E$36&"–"&(DAI_VAN!E$36+9)&") ","")&IF(DAI_VAN!F$54="Tốt",
+    #   DAI_VAN!F$35&" ("&DAI_VAN!F$36&"–"&(DAI_VAN!F$36+9)&") ","")&IF(DAI_VAN!G$54="Tốt",DAI_VAN!G$35&" ("&DAI_VAN!G$36&"–"&(DAI_VAN!G$36+9)&") ","")&IF(DAI
+    #   _VAN!H$54="Tốt",DAI_VAN!H$35&" ("&DAI_VAN!H$36&"–"&(DAI_VAN!H$36+9)&") ","")&IF(DAI_VAN!I$54="Tốt",DAI_VAN!I$35&" ("&DAI_VAN!I$36&"–"&(DAI_VAN!I$36+9)
+    #   &") ","")&IF(DAI_VAN!J$54="Tốt",DAI_VAN!J$35&" ("&DAI_VAN!J$36&"–"&(DAI_VAN!J$36+9)&") ","")),TRIM(IF(DAI_VAN!C$69="Tốt",DAI_VAN!C$35&" ("&DAI_VAN!C$3
+    #   6&"–"&(DAI_VAN!C$36+9)&") ","")&IF(DAI_VAN!D$69="Tốt",DAI_VAN!D$35&" ("&DAI_VAN!D$36&"–"&(DAI_VAN!D$36+9)&") ","")&IF(DAI_VAN!E$69="Tốt",DAI_VAN!E$35&
+    #   " ("&DAI_VAN!E$36&"–"&(DAI_VAN!E$36+9)&") ","")&IF(DAI_VAN!F$69="Tốt",DAI_VAN!F$35&" ("&DAI_VAN!F$36&"–"&(DAI_VAN!F$36+9)&") ","")&IF(DAI_VAN!G$69="Tố
+    #   t",DAI_VAN!G$35&" ("&DAI_VAN!G$36&"–"&(DAI_VAN!G$36+9)&") ","")&IF(DAI_VAN!H$69="Tốt",DAI_VAN!H$35&" ("&DAI_VAN!H$36&"–"&(DAI_VAN!H$36+9)&") ","")&IF(
+    #   DAI_VAN!I$69="Tốt",DAI_VAN!I$35&" ("&DAI_VAN!I$36&"–"&(DAI_VAN!I$36+9)&") ","")&IF(DAI_VAN!J$69="Tốt",DAI_VAN!J$35&" ("&DAI_VAN!J$36&"–"&(DAI_VAN!J$36
+    #   +9)&") ",""))))&". Kết luận chính vẫn theo "&D33&".")
+    return ('' if X.truthy(X.ne(E.v(7,r-17,c),'Thấp')) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Tham khảo thêm – nếu đọc theo ',('PP1 (xét lệnh trước)' if X.truthy(X.eq(E.v(7,r-19,c),2.0)) else 'PP2 (tính lực)')),': thân '),X.UPPER((E.v(7,r-21,c) if X.truthy(X.eq(E.v(7,r-19,c),2.0)) else E.v(7,r-20,c)))),', dụng thần '),(E.v(8,106,3) if X.truthy(X.eq(E.v(7,r-19,c),2.0)) else E.v(8,106,4))),', hỷ thần '),(E.v(8,107,3) if X.truthy(X.eq(E.v(7,r-19,c),2.0)) else E.v(8,107,4))),'; các đại vận thuận theo cách đọc này: '),('không có' if X.truthy(X.eq((X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c),'Tốt')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+1),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+2),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+3),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+4),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+5),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+6),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+7),'Tốt')) else ''))) if X.truthy(X.eq(E.v(7,r-19,c),2.0)) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c),'Tốt')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+1),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+2),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+3),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+4),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+5),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+6),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+7),'Tốt')) else '')))),'')) else (X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c),'Tốt')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+1),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+2),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+3),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+4),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+5),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+6),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,54,c+7),'Tốt')) else ''))) if X.truthy(X.eq(E.v(7,r-19,c),2.0)) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c),'Tốt')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+1),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+2),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+3),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+4),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+5),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+6),'Tốt')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,69,c+7),'Tốt')) else '')))))),'. Kết luận chính vẫn theo '),E.v(7,r-19,c+1)),'.'))
 
 CELLS = {
     'C6': (f0, 6, 3),
@@ -692,4 +717,5 @@ CELLS = {
     'C49': (f93, 49, 3),
     'C50': (f94, 50, 3),
     'C51': (f95, 51, 3),
+    'C52': (f96, 52, 3),
 }

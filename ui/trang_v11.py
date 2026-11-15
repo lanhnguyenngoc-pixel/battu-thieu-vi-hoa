@@ -106,20 +106,20 @@ class TrangLaSo(QWidget):
         nap = next((x for x in lt if x and not re.fullmatch(r'[\d.]+', x) and '(' in x), '')
         self.ghi.setText((('Nạp âm năm: <b>%s</b> · ' % html.escape(nap)) if nap else '') + html.escape(o(24, 3)))
         dk = kieu_sheet(E, 'DAI_VAN'); d = lambda r, c: chu_o(E, 'DAI_VAN', r, c)
-        dong_xt = 69 if chu_o(E, 'DOI_CHIEU', 33, 3) == '2' else 54        # như DAI_VAN!C106: phương pháp khuyến nghị
         for i, (f, a) in enumerate(self.dv):
             c = 3 + i; dang = bool(d(44, c).strip())
-            k = dk.get((35, c), {}); xt = d(dong_xt, c)
-            mau_xt = '#c00000' if xt == 'Tốt' else '#6b7280' if xt == 'Xấu' else '#1e2140'
+            k = dk.get((35, c), {}); xt = d(121, c)                         # kết luận đại vận (mục F – DV-3)
+            mau_xt = '#c00000' if 'TỐT' in xt else '#6b7280' if 'XẤU' in xt else '#1e2140'
             a.setText("<span style='font-size:15px;font-weight:800;color:%s'>%s</span><br>"
                       "<span style='color:#7b809c'>từ %s tuổi<br>%s–%s</span><br>%s<br>"
-                      "<span style='color:#7b809c;font-size:10px'>XU THẾ</span><br><b style='font-size:14px;color:%s'>%s</b>%s"
+                      "<span style='color:#7b809c;font-size:10px'>KẾT LUẬN</span><br><b style='font-size:13px;color:%s'>%s</b><br>"
+                      "<span style='font-size:10px;color:#3b4064'><b>%s</b></span>%s"
                       % (k.get('chu', '#1e2140'), html.escape(d(35, c)), d(36, c), d(37, c), d(38, c), html.escape(d(39, c)),
-                         mau_xt, html.escape(xt), '<br><b style="color:#4f46e5">◀ ĐANG HÀNH</b>' if dang else ''))
+                         mau_xt, html.escape(xt), html.escape(d(122, c)), '<br><b style="color:#4f46e5">◀ ĐANG HÀNH</b>' if dang else ''))
             a.setAlignment(Qt.AlignHCenter | Qt.AlignTop)
             f.setStyleSheet('#the{border:2px solid #7c3aed;}' if dang else '')
-            f.setToolTip('%s – năm %s–%s\nNhật can tại chi vận: %s\nTàng can chi vận: %s\n\nXu thế: theo sách Thiệu Vĩ Hoa.\n\n%s'
-                         % (d(35, c), d(37, c), d(38, c), d(41, c), d(40, c), goi_y('đại vận ' + d(39, c), td)))
+            f.setToolTip('%s – năm %s–%s\n%s – %s\n5 năm đầu: %s\n5 năm sau: %s\n\nNhật can tại chi vận: %s\nTàng can chi vận: %s\n\n%s'
+                         % (d(35, c), d(37, c), d(38, c), d(121, c), d(122, c), d(123, c), d(124, c), d(41, c), d(40, c), goi_y('đại vận ' + d(39, c), td)))
 
 
 # ---------------------------------------------------------------- LUẬN GIẢI – BÀI ĐỌC
@@ -145,9 +145,15 @@ class TrangLuanGiai(QWidget):
         self.bai = QTextBrowser(); self.bai.setOpenLinks(False); self.bai.document().setDefaultStyleSheet(CSS_BAI)
         self.bai.setStyleSheet('QTextBrowser{background:white;border:1px solid #e7e8f3;border-radius:16px;padding:18px 26px;}')
         v.addWidget(self.bai, 1)
-        self.bai.highlighted.connect(self._goi_y); self.bai.anchorClicked.connect(lambda u: self._goi_y(u))
+        self.bai.highlighted.connect(self._goi_y); self.bai.anchorClicked.connect(self._bam)
+        from ui.trich_dan import TrichDan
+        self.tdan = TrichDan()
         self.o_tim.returnPressed.connect(lambda: self.bai.find(self.o_tim.text()) or (self.bai.moveCursor(self.bai.textCursor().Start), self.bai.find(self.o_tim.text())))
         self.td = []; self.kq = None; self._da = False
+
+    def _bam(self, u):
+        if self.tdan.bam(u): self._ve(); return
+        self._goi_y(u)
 
     def _goi_y(self, u):
         s = u.toString() if isinstance(u, QUrl) else str(u)
@@ -167,7 +173,7 @@ class TrangLuanGiai(QWidget):
         return s.replace('\n', '<br>')
 
     def hien(self, kq):
-        self.kq = kq; self._da = False
+        self.kq = kq; self._da = False; self.tdan.mo = set()
         if self.isVisible(): self._ve()
 
     def showEvent(self, e):
@@ -176,7 +182,12 @@ class TrangLuanGiai(QWidget):
 
     def _ve(self):
         E = self.kq.E; self.td = tu_dien(E); b = khoi(E, 'LUAN_GIAI')
-        o = b['o']; H = ['<html><body>']
+        o = b['o']; H = ['<html><body>']; tdan = self.tdan; tdan.bat_dau()
+        from ui.trich_dan import tach
+
+        def o_bang(t):
+            noi, cits = tach(t)
+            return self._lk(noi) + (('<br>' + tdan.khoi(cits)) if cits else '')
         hdr105 = {c: o[(105, c)][0] for c in range(3, 10) if (105, c) in o}
         bang = []
 
@@ -186,7 +197,7 @@ class TrangLuanGiai(QWidget):
             for j, (r, cs) in enumerate(bang):
                 H.append('<tr>' + ''.join(('<th>%s</th>' if j == 0 else '<td style="%s">%%s</td>' % (
                     ';'.join(x for x in (('color:%s' % k['chu']) if k.get('chu') else '', 'font-weight:bold' if k.get('dam') else '') if x)))
-                    % self._lk(t) for c, t, k in cs) + '</tr>')
+                    % o_bang(t) for c, t, k in cs) + '</tr>')
             H.append('</table>'); bang.clear()
         for r in b['dong']:
             cs = [(c, o[(r, c)][0], o[(r, c)][1]) for c in b['cot'] if (r, c) in o]
@@ -195,7 +206,7 @@ class TrangLuanGiai(QWidget):
                 xa_bang(); ten = next((t for c, t, k in cs if c == 2), '')
                 H.append('<h3>%s. %s</h3>' % (cs[0][1].split('.')[0], self._lk(ten)))
                 for c, t, k in cs:
-                    if c >= 3 and t: H.append('<p><span class="nhan">%s:</span> %s</p>' % (html.escape(hdr105.get(c, '')), self._lk(t)))
+                    if c >= 3 and t: H.append('<p><span class="nhan">%s:</span> %s</p>' % (html.escape(hdr105.get(c, '')), tdan.html(t, self._lk)))
                 continue
             if r == 105: xa_bang(); continue
             if len(cs) >= 5: bang.append((r, cs)); continue
@@ -208,7 +219,7 @@ class TrangLuanGiai(QWidget):
             st = 'nhan_kl' if nhan.startswith('KẾT LUẬN') else 'nhan_ct' if nhan.startswith('CÁT TƯỜNG') else \
                 'nhan_sach' if nhan.startswith('[Sách') else 'nhan_kn' if nhan.startswith('[Kinh') else 'nhan'
             if nhan or noi:
-                H.append('<p><span class="%s">&nbsp;%s&nbsp;</span> %s</p>' % (st, html.escape(nhan), self._lk(noi)))
+                H.append('<p><span class="%s">&nbsp;%s&nbsp;</span> %s</p>' % (st, html.escape(nhan), tdan.html(noi, self._lk)))
         xa_bang()
         H.append('<h2>Chú giải thuật ngữ</h2><table cellspacing="0" width="100%">')
         for k, cau, oo in self.td:

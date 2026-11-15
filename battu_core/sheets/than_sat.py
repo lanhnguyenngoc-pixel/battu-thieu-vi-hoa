@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet THAN_SAT – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -550,9 +550,9 @@ def f100(E, r, c):
     # Ô I85
     # = TRIM(IF(COUNTIF($C$85:$F$85,"có")>0,"• Nhân từ đôn hậu, phúc nhiều, gặp hung hóa cát. ","")&IF(AND(COUNTIF($C$85:$F$85,"có")>0,COUNTIF($C$86:$F$86,"có
     #   ")>0),"• Có cả hai đức: năng lực hóa hung rất mạnh, ít bệnh, không bị hình phạt. ","")&IF($E$85="có","• Đức ở trụ ngày: cuộc đời không gặp nguy hiểm. 
-    #   ","")&IF(AND(COUNTIF($C$85:$F$85,"có")>0,NHAP_LIEU!$C$10="Nữ"),"• Nữ: lấy chồng tốt, dễ sinh đẻ. ","")&IF(AND(NOT(COUNTIF($C$85:$F$85,"có")>0),(COUNTI
+    #   ","")&IF(AND(COUNTIF($C$85:$F$85,"có")>0,NHAP_LIEU!$C$22="Nữ"),"• Nữ: lấy chồng tốt, dễ sinh đẻ. ","")&IF(AND(NOT(COUNTIF($C$85:$F$85,"có")>0),(COUNTI
     #   F($C$85:$F$85,"có*")>0)),"• Bị xung khắc → vô dụng. ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(('• Nhân từ đôn hậu, phúc nhiều, gặp hung hóa cát. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0)) else ''),('• Có cả hai đức: năng lực hóa hung rất mạnh, ít bệnh, không bị hình phạt. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.gt(X.COUNTIF(E.rg(12,86,3,86,6), 'có'),0.0))) else '')),('• Đức ở trụ ngày: cuộc đời không gặp nguy hiểm. ' if X.truthy(X.eq(E.v(12,85,5),'có')) else '')),('• Nữ: lấy chồng tốt, dễ sinh đẻ. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.eq(E.v(2,10,3),'Nữ'))) else '')),('• Bị xung khắc → vô dụng. ' if X.truthy(X.AND(X.NOT(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0)), X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có*'),0.0))) else '')))
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(('• Nhân từ đôn hậu, phúc nhiều, gặp hung hóa cát. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0)) else ''),('• Có cả hai đức: năng lực hóa hung rất mạnh, ít bệnh, không bị hình phạt. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.gt(X.COUNTIF(E.rg(12,86,3,86,6), 'có'),0.0))) else '')),('• Đức ở trụ ngày: cuộc đời không gặp nguy hiểm. ' if X.truthy(X.eq(E.v(12,85,5),'có')) else '')),('• Nữ: lấy chồng tốt, dễ sinh đẻ. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.eq(E.v(2,22,3),'Nữ'))) else '')),('• Bị xung khắc → vô dụng. ' if X.truthy(X.AND(X.NOT(X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0)), X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có*'),0.0))) else '')))
 
 def f101(E, r, c):
     # Ô C86
@@ -754,10 +754,10 @@ def f135(E, r, c):
     #   • Mã gặp lộc (cùng một chi): “gặp lộc thì phúc nhiều”; “gặp thiên lộc, chính lộc … thì thông minh cao quý”. ","")&IF(AND((COUNTIF($C$92:$F$92,"có")>0)
     #   ,COUNTIFS(SAO!$U$5:$U$20,1,SAO!$P$5:$P$20,1)>0),"• “Quý nhân mà gặp mã tinh thì thăng vượt”. ","")&IF(AND((COUNTIF($C$92:$F$92,"có")>0),LEN($F$92)>0),
     #   "• “Mã tinh ở trụ giờ thì người đó đi kinh doanh, hiếu động mới lợi cho cầu danh cầu lợi”. ","")&IF(AND((COUNTIF($C$92:$F$92,"có")>0),COUNTIFS(SAO!$U$
-    #   5:$U$20,1,SAO!$R$5:$R$20,1)>0),"• Mã gặp kình dương: “sợ nhất là gặp kình dương đầy máu”. ","")&IF(AND((COUNTIF($C$92:$F$92,"có")>0),NHAP_LIEU!$C$10="
+    #   5:$U$20,1,SAO!$R$5:$R$20,1)>0),"• Mã gặp kình dương: “sợ nhất là gặp kình dương đầy máu”. ","")&IF(AND((COUNTIF($C$92:$F$92,"có")>0),NHAP_LIEU!$C$22="
     #   Nữ"),"• “Nữ giới gặp mã tinh thì tâm bất an, không ở một chỗ”. ","")&IF((COUNTIF($C$92:$F$92,"có")>0),"• Mã là hỷ/dụng thì thăng tiến, thu lợi khi vận
     #    động; là kỵ thì bôn ba vất vả; “mã gặp tài của lưu niên, đại vận thì phát tài nhanh”. ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(('• Mã là động, là tượng bôn ba: hiếu động, đi khắp bốn phương (quân nhân, thương nhân, ngoại giao, hay đi công tác); cũng là tiêu chí đi nước ngoài. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0)) else ''),('• “Gặp xung thì như bị roi quất”; “mã tinh bị xung mất thì ngày đi nghìn dặm” → rời quê, đi xa rất rõ. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,13,20,13), 1.0),0.0))) else '')),('• “Mã tinh bị hợp chặt thì có cũng như không”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có*'),0.0), X.NOT(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0)))) else '')),('• Mã gặp lộc (cùng một chi): “gặp lộc thì phúc nhiều”; “gặp thiên lộc, chính lộc … thì thông minh cao quý”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,17,20,17), 1.0),0.0))) else '')),('• “Quý nhân mà gặp mã tinh thì thăng vượt”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,16,20,16), 1.0),0.0))) else '')),('• “Mã tinh ở trụ giờ thì người đó đi kinh doanh, hiếu động mới lợi cho cầu danh cầu lợi”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.LEN(E.v(12,92,6)),0.0))) else '')),('• Mã gặp kình dương: “sợ nhất là gặp kình dương đầy máu”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,18,20,18), 1.0),0.0))) else '')),('• “Nữ giới gặp mã tinh thì tâm bất an, không ở một chỗ”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.eq(E.v(2,10,3),'Nữ'))) else '')),('• Mã là hỷ/dụng thì thăng tiến, thu lợi khi vận động; là kỵ thì bôn ba vất vả; “mã gặp tài của lưu niên, đại vận thì phát tài nhanh”. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0)) else '')))
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(('• Mã là động, là tượng bôn ba: hiếu động, đi khắp bốn phương (quân nhân, thương nhân, ngoại giao, hay đi công tác); cũng là tiêu chí đi nước ngoài. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0)) else ''),('• “Gặp xung thì như bị roi quất”; “mã tinh bị xung mất thì ngày đi nghìn dặm” → rời quê, đi xa rất rõ. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,13,20,13), 1.0),0.0))) else '')),('• “Mã tinh bị hợp chặt thì có cũng như không”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có*'),0.0), X.NOT(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0)))) else '')),('• Mã gặp lộc (cùng một chi): “gặp lộc thì phúc nhiều”; “gặp thiên lộc, chính lộc … thì thông minh cao quý”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,17,20,17), 1.0),0.0))) else '')),('• “Quý nhân mà gặp mã tinh thì thăng vượt”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,16,20,16), 1.0),0.0))) else '')),('• “Mã tinh ở trụ giờ thì người đó đi kinh doanh, hiếu động mới lợi cho cầu danh cầu lợi”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.LEN(E.v(12,92,6)),0.0))) else '')),('• Mã gặp kình dương: “sợ nhất là gặp kình dương đầy máu”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.gt(X.COUNTIFS(E.rg(13,5,21,20,21), 1.0, E.rg(13,5,18,20,18), 1.0),0.0))) else '')),('• “Nữ giới gặp mã tinh thì tâm bất an, không ở một chỗ”. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0), X.eq(E.v(2,22,3),'Nữ'))) else '')),('• Mã là hỷ/dụng thì thăng tiến, thu lợi khi vận động; là kỵ thì bôn ba vất vả; “mã gặp tài của lưu niên, đại vận thì phát tài nhanh”. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,92,3,92,6), 'có'),0.0)) else '')))
 
 def f136(E, r, c):
     # Ô C93
@@ -812,9 +812,9 @@ def f145(E, r, c):
 def f146(E, r, c):
     # Ô I94
     # = TRIM(IF(COUNTIF($C$94:$F$94,"có")>0,"• Chủ hôn nhân không thuận, khắc lục thân; gặp vận tốt thì hôn nhân muộn. ","")&IF(AND(COUNTIF($C$94:$F$94,"có")>
-    #   0,NHAP_LIEU!$C$10="Nam"),"• Nam gặp cô thần: thường tha phương. ","")&IF(AND(COUNTIF($C$94:$F$94,"có")>0,OR(COUNTIF(SAO!$P$5:$P$20,1)>0,COUNTIF($C$85:
+    #   0,NHAP_LIEU!$C$22="Nam"),"• Nam gặp cô thần: thường tha phương. ","")&IF(AND(COUNTIF($C$94:$F$94,"có")>0,OR(COUNTIF(SAO!$P$5:$P$20,1)>0,COUNTIF($C$85:
     #   $F$85,"có")>0,COUNTIF($C$86:$F$86,"có")>0)),"• Có quý thần: giảm hung (tứ trụ phối hợp tốt). ",""))
-    return X.TRIM(X.cat(X.cat(('• Chủ hôn nhân không thuận, khắc lục thân; gặp vận tốt thì hôn nhân muộn. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,94,3,94,6), 'có'),0.0)) else ''),('• Nam gặp cô thần: thường tha phương. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,94,3,94,6), 'có'),0.0), X.eq(E.v(2,10,3),'Nam'))) else '')),('• Có quý thần: giảm hung (tứ trụ phối hợp tốt). ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,94,3,94,6), 'có'),0.0), X.OR(X.gt(X.COUNTIF(E.rg(13,5,16,20,16), 1.0),0.0), X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.gt(X.COUNTIF(E.rg(12,86,3,86,6), 'có'),0.0)))) else '')))
+    return X.TRIM(X.cat(X.cat(('• Chủ hôn nhân không thuận, khắc lục thân; gặp vận tốt thì hôn nhân muộn. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,94,3,94,6), 'có'),0.0)) else ''),('• Nam gặp cô thần: thường tha phương. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,94,3,94,6), 'có'),0.0), X.eq(E.v(2,22,3),'Nam'))) else '')),('• Có quý thần: giảm hung (tứ trụ phối hợp tốt). ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,94,3,94,6), 'có'),0.0), X.OR(X.gt(X.COUNTIF(E.rg(13,5,16,20,16), 1.0),0.0), X.gt(X.COUNTIF(E.rg(12,85,3,85,6), 'có'),0.0), X.gt(X.COUNTIF(E.rg(12,86,3,86,6), 'có'),0.0)))) else '')))
 
 def f147(E, r, c):
     # Ô D95
@@ -834,8 +834,8 @@ def f149(E, r, c):
 def f150(E, r, c):
     # Ô I95
     # = TRIM(IF(COUNTIF($C$95:$F$95,"có")>0,"• Chủ hôn nhân không thuận, khắc lục thân; gặp vận tốt thì hôn nhân muộn. ","")&IF(AND(COUNTIF($C$95:$F$95,"có")>
-    #   0,NHAP_LIEU!$C$10="Nữ"),"• Nữ gặp quả tú: thường khó giai lão. ",""))
-    return X.TRIM(X.cat(('• Chủ hôn nhân không thuận, khắc lục thân; gặp vận tốt thì hôn nhân muộn. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,95,3,95,6), 'có'),0.0)) else ''),('• Nữ gặp quả tú: thường khó giai lão. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,95,3,95,6), 'có'),0.0), X.eq(E.v(2,10,3),'Nữ'))) else '')))
+    #   0,NHAP_LIEU!$C$22="Nữ"),"• Nữ gặp quả tú: thường khó giai lão. ",""))
+    return X.TRIM(X.cat(('• Chủ hôn nhân không thuận, khắc lục thân; gặp vận tốt thì hôn nhân muộn. ' if X.truthy(X.gt(X.COUNTIF(E.rg(12,95,3,95,6), 'có'),0.0)) else ''),('• Nữ gặp quả tú: thường khó giai lão. ' if X.truthy(X.AND(X.gt(X.COUNTIF(E.rg(12,95,3,95,6), 'có'),0.0), X.eq(E.v(2,22,3),'Nữ'))) else '')))
 
 def f151(E, r, c):
     # Ô C96
@@ -1144,9 +1144,9 @@ def f199(E, r, c):
 
 def f200(E, r, c):
     # Ô I110
-    # = IF(H110="Có",TRIM("• “Chủ về thông minh, phú quý, tính cách uyển chuyển ôn hòa, dáng người thanh thần” "&IF(NHAP_LIEU!$C$10="Nam","• Nam: “nhiều thê t
-    #   hiếp, anh em hòa thuận, con cháu đông đúc” ","")&IF(NOT(NHAP_LIEU!$C$10="Nam"),"• Nữ: “nhiều phú quý” ","")),"")
-    return (X.TRIM(X.cat(X.cat('• “Chủ về thông minh, phú quý, tính cách uyển chuyển ôn hòa, dáng người thanh thần” ',('• Nam: “nhiều thê thiếp, anh em hòa thuận, con cháu đông đúc” ' if X.truthy(X.eq(E.v(2,10,3),'Nam')) else '')),('• Nữ: “nhiều phú quý” ' if X.truthy(X.NOT(X.eq(E.v(2,10,3),'Nam'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
+    # = IF(H110="Có",TRIM("• “Chủ về thông minh, phú quý, tính cách uyển chuyển ôn hòa, dáng người thanh thần” "&IF(NHAP_LIEU!$C$22="Nam","• Nam: “nhiều thê t
+    #   hiếp, anh em hòa thuận, con cháu đông đúc” ","")&IF(NOT(NHAP_LIEU!$C$22="Nam"),"• Nữ: “nhiều phú quý” ","")),"")
+    return (X.TRIM(X.cat(X.cat('• “Chủ về thông minh, phú quý, tính cách uyển chuyển ôn hòa, dáng người thanh thần” ',('• Nam: “nhiều thê thiếp, anh em hòa thuận, con cháu đông đúc” ' if X.truthy(X.eq(E.v(2,22,3),'Nam')) else '')),('• Nữ: “nhiều phú quý” ' if X.truthy(X.NOT(X.eq(E.v(2,22,3),'Nam'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
 
 def f201(E, r, c):
     # Ô C111
@@ -1374,9 +1374,9 @@ def f234(E, r, c):
 
 def f235(E, r, c):
     # Ô I117
-    # = IF(H117="Có",TRIM("• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” "&IF(NHAP_LIEU!$C$10="Nam","• “Nam sợ thiên la” ","")&I
+    # = IF(H117="Có",TRIM("• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” "&IF(NHAP_LIEU!$C$22="Nam","• “Nam sợ thiên la” ","")&I
     #   F((OR(THAN_SAT!$H$85="Có",THAN_SAT!$H$86="Có")),"• Có thiên/nguyệt đức: “có giải cứu … không gặp tai vạ” ","")),"")
-    return (X.TRIM(X.cat(X.cat('• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” ',('• “Nam sợ thiên la” ' if X.truthy(X.eq(E.v(2,10,3),'Nam')) else '')),('• Có thiên/nguyệt đức: “có giải cứu … không gặp tai vạ” ' if X.truthy(X.OR(X.eq(E.v(12,85,8),'Có'), X.eq(E.v(12,86,8),'Có'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
+    return (X.TRIM(X.cat(X.cat('• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” ',('• “Nam sợ thiên la” ' if X.truthy(X.eq(E.v(2,22,3),'Nam')) else '')),('• Có thiên/nguyệt đức: “có giải cứu … không gặp tai vạ” ' if X.truthy(X.OR(X.eq(E.v(12,85,8),'Có'), X.eq(E.v(12,86,8),'Có'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
 
 def f236(E, r, c):
     # Ô C118
@@ -1408,9 +1408,9 @@ def f239(E, r, c):
 
 def f240(E, r, c):
     # Ô I118
-    # = IF(H118="Có",TRIM("• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” "&IF(NOT(NHAP_LIEU!$C$10="Nam"),"• “Nữ kị địa võng” ","
+    # = IF(H118="Có",TRIM("• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” "&IF(NOT(NHAP_LIEU!$C$22="Nam"),"• “Nữ kị địa võng” ","
     #   ")&IF((OR(THAN_SAT!$H$85="Có",THAN_SAT!$H$86="Có")),"• Có thiên/nguyệt đức: “có giải cứu … không gặp tai vạ” ","")),"")
-    return (X.TRIM(X.cat(X.cat('• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” ',('• “Nữ kị địa võng” ' if X.truthy(X.NOT(X.eq(E.v(2,10,3),'Nam'))) else '')),('• Có thiên/nguyệt đức: “có giải cứu … không gặp tai vạ” ' if X.truthy(X.OR(X.eq(E.v(12,85,8),'Có'), X.eq(E.v(12,86,8),'Có'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
+    return (X.TRIM(X.cat(X.cat('• “Thường là người hay gặp nạn về hình pháp … còn chủ về tai nạn, bệnh tật” ',('• “Nữ kị địa võng” ' if X.truthy(X.NOT(X.eq(E.v(2,22,3),'Nam'))) else '')),('• Có thiên/nguyệt đức: “có giải cứu … không gặp tai vạ” ' if X.truthy(X.OR(X.eq(E.v(12,85,8),'Có'), X.eq(E.v(12,86,8),'Có'))) else ''))) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
 
 def f241(E, r, c):
     # Ô C119
@@ -1441,27 +1441,27 @@ def f245(E, r, c):
 
 def f246(E, r, c):
     # Ô C120
-    # = IF(AND(TRUE(),AND(0<>0,TRUNG_GIAN!$C$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRUNG
+    # = IF(AND(TRUE(),AND(0<>0,TRUNG_GIAN!$C$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRUNG
     #   _GIAN!$C$8=0))),3,-3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(0.0,0.0), X.eq(E.v(23,6,3),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(0.0,0.0), X.eq(E.v(23,6,3),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
 
 def f247(E, r, c):
     # Ô D120
-    # = IF(AND(TRUE(),AND(1<>0,TRUNG_GIAN!$D$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRUNG
+    # = IF(AND(TRUE(),AND(1<>0,TRUNG_GIAN!$D$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRUNG
     #   _GIAN!$C$8=0))),3,-3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(1.0,0.0), X.eq(E.v(23,6,4),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(1.0,0.0), X.eq(E.v(23,6,4),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
 
 def f248(E, r, c):
     # Ô E120
-    # = IF(AND(TRUE(),AND(2<>0,TRUNG_GIAN!$E$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRUNG
+    # = IF(AND(TRUE(),AND(2<>0,TRUNG_GIAN!$E$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRUNG
     #   _GIAN!$C$8=0))),3,-3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(2.0,0.0), X.eq(E.v(23,6,5),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(2.0,0.0), X.eq(E.v(23,6,5),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
 
 def f249(E, r, c):
     # Ô F120
-    # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),AND(3<>0,TRUNG_GIAN!$F$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP
-    #   _LIEU!$C$10="Nam"),NOT(TRUNG_GIAN!$C$8=0))),3,-3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.AND(X.ne(3.0,0.0), X.eq(E.v(23,6,6),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
+    # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),AND(3<>0,TRUNG_GIAN!$F$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP
+    #   _LIEU!$C$22="Nam"),NOT(TRUNG_GIAN!$C$8=0))),3,-3)+12,12))),"có","")
+    return ('có' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.AND(X.ne(3.0,0.0), X.eq(E.v(23,6,6),X.MOD(X.add(X.add(E.v(23,6,3),(3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(3.0))),12.0), 12.0))))) else '')
 
 def f250(E, r, c):
     # Ô I120
@@ -1470,27 +1470,27 @@ def f250(E, r, c):
 
 def f251(E, r, c):
     # Ô C121
-    # = IF(AND(TRUE(),AND(0<>0,TRUNG_GIAN!$C$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRUNG
+    # = IF(AND(TRUE(),AND(0<>0,TRUNG_GIAN!$C$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRUNG
     #   _GIAN!$C$8=0))),-3,3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(0.0,0.0), X.eq(E.v(23,6,3),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(0.0,0.0), X.eq(E.v(23,6,3),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
 
 def f252(E, r, c):
     # Ô D121
-    # = IF(AND(TRUE(),AND(1<>0,TRUNG_GIAN!$D$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRUNG
+    # = IF(AND(TRUE(),AND(1<>0,TRUNG_GIAN!$D$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRUNG
     #   _GIAN!$C$8=0))),-3,3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(1.0,0.0), X.eq(E.v(23,6,4),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(1.0,0.0), X.eq(E.v(23,6,4),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
 
 def f253(E, r, c):
     # Ô E121
-    # = IF(AND(TRUE(),AND(2<>0,TRUNG_GIAN!$E$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRUNG
+    # = IF(AND(TRUE(),AND(2<>0,TRUNG_GIAN!$E$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRUNG
     #   _GIAN!$C$8=0))),-3,3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(2.0,0.0), X.eq(E.v(23,6,5),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(2.0,0.0), X.eq(E.v(23,6,5),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
 
 def f254(E, r, c):
     # Ô F121
-    # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),AND(3<>0,TRUNG_GIAN!$F$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP
-    #   _LIEU!$C$10="Nam"),NOT(TRUNG_GIAN!$C$8=0))),-3,3)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.AND(X.ne(3.0,0.0), X.eq(E.v(23,6,6),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
+    # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),AND(3<>0,TRUNG_GIAN!$F$6=MOD(TRUNG_GIAN!$C$6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP
+    #   _LIEU!$C$22="Nam"),NOT(TRUNG_GIAN!$C$8=0))),-3,3)+12,12))),"có","")
+    return ('có' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.AND(X.ne(3.0,0.0), X.eq(E.v(23,6,6),X.MOD(X.add(X.add(E.v(23,6,3),(X.neg(3.0) if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else 3.0)),12.0), 12.0))))) else '')
 
 def f255(E, r, c):
     # Ô I121
@@ -1528,27 +1528,27 @@ def f260(E, r, c):
 
 def f261(E, r, c):
     # Ô C123
-    # = IF(AND(TRUE(),AND(0<>0,TRUNG_GIAN!$C$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRU
+    # = IF(AND(TRUE(),AND(0<>0,TRUNG_GIAN!$C$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRU
     #   NG_GIAN!$C$8=0))),1,-1)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(0.0,0.0), X.eq(E.v(23,6,3),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(0.0,0.0), X.eq(E.v(23,6,3),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
 
 def f262(E, r, c):
     # Ô D123
-    # = IF(AND(TRUE(),AND(1<>0,TRUNG_GIAN!$D$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRU
+    # = IF(AND(TRUE(),AND(1<>0,TRUNG_GIAN!$D$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRU
     #   NG_GIAN!$C$8=0))),1,-1)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(1.0,0.0), X.eq(E.v(23,6,4),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(1.0,0.0), X.eq(E.v(23,6,4),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
 
 def f263(E, r, c):
     # Ô E123
-    # = IF(AND(TRUE(),AND(2<>0,TRUNG_GIAN!$E$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$10="Nam"),NOT(TRU
+    # = IF(AND(TRUE(),AND(2<>0,TRUNG_GIAN!$E$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NHAP_LIEU!$C$22="Nam"),NOT(TRU
     #   NG_GIAN!$C$8=0))),1,-1)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(2.0,0.0), X.eq(E.v(23,6,5),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
+    return ('có' if X.truthy(X.AND(X.TRUE(), X.AND(X.ne(2.0,0.0), X.eq(E.v(23,6,5),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
 
 def f264(E, r, c):
     # Ô F123
-    # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),AND(3<>0,TRUNG_GIAN!$F$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$10="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NH
-    #   AP_LIEU!$C$10="Nam"),NOT(TRUNG_GIAN!$C$8=0))),1,-1)+12,12))),"có","")
-    return ('có' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.AND(X.ne(3.0,0.0), X.eq(E.v(23,6,6),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,10,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
+    # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),AND(3<>0,TRUNG_GIAN!$F$6=MOD(TRUNG_GIAN!$C$6+6+IF(OR(AND(NHAP_LIEU!$C$22="Nam",TRUNG_GIAN!$C$8=0),AND(NOT(NH
+    #   AP_LIEU!$C$22="Nam"),NOT(TRUNG_GIAN!$C$8=0))),1,-1)+12,12))),"có","")
+    return ('có' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.AND(X.ne(3.0,0.0), X.eq(E.v(23,6,6),X.MOD(X.add(X.add(X.add(E.v(23,6,3),6.0),(1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(2,22,3),'Nam'), X.eq(E.v(23,8,3),0.0)), X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.NOT(X.eq(E.v(23,8,3),0.0))))) else X.neg(1.0))),12.0), 12.0))))) else '')
 
 def f265(E, r, c):
     # Ô I123
@@ -1635,9 +1635,9 @@ def f279(E, r, c):
 
 def f280(E, r, c):
     # Ô I126
-    # = IF(H126="Có",TRIM(IF(NHAP_LIEU!$C$10="Nam","• Nam: “bị nhà vợ từ chối, hoặc cãi cọ mâu thuẫn với nhà vợ” ","")&IF(NOT(NHAP_LIEU!$C$10="Nam"),"• Nữ: “c
+    # = IF(H126="Có",TRIM(IF(NHAP_LIEU!$C$22="Nam","• Nam: “bị nhà vợ từ chối, hoặc cãi cọ mâu thuẫn với nhà vợ” ","")&IF(NOT(NHAP_LIEU!$C$22="Nam"),"• Nữ: “c
     #   hị em dâu không toàn vẹn, hoặc bị nhà chồng từ chối” ","")&"• “Tiêu chí thông tin rõ nhất về hôn nhân không thuận” "),"")
-    return (X.TRIM(X.cat(X.cat(('• Nam: “bị nhà vợ từ chối, hoặc cãi cọ mâu thuẫn với nhà vợ” ' if X.truthy(X.eq(E.v(2,10,3),'Nam')) else ''),('• Nữ: “chị em dâu không toàn vẹn, hoặc bị nhà chồng từ chối” ' if X.truthy(X.NOT(X.eq(E.v(2,10,3),'Nam'))) else '')),'• “Tiêu chí thông tin rõ nhất về hôn nhân không thuận” ')) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
+    return (X.TRIM(X.cat(X.cat(('• Nam: “bị nhà vợ từ chối, hoặc cãi cọ mâu thuẫn với nhà vợ” ' if X.truthy(X.eq(E.v(2,22,3),'Nam')) else ''),('• Nữ: “chị em dâu không toàn vẹn, hoặc bị nhà chồng từ chối” ' if X.truthy(X.NOT(X.eq(E.v(2,22,3),'Nam'))) else '')),'• “Tiêu chí thông tin rõ nhất về hôn nhân không thuận” ')) if X.truthy(X.eq(E.v(12,r,c-1),'Có')) else '')
 
 def f281(E, r, c):
     # Ô C127

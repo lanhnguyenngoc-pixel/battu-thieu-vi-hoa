@@ -1,0 +1,9 @@
+# Bước 5 – Đề xuất bổ sung phần lý thuyết sách TVH còn thiếu (CHỜ DUYỆT, chưa sửa gì)
+
+| # | Phần | Trang | Nội dung sách | Đề xuất đưa vào công cụ | Ảnh hưởng |
+|---|---|---|---|---|---|
+| 1 | Cách cục phổ thông (10 chính cách) | P2 tr.356–368 | Lấy cách theo can ngày × tháng sinh: can tàng của chi tháng lộ ra can nào thì thành cách đó (chính quan, thất sát, chính/thiên tài, chính/thiên ấn, thương quan, thực thần, kiến lộc, kình dương); mỗi cách có "nên gặp – kị gặp" cho tứ trụ và tuế vận | Bảng 10 can × 12 tháng: tên cách + nên/kị; thêm vào kết luận bản mệnh và làm 1 căn cứ khi xét vận (cách bị phá = giảm 1 bậc) | Hiện công cụ chỉ ghi "Chính cách" chung chung |
+| 2 | Chọn dụng thần theo ngũ hành can ngày + nên/kị bốn mùa | P1 tr.74–80 | Ví dụ: mộc mạnh thủy nhiều → kim, kim ít thì thổ; thủy mạnh mộc trôi → thổ, rồi hỏa…; hỏa mùa xuân/hạ/thu/đông mong gì, sợ gì | Đối chiếu từng câu với cách chọn dụng thần hiện có (PP1/PP2, điều hầu); câu nào trùng thì ghi thêm trang; câu nào khác thì báo MÂU THUẪN, không tự đổi | Có thể giải thích vì sao sách chọn dụng khác công cụ ở một số lá |
+| 3 | Can ngày ngũ hợp gặp can khác | P1 tr.64–66 | "Can ngày giáp hợp kỷ: gặp tân kim thì cao sang…, gặp ất mộc thì thê tài ngầm hao tổn…" | Bảng tra 10 can ngày × can gặp → câu sách; đưa vào tính cách/tài lộc ở mức "câu tham khảo" | Bổ sung câu, không đổi kết luận |
+| 4 | Chương 17 Tu hành | P2 tr.515–519 | ~45 dấu hiệu: thân vượng vô tài, hoa cái gặp không vong/tử mộ, kiêu nhiều không thực, chi năm xung lộc… + 8 ví dụ thật | Mục mới "Khuynh hướng tu hành – tín ngưỡng" (đếm dấu hiệu, có ví dụ minh chứng) | Lĩnh vực mới |
+| 5 | Cuối chương Con cái | P2 tr.511–514 | Chủ yếu là ví dụ và cách hóa giải (đặt tên bổ hành thiếu) – không có quy tắc mới | Chỉ thêm 6 ví dụ vào bộ đáp án (đã làm ở bước 2) | Không đổi quy tắc |

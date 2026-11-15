@@ -1,0 +1,1386 @@
+[
+ {
+  "ten": "P1-VD1 (nữ)",
+  "tt": "Nhâm Dần,Quý Sửu,Bính Thìn,Kỷ Hợi",
+  "g": "Nữ",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "ky": "Kim (Tài)",
+  "dv": [
+   "NhâmTí7:Thườn",
+   "TânHợi17:X",
+   "CanhTuất27:X",
+   "KỷDậu37:Thườn",
+   "MậuThân47:X",
+   "ĐinhMùi57:Thườn",
+   "BínhNgọ67:Thườn",
+   "ẤtTị77:T"
+  ],
+  "sach": [
+   "niên thiếu vận sát kị; vận Canh Tuất (thiên tài) tù 1992; qua vận thương thực thì phú quý mới hanh thông",
+   "182–183"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P1-VD2 (nam)",
+  "tt": "Quý Tị,Ất Sửu,Đinh Mão,Mậu Thân",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Ấn)",
+  "ky": "Kim (Tài)",
+  "dv": [
+   "GiápTí2:T",
+   "QuýHợi12:X",
+   "NhâmTuất22:Thườn",
+   "TânDậu32:X",
+   "CanhThân42:Thườn",
+   "KỷMùi52:Thườn",
+   "MậuNgọ62:Thườn",
+   "ĐinhTị72:Thườn"
+  ],
+  "sach": [
+   "tuổi thơ ấn vận tốt; Quý Hợi và quan vận là bại vận; ngoài 70 mới đỡ",
+   "184"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P1-VD3 (nam)",
+  "tt": "Giáp Thìn,Giáp Tuất,Quý Sửu,Nhâm Tí",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Kim (Ấn)",
+  "ky": "Hỏa (Tài)",
+  "dv": [
+   "ẤtHợi1:Thườn",
+   "BínhTí11:Thườn",
+   "ĐinhSửu21:Thườn",
+   "MậuDần31:Thườn",
+   "KỷMão41:Thườn",
+   "CanhThìn51:T",
+   "TânTị61:T",
+   "NhâmNgọ71:T"
+  ],
+  "sach": [
+   "vận thực thương, tài vận nhiều tai nạn; sau 52 mới bình yên",
+   "185"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P1-VD4 (nam)",
+  "tt": "Quý Tị,Canh Thân,Tân Dậu,Quý Tị",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Thực thương)",
+  "ky": "Thổ (Ấn)",
+  "dv": [
+   "KỷMùi10:X",
+   "MậuNgọ20:Thườn",
+   "ĐinhTị30:Thườn",
+   "BínhThìn40:Thườn",
+   "ẤtMão50:Thườn",
+   "GiápDần60:Thườn",
+   "QuýSửu70:T",
+   "NhâmTí80:T"
+  ],
+  "sach": [
+   "vận kiêu ấn thiếu niên khó khăn; vận sát gia đình tốt dần; từ 1984 khá dần đến trung niên",
+   "186–187"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P1-VD5 (nữ)",
+  "tt": "Giáp Thìn,Đinh Mão,Bính Dần,Giáp Ngọ",
+  "g": "Nữ",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Thực thương)",
+  "ky": "Mộc (Ấn)",
+  "dv": [
+   "BínhDần9:Thườn",
+   "ẤtSửu19:X",
+   "GiápTí29:X",
+   "QuýHợi39:Thườn",
+   "NhâmTuất49:Thườn",
+   "TânDậu59:T",
+   "CanhThân69:T",
+   "KỷMùi79:Thườn"
+  ],
+  "sach": [
+   "thời trẻ nhờ ngang vai xì hơi còn sống; vận ấn, kiêu → dụng bị khắc mất",
+   "188"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "?"
+ },
+ {
+  "ten": "P1-VD6 (nam)",
+  "tt": "Nhâm Dần,Tân Hợi,Giáp Dần,Ất Hợi",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Tài)",
+  "ky": "Mộc (Tỉ kiếp)",
+  "dv": [
+   "NhâmTí3:Thườn",
+   "QuýSửu13:Thườn",
+   "GiápDần23:X",
+   "ẤtMão33:X",
+   "BínhThìn43:Thườn",
+   "ĐinhTị53:Thườn",
+   "MậuNgọ63:Thườn",
+   "KỷMùi73:Thườn"
+  ],
+  "sach": [
+   "kiêu vận bại; ấn vận tạm giữ; sang tỉ vận năm Giáp Tuất thì mất",
+   "189"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "?"
+ },
+ {
+  "ten": "P1-VD7 (nữ)",
+  "tt": "Canh Tí,Bính Tuất,Tân Mão,Kỷ Sửu",
+  "g": "Nữ",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Thực thương)",
+  "ky": "Thổ (Ấn)",
+  "dv": [
+   "ẤtDậu1:X",
+   "GiápThân11:Thườn",
+   "QuýMùi21:Thườn",
+   "NhâmNgọ31:Thườn",
+   "TânTị41:Thườn",
+   "CanhThìn51:Thườn",
+   "KỷMão61:X",
+   "MậuDần71:X"
+  ],
+  "sach": [
+   "vận thiên tài thuận; vận thực thương tốt nhiều xấu ít; vận tỉ kiếp về sau kém hơn",
+   "190"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P1-VD8 (nam)",
+  "tt": "Giáp Thân,Đinh Sửu,Quý Tị,Nhâm Tí",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "ky": "Mộc (Thực thương)",
+  "dv": [
+   "MậuDần4:Thườn",
+   "KỷMão14:Thườn",
+   "CanhThìn24:Thườn",
+   "TânTị34:Thườn",
+   "NhâmNgọ44:Thườn",
+   "QuýMùi54:Thườn",
+   "GiápThân64:X",
+   "ẤtDậu74:X"
+  ],
+  "sach": [
+   "thơ ấu vận xung nguy; vận sát có tiếng từ bé; vận ấn kiêu thành đạt; vận kiếp tỉ khắc cha; càng già càng tốt",
+   "191"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P1-VD9 (nam)",
+  "tt": "Bính Ngọ,Đinh Dậu,Kỷ Mão,Giáp Tí",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Tài)",
+  "ky": "Thổ (Tỉ kiếp)",
+  "dv": [
+   "MậuTuất3:X",
+   "KỷHợi13:Thườn",
+   "CanhTí23:Thườn",
+   "TânSửu33:Thườn",
+   "NhâmDần43:Thườn",
+   "QuýMão53:T",
+   "GiápThìn63:Thườn",
+   "ẤtTị73:Thườn"
+  ],
+  "sach": [
+   "vận tỉ kiếp bại; vận thương nhiều tai hoạ; sau 48 mới bình an; vận thiên tài sự nghiệp hanh thông",
+   "192–193"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P1-VD10 (nữ)",
+  "tt": "Nhâm Tí,Nhâm Tí,Mậu Tí,Bính Thìn",
+  "g": "Nữ",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Kim (Thực thương)",
+  "ky": "Hỏa (Ấn)",
+  "dv": [
+   "TânHợi1:Thườn",
+   "CanhTuất11:T",
+   "KỷDậu21:Thườn",
+   "MậuThân31:Thườn",
+   "ĐinhMùi41:Thườn",
+   "BínhNgọ51:Thườn",
+   "ẤtTị61:Thườn",
+   "GiápThìn71:Thườn"
+  ],
+  "sach": [
+   "vận đầu thương thực sinh tài bệnh nặng; sau vận ngang vai sức khoẻ hồi phục",
+   "193"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P1-VD11 (nữ)",
+  "tt": "Giáp Tuất,Giáp Tuất,Ất Hợi,Mậu Dần",
+  "g": "Nữ",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Kim (Quan sát)",
+  "ky": "Hỏa (Thực thương)",
+  "dv": [
+   "QuýDậu7:Thườn",
+   "NhâmThân17:Thườn",
+   "TânMùi27:T",
+   "CanhNgọ37:T",
+   "KỷTị47:Thườn",
+   "MậuThìn57:Thườn",
+   "ĐinhMão67:X",
+   "BínhDần77:X"
+  ],
+  "sach": [
+   "hơn nửa đời trắc trở (vận sát: bị tù 19 năm); vận Kỷ Tị ra tù gặp may; vận chính tài công danh lừng lẫy; về già vận hỉ phúc thọ",
+   "194–195"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P1-VD12 (nữ)",
+  "tt": "Canh Thân,Quý Mùi,Mậu Thân,Quý Sửu",
+  "g": "Nữ",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Tỉ kiếp)",
+  "ky": "Mộc (Quan sát)",
+  "dv": [
+   "NhâmNgọ1:Thườn",
+   "TânTị11:Thườn",
+   "CanhThìn21:Thườn",
+   "KỷMão31:T",
+   "MậuDần41:Thườn",
+   "ĐinhSửu51:T",
+   "BínhTí61:T",
+   "ẤtHợi71:Thườn"
+  ],
+  "sach": [
+   "tuổi thơ tài vận khốn khó; vận thương thực bại; từ 39 dụng lên ngôi giàu; trung, hậu vận rất tốt",
+   "195"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P1-VD13 (nam)",
+  "tt": "Mậu Tuất,Ất Mão,Kỷ Dậu,Mậu Thìn",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Quan sát)",
+  "ky": "Kim (Thực thương)",
+  "dv": [
+   "BínhThìn1:Thườn",
+   "ĐinhTị11:Thườn",
+   "MậuNgọ21:Thườn",
+   "KỷMùi31:Thườn",
+   "CanhThân41:Thườn",
+   "TânDậu51:X",
+   "NhâmTuất61:Thườn",
+   "QuýHợi71:Thườn"
+  ],
+  "sach": [
+   "vận ấn kiêu kiếp tỉ không lợi; từ vận thương đến già thuận buồm xuôi gió",
+   "196"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P1-VD14 (nam)",
+  "tt": "Quý Mão,Mậu Ngọ,Tân Sửu,Đinh Dậu",
+  "g": "Nam",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thổ (Ấn)",
+  "ky": "Mộc (Tài)",
+  "dv": [
+   "ĐinhTị1:Thườn",
+   "BínhThìn11:Thườn",
+   "ẤtMão21:X",
+   "GiápDần31:X",
+   "QuýSửu41:Thườn",
+   "NhâmTí51:Thườn",
+   "TânHợi61:Thườn",
+   "CanhTuất71:Thườn"
+  ],
+  "sach": [
+   "vận sát học giỏi; quan vận hỗn tạp; tài vận kị; thực thương bình thường; hai vận cuối tỉ kiếp vừa ý",
+   "197"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P1-VD15 (nam)",
+  "tt": "Ất Mão,Bính Tuất,Ất Dậu,Nhâm Ngọ",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thủy (Ấn)",
+  "ky": "Thổ (Tài)",
+  "dv": [
+   "ẤtDậu4:X",
+   "GiápThân14:T",
+   "QuýMùi24:T",
+   "NhâmNgọ34:T",
+   "TânTị44:Thườn",
+   "CanhThìn54:Thườn",
+   "KỷMão64:Thườn",
+   "MậuDần74:Thườn"
+  ],
+  "sach": [
+   "giai đoạn tỉ kiếp kiêu: học giỏi, vào sinh ra tử; ấn sát: sung sức nhất (1961 Thiếu tướng); quan: trắc trở; tài vận: bệnh tim, mất",
+   "199–200"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-397 VD1",
+  "tt": "Nhâm Thìn,Tân Hợi,Mậu Tuất,Bính Thìn",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Quan sát)",
+  "ky": "Kim (Thực thương)",
+  "dv": [
+   "NhâmTí1:T",
+   "QuýSửu11:T",
+   "GiápDần21:Thườn",
+   "ẤtMão31:Thườn",
+   "BínhThìn41:Thườn",
+   "ĐinhTị51:Thườn",
+   "MậuNgọ61:Thườn",
+   "KỷMùi71:Thườn"
+  ],
+  "sach": [
+   "từ 26 (Giáp Dần) tốt dần; từ 36 (Ất Mão – dụng) còn được; 1990–1994 khá",
+   "397"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-398 VD2",
+  "tt": "Ất Mão,Bính Tuất,Quý Tị,Nhâm Tí",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "ky": "Mộc (Thực thương)",
+  "dv": [
+   "ẤtDậu6:T",
+   "GiápThân16:X",
+   "QuýMùi26:Thườn",
+   "NhâmNgọ36:Thườn",
+   "TânTị46:Thườn",
+   "CanhThìn56:Thườn",
+   "KỷMão66:Thườn",
+   "MậuDần76:Thườn"
+  ],
+  "sach": [
+   "từ 22 vận tỉ kiếp có lợi; từ 42 vận tân kim (dụng) càng thuận; trung niên tốt",
+   "398"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-399 VD3",
+  "tt": "Canh Tuất,Bính Tuất,Tân Tị,Đinh Dậu",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Quan sát)",
+  "ky": "Thủy (Thực thương)",
+  "dv": [
+   "ĐinhHợi1:X",
+   "MậuTí11:Thườn",
+   "KỷSửu21:Thườn",
+   "CanhDần31:Thườn",
+   "TânMão41:Thườn",
+   "NhâmThìn51:Thườn",
+   "QuýTị61:X",
+   "GiápNgọ71:Thườn"
+  ],
+  "sach": [
+   "trung niên hành tài vận nên có thể phát phúc",
+   "399"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-400 VD4",
+  "tt": "Quý Sửu,Giáp Tí,Quý Mão,Quý Hợi",
+  "g": "Nữ",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Tỉ kiếp)",
+  "ky": "Thổ (Quan sát)",
+  "dv": [
+   "ẤtSửu1:Thườn",
+   "BínhDần11:Thườn",
+   "ĐinhMão21:Thườn",
+   "MậuThìn31:Thườn",
+   "KỷTị41:Thườn",
+   "CanhNgọ51:T",
+   "TânMùi61:T",
+   "NhâmThân71:T"
+  ],
+  "sach": [
+   "tài vận 21–60, tốt nhất 26–50",
+   "400"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-400 VD5",
+  "tt": "Bính Ngọ,Mậu Tuất,Canh Ngọ,Ất Dậu",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Thực thương)",
+  "ky": "Thổ (Ấn)",
+  "dv": [
+   "KỷHợi1:X",
+   "CanhTí11:Thườn",
+   "TânSửu21:Thườn",
+   "NhâmDần31:Thườn",
+   "QuýMão41:Thườn",
+   "GiápThìn51:T",
+   "ẤtTị61:T",
+   "BínhNgọ71:Thườn"
+  ],
+  "sach": [
+   "trước 31 không suôn sẻ; sau 31 phát đạt",
+   "401"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-402 VD7",
+  "tt": "Bính Tí,Kỷ Hợi,Bính Thân,Nhâm Thìn",
+  "g": "Nam",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "ky": "Kim (Tài)",
+  "dv": [
+   "CanhTí9:Thườn",
+   "TânSửu19:Thườn",
+   "NhâmDần29:Thườn",
+   "QuýMão39:Thườn",
+   "GiápThìn49:Thườn",
+   "ẤtTị59:T",
+   "BínhNgọ69:Thườn",
+   "ĐinhMùi79:Thườn"
+  ],
+  "sach": [
+   "trước 30 cực xấu (9 phần chết); 30–38 bôn ba nhưng đỡ dần; 44–49 bốc nhanh; nửa sau càng già càng sướng",
+   "402"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-403 VD8",
+  "tt": "Nhâm Thìn,Nhâm Dần,Canh Tí,Bính Tuất",
+  "g": "Nam",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thổ (Ấn)",
+  "ky": "Mộc (Tài)",
+  "dv": [
+   "QuýMão3:Thườn",
+   "GiápThìn13:X",
+   "ẤtTị23:X",
+   "BínhNgọ33:Thườn",
+   "ĐinhMùi43:Thườn",
+   "MậuThân53:T",
+   "KỷDậu63:T",
+   "CanhTuất73:Thườn"
+  ],
+  "sach": [
+   "sau 34 (Bính Ngọ) khá; 1994–95 cầu tài bất lợi; tốt nhất từ 54 (Mậu Thân)",
+   "403"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-404 VD9",
+  "tt": "Ất Tị,Giáp Thân,Ất Mùi,Tân Tị",
+  "g": "Nữ",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thủy (Ấn)",
+  "ky": "Thổ (Tài)",
+  "dv": [
+   "ẤtDậu5:Thườn",
+   "BínhTuất15:Thườn",
+   "ĐinhHợi25:Thườn",
+   "MậuTí35:Thườn",
+   "KỷSửu45:Thườn",
+   "CanhDần55:Thườn",
+   "TânMão65:Thườn",
+   "NhâmThìn75:T"
+  ],
+  "sach": [
+   "40–60 tài vận khá",
+   "404"
+  ]
+ },
+ {
+  "ten": "P2-404 VD10",
+  "tt": "Mậu Thìn,Giáp Dần,Nhâm Tí,Quý Mão",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "ky": "Mộc (Thực thương)",
+  "dv": [
+   "ẤtMão1:X",
+   "BínhThìn11:Thườn",
+   "ĐinhTị21:Thườn",
+   "MậuNgọ31:Thườn",
+   "KỷMùi41:Thườn",
+   "CanhThân51:T",
+   "TânDậu61:T",
+   "NhâmTuất71:Thườn"
+  ],
+  "sach": [
+   "17–32 thuận lợi ít, trắc trở nhiều",
+   "405"
+  ]
+ },
+ {
+  "ten": "P2-405 VD11",
+  "tt": "Giáp Ngọ,Nhâm Thân,Tân Sửu,Canh Dần",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "ky": "Kim (Tỉ kiếp)",
+  "dv": [
+   "QuýDậu9:T",
+   "GiápTuất19:Thườn",
+   "ẤtHợi29:Thườn",
+   "BínhTí39:Thườn",
+   "ĐinhSửu49:Thườn",
+   "MậuDần59:Thườn",
+   "KỷMão69:Thườn",
+   "CanhThìn79:X"
+  ],
+  "sach": [
+   "từ 19 tài vận tương đối tốt, sau 44 ngày càng tốt",
+   "406"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-406 VD12",
+  "tt": "Mậu Tuất,Tân Dậu,Tân Mão,Kỷ Sửu",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "ky": "Kim (Tỉ kiếp)",
+  "dv": [
+   "NhâmTuất9:Thườn",
+   "QuýHợi19:Thườn",
+   "GiápTí29:Thườn",
+   "ẤtSửu39:Thườn",
+   "BínhDần49:Thườn",
+   "ĐinhMão59:Thườn",
+   "MậuThìn69:Thườn",
+   "KỷTị79:Thườn"
+  ],
+  "sach": [
+   "1987–2006 lợi tài nhất (vận giáp ất)",
+   "406"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-406 VD13",
+  "tt": "Nhâm Tí,Canh Tuất,Bính Thân,Kỷ Hợi",
+  "g": "Nam",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "ky": "Kim (Tài)",
+  "dv": [
+   "TânHợi1:X",
+   "NhâmTí11:Thườn",
+   "QuýSửu21:Thườn",
+   "GiápDần31:Thườn",
+   "ẤtMão41:Thườn",
+   "BínhThìn51:Thườn",
+   "ĐinhTị61:Thườn",
+   "MậuNgọ71:Thườn"
+  ],
+  "sach": [
+   "Quý Sửu bất lợi; từ 32 (Giáp Dần, kiêu) phát đạt",
+   "407"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-407 VD14",
+  "tt": "Tân Sửu,Quý Tị,Ất Sửu,Đinh Sửu",
+  "g": "Nam",
+  "than": "VƯỢNG (Theo PP1)",
+  "dung": "Hỏa (Thực thương)",
+  "ky": "Thủy (Ấn)",
+  "dv": [
+   "NhâmThìn1:Thườn",
+   "TânMão11:Thườn",
+   "CanhDần21:Thườn",
+   "KỷSửu31:T",
+   "MậuTí41:Thườn",
+   "ĐinhHợi51:X",
+   "BínhTuất61:Thườn",
+   "ẤtDậu71:Thườn"
+  ],
+  "sach": [
+   "suốt đời vận khí bình thường; sau 39 gặp tài vận không lợi (trừ năm thuỷ mộc)",
+   "408"
+  ],
+  "vs2": "VƯỢNG (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-408 VD15",
+  "tt": "Nhâm Tí,Giáp Thìn,Nhâm Thìn,Bính Ngọ",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thủy (Tỉ kiếp)",
+  "ky": "Thổ (Quan sát)",
+  "dv": [
+   "ẤtTị1:Thườn",
+   "BínhNgọ11:Thườn",
+   "ĐinhMùi21:Thườn",
+   "MậuThân31:Thườn",
+   "KỷDậu41:Thườn",
+   "CanhTuất51:Thườn",
+   "TânHợi61:Thườn",
+   "NhâmTí71:T"
+  ],
+  "sach": [
+   "cả đời khá, đặc biệt sau 52",
+   "409"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-409 VD16",
+  "tt": "Canh Ngọ,Nhâm Ngọ,Nhâm Thân,Giáp Thìn",
+  "g": "Nữ",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Kim (Ấn)",
+  "ky": "Hỏa (Tài)",
+  "dv": [
+   "TânTị1:T",
+   "CanhThìn11:T",
+   "KỷMão21:Thườn",
+   "MậuDần31:Thườn",
+   "ĐinhSửu41:Thườn",
+   "BínhTí51:T",
+   "ẤtHợi61:Thườn",
+   "GiápTuất71:Thườn"
+  ],
+  "sach": [
+   "cả đời tương đối khá, sau 50 ngày càng tốt",
+   "410"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-410 VD17",
+  "tt": "Canh Tuất,Tân Tị,Bính Ngọ,Nhâm Thìn",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Quan sát)",
+  "ky": "Thổ (Thực thương)",
+  "dv": [
+   "NhâmNgọ1:T",
+   "QuýMùi11:T",
+   "GiápThân21:Thườn",
+   "ẤtDậu31:Thườn",
+   "BínhTuất41:Thườn",
+   "ĐinhHợi51:Thườn",
+   "MậuTí61:X",
+   "KỷSửu71:X"
+  ],
+  "sach": [
+   "sau 24 vận ấn kiêu tỉ khó giữ chức; sau 40 hao tài",
+   "410–411"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-411 VD18",
+  "tt": "Kỷ Dậu,Kỷ Tị,Tân Sửu,Tân Mão",
+  "g": "Nữ",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "ky": "Kim (Tỉ kiếp)",
+  "dv": [
+   "CanhNgọ1:X",
+   "TânMùi11:X",
+   "NhâmThân21:T",
+   "QuýDậu31:X",
+   "GiápTuất41:Thườn",
+   "ẤtHợi51:Thườn",
+   "BínhTí61:Thườn",
+   "ĐinhSửu71:Thườn"
+  ],
+  "sach": [
+   "tuổi trẻ vận hoả phương nam không thuận; 24 vào vận kim phát phúc; từ 1993 rất khá; nửa sau hơi gập ghềnh",
+   "411–412"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "?"
+ },
+ {
+  "ten": "P2-412 VD19",
+  "tt": "Kỷ Dậu,Tân Mùi,Kỷ Sửu,Canh Ngọ",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Quan sát)",
+  "ky": "Kim (Thực thương)",
+  "dv": [
+   "CanhNgọ7:X",
+   "KỷTị17:Thườn",
+   "MậuThìn27:Thườn",
+   "ĐinhMão37:Thườn",
+   "BínhDần47:Thườn",
+   "ẤtSửu57:Thườn",
+   "GiápTí67:Thườn",
+   "QuýHợi77:Thườn"
+  ],
+  "sach": [
+   "22–31 có thể tiến tài nhưng của vào ra; vận Đinh Mão tài vận càng không lợi",
+   "412"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-413 VD20",
+  "tt": "Ất Mão,Giáp Thân,Nhâm Dần,Quý Mão",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Quan sát)",
+  "ky": "Mộc (Thực thương)",
+  "dv": [
+   "QuýMùi10:Thườn",
+   "NhâmNgọ20:Thườn",
+   "TânTị30:Thườn",
+   "CanhThìn40:Thườn",
+   "KỷMão50:Thườn",
+   "MậuDần60:Thườn",
+   "ĐinhSửu70:Thườn",
+   "BínhTí80:Thườn"
+  ],
+  "sach": [
+   "25–34 vận chính ấn lợi học tập",
+   "413"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-414 VD21",
+  "tt": "Canh Thân,Giáp Thân,Mậu Ngọ,Bính Thìn",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Hỏa (Ấn)",
+  "ky": "Thủy (Tài)",
+  "dv": [
+   "ẤtDậu4:Thườn",
+   "BínhTuất14:T",
+   "ĐinhHợi24:T",
+   "MậuTí34:X",
+   "KỷSửu44:Thườn",
+   "CanhDần54:Thườn",
+   "TânMão64:Thườn",
+   "NhâmThìn74:X"
+  ],
+  "sach": [
+   "28–38 vận thân vượng lợi tài; 38–48 tài vận hanh thông; 48 công danh thành đạt; 2022–2027 hoàng kim",
+   "414"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-415 VD22",
+  "tt": "Nhâm Dần,Nhâm Tí,Đinh Dậu,Tân Sửu",
+  "g": "Nữ",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Ấn)",
+  "ky": "Kim (Tài)",
+  "dv": [
+   "TânHợi1:X",
+   "CanhTuất11:X",
+   "KỷDậu21:Thườn",
+   "MậuThân31:X",
+   "ĐinhMùi41:Thườn",
+   "BínhNgọ51:Thườn",
+   "ẤtTị61:Thườn",
+   "GiápThìn71:Thườn"
+  ],
+  "sach": [
+   "6–15 kị, nhiều bệnh; 16–25 học không thành; 36–45 kị, phức tạp; 46–55 chuyển tốt dần; cuối đời mới phát",
+   "621–622"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-416 VD23",
+  "tt": "Giáp Ngọ,Kỷ Tị,Tân Mão,Nhâm Thìn",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "ky": "Mộc (Tài)",
+  "dv": [
+   "CanhNgọ1:T",
+   "TânMùi11:T",
+   "NhâmThân21:Thườn",
+   "QuýDậu31:T",
+   "GiápTuất41:Thườn",
+   "ẤtHợi51:X",
+   "BínhTí61:Thườn",
+   "ĐinhSửu71:Thườn"
+  ],
+  "sach": [
+   "41–55 tài vận tương đối tốt",
+   "416"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-417 VD25",
+  "tt": "Canh Thìn,Mậu Tí,Canh Tuất,Kỷ Mão",
+  "g": "Nữ",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "ky": "Mộc (Tài)",
+  "dv": [
+   "ĐinhHợi9:Thườn",
+   "BínhTuất19:Thườn",
+   "ẤtDậu29:T",
+   "GiápThân39:Thườn",
+   "QuýMùi49:Thườn",
+   "NhâmNgọ59:Thườn",
+   "TânTị69:T",
+   "CanhThìn79:T"
+  ],
+  "sach": [
+   "9–48 thời cơ thăng quan phát tài tốt nhất; sau 49 bất lợi quan trường, nên buôn bán",
+   "418"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-418 VD26",
+  "tt": "Nhâm Thìn,Đinh Mùi,Tân Mùi,Giáp Ngọ",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "ky": "Mộc (Tài)",
+  "dv": [
+   "MậuThân5:Thườn",
+   "KỷDậu15:Thườn",
+   "CanhTuất25:T",
+   "TânHợi35:T",
+   "NhâmTí45:Thườn",
+   "QuýSửu55:Thườn",
+   "GiápDần65:X",
+   "ẤtMão75:X"
+  ],
+  "sach": [
+   "sau 44–45 (Nhâm Tí) như gió xuân; 2003–2005 rất khá; sau 50 càng phát",
+   "419"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "?"
+ },
+ {
+  "ten": "P2-419 VD27",
+  "tt": "Kỷ Sửu,Bính Dần,Đinh Mão,Nhâm Dần",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Ấn)",
+  "ky": "Kim (Tài)",
+  "dv": [
+   "ẤtSửu1:T",
+   "GiápTí11:Thườn",
+   "QuýHợi21:Thườn",
+   "NhâmTuất31:Thườn",
+   "TânDậu41:X",
+   "CanhThân51:X",
+   "KỷMùi61:Thườn",
+   "MậuNgọ71:Thườn"
+  ],
+  "sach": [
+   "Nhâm Tuất sóng gió; Tân Dậu tốt nhất (1990–92 đổi nghề tốt)",
+   "420"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-420 VD28",
+  "tt": "Ất Tị,Quý Mùi,Quý Tị,Kỷ Mùi",
+  "g": "Nữ",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Kim (Ấn)",
+  "ky": "Hỏa (Tài)",
+  "dv": [
+   "GiápThân1:Thườn",
+   "ẤtDậu11:Thườn",
+   "BínhTuất21:Thườn",
+   "ĐinhHợi31:T",
+   "MậuTí41:Thườn",
+   "KỷSửu51:Thườn",
+   "CanhDần61:Thườn",
+   "TânMão71:T"
+  ],
+  "sach": [
+   "vận tài, quan sát nhiều tai hoạ; sau 60 vận ấn chuyển hoạ thành phúc",
+   "420"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-421 VD29",
+  "tt": "Quý Sửu,Ất Sửu,Giáp Tuất,Canh Ngọ",
+  "g": "Nam",
+  "than": "VƯỢNG (Theo PP1)",
+  "dung": "Kim (Quan sát)",
+  "ky": "Hỏa (Thực thương)",
+  "dv": [
+   "GiápTí1:T",
+   "QuýHợi11:Thườn",
+   "NhâmTuất21:Thườn",
+   "TânDậu31:T",
+   "CanhThân41:Thườn",
+   "KỷMùi51:Thườn",
+   "MậuNgọ61:Thườn",
+   "ĐinhTị71:Thườn"
+  ],
+  "sach": [
+   "vận ấn hiện tại lợi học; sau 39 vận quan có chức",
+   "421"
+  ],
+  "vs2": "VƯỢNG (Theo PP1)",
+  "sach_st": "?"
+ },
+ {
+  "ten": "P2-422 VD30",
+  "tt": "Nhâm Dần,Canh Tuất,Quý Mùi,Giáp Dần",
+  "g": "Nam",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Kim (Ấn)",
+  "ky": "Hỏa (Tài)",
+  "dv": [
+   "TânHợi4:T",
+   "NhâmTí14:T",
+   "QuýSửu24:T",
+   "GiápDần34:Thườn",
+   "ẤtMão44:Thườn",
+   "BínhThìn54:Thườn",
+   "ĐinhTị64:Thườn",
+   "MậuNgọ74:Thườn"
+  ],
+  "sach": [
+   "29–39 thu nhiều chi nhiều; Giáp Dần không giữ được của",
+   "422"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-422 VD31",
+  "tt": "Canh Dần,Mậu Tí,Quý Tị,Nhâm Tí",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Tài)",
+  "ky": "Thủy (Tỉ kiếp)",
+  "dv": [
+   "KỷSửu4:Thườn",
+   "CanhDần14:Thườn",
+   "TânMão24:Thườn",
+   "NhâmThìn34:X",
+   "QuýTị44:Thườn",
+   "GiápNgọ54:Thườn",
+   "ẤtMùi64:Thườn",
+   "BínhThân74:X"
+  ],
+  "sach": [
+   "tuổi trẻ gian lao; trung niên lao lực bôn ba, vướng tình cảm; 1986–89 tài tốt, 1988–89 huy hoàng nhất; về già ngày càng tốt",
+   "607–609"
+  ]
+ },
+ {
+  "ten": "P2-423 VD32",
+  "tt": "Giáp Thìn,Ất Hợi,Bính Tuất,Kỷ Hợi",
+  "g": "Nữ",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Ấn)",
+  "ky": "Kim (Tài)",
+  "dv": [
+   "GiápTuất1:Thườn",
+   "QuýDậu11:Thườn",
+   "NhâmThân21:Thườn",
+   "TânMùi31:X",
+   "CanhNgọ41:Thườn",
+   "KỷTị51:Thườn",
+   "MậuThìn61:Thườn",
+   "ĐinhMão71:T"
+  ],
+  "sach": [
+   "9–18 vận kiêu lợi học; 19–28 thuận, 1985–88 phát đạt; 29–38 lẫn; 39–48 2004–07 tốt; 59–68 sức khoẻ yếu; 68–78 cửa ải",
+   "611–613"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "?"
+ },
+ {
+  "ten": "P2-424 VD33",
+  "tt": "Kỷ Mùi,Quý Dậu,Mậu Dần,Canh Thân",
+  "g": "Nam",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Hỏa (Ấn)",
+  "ky": "Thủy (Tài)",
+  "dv": [
+   "NhâmThân5:Thườn",
+   "TânMùi15:Thườn",
+   "CanhNgọ25:Thườn",
+   "KỷTị35:T",
+   "MậuThìn45:Thườn",
+   "ĐinhMão55:T",
+   "BínhDần65:T",
+   "ẤtSửu75:Thườn"
+  ],
+  "sach": [
+   "gặp vận thân vượng (hoả mộc) mới lợi phát tài",
+   "424–425"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-425 VD34",
+  "tt": "Bính Thìn,Mậu Tuất,Bính Ngọ,Mậu Tuất",
+  "g": "Nữ",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Hỏa (Tỉ kiếp)",
+  "ky": "Thủy (Quan sát)",
+  "dv": [
+   "ĐinhDậu9:T",
+   "BínhThân19:T",
+   "ẤtMùi29:T",
+   "GiápNgọ39:T",
+   "QuýTị49:Thườn",
+   "NhâmThìn59:Thườn",
+   "TânMão69:Thườn",
+   "CanhDần79:Thườn"
+  ],
+  "sach": [
+   "24–28 tương đối khá; 2000–2015 còn tương đối",
+   "426"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-426 VD35",
+  "tt": "Giáp Dần,Nhâm Thân,Mậu Thân,Mậu Ngọ",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Tỉ kiếp)",
+  "ky": "Mộc (Quan sát)",
+  "dv": [
+   "QuýDậu1:Thườn",
+   "GiápTuất11:X",
+   "ẤtHợi21:X",
+   "BínhTí31:X",
+   "ĐinhSửu41:Thườn",
+   "MậuDần51:Thườn",
+   "KỷMão61:Thườn",
+   "CanhThìn71:Thườn"
+  ],
+  "sach": [
+   "sau 12 gặp vận dụng; sau 22 khá; 33–41 huy hoàng nhất",
+   "426–427"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "N"
+ },
+ {
+  "ten": "P2-427 VD36",
+  "tt": "Bính Tí,Quý Tị,Bính Ngọ,Quý Tị",
+  "g": "Nam",
+  "than": "VƯỢNG (Theo PP1)",
+  "dung": "Thủy (Quan sát)",
+  "ky": "Thổ (Thực thương)",
+  "dv": [
+   "GiápNgọ4:Thườn",
+   "ẤtMùi14:Thườn",
+   "BínhThân24:Thườn",
+   "ĐinhDậu34:Thườn",
+   "MậuTuất44:Thườn",
+   "KỷHợi54:X",
+   "CanhTí64:Thườn",
+   "TânSửu74:Thườn"
+  ],
+  "sach": [
+   "trung niên đến trước 64 bình thường; sau 65 (Canh Tí) cuối đời thành đạt, có tiếng trong vùng",
+   "427"
+  ],
+  "vs2": "VƯỢNG (Theo PP1)",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-428 VD37",
+  "tt": "Ất Mùi,Giáp Thân,Canh Tuất,Quý Mùi",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Mộc (Tài)",
+  "ky": "Kim (Tỉ kiếp)",
+  "dv": [
+   "QuýMùi3:T",
+   "NhâmNgọ13:T",
+   "TânTị23:X",
+   "CanhThìn33:Thườn",
+   "KỷMão43:Thườn",
+   "MậuDần53:Thườn",
+   "ĐinhSửu63:Thườn",
+   "BínhTí73:Thườn"
+  ],
+  "sach": [
+   "3–13 nhiều bệnh; trước 23 gian khổ; 23–32 ổn định; sau 34 khởi sắc; 2000 thăng cao; về già hơi kém (sau 63)",
+   "616–617"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "V"
+ },
+ {
+  "ten": "P2-429 VD38",
+  "tt": "Nhâm Thìn,Canh Tuất,Giáp Ngọ,Giáp Tí",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Mộc (Tỉ kiếp)",
+  "ky": "Kim (Quan sát)",
+  "dv": [
+   "TânHợi8:X",
+   "NhâmTí18:T",
+   "QuýSửu28:T",
+   "GiápDần38:Thườn",
+   "ẤtMão48:Thườn",
+   "BínhThìn58:Thườn",
+   "ĐinhTị68:Thườn",
+   "MậuNgọ78:Thườn"
+  ],
+  "sach": [
+   "tuổi trẻ chưa hưng; 1982–85 khá; 2012–2015, 2022–2025 phát tài to",
+   "429"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "?"
+ },
+ {
+  "ten": "P2-430 VD40",
+  "tt": "Bính Ngọ,Mậu Tuất,Nhâm Dần,Bính Ngọ",
+  "g": "Nam",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Mộc (Thực thương)",
+  "ky": "Kim (Ấn)",
+  "dv": [
+   "KỷHợi5:Thườn",
+   "CanhTí15:X",
+   "TânSửu25:Thườn",
+   "NhâmDần35:Thườn",
+   "QuýMão45:Thườn",
+   "GiápThìn55:T",
+   "ẤtTị65:T",
+   "BínhNgọ75:T"
+  ],
+  "sach": [
+   "29/30–59 vận sinh trợ, cầu tài thuận; 2000–2008, 2010–2013 thuận nhất",
+   "431"
+  ]
+ },
+ {
+  "ten": "C23-583 (Đinh Mùi, Đinh Mùi, Tân Mão, Canh Dần – nam 1967)",
+  "tt": "Đinh Mùi,Đinh Mùi,Tân Mão,Canh Dần",
+  "g": "Nam",
+  "than": "NHƯỢC (Theo PP1)",
+  "dung": "Thổ (Ấn)",
+  "ky": "Mộc (Tài)",
+  "dv": [
+   "BínhNgọ1:Thườn",
+   "ẤtTị11:Thườn",
+   "GiápThìn21:Thườn",
+   "QuýMão31:Thườn",
+   "NhâmDần41:Thườn",
+   "TânSửu51:Thườn",
+   "CanhTí61:Thườn",
+   "KỷHợi71:T"
+  ],
+  "sach": [
+   "6–16 khắc cha, ốm yếu, nghèo; 16–26 bôn ba, học không cao; 26–36 vì tiền mắc hoạ, tránh lãnh đạo; 36–46 dụng lên ngôi, ổn định; 46–56 kém hơn, chú ý bệnh",
+   "583–587"
+  ],
+  "vs2": "NHƯỢC (Theo PP1)",
+  "sach_st": "?"
+ },
+ {
+  "ten": "C23-588 (Nhâm Dần, Bính Ngọ, Kỷ Sửu, Giáp Tuất – nam 1962)",
+  "tt": "Nhâm Dần,Bính Ngọ,Kỷ Sửu,Giáp Tuất",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thủy (Tài)",
+  "ky": "Thổ (Tỉ kiếp)",
+  "dv": [
+   "ĐinhMùi1:Thườn",
+   "MậuThân11:Thườn",
+   "KỷDậu21:Thườn",
+   "CanhTuất31:Thườn",
+   "TânHợi41:Thườn",
+   "NhâmTí51:T",
+   "QuýSửu61:T",
+   "GiápDần71:Thườn"
+  ],
+  "sach": [
+   "trước 26 vận kị khó khăn; trung niên bôn ba, tài khá dần; sau 46 rất tốt, 48–51 tăng tiến nhiều; về già dồi dào",
+   "590–591"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "?"
+ },
+ {
+  "ten": "C23-591 (Quý Mão, Giáp Tí, Giáp Thìn, Giáp Tí – nam 1962)",
+  "tt": "Quý Mão,Giáp Tí,Giáp Thìn,Giáp Tí",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Thổ (Tài)",
+  "ky": "Mộc (Tỉ kiếp)",
+  "dv": [
+   "QuýHợi1:Thườn",
+   "NhâmTuất11:Thườn",
+   "TânDậu21:T",
+   "CanhThân31:Thườn",
+   "KỷMùi41:Thườn",
+   "MậuNgọ51:Thườn",
+   "ĐinhTị61:Thườn",
+   "BínhThìn71:Thườn"
+  ],
+  "sach": [
+   "7–17 kị vận, nhà nghèo; 17–27 bôn ba; 27–37 thuận dần; 37–47 sự nghiệp huy hoàng nhất nhưng hôn nhân không thuận; 47–57 tài lợi nhưng thành bại nhiều; 57–67 nên nghỉ hưu",
+   "593–595"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "?"
+ },
+ {
+  "ten": "C23-595 (Canh Tuất, Nhâm Ngọ, Canh Thân, Đinh Sửu – nam 1970)",
+  "tt": "Canh Tuất,Nhâm Ngọ,Canh Thân,Đinh Sửu",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Quan sát)",
+  "ky": "Thủy (Thực thương)",
+  "dv": [
+   "QuýMùi5:X",
+   "GiápThân15:Thườn",
+   "ẤtDậu25:Thườn",
+   "BínhTuất35:Thườn",
+   "ĐinhHợi45:Thườn",
+   "MậuTí55:X",
+   "KỷSửu65:Thườn",
+   "CanhDần75:Thườn"
+  ],
+  "sach": [
+   "9–19 học không lợi; 19–29 nhiều khó khăn, bôn ba; 29–39 tiền nhiều ổn định; 39–49 quan sát hỗn tạp phiền phức; 49–59 vượng vận",
+   "598–599"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "?"
+ },
+ {
+  "ten": "C23-600 (Giáp Ngọ, Mậu Thìn, Quý Mão, Ất Mão – nữ 1954)",
+  "tt": "Giáp Ngọ,Mậu Thìn,Quý Mão,Ất Mão",
+  "g": "Nữ",
+  "than": "NHƯỢC (Cả hai (thống nhất))",
+  "dung": "Thủy (Tỉ kiếp)",
+  "ky": "Thổ (Quan sát)",
+  "dv": [
+   "ĐinhMão4:Thườn",
+   "BínhDần14:Thườn",
+   "ẤtSửu24:Thườn",
+   "GiápTí34:Thườn",
+   "QuýHợi44:Thườn",
+   "NhâmTuất54:T",
+   "TânDậu64:T",
+   "CanhThân74:Thườn"
+  ],
+  "sach": [
+   "4–24 vận kị, nghèo khó bôn ba; 24–34 chuyển tốt nhưng nhiều bệnh; 34–44 làm ăn phát đạt; 64–84 vận ấn có hậu phúc",
+   "602–604"
+  ],
+  "vs2": "NHƯỢC (Cả hai (thống nhất))",
+  "sach_st": "?"
+ },
+ {
+  "ten": "C23-623 (Bính Thân, Đinh Dậu, Nhâm Thìn, Tân Hợi – nam 1956)",
+  "tt": "Bính Thân,Đinh Dậu,Nhâm Thìn,Tân Hợi",
+  "g": "Nam",
+  "than": "VƯỢNG (Cả hai (thống nhất))",
+  "dung": "Hỏa (Tài)",
+  "ky": "Thủy (Tỉ kiếp)",
+  "dv": [
+   "MậuTuất5:Thườn",
+   "KỷHợi15:Thườn",
+   "CanhTí25:Thườn",
+   "TânSửu35:Thườn",
+   "NhâmDần45:Thườn",
+   "QuýMão55:X",
+   "GiápThìn65:Thườn",
+   "ẤtTị75:Thườn"
+  ],
+  "sach": [
+   "46 bước ngoặt; 51–55 huy hoàng nhất; 66 (Giáp Thìn) cuối đời càng tốt",
+   "623–624"
+  ],
+  "vs2": "VƯỢNG (Cả hai (thống nhất))",
+  "sach_st": "?"
+ }
+]

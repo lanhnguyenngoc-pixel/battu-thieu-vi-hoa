@@ -77,8 +77,11 @@ class TrangTomTat(QWidget):
             nut = QPushButton('Chi tiết mục %s →' % chu); nut.setObjectName('nut_phu'); nut.setCursor(Qt.PointingHandCursor)
             nut.clicked.connect(lambda _=False, x=chu: self.mo_muc.emit(x)); hh.addWidget(nut); fl.addLayout(hh)
             b = lbl('', None, True); b.setStyleSheet('font-size:13.5px;'); b.setAlignment(Qt.AlignLeft | Qt.AlignTop)
+            b.setTextFormat(Qt.RichText); b.setOpenExternalLinks(False)
             fl.addWidget(b); fl.addStretch(1)
-            g.addWidget(f, i // 2, i % 2); self.the.append((r, a, b))
+            from ui.trich_dan import TrichDan
+            td_ = TrichDan(); b.linkActivated.connect(lambda u, j=i: self._bam(j, u))
+            g.addWidget(f, i // 2, i % 2); self.the.append((r, a, b, td_))
         v.addLayout(g); v.addStretch()
         lo = QVBoxLayout(self); lo.setContentsMargins(0, 0, 0, 0); lo.addWidget(cuon(nen))
 
@@ -89,8 +92,17 @@ class TrangTomTat(QWidget):
         self.dau.setText(('<b>%s</b> — ' % html.escape(ten) if ten else '') + 'Tứ trụ (năm · tháng · ngày · giờ): <b>%s</b> · %s · năm xem %s'
                          % (tru, kq.la_so.gioi_tinh, chu_o(E, 'NHAP_LIEU', 'C31')))
         cb = o('B2'); self.canh_bao.setText(cb); self.canh_bao.setVisible(bool(cb.strip()))
-        for r, a, b in self.the:
-            a.setText(o('B%d' % r)); b.setText(o('C%d' % r))
+        self.kq = kq
+        for j, (r, a, b, td_) in enumerate(self.the):
+            td_.mo = set(); a.setText(o('B%d' % r)); self._ve_the(j)
+
+    def _ve_the(self, j):
+        r, a, b, td_ = self.the[j]; td_.bat_dau()
+        # kết luận của công cụ in đậm; căn cứ sách ở dòng riêng, bấm "Căn cứ sách" mới sổ ra
+        b.setText(td_.html(chu_o(self.kq.E, 'KET_LUAN', 'C%d' % r))); b.updateGeometry(); b.parentWidget().updateGeometry()
+
+    def _bam(self, j, u):
+        if self.the[j][3].bam(u): self._ve_the(j)
 
 
 # ---------------------------------------------------------------- THEO LĨNH VỰC + TÌM KIẾM
@@ -113,11 +125,15 @@ class TrangLinhVuc(QWidget):
         self.ngan = QStackedWidget(); sp.addWidget(self.ngan); sp.setStretchFactor(1, 1)
         v.addWidget(sp, 1)
         self.muc = []                     # (khóa, sheet, BangSheet, nhãn KẾT LUẬN, dòng KL, BaiDoc, ngăn đọc/lưới, dòng tiêu đề)
+        from ui.trich_dan import TrichDan
+        self.td_kl = {i: TrichDan() for i in range(len(MUC_KL))}
         for i, (chu, r0, rkl) in enumerate(MUC_KL):
             w = QWidget(); wl = QVBoxLayout(w); wl.setContentsMargins(0, 0, 0, 0); wl.setSpacing(8)
             kl = None
             if rkl:
                 kl = lbl('', 'chip_info', True); kl.setStyleSheet('font-size:13.5px; padding:12px 14px;')
+                kl.setTextFormat(Qt.RichText); kl.setOpenExternalLinks(False)
+                kl.linkActivated.connect(lambda u, j=i: self.td_kl[j].bam(u) and self._ve_kl(j))
                 sk = cuon(kl); sk.setMaximumHeight(210); wl.addWidget(sk)
             if chu == 'H':
                 wl.addWidget(lbl('Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa.', 'chip_warn', True))
@@ -143,13 +159,16 @@ class TrangLinhVuc(QWidget):
         for i, (chu, r0, rkl) in enumerate(MUC_KL):
             self.ds.item(i).setText(chu_o(E, 'KET_LUAN', 'B%d' % r0) or chu)
             kl = self.muc[i][3]
-            if kl: kl.setText('<b>%s</b><br>%s' % (html.escape(chu_o(E, 'KET_LUAN', 'B%d' % rkl)),
-                                                    html.escape(chu_o(E, 'KET_LUAN', 'C%d' % rkl)).replace('\n', '<br>')))
+            if kl: self.td_kl[i].mo = set(); self._ve_kl(i)
         for j, (sh, _) in enumerate(TRANG_THEM):            # Luận giải (bảng ô), Đối chiếu sự việc: đã có trang riêng → chỉ chuyên gia
             self.ds.setRowHidden(len(MUC_KL) + j, (not cg) and sh in ('LUAN_GIAI', 'SU_KIEN'))
         if self.ds.isRowHidden(self.ds.currentRow()): self.ds.setCurrentRow(1)
         self._ve()
         if self.kq_tim.isVisible(): self.tim()
+
+    def _ve_kl(self, i):
+        chu, r0, rkl = MUC_KL[i]; E = self.kq.E; t = self.td_kl[i]; t.bat_dau()
+        self.muc[i][3].setText('<b>%s</b><br>%s' % (html.escape(chu_o(E, 'KET_LUAN', 'B%d' % rkl)), t.html(chu_o(E, 'KET_LUAN', 'C%d' % rkl))))
 
     def _chon(self, i):
         self.ngan.setCurrentIndex(i); self._ve()

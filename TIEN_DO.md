@@ -165,3 +165,13 @@ Ghi chú: đây là thay đổi TRÌNH BÀY, không phải đổi quy tắc tín
 | Workbook 6.4 | G142 – tools/step17.py (vá XML theo cách 06_MA_THAM_CHIEU/build_excel, LibreOffice tính lại). Chỉ thêm DUNG_HY_KY dòng 197–199 và nối vào KET_LUAN C52; MAU_THUAN dòng 168 |
 | Phần mềm | Dịch lại từ 6.4; ghi chú hiện ở mục B – Bản mệnh; 13/85 lá ví dụ có ghi chú |
 | Kiểm thử | Lấy lại toàn bộ đáp án trên 6.4; T1–T10 đạt 100% |
+
+## Bản 1.6.0 – quy tắc 6.5 (15/11/2026) – giai đoạn D
+| Việc | Kết quả |
+|---|---|
+| Workbook 6.5 (tools/step18.py, SHA-256 f19f3f74…c56f4) | VS-2, VS-3, B1, B2, CĐB-1/3/4, DT-2a, DT-3, DV-3, TL-1; giới tính lá mẫu; vá mẫu tài lộc; MAU_THUAN dòng 6, 169–180 |
+| Quy tắc trình bày (duyệt 15/11/2026) | Kết luận, luận giải của công cụ: chữ đậm; trích dẫn sách: chữ thường, dòng riêng, ẩn sau "📖 Căn cứ sách" (PDF: in ngay dưới) |
+| Giao diện | Kết luận đại vận ở đầu trang Vận trình (mức, vì sao 5 năm đầu/sau, tài lộc, công danh); thẻ đại vận ở Lá số hiện mức kết luận |
+| Đính chính | P1-VD14 không phải sửa (sách P1 tr.196 là giờ Đinh Dậu – dữ liệu nghiên cứu nhập nhầm, đã sửa); DT-2a vốn đã có trong 6.4, 6.5 đổi cách đếm "có mặt" |
+| Kiểm thử | Đáp án LibreOffice lấy lại toàn bộ trên 6.5; T1–T10 đạt 100% (tai_lieu/BAO_CAO_KIEM_THU_1.6.0_CHI_TIET.md); tự kiểm ĐẠT, dấu vân tay mới ae7e52ec… |
+| Chi tiết | tai_lieu/giai_doan_A/GIAI_DOAN_D_TRIEN_KHAI.md |

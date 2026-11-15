@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet SUC_KHOE – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1335,27 +1335,27 @@ def f171(E, r, c):
 
 def f172(E, r, c):
     # Ô E82, F82
-    # = IF(AND(NOT((NHAP_LIEU!$C$10="Nam")),((COUNTIFS(SAO!$F$5:$F$20,"Thương quan",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1,SAO!$B$5:$B$20,0))>0)),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,2,20,2), 0.0),0.0))) else '—')
+    # = IF(AND(NOT((NHAP_LIEU!$C$22="Nam")),((COUNTIFS(SAO!$F$5:$F$20,"Thương quan",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1,SAO!$B$5:$B$20,0))>0)),"ĐỦ","—")
+    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,2,20,2), 0.0),0.0))) else '—')
 
 def f173(E, r, c):
     # Ô K82
-    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$10&"; "&"Các chữ liên quan (chỉ liệt kê loại có mặt): "&TRIM(IF(COUNTIFS(SAO!$F$5:$F$20,"Thương quan",SAO!$Y$5:
+    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$22&"; "&"Các chữ liên quan (chỉ liệt kê loại có mặt): "&TRIM(IF(COUNTIFS(SAO!$F$5:$F$20,"Thương quan",SAO!$Y$5:
     #   $Y$20,0,SAO!$X$5:$X$20,1,SAO!$B$5:$B$20,0)>0,"Thương quan ở năm: "&COUNTIFS(SAO!$F$5:$F$20,"Thương quan",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1,SAO!$B$5:$B
     #   $20,0)&" chữ; ",""))&" → Quy tắc (P2 tr.560): Nữ, thương quan ở trụ năm → "&IF(J82="","chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.","ĐỦ ("
     #   &J82&") ⇒ "&G82&".")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,10,3)),'; '),'Các chữ liên quan (chỉ liệt kê loại có mặt): '),X.TRIM((X.cat(X.cat('Thương quan ở năm: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,2,20,2), 0.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,2,20,2), 0.0),0.0)) else ''))),' → Quy tắc (P2 tr.560): Nữ, thương quan ở trụ năm → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,22,3)),'; '),'Các chữ liên quan (chỉ liệt kê loại có mặt): '),X.TRIM((X.cat(X.cat('Thương quan ở năm: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,2,20,2), 0.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,2,20,2), 0.0),0.0)) else ''))),' → Quy tắc (P2 tr.560): Nữ, thương quan ở trụ năm → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f174(E, r, c):
     # Ô E83, F83
-    # = IF(AND(NOT((NHAP_LIEU!$C$10="Nam")),OR((THAN_SAT!$H$85="Có"),(THAN_SAT!$H$86="Có"))),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.OR(X.eq(E.v(12,85,8),'Có'), X.eq(E.v(12,86,8),'Có')))) else '—')
+    # = IF(AND(NOT((NHAP_LIEU!$C$22="Nam")),OR((THAN_SAT!$H$85="Có"),(THAN_SAT!$H$86="Có"))),"ĐỦ","—")
+    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.OR(X.eq(E.v(12,85,8),'Có'), X.eq(E.v(12,86,8),'Có')))) else '—')
 
 def f175(E, r, c):
     # Ô K83
-    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$10&" → Quy tắc (P2 tr.560): Nữ, có Thiên đức hoặc Nguyệt đức → "&IF(J83="","chưa đủ điều kiện ở cả hai phương p
+    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$22&" → Quy tắc (P2 tr.560): Nữ, có Thiên đức hoặc Nguyệt đức → "&IF(J83="","chưa đủ điều kiện ở cả hai phương p
     #   háp – không áp dụng.","ĐỦ ("&J83&") ⇒ "&G83&".")
-    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,10,3)),' → Quy tắc (P2 tr.560): Nữ, có Thiên đức hoặc Nguyệt đức → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,22,3)),' → Quy tắc (P2 tr.560): Nữ, có Thiên đức hoặc Nguyệt đức → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f176(E, r, c):
     # Ô E84
@@ -1860,87 +1860,87 @@ def f239(E, r, c):
 
 def f240(E, r, c):
     # Ô E118, F118
-    # = IF(AND(AND(NOT((NHAP_LIEU!$C$10="Nam")),((COUNTIFS(SAO!$F$5:$F$20,"Thiên ấn",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1))>0)),OR(MOD(TRUNG_GIAN!$E$7+4,5)=IF(DO
+    # = IF(AND(AND(NOT((NHAP_LIEU!$C$22="Nam")),((COUNTIFS(SAO!$F$5:$F$20,"Thiên ấn",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1))>0)),OR(MOD(TRUNG_GIAN!$E$7+4,5)=IF(DO
     #   I_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111),AND(SU_NGHIEP!$Z$2=MOD(TRUNG_GIAN!$E$7+4,5),MOD(TRUNG_GIAN!$E$7+4,5)<>IF(DOI_CHIEU!$C$33=2,DUNG_H
     #   Y_KY!$D$109,DUNG_HY_KY!$C$109),MOD(TRUNG_GIAN!$E$7+4,5)<>IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110)))),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)), X.OR(X.eq(X.MOD(X.add(E.v(23,7,5),4.0), 5.0),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3))), X.AND(X.eq(E.v(21,2,26),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)), X.ne(X.MOD(X.add(E.v(23,7,5),4.0), 5.0),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.ne(X.MOD(X.add(E.v(23,7,5),4.0), 5.0),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))))) else '—')
+    return ('ĐỦ' if X.truthy(X.AND(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)), X.OR(X.eq(X.MOD(X.add(E.v(23,7,5),4.0), 5.0),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3))), X.AND(X.eq(E.v(21,2,26),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)), X.ne(X.MOD(X.add(E.v(23,7,5),4.0), 5.0),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.ne(X.MOD(X.add(E.v(23,7,5),4.0), 5.0),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))))) else '—')
 
 def f241(E, r, c):
     # Ô K118
     # = "Dữ kiện: "&"Dụng PP1: "&IF(DUNG_HY_KY!$C$109>=0,INDEX(HANH_TEN,DUNG_HY_KY!$C$109+1),"—")&" / PP2: "&IF(DUNG_HY_KY!$D$109>=0,INDEX(HANH_TEN,DUNG_HY_KY
     #   !$D$109+1),"—")&"; "&"Hỷ PP1: "&IF(DUNG_HY_KY!$C$110>=0,INDEX(HANH_TEN,DUNG_HY_KY!$C$110+1),"—")&" / PP2: "&IF(DUNG_HY_KY!$D$110>=0,INDEX(HANH_TEN,DUN
     #   G_HY_KY!$D$110+1),"—")&"; "&"Kỵ PP1: "&IF(DUNG_HY_KY!$C$111>=0,INDEX(HANH_TEN,DUNG_HY_KY!$C$111+1),"—")&" / PP2: "&IF(DUNG_HY_KY!$D$111>=0,INDEX(HANH_
-    #   TEN,DUNG_HY_KY!$D$111+1),"—")&"; "&"Giới tính: "&NHAP_LIEU!$C$10&"; "&"Trụ ngày: "&TRUNG_GIAN!$E$10&" "&TRUNG_GIAN!$E$11&" ("&INDEX(HANH_TEN,TRUNG_GIA
+    #   TEN,DUNG_HY_KY!$D$111+1),"—")&"; "&"Giới tính: "&NHAP_LIEU!$C$22&"; "&"Trụ ngày: "&TRUNG_GIAN!$E$10&" "&TRUNG_GIAN!$E$11&" ("&INDEX(HANH_TEN,TRUNG_GIA
     #   N!$E$7+1)&"/"&INDEX(HANH_TEN,TRUNG_GIAN!$E$9+1)&")"&"; "&"Các chữ liên quan (chỉ liệt kê loại có mặt): "&TRIM(IF(COUNTIFS(SAO!$F$5:$F$20,"Thiên ấn",SA
     #   O!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1)>0,"Thiên ấn: "&COUNTIFS(SAO!$F$5:$F$20,"Thiên ấn",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1)&" chữ; ",""))&" → Quy tắc (P2 tr
     #   .560): Nữ, có thiên ấn và hành ấn là kỵ thần → "&IF(J118="","chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.","ĐỦ ("&J118&") ⇒ "&G118&".")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Dụng PP1: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,109,3),1.0)) if X.truthy(X.ge(E.v(8,109,3),0.0)) else '—')),' / PP2: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,109,4),1.0)) if X.truthy(X.ge(E.v(8,109,4),0.0)) else '—')),'; '),'Hỷ PP1: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,110,3),1.0)) if X.truthy(X.ge(E.v(8,110,3),0.0)) else '—')),' / PP2: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,110,4),1.0)) if X.truthy(X.ge(E.v(8,110,4),0.0)) else '—')),'; '),'Kỵ PP1: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,111,3),1.0)) if X.truthy(X.ge(E.v(8,111,3),0.0)) else '—')),' / PP2: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,111,4),1.0)) if X.truthy(X.ge(E.v(8,111,4),0.0)) else '—')),'; '),'Giới tính: '),E.v(2,10,3)),'; '),'Trụ ngày: '),E.v(23,10,5)),' '),E.v(23,11,5)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,5),1.0))),')'),'; '),'Các chữ liên quan (chỉ liệt kê loại có mặt): '),X.TRIM((X.cat(X.cat('Thiên ấn: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)) else ''))),' → Quy tắc (P2 tr.560): Nữ, có thiên ấn và hành ấn là kỵ thần → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Dụng PP1: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,109,3),1.0)) if X.truthy(X.ge(E.v(8,109,3),0.0)) else '—')),' / PP2: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,109,4),1.0)) if X.truthy(X.ge(E.v(8,109,4),0.0)) else '—')),'; '),'Hỷ PP1: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,110,3),1.0)) if X.truthy(X.ge(E.v(8,110,3),0.0)) else '—')),' / PP2: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,110,4),1.0)) if X.truthy(X.ge(E.v(8,110,4),0.0)) else '—')),'; '),'Kỵ PP1: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,111,3),1.0)) if X.truthy(X.ge(E.v(8,111,3),0.0)) else '—')),' / PP2: '),(X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,111,4),1.0)) if X.truthy(X.ge(E.v(8,111,4),0.0)) else '—')),'; '),'Giới tính: '),E.v(2,22,3)),'; '),'Trụ ngày: '),E.v(23,10,5)),' '),E.v(23,11,5)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,5),1.0))),')'),'; '),'Các chữ liên quan (chỉ liệt kê loại có mặt): '),X.TRIM((X.cat(X.cat('Thiên ấn: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)) else ''))),' → Quy tắc (P2 tr.560): Nữ, có thiên ấn và hành ấn là kỵ thần → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f242(E, r, c):
     # Ô E119, F119
-    # = IF(AND(AND(NOT((NHAP_LIEU!$C$10="Nam")),((COUNTIFS(SAO!$F$5:$F$20,"Thực thần",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1))>0)),(COUNTIFS(SAO!$F$5:$F$20,"Thiên 
+    # = IF(AND(AND(NOT((NHAP_LIEU!$C$22="Nam")),((COUNTIFS(SAO!$F$5:$F$20,"Thực thần",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1))>0)),(COUNTIFS(SAO!$F$5:$F$20,"Thiên 
     #   ấn",SAO!$Y$5:$Y$20,0)>=P_NHIEU)),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)), X.ge(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0),E.v(24,99,2)))) else '—')
+    return ('ĐỦ' if X.truthy(X.AND(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)), X.ge(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0),E.v(24,99,2)))) else '—')
 
 def f243(E, r, c):
     # Ô K119
-    # = "Dữ kiện: "&"ngưỡng nhiều = "&P_NHIEU&" chữ"&"; "&"Giới tính: "&NHAP_LIEU!$C$10&"; "&"Các chữ liên quan (chỉ liệt kê loại có mặt): "&TRIM(IF(COUNTIFS(
+    # = "Dữ kiện: "&"ngưỡng nhiều = "&P_NHIEU&" chữ"&"; "&"Giới tính: "&NHAP_LIEU!$C$22&"; "&"Các chữ liên quan (chỉ liệt kê loại có mặt): "&TRIM(IF(COUNTIFS(
     #   SAO!$F$5:$F$20,"Thực thần",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1)>0,"Thực thần: "&COUNTIFS(SAO!$F$5:$F$20,"Thực thần",SAO!$Y$5:$Y$20,0,SAO!$X$5:$X$20,1)&"
     #    chữ; ","")&IF(COUNTIFS(SAO!$F$5:$F$20,"Thiên ấn",SAO!$Y$5:$Y$20,0)>0,"Thiên ấn: "&COUNTIFS(SAO!$F$5:$F$20,"Thiên ấn",SAO!$Y$5:$Y$20,0)&" chữ; ",""))&
     #   " → Quy tắc (P2 tr.560): Nữ, có thực thần và thiên ấn ≥ P_NHIEU chữ → "&IF(J119="","chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.","ĐỦ ("&J1
     #   19&") ⇒ "&G119&".")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','ngưỡng nhiều = '),E.v(24,99,2)),' chữ'),'; '),'Giới tính: '),E.v(2,10,3)),'; '),'Các chữ liên quan (chỉ liệt kê loại có mặt): '),X.TRIM(X.cat((X.cat(X.cat('Thực thần: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)) else ''),(X.cat(X.cat('Thiên ấn: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0),0.0)) else '')))),' → Quy tắc (P2 tr.560): Nữ, có thực thần và thiên ấn ≥ P_NHIEU chữ → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','ngưỡng nhiều = '),E.v(24,99,2)),' chữ'),'; '),'Giới tính: '),E.v(2,22,3)),'; '),'Các chữ liên quan (chỉ liệt kê loại có mặt): '),X.TRIM(X.cat((X.cat(X.cat('Thực thần: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,25,20,25), 0.0, E.rg(13,5,24,20,24), 1.0),0.0)) else ''),(X.cat(X.cat('Thiên ấn: ',X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0)),' chữ; ') if X.truthy(X.gt(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thiên ấn', E.rg(13,5,25,20,25), 0.0),0.0)) else '')))),' → Quy tắc (P2 tr.560): Nữ, có thực thần và thiên ấn ≥ P_NHIEU chữ → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f244(E, r, c):
     # Ô E120, F120
-    # = IF(AND(NOT((NHAP_LIEU!$C$10="Nam")),AND(TRUNG_GIAN!$C$12="Thương quan",NOT(NHAP_LIEU!$C$9="Không rõ giờ"),SAO!$R$17=1)),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.AND(X.eq(E.v(23,12,3),'Thương quan'), X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(13,17,18),1.0)))) else '—')
+    # = IF(AND(NOT((NHAP_LIEU!$C$22="Nam")),AND(TRUNG_GIAN!$C$12="Thương quan",NOT(NHAP_LIEU!$C$9="Không rõ giờ"),SAO!$R$17=1)),"ĐỦ","—")
+    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.AND(X.eq(E.v(23,12,3),'Thương quan'), X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(13,17,18),1.0)))) else '—')
 
 def f245(E, r, c):
     # Ô K120
-    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$10&" → Quy tắc (P2 tr.560): Nữ, can năm là thương quan và chi giờ là kình dương → "&IF(J120="","chưa đủ điều ki
+    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$22&" → Quy tắc (P2 tr.560): Nữ, can năm là thương quan và chi giờ là kình dương → "&IF(J120="","chưa đủ điều ki
     #   ện ở cả hai phương pháp – không áp dụng.","ĐỦ ("&J120&") ⇒ "&G120&".")
-    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,10,3)),' → Quy tắc (P2 tr.560): Nữ, can năm là thương quan và chi giờ là kình dương → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,22,3)),' → Quy tắc (P2 tr.560): Nữ, can năm là thương quan và chi giờ là kình dương → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f246(E, r, c):
     # Ô E121, F121
-    # = IF(AND(NOT((NHAP_LIEU!$C$10="Nam")),OR(OR(AND(TRUE(),LEN(THAN_SAT!$E$120)>0),AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),LEN(THAN_SAT!$F$120)>0)),OR(AND(TR
+    # = IF(AND(NOT((NHAP_LIEU!$C$22="Nam")),OR(OR(AND(TRUE(),LEN(THAN_SAT!$E$120)>0),AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),LEN(THAN_SAT!$F$120)>0)),OR(AND(TR
     #   UE(),LEN(THAN_SAT!$E$121)>0),AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),LEN(THAN_SAT!$F$121)>0)))),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.OR(X.OR(X.AND(X.TRUE(), X.gt(X.LEN(E.v(12,120,5)),0.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.gt(X.LEN(E.v(12,120,6)),0.0))), X.OR(X.AND(X.TRUE(), X.gt(X.LEN(E.v(12,121,5)),0.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.gt(X.LEN(E.v(12,121,6)),0.0)))))) else '—')
+    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.OR(X.OR(X.AND(X.TRUE(), X.gt(X.LEN(E.v(12,120,5)),0.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.gt(X.LEN(E.v(12,120,6)),0.0))), X.OR(X.AND(X.TRUE(), X.gt(X.LEN(E.v(12,121,5)),0.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.gt(X.LEN(E.v(12,121,6)),0.0)))))) else '—')
 
 def f247(E, r, c):
     # Ô K121
-    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$10&" → Quy tắc (P2 tr.560): Nữ, sao Câu hoặc Giảo ở trụ ngày hoặc giờ → "&IF(J121="","chưa đủ điều kiện ở cả ha
+    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$22&" → Quy tắc (P2 tr.560): Nữ, sao Câu hoặc Giảo ở trụ ngày hoặc giờ → "&IF(J121="","chưa đủ điều kiện ở cả ha
     #   i phương pháp – không áp dụng.","ĐỦ ("&J121&") ⇒ "&G121&".")
-    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,10,3)),' → Quy tắc (P2 tr.560): Nữ, sao Câu hoặc Giảo ở trụ ngày hoặc giờ → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,22,3)),' → Quy tắc (P2 tr.560): Nữ, sao Câu hoặc Giảo ở trụ ngày hoặc giờ → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f248(E, r, c):
     # Ô E122, F122
-    # = IF(AND(NOT((NHAP_LIEU!$C$10="Nam")),(AND(TRUE(),SAO!$R$5=1)+AND(TRUE(),SAO!$R$9=1)+AND(TRUE(),SAO!$R$13=1)+AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),SAO!
+    # = IF(AND(NOT((NHAP_LIEU!$C$22="Nam")),(AND(TRUE(),SAO!$R$5=1)+AND(TRUE(),SAO!$R$9=1)+AND(TRUE(),SAO!$R$13=1)+AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),SAO!
     #   $R$17=1))>=2),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.ge(X.add(X.add(X.add(X.AND(X.TRUE(), X.eq(E.v(13,5,18),1.0)),X.AND(X.TRUE(), X.eq(E.v(13,9,18),1.0))),X.AND(X.TRUE(), X.eq(E.v(13,13,18),1.0))),X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(13,17,18),1.0))),2.0))) else '—')
+    return ('ĐỦ' if X.truthy(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.ge(X.add(X.add(X.add(X.AND(X.TRUE(), X.eq(E.v(13,5,18),1.0)),X.AND(X.TRUE(), X.eq(E.v(13,9,18),1.0))),X.AND(X.TRUE(), X.eq(E.v(13,13,18),1.0))),X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(13,17,18),1.0))),2.0))) else '—')
 
 def f249(E, r, c):
     # Ô K122
-    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$10&" → Quy tắc (P2 tr.560): Nữ, kình dương ≥ 2 chi → "&IF(J122="","chưa đủ điều kiện ở cả hai phương pháp – khô
+    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$22&" → Quy tắc (P2 tr.560): Nữ, kình dương ≥ 2 chi → "&IF(J122="","chưa đủ điều kiện ở cả hai phương pháp – khô
     #   ng áp dụng.","ĐỦ ("&J122&") ⇒ "&G122&".")
-    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,10,3)),' → Quy tắc (P2 tr.560): Nữ, kình dương ≥ 2 chi → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,22,3)),' → Quy tắc (P2 tr.560): Nữ, kình dương ≥ 2 chi → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f250(E, r, c):
     # Ô E123, F123
-    # = IF(AND(AND(NOT((NHAP_LIEU!$C$10="Nam")),OR(AND(TRUE(),TRUNG_GIAN!$C$6=3),AND(TRUE(),TRUNG_GIAN!$D$6=3),AND(TRUE(),TRUNG_GIAN!$E$6=3),AND(NOT(NHAP_LIEU
+    # = IF(AND(AND(NOT((NHAP_LIEU!$C$22="Nam")),OR(AND(TRUE(),TRUNG_GIAN!$C$6=3),AND(TRUE(),TRUNG_GIAN!$D$6=3),AND(TRUE(),TRUNG_GIAN!$E$6=3),AND(NOT(NHAP_LIEU
     #   !$C$9="Không rõ giờ"),TRUNG_GIAN!$F$6=3))),OR(AND(TRUE(),TRUNG_GIAN!$C$6=9),AND(TRUE(),TRUNG_GIAN!$D$6=9),AND(TRUE(),TRUNG_GIAN!$E$6=9),AND(NOT(NHAP_L
     #   IEU!$C$9="Không rõ giờ"),TRUNG_GIAN!$F$6=9))),"ĐỦ","—")
-    return ('ĐỦ' if X.truthy(X.AND(X.AND(X.NOT(X.eq(E.v(2,10,3),'Nam')), X.OR(X.AND(X.TRUE(), X.eq(E.v(23,6,3),3.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,4),3.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,5),3.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,6,6),3.0)))), X.OR(X.AND(X.TRUE(), X.eq(E.v(23,6,3),9.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,4),9.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,5),9.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,6,6),9.0))))) else '—')
+    return ('ĐỦ' if X.truthy(X.AND(X.AND(X.NOT(X.eq(E.v(2,22,3),'Nam')), X.OR(X.AND(X.TRUE(), X.eq(E.v(23,6,3),3.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,4),3.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,5),3.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,6,6),3.0)))), X.OR(X.AND(X.TRUE(), X.eq(E.v(23,6,3),9.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,4),9.0)), X.AND(X.TRUE(), X.eq(E.v(23,6,5),9.0)), X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,6,6),9.0))))) else '—')
 
 def f251(E, r, c):
     # Ô K123
-    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$10&"; "&"Trụ năm: "&TRUNG_GIAN!$C$10&" "&TRUNG_GIAN!$C$11&" ("&INDEX(HANH_TEN,TRUNG_GIAN!$C$7+1)&"/"&INDEX(HANH
+    # = "Dữ kiện: "&"Giới tính: "&NHAP_LIEU!$C$22&"; "&"Trụ năm: "&TRUNG_GIAN!$C$10&" "&TRUNG_GIAN!$C$11&" ("&INDEX(HANH_TEN,TRUNG_GIAN!$C$7+1)&"/"&INDEX(HANH
     #   _TEN,TRUNG_GIAN!$C$9+1)&")"&"; "&"Trụ tháng: "&TRUNG_GIAN!$D$10&" "&TRUNG_GIAN!$D$11&" ("&INDEX(HANH_TEN,TRUNG_GIAN!$D$7+1)&"/"&INDEX(HANH_TEN,TRUNG_G
     #   IAN!$D$9+1)&")"&"; "&"Trụ ngày: "&TRUNG_GIAN!$E$10&" "&TRUNG_GIAN!$E$11&" ("&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&"/"&INDEX(HANH_TEN,TRUNG_GIAN!$E$9+1)&"
     #   )"&"; "&"Trụ giờ: "&TRUNG_GIAN!$F$10&" "&TRUNG_GIAN!$F$11&" ("&INDEX(HANH_TEN,TRUNG_GIAN!$F$7+1)&"/"&INDEX(HANH_TEN,TRUNG_GIAN!$F$9+1)&")"&" → Quy tắc
     #    (P2 tr.560): Nữ, có cả Mão và Dậu → "&IF(J123="","chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.","ĐỦ ("&J123&") ⇒ "&G123&".")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,10,3)),'; '),'Trụ năm: '),E.v(23,10,3)),' '),E.v(23,11,3)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,3),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,3),1.0))),')'),'; '),'Trụ tháng: '),E.v(23,10,4)),' '),E.v(23,11,4)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,4),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,4),1.0))),')'),'; '),'Trụ ngày: '),E.v(23,10,5)),' '),E.v(23,11,5)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,5),1.0))),')'),'; '),'Trụ giờ: '),E.v(23,10,6)),' '),E.v(23,11,6)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,6),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,6),1.0))),')'),' → Quy tắc (P2 tr.560): Nữ, có cả Mão và Dậu → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dữ kiện: ','Giới tính: '),E.v(2,22,3)),'; '),'Trụ năm: '),E.v(23,10,3)),' '),E.v(23,11,3)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,3),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,3),1.0))),')'),'; '),'Trụ tháng: '),E.v(23,10,4)),' '),E.v(23,11,4)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,4),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,4),1.0))),')'),'; '),'Trụ ngày: '),E.v(23,10,5)),' '),E.v(23,11,5)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,5),1.0))),')'),'; '),'Trụ giờ: '),E.v(23,10,6)),' '),E.v(23,11,6)),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,6),1.0))),'/'),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,9,6),1.0))),')'),' → Quy tắc (P2 tr.560): Nữ, có cả Mão và Dậu → '),('chưa đủ điều kiện ở cả hai phương pháp – không áp dụng.' if X.truthy(X.eq(E.v(22,r,c-1),'')) else X.cat(X.cat(X.cat(X.cat('ĐỦ (',E.v(22,r,c-1)),') ⇒ '),E.v(22,r,c-4)),'.')))
 
 def f252(E, r, c):
     # Ô E124, F124

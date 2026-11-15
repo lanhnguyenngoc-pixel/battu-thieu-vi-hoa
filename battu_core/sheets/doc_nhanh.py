@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DOC_NHANH – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -9,9 +9,9 @@ SI = 31
 
 def f0(E, r, c):
     # Ô C4
-    # = "Giới tính "&LOWER(NHAP_LIEU!C10)&" · tứ trụ (năm – tháng – ngày – giờ): "&KET_LUAN!C15&" – "&KET_LUAN!D15&" – "&KET_LUAN!E15&" – "&KET_LUAN!F15&" · n
-    #   ăm xem "&LUU_NIEN!A5&" (tuổi mụ "&LUU_NIEN!B5&")"
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Giới tính ',X.LOWER(E.v(2,r+6,c))),' · tứ trụ (năm – tháng – ngày – giờ): '),E.v(3,r+11,c)),' – '),E.v(3,r+11,c+1)),' – '),E.v(3,r+11,c+2)),' – '),E.v(3,r+11,c+3)),' · năm xem '),E.v(15,r+1,c-2)),' (tuổi mụ '),E.v(15,r+1,c-1)),')')
+    # = "Giới tính "&LOWER(NHAP_LIEU!$C$22)&" · tứ trụ (năm – tháng – ngày – giờ): "&KET_LUAN!C15&" – "&KET_LUAN!D15&" – "&KET_LUAN!E15&" – "&KET_LUAN!F15&" ·
+    #    năm xem "&LUU_NIEN!A5&" (tuổi mụ "&LUU_NIEN!B5&")"
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Giới tính ',X.LOWER(E.v(2,22,3))),' · tứ trụ (năm – tháng – ngày – giờ): '),E.v(3,r+11,c)),' – '),E.v(3,r+11,c+1)),' – '),E.v(3,r+11,c+2)),' – '),E.v(3,r+11,c+3)),' · năm xem '),E.v(15,r+1,c-2)),' (tuổi mụ '),E.v(15,r+1,c-1)),')')
 
 def f1(E, r, c):
     # Ô C5

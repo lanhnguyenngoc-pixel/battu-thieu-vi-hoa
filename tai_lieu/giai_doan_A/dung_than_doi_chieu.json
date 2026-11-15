@@ -1,0 +1,686 @@
+[
+ {
+  "ten": "P2-397 VD1",
+  "tt": "Nhâm Thìn,Tân Hợi,Mậu Tuất,Bính Thìn",
+  "sach": "Mộc",
+  "sach_g": "Quan sát",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Quan sát)",
+  "hy": "Thủy (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 36,
+   "Thực thương": 13,
+   "Tài": 28,
+   "Quan sát": 10,
+   "Ấn": 13
+  }
+ },
+ {
+  "ten": "P2-398 VD2",
+  "tt": "Ất Mão,Bính Tuất,Quý Tị,Nhâm Tí",
+  "sach": "Kim",
+  "sach_g": "Ấn",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Quan sát)",
+  "hy": "Hỏa (Tài)",
+  "st": "N",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 32,
+   "Thực thương": 37,
+   "Tài": 12,
+   "Quan sát": 14,
+   "Ấn": 5
+  }
+ },
+ {
+  "ten": "P2-399 VD3",
+  "tt": "Canh Tuất,Bính Tuất,Tân Tị,Đinh Dậu",
+  "sach": "Thủy",
+  "sach_g": "Thực thương",
+  "cc": "Hỏa",
+  "cc_g": "Hỏa (Quan sát)",
+  "hy": "Mộc (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 46,
+   "Thực thương": 0,
+   "Tài": 0,
+   "Quan sát": 29,
+   "Ấn": 25
+  }
+ },
+ {
+  "ten": "P2-400 VD4",
+  "tt": "Quý Sửu,Giáp Tí,Quý Mão,Quý Hợi",
+  "sach": "Mộc",
+  "sach_g": "Thực thương",
+  "cc": "Thủy",
+  "cc_g": "Thủy (Tỉ kiếp)",
+  "hy": "Kim (Ấn)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 71,
+   "Thực thương": 29,
+   "Tài": 0,
+   "Quan sát": 0,
+   "Ấn": 0
+  }
+ },
+ {
+  "ten": "P2-400 VD5",
+  "tt": "Bính Ngọ,Mậu Tuất,Canh Ngọ,Ất Dậu",
+  "sach": "Thủy",
+  "sach_g": "Thực thương",
+  "cc": "Thủy",
+  "cc_g": "Thủy (Thực thương)",
+  "hy": "Mộc (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 13,
+   "Thực thương": 0,
+   "Tài": 3,
+   "Quan sát": 61,
+   "Ấn": 24
+  }
+ },
+ {
+  "ten": "P2-401 VD6",
+  "tt": "Đinh Tị,Canh Tuất,Đinh Tị,Mậu Thân",
+  "sach": "Kim",
+  "sach_g": "Tài",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Thực thương)",
+  "hy": "Kim (Tài)",
+  "st": "V",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 43,
+   "Thực thương": 32,
+   "Tài": 25,
+   "Quan sát": 0,
+   "Ấn": 0
+  }
+ },
+ {
+  "ten": "P2-402 VD7",
+  "tt": "Bính Tí,Kỷ Hợi,Bính Thân,Nhâm Thìn",
+  "sach": "Mộc",
+  "sach_g": "Ấn",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 9,
+   "Thực thương": 0,
+   "Tài": 0,
+   "Quan sát": 86,
+   "Ấn": 5
+  }
+ },
+ {
+  "ten": "P2-403 VD8",
+  "tt": "Nhâm Thìn,Nhâm Dần,Canh Tí,Bính Tuất",
+  "sach": "Hỏa",
+  "sach_g": "Quan sát",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 4,
+   "Thực thương": 42,
+   "Tài": 19,
+   "Quan sát": 17,
+   "Ấn": 17
+  }
+ },
+ {
+  "ten": "P2-404 VD9",
+  "tt": "Ất Tị,Giáp Thân,Ất Mùi,Tân Tị",
+  "sach": "Thổ",
+  "sach_g": "Tài",
+  "cc": "Thủy",
+  "cc_g": "Thủy (Ấn)",
+  "hy": "Mộc (Tỉ kiếp)",
+  "st": "V",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 24,
+   "Thực thương": 30,
+   "Tài": 9,
+   "Quan sát": 36,
+   "Ấn": 0
+  }
+ },
+ {
+  "ten": "P2-404 VD10",
+  "tt": "Mậu Thìn,Giáp Dần,Nhâm Tí,Quý Mão",
+  "sach": "Hỏa",
+  "sach_g": "Tài",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Quan sát)",
+  "hy": "Hỏa (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 34,
+   "Thực thương": 66,
+   "Tài": 0,
+   "Quan sát": 0,
+   "Ấn": 0
+  }
+ },
+ {
+  "ten": "P2-405 VD11",
+  "tt": "Giáp Ngọ,Nhâm Thân,Tân Sửu,Canh Dần",
+  "sach": "Hỏa",
+  "sach_g": "Quan sát",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 26,
+   "Thực thương": 24,
+   "Tài": 13,
+   "Quan sát": 18,
+   "Ấn": 19
+  }
+ },
+ {
+  "ten": "P2-406 VD12",
+  "tt": "Mậu Tuất,Tân Dậu,Tân Mão,Kỷ Sửu",
+  "sach": "Mộc",
+  "sach_g": "Tài",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 38,
+   "Thực thương": 4,
+   "Tài": 4,
+   "Quan sát": 1,
+   "Ấn": 53
+  }
+ },
+ {
+  "ten": "P2-406 VD13",
+  "tt": "Nhâm Tí,Canh Tuất,Bính Thân,Kỷ Hợi",
+  "sach": "Mộc",
+  "sach_g": "Ấn",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 2,
+   "Thực thương": 33,
+   "Tài": 23,
+   "Quan sát": 38,
+   "Ấn": 5
+  }
+ },
+ {
+  "ten": "P2-407 VD14",
+  "tt": "Tân Sửu,Quý Tị,Ất Sửu,Đinh Sửu",
+  "sach": "Mộc",
+  "sach_g": "Tỉ kiếp",
+  "cc": "Hỏa",
+  "cc_g": "Hỏa (Thực thương)",
+  "hy": "Thổ (Tài)",
+  "st": "N",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 0,
+   "Thực thương": 21,
+   "Tài": 29,
+   "Quan sát": 23,
+   "Ấn": 27
+  }
+ },
+ {
+  "ten": "P2-408 VD15",
+  "tt": "Nhâm Tí,Giáp Thìn,Nhâm Thìn,Bính Ngọ",
+  "sach": "Thủy",
+  "sach_g": "Tỉ kiếp",
+  "cc": "Thủy",
+  "cc_g": "Thủy (Tỉ kiếp)",
+  "hy": "Kim (Ấn)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 46,
+   "Thực thương": 22,
+   "Tài": 20,
+   "Quan sát": 13,
+   "Ấn": 0
+  }
+ },
+ {
+  "ten": "P2-410 VD17",
+  "tt": "Canh Tuất,Tân Tị,Bính Ngọ,Nhâm Thìn",
+  "sach": "Thủy",
+  "sach_g": "Quan sát",
+  "cc": "Thủy",
+  "cc_g": "Thủy (Quan sát)",
+  "hy": "Kim (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 42,
+   "Thực thương": 23,
+   "Tài": 21,
+   "Quan sát": 10,
+   "Ấn": 4
+  }
+ },
+ {
+  "ten": "P2-411 VD18",
+  "tt": "Kỷ Dậu,Kỷ Tị,Tân Sửu,Tân Mão",
+  "sach": "Kim",
+  "sach_g": "Tỉ kiếp",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "st": "?",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 81,
+   "Thực thương": 0,
+   "Tài": 14,
+   "Quan sát": 0,
+   "Ấn": 5
+  }
+ },
+ {
+  "ten": "P2-412 VD19",
+  "tt": "Kỷ Dậu,Tân Mùi,Kỷ Sửu,Canh Ngọ",
+  "sach": "Thủy",
+  "sach_g": "Tài",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Quan sát)",
+  "hy": "Thủy (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 47,
+   "Thực thương": 43,
+   "Tài": 0,
+   "Quan sát": 0,
+   "Ấn": 10
+  }
+ },
+ {
+  "ten": "P2-413 VD20",
+  "tt": "Ất Mão,Giáp Thân,Nhâm Dần,Quý Mão",
+  "sach": "Kim",
+  "sach_g": "Ấn",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Quan sát)",
+  "hy": "Hỏa (Tài)",
+  "st": "N",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 19,
+   "Thực thương": 71,
+   "Tài": 0,
+   "Quan sát": 0,
+   "Ấn": 9
+  }
+ },
+ {
+  "ten": "P2-414 VD21",
+  "tt": "Canh Thân,Giáp Thân,Mậu Ngọ,Bính Thìn",
+  "sach": "Hỏa",
+  "sach_g": "Ấn",
+  "cc": "Hỏa",
+  "cc_g": "Hỏa (Ấn)",
+  "hy": "Thổ (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 24,
+   "Thực thương": 43,
+   "Tài": 4,
+   "Quan sát": 6,
+   "Ấn": 24
+  }
+ },
+ {
+  "ten": "P2-415 VD22",
+  "tt": "Nhâm Dần,Nhâm Tí,Đinh Dậu,Tân Sửu",
+  "sach": "Mộc",
+  "sach_g": "Ấn",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 49,
+   "Thực thương": 11,
+   "Tài": 3,
+   "Quan sát": 1,
+   "Ấn": 35
+  }
+ },
+ {
+  "ten": "P2-416 VD23",
+  "tt": "Giáp Ngọ,Kỷ Tị,Tân Mão,Nhâm Thìn",
+  "sach": "Thổ",
+  "sach_g": "Ấn",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 4,
+   "Thực thương": 11,
+   "Tài": 16,
+   "Quan sát": 24,
+   "Ấn": 46
+  }
+ },
+ {
+  "ten": "P2-417 VD25",
+  "tt": "Canh Thìn,Mậu Tí,Canh Tuất,Kỷ Mão",
+  "sach": "Hỏa",
+  "sach_g": "Quan sát",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "st": "V",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 21,
+   "Thực thương": 15,
+   "Tài": 18,
+   "Quan sát": 0,
+   "Ấn": 46
+  }
+ },
+ {
+  "ten": "P2-418 VD26",
+  "tt": "Nhâm Thìn,Đinh Mùi,Tân Mùi,Giáp Ngọ",
+  "sach": "Mộc",
+  "sach_g": "Tài",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Ấn)",
+  "hy": "Kim (Tỉ kiếp)",
+  "st": "-",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 0,
+   "Thực thương": 10,
+   "Tài": 18,
+   "Quan sát": 29,
+   "Ấn": 43
+  }
+ },
+ {
+  "ten": "P2-419 VD27",
+  "tt": "Kỷ Sửu,Bính Dần,Đinh Mão,Nhâm Dần",
+  "sach": "Kim",
+  "sach_g": "Tài",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Ấn)",
+  "hy": "Thủy (Quan sát)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 49,
+   "Thực thương": 23,
+   "Tài": 23,
+   "Quan sát": 1,
+   "Ấn": 4
+  }
+ },
+ {
+  "ten": "P2-420 VD28",
+  "tt": "Ất Tị,Quý Mùi,Quý Tị,Kỷ Mùi",
+  "sach": "Kim",
+  "sach_g": "Ấn",
+  "cc": "Kim",
+  "cc_g": "Kim (Ấn)",
+  "hy": "Thủy (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 4,
+   "Thực thương": 17,
+   "Tài": 24,
+   "Quan sát": 47,
+   "Ấn": 8
+  }
+ },
+ {
+  "ten": "P2-421 VD29",
+  "tt": "Quý Sửu,Ất Sửu,Giáp Tuất,Canh Ngọ",
+  "sach": "Hỏa",
+  "sach_g": "Thực thương",
+  "cc": "Kim",
+  "cc_g": "Kim (Quan sát)",
+  "hy": "Thổ (Tài)",
+  "st": "?",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 13,
+   "Thực thương": 15,
+   "Tài": 33,
+   "Quan sát": 17,
+   "Ấn": 21
+  }
+ },
+ {
+  "ten": "P2-422 VD30",
+  "tt": "Nhâm Dần,Canh Tuất,Quý Mùi,Giáp Dần",
+  "sach": "Kim",
+  "sach_g": "Ấn",
+  "cc": "Kim",
+  "cc_g": "Kim (Ấn)",
+  "hy": "Thủy (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 10,
+   "Thực thương": 35,
+   "Tài": 13,
+   "Quan sát": 22,
+   "Ấn": 20
+  }
+ },
+ {
+  "ten": "P2-422 VD31",
+  "tt": "Canh Dần,Mậu Tí,Quý Tị,Nhâm Tí",
+  "sach": "Thổ",
+  "sach_g": "Quan sát",
+  "cc": "Hỏa",
+  "cc_g": "Hỏa (Tài)",
+  "hy": "Mộc (Thực thương)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 56,
+   "Thực thương": 5,
+   "Tài": 8,
+   "Quan sát": 15,
+   "Ấn": 16
+  }
+ },
+ {
+  "ten": "P2-423 VD32",
+  "tt": "Giáp Thìn,Ất Hợi,Bính Tuất,Kỷ Hợi",
+  "sach": "Mộc",
+  "sach_g": "Ấn",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Ấn)",
+  "hy": "Hỏa (Tỉ kiếp)",
+  "st": "?",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 1,
+   "Thực thương": 27,
+   "Tài": 5,
+   "Quan sát": 23,
+   "Ấn": 45
+  }
+ },
+ {
+  "ten": "P2-424 VD33",
+  "tt": "Kỷ Mùi,Quý Dậu,Mậu Dần,Canh Thân",
+  "sach": "Hỏa",
+  "sach_g": "Ấn",
+  "cc": "Hỏa",
+  "cc_g": "Hỏa (Ấn)",
+  "hy": "Thổ (Tỉ kiếp)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 30,
+   "Thực thương": 49,
+   "Tài": 12,
+   "Quan sát": 5,
+   "Ấn": 4
+  }
+ },
+ {
+  "ten": "P2-425 VD34",
+  "tt": "Bính Thìn,Mậu Tuất,Bính Ngọ,Mậu Tuất",
+  "sach": "Mộc",
+  "sach_g": "Ấn",
+  "cc": "Hỏa",
+  "cc_g": "Hỏa (Tỉ kiếp)",
+  "hy": "Mộc (Ấn)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 39,
+   "Thực thương": 53,
+   "Tài": 3,
+   "Quan sát": 1,
+   "Ấn": 4
+  }
+ },
+ {
+  "ten": "P2-426 VD35",
+  "tt": "Giáp Dần,Nhâm Thân,Mậu Thân,Mậu Ngọ",
+  "sach": "Hỏa",
+  "sach_g": "Ấn",
+  "cc": "Thổ",
+  "cc_g": "Thổ (Tỉ kiếp)",
+  "hy": "Hỏa (Ấn)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 30,
+   "Thực thương": 24,
+   "Tài": 12,
+   "Quan sát": 22,
+   "Ấn": 12
+  }
+ },
+ {
+  "ten": "P2-427 VD36",
+  "tt": "Bính Tí,Quý Tị,Bính Ngọ,Quý Tị",
+  "sach": "Kim",
+  "sach_g": "Tài",
+  "cc": "Thủy",
+  "cc_g": "Thủy (Quan sát)",
+  "hy": "Kim (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 34,
+   "Thực thương": 9,
+   "Tài": 9,
+   "Quan sát": 48,
+   "Ấn": 0
+  }
+ },
+ {
+  "ten": "P2-428 VD37",
+  "tt": "Ất Mùi,Giáp Thân,Canh Tuất,Quý Mùi",
+  "sach": "Hỏa",
+  "sach_g": "Quan sát",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Tài)",
+  "hy": "Thủy (Thực thương)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 21,
+   "Thực thương": 14,
+   "Tài": 16,
+   "Quan sát": 14,
+   "Ấn": 36
+  }
+ },
+ {
+  "ten": "P2-429 VD38",
+  "tt": "Nhâm Thìn,Canh Tuất,Giáp Ngọ,Giáp Tí",
+  "sach": "Mộc",
+  "sach_g": "Tỉ kiếp",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Tỉ kiếp)",
+  "hy": "Thủy (Ấn)",
+  "st": "?",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 22,
+   "Thực thương": 12,
+   "Tài": 24,
+   "Quan sát": 20,
+   "Ấn": 23
+  }
+ },
+ {
+  "ten": "P2-430 VD39",
+  "tt": "Giáp Thìn,Giáp Tuất,Tân Sửu,Tân Mão",
+  "sach": "Hỏa",
+  "sach_g": "Quan sát",
+  "cc": "Hỏa",
+  "cc_g": "Hỏa (Quan sát)",
+  "hy": "Mộc (Tài)",
+  "st": "V",
+  "p": "V",
+  "pct": {
+   "Tỉ kiếp": 21,
+   "Thực thương": 6,
+   "Tài": 37,
+   "Quan sát": 0,
+   "Ấn": 36
+  }
+ },
+ {
+  "ten": "P2-430 VD40",
+  "tt": "Bính Ngọ,Mậu Tuất,Nhâm Dần,Bính Ngọ",
+  "sach": "Kim",
+  "sach_g": "Ấn",
+  "cc": "Mộc",
+  "cc_g": "Mộc (Thực thương)",
+  "hy": "Hỏa (Tài)",
+  "st": "N",
+  "p": "N",
+  "pct": {
+   "Tỉ kiếp": 0,
+   "Thực thương": 0,
+   "Tài": 81,
+   "Quan sát": 19,
+   "Ấn": 0
+  }
+ }
+]

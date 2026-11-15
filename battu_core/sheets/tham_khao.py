@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet THAM_KHAO – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.4.xlsx (SHA-256 b554826cb416b851894b999cc981ef29ba64e78b7dcf541338e9f62a9bae0e6c).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.5.xlsx (SHA-256 f19f3f74b720c1a067a640a31d58441793bf64bfdd12629f17ba4be6623c56f4).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -157,12 +157,12 @@ def f8(E, r, c):
 
 def f9(E, r, c):
     # Ô E18
-    # = IF(NHAP_LIEU!$C$10="Nam",IF(TRUNG_GIAN!$D$12="Chính tài",2,IF(TRUNG_GIAN!$C$12="Chính tài",1,IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),TRUNG_GIAN!$F$1
+    # = IF(NHAP_LIEU!$C$22="Nam",IF(TRUNG_GIAN!$D$12="Chính tài",2,IF(TRUNG_GIAN!$C$12="Chính tài",1,IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),TRUNG_GIAN!$F$1
     #   2="Chính tài"),4,IF(TRUNG_GIAN!$D$12="Thiên tài",2,IF(TRUNG_GIAN!$C$12="Thiên tài",1,IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),TRUNG_GIAN!$F$12="Thiên
     #    tài"),4,0)))))),IF(TRUNG_GIAN!$D$12="Chính quan",2,IF(TRUNG_GIAN!$C$12="Chính quan",1,IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),TRUNG_GIAN!$F$12="Chí
     #   nh quan"),4,IF(TRUNG_GIAN!$D$12="Thất sát",2,IF(TRUNG_GIAN!$C$12="Thất sát",1,IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),TRUNG_GIAN!$F$12="Thất sát"),4
     #   ,0)))))))
-    return ((2.0 if X.truthy(X.eq(E.v(23,12,4),'Chính tài')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Chính tài')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Chính tài'))) else (2.0 if X.truthy(X.eq(E.v(23,12,4),'Thiên tài')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Thiên tài')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Thiên tài'))) else 0.0)))))) if X.truthy(X.eq(E.v(2,10,3),'Nam')) else (2.0 if X.truthy(X.eq(E.v(23,12,4),'Chính quan')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Chính quan')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Chính quan'))) else (2.0 if X.truthy(X.eq(E.v(23,12,4),'Thất sát')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Thất sát')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Thất sát'))) else 0.0)))))))
+    return ((2.0 if X.truthy(X.eq(E.v(23,12,4),'Chính tài')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Chính tài')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Chính tài'))) else (2.0 if X.truthy(X.eq(E.v(23,12,4),'Thiên tài')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Thiên tài')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Thiên tài'))) else 0.0)))))) if X.truthy(X.eq(E.v(2,22,3),'Nam')) else (2.0 if X.truthy(X.eq(E.v(23,12,4),'Chính quan')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Chính quan')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Chính quan'))) else (2.0 if X.truthy(X.eq(E.v(23,12,4),'Thất sát')) else (1.0 if X.truthy(X.eq(E.v(23,12,3),'Thất sát')) else (4.0 if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.eq(E.v(23,12,6),'Thất sát'))) else 0.0)))))))
 
 def f10(E, r, c):
     # Ô E19

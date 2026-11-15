@@ -23,8 +23,8 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.5.0 (quy tắc 6.4)</b></p>')
-H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.4; '
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.6.0 (quy tắc 6.5)</b></p>')
+H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.5; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
 H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa. Các dòng ghi "quy ước kỹ thuật" hoặc '
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.5.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.6.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -80,12 +80,15 @@ H.append('<p>Chọn một trong ba cách: <b>Dương lịch</b> (ngày, tháng, 
 H.append('<h2>4. Luận giải chung – đọc kết luận trước</h2>')
 anh('01_tom_tat.png', 'Luận giải chung: mỗi thẻ là dòng KẾT LUẬN của một lĩnh vực; bấm "Chi tiết mục …" để mở căn cứ')
 H.append('<p>Người mới học nên đọc theo thứ tự trên thanh bên: <b>Lá số → Luận giải chung → Luận giải chi tiết → Vận trình</b>. '
-         'Mỗi dòng có ghi nguồn sách (ví dụ <i>P1 tr.70</i> = Phần 1 trang 70).</p>')
+         'Kết luận và nội dung do phần mềm luận giải in <b>chữ đậm</b>. Câu sách và số trang (ví dụ <i>P1 tr.70</i> = Phần 1 trang 70) '
+         'được tách ra dòng riêng, chữ thường, ẩn sau liên kết <b>📖 Căn cứ sách ▾</b> – bấm để xem, bấm lần nữa để ẩn. '
+         'Bản in PDF ghi "Căn cứ sách: …" ngay dưới mỗi kết luận.</p>')
 
 H.append('<h2>4b. Lá số trực quan</h2>')
 anh('18_la_so_truc_quan.png', 'Lá số: can chi lớn tô màu theo hành (Mộc xanh lá, Hỏa đỏ, Thổ nâu, Kim vàng, Thủy xanh dương); trụ ngày (nhật chủ) nền tím')
-H.append('<p>Mỗi thẻ đại vận ghi: tuổi và năm bắt đầu – kết thúc, thập thần của can vận và <b>XU THẾ</b> theo sách Thiệu Vĩ Hoa '
-         '(Tốt – chữ đỏ đậm / Thường / Xấu). Rê chuột lên thẻ để xem trạng thái nhật can tại chi vận và tàng can.</p>')
+H.append('<p>Mỗi thẻ đại vận ghi: tuổi và năm bắt đầu – kết thúc, thập thần của can vận và <b>KẾT LUẬN</b> theo cách của sách Thiệu Vĩ Hoa '
+         '(Rất tốt, Tốt – chữ đỏ / Xấu, Rất xấu), kèm tóm tắt 10 năm (5 năm đầu theo can, 5 năm sau theo chi). '
+         'Rê chuột lên thẻ để xem lý do từng nửa vận.</p>')
 H.append('<h2>5. Theo lĩnh vực, Luận giải và tìm kiếm</h2>')
 anh('02_linh_vuc_C_ban_menh.png', 'Mục C – Bản mệnh: khung KẾT LUẬN ở trên, căn cứ chi tiết ở dưới; chữ đỏ đậm = điểm tốt')
 anh('05_tim_kiem.png', 'Tìm kiếm: gõ từ khóa rồi Enter; bấm một kết quả để nhảy tới chỗ đó')
@@ -102,7 +105,7 @@ H.append('<h3>Màu sắc</h3><table width="100%" cellspacing="0">'
 
 H.append('<h2>6. Phân tích, Vận trình, Ngũ hành thiếu, Chuyên đề, Không rõ giờ</h2>')
 anh('17_phan_tich.png', 'Phân tích: PP1 định tính, PP2 định lượng, Thông căn, Đối chiếu, Dụng – hỷ – kỵ thần')
-anh('06_dai_van_dinh_dang_dk.png', 'Vận trình – Đại vận (đỏ đậm: vận thuận)')
+anh('06_dai_van_dinh_dang_dk.png', 'Vận trình – Đại vận: đầu trang là Kết luận đại vận – mức của từng vận, vì sao 5 năm đầu / 5 năm sau, tài lộc, công danh; căn cứ sách ẩn sau liên kết')
 anh('16_ngu_hanh_thieu.png', 'Ngũ hành thiếu: chọn chế độ PA2 – Theo sách / PA1 – Theo trang; biểu đồ năng lực và biểu đồ đại vận')
 anh('15_chuyen_de_luc_than.png', 'Chuyên đề: 10 thẻ (Lục thân, Hôn nhân, Mệnh cục, Tài lộc, Tố chất, Sự nghiệp, Sức khỏe, Thần sát, Sao, Bảo phù)')
 
@@ -143,7 +146,7 @@ H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Định dạng
 
 H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing="0">'
          '<tr><th width="34%">Câu hỏi</th><th>Trả lời</th></tr>'
-         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.4 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
+         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.5 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
          '<tr><td>Dòng "Dụng thần theo cách bổ hành khuyết" là gì?</td><td>Khi trong phe dụng thần có nhóm không có chữ nào trong tứ trụ, phần mềm ghi thêm nhóm đó '
          '(mục B – Bản mệnh). Khi giải ví dụ, Thiệu Vĩ Hoa nhiều lần lấy nhóm đang khuyết làm dụng thần (P1 tr.97). Đây chỉ là ghi chú để cân nhắc, '
          'không thay dụng thần đã chọn.</td></tr>'
