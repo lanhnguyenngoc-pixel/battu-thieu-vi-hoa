@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet KHONG_RO_GIO – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 c1e0254833a8f522615199e1e0140460e912227d0b9ffc88b9164ebc26d3e0b3).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -164,9 +164,9 @@ def f25(E, r, c):
     return E.v(18,20,21)
 
 def f26(E, r, c):
-    # Ô W27, C257
-    # = MENH_CUC!$U$21
-    return E.v(18,21,21)
+    # Ô W27
+    # = MENH_CUC!$C$126
+    return E.v(18,126,3)
 
 def f27(E, r, c):
     # Ô X27, D257
@@ -1109,6 +1109,11 @@ def f186(E, r, c):
     #   J69,DAI_VAN!J54)="Tốt","T",IF(IF(DOI_CHIEU!$C$33=2,DAI_VAN!J69,DAI_VAN!J54)="Xấu","X","·"))
     return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(('T' if X.truthy(X.eq((E.v(14,r-104,c-1) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c-1)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c-1) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c-1)),'Xấu')) else '·')),('T' if X.truthy(X.eq((E.v(14,r-104,c) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c)),'Xấu')) else '·'))),('T' if X.truthy(X.eq((E.v(14,r-104,c+1) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+1)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c+1) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+1)),'Xấu')) else '·'))),('T' if X.truthy(X.eq((E.v(14,r-104,c+2) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+2)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c+2) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+2)),'Xấu')) else '·'))),('T' if X.truthy(X.eq((E.v(14,r-104,c+3) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+3)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c+3) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+3)),'Xấu')) else '·'))),('T' if X.truthy(X.eq((E.v(14,r-104,c+4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+4)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c+4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+4)),'Xấu')) else '·'))),('T' if X.truthy(X.eq((E.v(14,r-104,c+5) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+5)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c+5) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+5)),'Xấu')) else '·'))),('T' if X.truthy(X.eq((E.v(14,r-104,c+6) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+6)),'Tốt')) else ('X' if X.truthy(X.eq((E.v(14,r-104,c+6) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-119,c+6)),'Xấu')) else '·')))
 
+def f187(E, r, c):
+    # Ô C257
+    # = MENH_CUC!$U$21
+    return E.v(18,21,21)
+
 CELLS = {
     'C5': (f0, 5, 3),
     'C7': (f1, 7, 3),
@@ -1625,7 +1630,7 @@ CELLS = {
     'D229': (f23, 229, 4),
     'C243': (f24, 243, 3),
     'D243': (f25, 243, 4),
-    'C257': (f26, 257, 3),
+    'C257': (f187, 257, 3),
     'D257': (f27, 257, 4),
     'C271': (f28, 271, 3),
     'D271': (f29, 271, 4),

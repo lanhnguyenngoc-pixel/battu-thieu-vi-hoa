@@ -3,7 +3,7 @@
   * "Kết quả lá số": số liệu, bảng và kết luận mà công cụ tính cho lá số đang xem;
   * "Lý thuyết – cách tính": thang điểm, ngưỡng, cách tính từng tiêu chí (chung cho mọi lá số);
   * "Bảng gốc": lưới ô như workbook (để đối chiếu).
-Chỉ ĐỌC ô của sheet NGU_HANH_THIEU (không tính lại gì) – vị trí ô theo workbook 6.6."""
+Chỉ ĐỌC ô của sheet NGU_HANH_THIEU (không tính lại gì) – vị trí ô theo workbook 6.7."""
 import html, re
 from PySide6.QtCore import Signal
 from PySide6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QFrame, QLabel, QComboBox, QTabWidget, QTextBrowser,

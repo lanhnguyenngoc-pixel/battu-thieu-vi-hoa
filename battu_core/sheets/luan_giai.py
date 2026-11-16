@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet LUAN_GIAI – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 c1e0254833a8f522615199e1e0140460e912227d0b9ffc88b9164ebc26d3e0b3).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1401,11 +1401,11 @@ def f191(E, r, c):
 
 def f192(E, r, c):
     # Ô F119
-    # = IF(OR(ISNUMBER(SEARCH("GIÀU",MENH_CUC!$U$21)),ISNUMBER(SEARCH("SANG",MENH_CUC!$U$21)),ISNUMBER(SEARCH("CÁT",MENH_CUC!$U$21)),ISNUMBER(SEARCH("THỌ",MEN
-    #   H_CUC!$U$21))),"Nền tảng thuận ở mặt này; vận tốt đến thì phát huy rõ.",IF(OR(ISNUMBER(SEARCH("NGHÈO",MENH_CUC!$U$21)),ISNUMBER(SEARCH("HÈN",MENH_CUC!
-    #   $U$21)),ISNUMBER(SEARCH("HUNG",MENH_CUC!$U$21)),ISNUMBER(SEARCH("YỂU",MENH_CUC!$U$21))),"Nền tảng kém ở mặt này; phải nỗ lực nhiều, dựa vào vận tốt.",
-    #   "Mức trung bình; tốt xấu tùy vận."))
-    return ('Nền tảng thuận ở mặt này; vận tốt đến thì phát huy rõ.' if X.truthy(X.OR(X.ISNUMBER(lambda: X.SEARCH('GIÀU', E.v(18,21,21))), X.ISNUMBER(lambda: X.SEARCH('SANG', E.v(18,21,21))), X.ISNUMBER(lambda: X.SEARCH('CÁT', E.v(18,21,21))), X.ISNUMBER(lambda: X.SEARCH('THỌ', E.v(18,21,21))))) else ('Nền tảng kém ở mặt này; phải nỗ lực nhiều, dựa vào vận tốt.' if X.truthy(X.OR(X.ISNUMBER(lambda: X.SEARCH('NGHÈO', E.v(18,21,21))), X.ISNUMBER(lambda: X.SEARCH('HÈN', E.v(18,21,21))), X.ISNUMBER(lambda: X.SEARCH('HUNG', E.v(18,21,21))), X.ISNUMBER(lambda: X.SEARCH('YỂU', E.v(18,21,21))))) else 'Mức trung bình; tốt xấu tùy vận.'))
+    # = IF(OR(ISNUMBER(SEARCH("GIÀU",MENH_CUC!$C$126)),ISNUMBER(SEARCH("SANG",MENH_CUC!$C$126)),ISNUMBER(SEARCH("CÁT",MENH_CUC!$C$126)),ISNUMBER(SEARCH("THỌ",
+    #   MENH_CUC!$C$126))),"Nền tảng thuận ở mặt này; vận tốt đến thì phát huy rõ.",IF(OR(ISNUMBER(SEARCH("NGHÈO",MENH_CUC!$C$126)),ISNUMBER(SEARCH("HÈN",MENH
+    #   _CUC!$C$126)),ISNUMBER(SEARCH("HUNG",MENH_CUC!$C$126)),ISNUMBER(SEARCH("YỂU",MENH_CUC!$C$126))),"Nền tảng kém ở mặt này; phải nỗ lực nhiều, dựa vào vậ
+    #   n tốt.","Mức trung bình; tốt xấu tùy vận."))
+    return ('Nền tảng thuận ở mặt này; vận tốt đến thì phát huy rõ.' if X.truthy(X.OR(X.ISNUMBER(lambda: X.SEARCH('GIÀU', E.v(18,126,3))), X.ISNUMBER(lambda: X.SEARCH('SANG', E.v(18,126,3))), X.ISNUMBER(lambda: X.SEARCH('CÁT', E.v(18,126,3))), X.ISNUMBER(lambda: X.SEARCH('THỌ', E.v(18,126,3))))) else ('Nền tảng kém ở mặt này; phải nỗ lực nhiều, dựa vào vận tốt.' if X.truthy(X.OR(X.ISNUMBER(lambda: X.SEARCH('NGHÈO', E.v(18,126,3))), X.ISNUMBER(lambda: X.SEARCH('HÈN', E.v(18,126,3))), X.ISNUMBER(lambda: X.SEARCH('HUNG', E.v(18,126,3))), X.ISNUMBER(lambda: X.SEARCH('YỂU', E.v(18,126,3))))) else 'Mức trung bình; tốt xấu tùy vận.'))
 
 def f193(E, r, c):
     # Ô I119

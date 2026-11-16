@@ -3,19 +3,24 @@
 PDF dùng lớp phân trang sẵn có (export.xuat_pdf._ve: đầu trang, chân trang, "Trang x/y", phông Inter).
 .docx dựng bằng thư viện chuẩn (zipfile + XML WordprocessingML) – không thêm phụ thuộc."""
 import html, re, zipfile, datetime
+from export.ngat_doan import doan          # ngắt đoạn dài thành nhiều đoạn ngắn
 
 CSS = """
 body { font-family: 'Inter'; font-size: 10.5pt; color: #1e2140; }
 h1 { font-size: 16pt; color: #3730a3; margin: 0 0 2pt 0; }
-h2 { font-size: 12.5pt; color: #3730a3; margin: 12pt 0 4pt 0; border-bottom: 1px solid #c7c2f5; }
-p { margin: 3pt 0 5pt 0; }
-ul { margin: 0 0 2pt 0; }
-li { margin: 0 0 1pt 0; }
+h2 { font-size: 12.5pt; color: #3730a3; margin: 16pt 0 6pt 0; border-bottom: 1px solid #c7c2f5; }
+p { margin: 0 0 6pt 0; line-height: 135%; }
+ul { margin: 2pt 0 8pt 0; }
+li { margin: 0 0 3pt 0; line-height: 135%; }
 table.bang { border-collapse: collapse; margin: 3pt 0 4pt 0; }
 table.bang td, table.bang th { border: 0.5px solid #d9dbe9; padding: 2pt 3.5pt; vertical-align: top; }
 table.bang th { background: #f3f0ff; color: #4338ca; text-align: left; }
 .nho { color: #6b7090; font-size: 8.5pt; }
 """
+# bản in A4 (≈ 5 trang): giữ ngắt đoạn nhưng giãn dòng ít hơn màn hình
+CSS_IN = (CSS.replace('margin: 16pt 0 6pt 0', 'margin: 10pt 0 3pt 0').replace('p { margin: 0 0 6pt 0; line-height: 135%; }', 'p { margin: 0 0 2pt 0; line-height: 112%; }')
+          .replace('li { margin: 0 0 3pt 0; line-height: 135%; }', 'li { margin: 0 0 0.5pt 0; line-height: 112%; }').replace('ul { margin: 2pt 0 8pt 0; }', 'ul { margin: 0 0 2pt 0; }').replace('font-size: 10.5pt;', 'font-size: 10pt;', 1))
+assert CSS_IN != CSS
 
 
 def _in(t):
@@ -28,8 +33,8 @@ def html_ban(B, css=True):
     for k in B:
         if k[0] == 'h1': h.append('<h1>%s</h1>' % _in(k[1]))
         elif k[0] == 'h2': h.append('<h2>%s</h2>' % _in(k[1]))
-        elif k[0] == 'p': h.append('<p>%s</p>' % _in(k[1]))
-        elif k[0] == 'nho': h.append('<p class="nho">%s</p>' % _in(k[1]))
+        elif k[0] == 'p': h += ['<p>%s</p>' % _in(x) for x in doan(k[1])]
+        elif k[0] == 'nho': h += ['<p class="nho">%s</p>' % _in(x) for x in doan(k[1])]
         elif k[0] == 'ul': h.append('<ul>%s</ul>' % ''.join('<li>%s</li>' % _in(x) for x in k[1]))
         elif k[0] == 'bang':
             h.append('<table class="bang" width="100%%" cellspacing="0"><tr>%s</tr>' % ''.join('<th>%s</th>' % _in(x) for x in k[1]))
@@ -45,7 +50,7 @@ def xuat_pdf(B, duong_dan, tieu_de='Luận giải Bát tự', ten=''):
     from PySide6.QtCore import QMarginsF
     from export.xuat_pdf import _ve
     from export.noi_dung import TEN_PHAN_MEM, chu_ky
-    doc = QTextDocument(); doc.setDefaultStyleSheet(CSS); doc.setDefaultFont(QFont('Inter', 10.5))
+    doc = QTextDocument(); doc.setDefaultStyleSheet(CSS_IN); doc.setDefaultFont(QFont('Inter', 10))
     doc.setHtml(html_ban(B, css=False))
     w = QPdfWriter(duong_dan); w.setResolution(150)
     w.setPageSize(QPageSize(QPageSize.A4)); w.setPageMargins(QMarginsF(15, 10, 15, 10), QPageLayout.Millimeter)
@@ -97,8 +102,8 @@ def xuat_docx(B, duong_dan, tieu_de='Luận giải Bát tự'):
     for k in B:
         if k[0] == 'h1': than.append(_p(k[1], 30, '3730A3', True, 0, 80))
         elif k[0] == 'h2': than.append(_p(k[1], 23, '3730A3', True, 180, 60))
-        elif k[0] == 'p': than.append(_p(k[1]))
-        elif k[0] == 'nho': than.append(_p(k[1], 16, '6B7090'))
+        elif k[0] == 'p': than += [_p(x) for x in doan(k[1])]
+        elif k[0] == 'nho': than += [_p(x, 16, '6B7090') for x in doan(k[1])]
         elif k[0] == 'ul': than += [_p(x, le=True, truoc=0, sau=30) for x in k[1]]
         elif k[0] == 'bang': than.append(_bang(k[1], k[2]))
     doc = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document %s><w:body>%s'

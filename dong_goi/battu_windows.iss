@@ -1,10 +1,10 @@
 ﻿; Inno Setup – bộ cài Windows 10/11 (64-bit), có gỡ cài đặt. Dựng: iscc dong_goi\battu_windows.iss
 #define TenPM "Bát Tự Thiệu Vĩ Hoa"
-#define PhienBan "1.8.2"
+#define PhienBan "1.9.0"
 [Setup]
 AppId={{6C1E3A52-8B7D-4E0B-9C61-3B2F7A9D6E31}
 AppName={#TenPM}
-AppVersion={#PhienBan} (quy tắc 6.6)
+AppVersion={#PhienBan} (quy tắc 6.7)
 AppVerName={#TenPM} {#PhienBan}
 AppPublisher=Bát Tự Thiệu Vĩ Hoa
 DefaultDirName={autopf}\BatTuThieuViHoa

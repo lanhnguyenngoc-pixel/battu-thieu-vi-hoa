@@ -99,7 +99,7 @@ class TrangTomTat(QWidget):
     def _ve_the(self, j):
         r, a, b, td_ = self.the[j]; td_.bat_dau()
         # kết luận của công cụ in đậm; căn cứ sách ở dòng riêng, bấm "Căn cứ sách" mới sổ ra
-        b.setText(td_.html(chu_o(self.kq.E, 'KET_LUAN', 'C%d' % r))); b.updateGeometry(); b.parentWidget().updateGeometry()
+        b.setText('<div style="line-height:145%%">%s</div>' % td_.html(chu_o(self.kq.E, 'KET_LUAN', 'C%d' % r))); b.updateGeometry(); b.parentWidget().updateGeometry()
 
     def _bam(self, j, u):
         if self.the[j][3].bam(u): self._ve_the(j)
@@ -168,7 +168,7 @@ class TrangLinhVuc(QWidget):
 
     def _ve_kl(self, i):
         chu, r0, rkl = MUC_KL[i]; E = self.kq.E; t = self.td_kl[i]; t.bat_dau()
-        self.muc[i][3].setText('<b>%s</b><br>%s' % (html.escape(chu_o(E, 'KET_LUAN', 'B%d' % rkl)), t.html(chu_o(E, 'KET_LUAN', 'C%d' % rkl))))
+        self.muc[i][3].setText('<div style="line-height:145%%"><b>%s</b><br>%s</div>' % (html.escape(chu_o(E, 'KET_LUAN', 'B%d' % rkl)), t.html(chu_o(E, 'KET_LUAN', 'C%d' % rkl))))
 
     def _chon(self, i):
         self.ngan.setCurrentIndex(i); self._ve()

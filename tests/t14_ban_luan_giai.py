@@ -78,7 +78,7 @@ def chay():
     s = LaSo(ho_ten='Nguyễn Ngọc Lanh', cach_nhap='duong', ngay=28, thang=11, nam=1978, gio=8, phut=30, gioi_tinh='Nam', nam_xem=2026)
     B, hs, pd = ban_luan_giai(tinh(s)); l, so = kiem('mẫu', B, pd, tmp); loi += l; trang.append(so)
     t = _chu(B)
-    for can in ('Thân vượng nhẹ', 'Dụng thần Hỏa', '2032 Nhâm Tí', 'Rất xấu', 'căn cứ ngược chiều', 'Khá giả', 'tự hình Ngọ–Ngọ',
+    for can in ('Thân vượng nhẹ', 'Dụng thần Hỏa', '2032 Nhâm Tí', 'Rất xấu', 'Thọ – yểu: yểu – được hóa giải một phần, nhẹ bớt', 'Khá giả', 'tự hình Ngọ–Ngọ',
                 'Học tập – thi cử', 'Năm 2028 Mậu Thân', 'Bốn giai đoạn đời'):
         if can not in t: loi.append(('mẫu', 'thiếu "%s"' % can))
     for c, nhap in oracle_nhap(json.load(open(os.path.join(GOC, 't7_ngau_nhien.json'), encoding='utf-8'))):

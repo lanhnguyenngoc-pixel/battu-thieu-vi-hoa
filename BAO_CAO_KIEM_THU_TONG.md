@@ -474,3 +474,21 @@ T11–T15 chạy lại: ĐẠT.
 | T16 đại vận | 126/171 (74%), ngược chiều 35 |
 | Vượng – nhược 65 lá TVH / 366 lá sách khác | 59 / 289 |
 T1–T4, T8 cần HO_SO_PM (không có trên máy chủ) – thay bằng bộ LibreOffice 9 lá ở trên.
+
+## 1.9.0 – Quy tắc 6.7 (16/11/2026)
+
+Workbook 6.7 SHA-256 `dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232`. Mọi đáp án LibreOffice sinh lại từ 6.7.
+
+| Bộ kiểm | Kết quả |
+|---|---|
+| T1 – 30 lá, mọi ô 33 sheet | 868 380 / 868 380 |
+| T1-501 – 501 lá | 14 252 949 / 14 252 949 (T2 kết quả chính 24 048 / 24 048) |
+| T1b – KRG0, B1b, B2–B5, KRG_VONG | 877 680 / 877 680 mỗi bộ (B1 cũ để đối chứng như trước) |
+| T3, âm lịch, T4 | 710 / 710; 74 144 / 74 144; 510 / 510 |
+| T5 xuất JSON / XLSX | ĐẠT |
+| T6 kho lá số | 12 / 12 |
+| T7 / T9 / T10 | 578 920; 585 120; 585 120 ô – 100% |
+| T8C PA1 / PA2 | 1 609 080 / 1 609 080 mỗi bộ |
+| T11 hiển thị (có ngắt đoạn) | 129 860 ô – ĐẠT |
+| T12 – T16 | ĐẠT (T13: mức năm, đại vận, thọ – yểu = đúng workbook; T14: PDF 4–5 trang; T16 đại vận khớp sách 123/171, vượng – nhược 57/65) |
+| Tự kiểm bản cài (3 lá chuẩn) | ĐẠT |

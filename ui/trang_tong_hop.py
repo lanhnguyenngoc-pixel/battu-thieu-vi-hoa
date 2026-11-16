@@ -56,7 +56,7 @@ class TrangTongHop(QWidget):
         v = QVBoxLayout(self); v.setContentsMargins(28, 24, 28, 24); v.setSpacing(10)
         h = QHBoxLayout(); t = QLabel('Luận giải tổng hợp'); t.setObjectName('tieude'); h.addWidget(t); h.addStretch()
         self.n_ai = QPushButton('✨  Nâng cao bằng AI'); self.n_ai.setObjectName('nut_phu')
-        self.n_ai.setToolTip('Tùy chọn, cần mạng và khóa API Anthropic của bạn. Không gửi họ tên.')
+        self.n_ai.setToolTip('Tùy chọn, cần mạng và khóa API Anthropic của bạn. Gửi tứ trụ, năm sinh và kết luận đã tính; không gửi họ tên.')
         self.n_khoa = QPushButton('🔑'); self.n_khoa.setObjectName('nut_phu'); self.n_khoa.setToolTip('Khóa API và mô hình AI')
         self.n_pdf = QPushButton('📄  Xuất PDF'); self.n_pdf.setObjectName('nut_chinh')
         self.n_doc = QPushButton('📝  Xuất Word'); self.n_doc.setObjectName('nut_phu')
@@ -123,7 +123,9 @@ class TrangTongHop(QWidget):
         if A.doc_dem(A.khoa_dem(self.hs, self.pd, mh)) is None:
             so = lambda n: '{:,}'.format(n).replace(',', '.')
             hoi = QMessageBox.question(self, 'Gửi tới AI?', (
-                'Sẽ gửi tứ trụ và các kết luận đã tính (KHÔNG có họ tên, ngày giờ sinh) tới Claude API – mô hình %s.\n\n'
+                'Sẽ gửi tứ trụ, năm sinh, giới tính và các kết luận đã tính tới Claude API – mô hình %s. Không gửi họ tên.\n'
+                'Lưu ý: từ tứ trụ và năm sinh có thể suy ra ngày giờ sinh gần đúng (trong khoảng 2 giờ).\n'
+                'Bản AI chỉ diễn đạt lại; khi khác kết luận của phần mềm thì theo kết luận của phần mềm.\n\n'
                 'Ước lượng: khoảng %s token vào, tối đa %s token ra. Giá theo bảng giá hiện hành trên Anthropic Console, '
                 'tính vào tài khoản của bạn.\n\nTiếp tục?') % (mh, so(vao), so(ra)))
             if hoi != QMessageBox.Yes: return

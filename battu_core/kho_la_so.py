@@ -7,7 +7,7 @@ import os, json, sqlite3, datetime
 from battu_core.nhap_lieu import LaSo
 from battu_core import sheets as S
 
-PHIEN_BAN_QUY_TAC = '6.6'
+PHIEN_BAN_QUY_TAC = '6.7'
 O_TOM_TAT = ['B3'] + ['%s%d' % (c, r) for r in range(4, 13) for c in 'BC']
 
 

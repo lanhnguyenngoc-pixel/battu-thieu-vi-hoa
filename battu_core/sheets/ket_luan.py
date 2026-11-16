@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet KET_LUAN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 c1e0254833a8f522615199e1e0140460e912227d0b9ffc88b9164ebc26d3e0b3).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1611,8 +1611,8 @@ def f240(E, r, c):
 
 def f241(E, r, c):
     # Ô C135
-    # = "Thọ – yểu (P1 tr.173): "&LEFT(C143,IFERROR(FIND(CHAR(10),C143)-1,LEN(C143)))&". "&C142
-    return X.cat(X.cat(X.cat('Thọ – yểu (P1 tr.173): ',X.LEFT(E.v(3,r+8,c), X.IFERROR(lambda: X.sub(X.FIND(X.CHAR(10.0), E.v(3,r+8,c)),1.0), lambda: X.LEN(E.v(3,r+8,c))))),'. '),E.v(3,r+7,c))
+    # = "Thọ – yểu (P1 tr.172–173): "&LEFT(C143,IFERROR(FIND(CHAR(10),C143)-1,LEN(C143)))&". "&C142
+    return X.cat(X.cat(X.cat('Thọ – yểu (P1 tr.172–173): ',X.LEFT(E.v(3,r+8,c), X.IFERROR(lambda: X.sub(X.FIND(X.CHAR(10.0), E.v(3,r+8,c)),1.0), lambda: X.LEN(E.v(3,r+8,c))))),'. '),E.v(3,r+7,c))
 
 def f242(E, r, c):
     # Ô C137
@@ -1712,16 +1712,15 @@ def f254(E, r, c):
 
 def f255(E, r, c):
     # Ô C143
-    # = IF(MENH_CUC!$C$104<>"","CĂN CỨ NGƯỢC CHIỀU (quy tắc 6.6) – "&MENH_CUC!$C$105&CHAR(10)&"Bảng gốc: ","")&MENH_CUC!D21&CHAR(10)&MENH_CUC!G21&CHAR(10)&MEN
-    #   H_CUC!K21&CHAR(10)&"► Ý nghĩa cụ thể: "&IF(MENH_CUC!$U$21="YỂU","“người yểu là người nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô” (P1 
-    #   tr.171): sức khỏe dễ suy kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201)",IF(MENH_CUC!$U$21="THỌ","“người thọ tức ngườ
-    #   i nguyên khí dày, dụng thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn","cân bằng: hai chiều ngang nhau, tốt xấu tùy vận"))&"
-    #   . "&IF(AND($AB$87="",$AC$87=""),"Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì giảm – DAI_VAN dòng 55) các đại vận đều ở mức T
-    #   hường, nên không vận nào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong vận sinh trợ đúng nhu cầu ("&IF($AD$87="","không
-    #    có",$AD$87)&"); phần xấu dễ nổi hơn trong bại vận ("&IF($AE$87="","không có",$AE$87)&"). Mức độ cụ thể xem từng năm ở sheet LUU_NIEN.","Khi nào thể h
-    #   iện rõ: phần tốt nổi lên trong đại vận TỐT ("&IF($AB$87="","không có",$AB$87)&"); phần xấu nổi lên trong đại vận XẤU ("&IF($AC$87="","không có",$AC$87
-    #   )&").")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat('CĂN CỨ NGƯỢC CHIỀU (quy tắc 6.6) – ',E.v(18,105,3)),X.CHAR(10.0)),'Bảng gốc: ') if X.truthy(X.ne(E.v(18,104,3),'')) else ''),E.v(18,r-122,c+1)),X.CHAR(10.0)),E.v(18,r-122,c+4)),X.CHAR(10.0)),E.v(18,r-122,c+8)),X.CHAR(10.0)),'► Ý nghĩa cụ thể: '),('“người yểu là người nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô” (P1 tr.171): sức khỏe dễ suy kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201)' if X.truthy(X.eq(E.v(18,21,21),'YỂU')) else ('“người thọ tức người nguyên khí dày, dụng thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn' if X.truthy(X.eq(E.v(18,21,21),'THỌ')) else 'cân bằng: hai chiều ngang nhau, tốt xấu tùy vận'))),'. '),(X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì giảm – DAI_VAN dòng 55) các đại vận đều ở mức Thường, nên không vận nào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong vận sinh trợ đúng nhu cầu (',('không có' if X.truthy(X.eq(E.v(3,87,30),'')) else E.v(3,87,30))),'); phần xấu dễ nổi hơn trong bại vận ('),('không có' if X.truthy(X.eq(E.v(3,87,31),'')) else E.v(3,87,31))),'). Mức độ cụ thể xem từng năm ở sheet LUU_NIEN.') if X.truthy(X.AND(X.eq(E.v(3,87,28),''), X.eq(E.v(3,87,29),''))) else X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: phần tốt nổi lên trong đại vận TỐT (',('không có' if X.truthy(X.eq(E.v(3,87,28),'')) else E.v(3,87,28))),'); phần xấu nổi lên trong đại vận XẤU ('),('không có' if X.truthy(X.eq(E.v(3,87,29),'')) else E.v(3,87,29))),').')))
+    # = MENH_CUC!$C$126&CHAR(10)&MENH_CUC!$C$127&CHAR(10)&"Bảng thực thương – ấn (P1 tr.173): "&MENH_CUC!D21&CHAR(10)&MENH_CUC!G21&CHAR(10)&MENH_CUC!K21&"► Ý 
+    #   nghĩa cụ thể: "&IF(MENH_CUC!$C$114="YỂU","“người yểu là người nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô” (P1 tr.171): sức khỏe dễ su
+    #   y kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201)",IF(MENH_CUC!$C$114="THỌ","“người thọ tức người nguyên khí dày, dụng
+    #    thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn","cân bằng: hai chiều ngang nhau, tốt xấu tùy vận"))&". "&IF(AND($AB$87="",$
+    #   AC$87=""),"Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì giảm – DAI_VAN dòng 55) các đại vận đều ở mức Thường, nên không vận n
+    #   ào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong vận sinh trợ đúng nhu cầu ("&IF($AD$87="","không có",$AD$87)&"); phần 
+    #   xấu dễ nổi hơn trong bại vận ("&IF($AE$87="","không có",$AE$87)&"). Mức độ cụ thể xem từng năm ở sheet LUU_NIEN.","Khi nào thể hiện rõ: phần tốt nổi l
+    #   ên trong đại vận TỐT ("&IF($AB$87="","không có",$AB$87)&"); phần xấu nổi lên trong đại vận XẤU ("&IF($AC$87="","không có",$AC$87)&").")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(18,126,3),X.CHAR(10.0)),E.v(18,127,3)),X.CHAR(10.0)),'Bảng thực thương – ấn (P1 tr.173): '),E.v(18,r-122,c+1)),X.CHAR(10.0)),E.v(18,r-122,c+4)),X.CHAR(10.0)),E.v(18,r-122,c+8)),'► Ý nghĩa cụ thể: '),('“người yểu là người nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô” (P1 tr.171): sức khỏe dễ suy kiệt, các năm hạn nặng cần đề phòng; công cụ không kết luận năm mất (P1 tr.201)' if X.truthy(X.eq(E.v(18,114,3),'YỂU')) else ('“người thọ tức người nguyên khí dày, dụng thần được sinh mà có lực” (P1 tr.171): sức bền tốt, qua được các năm hạn' if X.truthy(X.eq(E.v(18,114,3),'THỌ')) else 'cân bằng: hai chiều ngang nhau, tốt xấu tùy vận'))),'. '),(X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: sau điều chỉnh (vận tốt bị mệnh cục khắc/hợp thì giảm – DAI_VAN dòng 55) các đại vận đều ở mức Thường, nên không vận nào tốt hẳn hay xấu hẳn. Theo phân loại gốc P1 tr.125: phần tốt dễ nổi hơn trong vận sinh trợ đúng nhu cầu (',('không có' if X.truthy(X.eq(E.v(3,87,30),'')) else E.v(3,87,30))),'); phần xấu dễ nổi hơn trong bại vận ('),('không có' if X.truthy(X.eq(E.v(3,87,31),'')) else E.v(3,87,31))),'). Mức độ cụ thể xem từng năm ở sheet LUU_NIEN.') if X.truthy(X.AND(X.eq(E.v(3,87,28),''), X.eq(E.v(3,87,29),''))) else X.cat(X.cat(X.cat(X.cat('Khi nào thể hiện rõ: phần tốt nổi lên trong đại vận TỐT (',('không có' if X.truthy(X.eq(E.v(3,87,28),'')) else E.v(3,87,28))),'); phần xấu nổi lên trong đại vận XẤU ('),('không có' if X.truthy(X.eq(E.v(3,87,29),'')) else E.v(3,87,29))),').')))
 
 def f256(E, r, c):
     # Ô H143

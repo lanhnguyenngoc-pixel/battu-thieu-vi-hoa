@@ -5,7 +5,7 @@
 Đầu ra: MỘT kết luận cho mỗi việc, kèm dòng lý do, để bản luận giải không còn hai kết luận trái nhau:
   dai_van   – thang 5 mức cho cả vận, 5 năm đầu (can) và 5 năm sau (chi)                       (A1)
   luu_nien  – một điểm năm duy nhất, trừ nặng khi xung chi mang dụng thần / cung phu thê, hạn nặng  (A2, A3)
-  tho_yeu   – gộp nhiều tiêu chí; căn cứ ngược chiều thì không dùng chữ "yểu"                    (A4)
+  tho_yeu   – lấy nguyên kết luận cuối của workbook (P1 tr.172–173 + luận thêm)                  (A4)
   tai_loc   – một thang                                                                        (A5)
   luc_than  – kết luận Thiệu Vĩ Hoa + nguồn khác nói ngược (có trọng số)                         (A6)
   vuong_suy – cờ sát ngưỡng + giả thuyết ngược + gợi ý kiểm chứng                                (B3)
@@ -119,10 +119,19 @@ def _muc_diem(x):
 
 
 def _cung_huong(wb, rieng):
-    """Giữ hướng của workbook; chỉ nâng lên 'Rất' khi điểm riêng cũng cùng hướng và ở mức 'Rất'."""
-    if wb == 'Tốt' and rieng == 'Rất tốt': return rieng
-    if wb == 'Xấu' and rieng == 'Rất xấu': return rieng
-    return wb
+    """Kết luận lấy đúng mức của workbook (một kết luận cho mỗi vận – quyết định 16/11/2026); điểm riêng chỉ để ghi lý do."""
+    return wb or rieng
+
+
+# Thang xếp hạng năm của workbook (bảng P1 tr.133, CSDL COMBO_TAB) → 5 mức của bản luận giải
+_MUC_NAM_WB = {'rất tốt': 'Rất tốt', 'tốt vừa': 'Tốt', 'tốt nhiều, xấu ít': 'Tốt', 'tốt ít': 'Trung bình', 'bình thường': 'Trung bình',
+               'xấu ít': 'Trung bình', 'tốt ít, xấu nhiều': 'Xấu', 'xấu vừa': 'Xấu', 'xấu nhiều': 'Rất xấu'}
+
+
+def _muc_nam_wb(t):
+    t = (t or '').strip().lower()
+    if ':' in t: t = t.split(':')[-1].strip()
+    return _MUC_NAM_WB.get(t, '')
 
 
 def dai_van(hs, vt=None):
@@ -171,6 +180,9 @@ def luu_nien(hs, dv=None, vt=None, nam=None):
         muc = _muc(tong, qt['nguong'])
         if han and MUC.index(muc) > MUC.index(qt['tran_khi_han_nang']):
             muc = qt['tran_khi_han_nang']; ly.append('có hạn nặng → không xếp cao hơn "%s"' % muc)
+        # Mức của năm lấy theo xếp hạng của workbook (P1 tr.133, phương pháp khuyến nghị); điểm riêng chỉ để sắp thứ tự, ghi lý do
+        wbn = _muc_nam_wb(y.get('tong_hop_pp2') if hs.get('phuong_phap') == 2 else y.get('tong_hop_pp1'))
+        if wbn: muc = wbn
         ra.append({'nam': y['nam'], 'can_chi': y.get('luu_nien'), 'tuoi_mu': y.get('tuoi_mu'), 'tuoi_thuc': y.get('tuoi_thuc'),
                    'diem': round(tong, 2), 'muc': muc, 'han_nang': han, 'ly_do': [lcan, lchi] + ly,
                    'workbook': {'pp1': y.get('tong_hop_pp1'), 'pp2': y.get('tong_hop_pp2')}})
@@ -185,28 +197,11 @@ def _muc_kl(hs, muc, nhan):
 
 
 def tho_yeu(hs):
-    qt = quy_tac()['tho_yeu']; bm = hs['ban_menh']
-    goc = _muc_kl(hs, 'H. Sức khỏe', 'Thọ – yểu')
-    if 'Bảng gốc: ' in goc: goc = goc.split('Bảng gốc: ', 1)[1]      # quy tắc 6.6 đã ghi trong workbook
-    if bm.get('tho_yeu_6_6'):
-        return {'muc': 'Căn cứ ngược chiều', 'goc_workbook': goc.split('.')[0], 'dien_giai': bm.get('tho_yeu_6_6_dg', ''),
-                'dau_hieu_tot': re.findall(r'(thân vượng|nguyệt đức|thiên đức|sức khỏe chung thuận|có cứu|bình sinh ít bệnh)', bm.get('tho_yeu_6_6_dg', ''))}
-    tot = []
-    if re.match(r'\s*VƯỢNG', (bm.get('vuong_suy') or '').upper()): tot.append('thân vượng')
-    ts = (bm.get('than_sat_hieu_luc') or '').upper()
-    if 'NGUYỆT ĐỨC' in ts: tot.append('nguyệt đức')
-    if 'THIÊN ĐỨC' in ts: tot.append('thiên đức')
-    if _muc_kl(hs, 'H. Sức khỏe', 'Sức khỏe chung').upper().startswith('THUẬN'): tot.append('sức khỏe chung thuận')
-    if 'CÓ CỨU' in (bm.get('ket_luan') or '').upper(): tot.append('có cứu')
-    if 'ít bệnh' in _muc_kl(hs, 'H. Sức khỏe', 'Sức khỏe (HG)'): tot.append('bình sinh ít bệnh')
-    yeu = 'YỂU' in goc.upper()[:40]
-    if yeu and len(tot) >= qt['so_dau_hieu_nguoc']:
-        return {'muc': 'Căn cứ ngược chiều', 'goc_workbook': goc.split('.')[0],
-                'dien_giai': 'Bảng P1 tr.173 nghiêng về yểu (chỉ so Thực thương với Ấn), nhưng có %d dấu hiệu ngược: %s. '
-                             'Đọc là thể chất nền tốt, đời có giai đoạn thử thách sức khỏe – chú ý các năm hạn.' % (len(tot), ', '.join(tot)),
-                'dau_hieu_tot': tot}
-    return {'muc': 'Nghiêng về yểu' if yeu else ('Nghiêng về thọ' if 'THỌ' in goc.upper()[:40] else 'Trung bình'),
-            'goc_workbook': goc.split('.')[0], 'dien_giai': '', 'dau_hieu_tot': tot}
+    """Thọ – yểu lấy nguyên kết luận cuối của workbook (bản 6.7): bước 1 dấu hiệu P1 tr.172–173, bước 2 luận thêm
+    (thần sát, sức khỏe chung, cứu ứng, Hóa giải toàn thư tr.201–202) – không dùng ngưỡng số dấu hiệu."""
+    bm = hs['ban_menh']; kl = (bm.get('tho_yeu_kl') or '').strip()
+    return {'muc': kl.capitalize() if kl else 'Trung bình', 'buoc_1': (bm.get('tho_yeu_buoc1') or '').capitalize(),
+            'goc_workbook': bm.get('tho_yeu_bang173') or '', 'dien_giai': bm.get('tho_yeu_ly_do') or ''}
 
 
 def tai_loc(hs):
@@ -307,11 +302,10 @@ def phan_doan(hs, la_so=None):
     doi = []
     for ten, ds in (('Đại vận', dv), ('Năm', ln)):
         for x in ds:
-            wb = x['workbook'].get('pp1') or ''
+            wb = x['workbook'].get('pp2' if hs.get('phuong_phap') == 2 else 'pp1') or ''
             if _chieu_wb(wb) * _chieu(x['muc']) < 0:               # chỉ ghi khi ĐỔI CHIỀU (tốt ↔ xấu)
                 doi.append('%s %s: workbook "%s" → tổng hợp "%s"' % (ten, x.get('ten') or '%d %s' % (x['nam'], x['can_chi']), wb, x['muc']))
     ty = tho_yeu(hs)
-    if ty['muc'] == 'Căn cứ ngược chiều': doi.append('Thọ – yểu: workbook "%s" → "căn cứ ngược chiều"' % ty['goc_workbook'])
     return {'phien_ban_quy_tac': quy_tac()['phien_ban'], 'dai_van': dv, 'luu_nien': ln, 'tho_yeu': ty, 'tai_loc': tai_loc(hs),
             'luc_than': luc_than(hs), 'vuong_suy': vuong_suy(hs, dv), 'an_muc': an_muc(hs, la_so), 'doi_chieu': doi}
 

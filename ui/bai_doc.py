@@ -18,7 +18,8 @@ CSS = """
 body { font-family: 'Inter'; font-size: 10.5pt; color: #1e2140; }
 h2 { font-size: 13pt; color: #3730a3; margin: 14px 0 6px 0; }
 h3 { font-size: 11pt; color: #4338ca; margin: 12px 0 4px 0; }
-p { margin: 4px 0 6px 0; }
+p { margin: 4px 0 10px 0; line-height: 135%; }
+td { line-height: 130%; }
 .nhan { font-weight: bold; color: #4f46e5; }
 .kl { background: #f1f3fb; }
 a { color: #5b21b6; text-decoration: underline; }
@@ -77,7 +78,8 @@ class BaiDoc(QTextBrowser):
 
         def o_bang(t):
             noi, cits = tach(t)
-            return self._lk(noi) + (('<br>' + tdan.khoi(cits)) if cits else '')
+            from export.ngat_doan import ngat
+            return self._lk(ngat(noi)) + (('<br>' + tdan.khoi(cits)) if cits else '')
 
         def o_dong(r):
             return [(c, o[(r, c)][0], o[(r, c)][1], b['gop'].get((r, c), (1, 1))[1]) for c in b['cot'] if (r, c) in o and o[(r, c)][0].strip()]

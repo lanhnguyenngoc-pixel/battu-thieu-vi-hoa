@@ -68,7 +68,7 @@ def _ban_menh(E):
             'cach_cuc': g('Cách cục'), 'dung_than': dung, 'hy_than': hy, 'ky_than': ky,
             'hanh_dung': _hanh_dau(dung), 'hanh_hy': _hanh_dau(hy), 'hanh_ky': _hanh_dau(ky),
             'vi_sao_dung': g('Vì sao chọn dụng'), 'dieu_hau': g('Điều hầu'), 'menh_cuc': g('Kết luận mệnh cục'),
-            'ung_vien_dung': _s(E.gia_tri('DUNG_HY_KY', 'C226')), 'goi_y_su_kien': _s(E.gia_tri('SU_KIEN', 'B38')), 'tho_yeu_6_6': _s(E.gia_tri('MENH_CUC', 'C104')), 'tho_yeu_6_6_dg': _s(E.gia_tri('MENH_CUC', 'C105')), 'muc_chac_dung': _s(E.gia_tri('DUNG_HY_KY', 'C227')),
+            'ung_vien_dung': _s(E.gia_tri('DUNG_HY_KY', 'C226')), 'goi_y_su_kien': _s(E.gia_tri('SU_KIEN', 'B38')), 'tho_yeu_kl': _s(E.gia_tri('MENH_CUC', 'C126')), 'tho_yeu_ly_do': _s(E.gia_tri('MENH_CUC', 'C127')), 'tho_yeu_buoc1': _s(E.gia_tri('MENH_CUC', 'C114')), 'tho_yeu_bang173': _s(E.gia_tri('MENH_CUC', 'U21')), 'muc_chac_dung': _s(E.gia_tri('DUNG_HY_KY', 'C227')),
             'than_sat_hieu_luc': g('Có hiệu lực'), 'than_sat_vo_hieu': g('Có nhưng vô hiệu'),
             'quy_nhan': g('QUÝ NHÂN'), 'van_xuong': g('VĂN XƯƠNG'), 'thong_can': g('Kết luận thông căn')}
 
@@ -173,11 +173,13 @@ def ho_so(E, la_so=None, so_nam=11):
     nam_sinh = (ln[0]['nam'] - ln[0]['tuoi_thuc']) if ln and isinstance(ln[0].get('tuoi_thuc'), int) else None
     return {
         'phien_ban_ho_so': PHIEN_BAN_HO_SO,
-        'la_so': {'gioi_tinh': getattr(la_so, 'gioi_tinh', None) or _s(E.raw(E.M.si['NHAP_LIEU'], 10, 3)),
+        'la_so': {'gioi_tinh': getattr(la_so, 'gioi_tinh', None) or _s(E.gia_tri('NHAP_LIEU', 'C22') or E.raw(E.M.si['NHAP_LIEU'], 10, 3)),
                   'nam_sinh': nam_sinh, 'nam_xem': nam_xem,
                   'tuoi_thuc': ln[0]['tuoi_thuc'] if ln else None, 'tuoi_mu': ln[0]['tuoi_mu'] if ln else None,
                   'tu_tru': ' · '.join('%s %s' % x for x in tt)},
         'tu_tru': tru, 'thap_than_nhom': nhom, 'ban_menh': bm,
         'quan_he_tu_tru': Q.danh_dau(Q.trong_tu_tru(tt), tt, dung, hy, ky),
         'dai_van': dv, 'luu_nien': ln, 'tom_tat': tom, 'ket_luan_muc': muc,
+        # phương pháp khuyến nghị của workbook (DOI_CHIEU C33: 0 thống nhất, 1 PP1, 2 PP2) – dùng để lấy đúng cột kết luận
+        'phuong_phap': int(E.gia_tri('DOI_CHIEU', 'C33') or 0),
     }

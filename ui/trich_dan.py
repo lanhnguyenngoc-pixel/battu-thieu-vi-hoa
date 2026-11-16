@@ -75,7 +75,8 @@ class TrichDan:
             # nội dung chính là câu sách (vd "Tính cách theo sách: • … • …") → giữ nguyên văn, chữ thường
             return '<%s style="%s">%s</%s>' % (the, kieu, lk(t), the)
         st = (kieu + ';' if kieu else '') + ('font-weight:bold' if dam else '')
-        H = '<%s style="%s">%s</%s>' % (the, st, lk(noi), the)
+        from export.ngat_doan import ngat
+        H = '<%s style="%s">%s</%s>' % (the, st, lk(ngat(noi)), the)   # ngắt đoạn: mỗi ý một dòng
         if cits:
             i = self.n; self.n += 1
             mo = i in self.mo

@@ -23,8 +23,8 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.8.2 (quy tắc 6.6)</b></p>')
-H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.6; '
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.0 (quy tắc 6.7)</b></p>')
+H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.7; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
 H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa. Các dòng ghi "quy ước kỹ thuật" hoặc '
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.8.2_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.9.0_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -135,7 +135,7 @@ H.append('<p>Bản <b>không cần mạng</b> do phần mềm tự soạn: tóm 
 H.append('<h3>Nâng cao bằng AI (tùy chọn)</h3><p>Cần Internet và <b>khóa API Anthropic của bạn</b> (tạo ở console.anthropic.com → API Keys; '
          'phí tính vào tài khoản của bạn). Bấm 🔑 để dán khóa và chọn mô hình (mặc định Claude Sonnet 5.5). Khóa lưu trong kho khóa của '
          'Windows / macOS trên máy bạn. Bấm <b>✨ Nâng cao bằng AI</b>: phần mềm báo ước lượng số token và hỏi trước khi gửi; chỉ gửi tứ trụ, '
-         'năm sinh và các kết luận đã tính – <b>không gửi họ tên, ngày giờ sinh</b>. Bản AI được bộ kiểm tra đối chiếu tứ trụ, dụng – hỷ – kỵ, '
+         'năm sinh, giới tính và các kết luận đã tính – <b>không gửi họ tên</b>; lưu ý từ tứ trụ và năm sinh có thể suy ra ngày giờ sinh gần đúng. Bản AI được bộ kiểm tra đối chiếu tứ trụ, dụng – hỷ – kỵ, '
          'năm đại vận, can chi và mức từng năm; sai một chỗ là không dùng và giữ bản không mạng. Bản AI đạt được lưu trên máy, mở lại không '
          'tốn phí. Dùng nút <i>Bản không mạng / Bản AI</i> để so; xuất PDF / Word là bản đang xem.</p>')
 
@@ -162,24 +162,22 @@ H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Định dạng
 
 H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing="0">'
          '<tr><th width="34%">Câu hỏi</th><th>Trả lời</th></tr>'
-         '<tr><td>Quy tắc 6.6 khác 6.5 ở đâu?</td><td>Khi hai phương pháp xét vượng suy cho kết quả khác nhau, nếu phần trăm phe mình theo PP2 '
-         'ở xa ngưỡng 40% (dưới 36% hoặc từ 52% trở lên) thì theo PP2; còn lại giữ cách chọn cũ. Kiểm chứng trên 431 lá có lời giải: '
-         '65 lá Thiệu Vĩ Hoa đúng 59 (trước 57), 366 lá sách khác đúng 289 (trước 242); đại vận khớp sách 126/171 (trước 123).</td></tr>'
+         '<tr><td>Quy tắc 6.7 khác 6.6 ở đâu?</td><td>Bỏ quy tắc vượng suy theo ngưỡng PP2 của bản 6.6, trở lại cách 6.5 (PP1 đủ 5 bước, bước 5 có thể đổi kết luận). Đo trên 73 lá Thiệu Vĩ Hoa: 6.5 đúng 64, 6.6 đúng 63; bỏ 5 lá sách tự mâu thuẫn: 6.5 đúng 64/68, 6.6 đúng 61/68. Thọ – yểu xét lại theo P1 tr.172–173 kèm luận thêm (xem câu dưới). Mức đại vận và lưu niên ở Luận giải tổng hợp lấy đúng mức của bảng tính.</td></tr>'
          '<tr><td>"Ứng viên dụng thần thay thế" là gì?</td><td>Từ quy tắc 6.6, ngoài dụng thần chính công cụ ghi thêm các hành mà sách cũng có thể chọn: '
          'dụng thần theo phù ức khi đang ưu tiên điều hầu, dụng thần nếu luận như chính cách, hành điều hầu theo mùa, các ứng viên sau khi dụng thần đã mạnh ngang phe mình. '
          'Chỉ để tham khảo – dụng thần chính không đổi. Ô Dụng thần ở Lá số luôn theo đúng phương pháp đang dùng (PP1 hoặc PP2).</td></tr>'
          '<tr><td>Nhập sự việc đã qua để làm gì?</td><td>Ở trang Kiểm chứng sự việc, nhập năm và loại sự việc (kết hôn, có con, công việc / tài chính thuận lợi hoặc khó khăn, bệnh nặng, tai nạn – pháp lý, người thân mất). '
          'Từ bản 1.8.2 công cụ so từng sự việc với xếp hạng năm theo PP1 và theo PP2 rồi gợi ý nên giữ hay đổi phương pháp (cần ít nhất 2 sự việc tốt/xấu rõ; đổi khi một bên hơn từ 2 sự việc trở lên). '
          'Bản luận giải tổng hợp còn so dụng thần chính với các ứng viên dụng thần thay thế theo các năm đó. Sách khuyên lấy thực tế để kiểm nghiệm (P2 tr.445).</td></tr>'
-         '<tr><td>Vì sao thọ – yểu ghi “căn cứ ngược chiều”?</td><td>Bảng P1 tr.173 chỉ so Thực thương với Ấn. Từ quy tắc 6.6, khi bảng nghiêng về yểu nhưng lá số có từ 2 dấu hiệu thọ trở lên (thân vượng, thiên đức, nguyệt đức, sức khỏe chung thuận, bệnh có cứu, bình sinh ít bệnh) thì công cụ không dùng chữ “yểu”.</td></tr>'
-         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.6 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
+         '<tr><td>Thọ – yểu được xét thế nào?</td><td>Từ quy tắc 6.7 xét hai bước. Bước 1 theo Thiệu Vĩ Hoa: đếm dấu hiệu mệnh thọ, mệnh yểu (P1 tr.172) và bảng thực thương – ấn (P1 tr.173); bên nhiều dấu hiệu hơn là kết luận. Bước 2 luận thêm: nguyệt đức, thiên đức, sức khỏe chung thuận, bệnh có cứu, các quy tắc sức khỏe của Hóa giải toàn thư (tr.201–202) làm nhẹ bớt hoặc vững hơn; sức khỏe chung bất lợi, bệnh không có cứu làm nặng hơn. Không dùng ngưỡng số dấu hiệu. Công cụ không kết luận năm mất. Nội dung sức khỏe chỉ tham khảo, không phải chẩn đoán.</td></tr>'
+         '<tr><td>Kết quả có đáng tin không?</td><td>Mọi phép tính theo bộ quy tắc 6.7 đã được kiểm chứng trên hàng chục triệu phép tính (xem Báo cáo kiểm thử).</td></tr>'
          '<tr><td>Dòng "Dụng thần theo cách bổ hành khuyết" là gì?</td><td>Khi trong phe dụng thần có nhóm không có chữ nào trong tứ trụ, phần mềm ghi thêm nhóm đó '
          '(mục B – Bản mệnh). Khi giải ví dụ, Thiệu Vĩ Hoa nhiều lần lấy nhóm đang khuyết làm dụng thần (P1 tr.97). Đây chỉ là ghi chú để cân nhắc, '
          'không thay dụng thần đã chọn.</td></tr>'
          '<tr><td>Vì sao PP1 và PP2 khác nhau?</td><td>Hai phương pháp của sách; xem mục ⚖ Phân tích → Đối chiếu. Lựa chọn dùng cho kết luận đặt ở Nhập liệu → Tùy chọn nâng cao.</td></tr>'
          '<tr><td>Sinh tháng nhuận âm lịch?</td><td>Chọn Âm lịch và đánh dấu Tháng nhuận; phần mềm đổi đúng sang dương lịch.</td></tr>'
-         '<tr><td>Có cần Internet?</td><td>Không. Phần mềm không gửi dữ liệu đi đâu – trừ khi bạn tự bấm ✨ Nâng cao bằng AI (khi đó chỉ gửi tứ trụ và kết luận đã tính, không họ tên).</td></tr>'
-         '<tr><td>Vì sao mức năm ở Luận giải tổng hợp khác bảng Lưu niên?</td><td>Bảng Lưu niên giữ nguyên workbook 6.5. Lớp tổng hợp xét thêm chi năm, xung hợp với tứ trụ (nhất là chi mang dụng thần, cung vợ chồng) và dấu hiệu hạn nặng để mỗi năm chỉ còn một kết luận. Khi đã chạy ổn, các quy tắc này sẽ được đưa vào workbook (quy tắc 6.6).</td></tr></table>')
+         '<tr><td>Có cần Internet?</td><td>Không. Phần mềm không gửi dữ liệu đi đâu – trừ khi bạn tự bấm ✨ Nâng cao bằng AI (khi đó gửi tứ trụ, năm sinh và kết luận đã tính, không gửi họ tên).</td></tr>'
+         '<tr><td>Mức năm ở Luận giải tổng hợp có khác bảng Lưu niên không?</td><td>Không. Từ bản 1.9.0 mức năm và mức đại vận lấy đúng kết luận tổng hợp của bảng tính theo phương pháp đang dùng (bảng P1 tr.133); lớp tổng hợp chỉ sắp xếp, diễn giải.</td></tr></table>')
 H.append('<p class="nho">Nguồn sách: Thiệu Vĩ Hoa, <i>Dự đoán theo Tứ trụ</i> (Phần 1, Phần 2) và các sách tham khảo ghi ở mục Tham khảo.</p>')
 
 

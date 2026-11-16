@@ -32,9 +32,7 @@
   },
 
   "tho_yeu": {
-    "_ghi_chu": "Bảng P1 tr.173 của workbook chỉ so một tiêu chí (Thực thương với Ấn). Khi có từ 'so_dau_hieu_nguoc' dấu hiệu ngược chiều trở lên thì không dùng chữ 'yểu' mà ghi 'căn cứ ngược chiều'.",
-    "so_dau_hieu_nguoc": 2,
-    "dau_hieu_tot": ["thân vượng", "nguyệt đức", "thiên đức", "sức khỏe chung thuận", "có cứu", "bình sinh ít bệnh"]
+    "_ghi_chu": "Từ quy tắc 6.7 lớp tổng hợp không tự xét thọ – yểu: dùng nguyên kết luận cuối của workbook (dấu hiệu P1 tr.172–173, luận thêm theo thần sát, sức khỏe chung, cứu ứng, Hóa giải toàn thư tr.201–202; không dùng ngưỡng số dấu hiệu)."
   },
 
   "luc_than": {

@@ -126,7 +126,8 @@ class TrangLaSo(QWidget):
 CSS_BAI = """
 body { font-family: 'Inter'; font-size: 10.5pt; color: #1e2140; }
 h1 { font-size: 17pt; color: #3730a3; } h2 { font-size: 13.5pt; color: #3730a3; margin-top: 16px; }
-h3 { font-size: 11.5pt; margin: 12px 0 4px 0; }
+h3 { font-size: 11.5pt; margin: 14px 0 6px 0; }
+p { margin: 4px 0 10px 0; line-height: 135%; }
 .nhan { font-weight: bold; color: #4f46e5; } .nhan_kl { font-weight: bold; color: #ffffff; background: #6d28d9; }
 .nhan_ct { font-weight: bold; color: #166534; } .nhan_sach { color: #6b7090; } .nhan_kn { color: #b45309; }
 .nho { color: #7b809c; font-size: 9pt; }
@@ -187,6 +188,8 @@ class TrangLuanGiai(QWidget):
 
         def o_bang(t):
             noi, cits = tach(t)
+            from export.ngat_doan import ngat
+            noi = ngat(noi)
             return self._lk(noi) + (('<br>' + tdan.khoi(cits)) if cits else '')
         hdr105 = {c: o[(105, c)][0] for c in range(3, 10) if (105, c) in o}
         bang = []

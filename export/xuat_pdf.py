@@ -44,6 +44,8 @@ def _kl(t, dam=True):
     Câu sách giữ nguyên văn tại chỗ (giu_cau): bản in không để dòng "(xem căn cứ sách)" thay cho nội dung."""
     from ui.trich_dan import tach, chi_la_trich
     noi, cits = tach(t, giu_cau=True)
+    from export.ngat_doan import ngat
+    noi = ngat(noi)                                                   # ngắt đoạn: mỗi ý một dòng
     if chi_la_trich(noi, cits): return _e(t)
     if dam: h = '<b>%s</b>' % _e(noi).replace('\x01', '</b><span style="font-weight:normal">').replace('\x02', '</span><b>')
     else: h = _e(noi).replace('\x01', '').replace('\x02', '')

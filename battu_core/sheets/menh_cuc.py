@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet MENH_CUC – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.6.xlsx (SHA-256 c1e0254833a8f522615199e1e0140460e912227d0b9ffc88b9164ebc26d3e0b3).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1739,51 +1739,218 @@ def f277(E, r, c):
 
 def f278(E, r, c):
     # Ô C97
-    # = IF(LEFT(DOI_CHIEU!$C$34,5)="VƯỢNG",1,0)
-    return (1.0 if X.truthy(X.eq(X.LEFT(E.v(7,34,3), 5.0),'VƯỢNG')) else 0.0)
+    # = IF(AND(DUNG_HY_KY!$C$155=1,DUNG_HY_KY!$C$157>=0,(INDEX(DUNG_HY_KY!$D$24:$D$28,(DUNG_HY_KY!$C$157)+1)/SUM(DUNG_HY_KY!$D$24:$D$28))>=0.2,(INDEX(DUNG_HY_
+    #   KY!$D$24:$D$28,(MOD(DUNG_HY_KY!$C$157+4,5))+1)/SUM(DUNG_HY_KY!$D$24:$D$28))>0),1,0)
+    return (1.0 if X.truthy(X.AND(X.eq(E.v(8,155,3),1.0), X.ge(E.v(8,157,3),0.0), X.ge(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(E.v(8,157,3),1.0)),X.SUM(E.rg(8,24,4,28,4))),0.2), X.gt(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(X.MOD(X.add(E.v(8,157,3),4.0), 5.0),1.0)),X.SUM(E.rg(8,24,4,28,4))),0.0))) else 0.0)
 
 def f279(E, r, c):
     # Ô C98
-    # = IF(THAN_SAT!$H$86="Có",1,0)
-    return (1.0 if X.truthy(X.eq(E.v(12,86,8),'Có')) else 0.0)
+    # = IF(AND(DUNG_HY_KY!$C$155=0,TRUNG_GIAN!$D$9=MOD(TRUNG_GIAN!$E$7+4,5)),1,0)
+    return (1.0 if X.truthy(X.AND(X.eq(E.v(8,155,3),0.0), X.eq(E.v(23,9,4),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else 0.0)
 
 def f280(E, r, c):
     # Ô C99
-    # = IF(THAN_SAT!$H$85="Có",1,0)
-    return (1.0 if X.truthy(X.eq(E.v(12,85,8),'Có')) else 0.0)
+    # = IF(COUNTIF(IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$69:$J$69,DAI_VAN!$C$54:$J$54),"Tốt")>COUNTIF(IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$69:$J$69,DAI_VAN!$C$54:$J$54),
+    #   "Xấu"),1,0)
+    return (1.0 if X.truthy(X.gt(X.COUNTIF((E.rg(14,69,3,69,10) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.rg(14,54,3,54,10)), 'Tốt'),X.COUNTIF((E.rg(14,69,3,69,10) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.rg(14,54,3,54,10)), 'Xấu'))) else 0.0)
 
 def f281(E, r, c):
     # Ô C100
-    # = IF(LEFT(SUC_KHOE!$J$6,5)="THUẬN",1,0)
-    return (1.0 if X.truthy(X.eq(X.LEFT(E.v(22,6,10), 5.0),'THUẬN')) else 0.0)
+    # = IF(NOT(OR(AND(ABS(TRUNG_GIAN!$C$6-TRUNG_GIAN!$D$6)=6,NOT(OR(AND(PP1_DINH_TINH!$C$27>=0,OR(PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$C$27=DU
+    #   NG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$D$27>=0,OR(PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$158))))),AND(ABS(TRUNG_GIAN!$C
+    #   $6-TRUNG_GIAN!$E$6)=6,NOT(OR(AND(PP1_DINH_TINH!$C$27>=0,OR(PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_
+    #   TINH!$E$27>=0,OR(PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$158))))),AND(ABS(TRUNG_GIAN!$C$6-TRUNG_GIAN!$F$6)=6,NOT(OR(AN
+    #   D(PP1_DINH_TINH!$C$27>=0,OR(PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$F$27>=0,OR(PP1_DINH_TINH!
+    #   $F$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$158))))),AND(ABS(TRUNG_GIAN!$D$6-TRUNG_GIAN!$E$6)=6,NOT(OR(AND(PP1_DINH_TINH!$D$27>=0,OR(PP1
+    #   _DINH_TINH!$D$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$E$27>=0,OR(PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$157,PP1_DIN
+    #   H_TINH!$E$27=DUNG_HY_KY!$C$158))))),AND(ABS(TRUNG_GIAN!$D$6-TRUNG_GIAN!$F$6)=6,NOT(OR(AND(PP1_DINH_TINH!$D$27>=0,OR(PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$
+    #   157,PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$F$27>=0,OR(PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$158)
+    #   )))),AND(ABS(TRUNG_GIAN!$E$6-TRUNG_GIAN!$F$6)=6,NOT(OR(AND(PP1_DINH_TINH!$E$27>=0,OR(PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$E$27=DUNG_HY
+    #   _KY!$C$158)),AND(PP1_DINH_TINH!$F$27>=0,OR(PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$158))))))),1,0)
+    return (1.0 if X.truthy(X.NOT(X.OR(X.AND(X.eq(X.ABS(X.sub(E.v(23,6,3),E.v(23,6,4))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,3),0.0), X.OR(X.eq(E.v(9,27,3),E.v(8,157,3)), X.eq(E.v(9,27,3),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,4),0.0), X.OR(X.eq(E.v(9,27,4),E.v(8,157,3)), X.eq(E.v(9,27,4),E.v(8,158,3))))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,3),E.v(23,6,5))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,3),0.0), X.OR(X.eq(E.v(9,27,3),E.v(8,157,3)), X.eq(E.v(9,27,3),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,5),0.0), X.OR(X.eq(E.v(9,27,5),E.v(8,157,3)), X.eq(E.v(9,27,5),E.v(8,158,3))))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,3),E.v(23,6,6))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,3),0.0), X.OR(X.eq(E.v(9,27,3),E.v(8,157,3)), X.eq(E.v(9,27,3),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,6),0.0), X.OR(X.eq(E.v(9,27,6),E.v(8,157,3)), X.eq(E.v(9,27,6),E.v(8,158,3))))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,4),E.v(23,6,5))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,4),0.0), X.OR(X.eq(E.v(9,27,4),E.v(8,157,3)), X.eq(E.v(9,27,4),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,5),0.0), X.OR(X.eq(E.v(9,27,5),E.v(8,157,3)), X.eq(E.v(9,27,5),E.v(8,158,3))))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,4),E.v(23,6,6))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,4),0.0), X.OR(X.eq(E.v(9,27,4),E.v(8,157,3)), X.eq(E.v(9,27,4),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,6),0.0), X.OR(X.eq(E.v(9,27,6),E.v(8,157,3)), X.eq(E.v(9,27,6),E.v(8,158,3))))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,5),E.v(23,6,6))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,5),0.0), X.OR(X.eq(E.v(9,27,5),E.v(8,157,3)), X.eq(E.v(9,27,5),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,6),0.0), X.OR(X.eq(E.v(9,27,6),E.v(8,157,3)), X.eq(E.v(9,27,6),E.v(8,158,3)))))))))) else 0.0)
 
 def f282(E, r, c):
     # Ô C101
-    # = IF(AND(ISNUMBER(SEARCH("CÓ CỨU",DUNG_HY_KY!$C$174)),NOT(ISNUMBER(SEARCH("KHÔNG CÓ CỨU",DUNG_HY_KY!$C$174))),NOT(ISNUMBER(SEARCH("KHÔNG CỨU",DUNG_HY_KY
-    #   !$C$174)))),1,0)
-    return (1.0 if X.truthy(X.AND(X.ISNUMBER(lambda: X.SEARCH('CÓ CỨU', E.v(8,174,3))), X.NOT(X.ISNUMBER(lambda: X.SEARCH('KHÔNG CÓ CỨU', E.v(8,174,3)))), X.NOT(X.ISNUMBER(lambda: X.SEARCH('KHÔNG CỨU', E.v(8,174,3)))))) else 0.0)
+    # = IF(AND((SUMPRODUCT((TRUNG_GIAN!$C$7:$F$7=(0))*1)+SUMPRODUCT((TRUNG_GIAN!$C$21:$F$23=(0))*1)>0),(SUMPRODUCT((TRUNG_GIAN!$C$7:$F$7=(1))*1)+SUMPRODUCT((T
+    #   RUNG_GIAN!$C$21:$F$23=(1))*1)>0),(SUMPRODUCT((TRUNG_GIAN!$C$7:$F$7=(2))*1)+SUMPRODUCT((TRUNG_GIAN!$C$21:$F$23=(2))*1)>0),(SUMPRODUCT((TRUNG_GIAN!$C$7:
+    #   $F$7=(3))*1)+SUMPRODUCT((TRUNG_GIAN!$C$21:$F$23=(3))*1)>0),(SUMPRODUCT((TRUNG_GIAN!$C$7:$F$7=(4))*1)+SUMPRODUCT((TRUNG_GIAN!$C$21:$F$23=(4))*1)>0)),1,
+    #   0)
+    return (1.0 if X.truthy(X.AND(X.gt(X.add(X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,7,3,7,6),0.0),1.0)),X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,21,3,23,6),0.0),1.0))),0.0), X.gt(X.add(X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,7,3,7,6),1.0),1.0)),X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,21,3,23,6),1.0),1.0))),0.0), X.gt(X.add(X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,7,3,7,6),2.0),1.0)),X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,21,3,23,6),2.0),1.0))),0.0), X.gt(X.add(X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,7,3,7,6),3.0),1.0)),X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,21,3,23,6),3.0),1.0))),0.0), X.gt(X.add(X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,7,3,7,6),4.0),1.0)),X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,21,3,23,6),4.0),1.0))),0.0))) else 0.0)
 
 def f283(E, r, c):
     # Ô C102
-    # = IF(ISNUMBER(SEARCH("ít bệnh",KET_LUAN!$C$156)),1,0)
-    return (1.0 if X.truthy(X.ISNUMBER(lambda: X.SEARCH('ít bệnh', E.v(3,156,3)))) else 0.0)
+    # = IF($U$21="THỌ",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(18,21,21),'THỌ')) else 0.0)
 
 def f284(E, r, c):
     # Ô C103
-    # = SUM(C97:C102)
-    return X.SUM(E.rg(18,r-6,c,r-1,c))
+    # = IF(AND(DUNG_HY_KY!$C$157>=0,(INDEX(DUNG_HY_KY!$D$24:$D$28,(DUNG_HY_KY!$C$157)+1)/SUM(DUNG_HY_KY!$D$24:$D$28))<0.2,(INDEX(DUNG_HY_KY!$D$24:$D$28,(MOD(D
+    #   UNG_HY_KY!$C$157+3,5))+1)/SUM(DUNG_HY_KY!$D$24:$D$28))>(INDEX(DUNG_HY_KY!$D$24:$D$28,(DUNG_HY_KY!$C$157)+1)/SUM(DUNG_HY_KY!$D$24:$D$28)),(INDEX(DUNG_H
+    #   Y_KY!$D$24:$D$28,(DUNG_HY_KY!$C$159)+1)/SUM(DUNG_HY_KY!$D$24:$D$28))>=0.2),1,0)
+    return (1.0 if X.truthy(X.AND(X.ge(E.v(8,157,3),0.0), X.lt(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(E.v(8,157,3),1.0)),X.SUM(E.rg(8,24,4,28,4))),0.2), X.gt(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(X.MOD(X.add(E.v(8,157,3),3.0), 5.0),1.0)),X.SUM(E.rg(8,24,4,28,4))),X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(E.v(8,157,3),1.0)),X.SUM(E.rg(8,24,4,28,4)))), X.ge(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(E.v(8,159,3),1.0)),X.SUM(E.rg(8,24,4,28,4))),0.2))) else 0.0)
 
 def f285(E, r, c):
     # Ô C104
-    # = IF(AND($U$21="YỂU",C103>=2),"CĂN CỨ NGƯỢC CHIỀU","")
-    return ('CĂN CỨ NGƯỢC CHIỀU' if X.truthy(X.AND(X.eq(E.v(18,21,21),'YỂU'), X.ge(E.v(18,r-1,c),2.0))) else '')
+    # = IF(AND(DUNG_HY_KY!$C$157>=0,DUNG_HY_KY!$C$159>=0,OR(MOD(DUNG_HY_KY!$C$159+2,5)=DUNG_HY_KY!$C$157,MOD(DUNG_HY_KY!$C$157+2,5)=DUNG_HY_KY!$C$159),(INDEX(
+    #   DUNG_HY_KY!$D$24:$D$28,(DUNG_HY_KY!$C$157)+1)/SUM(DUNG_HY_KY!$D$24:$D$28))>=0.2,(INDEX(DUNG_HY_KY!$D$24:$D$28,(DUNG_HY_KY!$C$159)+1)/SUM(DUNG_HY_KY!$D
+    #   $24:$D$28))>=0.2),1,0)
+    return (1.0 if X.truthy(X.AND(X.ge(E.v(8,157,3),0.0), X.ge(E.v(8,159,3),0.0), X.OR(X.eq(X.MOD(X.add(E.v(8,159,3),2.0), 5.0),E.v(8,157,3)), X.eq(X.MOD(X.add(E.v(8,157,3),2.0), 5.0),E.v(8,159,3))), X.ge(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(E.v(8,157,3),1.0)),X.SUM(E.rg(8,24,4,28,4))),0.2), X.ge(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(E.v(8,159,3),1.0)),X.SUM(E.rg(8,24,4,28,4))),0.2))) else 0.0)
 
 def f286(E, r, c):
     # Ô C105
-    # = IF(C104="","","Bảng P1 tr.173 nghiêng về yểu (chỉ so Thực thương với Ấn), nhưng có "&C103&" dấu hiệu ngược chiều: "&MID(IF(C97=1,", thân vượng","")&IF
-    #   (C98=1,", nguyệt đức","")&IF(C99=1,", thiên đức","")&IF(C100=1,", sức khỏe chung thuận","")&IF(C101=1,", có cứu","")&IF(C102=1,", bình sinh ít bệnh","
-    #   "),3,300)&". Đọc là thể chất nền tốt, đời có giai đoạn thử thách sức khỏe – chú ý các năm hạn.")
-    return ('' if X.truthy(X.eq(E.v(18,r-1,c),'')) else X.cat(X.cat(X.cat(X.cat('Bảng P1 tr.173 nghiêng về yểu (chỉ so Thực thương với Ấn), nhưng có ',E.v(18,r-2,c)),' dấu hiệu ngược chiều: '),X.MID(X.cat(X.cat(X.cat(X.cat(X.cat((', thân vượng' if X.truthy(X.eq(E.v(18,r-8,c),1.0)) else ''),(', nguyệt đức' if X.truthy(X.eq(E.v(18,r-7,c),1.0)) else '')),(', thiên đức' if X.truthy(X.eq(E.v(18,r-6,c),1.0)) else '')),(', sức khỏe chung thuận' if X.truthy(X.eq(E.v(18,r-5,c),1.0)) else '')),(', có cứu' if X.truthy(X.eq(E.v(18,r-4,c),1.0)) else '')),(', bình sinh ít bệnh' if X.truthy(X.eq(E.v(18,r-3,c),1.0)) else '')), 3.0, 300.0)),'. Đọc là thể chất nền tốt, đời có giai đoạn thử thách sức khỏe – chú ý các năm hạn.'))
+    # = IF(AND(OR(ISNUMBER(SEARCH("Quá vượng",IF(DUNG_HY_KY!$C$154=2,DUNG_HY_KY!$D$6,DUNG_HY_KY!$C$6))),ISNUMBER(SEARCH("Độc vượng",IF(DUNG_HY_KY!$C$154=2,DUN
+    #   G_HY_KY!$D$6,DUNG_HY_KY!$C$6)))),OR(DUNG_HY_KY!$C$157<0,(INDEX(DUNG_HY_KY!$D$24:$D$28,(MAX(DUNG_HY_KY!$C$157,0))+1)/SUM(DUNG_HY_KY!$D$24:$D$28))<0.2))
+    #   ,1,0)
+    return (1.0 if X.truthy(X.AND(X.OR(X.ISNUMBER(lambda: X.SEARCH('Quá vượng', (E.v(8,6,4) if X.truthy(X.eq(E.v(8,154,3),2.0)) else E.v(8,6,3)))), X.ISNUMBER(lambda: X.SEARCH('Độc vượng', (E.v(8,6,4) if X.truthy(X.eq(E.v(8,154,3),2.0)) else E.v(8,6,3))))), X.OR(X.lt(E.v(8,157,3),0.0), X.lt(X.div(X.INDEX(E.rg(8,24,4,28,4), X.add(X.MAX(E.rg(8,157,3,157,3), 0.0),1.0)),X.SUM(E.rg(8,24,4,28,4))),0.2)))) else 0.0)
+
+def f287(E, r, c):
+    # Ô C106
+    # = IF(ISNUMBER(SEARCH("Quá nhược",IF(DUNG_HY_KY!$C$154=2,DUNG_HY_KY!$D$6,DUNG_HY_KY!$C$6))),1,0)
+    return (1.0 if X.truthy(X.ISNUMBER(lambda: X.SEARCH('Quá nhược', (E.v(8,6,4) if X.truthy(X.eq(E.v(8,154,3),2.0)) else E.v(8,6,3))))) else 0.0)
+
+def f288(E, r, c):
+    # Ô C107
+    # = IF(AND(DUNG_HY_KY!$C$157>=0,OR(AND(ABS(TRUNG_GIAN!$C$6-TRUNG_GIAN!$D$6)=6,NOT(OR(AND(PP1_DINH_TINH!$C$27>=0,OR(PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$157,P
+    #   P1_DINH_TINH!$C$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$D$27>=0,OR(PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$158)))),O
+    #   R(OR(TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$158),OR(TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$158))),AN
+    #   D(ABS(TRUNG_GIAN!$C$6-TRUNG_GIAN!$E$6)=6,NOT(OR(AND(PP1_DINH_TINH!$C$27>=0,OR(PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$
+    #   158)),AND(PP1_DINH_TINH!$E$27>=0,OR(PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$158)))),OR(OR(TRUNG_GIAN!$C$9=DUNG_HY_KY!$
+    #   C$157,TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$158),OR(TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$158))),AND(ABS(TRUNG_GIAN!$C$6-TRUNG_GIAN!
+    #   $F$6)=6,NOT(OR(AND(PP1_DINH_TINH!$C$27>=0,OR(PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$C$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$F$27>=0,
+    #   OR(PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$158)))),OR(OR(TRUNG_GIAN!$C$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$C$9=DUNG_HY_KY!
+    #   $C$158),OR(TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$158))),AND(ABS(TRUNG_GIAN!$D$6-TRUNG_GIAN!$E$6)=6,NOT(OR(AND(PP1_DINH_TINH!
+    #   $D$27>=0,OR(PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$E$27>=0,OR(PP1_DINH_TINH!$E$27=DUNG_HY_KY
+    #   !$C$157,PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$158)))),OR(OR(TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$158),OR(TRUNG_GIAN!$E$9=DUNG_H
+    #   Y_KY!$C$157,TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$158))),AND(ABS(TRUNG_GIAN!$D$6-TRUNG_GIAN!$F$6)=6,NOT(OR(AND(PP1_DINH_TINH!$D$27>=0,OR(PP1_DINH_TINH!$D$27=D
+    #   UNG_HY_KY!$C$157,PP1_DINH_TINH!$D$27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$F$27>=0,OR(PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$F$27=DUNG_
+    #   HY_KY!$C$158)))),OR(OR(TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$D$9=DUNG_HY_KY!$C$158),OR(TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$F$9=DUNG_
+    #   HY_KY!$C$158))),AND(ABS(TRUNG_GIAN!$E$6-TRUNG_GIAN!$F$6)=6,NOT(OR(AND(PP1_DINH_TINH!$E$27>=0,OR(PP1_DINH_TINH!$E$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$E
+    #   $27=DUNG_HY_KY!$C$158)),AND(PP1_DINH_TINH!$F$27>=0,OR(PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$157,PP1_DINH_TINH!$F$27=DUNG_HY_KY!$C$158)))),OR(OR(TRUNG_GIAN
+    #   !$E$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$E$9=DUNG_HY_KY!$C$158),OR(TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$157,TRUNG_GIAN!$F$9=DUNG_HY_KY!$C$158))))),1,0)
+    return (1.0 if X.truthy(X.AND(X.ge(E.v(8,157,3),0.0), X.OR(X.AND(X.eq(X.ABS(X.sub(E.v(23,6,3),E.v(23,6,4))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,3),0.0), X.OR(X.eq(E.v(9,27,3),E.v(8,157,3)), X.eq(E.v(9,27,3),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,4),0.0), X.OR(X.eq(E.v(9,27,4),E.v(8,157,3)), X.eq(E.v(9,27,4),E.v(8,158,3)))))), X.OR(X.OR(X.eq(E.v(23,9,3),E.v(8,157,3)), X.eq(E.v(23,9,3),E.v(8,158,3))), X.OR(X.eq(E.v(23,9,4),E.v(8,157,3)), X.eq(E.v(23,9,4),E.v(8,158,3))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,3),E.v(23,6,5))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,3),0.0), X.OR(X.eq(E.v(9,27,3),E.v(8,157,3)), X.eq(E.v(9,27,3),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,5),0.0), X.OR(X.eq(E.v(9,27,5),E.v(8,157,3)), X.eq(E.v(9,27,5),E.v(8,158,3)))))), X.OR(X.OR(X.eq(E.v(23,9,3),E.v(8,157,3)), X.eq(E.v(23,9,3),E.v(8,158,3))), X.OR(X.eq(E.v(23,9,5),E.v(8,157,3)), X.eq(E.v(23,9,5),E.v(8,158,3))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,3),E.v(23,6,6))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,3),0.0), X.OR(X.eq(E.v(9,27,3),E.v(8,157,3)), X.eq(E.v(9,27,3),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,6),0.0), X.OR(X.eq(E.v(9,27,6),E.v(8,157,3)), X.eq(E.v(9,27,6),E.v(8,158,3)))))), X.OR(X.OR(X.eq(E.v(23,9,3),E.v(8,157,3)), X.eq(E.v(23,9,3),E.v(8,158,3))), X.OR(X.eq(E.v(23,9,6),E.v(8,157,3)), X.eq(E.v(23,9,6),E.v(8,158,3))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,4),E.v(23,6,5))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,4),0.0), X.OR(X.eq(E.v(9,27,4),E.v(8,157,3)), X.eq(E.v(9,27,4),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,5),0.0), X.OR(X.eq(E.v(9,27,5),E.v(8,157,3)), X.eq(E.v(9,27,5),E.v(8,158,3)))))), X.OR(X.OR(X.eq(E.v(23,9,4),E.v(8,157,3)), X.eq(E.v(23,9,4),E.v(8,158,3))), X.OR(X.eq(E.v(23,9,5),E.v(8,157,3)), X.eq(E.v(23,9,5),E.v(8,158,3))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,4),E.v(23,6,6))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,4),0.0), X.OR(X.eq(E.v(9,27,4),E.v(8,157,3)), X.eq(E.v(9,27,4),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,6),0.0), X.OR(X.eq(E.v(9,27,6),E.v(8,157,3)), X.eq(E.v(9,27,6),E.v(8,158,3)))))), X.OR(X.OR(X.eq(E.v(23,9,4),E.v(8,157,3)), X.eq(E.v(23,9,4),E.v(8,158,3))), X.OR(X.eq(E.v(23,9,6),E.v(8,157,3)), X.eq(E.v(23,9,6),E.v(8,158,3))))), X.AND(X.eq(X.ABS(X.sub(E.v(23,6,5),E.v(23,6,6))),6.0), X.NOT(X.OR(X.AND(X.ge(E.v(9,27,5),0.0), X.OR(X.eq(E.v(9,27,5),E.v(8,157,3)), X.eq(E.v(9,27,5),E.v(8,158,3)))), X.AND(X.ge(E.v(9,27,6),0.0), X.OR(X.eq(E.v(9,27,6),E.v(8,157,3)), X.eq(E.v(9,27,6),E.v(8,158,3)))))), X.OR(X.OR(X.eq(E.v(23,9,5),E.v(8,157,3)), X.eq(E.v(23,9,5),E.v(8,158,3))), X.OR(X.eq(E.v(23,9,6),E.v(8,157,3)), X.eq(E.v(23,9,6),E.v(8,158,3)))))))) else 0.0)
+
+def f289(E, r, c):
+    # Ô C108
+    # = IF(AND(DUNG_HY_KY!$C$155=0,COUNTIF(IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$69:$J$69,DAI_VAN!$C$54:$J$54),"Xấu")>COUNTIF(IF(DOI_CHIEU!$C$33=2,DAI_VAN!$C$69:$J$
+    #   69,DAI_VAN!$C$54:$J$54),"Tốt")),1,0)
+    return (1.0 if X.truthy(X.AND(X.eq(E.v(8,155,3),0.0), X.gt(X.COUNTIF((E.rg(14,69,3,69,10) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.rg(14,54,3,54,10)), 'Xấu'),X.COUNTIF((E.rg(14,69,3,69,10) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.rg(14,54,3,54,10)), 'Tốt')))) else 0.0)
+
+def f290(E, r, c):
+    # Ô C109
+    # = IF(AND(DUNG_HY_KY!$C$215>=0,N(DUNG_HY_KY!$C$216)<0.2),1,0)
+    return (1.0 if X.truthy(X.AND(X.ge(E.v(8,215,3),0.0), X.lt(X.N(E.v(8,216,3)),0.2))) else 0.0)
+
+def f291(E, r, c):
+    # Ô C110
+    # = IF(NOT((SUMPRODUCT((TRUNG_GIAN!$C$7:$F$7=(4))*1)+SUMPRODUCT((TRUNG_GIAN!$C$21:$F$23=(4))*1)>0)),1,0)
+    return (1.0 if X.truthy(X.NOT(X.gt(X.add(X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,7,3,7,6),4.0),1.0)),X.SUMPRODUCT(X.A('mul',X.A('eq',E.rg(23,21,3,23,6),4.0),1.0))),0.0))) else 0.0)
+
+def f292(E, r, c):
+    # Ô C111
+    # = IF($U$21="YỂU",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(18,21,21),'YỂU')) else 0.0)
+
+def f293(E, r, c):
+    # Ô C112
+    # = SUM(C97:C102)
+    return X.SUM(E.rg(18,r-15,c,r-10,c))
+
+def f294(E, r, c):
+    # Ô C113
+    # = SUM(C103:C111)
+    return X.SUM(E.rg(18,r-10,c,r-2,c))
+
+def f295(E, r, c):
+    # Ô C114
+    # = IF(C112>C113,"THỌ",IF(C113>C112,"YỂU","CÂN BẰNG"))
+    return ('THỌ' if X.truthy(X.gt(E.v(18,r-2,c),E.v(18,r-1,c))) else ('YỂU' if X.truthy(X.gt(E.v(18,r-1,c),E.v(18,r-2,c))) else 'CÂN BẰNG'))
+
+def f296(E, r, c):
+    # Ô C115
+    # = IF(THAN_SAT!$H$86="Có",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(12,86,8),'Có')) else 0.0)
+
+def f297(E, r, c):
+    # Ô C116
+    # = IF(THAN_SAT!$H$85="Có",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(12,85,8),'Có')) else 0.0)
+
+def f298(E, r, c):
+    # Ô C117
+    # = IF(OR(LEFT(SUC_KHOE!$J$6,5)="THUẬN",LEFT(SUC_KHOE!$J$6,13)="NGHIÊNG THUẬN"),1,0)
+    return (1.0 if X.truthy(X.OR(X.eq(X.LEFT(E.v(22,6,10), 5.0),'THUẬN'), X.eq(X.LEFT(E.v(22,6,10), 13.0),'NGHIÊNG THUẬN'))) else 0.0)
+
+def f299(E, r, c):
+    # Ô C118
+    # = IF(AND(AND(DUNG_HY_KY!$C$160="",DUNG_HY_KY!$C$156>=0,DUNG_HY_KY!$C$173>0),DUNG_HY_KY!$D$173+DUNG_HY_KY!$E$173+DUNG_HY_KY!$F$173>0),1,0)
+    return (1.0 if X.truthy(X.AND(X.AND(X.eq(E.v(8,160,3),''), X.ge(E.v(8,156,3),0.0), X.gt(E.v(8,173,3),0.0)), X.gt(X.add(X.add(E.v(8,173,4),E.v(8,173,5)),E.v(8,173,6)),0.0))) else 0.0)
+
+def f300(E, r, c):
+    # Ô C119
+    # = IF(SUC_KHOE!$L$219="ĐỦ",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(22,219,12),'ĐỦ')) else 0.0)
+
+def f301(E, r, c):
+    # Ô C120
+    # = IF(SUC_KHOE!$L$220="ĐỦ",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(22,220,12),'ĐỦ')) else 0.0)
+
+def f302(E, r, c):
+    # Ô C121
+    # = IF(SUC_KHOE!$L$222="ĐỦ",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(22,222,12),'ĐỦ')) else 0.0)
+
+def f303(E, r, c):
+    # Ô C122
+    # = IF(SUC_KHOE!$L$223="ĐỦ",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(22,223,12),'ĐỦ')) else 0.0)
+
+def f304(E, r, c):
+    # Ô C123
+    # = IF(SUC_KHOE!$L$224="ĐỦ",1,0)
+    return (1.0 if X.truthy(X.eq(E.v(22,224,12),'ĐỦ')) else 0.0)
+
+def f305(E, r, c):
+    # Ô C124
+    # = IF(OR(LEFT(SUC_KHOE!$J$6,7)="BẤT LỢI",LEFT(SUC_KHOE!$J$6,15)="NGHIÊNG BẤT LỢI"),1,0)
+    return (1.0 if X.truthy(X.OR(X.eq(X.LEFT(E.v(22,6,10), 7.0),'BẤT LỢI'), X.eq(X.LEFT(E.v(22,6,10), 15.0),'NGHIÊNG BẤT LỢI'))) else 0.0)
+
+def f306(E, r, c):
+    # Ô C125
+    # = IF(AND(AND(DUNG_HY_KY!$C$160="",DUNG_HY_KY!$C$156>=0,DUNG_HY_KY!$C$173>0),DUNG_HY_KY!$D$173+DUNG_HY_KY!$E$173+DUNG_HY_KY!$F$173=0),1,0)
+    return (1.0 if X.truthy(X.AND(X.AND(X.eq(E.v(8,160,3),''), X.ge(E.v(8,156,3),0.0), X.gt(E.v(8,173,3),0.0)), X.eq(X.add(X.add(E.v(8,173,4),E.v(8,173,5)),E.v(8,173,6)),0.0))) else 0.0)
+
+def f307(E, r, c):
+    # Ô C126
+    # = C114&IF(AND(SUM(C115:C123)>0,SUM(C124:C125)=0)," – "&IF(C114="YỂU","ĐƯỢC HÓA GIẢI MỘT PHẦN, NHẸ BỚT",IF(C114="THỌ","VỮNG HƠN","NGHIÊNG THUẬN")),IF(AND
+    #   (SUM(C124:C125)>0,SUM(C115:C123)=0)," – "&IF(C114="THỌ","GIẢM BỚT",IF(C114="YỂU","NẶNG HƠN","NGHIÊNG BẤT LỢI")),IF(AND(SUM(C115:C123)>0,SUM(C124:C125)
+    #   >0)," – CÓ CẢ YẾU TỐ HÓA GIẢI LẪN YẾU TỐ LÀM NẶNG, TỐT XẤU TÙY VẬN","")))
+    return X.cat(E.v(18,r-12,c),(X.cat(' – ',('ĐƯỢC HÓA GIẢI MỘT PHẦN, NHẸ BỚT' if X.truthy(X.eq(E.v(18,r-12,c),'YỂU')) else ('VỮNG HƠN' if X.truthy(X.eq(E.v(18,r-12,c),'THỌ')) else 'NGHIÊNG THUẬN'))) if X.truthy(X.AND(X.gt(X.SUM(E.rg(18,r-11,c,r-3,c)),0.0), X.eq(X.SUM(E.rg(18,r-2,c,r-1,c)),0.0))) else (X.cat(' – ',('GIẢM BỚT' if X.truthy(X.eq(E.v(18,r-12,c),'THỌ')) else ('NẶNG HƠN' if X.truthy(X.eq(E.v(18,r-12,c),'YỂU')) else 'NGHIÊNG BẤT LỢI'))) if X.truthy(X.AND(X.gt(X.SUM(E.rg(18,r-2,c,r-1,c)),0.0), X.eq(X.SUM(E.rg(18,r-11,c,r-3,c)),0.0))) else (' – CÓ CẢ YẾU TỐ HÓA GIẢI LẪN YẾU TỐ LÀM NẶNG, TỐT XẤU TÙY VẬN' if X.truthy(X.AND(X.gt(X.SUM(E.rg(18,r-11,c,r-3,c)),0.0), X.gt(X.SUM(E.rg(18,r-2,c,r-1,c)),0.0))) else ''))))
+
+def f308(E, r, c):
+    # Ô C127
+    # = "Dấu hiệu mệnh thọ ("&C112&"): "&IF(C112=0,"không có",MID(IF(C97=1,", "&"thân vượng, dụng thần được sinh có lực","")&IF(C98=1,", "&"thân nhược nhưng ấ
+    #   n nắm lệnh tháng","")&IF(C99=1,", "&"đại vận tốt nhiều hơn xấu","")&IF(C100=1,", "&"tứ trụ không bị xung phá","")&IF(C101=1,", "&"ngũ hành đủ","")&IF(
+    #   C102=1,", "&"bảng thực thương – ấn nghiêng thọ",""),3,999))&". Dấu hiệu mệnh yểu ("&C113&"): "&IF(C113=0,"không có",MID(IF(C103=1,", "&"dụng thần nhượ
+    #   c lại bị khắc, kỵ thần có lực","")&IF(C104=1,", "&"kỵ thần và dụng thần hỗn chiến","")&IF(C105=1,", "&"thân quá vượng mà không bị khắc tiết hao","")&I
+    #   F(C106=1,", "&"thân quá nhược","")&IF(C107=1,", "&"dụng thần hoặc hỷ thần bị xung","")&IF(C108=1,", "&"thân nhược mà đại vận xấu nhiều hơn tốt","")&IF
+    #   (C109=1,", "&"mùa sinh cần điều hầu mà hành điều hầu thiếu","")&IF(C110=1,", "&"tứ trụ khô, thiếu thủy","")&IF(C111=1,", "&"bảng thực thương – ấn nghi
+    #   êng yểu",""),3,999))&"."&IF(SUM(C115:C123)>0," Yếu tố hóa giải, làm nhẹ: "&MID(IF(C115=1,", "&"có nguyệt đức","")&IF(C116=1,", "&"có thiên đức","")&IF
+    #   (C117=1,", "&"sức khỏe chung "&LOWER(IFERROR(LEFT(SUC_KHOE!$J$6,FIND(CHAR(10),SUC_KHOE!$J$6)-1),SUC_KHOE!$J$6)),"")&IF(C118=1,", "&"bệnh có cứu (có th
+    #   uốc)","")&IF(C119=1,", "&"thân vượng gặp ấn, bình sinh ít bệnh","")&IF(C120=1,", "&"tỉ kiếp, tài đều nhiều","")&IF(C121=1,", "&"có cục sinh thân, giúp
+    #    thân","")&IF(C122=1,", "&"thân yếu gặp ấn sinh thân","")&IF(C123=1,", "&"nguyệt ấn sinh thân",""),3,999)&".","")&IF(SUM(C124:C125)>0," Yếu tố làm nặn
+    #   g: "&MID(IF(C124=1,", "&"sức khỏe chung "&LOWER(IFERROR(LEFT(SUC_KHOE!$J$6,FIND(CHAR(10),SUC_KHOE!$J$6)-1),SUC_KHOE!$J$6)),"")&IF(C125=1,", "&"bệnh kh
+    #   ông có cứu (không thuốc)",""),3,999)&".","")&IF(SUM(C115:C123)+SUM(C124:C125)=0," Không có yếu tố hóa giải hay làm nặng – giữ nguyên kết luận bước 1."
+    #   ,"")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dấu hiệu mệnh thọ (',E.v(18,r-15,c)),'): '),('không có' if X.truthy(X.eq(E.v(18,r-15,c),0.0)) else X.MID(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','thân vượng, dụng thần được sinh có lực') if X.truthy(X.eq(E.v(18,r-30,c),1.0)) else ''),(X.cat(', ','thân nhược nhưng ấn nắm lệnh tháng') if X.truthy(X.eq(E.v(18,r-29,c),1.0)) else '')),(X.cat(', ','đại vận tốt nhiều hơn xấu') if X.truthy(X.eq(E.v(18,r-28,c),1.0)) else '')),(X.cat(', ','tứ trụ không bị xung phá') if X.truthy(X.eq(E.v(18,r-27,c),1.0)) else '')),(X.cat(', ','ngũ hành đủ') if X.truthy(X.eq(E.v(18,r-26,c),1.0)) else '')),(X.cat(', ','bảng thực thương – ấn nghiêng thọ') if X.truthy(X.eq(E.v(18,r-25,c),1.0)) else '')), 3.0, 999.0))),'. Dấu hiệu mệnh yểu ('),E.v(18,r-14,c)),'): '),('không có' if X.truthy(X.eq(E.v(18,r-14,c),0.0)) else X.MID(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','dụng thần nhược lại bị khắc, kỵ thần có lực') if X.truthy(X.eq(E.v(18,r-24,c),1.0)) else ''),(X.cat(', ','kỵ thần và dụng thần hỗn chiến') if X.truthy(X.eq(E.v(18,r-23,c),1.0)) else '')),(X.cat(', ','thân quá vượng mà không bị khắc tiết hao') if X.truthy(X.eq(E.v(18,r-22,c),1.0)) else '')),(X.cat(', ','thân quá nhược') if X.truthy(X.eq(E.v(18,r-21,c),1.0)) else '')),(X.cat(', ','dụng thần hoặc hỷ thần bị xung') if X.truthy(X.eq(E.v(18,r-20,c),1.0)) else '')),(X.cat(', ','thân nhược mà đại vận xấu nhiều hơn tốt') if X.truthy(X.eq(E.v(18,r-19,c),1.0)) else '')),(X.cat(', ','mùa sinh cần điều hầu mà hành điều hầu thiếu') if X.truthy(X.eq(E.v(18,r-18,c),1.0)) else '')),(X.cat(', ','tứ trụ khô, thiếu thủy') if X.truthy(X.eq(E.v(18,r-17,c),1.0)) else '')),(X.cat(', ','bảng thực thương – ấn nghiêng yểu') if X.truthy(X.eq(E.v(18,r-16,c),1.0)) else '')), 3.0, 999.0))),'.'),(X.cat(X.cat(' Yếu tố hóa giải, làm nhẹ: ',X.MID(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','có nguyệt đức') if X.truthy(X.eq(E.v(18,r-12,c),1.0)) else ''),(X.cat(', ','có thiên đức') if X.truthy(X.eq(E.v(18,r-11,c),1.0)) else '')),(X.cat(X.cat(', ','sức khỏe chung '),X.LOWER(X.IFERROR(lambda: X.LEFT(E.v(22,6,10), X.sub(X.FIND(X.CHAR(10.0), E.v(22,6,10)),1.0)), lambda: E.v(22,6,10)))) if X.truthy(X.eq(E.v(18,r-10,c),1.0)) else '')),(X.cat(', ','bệnh có cứu (có thuốc)') if X.truthy(X.eq(E.v(18,r-9,c),1.0)) else '')),(X.cat(', ','thân vượng gặp ấn, bình sinh ít bệnh') if X.truthy(X.eq(E.v(18,r-8,c),1.0)) else '')),(X.cat(', ','tỉ kiếp, tài đều nhiều') if X.truthy(X.eq(E.v(18,r-7,c),1.0)) else '')),(X.cat(', ','có cục sinh thân, giúp thân') if X.truthy(X.eq(E.v(18,r-6,c),1.0)) else '')),(X.cat(', ','thân yếu gặp ấn sinh thân') if X.truthy(X.eq(E.v(18,r-5,c),1.0)) else '')),(X.cat(', ','nguyệt ấn sinh thân') if X.truthy(X.eq(E.v(18,r-4,c),1.0)) else '')), 3.0, 999.0)),'.') if X.truthy(X.gt(X.SUM(E.rg(18,r-12,c,r-4,c)),0.0)) else '')),(X.cat(X.cat(' Yếu tố làm nặng: ',X.MID(X.cat((X.cat(X.cat(', ','sức khỏe chung '),X.LOWER(X.IFERROR(lambda: X.LEFT(E.v(22,6,10), X.sub(X.FIND(X.CHAR(10.0), E.v(22,6,10)),1.0)), lambda: E.v(22,6,10)))) if X.truthy(X.eq(E.v(18,r-3,c),1.0)) else ''),(X.cat(', ','bệnh không có cứu (không thuốc)') if X.truthy(X.eq(E.v(18,r-2,c),1.0)) else '')), 3.0, 999.0)),'.') if X.truthy(X.gt(X.SUM(E.rg(18,r-3,c,r-2,c)),0.0)) else '')),(' Không có yếu tố hóa giải hay làm nặng – giữ nguyên kết luận bước 1.' if X.truthy(X.eq(X.add(X.SUM(E.rg(18,r-12,c,r-4,c)),X.SUM(E.rg(18,r-3,c,r-2,c))),0.0)) else ''))
+
+def f309(E, r, c):
+    # Ô C128
+    # = "P1 tr.171: người thọ nguyên khí dày, dụng thần được sinh có lực; người yểu nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô. P1 tr.172: cá
+    #   ch xem mệnh thọ, mệnh yểu. P1 tr.173: thọ – yểu theo thực thương, ấn. P1 tr.97, 114–117: bệnh – thuốc (cứu ứng). Hóa giải toàn thư tr.201–202: thiên n
+    #   guyệt nhị đức, thân vượng gặp ấn, tỉ kiếp tài đều nhiều, cục sinh thân, thân yếu gặp ấn, nguyệt ấn sinh thân → thân thể khỏe. Công cụ không kết luận n
+    #   ăm mất (P1 tr.201)."
+    return 'P1 tr.171: người thọ nguyên khí dày, dụng thần được sinh có lực; người yểu nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô. P1 tr.172: cách xem mệnh thọ, mệnh yểu. P1 tr.173: thọ – yểu theo thực thương, ấn. P1 tr.97, 114–117: bệnh – thuốc (cứu ứng). Hóa giải toàn thư tr.201–202: thiên nguyệt nhị đức, thân vượng gặp ấn, tỉ kiếp tài đều nhiều, cục sinh thân, thân yếu gặp ấn, nguyệt ấn sinh thân → thân thể khỏe. Công cụ không kết luận năm mất (P1 tr.201).'
 
 CELLS = {
     'C6': (f0, 6, 3),
@@ -2114,4 +2281,27 @@ CELLS = {
     'C103': (f284, 103, 3),
     'C104': (f285, 104, 3),
     'C105': (f286, 105, 3),
+    'C106': (f287, 106, 3),
+    'C107': (f288, 107, 3),
+    'C108': (f289, 108, 3),
+    'C109': (f290, 109, 3),
+    'C110': (f291, 110, 3),
+    'C111': (f292, 111, 3),
+    'C112': (f293, 112, 3),
+    'C113': (f294, 113, 3),
+    'C114': (f295, 114, 3),
+    'C115': (f296, 115, 3),
+    'C116': (f297, 116, 3),
+    'C117': (f298, 117, 3),
+    'C118': (f299, 118, 3),
+    'C119': (f300, 119, 3),
+    'C120': (f301, 120, 3),
+    'C121': (f302, 121, 3),
+    'C122': (f303, 122, 3),
+    'C123': (f304, 123, 3),
+    'C124': (f305, 124, 3),
+    'C125': (f306, 125, 3),
+    'C126': (f307, 126, 3),
+    'C127': (f308, 127, 3),
+    'C128': (f309, 128, 3),
 }

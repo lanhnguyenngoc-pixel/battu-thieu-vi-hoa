@@ -28,12 +28,11 @@ def _bat_bien(ten, hs, p):
         if y['muc'] not in MUC: loi.append((ten, y['nam'], 'mức', y['muc']))
         if y['han_nang'] and MUC.index(y['muc']) > MUC.index(qt['luu_nien']['tran_khi_han_nang']):
             loi.append((ten, y['nam'], 'hạn nặng mà mức', y['muc']))
-        xd = sum(1 for q in h.get('quan_he', []) if q['loai'] == 'xung' and q.get('cham_dung'))
-        if xd >= 2 and vt.can(h['can']) <= 0 and vt.chi(h['chi']) <= 0 and y['muc'] not in ('Xấu', 'Rất xấu'):
-            loi.append((ten, y['nam'], 'xung 2 chi dụng thần mà mức', y['muc']))
+        # từ 1.9.0 mức năm = đúng kết luận tổng hợp của workbook (P1 tr.133) – không còn quy tắc riêng của lớp tổng hợp
     ty = p['tho_yeu']
-    if len(ty['dau_hieu_tot']) >= qt['tho_yeu']['so_dau_hieu_nguoc'] and 'yểu' in ty['muc'].lower():
-        loi.append((ten, 'thọ – yểu', ty['muc']))
+    if ty['muc'].upper() != (hs['ban_menh'].get('tho_yeu_kl') or 'TRUNG BÌNH').upper():      # phải đúng nguyên kết luận workbook
+        loi.append((ten, 'thọ – yểu khác workbook', ty['muc']))
+    if not ty['muc'].upper().startswith(('THỌ', 'YỂU', 'CÂN BẰNG')): loi.append((ten, 'thọ – yểu lạ', ty['muc']))
     if json.loads(json.dumps(p, ensure_ascii=False)) != json.loads(json.dumps(phan_doan(hs), ensure_ascii=False)):
         loi.append((ten, 'không tất định'))
     return loi
@@ -42,7 +41,7 @@ def _bat_bien(ten, hs, p):
 MAU = {'dai_van': {'Giáp Tí': ('Xấu', 'Rất xấu'), 'Bính Dần': ('Tốt', 'Rất tốt'), 'Mậu Thìn': ('Tốt', 'Rất tốt'),
                    'Kỷ Tị': ('Tốt', 'Rất tốt'), 'Nhâm Thân': ('Xấu', 'Rất xấu')},
        'luu_nien': {2026: ('Rất tốt',), 2027: ('Tốt',), 2029: ('Tốt', 'Rất tốt'), 2030: ('Tốt', 'Rất tốt'),
-                    2032: ('Rất xấu',), 2034: ('Trung bình',), 2035: ('Xấu', 'Rất xấu'), 2036: ('Tốt', 'Rất tốt')}}
+                    2032: ('Tốt',), 2034: ('Tốt',), 2035: ('Tốt',), 2036: ('Tốt', 'Rất tốt')}}
 
 
 def _la_mau():
@@ -55,7 +54,7 @@ def _la_mau():
         if dv.get(k) not in ok: loi.append(('mẫu', 'đại vận ' + k, dv.get(k), 'cần', ok))
     for k, ok in MAU['luu_nien'].items():
         if ln.get(k) not in ok: loi.append(('mẫu', 'năm %d' % k, ln.get(k), 'cần', ok))
-    if p['tho_yeu']['muc'] != 'Căn cứ ngược chiều': loi.append(('mẫu', 'thọ – yểu', p['tho_yeu']['muc']))
+    if p['tho_yeu']['muc'] != 'Yểu – được hóa giải một phần, nhẹ bớt': loi.append(('mẫu', 'thọ – yểu', p['tho_yeu']['muc']))
     if p['tai_loc']['muc'] != 'Khá giả': loi.append(('mẫu', 'tài lộc', p['tai_loc']['muc']))
     if not p['vuong_suy']['sat_nguong']: loi.append(('mẫu', 'vượng suy phải sát ngưỡng'))
     if not any(x['muc'] == 'Thời điểm kết hôn' for x in p['an_muc']): loi.append(('mẫu', 'chưa ẩn thời điểm kết hôn (48 tuổi)'))

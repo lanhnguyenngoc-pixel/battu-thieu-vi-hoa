@@ -243,9 +243,9 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     B.append(('bang', ['Vai trò', 'Hành', 'Thập thần', 'Ý nghĩa'], rows))
     cat_hung = _kl(hs, 'I. Vận trình', 'Cát – hung').split('(')[0].strip().lower()
     sang = _kl(hs, 'F. Sự nghiệp', 'Sang – hèn').split('(')[0].strip().lower()
-    B.append(('p', '**Mệnh cục.** Tài lộc: %s. Quyền chức: %s. Cát – hung: %s. Thọ – yểu: %s.%s' % (
+    B.append(('p', '**Mệnh cục.** Tài lộc: %s. Quyền chức: %s. Cát – hung: %s. Thọ – yểu: %s (lý do xem mục 8).' % (
         (tl['muc'] or '—').lower(), sang.replace('nghiêng về hèn', 'ở mức vừa (bảng P1 tr.173 nghiêng về "hèn" vì thiếu Quan sát)') or '—',
-        cat_hung or '—', ty['muc'].lower(), ' ' + ty['dien_giai'] if ty['dien_giai'] else '')))
+        cat_hung or '—', ty['muc'].lower())))
 
     # 3. Tính cách
     B.append(('h2', '3. Tính cách – năng khiếu'))

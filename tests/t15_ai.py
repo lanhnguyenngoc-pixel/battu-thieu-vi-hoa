@@ -51,7 +51,7 @@ def chay():
     ghi2 = []
     BA2, l2, tu_dem2 = A.nang_cao('sk-ant-thu', hs, pd, B, 'T', 'claude-sonnet-5-5', thu_muc=dem, _mo=_mo('x', ghi2))
     if ghi2 or not tu_dem2 or BA2 is None: loi.append('(c) lần hai phải dùng đệm, không gọi mạng')
-    sai = (md.replace('| 2032 Nhâm Tí (55) | **Rất xấu**', '| 2032 Nhâm Tí (55) | **Tốt**')
+    sai = (md.replace('| 2032 Nhâm Tí (55) | **Tốt**', '| 2032 Nhâm Tí (55) | **Rất xấu**')
              .replace('Dụng thần Hỏa', 'Dụng thần Thủy', 1).replace('Mậu Thìn (2021–2030)', 'Mậu Thìn (2020–2029)'))
     sai = '\n'.join(d for d in sai.splitlines() if not d.startswith('| 2036 Bính Thìn'))
     BA3, l3, _ = A.nang_cao('k', hs, pd, B, 'T', 'claude-opus-5-5', thu_muc=tempfile.mkdtemp(), _mo=_mo(sai, []))
