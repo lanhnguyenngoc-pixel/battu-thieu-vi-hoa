@@ -1,0 +1,22 @@
+name: phat-hanh
+# Đưa bộ cài của một lần đóng gói (dong_goi.yml) thành bản phát hành để tải về không cần đăng nhập.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id: {description: 'Mã lần chạy dong_goi', required: true}
+      tag: {description: 'Nhãn phát hành, vd v1.9.0', required: true}
+permissions:
+  contents: write
+  actions: read
+jobs:
+  phat_hanh:
+    runs-on: ubuntu-latest
+    steps:
+      - env: {GH_TOKEN: '${{ github.token }}', R: '${{ github.repository }}'}
+        run: |
+          mkdir cai && cd cai
+          gh run download "${{ inputs.run_id }}" -R "$R"
+          find . -type f \( -name '*.exe' -o -name '*.dmg' \) -exec mv {} . \;
+          ls -la
+          gh release delete "${{ inputs.tag }}" -R "$R" -y --cleanup-tag || true
+          gh release create "${{ inputs.tag }}" -R "$R" --target "${{ github.sha }}" -t "Bát Tự Thiệu Vĩ Hoa ${{ inputs.tag }}" -n "Bộ cài ${{ inputs.tag }}" ./*.exe ./*.dmg
