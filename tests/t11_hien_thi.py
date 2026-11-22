@@ -23,7 +23,7 @@ _DON = re.compile(r"X\.cat\(X\.LEFT\(E\.v\((\d+),(\d+),(\d+)\),\s*([0-9.]+)\),'�
 
 def _bo_nam(t):
     """Bỏ phần năm dương lịch lớp hiển thị ghi thêm cho tuổi đại vận (C3)."""
-    return re.sub(r', \d{3,4}–\d{3,4}(?=[):])', '', t)
+    return re.sub(r', \d{4}–\d{4}(?=[):])', '', t)
 
 
 def _nguon_don(sheet):
