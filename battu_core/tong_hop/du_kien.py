@@ -127,7 +127,8 @@ _LN_COT = {'Năm': 'nam', 'Tuổi thực': 'tuoi_thuc', 'Tuổi mụ': 'tuoi_mu'
            'SỰ KIỆN / DẤU HIỆU CỦA NĂM': 'dau_hieu', 'TẠNG PHỦ CẦN CHÚ Ý TRONG NĂM (P2 tr.558-': 'tang_phu',
            'Việc ứng (P1 tr.98)': 'viec_ung', 'Mô tả năm (G90)': 'mo_ta', 'Điểm năm (G90)': 'diem_nam',
            'Lợi kết hôn': 'loi_ket_hon', 'Bất lợi hôn nhân': 'bat_loi_hon_nhan', 'Dấu hiệu bất lợi cho cha': 'bat_loi_cha',
-           'Dấu hiệu bất lợi cho mẹ': 'bat_loi_me'}
+           'Dấu hiệu bất lợi cho mẹ': 'bat_loi_me',
+           'KẾT LUẬN người ứng với hạn của năm (một câu: cung + sao + dụng/kỵ + cứu + nền xu thế)': 'nguoi_ung'}
 
 
 def _luu_nien(E, nam_dau, so_nam):
@@ -183,4 +184,6 @@ def ho_so(E, la_so=None, so_nam=11):
         'dai_van': dv, 'luu_nien': ln, 'tom_tat': tom, 'ket_luan_muc': muc,
         # phương pháp khuyến nghị của workbook (DOI_CHIEU C33: 0 thống nhất, 1 PP1, 2 PP2) – dùng để lấy đúng cột kết luận
         'phuong_phap': int(E.gia_tri('DOI_CHIEU', 'C33') or 0),
+        # mục 2.8 (bản 6.9): câu tổng hợp con cái, danh sách câu sách ứng, năm bất lợi cho con – lấy đúng ô LUC_THAN C36:C38
+        'con_cai': {'tong_hop': _s(E.gia_tri('LUC_THAN', 'C36')), 'cau_sach': _s(E.gia_tri('LUC_THAN', 'C37')), 'nam_bat_loi': _s(E.gia_tri('LUC_THAN', 'C38'))},
     }

@@ -128,3 +128,173 @@ def dieu_hau(p, why, moc_ha=True):
     new = ('&IF($C$215<0," Đây là dụng thần bổ trợ theo khí hậu mệnh cục, KHÔNG thay dụng thần và không đổi xu thế vận (P1 tr.100, 111–113)."'
            '," Có xét thay dụng thần và vận điều hầu chuyển tốt (P1 tr.76–79).")&" Dụng thần sinh phù làm chủ, điều hầu là bổ trợ (P1 tr.100, 111-113).")')
     p.set_formula(S, 'C171', f[:-len(old)] + new, why=why)
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Giai đoạn 2 (bản 6.9): LUU_NIEN – mục 2.3 (điều 6, 7, 8 P2 tr.288–289) và 2.11 (xu thế năm: hình, hợp mất kỵ, gốc Thường giữ Thường)
+LN_ROWS = range(30, 130)
+TRU = (('C', 'Năm'), ('D', 'Tháng'), ('E', 'Ngày'), ('F', 'Giờ'))
+
+
+def _vt(c, h):
+    """Vai trò của hành h theo cột dụng–hỷ–kỵ c (C: PP1, D: PP2) của DUNG_HY_KY."""
+    return ('IF(AND(DUNG_HY_KY!$%s$109>=0,%s=DUNG_HY_KY!$%s$109),"dụng",IF(AND(DUNG_HY_KY!$%s$110>=0,%s=DUNG_HY_KY!$%s$110),"hỷ",'
+            'IF(AND(DUNG_HY_KY!$%s$111>=0,%s=DUNG_HY_KY!$%s$111),"kỵ","không phải dụng/hỷ/kỵ")))' % (c, h, c, c, h, c, c, h, c))
+
+
+def _xung_mat(r, c, mat):
+    """Chữ trong tứ trụ bị chi lưu niên xung/hình + khắc hành (mat = 'ky' → chữ kỵ, 'dung' → chữ dụng/hỷ); với 'ky' thêm trường hợp chi lưu niên HỢP chữ kỵ (P2 tr.282 đ.1)."""
+    kq = []
+    for t, ten in TRU:
+        chi = 'TRUNG_GIAN!$%s$6' % t; hc = 'TRUNG_GIAN!$%s$9' % t; vt = _vt(c, hc)
+        xh = 'OR(INDEX(M_XU,K%d+1,%s+1)=1,INDEX(M_HINH,K%d+1,%s+1)=1)' % (r, chi, r, chi)
+        kh = 'NOT(AND(Q%d=2,%s=2)),MOD(Q%d+2,5)=%s' % (r, hc, r, hc)
+        if mat == 'ky':
+            dk = 'OR(AND(%s,%s,%s="kỵ"),AND(INDEX(M_LH,%s+1,K%d+1)>=0,%s="kỵ"))' % (xh, kh, vt, chi, r, vt)
+        else:
+            dk = 'AND(%s,%s,OR(%s="dụng",%s="hỷ"))' % (xh, kh, vt, vt)
+        kq.append('IF(%s,"%s ","")' % (dk, ten))
+    return 'TRIM(' + '&'.join(kq) + ')'
+
+
+def luu_nien(p, why):
+    S = 'LUU_NIEN'; NHT = 'DOI_CHIEU!$C$33=2'
+    p.set_text(S, 'DO29', 'Điều 6 (P2 tr.288): thân nhược gặp can năm hung sát khắc hại nhật nguyên/dụng thần', why=why, must_be_empty=True, style_from='DN29')
+    p.set_text(S, 'DP29', 'Điều 7 (P2 tr.288): tuế vận tịnh lâm – 1 thất sát/kình dương (hung), 2 tài/quan/ấn (tốt), 3 còn lại (lớn nhưng không nhất định)', why=why, must_be_empty=True, style_from='DN29')
+    p.set_text(S, 'DQ29', 'Điều 8 (P2 tr.289): chi mang dụng thần lục hợp chi lưu niên – dụng thần hợp thái tuế', why=why, must_be_empty=True, style_from='DN29')
+    dung = 'IF(%s,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)' % NHT
+    nhuoc = 'IF(%s,DUNG_HY_KY!$D$7,DUNG_HY_KY!$C$7)=0' % NHT
+    for r in LN_ROWS:
+        vtn = 'IF(%s,AE%d,T%d)' % (NHT, r, r)
+        p.new_formula(S, 'DO%d' % r, 'IF(AND(%s,OR(O%d="Kiếp tài",O%d="Thất sát",O%d="Thương quan",O%d="Thiên ấn"),NOT(OR(%s="dụng",%s="hỷ")),'
+                      'OR(MOD(P%d+2,5)=TRUNG_GIAN!$E$7,AND(%s>=0,MOD(P%d+2,5)=%s))),1,0)' % (nhuoc, r, r, r, r, vtn, vtn, r, dung, r, dung), style_from='DM30', why=why)
+        p.new_formula(S, 'DP%d' % r, 'IF(AP%d=1,IF(OR(O%d="Thất sát",K%d=INDEX(CSDL!$H$5:$H$14,TRUNG_GIAN!$E$5+1)),1,'
+                      'IF(OR(O%d="Chính tài",O%d="Thiên tài",O%d="Chính quan",O%d="Chính ấn",O%d="Thiên ấn"),2,3)),0)' % (r, r, r, r, r, r, r, r), style_from='DM30', why=why)
+        hop = ','.join('AND(INDEX(M_LH,TRUNG_GIAN!$%s$6+1,K%d+1)>=0,%s>=0,TRUNG_GIAN!$%s$9=%s)' % (t, r, dung, t, dung) for t, _ in TRU)
+        p.new_formula(S, 'DQ%d' % r, 'IF(OR(%s),1,0)' % hop, style_from='DM30', why=why)
+        # --- 2.11: xung mất kỵ / mất dụng-hỷ có thêm hình (và hợp mất kỵ); gốc Thường giữ Thường (điều 1–2 chỉ đổi gốc Xấu → Tốt, Tốt → Xấu)
+        for ck, cd, cy, cu, cx, cc, dc in (('V', 'W', 'Y', 'U', 'X', 'C', 'T'), ('AG', 'AH', 'AJ', 'AF', 'AI', 'D', 'AE')):
+            p.set_formula(S, '%s%d' % (ck, r), _xung_mat(r, cc, 'ky'), why=why)
+            p.set_formula(S, '%s%d' % (cd, r), _xung_mat(r, cc, 'dung'), why=why)
+            V, W, U, X = '%s%d' % (ck, r), '%s%d' % (cd, r), '%s%d' % (cu, r), '%s%d' % (cx, r)
+            p.set_formula(S, '%s%d' % (cy, r), 'IF(AND(LEN(%s)>0,LEN(%s)=0),IF(%s="Tốt","Xấu",%s),IF(AND(LEN(%s)>0,LEN(%s)=0),IF(%s="Xấu","Tốt",%s),'
+                          'IF(AND(%s="Tốt",LEN(%s)>0),"Thường",IF(AND(%s="Xấu",LEN(%s)>0),"Thường",%s))))' % (W, V, U, U, V, W, U, U, U, X, U, X, U), why=why)
+        # --- BM, DI, DM: tuế vận gặp nhau mà can năm là tài/quan/ấn là tốt, không tính dấu hiệu nặng
+        p.replace_in_formula(S, 'BM%d' % r, 'AP%d+AQ%d' % (r, r), 'IF(OR(DP%d=1,DP%d=3),1,0)+AQ%d' % (r, r, r), why=why)
+        p.replace_in_formula(S, 'DI%d' % r, 'AP%d=1' % r, 'AND(AP%d=1,DP%d<>2)' % (r, r), why=why)
+        p.replace_in_formula(S, 'DM%d' % r, 'IF(AP%d=1,"người thân; ","")' % r, 'IF(AND(AP%d=1,DP%d<>2),"người thân; ","")' % (r, r), why=why)
+        # --- câu sự kiện BN
+        ap = 'IF(AP%d=1,"• Tuế vận tịnh lâm với đại vận: ""không chết mình cũng mất người thân"" (P2 tr.288, 566). ","")' % r
+        p.replace_in_formula(S, 'BN%d' % r, ap,
+                             'IF(DP%d=1,"• Tuế vận tịnh lâm với đại vận, can năm là thất sát hoặc chi năm là kình dương: ""không chết mình cũng mất người thân"" (P2 tr.288, 566). ","")'
+                             '&IF(DP%d=2,"• Tuế vận tịnh lâm với đại vận, can năm là tài, quan, ấn: tuế vận gặp nhau là tốt (P2 tr.288). ","")'
+                             '&IF(DP%d=3,"• Tuế vận tịnh lâm với đại vận: tai vạ lớn nhưng không nhất định (P2 tr.288). ","")' % (r, r, r), why=why)
+        for ad, vt, pp, ben, tr in (('AD', 'T', 'PP1', ': đề phòng bệnh', '559, 562'), ('AO', 'AE', 'PP2', '', '559')):
+            old = 'IF(%s%d=1,"• %s: thân nhược gặp năm thất sát%s (P2 tr.%s). ","")' % (ad, r, pp, ben, tr)
+            new = ('IF(%s%d=1,"• %s: thân nhược gặp năm thất sát%s"&IF(OR(%s%d="dụng",%s%d="hỷ")," – thất sát là dụng thần – nhẹ","")&" (P2 tr.%s). ","")'
+                   % (ad, r, pp, ben, vt, r, vt, r, tr))
+            p.replace_in_formula(S, 'BN%d' % r, old, new, why=why)
+        # thêm đúng trước câu "Lưu niên hợp trụ ngày"
+        ba = 'IF(BA%d=1,"• Lưu niên hợp trụ ngày: tin mừng (P2 tr.289). ","")' % r
+        extra = ('IF(DO%d=1,"• Hung sát khắc hại nhật nguyên/dụng thần: đề phòng tai vạ (P2 tr.288). ","")'
+                 '&IF(DQ%d=1,"• Dụng thần hợp thái tuế: gặp may (P2 tr.289). ","")'
+                 '&IF(AND(IF(%s,AF%d,U%d)="Thường",LEN(IF(%s,AH%d,W%d))>0,LEN(IF(%s,AG%d,V%d))=0),"• Chữ mang dụng/hỷ ("&IF(%s,AH%d,W%d)&") bị xung/hình khắc: gốc năm là Thường nên xu thế không đổi, nhưng có việc đáng đề phòng (P2 tr.282 đ.2). ","")'
+                 '&IF(AND(IF(%s,AF%d,U%d)="Thường",LEN(IF(%s,AG%d,V%d))>0,LEN(IF(%s,AH%d,W%d))=0),"• Chữ mang kỵ ("&IF(%s,AG%d,V%d)&") bị xung/hình/hợp: gốc năm là Thường nên xu thế không đổi, có việc nhẹ bớt (P2 tr.282 đ.1). ","")'
+                 % ((r, r) + (NHT, r, r, NHT, r, r, NHT, r, r, NHT, r, r) + (NHT, r, r, NHT, r, r, NHT, r, r, NHT, r, r)))
+        p.replace_in_formula(S, 'BN%d' % r, ba, extra + '&' + ba, why=why)
+        # --- diễn giải xu thế năm (BO: PP1, BP: PP2) ghi lý do chỉnh
+        for bo, vt, u, y, v, w, x in (('BO', 'T', 'U', 'Y', 'V', 'W', 'X'), ('BP', 'AE', 'AF', 'AJ', 'AG', 'AH', 'AI')):
+            U, Y, V, W, X = u + str(r), y + str(r), v + str(r), w + str(r), x + str(r)
+            old = 'IF(%s<>%s," → điều chỉnh "&%s,"")' % (Y, U, Y)
+            ly = ('IF(AND(LEN(%s)>0,LEN(%s)=0),"điều 2 – chữ mang dụng/hỷ bị xung/hình khắc ("&%s&"): tốt thành xấu",IF(AND(LEN(%s)>0,LEN(%s)=0),'
+                  '"điều 1 – chữ mang kỵ bị xung/hình/hợp ("&%s&"): xấu thành tốt","điều 3–4 – can năm bị chế hoặc hợp ("&%s&"): thành bình thường"))' % (W, V, W, V, W, V, X))
+            new = ('IF(%s<>%s," → điều chỉnh "&%s&" ("&%s&")","")&IF(AND(%s=%s,%s="Thường",OR(LEN(%s)>0,LEN(%s)>0))," – gốc Thường giữ Thường: chữ "&IF(LEN(%s)>0,"dụng/hỷ ("&%s&")","kỵ ("&%s&")")&" bị tác động, xem mục sự kiện (P2 tr.282 đ.1–2)","")'
+                   % (Y, U, Y, ly, Y, U, U, V, W, W, W, V))
+            p.replace_in_formula(S, '%s%d' % (bo, r), old, new, why=why)
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Mục 2.2 (bản 6.9): người ứng – cung làm chính + sao lục thân trong chữ bị chạm + dụng/kỵ + cứu + nền xu thế, MỘT câu kết luận
+PTEN = ((0, 'Năm', 'ông bà, cha mẹ'), (1, 'Tháng', 'anh chị em'), (2, 'Ngày', None), (3, 'Giờ', 'con cái'))
+
+
+def _cp(r, pos, ten):
+    """Trụ pos bị chạm: có trong AR (thiên khắc địa xung) hoặc chi trụ bị chi lưu niên xung/hình."""
+    t = 'CDEF'[pos]
+    return ('OR(ISNUMBER(SEARCH("%s",AR%d)),INDEX(M_XU,K%d+1,TRUNG_GIAN!$%s$6+1)=1,INDEX(M_HINH,K%d+1,TRUNG_GIAN!$%s$6+1)=1)' % (ten, r, r, t, r, t))
+
+
+def _sao(pos):
+    """Chuỗi sao lục thân có trong trụ pos (can lộ + tàng can), nhãn theo giới (P1 tr.149, 157; P2 tr.504)."""
+    def n(tt): return 'COUNTIFS(SAO!$B$5:$B$20,%d,SAO!$F$5:$F$20,"%s",SAO!$Y$5:$Y$20,0)>0' % (pos, tt)
+    NAM = 'NHAP_LIEU!$C$22="Nam"'
+    parts = ['IF(%s,"cha (thiên tài), ","")' % n('Thiên tài'), 'IF(%s,"mẹ (chính ấn), ","")' % n('Chính ấn'),
+             'IF(%s,"dì hoặc mẹ kế (thiên ấn), ","")' % n('Thiên ấn'), 'IF(OR(%s,%s),"anh chị em (tỉ kiếp), ","")' % (n('Tỉ kiên'), n('Kiếp tài')),
+             'IF(AND(%s,%s),"vợ (chính tài), ","")' % (NAM, n('Chính tài'))]
+    for tt, trai_nam in (('Thất sát', 'con trai'), ('Thực thần', 'con trai'), ('Chính quan', 'con gái'), ('Thương quan', 'con gái')):
+        parts.append('IF(AND(%s,%s),"%s (%s), ","")' % (NAM, n(tt), trai_nam, tt.lower()))
+    for tt, nhan in (('Chính quan', 'con trai'), ('Thương quan', 'con trai'), ('Thất sát', 'con gái'), ('Thực thần', 'con gái')):
+        if tt in ('Chính quan', 'Thất sát'):
+            if pos == 3: lab = '%s (%s)' % (nhan, tt.lower())
+            elif pos == 2: lab = 'chồng (%s)' % tt.lower()
+            else: lab = 'chồng hoặc %s (%s)' % (nhan, tt.lower())
+        else: lab = '%s (%s)' % (nhan, tt.lower())
+        parts.append('IF(AND(NOT(%s),%s),"%s, ","")' % (NAM, n(tt), lab))
+    return '&'.join(parts)
+
+
+def nguoi_ung(p, why):
+    S = 'LUU_NIEN'; NHT = 'DOI_CHIEU!$C$33=2'; NAM = 'NHAP_LIEU!$C$22="Nam"'
+    for c, t in (('DR', 'Người ứng theo cung của trụ bị chạm (P1 tr.149; P2 tr.287)'), ('DS', 'Sao lục thân trong chữ bị chạm (P1 tr.149, 157; P2 tr.504)'),
+                 ('DT', 'KẾT LUẬN người ứng với hạn của năm (một câu: cung + sao + dụng/kỵ + cứu + nền xu thế)')):
+        p.set_text(S, c + '29', t, why=why, must_be_empty=True, style_from='DN29')
+    dung = 'IF(%s,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)' % NHT; hy = 'IF(%s,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110)' % NHT; ky = 'IF(%s,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)' % NHT
+
+    def vt_in(h, ds):
+        return 'OR(%s)' % ','.join('AND(%s>=0,%s=%s)' % (x, h, x) for x in ds)
+    for r in LN_ROWS:
+        cp = [_cp(r, pos, ten) for pos, ten, _ in PTEN]
+        ng = []
+        for pos, ten, nd in PTEN:
+            lab = nd if nd else 'bản thân và "&IF(%s,"vợ","chồng")&"' % NAM
+            ng.append('IF(%s,"%s; ","")' % (cp[pos], lab))
+        p.new_formula(S, 'DR%d' % r, 'TRIM(' + '&'.join(ng) + ')', style_from='DM30', why=why)
+        # DR có thể ghi cả chuỗi vợ/chồng nên dùng công thức riêng cho trụ ngày
+        ds = ['IF(%s,%s,"")' % (cp[pos], _sao(pos)) for pos, _, _ in PTEN]
+        p.new_formula(S, 'DS%d' % r, 'TRIM(' + '&'.join(ds) + ')', style_from='DM30', why=why)
+        mang_dh = 'OR(%s)' % ','.join('AND(%s,OR(%s,%s))' % (cp[pos], vt_in('TRUNG_GIAN!$%s$7' % 'CDEF'[pos], (dung, hy)), vt_in('TRUNG_GIAN!$%s$9' % 'CDEF'[pos], (dung, hy))) for pos in range(4))
+        mang_ky = 'OR(%s)' % ','.join('AND(%s,OR(%s,%s))' % (cp[pos], vt_in('TRUNG_GIAN!$%s$7' % 'CDEF'[pos], (ky,)), vt_in('TRUNG_GIAN!$%s$9' % 'CDEF'[pos], (ky,))) for pos in range(4))
+        any_cp = 'OR(%s)' % ','.join(cp)
+        cuu = ('IF(LEN(CB%d)>0,"Có cứu ("&CB%d&") nên nhẹ, có thể qua khỏi (P2 tr.287–288). ","Không thấy cứu nên nặng hơn; nếu bản thân không gặp thì chuyển lên người thân (P2 tr.287–288). ")' % (r, r))
+        nen = ('"Nền xu thế: năm "&IF(%s,AJ%d,Y%d)&", đại vận "&IF(Z%d="","chưa vào",IF(%s,AK%d,Z%d))&" (P1 tr.133)."' % (NHT, r, r, r, NHT, r, r))
+        cd = 'IF(OR(%s,%s)," Người ứng là vợ/chồng hoặc con cái: nếu đã có thì ứng vào họ, nếu chưa thì ứng vào bản thân (P1 tr.149, 156).","")' % (cp[2], cp[3])
+        f = ('IF(%s,A%d&" (tuổi "&C%d&"): đề phòng việc không hay đến với "&LEFT(DR%d,LEN(DR%d)-1)&IF(LEN(DS%d)>0,", chữ bị tác động mang sao "&LEFT(DS%d,LEN(DS%d)-1),"")&". "'
+             '&IF(%s,"Chữ bị tác động mang dụng/hỷ thần nên đáng lưu tâm (P2 tr.282 đ.2). ",IF(%s,"Chữ bị tác động là kỵ thần nên cái hại giảm, có khi thành phúc (P2 tr.282 đ.1). ",""))&%s&%s&%s,"")'
+             % (any_cp, r, r, r, r, r, r, r, mang_dh, mang_ky, cuu, nen, cd))
+        p.new_formula(S, 'DT%d' % r, f, text=True, style_from='DM30', why=why)
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Mục 2.7 (bản 6.9): điểm 1 (cách kình dương, P1 tr.117) và điểm 3 (thân vượng thiếu cả quan sát và thực thương, P1 tr.108).
+# Điểm 2 (quan sát hỗn tạp cứu bằng hợp) và điểm 4 (tham hợp quên xung) chưa làm – xem báo cáo.
+def bo_sung_27(p, why):
+    NHT = 'DOI_CHIEU!$C$33=2'
+    dung = 'IF(%s,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)' % NHT
+    kd = 'INDEX(CSDL!$H$5:$H$14,TRUNG_GIAN!$E$5+1)'
+    # điểm 1
+    S = 'SU_NGHIEP'
+    p.set_text(S, 'B28', 'Cách kình dương (P1 tr.117): dụng thần là quan sát và nhật can dương', why=why, must_be_empty=True, style_from='B27')
+    f = ('IF(AND(%s>=0,MOD(%s-TRUNG_GIAN!$E$7,5)=3,INDEX(CSDL!$D$5:$D$14,TRUNG_GIAN!$E$5+1)=0),'
+         'IF(COUNTIF(TRUNG_GIAN!$C$6:$F$6,%s)>0,"Dụng thần là quan sát và tứ trụ có kình dương hỗ trợ: có uy, vinh hiển; ấn tinh có lực là cứu ứng của quan sát (P1 tr.117).",'
+         '"Dụng thần là quan sát mà tứ trụ không có kình dương: khó vinh hiển, uy quyền hạn chế; ấn tinh có lực là cứu ứng (P1 tr.117)."),'
+         '"(không xét: dụng thần không phải quan sát, hoặc nhật can âm)")' % (dung, dung, kd))
+    p.new_formula(S, 'C28', f, text=True, style_from='C27', why=why)
+    # điểm 3
+    S = 'MENH_CUC'
+    p.set_text(S, 'B129', 'Yểu 10 – thân vượng mà tứ trụ thiếu cả quan sát và thực thương (P1 tr.108: nhất định khó nuôi hoặc chết yểu)', why=why, must_be_empty=True, style_from='B111')
+    p.new_formula(S, 'C129', 'IF(AND(DUNG_HY_KY!$C$155=1,COUNTIFS(SAO!$G$5:$G$20,1,SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)+COUNTIFS(SAO!$G$5:$G$20,3,SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)=0),1,0)',
+                  style_from='C111', why=why)
+    p.set_formula(S, 'C113', 'SUM(C103:C111)+C129', why=why)
+    f = p.formula(S, 'C127'); old = '&IF(C111=1,", "&"bảng thực thương – ấn nghiêng yểu",""),3,999)'
+    assert old in f
+    p.set_formula(S, 'C127', f.replace(old, '&IF(C111=1,", "&"bảng thực thương – ấn nghiêng yểu","")&IF(C129=1,", "&"thân vượng thiếu cả quan sát và thực thương (P1 tr.108)",""),3,999)'), text=True, why=why)

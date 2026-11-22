@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet MENH_CUC – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.8.xlsx (SHA-256 b171b485540d6fb7f1b77d5397c9a0f6a2ddce344baf90abfa50bdfaaf431a5d).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.9.xlsx (SHA-256 5486ea8b3eb631dc513aed16150152722659ca3ca34dfc6c7af268da54b63453).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1857,8 +1857,8 @@ def f293(E, r, c):
 
 def f294(E, r, c):
     # Ô C113
-    # = SUM(C103:C111)
-    return X.SUM(E.rg(18,r-10,c,r-2,c))
+    # = SUM(C103:C111)+C129
+    return X.add(X.SUM(E.rg(18,r-10,c,r-2,c)),E.v(18,r+16,c))
 
 def f295(E, r, c):
     # Ô C114
@@ -1935,14 +1935,14 @@ def f308(E, r, c):
     #   c lại bị khắc, kỵ thần có lực","")&IF(C104=1,", "&"kỵ thần và dụng thần hỗn chiến","")&IF(C105=1,", "&"thân quá vượng mà không bị khắc tiết hao","")&I
     #   F(C106=1,", "&"thân quá nhược","")&IF(C107=1,", "&"dụng thần hoặc hỷ thần bị xung","")&IF(C108=1,", "&"thân nhược mà đại vận xấu nhiều hơn tốt","")&IF
     #   (C109=1,", "&"mùa sinh cần điều hầu mà hành điều hầu thiếu","")&IF(C110=1,", "&"tứ trụ khô, thiếu thủy","")&IF(C111=1,", "&"bảng thực thương – ấn nghi
-    #   êng yểu",""),3,999))&"."&IF(SUM(C115:C123)>0," Yếu tố hóa giải, làm nhẹ: "&MID(IF(C115=1,", "&"có nguyệt đức","")&IF(C116=1,", "&"có thiên đức","")&IF
-    #   (C117=1,", "&"sức khỏe chung "&LOWER(IFERROR(LEFT(SUC_KHOE!$J$6,FIND(CHAR(10),SUC_KHOE!$J$6)-1),SUC_KHOE!$J$6)),"")&IF(C118=1,", "&"bệnh có cứu (có th
-    #   uốc)","")&IF(C119=1,", "&"thân vượng gặp ấn, bình sinh ít bệnh","")&IF(C120=1,", "&"tỉ kiếp, tài đều nhiều","")&IF(C121=1,", "&"có cục sinh thân, giúp
-    #    thân","")&IF(C122=1,", "&"thân yếu gặp ấn sinh thân","")&IF(C123=1,", "&"nguyệt ấn sinh thân",""),3,999)&".","")&IF(SUM(C124:C125)>0," Yếu tố làm nặn
-    #   g: "&MID(IF(C124=1,", "&"sức khỏe chung "&LOWER(IFERROR(LEFT(SUC_KHOE!$J$6,FIND(CHAR(10),SUC_KHOE!$J$6)-1),SUC_KHOE!$J$6)),"")&IF(C125=1,", "&"bệnh kh
-    #   ông có cứu (không thuốc)",""),3,999)&".","")&IF(SUM(C115:C123)+SUM(C124:C125)=0," Không có yếu tố hóa giải hay làm nặng – giữ nguyên kết luận bước 1."
-    #   ,"")
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dấu hiệu mệnh thọ (',E.v(18,r-15,c)),'): '),('không có' if X.truthy(X.eq(E.v(18,r-15,c),0.0)) else X.MID(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','thân vượng, dụng thần được sinh có lực') if X.truthy(X.eq(E.v(18,r-30,c),1.0)) else ''),(X.cat(', ','thân nhược nhưng ấn nắm lệnh tháng') if X.truthy(X.eq(E.v(18,r-29,c),1.0)) else '')),(X.cat(', ','đại vận tốt nhiều hơn xấu') if X.truthy(X.eq(E.v(18,r-28,c),1.0)) else '')),(X.cat(', ','tứ trụ không bị xung phá') if X.truthy(X.eq(E.v(18,r-27,c),1.0)) else '')),(X.cat(', ','ngũ hành đủ') if X.truthy(X.eq(E.v(18,r-26,c),1.0)) else '')),(X.cat(', ','bảng thực thương – ấn nghiêng thọ') if X.truthy(X.eq(E.v(18,r-25,c),1.0)) else '')), 3.0, 999.0))),'. Dấu hiệu mệnh yểu ('),E.v(18,r-14,c)),'): '),('không có' if X.truthy(X.eq(E.v(18,r-14,c),0.0)) else X.MID(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','dụng thần nhược lại bị khắc, kỵ thần có lực') if X.truthy(X.eq(E.v(18,r-24,c),1.0)) else ''),(X.cat(', ','kỵ thần và dụng thần hỗn chiến') if X.truthy(X.eq(E.v(18,r-23,c),1.0)) else '')),(X.cat(', ','thân quá vượng mà không bị khắc tiết hao') if X.truthy(X.eq(E.v(18,r-22,c),1.0)) else '')),(X.cat(', ','thân quá nhược') if X.truthy(X.eq(E.v(18,r-21,c),1.0)) else '')),(X.cat(', ','dụng thần hoặc hỷ thần bị xung') if X.truthy(X.eq(E.v(18,r-20,c),1.0)) else '')),(X.cat(', ','thân nhược mà đại vận xấu nhiều hơn tốt') if X.truthy(X.eq(E.v(18,r-19,c),1.0)) else '')),(X.cat(', ','mùa sinh cần điều hầu mà hành điều hầu thiếu') if X.truthy(X.eq(E.v(18,r-18,c),1.0)) else '')),(X.cat(', ','tứ trụ khô, thiếu thủy') if X.truthy(X.eq(E.v(18,r-17,c),1.0)) else '')),(X.cat(', ','bảng thực thương – ấn nghiêng yểu') if X.truthy(X.eq(E.v(18,r-16,c),1.0)) else '')), 3.0, 999.0))),'.'),(X.cat(X.cat(' Yếu tố hóa giải, làm nhẹ: ',X.MID(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','có nguyệt đức') if X.truthy(X.eq(E.v(18,r-12,c),1.0)) else ''),(X.cat(', ','có thiên đức') if X.truthy(X.eq(E.v(18,r-11,c),1.0)) else '')),(X.cat(X.cat(', ','sức khỏe chung '),X.LOWER(X.IFERROR(lambda: X.LEFT(E.v(22,6,10), X.sub(X.FIND(X.CHAR(10.0), E.v(22,6,10)),1.0)), lambda: E.v(22,6,10)))) if X.truthy(X.eq(E.v(18,r-10,c),1.0)) else '')),(X.cat(', ','bệnh có cứu (có thuốc)') if X.truthy(X.eq(E.v(18,r-9,c),1.0)) else '')),(X.cat(', ','thân vượng gặp ấn, bình sinh ít bệnh') if X.truthy(X.eq(E.v(18,r-8,c),1.0)) else '')),(X.cat(', ','tỉ kiếp, tài đều nhiều') if X.truthy(X.eq(E.v(18,r-7,c),1.0)) else '')),(X.cat(', ','có cục sinh thân, giúp thân') if X.truthy(X.eq(E.v(18,r-6,c),1.0)) else '')),(X.cat(', ','thân yếu gặp ấn sinh thân') if X.truthy(X.eq(E.v(18,r-5,c),1.0)) else '')),(X.cat(', ','nguyệt ấn sinh thân') if X.truthy(X.eq(E.v(18,r-4,c),1.0)) else '')), 3.0, 999.0)),'.') if X.truthy(X.gt(X.SUM(E.rg(18,r-12,c,r-4,c)),0.0)) else '')),(X.cat(X.cat(' Yếu tố làm nặng: ',X.MID(X.cat((X.cat(X.cat(', ','sức khỏe chung '),X.LOWER(X.IFERROR(lambda: X.LEFT(E.v(22,6,10), X.sub(X.FIND(X.CHAR(10.0), E.v(22,6,10)),1.0)), lambda: E.v(22,6,10)))) if X.truthy(X.eq(E.v(18,r-3,c),1.0)) else ''),(X.cat(', ','bệnh không có cứu (không thuốc)') if X.truthy(X.eq(E.v(18,r-2,c),1.0)) else '')), 3.0, 999.0)),'.') if X.truthy(X.gt(X.SUM(E.rg(18,r-3,c,r-2,c)),0.0)) else '')),(' Không có yếu tố hóa giải hay làm nặng – giữ nguyên kết luận bước 1.' if X.truthy(X.eq(X.add(X.SUM(E.rg(18,r-12,c,r-4,c)),X.SUM(E.rg(18,r-3,c,r-2,c))),0.0)) else ''))
+    #   êng yểu","")&IF(C129=1,", "&"thân vượng thiếu cả quan sát và thực thương (P1 tr.108)",""),3,999))&"."&IF(SUM(C115:C123)>0," Yếu tố hóa giải, làm nhẹ: 
+    #   "&MID(IF(C115=1,", "&"có nguyệt đức","")&IF(C116=1,", "&"có thiên đức","")&IF(C117=1,", "&"sức khỏe chung "&LOWER(IFERROR(LEFT(SUC_KHOE!$J$6,FIND(CHAR
+    #   (10),SUC_KHOE!$J$6)-1),SUC_KHOE!$J$6)),"")&IF(C118=1,", "&"bệnh có cứu (có thuốc)","")&IF(C119=1,", "&"thân vượng gặp ấn, bình sinh ít bệnh","")&IF(C1
+    #   20=1,", "&"tỉ kiếp, tài đều nhiều","")&IF(C121=1,", "&"có cục sinh thân, giúp thân","")&IF(C122=1,", "&"thân yếu gặp ấn sinh thân","")&IF(C123=1,", "&
+    #   "nguyệt ấn sinh thân",""),3,999)&".","")&IF(SUM(C124:C125)>0," Yếu tố làm nặng: "&MID(IF(C124=1,", "&"sức khỏe chung "&LOWER(IFERROR(LEFT(SUC_KHOE!$J$
+    #   6,FIND(CHAR(10),SUC_KHOE!$J$6)-1),SUC_KHOE!$J$6)),"")&IF(C125=1,", "&"bệnh không có cứu (không thuốc)",""),3,999)&".","")&IF(SUM(C115:C123)+SUM(C124:C
+    #   125)=0," Không có yếu tố hóa giải hay làm nặng – giữ nguyên kết luận bước 1.","")
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Dấu hiệu mệnh thọ (',E.v(18,r-15,c)),'): '),('không có' if X.truthy(X.eq(E.v(18,r-15,c),0.0)) else X.MID(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','thân vượng, dụng thần được sinh có lực') if X.truthy(X.eq(E.v(18,r-30,c),1.0)) else ''),(X.cat(', ','thân nhược nhưng ấn nắm lệnh tháng') if X.truthy(X.eq(E.v(18,r-29,c),1.0)) else '')),(X.cat(', ','đại vận tốt nhiều hơn xấu') if X.truthy(X.eq(E.v(18,r-28,c),1.0)) else '')),(X.cat(', ','tứ trụ không bị xung phá') if X.truthy(X.eq(E.v(18,r-27,c),1.0)) else '')),(X.cat(', ','ngũ hành đủ') if X.truthy(X.eq(E.v(18,r-26,c),1.0)) else '')),(X.cat(', ','bảng thực thương – ấn nghiêng thọ') if X.truthy(X.eq(E.v(18,r-25,c),1.0)) else '')), 3.0, 999.0))),'. Dấu hiệu mệnh yểu ('),E.v(18,r-14,c)),'): '),('không có' if X.truthy(X.eq(E.v(18,r-14,c),0.0)) else X.MID(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','dụng thần nhược lại bị khắc, kỵ thần có lực') if X.truthy(X.eq(E.v(18,r-24,c),1.0)) else ''),(X.cat(', ','kỵ thần và dụng thần hỗn chiến') if X.truthy(X.eq(E.v(18,r-23,c),1.0)) else '')),(X.cat(', ','thân quá vượng mà không bị khắc tiết hao') if X.truthy(X.eq(E.v(18,r-22,c),1.0)) else '')),(X.cat(', ','thân quá nhược') if X.truthy(X.eq(E.v(18,r-21,c),1.0)) else '')),(X.cat(', ','dụng thần hoặc hỷ thần bị xung') if X.truthy(X.eq(E.v(18,r-20,c),1.0)) else '')),(X.cat(', ','thân nhược mà đại vận xấu nhiều hơn tốt') if X.truthy(X.eq(E.v(18,r-19,c),1.0)) else '')),(X.cat(', ','mùa sinh cần điều hầu mà hành điều hầu thiếu') if X.truthy(X.eq(E.v(18,r-18,c),1.0)) else '')),(X.cat(', ','tứ trụ khô, thiếu thủy') if X.truthy(X.eq(E.v(18,r-17,c),1.0)) else '')),(X.cat(', ','bảng thực thương – ấn nghiêng yểu') if X.truthy(X.eq(E.v(18,r-16,c),1.0)) else '')),(X.cat(', ','thân vượng thiếu cả quan sát và thực thương (P1 tr.108)') if X.truthy(X.eq(E.v(18,r+2,c),1.0)) else '')), 3.0, 999.0))),'.'),(X.cat(X.cat(' Yếu tố hóa giải, làm nhẹ: ',X.MID(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(', ','có nguyệt đức') if X.truthy(X.eq(E.v(18,r-12,c),1.0)) else ''),(X.cat(', ','có thiên đức') if X.truthy(X.eq(E.v(18,r-11,c),1.0)) else '')),(X.cat(X.cat(', ','sức khỏe chung '),X.LOWER(X.IFERROR(lambda: X.LEFT(E.v(22,6,10), X.sub(X.FIND(X.CHAR(10.0), E.v(22,6,10)),1.0)), lambda: E.v(22,6,10)))) if X.truthy(X.eq(E.v(18,r-10,c),1.0)) else '')),(X.cat(', ','bệnh có cứu (có thuốc)') if X.truthy(X.eq(E.v(18,r-9,c),1.0)) else '')),(X.cat(', ','thân vượng gặp ấn, bình sinh ít bệnh') if X.truthy(X.eq(E.v(18,r-8,c),1.0)) else '')),(X.cat(', ','tỉ kiếp, tài đều nhiều') if X.truthy(X.eq(E.v(18,r-7,c),1.0)) else '')),(X.cat(', ','có cục sinh thân, giúp thân') if X.truthy(X.eq(E.v(18,r-6,c),1.0)) else '')),(X.cat(', ','thân yếu gặp ấn sinh thân') if X.truthy(X.eq(E.v(18,r-5,c),1.0)) else '')),(X.cat(', ','nguyệt ấn sinh thân') if X.truthy(X.eq(E.v(18,r-4,c),1.0)) else '')), 3.0, 999.0)),'.') if X.truthy(X.gt(X.SUM(E.rg(18,r-12,c,r-4,c)),0.0)) else '')),(X.cat(X.cat(' Yếu tố làm nặng: ',X.MID(X.cat((X.cat(X.cat(', ','sức khỏe chung '),X.LOWER(X.IFERROR(lambda: X.LEFT(E.v(22,6,10), X.sub(X.FIND(X.CHAR(10.0), E.v(22,6,10)),1.0)), lambda: E.v(22,6,10)))) if X.truthy(X.eq(E.v(18,r-3,c),1.0)) else ''),(X.cat(', ','bệnh không có cứu (không thuốc)') if X.truthy(X.eq(E.v(18,r-2,c),1.0)) else '')), 3.0, 999.0)),'.') if X.truthy(X.gt(X.SUM(E.rg(18,r-3,c,r-2,c)),0.0)) else '')),(' Không có yếu tố hóa giải hay làm nặng – giữ nguyên kết luận bước 1.' if X.truthy(X.eq(X.add(X.SUM(E.rg(18,r-12,c,r-4,c)),X.SUM(E.rg(18,r-3,c,r-2,c))),0.0)) else ''))
 
 def f309(E, r, c):
     # Ô C128
@@ -1951,6 +1951,12 @@ def f309(E, r, c):
     #   guyệt nhị đức, thân vượng gặp ấn, tỉ kiếp tài đều nhiều, cục sinh thân, thân yếu gặp ấn, nguyệt ấn sinh thân → thân thể khỏe. Công cụ không kết luận n
     #   ăm mất (P1 tr.201)."
     return 'P1 tr.171: người thọ nguyên khí dày, dụng thần được sinh có lực; người yểu nguyên khí mỏng, dụng thần được ít khí, tứ trụ thiên về khô. P1 tr.172: cách xem mệnh thọ, mệnh yểu. P1 tr.173: thọ – yểu theo thực thương, ấn. P1 tr.97, 114–117: bệnh – thuốc (cứu ứng). Hóa giải toàn thư tr.201–202: thiên nguyệt nhị đức, thân vượng gặp ấn, tỉ kiếp tài đều nhiều, cục sinh thân, thân yếu gặp ấn, nguyệt ấn sinh thân → thân thể khỏe. Công cụ không kết luận năm mất (P1 tr.201).'
+
+def f310(E, r, c):
+    # Ô C129
+    # = IF(AND(DUNG_HY_KY!$C$155=1,COUNTIFS(SAO!$G$5:$G$20,1,SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)+COUNTIFS(SAO!$G$5:$G$20,3,SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)=0
+    #   ),1,0)
+    return (1.0 if X.truthy(X.AND(X.eq(E.v(8,155,3),1.0), X.eq(X.add(X.COUNTIFS(E.rg(13,5,7,20,7), 1.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0),X.COUNTIFS(E.rg(13,5,7,20,7), 3.0, E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0)),0.0))) else 0.0)
 
 CELLS = {
     'C6': (f0, 6, 3),
@@ -2304,4 +2310,5 @@ CELLS = {
     'C126': (f307, 126, 3),
     'C127': (f308, 127, 3),
     'C128': (f309, 128, 3),
+    'C129': (f310, 129, 3),
 }

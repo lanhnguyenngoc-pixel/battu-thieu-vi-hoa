@@ -62,6 +62,7 @@ class LaSo:
     # Lớp tổng hợp (đề xuất hoàn thiện 15/11/2026, B4) – KHÔNG phải ô nhập workbook, không đổi kết quả tính:
     tinh_trang_hon_nhan: str = ''        # '' | 'Độc thân' | 'Đã kết hôn' | 'Ly hôn' | 'Góa'
     so_con: int = None                   # None = không nhập
+    phoi_tu_tru: str = ''                # mục 2.9 (bản 6.9): tứ trụ vợ/chồng nhập theo can chi "Can Chi, Can Chi, Can Chi, Can Chi" (năm, tháng, ngày, giờ); chỉ dùng cho dòng tham khảo con cái
 
     def to_dict(self): return asdict(self)
 

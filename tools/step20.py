@@ -36,15 +36,21 @@ n = o.replace('cũng không tàng trong chi năm, ngày, giờ (chi tháng chỉ
               'cũng không tàng trong chi năm, tháng, ngày, giờ (ấn ở các can chi khác trong tứ trụ – P1 tr.70-72).')
 assert n != o; p.set_formula(S, 'C106', n, text=True, why=why)
 t = p.text_of('TRANG_CHU', 'B3'); i = t.find(' · Căn cứ'); assert i > 0
-p.set_text('TRANG_CHU', 'B3', 'Bản 6.8 – 21/11/2026 (6.7, PP1 “được sinh” xét ấn ở các can chi khác trong cả bốn trụ – P1 tr.70; '
+p.set_text('TRANG_CHU', 'B3', 'Bản 6.9 – 22/11/2026 (6.7, PP1 “được sinh” xét ấn ở các can chi khác trong cả bốn trụ – P1 tr.70; '
            'vượng suy PP1 đủ 5 bước; thọ – yểu theo P1 tr.172–173 kèm luận thêm; đại vận 6 mức, can chi tác dụng cả 10 năm; Mộc mùa hạ cần Thủy điều hầu; '
-           'Ngũ hành thiếu mục I; sao con cái mệnh nữ theo P2 tr.504)' + t[i:], why='Bản 6.8')
+           'Ngũ hành thiếu mục I; sao con cái mệnh nữ theo P2 tr.504; lưu niên: điều 6, 7, 8 P2 tr.288–289, xu thế năm có hình và hợp mất kỵ, gốc Thường giữ Thường)' + t[i:], why='Bản 6.8')
 
 import step20_bo_sung as BS
 BS.ngu_hanh_thieu(p, 'Bản 6.8 (duyệt 18/11/2026): Ngũ hành thiếu mục I')
 BS.sao_con(p, 'Bản 6.8 (duyệt 17/11/2026): sao con cái nam/nữ theo P2 tr.504')
 BS.dai_van(p, 'Bản 6.8 (duyệt 17/11/2026): đại vận 10 năm, mức 6 bậc (mục 2.4, 2.5)')
 BS.dieu_hau(p, 'Bản 6.8 (duyệt 17/11/2026): điều hầu', moc_ha=os.environ.get('MOC_HA', '1') == '1')
+BS.luu_nien(p, 'Bản 6.9 (giai đoạn 2): điều 6–8 P2 tr.288–289, xu thế năm có hình, hợp mất kỵ, gốc Thường giữ Thường')
+BS.nguoi_ung(p, 'Bản 6.9 (giai đoạn 2, duyệt 16/11/2026): người ứng theo cung + sao lục thân (mục 2.2)')
+BS.bo_sung_27(p, 'Bản 6.9 (giai đoạn 2, duyệt 17/11/2026): mục 2.7 điểm 1 (kình dương, P1 tr.117) và điểm 3 (P1 tr.108)')
+import step21_con_cai as CC
+CC.hop_hoa_luu_nien(p, 'Bản 6.9 (giai đoạn 2, yêu cầu 18/11/2026): mục 2.11 điểm C – điều 5 hợp hóa can lưu niên')
+CC.con_cai(p, 'Bản 6.9 (giai đoạn 2, duyệt 17/11/2026): mục 2.8 – dấu hiệu con cái P2 tr.500–511 và câu tổng hợp')
 tmp = '/tmp/s20_tmp.xlsx'; p.save(tmp)
 print('vá xong', len(p.log), 'ô', flush=True)
 if os.environ.get('CHI_VA'):

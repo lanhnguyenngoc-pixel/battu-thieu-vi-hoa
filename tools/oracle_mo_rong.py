@@ -77,7 +77,7 @@ try:
                 assert [KR.getCellRangeByName(f'B{t+1+i}').getString() for i in range(12)] == gio, 'cột giờ của bảng khác nhau'
             vals = {}
             for i, h in enumerate(gio):
-                KR.getCellRangeByName('C6').setString(h); doc.calculateAll()
+                KR.getCellRangeByName('C6').setString(h); doc.calculateAll(); doc.calculateAll()
                 for t in tops:
                     row = KR.getCellRangeByName(f'C{t}:D{t}').getDataArray()[0]
                     vals[(t + 1 + i, 'C')] = row[0]; vals[(t + 1 + i, 'D')] = row[1]
@@ -87,7 +87,7 @@ try:
                 if v == '': cell.setFormula('=""')      # giữ CHUỖI RỖNG (setString('') làm ô trống hẳn)
                 elif isinstance(v, str): cell.setString(v)
                 else: cell.setValue(v)
-        doc.calculateAll(); outc = {}
+        doc.calculateAll(); doc.calculateAll(); outc = {}
         chi = bien.get('chi_sheets'); them = bien.get('them_o', {})
         for name, refs in FC.items():
             if chi is not None and name not in chi and name not in them: continue

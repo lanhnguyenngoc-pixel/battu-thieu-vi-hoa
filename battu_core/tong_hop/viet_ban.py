@@ -163,14 +163,22 @@ def _kl(hs, muc, nhan):
     return ''
 
 
-def _cau_con_cai(hs, pd, an_m):
+def _cau_con_cai(hs, pd, an_m, gon=False):
     """Đoạn kết luận Con cái của MỘT lá số (dùng cho lá chính và lá hôn phối)."""
     lt = pd['luc_than']
-    d = lt.get('Con cái', {})
-    s2 = '**Con cái: %s.** %s' % (d.get('muc') or '—', _cau(d.get('chinh', '').split(':', 1)[-1], 1))
-    if 'Con đầu lòng' not in an_m:
-        cdl = _kl(hs, 'G. Gia đạo', 'Con đầu lòng').split('Vì sao')[0].strip()
-        if cdl: s2 += ' Con đầu lòng (theo sách): %s.' % cdl.rstrip('.').lower()
+    d = lt.get('Con cái', {}); cc = hs.get('con_cai') or {}
+    th = (cc.get('tong_hop') or '').strip()
+    if th:      # mục 2.8: câu tổng hợp của workbook (đã gồm con đầu lòng)
+        s2 = ('' if gon else '**Con cái:** ') + th.replace('CON CÁI: ', '', 1)
+        nb = (cc.get('nam_bat_loi') or '').strip()
+        if gon: nb = ''
+        if nb and not nb.startswith('('): s2 += ' Năm có dấu hiệu bất lợi cho con (thương, thực gặp quan sát): %s.' % nb.rstrip('.;')
+        if not gon: s2 += ' (Phần sức khỏe của con chỉ để tham khảo, không phải chẩn đoán.)'
+    else:
+        s2 = '**Con cái: %s.** %s' % (d.get('muc') or '—', _cau(d.get('chinh', '').split(':', 1)[-1], 1))
+        if 'Con đầu lòng' not in an_m:
+            cdl = _kl(hs, 'G. Gia đạo', 'Con đầu lòng').split('Vì sao')[0].strip()
+            if cdl: s2 += ' Con đầu lòng (theo sách): %s.' % cdl.rstrip('.').lower()
     unh = _kl(hs, 'G. Gia đạo', 'Con cái (UH)')
     if 'không có con' in unh:
         s2 += ' Uyên Hải Tử Bình (trọng số thấp hơn) nêu sao con nhập mộ, vô khí – đọc là con muộn hoặc ít, không phải không có con.'
@@ -179,24 +187,52 @@ def _cau_con_cai(hs, pd, an_m):
     return s2
 
 
+def doc_tu_tru(txt):
+    """\"Nhâm Ngọ, Canh Tuất, Ất Mão, Mậu Dần\" → (can[4], chi[4]); sai định dạng hoặc tên can chi lạ → None."""
+    from battu_core.nhap_lieu import CAN, CHI
+    cap = [x.strip().split() for x in re.split(r'[,;/]', txt or '') if x.strip()]
+    if len(cap) != 4 or any(len(c) != 2 for c in cap): return None
+    can, chi = [c[0].capitalize() for c in cap], [c[1].capitalize() for c in cap]
+    return (can, chi) if all(x in CAN for x in can) and all(x in CHI for x in chi) else None
+
+
+def _nam_theo_can_chi(can, chi, gan):
+    """Năm dương lịch có can chi này, gần năm `gan` nhất (can chi lặp 60 năm); chỉ để điền ô năm sinh trừ năm khi nhập can chi."""
+    from battu_core.nhap_lieu import CAN, CHI
+    ds = [y for y in range(1900, 2100) if CAN[(y - 4) % 10] == can and CHI[(y - 4) % 12] == chi]
+    return min(ds, key=lambda y: abs(y - gan)) if ds else None
+
+
 def _dong_hon_phoi(la_so):
-    """Mục 2.9 (bản 6.8): MỘT dòng tham khảo con cái theo lá số hôn phối, khi có đủ ngày, tháng, năm, giờ sinh của vợ/chồng.
+    """Mục 2.9: MỘT dòng tham khảo con cái theo lá số hôn phối. Có hai cách nhập: đủ ngày, tháng, năm, giờ sinh dương lịch, hoặc tứ trụ theo can chi.
     Không đổi kết luận nào của lá chính; lá hôn phối tính bằng đúng bộ tính hiện có, giới tính ngược với lá chính."""
+    if la_so is None: return ''
     pn = list(getattr(la_so, 'phoi_ngau', None) or []) + [None] * 5
     d, m, y, h, mi = pn[:5]
-    if la_so is None or None in (d, m, y, h): return ''
     from battu_core.nhap_lieu import LaSo
     from battu_core.dich_vu import tinh
     nam = (la_so.gioi_tinh or 'Nam') == 'Nam'
-    s2 = LaSo(cach_nhap='duong', ngay=int(d), thang=int(m), nam=int(y), gio=int(h), phut=int(mi or 0), mui_gio=la_so.mui_gio,
-              gioi_tinh='Nữ' if nam else 'Nam', nam_xem=la_so.nam_xem, vuong_suy=la_so.vuong_suy, che_do_nht=la_so.che_do_nht)
+    chung = dict(mui_gio=la_so.mui_gio, gioi_tinh='Nữ' if nam else 'Nam', nam_xem=la_so.nam_xem, vuong_suy=la_so.vuong_suy, che_do_nht=la_so.che_do_nht)
+    if None not in (d, m, y, h):
+        s2 = LaSo(cach_nhap='duong', ngay=int(d), thang=int(m), nam=int(y), gio=int(h), phut=int(mi or 0), **chung)
+    else:
+        tt = doc_tu_tru(getattr(la_so, 'phoi_tu_tru', ''))
+        if not tt: return ''
+        can, chi = tt
+        gan = (la_so.nam or 1980) if la_so.cach_nhap != 'canchi' else (la_so.nam_sinh_tru_nam or 1980)
+        ns = _nam_theo_can_chi(can[0], chi[0], gan)
+        if ns is None: return ''
+        s2 = LaSo(cach_nhap='canchi', can=can, chi=chi, nam_sinh_tru_nam=ns, **chung)
     try:
         kq2 = tinh(s2); hs2 = ho_so(kq2.E, s2); pd2 = phan_doan(hs2, s2)
     except Exception:
         return ''
-    cau = _cau_con_cai(hs2, pd2, {x['muc'] for x in pd2['an_muc']}).replace('**', '')
+    cau = _cau_con_cai(hs2, pd2, {x['muc'] for x in pd2['an_muc']}, gon=True).replace('**', '')
     tt = ', '.join('%s %s' % (t['can'], t['chi']) for t in hs2['tu_tru'])
     return 'Tham khảo thông tin về Con cái theo lá số của %s (%s) là: %s' % ('vợ' if nam else 'chồng', tt, cau)
+
+
+dong_hon_phoi = _dong_hon_phoi
 
 
 def soan(hs, pd, la_so=None, ho_ten=''):
@@ -440,6 +476,11 @@ def soan(hs, pd, la_so=None, ho_ten=''):
             n, y.get('luu_nien'), pln[n]['muc'].lower(), ('Việc ứng theo can năm (sách): %s. ' % vu.rstrip('.')) if vu else '',
             ('Dấu hiệu của năm: %s. ' % '; '.join(re.sub(r'^\[[^\]]*\]\s*', '', x) for x in dh)) if dh else '',
             ('Sức khỏe: %s – %s.' % (tp.group(1).lower(), tp.group(2).strip())) if tp else '')))
+        nu = (y.get('nguoi_ung') or '').strip()
+        if nu:
+            cites = re.findall(r'\((P[12] tr\.[^)]*)\)', nu)
+            chinh = re.sub(r'\s*\(P[12] tr\.[^)]*\)', '', nu)
+            B.append(('p', '**%s** (📖 Căn cứ sách: %s)' % (chinh, '; '.join(dict.fromkeys(cites)))))
 
     # 10. Hóa giải – kết luận
     B.append(('h2', '10. Hóa giải, lời khuyên và kết luận'))

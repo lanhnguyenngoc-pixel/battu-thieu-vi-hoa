@@ -63,13 +63,19 @@ def _la_mau():
     s3 = LaSo(**{**s.to_dict(), 'phoi_ngau': [5, 3, 1980, 10, 0]})
     sp = LaSo(cach_nhap='duong', ngay=5, thang=3, nam=1980, gio=10, phut=0, gioi_tinh='Nữ', nam_xem=2026)
     hp = ho_so(tinh(sp).E, sp); pp = phan_doan(hp, sp)
-    chuan = _cau_con_cai(hp, pp, {x['muc'] for x in pp['an_muc']}).replace('**', '')
+    chuan = _cau_con_cai(hp, pp, {x['muc'] for x in pp['an_muc']}, gon=True).replace('**', '')
     dong = _dong_hon_phoi(s3)
     if not (dong.startswith('Tham khảo thông tin về Con cái theo lá số của vợ (') and dong.endswith(chuan)): loi.append(('mẫu', 'dòng hôn phối (nam → vợ)', dong[:80]))
     if _dong_hon_phoi(s): loi.append(('mẫu', 'không nhập hôn phối mà vẫn có dòng'))
     if _dong_hon_phoi(LaSo(**{**s.to_dict(), 'phoi_ngau': [None, None, 1980, None, None]})): loi.append(('mẫu', 'chỉ nhập năm hôn phối mà vẫn có dòng'))
     s4 = LaSo(**{**sp.to_dict(), 'phoi_ngau': [28, 11, 1978, 8, 30]})
     if not _dong_hon_phoi(s4).startswith('Tham khảo thông tin về Con cái theo lá số của chồng ('): loi.append(('mẫu', 'dòng hôn phối (nữ → chồng)'))
+    # Mục 2.9 nhập theo can chi: cùng lá với nhập theo ngày sinh → cùng dòng; nhập sai → không có dòng
+    tt = ', '.join('%s %s' % (t['can'], t['chi']) for t in hp['tu_tru'])
+    dong_cc = _dong_hon_phoi(LaSo(**{**s.to_dict(), 'phoi_tu_tru': tt}))
+    if dong_cc != dong: loi.append(('mẫu', 'hôn phối nhập can chi ≠ nhập ngày sinh', dong_cc[:80]))
+    for xau in ('Nhâm Ngọ, Canh Tuất', 'Nhâm Ngọ, Canh Tuất, Ất Mão, Mậu Xyz', ''):
+        if _dong_hon_phoi(LaSo(**{**s.to_dict(), 'phoi_tu_tru': xau})): loi.append(('mẫu', 'can chi hôn phối sai mà vẫn có dòng', xau))
     return p, loi
 
 

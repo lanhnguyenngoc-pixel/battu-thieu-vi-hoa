@@ -168,7 +168,12 @@ class TrangLinhVuc(QWidget):
 
     def _ve_kl(self, i):
         chu, r0, rkl = MUC_KL[i]; E = self.kq.E; t = self.td_kl[i]; t.bat_dau()
-        self.muc[i][3].setText('<div style="line-height:145%%"><b>%s</b><br>%s</div>' % (html.escape(chu_o(E, 'KET_LUAN', 'B%d' % rkl)), t.html(chu_o(E, 'KET_LUAN', 'C%d' % rkl))))
+        them = ''
+        if chu == 'G':      # mục 2.9: dòng tham khảo con cái theo lá số vợ/chồng (nếu đã nhập), ngay dưới kết luận Gia đạo
+            from battu_core.tong_hop.viet_ban import dong_hon_phoi
+            if not hasattr(self.kq, '_dong_hp'): self.kq._dong_hp = dong_hon_phoi(self.kq.la_so)
+            if self.kq._dong_hp: them = '<br><br>' + html.escape(self.kq._dong_hp)
+        self.muc[i][3].setText('<div style="line-height:145%%"><b>%s</b><br>%s%s</div>' % (html.escape(chu_o(E, 'KET_LUAN', 'B%d' % rkl)), t.html(chu_o(E, 'KET_LUAN', 'C%d' % rkl)), them))
 
     def _chon(self, i):
         self.ngan.setCurrentIndex(i); self._ve()

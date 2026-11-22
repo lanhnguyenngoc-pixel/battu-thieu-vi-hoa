@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.1 (quy tắc 6.8)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.2 (quy tắc 6.9)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.7; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.9.1_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.9.2_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -75,6 +75,9 @@ H.append('<p>Chọn một trong ba cách: <b>Dương lịch</b> (ngày, tháng, 
          '<p><b>Ngày sinh của vợ/chồng</b> (tùy chọn): nhập ngày, tháng, năm, giờ, phút dương lịch – hoặc chỉ nhập năm – để mục Hôn nhân '
          'xét hợp tuổi theo nạp âm và can chi. Trụ năm của người kia đổi tại Lập xuân (P2 tr.268): nếu chỉ nhập năm, phần mềm coi như sinh sau '
          'Lập xuân và có ghi cảnh báo.</p>'
+         '<p><b>Tứ trụ của vợ/chồng theo can chi</b> (tùy chọn, từ bản 1.9.2): nếu không có đủ ngày giờ sinh, nhập bốn cặp can chi (năm, tháng, ngày, giờ) cách nhau bằng dấu phẩy, '
+         'ví dụ “Nhâm Ngọ, Canh Tuất, Ất Mão, Mậu Dần”. Khi đã có đủ ngày, tháng, năm, giờ sinh thì dùng ngày sinh. Phần mềm tính lá số thứ hai bằng đúng bộ tính hiện có (giới tính ngược với lá chính) '
+         'và chỉ thêm MỘT dòng “Tham khảo thông tin về Con cái theo lá số của vợ/chồng (…) là: …” ở Theo lĩnh vực (mục Gia đạo) và ở Luận giải tổng hợp, bản PDF, bản Word; dòng này không đổi kết luận nào của lá chính.</p>'
          '<p>Ô màu vàng nhạt ở cột phải là <b>cảnh báo</b>: sát ranh giới giờ (±10 phút), sát giao tiết (±1 ngày), '
          'thiếu số ngày tới tiết Lập, PP1 cần luận giải, PP1 ≠ PP2.</p>')
 
@@ -162,6 +165,13 @@ H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Định dạng
 
 H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing="0">'
          '<tr><th width="34%">Câu hỏi</th><th>Trả lời</th></tr>'
+         '<tr><td>Quy tắc 6.9 khác 6.8 ở đâu?</td><td>(1) Lưu niên: điều 6, 7, 8 (P2 tr.288–289) – hung sát khắc hại nhật nguyên/dụng thần, tuế vận gặp nhau tách theo can năm (thất sát/kình dương: hung; tài, quan, ấn: tốt), dụng thần hợp thái tuế là gặp may. '
+         '(2) Xu thế năm: chi năm xung hoặc hình chữ mang dụng/hỷ, hoặc hợp chữ kỵ, được tính; gốc năm là Thường thì giữ Thường, việc mất dụng hay mất kỵ ghi ở phần sự kiện (P2 tr.282 đ.1–2). '
+         '(3) Mỗi năm có một câu “người ứng”: cung của trụ bị chạm, sao lục thân trong chữ bị chạm, dụng/kỵ, có cứu hay không, nền xu thế. (4) Sự nghiệp: cách kình dương (P1 tr.117). '
+         '(5) Thọ – yểu: thêm dấu hiệu “thân vượng mà thiếu cả quan sát và thực thương” (P1 tr.108). '
+         '(6) Con cái: một câu tổng hợp (nhiều/vừa/ít con, việc nuôi dạy, con đầu lòng), danh sách các câu sách đang ứng với lá số và các năm có dấu hiệu bất lợi cho con (P2 tr.500–511; P1 tr.157). '
+         '(7) Lưu niên: khi can năm ngũ hợp hóa với một can trong tứ trụ và hóa thành hành dụng/hỷ/kỵ theo điều 5 (P2 tr.282) thì xét vai trò của can năm theo hành hóa thần. '
+         'Chưa làm: quan sát hỗn tạp cứu bằng hợp (cần đối chiếu lại nguyên văn P1 tr.115–117); “tham hợp quên xung” cho PP1 (đo trên 73 lá làm mất 1 lá khớp sách nên chỉ giữ nguyên); năm sự việc của sách để đo xu thế năm (chưa có dữ liệu có nhãn).</td></tr>'
          '<tr><td>Quy tắc 6.8 khác 6.7 ở đâu?</td><td>(1) Được sinh theo phương pháp 1 tính ấn ở mọi can chi trong cả bốn trụ (P1 tr.70). (2) Đại vận: can chi cùng tác dụng cả 10 năm (P1 tr.122–125), mức 6 bậc (Rất tốt, Tốt, Tốt vừa, Xấu vừa, Xấu, Rất xấu) kèm câu giải thích; chi vận xét hợp hóa và xung với chi tứ trụ. '
          '(3) Điều hầu: Mộc sinh mùa hạ cần Thủy (P1 tr.76, 100). (4) Bảng Ngũ hành thiếu mục I: mục “được lệnh” ở chế độ theo sách không xét “giả” như chế độ theo trang, mục “cùng hành” ở chế độ theo trang tính cả nhật chủ Mậu, Kỷ. '
          '(5) Sao con cái của mệnh nữ: chính quan, thương quan nghiêng về con trai; thất sát, thực thần nghiêng về con gái (P2 tr.504). (6) Nhập đủ ngày giờ sinh vợ/chồng thì có thêm một dòng tham khảo về con cái theo lá số của người đó. '

@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau, KetQua
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.9.1 · Quy tắc 6.8'
+PHIEN_BAN = 'Phiên bản 1.9.2 · Quy tắc 6.9'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -219,6 +219,8 @@ class TrangNhap(QWidget):
         self.pn = [o_tuy_chon(t) for t in ('ngày', 'tháng', 'năm', 'giờ', 'phút')]
         for w in self.pn: hp.addWidget(w)
         cv.addLayout(hp)
+        cv.addWidget(lbl('hoặc tứ trụ của vợ/chồng theo can chi: năm, tháng, ngày, giờ (chỉ để hiện dòng tham khảo về con cái)', 'nhan', True))
+        self.pt = QLineEdit(); self.pt.setPlaceholderText('Ví dụ: Nhâm Ngọ, Canh Tuất, Ất Mão, Mậu Dần'); cv.addWidget(self.pt)
         # hoàn cảnh (tùy chọn) – chỉ dùng cho bản Luận giải tổng hợp (lọc mục không hợp), không đổi kết quả tính
         hhn = QHBoxLayout(); hhn.setSpacing(8)
         hhn.addWidget(lbl('Hôn nhân', 'nhan')); self.hon_nhan = QComboBox()
@@ -273,7 +275,7 @@ class TrangNhap(QWidget):
         for w in self.cb_can + self.cb_chi + [self.mui, self.gio_xem, self.vs, self.nht, self.mau]:
             w.currentIndexChanged.connect(self.hen.start)
         self.hon_nhan.currentIndexChanged.connect(self.hen.start)
-        for w in [self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.ho_ten, self.so_con] + self.pn:
+        for w in [self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.ho_ten, self.so_con, self.pt] + self.pn:
             w.textChanged.connect(self.hen.start)
         for w in [self.krg, self.a_nhuan]: w.toggled.connect(self.hen.start)
         self.cach.doi.connect(self.doi_cach); self.gt.doi.connect(lambda _: self.hen.start())
@@ -316,7 +318,7 @@ class TrangNhap(QWidget):
         s.la_mau = self.mau.currentText()
         s.so_ngay_toi_tiet_lap = doc_tuy_chon(self.c11, True); s.so_ngay_den_tiet = doc_tuy_chon(self.c28, True)
         s.so_gio_le = doc_tuy_chon(self.c29, True); s.thang_am = doc_tuy_chon(self.c32); s.ngay_am = doc_tuy_chon(self.c33)
-        s.phoi_ngau = self.doc_phoi_ngau()
+        s.phoi_ngau = self.doc_phoi_ngau(); s.phoi_tu_tru = self.pt.text().strip()
         s.tinh_trang_hon_nhan = '' if self.hon_nhan.currentIndex() == 0 else self.hon_nhan.currentText()
         s.so_con = doc_tuy_chon(self.so_con)
         if getattr(self, '_ghi_chu', None): s.ghi_chu = self._ghi_chu
@@ -336,7 +338,7 @@ class TrangNhap(QWidget):
         """Nạp lá số đã lưu vào ô nhập rồi tính lại (mở lại từ Danh sách lá số)."""
         ws = [self.d_ngay, self.d_thang, self.d_nam, self.a_ngay, self.a_thang, self.a_nam, self.gio, self.phut, self.nam_xem,
               self.mui, self.gio_xem, self.vs, self.nht, self.mau, self.krg, self.a_nhuan, self.ho_ten,
-              self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.hon_nhan, self.so_con] + self.cb_can + self.cb_chi + self.pn
+              self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.hon_nhan, self.so_con, self.pt] + self.cb_can + self.cb_chi + self.pn
         for w in ws: w.blockSignals(True)
         try:
             self.ho_ten.setText(s.ho_ten or '')
@@ -359,6 +361,7 @@ class TrangNhap(QWidget):
             if pn[0] is not None and all(x is None for x in pn[1:5]) and pn[0] >= 1900:   # chỉ nhập năm
                 pn = [None, None, pn[0], None, None]
             for w, x in zip(self.pn, pn[:5]): w.setText(so(x))
+            self.pt.setText(getattr(s, 'phoi_tu_tru', '') or '')
             hn = getattr(s, 'tinh_trang_hon_nhan', '') or ''
             self.hon_nhan.setCurrentText(hn if hn else '(không nhập)'); self.so_con.setText(so(getattr(s, 'so_con', None)))
         finally:
