@@ -79,6 +79,14 @@ w.cg.setChecked(False)
 nhap_dl('Lá 1985', 15, 3, 1985, 10, 30)
 for x, v in zip(t.pn, ['12', '5', '1987', '8', '30']): x.setText(v)
 t.hen.stop(); t.tinh(); w.di(w.t_nhap); chup('24_nhap_phoi_ngau.png')
+# bản 1.9.2: tứ trụ vợ/chồng nhập theo can chi → dòng tham khảo con cái ở Theo lĩnh vực (Gia đạo) và Luận giải tổng hợp
+for x in t.pn: x.setText('')
+t.pt.setText('Nhâm Ngọ, Canh Tuất, Ất Mão, Mậu Dần'); t.gt.dat(0); t.hen.stop(); t.tinh(); w.di(w.t_nhap); chup('29_nhap_phoi_can_chi.png')
+w.di(w.t_lv); w.t_lv.mo('G'); app.processEvents()
+_sa = w.t_lv.muc[5][3].parentWidget().parentWidget(); _sa.verticalScrollBar().setValue(_sa.verticalScrollBar().maximum()); chup('30_gia_dao_dong_hon_phoi.png')
+w.di(w.t_th); app.processEvents(); chup('26_luan_giai_tong_hop.png')
+t.pt.setText(''); t.hen.stop(); t.tinh()
+
 t.krg.setChecked(True); app.processEvents(); t.hen.stop(); t.tinh()
 vv = w.t_krg.viec
 for i, (nam, loai, ghi) in enumerate([(2012, 'Kết hôn', 'cưới'), (2015, 'Sinh con', ''), (2019, 'Thăng tiến – phát tài', 'lên trưởng phòng'),

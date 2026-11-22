@@ -74,6 +74,7 @@ def _la_mau():
     tt = ', '.join('%s %s' % (t['can'], t['chi']) for t in hp['tu_tru'])
     dong_cc = _dong_hon_phoi(LaSo(**{**s.to_dict(), 'phoi_tu_tru': tt}))
     if dong_cc != dong: loi.append(('mẫu', 'hôn phối nhập can chi ≠ nhập ngày sinh', dong_cc[:80]))
+    if LaSo.from_dict(LaSo(**{**s.to_dict(), 'phoi_tu_tru': tt}).to_dict()).phoi_tu_tru != tt: loi.append(('mẫu', 'lưu/mở lại không giữ tứ trụ hôn phối'))
     for xau in ('Nhâm Ngọ, Canh Tuất', 'Nhâm Ngọ, Canh Tuất, Ất Mão, Mậu Xyz', ''):
         if _dong_hon_phoi(LaSo(**{**s.to_dict(), 'phoi_tu_tru': xau})): loi.append(('mẫu', 'can chi hôn phối sai mà vẫn có dòng', xau))
     return p, loi

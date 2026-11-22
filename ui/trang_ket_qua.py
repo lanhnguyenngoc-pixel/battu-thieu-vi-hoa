@@ -134,7 +134,7 @@ class TrangLinhVuc(QWidget):
                 kl = lbl('', 'chip_info', True); kl.setStyleSheet('font-size:13.5px; padding:12px 14px;')
                 kl.setTextFormat(Qt.RichText); kl.setOpenExternalLinks(False)
                 kl.linkActivated.connect(lambda u, j=i: self.td_kl[j].bam(u) and self._ve_kl(j))
-                sk = cuon(kl); sk.setMaximumHeight(210); wl.addWidget(sk)
+                sk = cuon(kl); sk.setMaximumHeight(210); sk.setMinimumHeight(140); wl.addWidget(sk)
             if chu == 'H':
                 wl.addWidget(lbl('Nội dung sức khỏe chỉ để tham khảo, không phải chẩn đoán y khoa.', 'chip_warn', True))
             hai = QStackedWidget(); bd = BaiDoc(); b = BangSheet('KET_LUAN', dong=dong_muc(i))

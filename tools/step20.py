@@ -51,6 +51,7 @@ BS.bo_sung_27(p, 'Bản 6.9 (giai đoạn 2, duyệt 17/11/2026): mục 2.7 đi�
 import step21_con_cai as CC
 CC.hop_hoa_luu_nien(p, 'Bản 6.9 (giai đoạn 2, yêu cầu 18/11/2026): mục 2.11 điểm C – điều 5 hợp hóa can lưu niên')
 CC.con_cai(p, 'Bản 6.9 (giai đoạn 2, duyệt 17/11/2026): mục 2.8 – dấu hiệu con cái P2 tr.500–511 và câu tổng hợp')
+CC.hop_cuc_luu_nien(p, 'Bản 6.9 (giai đoạn 2, 22/11/2026): mục 2.11 – chi lưu niên hợp/hội cục với tứ trụ, đại vận (P2 tr.281-283, 254)')
 tmp = '/tmp/s20_tmp.xlsx'; p.save(tmp)
 print('vá xong', len(p.log), 'ô', flush=True)
 if os.environ.get('CHI_VA'):

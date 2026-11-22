@@ -67,6 +67,8 @@ H.append('<p>Trong mọi bảng: rê chuột lên ô để xem toàn văn ô dà
 
 H.append('<h2>3. Nhập lá số</h2>')
 anh('24_nhap_phoi_ngau.png', 'Màn hình Nhập liệu: cột trái nhập (có ngày sinh vợ/chồng), cột phải tứ trụ và các kiểm tra, cảnh báo')
+anh('29_nhap_phoi_can_chi.png', 'Nhập tứ trụ vợ/chồng theo can chi (ô dưới ngày sinh vợ/chồng) – chỉ để hiện dòng tham khảo về con cái')
+anh('30_gia_dao_dong_hon_phoi.png', 'Theo lĩnh vực – Gia đạo: dòng “Tham khảo thông tin về Con cái theo lá số của vợ/chồng” nằm dưới kết luận')
 H.append('<p>Chọn một trong ba cách: <b>Dương lịch</b> (ngày, tháng, năm 1899–2101, giờ, phút, múi giờ – mặc định UTC+7), '
          '<b>Âm lịch</b> (đánh dấu <i>Tháng nhuận</i> nếu sinh tháng nhuận; phần mềm đổi sang dương lịch rồi tính), hoặc '
          '<b>Tự nhập can chi</b> 4 trụ. Chọn giới tính và <b>năm xem</b> (mặc định năm hiện tại). Không biết giờ sinh: bật '
@@ -169,9 +171,9 @@ H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing=
          '(2) Xu thế năm: chi năm xung hoặc hình chữ mang dụng/hỷ, hoặc hợp chữ kỵ, được tính; gốc năm là Thường thì giữ Thường, việc mất dụng hay mất kỵ ghi ở phần sự kiện (P2 tr.282 đ.1–2). '
          '(3) Mỗi năm có một câu “người ứng”: cung của trụ bị chạm, sao lục thân trong chữ bị chạm, dụng/kỵ, có cứu hay không, nền xu thế. (4) Sự nghiệp: cách kình dương (P1 tr.117). '
          '(5) Thọ – yểu: thêm dấu hiệu “thân vượng mà thiếu cả quan sát và thực thương” (P1 tr.108). '
-         '(6) Con cái: một câu tổng hợp (nhiều/vừa/ít con, việc nuôi dạy, con đầu lòng), danh sách các câu sách đang ứng với lá số và các năm có dấu hiệu bất lợi cho con (P2 tr.500–511; P1 tr.157). '
+         '(6) Con cái: một câu tổng hợp (nhiều/vừa/ít con, số câu sách thuận và trở ngại về nuôi dạy, con đầu lòng), danh sách các câu sách đang ứng với lá số và các năm có dấu hiệu bất lợi cho con (P2 tr.500–511; P1 tr.157). '
          '(7) Lưu niên: khi can năm ngũ hợp hóa với một can trong tứ trụ và hóa thành hành dụng/hỷ/kỵ theo điều 5 (P2 tr.282) thì xét vai trò của can năm theo hành hóa thần. '
-         'Chưa làm: quan sát hỗn tạp cứu bằng hợp (cần đối chiếu lại nguyên văn P1 tr.115–117); “tham hợp quên xung” cho PP1 (đo trên 73 lá làm mất 1 lá khớp sách nên chỉ giữ nguyên); năm sự việc của sách để đo xu thế năm (chưa có dữ liệu có nhãn).</td></tr>'
+         'Quan sát hỗn tạp được hợp mất kỵ thần đã có sẵn trong phần cứu ứng của dụng thần. Chưa làm: “tham hợp quên xung” cho PP1 (đo trên 73 lá làm mất 1 lá khớp sách nên chỉ giữ nguyên); năm sự việc của sách để đo xu thế năm (chưa có dữ liệu có nhãn).</td></tr>'
          '<tr><td>Quy tắc 6.8 khác 6.7 ở đâu?</td><td>(1) Được sinh theo phương pháp 1 tính ấn ở mọi can chi trong cả bốn trụ (P1 tr.70). (2) Đại vận: can chi cùng tác dụng cả 10 năm (P1 tr.122–125), mức 6 bậc (Rất tốt, Tốt, Tốt vừa, Xấu vừa, Xấu, Rất xấu) kèm câu giải thích; chi vận xét hợp hóa và xung với chi tứ trụ. '
          '(3) Điều hầu: Mộc sinh mùa hạ cần Thủy (P1 tr.76, 100). (4) Bảng Ngũ hành thiếu mục I: mục “được lệnh” ở chế độ theo sách không xét “giả” như chế độ theo trang, mục “cùng hành” ở chế độ theo trang tính cả nhật chủ Mậu, Kỷ. '
          '(5) Sao con cái của mệnh nữ: chính quan, thương quan nghiêng về con trai; thất sát, thực thần nghiêng về con gái (P2 tr.504). (6) Nhập đủ ngày giờ sinh vợ/chồng thì có thêm một dòng tham khảo về con cái theo lá số của người đó. '

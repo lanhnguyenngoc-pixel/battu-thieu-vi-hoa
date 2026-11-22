@@ -407,6 +407,7 @@ class TrangNhap(QWidget):
             import copy
             c = self._nho[khoa]; ls = copy.copy(c.la_so); ls.ho_ten, ls.ghi_chu = s.ho_ten, s.ghi_chu
             ls.tinh_trang_hon_nhan, ls.so_con = s.tinh_trang_hon_nhan, s.so_con      # không phải ô workbook – lấy theo ô nhập
+            ls.phoi_tu_tru = s.phoi_tu_tru
             self._xong(KetQua(ls, c.E, c.ms), None); return
         if self._ban: self._cho = True; return                  # đang tính: tính lại lần nữa khi xong
         dong_bo = bool(os.environ.get('BATTU_DONG_BO')) if dong_bo is None else dong_bo
