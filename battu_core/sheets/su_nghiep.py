@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet SU_NGHIEP – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.9.xlsx (SHA-256 671245aea574f577f3cb312db9b3db0d1ce1973b107488ca7b828a9ceb4d60da).
+Nguồn: B69n.xlsx (SHA-256 9228d1ab613379f50ca7126e315efcbb940599c6e1784212c489756674ca8b67).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 

@@ -52,7 +52,10 @@ import step21_con_cai as CC
 CC.hop_hoa_luu_nien(p, 'Bản 6.9 (giai đoạn 2, yêu cầu 18/11/2026): mục 2.11 điểm C – điều 5 hợp hóa can lưu niên')
 CC.con_cai(p, 'Bản 6.9 (giai đoạn 2, duyệt 17/11/2026): mục 2.8 – dấu hiệu con cái P2 tr.500–511 và câu tổng hợp')
 CC.hop_cuc_luu_nien(p, 'Bản 6.9 (giai đoạn 2, 22/11/2026): mục 2.11 – chi lưu niên hợp/hội cục với tứ trụ, đại vận (P2 tr.281-283, 254)')
-tmp = '/tmp/s20_tmp.xlsx'; p.save(tmp)
+import step22_nht as N22
+N22.hien_thi_dac_dia(p, 'Bản 6.9 (22/11/2026): mục I – cột Trạng thái đắc địa hiện theo vòng Thủy, khớp cách tính')
+N22.ghi_chu_vong_thuy(p, 'Bản 6.9 (22/11/2026): mục I – ghi chú vòng Thủy khác sách tr.34')
+tmp = '/tmp/s20_tmp%s.xlsx' % PORT; p.save(tmp)
 print('vá xong', len(p.log), 'ô', flush=True)
 if os.environ.get('CHI_VA'):
     shutil.copy(tmp, DST); sys.exit(0)

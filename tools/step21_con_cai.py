@@ -85,7 +85,8 @@ def con_cai(p, why):
     nuoi = '"về việc nuôi dạy, sách có "&%s&" câu thuận và "&%s&" câu trở ngại ứng với lá số (chỉ tham khảo)"' % (nt, nx)
     traigai = '"con đầu lòng: "&$D$23&IF(%s," (nghiêng về – sách P1 tr.157 nói mệnh nữ thường không chuẩn)","")' % NU
     p.new_formula(S, 'C36', '"CON CÁI: "&%s&"; "&%s&"; "&%s&"."' % (so_con, nuoi, traigai), text=True, style_from='C31', why=why)
-    p.new_formula(S, 'C37', 'IF(LEN(%s)=0,"Không có câu sách nào ứng với lá số.","Các câu sách ứng với lá số: "&%s)' % (ds(G1 + G2 + G3 + G4 + G5), ds(G1 + G2 + G3 + G4 + G5)),
+    # Excel giới hạn 8192 ký tự/công thức: chỉ dùng danh sách câu một lần; trường hợp không có câu nào thì ra chuỗi rỗng sau tiền tố
+    p.new_formula(S, 'C37', '"Các câu sách ứng với lá số: "&%s' % ds(G1 + G2 + G3 + G4 + G5),
                   text=True, style_from='C31', why=why)
     # --- năm có dấu hiệu bất lợi cho CON: cột phụ DU, DV ở LUU_NIEN
     L = 'LUU_NIEN'
@@ -130,6 +131,13 @@ def hop_hoa_luu_nien(p, why):
             p.set_formula(L, '%s%d' % (col, r), 'IF(DW%d>=0,"Điều 5: can năm "&INDEX(CAN_TEN,J%d+1)&" ngũ hợp hóa "&INDEX(HANH_TEN,DW%d+1)&" nên xét vai trò theo hành hóa thần (P2 tr.282 đ.5). ","")&' % (r, r, r) + f, text=True, why=why)
 
 
+def _cot(n):
+    t = ''
+    while n:
+        n, m = divmod(n - 1, 26); t = chr(65 + m) + t
+    return t
+
+
 def hop_cuc_luu_nien(p, why):
     """Chi lưu niên hợp / hội cục với tứ trụ và đại vận (P2 tr.281-283 đ.5, 10, 12, 17; tr.254; P1 tr.62, 66-68).
     Chỉ GHI vào 'sự kiện của năm' (cột DY nối vào BN): không đổi xu thế tốt/xấu của năm."""
@@ -154,6 +162,8 @@ def hop_cuc_luu_nien(p, why):
         return ('IF(%s<0,"",IF(OR(%s=%s,%s=%s)," – hành này là dụng/hỷ thần: tốt",IF(%s=%s," – hành này là kỵ thần: hung"," – hành này là nhàn thần")))'
                 % (DU, h, DU, h, HY, h, KY))
 
+    for k in range(12):
+        p.set_text(L, '%s29' % _cot(130 + k), 'Phụ (hợp/hội cục lưu niên) – phần %d' % (k + 1), why=why, must_be_empty=True, style_from='DN29')
     for r in LN_ROWS:
         K, G, P = 'K%d' % r, 'G%d' % r, 'P%d' % r
 
@@ -205,7 +215,11 @@ def hop_cuc_luu_nien(p, why):
                 cond = 'AND(%s,%s)' % (GIO, cond)
             parts.append('IF(%s,"• Tứ trụ có chi "&%s&" – "&%s&" (trụ %s, %s) lục hợp nhưng chưa hóa; can năm đưa hóa thần "&%s&" ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ","")'
                          % (cond, chi(a), chi(b), TRU[i], TRU[i + 1], hanh(hh)))
-        f = 'TRIM(%s)' % '&'.join(parts)
+        # Excel giới hạn 8192 ký tự/công thức: mỗi phần một cột phụ (DZ trở đi), DY nối các phần
+        cols = [_cot(130 + k) for k in range(len(parts))]       # DZ = cột 130
+        for cn, pt in zip(cols, parts):
+            p.new_formula(L, '%s%d' % (cn, r), pt, text=True, style_from='BN30', why=why)
+        f = 'TRIM(%s)' % '&'.join('%s%d' % (cn, r) for cn in cols)
         p.new_formula(L, 'DY%d' % r, f, text=True, style_from='BN30', why=why)
         old = p.formula(L, 'BN%d' % r)
         tail = '&IF(LEN(CU%d)>0," "&CU%d,"")' % (r, r)

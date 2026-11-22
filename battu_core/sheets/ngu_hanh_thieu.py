@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet NGU_HANH_THIEU – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.9.xlsx (SHA-256 671245aea574f577f3cb312db9b3db0d1ce1973b107488ca7b828a9ceb4d60da).
+Nguồn: B69n.xlsx (SHA-256 9228d1ab613379f50ca7126e315efcbb940599c6e1784212c489756674ca8b67).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -54,8 +54,9 @@ def f7(E, r, c):
 
 def f8(E, r, c):
     # Ô C9
-    # = IF(TRUE(),TRUNG_GIAN!$C$29,"")
-    return (E.v(23,29,3) if X.truthy(X.TRUE()) else '')
+    # = IF(TRUE(),INDEX(STAGE_TEN,IF(MOD(TRUNG_GIAN!$E$5,2)=0,MOD(TRUNG_GIAN!C$6-CHOOSE(TRUNG_GIAN!$E$5+1,11,6,2,9,8,3,5,0,8,3),12),MOD(CHOOSE(TRUNG_GIAN!$E$5
+    #   +1,11,6,2,9,8,3,5,0,8,3)-TRUNG_GIAN!C$6,12))+1),"")
+    return (X.INDEX(E.rg(24,40,1,51,1), X.add((X.MOD(X.sub(E.v(23,6,c),X.CHOOSE(X.add(E.v(23,5,5),1.0), lambda: 11.0, lambda: 6.0, lambda: 2.0, lambda: 9.0, lambda: 8.0, lambda: 3.0, lambda: 5.0, lambda: 0.0, lambda: 8.0, lambda: 3.0)), 12.0) if X.truthy(X.eq(X.MOD(E.v(23,5,5), 2.0),0.0)) else X.MOD(X.sub(X.CHOOSE(X.add(E.v(23,5,5),1.0), lambda: 11.0, lambda: 6.0, lambda: 2.0, lambda: 9.0, lambda: 8.0, lambda: 3.0, lambda: 5.0, lambda: 0.0, lambda: 8.0, lambda: 3.0),E.v(23,6,c)), 12.0)),1.0)) if X.truthy(X.TRUE()) else '')
 
 def f9(E, r, c):
     # Ô D9
@@ -76,8 +77,9 @@ def f10(E, r, c):
 
 def f11(E, r, c):
     # Ô C10
-    # = IF(TRUE(),TRUNG_GIAN!$E$29,"")
-    return (E.v(23,29,5) if X.truthy(X.TRUE()) else '')
+    # = IF(TRUE(),INDEX(STAGE_TEN,IF(MOD(TRUNG_GIAN!$E$5,2)=0,MOD(TRUNG_GIAN!E$6-CHOOSE(TRUNG_GIAN!$E$5+1,11,6,2,9,8,3,5,0,8,3),12),MOD(CHOOSE(TRUNG_GIAN!$E$5
+    #   +1,11,6,2,9,8,3,5,0,8,3)-TRUNG_GIAN!E$6,12))+1),"")
+    return (X.INDEX(E.rg(24,40,1,51,1), X.add((X.MOD(X.sub(E.v(23,6,c+2),X.CHOOSE(X.add(E.v(23,5,5),1.0), lambda: 11.0, lambda: 6.0, lambda: 2.0, lambda: 9.0, lambda: 8.0, lambda: 3.0, lambda: 5.0, lambda: 0.0, lambda: 8.0, lambda: 3.0)), 12.0) if X.truthy(X.eq(X.MOD(E.v(23,5,5), 2.0),0.0)) else X.MOD(X.sub(X.CHOOSE(X.add(E.v(23,5,5),1.0), lambda: 11.0, lambda: 6.0, lambda: 2.0, lambda: 9.0, lambda: 8.0, lambda: 3.0, lambda: 5.0, lambda: 0.0, lambda: 8.0, lambda: 3.0),E.v(23,6,c+2)), 12.0)),1.0)) if X.truthy(X.TRUE()) else '')
 
 def f12(E, r, c):
     # Ô D10
@@ -98,8 +100,9 @@ def f13(E, r, c):
 
 def f14(E, r, c):
     # Ô C11
-    # = IF(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),TRUNG_GIAN!$F$29,"")
-    return (E.v(23,29,6) if X.truthy(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ'))) else '')
+    # = IF(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),INDEX(STAGE_TEN,IF(MOD(TRUNG_GIAN!$E$5,2)=0,MOD(TRUNG_GIAN!F$6-CHOOSE(TRUNG_GIAN!$E$5+1,11,6,2,9,8,3,5,0,8,3),12
+    #   ),MOD(CHOOSE(TRUNG_GIAN!$E$5+1,11,6,2,9,8,3,5,0,8,3)-TRUNG_GIAN!F$6,12))+1),"")
+    return (X.INDEX(E.rg(24,40,1,51,1), X.add((X.MOD(X.sub(E.v(23,6,c+3),X.CHOOSE(X.add(E.v(23,5,5),1.0), lambda: 11.0, lambda: 6.0, lambda: 2.0, lambda: 9.0, lambda: 8.0, lambda: 3.0, lambda: 5.0, lambda: 0.0, lambda: 8.0, lambda: 3.0)), 12.0) if X.truthy(X.eq(X.MOD(E.v(23,5,5), 2.0),0.0)) else X.MOD(X.sub(X.CHOOSE(X.add(E.v(23,5,5),1.0), lambda: 11.0, lambda: 6.0, lambda: 2.0, lambda: 9.0, lambda: 8.0, lambda: 3.0, lambda: 5.0, lambda: 0.0, lambda: 8.0, lambda: 3.0),E.v(23,6,c+3)), 12.0)),1.0)) if X.truthy(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ'))) else '')
 
 def f15(E, r, c):
     # Ô D11

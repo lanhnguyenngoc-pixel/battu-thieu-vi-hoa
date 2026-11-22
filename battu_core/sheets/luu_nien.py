@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet LUU_NIEN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.9.xlsx (SHA-256 671245aea574f577f3cb312db9b3db0d1ce1973b107488ca7b828a9ceb4d60da).
+Nguồn: B69n.xlsx (SHA-256 9228d1ab613379f50ca7126e315efcbb940599c6e1784212c489756674ca8b67).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1782,616 +1782,672 @@ def f261(E, r, c):
 
 def f262(E, r, c):
     # Ô DY30, DY31, DY32, DY33, DY34, DY35, DY36, DY37, DY38, DY39, DY40, DY41 … (100 ô)
-    # = TRIM(IF(AND((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+4,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(K30+4,12)),1,0)+IF(G30=MOD(K30+4,12
-    #   ),1,0)>0),(COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+8,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(K30+8,12)),1,0)+IF(G30=MOD(K30+8,12),
-    #   1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" cùng "&INDEX(CHI_TEN,MOD(K30+4,12)+1)&", "&INDEX(CHI_TEN,MOD(K30+8,12)+1)&" (tứ trụ/đại vận) hợp đủ ba ch
-    #   ữ thành "&INDEX(HANH_TEN,CHOOSE(MOD(K30,4)+1,4,3,1,0)+1)&" cục (tam hợp)"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(CHOO
-    #   SE(MOD(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),CHOOSE(MOD(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110
-    #   ,DUNG_HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(CHOOSE(MOD(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – 
-    #   hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.254; tr.281: lưu niên đưa hợp cục ra; P1 tr.67). ","")&IF((IF(MOD(3*INT(MOD(K30+1,12
-    #   )/3)-1+0,12)=K30,1,IF((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(3*INT(MOD(K30+1,12)/3)-1+0,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(3*IN
-    #   T(MOD(K30+1,12)/3)-1+0,12)),1,0)+IF(G30=MOD(3*INT(MOD(K30+1,12)/3)-1+0,12),1,0)>0),1,0))+IF(MOD(3*INT(MOD(K30+1,12)/3)-1+1,12)=K30,1,IF((COUNTIF(TRUNG
-    #   _GIAN!$C$6:$E$6,MOD(3*INT(MOD(K30+1,12)/3)-1+1,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(3*INT(MOD(K30+1,12)/3)-1+1,12)),1,0)+IF(
-    #   G30=MOD(3*INT(MOD(K30+1,12)/3)-1+1,12),1,0)>0),1,0))+IF(MOD(3*INT(MOD(K30+1,12)/3)-1+2,12)=K30,1,IF((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(3*INT(MOD(K30+1,
-    #   12)/3)-1+2,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(3*INT(MOD(K30+1,12)/3)-1+2,12)),1,0)+IF(G30=MOD(3*INT(MOD(K30+1,12)/3)-1+2,1
-    #   2),1,0)>0),1,0)))=3,"• Chi năm "&INDEX(CHI_TEN,K30+1)&" cùng hai chi còn lại hội đủ ba chữ thành "&INDEX(HANH_TEN,CHOOSE(INT(MOD(K30+1,12)/3)+1,4,0,1,
-    #   3)+1)&" cục (tam hội: lực lớn hơn tam hợp)"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(CHOOSE(INT(MOD(K30+1,12)/3)+1,4,0,
-    #   1,3)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),CHOOSE(INT(MOD(K30+1,12)/3)+1,4,0,1,3)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_K
-    #   Y!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(CHOOSE(INT(MOD(K30+1,12)/3)+1,4,0,1,3)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – 
-    #   hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.255; P1 tr.67). ","")&IF(AND((IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,0)+IF(AND(NHAP_L
-    #   IEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0)+IF(G30=0,1,0)>0)*1+IF(K30=0,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,4)+IF(AND(NHAP_LIEU!$C$9<>"Không r
-    #   õ giờ",TRUNG_GIAN!$F$6=4),1,0)+IF(G30=4,1,0)>0)*1+IF(K30=4,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,8)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!
-    #   $F$6=8),1,0)+IF(G30=8,1,0)>0)*1+IF(K30=8,1,0)>0)),1,0)+IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=
-    #   1),1,0)+IF(G30=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,5)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=5),1,0)+IF(G30=5,1
-    #   ,0)>0)*1+IF(K30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,
-    #   1,0)>0)),1,0)+IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0)*1+IF(K30=2,1,0)>
-    #   0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG
-    #   _GIAN!$C$6:$E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=10),1,0)+IF(G30=10,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0)+IF(AND(((COUNTIF(TRUNG_
-    #   GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=3),1,0)+IF(G30=3,1,0)>0)*1+IF(K30=3,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,7)+
-    #   IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=7),1,0)+IF(G30=7,1,0)>0)*1+IF(K30=7,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,11)+IF(AND(NHAP_LIEU!
-    #   $C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=11),1,0)+IF(G30=11,1,0)>0)*1+IF(K30=11,1,0)>0)),1,0))>=2,CHOOSE(MOD(K30,4)+1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$
-    #   6,0)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0)+IF(G30=0,1,0)>0)*1+IF(K30=0,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,4)+IF(AND(NHAP_L
-    #   IEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=4),1,0)+IF(G30=4,1,0)>0)*1+IF(K30=4,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,8)+IF(AND(NHAP_LIEU!$C$9<>"Không r
-    #   õ giờ",TRUNG_GIAN!$F$6=8),1,0)+IF(G30=8,1,0)>0)*1+IF(K30=8,1,0)>0)),1,0),IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ
-    #   ",TRUNG_GIAN!$F$6=1),1,0)+IF(G30=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,5)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=
-    #   5),1,0)+IF(G30=5,1,0)>0)*1+IF(K30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1
-    #   ,0)>0)*1+IF(K30=9,1,0)>0)),1,0),IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0
-    #   )*1+IF(K30=2,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>
-    #   0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=10),1,0)+IF(G30=10,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0),IF(AN
-    #   D(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=3),1,0)+IF(G30=3,1,0)>0)*1+IF(K30=3,1,0)>0),((COUNTIF(TRUNG_
-    #   GIAN!$C$6:$E$6,7)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=7),1,0)+IF(G30=7,1,0)>0)*1+IF(K30=7,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,11)
-    #   +IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=11),1,0)+IF(G30=11,1,0)>0)*1+IF(K30=11,1,0)>0)),1,0))=1),"• Tứ trụ, đại vận, lưu niên có sáu ch
-    #   i hợp thành hai tam hợp cục khác nhau"&IF(OR(AND(IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,0)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0
-    #   )+IF(G30=0,1,0)>0)*1+IF(K30=0,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,4)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=4),1,0)+IF(G30=4,1,0)>0)
-    #   *1+IF(K30=4,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,8)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=8),1,0)+IF(G30=8,1,0)>0)*1+IF(K30=8,1,0)>0
-    #   )),1,0)=1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0)*1+IF(K30=2,1,0)>0),(
-    #   (COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIA
-    #   N!$C$6:$E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=10),1,0)+IF(G30=10,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0)=1),AND(IF(AND(((COUNTIF(TRU
-    #   NG_GIAN!$C$6:$E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=1),1,0)+IF(G30=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,
-    #   5)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=5),1,0)+IF(G30=5,1,0)>0)*1+IF(K30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_LIE
-    #   U!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,1,0)>0)),1,0)=1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIEU!$
-    #   C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0)*1+IF(K30=2,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ
-    #   ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6
-    #   =10),1,0)+IF(G30=10,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0)=1),AND(IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN
-    #   !$F$6=1),1,0)+IF(G30=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,5)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=5),1,0)+IF(G
-    #   30=5,1,0)>0)*1+IF(K30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(
-    #   K30=9,1,0)>0)),1,0)=1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=3),1,0)+IF(G30=3,1,0)>0)*1+IF(K30
-    #   =3,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,7)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=7),1,0)+IF(G30=7,1,0)>0)*1+IF(K30=7,1,0)>0),((COUNT
-    #   IF(TRUNG_GIAN!$C$6:$E$6,11)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=11),1,0)+IF(G30=11,1,0)>0)*1+IF(K30=11,1,0)>0)),1,0)=1)),", trong đó
-    #    hai cục tương khắc nhau","")&": chủ về đại họa, cái chết khó tránh – chỉ là dấu hiệu cần đề phòng (P2 tr.282 đ.12). ","")&IF(AND(OR(K30=0,K30=3,K30=6
-    #   ,K30=9),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,0)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0)+IF(G30=0,1,0)>0)*1+IF(K30=0,1,0)>0),((COUNTIF(
-    #   TRUNG_GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=3),1,0)+IF(G30=3,1,0)>0)*1+IF(K30=3,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E
-    #   $6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_
-    #   LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,1,0)>0)),"• Tứ trụ, đại vận, lưu niên có đủ bốn chữ tí, ngọ, mão, dậu: t
-    #   ốt (P2 tr.283 đ.17). ","")&IF((IF(INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)>=0,1,0)+IF(INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)>=0,1,0)+IF(INDEX(M_LH,TRUNG_GIAN!
-    #   $E$6+1,K30+1)>=0,1,0)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)>=0),1,0))=4,"• Bốn chi trong tứ trụ cùng lục hợp với c
-    #   hi năm: tình cảm sóng gió, bệnh tật hoặc thất bại tài sản, kéo dài (P2 tr.282 đ.10). ","")&IF(AND(INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)>=0,(COUNTIF(TRUN
-    #   G_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)),1,0)+
-    #   IF(P30=INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1),1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" lục hợp chi "&INDEX(CHI_TEN,TRUNG_GIAN!$C$6+1)&" (trụ năm) hóa
-    #    "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)+1)&", hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung"&IF(IF(DOI_CHIEU!$
-    #   C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),I
-    #   NDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(INDEX(M_LH,TRUNG_G
-    #   IAN!$C$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.282 
-    #   đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ","")&IF(AND(INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)>=0,(COUNTIF(TRU
-    #   NG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)),1,0)
-    #   +IF(P30=INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1),1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" lục hợp chi "&INDEX(CHI_TEN,TRUNG_GIAN!$D$6+1)&" (trụ tháng) 
-    #   hóa "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)+1)&", hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung"&IF(IF(DOI_CHIE
-    #   U!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109
-    #   ),INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(INDEX(M_LH,TRUN
-    #   G_GIAN!$D$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.2
-    #   82 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ","")&IF(AND(INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)>=0,(COUNTIF(
-    #   TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)),1
-    #   ,0)+IF(P30=INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1),1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" lục hợp chi "&INDEX(CHI_TEN,TRUNG_GIAN!$E$6+1)&" (trụ ngày
-    #   ) hóa "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)+1)&", hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung"&IF(IF(DOI_CH
-    #   IEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$1
-    #   09),INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(INDEX(M_LH,TR
-    #   UNG_GIAN!$E$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr
-    #   .282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ","")&IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",INDEX(M_LH,TRUN
-    #   G_GIAN!$F$6+1,K30+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX
-    #   (M_LH,TRUNG_GIAN!$F$6+1,K30+1)),1,0)+IF(P30=INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1),1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" lục hợp chi "&INDEX(CHI_T
-    #   EN,TRUNG_GIAN!$F$6+1)&" (trụ giờ) hóa "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)+1)&", hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa
-    #    thần xét cát hung"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,D
-    #   UNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110))," – hành này là dụn
-    #   g/hỷ thần: tốt",IF(INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này là kỵ thần: hung"," – hà
-    #   nh này là nhàn thần")))&" (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ","")&IF(AND(INDEX(M_LH,TRU
-    #   NG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ g
-    #   iờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1)),1,0)=0),P30=INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1)),"• Tứ trụ có chi "&I
-    #   NDEX(CHI_TEN,TRUNG_GIAN!$C$6+1)&" – "&INDEX(CHI_TEN,TRUNG_GIAN!$D$6+1)&" (trụ năm, tháng) lục hợp nhưng chưa hóa; can năm đưa hóa thần "&INDEX(HANH_TE
-    #   N,INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1)+1)&" ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ","")&IF(AND(INDEX(M_
-    #   LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1))+IF(AND(NHAP_LIEU!$C$9<>"Khôn
-    #   g rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1)),1,0)=0),P30=INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1)),"• Tứ trụ có c
-    #   hi "&INDEX(CHI_TEN,TRUNG_GIAN!$D$6+1)&" – "&INDEX(CHI_TEN,TRUNG_GIAN!$E$6+1)&" (trụ tháng, ngày) lục hợp nhưng chưa hóa; can năm đưa hóa thần "&INDEX(
-    #   HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1)+1)&" ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ","")&IF(AND(N
-    #   HAP_LIEU!$C$9<>"Không rõ giờ",AND(INDEX(M_LH,TRUNG_GIAN!$E$6+1,TRUNG_GIAN!$F$6+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$E$6+1,TRUNG_
-    #   GIAN!$F$6+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,TRUNG_GIAN!$F$6+1)),1,0)=0),P30=INDEX(M_LH,TRUNG_GIAN
-    #   !$E$6+1,TRUNG_GIAN!$F$6+1))),"• Tứ trụ có chi "&INDEX(CHI_TEN,TRUNG_GIAN!$E$6+1)&" – "&INDEX(CHI_TEN,TRUNG_GIAN!$F$6+1)&" (trụ ngày, giờ) lục hợp nhưn
-    #   g chưa hóa; can năm đưa hóa thần "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$E$6+1,TRUNG_GIAN!$F$6+1)+1)&" ra nên hợp cục thành hóa cục, khi tan cục sẽ có
-    #    thay đổi lớn (P2 tr.281). ",""))
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-118),1.0))),' cùng '),X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.add(E.v(15,r,c-118),4.0), 12.0),1.0))),', '),X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.add(E.v(15,r,c-118),8.0), 12.0),1.0))),' (tứ trụ/đại vận) hợp đủ ba chữ thành '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-118), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),1.0))),' cục (tam hợp)'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-118), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-118), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-118), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.254; tr.281: lưu niên đưa hợp cục ra; P1 tr.67). ') if X.truthy(X.AND(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-118),4.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-118),4.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),X.MOD(X.add(E.v(15,r,c-118),4.0), 12.0))) else 0.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-118),8.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-118),8.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),X.MOD(X.add(E.v(15,r,c-118),8.0), 12.0))) else 0.0)),0.0))) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-118),1.0))),' cùng hai chi còn lại hội đủ ba chữ thành '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),1.0))),' cục (tam hội: lực lớn hơn tam hợp)'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.255; P1 tr.67). ') if X.truthy(X.eq(X.add(X.add((1.0 if X.truthy(X.eq(X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),0.0), 12.0),E.v(15,r,c-118))) else (1.0 if X.truthy(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),0.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),0.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),0.0), 12.0))) else 0.0)),0.0)) else 0.0)),(1.0 if X.truthy(X.eq(X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),1.0), 12.0),E.v(15,r,c-118))) else (1.0 if X.truthy(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),1.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),1.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),1.0), 12.0))) else 0.0)),0.0)) else 0.0))),(1.0 if X.truthy(X.eq(X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),2.0), 12.0),E.v(15,r,c-118))) else (1.0 if X.truthy(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),2.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),2.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-118),1.0), 12.0),3.0))),1.0),2.0), 12.0))) else 0.0)),0.0)) else 0.0))),3.0)) else '')),(X.cat(X.cat('• Tứ trụ, đại vận, lưu niên có sáu chi hợp thành hai tam hợp cục khác nhau',(', trong đó hai cục tương khắc nhau' if X.truthy(X.OR(X.AND(X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 4.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),4.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),4.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),4.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 8.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),8.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),8.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),8.0)) else 0.0)),0.0))) else 0.0),1.0), X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),10.0)) else 0.0)),0.0))) else 0.0),1.0)), X.AND(X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),9.0)) else 0.0)),0.0))) else 0.0),1.0), X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),10.0)) else 0.0)),0.0))) else 0.0),1.0)), X.AND(X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),9.0)) else 0.0)),0.0))) else 0.0),1.0), X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 7.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),7.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),7.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),7.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 11.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),11.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),11.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),11.0)) else 0.0)),0.0))) else 0.0),1.0)))) else '')),': chủ về đại họa, cái chết khó tránh – chỉ là dấu hiệu cần đề phòng (P2 tr.282 đ.12). ') if X.truthy(X.AND(X.ge(X.add(X.add(X.add((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 4.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),4.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),4.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),4.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 8.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),8.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),8.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),8.0)) else 0.0)),0.0))) else 0.0),(1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),9.0)) else 0.0)),0.0))) else 0.0)),(1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),10.0)) else 0.0)),0.0))) else 0.0)),(1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 7.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),7.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),7.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),7.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 11.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),11.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),11.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),11.0)) else 0.0)),0.0))) else 0.0)),2.0), X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-118), 4.0),1.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 4.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),4.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),4.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),4.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 8.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),8.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),8.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),8.0)) else 0.0)),0.0))) else 0.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),9.0)) else 0.0)),0.0))) else 0.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),10.0)) else 0.0)),0.0))) else 0.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 7.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),7.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),7.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),7.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 11.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),11.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),11.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),11.0)) else 0.0)),0.0))) else 0.0)),1.0))) else '')),('• Tứ trụ, đại vận, lưu niên có đủ bốn chữ tí, ngọ, mão, dậu: tốt (P2 tr.283 đ.17). ' if X.truthy(X.AND(X.OR(X.eq(E.v(15,r,c-118),0.0), X.eq(E.v(15,r,c-118),3.0), X.eq(E.v(15,r,c-118),6.0), X.eq(E.v(15,r,c-118),9.0)), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-118),9.0)) else 0.0)),0.0))) else '')),('• Bốn chi trong tứ trụ cùng lục hợp với chi năm: tình cảm sóng gió, bệnh tật hoặc thất bại tài sản, kéo dài (P2 tr.282 đ.10). ' if X.truthy(X.eq(X.add(X.add(X.add((1.0 if X.truthy(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0)),0.0)) else 0.0),(1.0 if X.truthy(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0)),0.0)) else 0.0)),(1.0 if X.truthy(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0)),0.0)) else 0.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0)),0.0))) else 0.0)),4.0)) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-118),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,3),1.0))),' (trụ năm) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-113),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-118),1.0)))) else 0.0)),0.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-118),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' (trụ tháng) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-113),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-118),1.0)))) else 0.0)),0.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-118),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,5),1.0))),' (trụ ngày) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-113),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-118),1.0)))) else 0.0)),0.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-118),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,6),1.0))),' (trụ giờ) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-113),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-118),1.0)))) else 0.0)),0.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Tứ trụ có chi ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,3),1.0))),' – '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' (trụ năm, tháng) lục hợp nhưng chưa hóa; can năm đưa hóa thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0)),1.0))),' ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0)),0.0), X.eq(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0))))) else 0.0)),0.0), X.eq(E.v(15,r,c-113),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0))))) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Tứ trụ có chi ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' – '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,5),1.0))),' (trụ tháng, ngày) lục hợp nhưng chưa hóa; can năm đưa hóa thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0)),1.0))),' ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0)),0.0), X.eq(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0))))) else 0.0)),0.0), X.eq(E.v(15,r,c-113),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0))))) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Tứ trụ có chi ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,5),1.0))),' – '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,6),1.0))),' (trụ ngày, giờ) lục hợp nhưng chưa hóa; can năm đưa hóa thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)),1.0))),' ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ') if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)),0.0), X.eq(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0))))) else 0.0)),0.0), X.eq(E.v(15,r,c-113),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)))))) else '')))
+    # = TRIM(DZ30&EA30&EB30&EC30&ED30&EE30&EF30&EG30&EH30&EI30&EJ30&EK30)
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(15,r,c+1),E.v(15,r,c+2)),E.v(15,r,c+3)),E.v(15,r,c+4)),E.v(15,r,c+5)),E.v(15,r,c+6)),E.v(15,r,c+7)),E.v(15,r,c+8)),E.v(15,r,c+9)),E.v(15,r,c+10)),E.v(15,r,c+11)),E.v(15,r,c+12)))
 
 def f263(E, r, c):
+    # Ô DZ30, DZ31, DZ32, DZ33, DZ34, DZ35, DZ36, DZ37, DZ38, DZ39, DZ40, DZ41 … (100 ô)
+    # = IF(AND((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+4,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(K30+4,12)),1,0)+IF(G30=MOD(K30+4,12),1,0
+    #   )>0),(COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+8,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(K30+8,12)),1,0)+IF(G30=MOD(K30+8,12),1,0)>
+    #   0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" cùng "&INDEX(CHI_TEN,MOD(K30+4,12)+1)&", "&INDEX(CHI_TEN,MOD(K30+8,12)+1)&" (tứ trụ/đại vận) hợp đủ ba chữ thà
+    #   nh "&INDEX(HANH_TEN,CHOOSE(MOD(K30,4)+1,4,3,1,0)+1)&" cục (tam hợp)"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(CHOOSE(MO
+    #   D(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),CHOOSE(MOD(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG
+    #   _HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(CHOOSE(MOD(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành 
+    #   này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.254; tr.281: lưu niên đưa hợp cục ra; P1 tr.67). ","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-119),1.0))),' cùng '),X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.add(E.v(15,r,c-119),4.0), 12.0),1.0))),', '),X.INDEX(E.rg(24,18,1,29,1), X.add(X.MOD(X.add(E.v(15,r,c-119),8.0), 12.0),1.0))),' (tứ trụ/đại vận) hợp đủ ba chữ thành '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-119), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),1.0))),' cục (tam hợp)'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-119), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-119), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-119), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.254; tr.281: lưu niên đưa hợp cục ra; P1 tr.67). ') if X.truthy(X.AND(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-119),4.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-119),4.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-123),X.MOD(X.add(E.v(15,r,c-119),4.0), 12.0))) else 0.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-119),8.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-119),8.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-123),X.MOD(X.add(E.v(15,r,c-119),8.0), 12.0))) else 0.0)),0.0))) else '')
+
+def f264(E, r, c):
+    # Ô EA30, EA31, EA32, EA33, EA34, EA35, EA36, EA37, EA38, EA39, EA40, EA41 … (100 ô)
+    # = IF((IF(MOD(3*INT(MOD(K30+1,12)/3)-1+0,12)=K30,1,IF((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(3*INT(MOD(K30+1,12)/3)-1+0,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ 
+    #   giờ",TRUNG_GIAN!$F$6=MOD(3*INT(MOD(K30+1,12)/3)-1+0,12)),1,0)+IF(G30=MOD(3*INT(MOD(K30+1,12)/3)-1+0,12),1,0)>0),1,0))+IF(MOD(3*INT(MOD(K30+1,12)/3)-1+
+    #   1,12)=K30,1,IF((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(3*INT(MOD(K30+1,12)/3)-1+1,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(3*INT(MOD(K
+    #   30+1,12)/3)-1+1,12)),1,0)+IF(G30=MOD(3*INT(MOD(K30+1,12)/3)-1+1,12),1,0)>0),1,0))+IF(MOD(3*INT(MOD(K30+1,12)/3)-1+2,12)=K30,1,IF((COUNTIF(TRUNG_GIAN!$
+    #   C$6:$E$6,MOD(3*INT(MOD(K30+1,12)/3)-1+2,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(3*INT(MOD(K30+1,12)/3)-1+2,12)),1,0)+IF(G30=MOD
+    #   (3*INT(MOD(K30+1,12)/3)-1+2,12),1,0)>0),1,0)))=3,"• Chi năm "&INDEX(CHI_TEN,K30+1)&" cùng hai chi còn lại hội đủ ba chữ thành "&INDEX(HANH_TEN,CHOOSE(
+    #   INT(MOD(K30+1,12)/3)+1,4,0,1,3)+1)&" cục (tam hội: lực lớn hơn tam hợp)"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(CHOOS
+    #   E(INT(MOD(K30+1,12)/3)+1,4,0,1,3)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),CHOOSE(INT(MOD(K30+1,12)/3)+1,4,0,1,3)=IF(DOI_CHIEU!$C$33=
+    #   2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(CHOOSE(INT(MOD(K30+1,12)/3)+1,4,0,1,3)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$
+    #   D$111,DUNG_HY_KY!$C$111)," – hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.255; P1 tr.67). ","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-120),1.0))),' cùng hai chi còn lại hội đủ ba chữ thành '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),1.0))),' cục (tam hội: lực lớn hơn tam hợp)'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.CHOOSE(X.add(X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0)),1.0), lambda: 4.0, lambda: 0.0, lambda: 1.0, lambda: 3.0),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.255; P1 tr.67). ') if X.truthy(X.eq(X.add(X.add((1.0 if X.truthy(X.eq(X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),0.0), 12.0),E.v(15,r,c-120))) else (1.0 if X.truthy(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),0.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),0.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-124),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),0.0), 12.0))) else 0.0)),0.0)) else 0.0)),(1.0 if X.truthy(X.eq(X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),1.0), 12.0),E.v(15,r,c-120))) else (1.0 if X.truthy(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),1.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),1.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-124),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),1.0), 12.0))) else 0.0)),0.0)) else 0.0))),(1.0 if X.truthy(X.eq(X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),2.0), 12.0),E.v(15,r,c-120))) else (1.0 if X.truthy(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),2.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),2.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-124),X.MOD(X.add(X.sub(X.mul(3.0,X.INT(X.div(X.MOD(X.add(E.v(15,r,c-120),1.0), 12.0),3.0))),1.0),2.0), 12.0))) else 0.0)),0.0)) else 0.0))),3.0)) else '')
+
+def f265(E, r, c):
+    # Ô EB30, EB31, EB32, EB33, EB34, EB35, EB36, EB37, EB38, EB39, EB40, EB41 … (100 ô)
+    # = IF(AND((IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,0)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0)+IF(G30=0,1,0)>0)*1+IF(K30=0,1,0)>0),((C
+    #   OUNTIF(TRUNG_GIAN!$C$6:$E$6,4)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=4),1,0)+IF(G30=4,1,0)>0)*1+IF(K30=4,1,0)>0),((COUNTIF(TRUNG_GIAN!
+    #   $C$6:$E$6,8)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=8),1,0)+IF(G30=8,1,0)>0)*1+IF(K30=8,1,0)>0)),1,0)+IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:
+    #   $E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=1),1,0)+IF(G30=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,5)+IF(AND(NHA
+    #   P_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=5),1,0)+IF(G30=5,1,0)>0)*1+IF(K30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_LIEU!$C$9<>"Khôn
+    #   g rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,1,0)>0)),1,0)+IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ 
+    #   giờ",TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0)*1+IF(K30=2,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F
+    #   $6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=10),1,0)+IF(G3
+    #   0=10,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0)+IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=3),1,0)+IF(G30=3
+    #   ,1,0)>0)*1+IF(K30=3,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,7)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=7),1,0)+IF(G30=7,1,0)>0)*1+IF(K30=
+    #   7,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,11)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=11),1,0)+IF(G30=11,1,0)>0)*1+IF(K30=11,1,0)>0)),1,0
+    #   ))>=2,CHOOSE(MOD(K30,4)+1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,0)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0)+IF(G30=0,1,0)>0)*1+IF
+    #   (K30=0,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,4)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=4),1,0)+IF(G30=4,1,0)>0)*1+IF(K30=4,1,0)>0),((C
+    #   OUNTIF(TRUNG_GIAN!$C$6:$E$6,8)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=8),1,0)+IF(G30=8,1,0)>0)*1+IF(K30=8,1,0)>0)),1,0),IF(AND(((COUNTI
+    #   F(TRUNG_GIAN!$C$6:$E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=1),1,0)+IF(G30=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:
+    #   $E$6,5)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=5),1,0)+IF(G30=5,1,0)>0)*1+IF(K30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHA
+    #   P_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,1,0)>0)),1,0),IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIE
+    #   U!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0)*1+IF(K30=2,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ 
+    #   giờ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$
+    #   F$6=10),1,0)+IF(G30=10,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0),IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$
+    #   6=3),1,0)+IF(G30=3,1,0)>0)*1+IF(K30=3,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,7)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=7),1,0)+IF(G30=7
+    #   ,1,0)>0)*1+IF(K30=7,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,11)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=11),1,0)+IF(G30=11,1,0)>0)*1+IF(K
+    #   30=11,1,0)>0)),1,0))=1),"• Tứ trụ, đại vận, lưu niên có sáu chi hợp thành hai tam hợp cục khác nhau"&IF(OR(AND(IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,0
+    #   )+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0)+IF(G30=0,1,0)>0)*1+IF(K30=0,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,4)+IF(AND(NHAP_LIEU
+    #   !$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=4),1,0)+IF(G30=4,1,0)>0)*1+IF(K30=4,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,8)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ g
+    #   iờ",TRUNG_GIAN!$F$6=8),1,0)+IF(G30=8,1,0)>0)*1+IF(K30=8,1,0)>0)),1,0)=1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ"
+    #   ,TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0)*1+IF(K30=2,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=6
+    #   ),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=10),1,0)+IF(G30=10
+    #   ,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0)=1),AND(IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=1),1,0)+IF(G3
+    #   0=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,5)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=5),1,0)+IF(G30=5,1,0)>0)*1+IF(K
+    #   30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,1,0)>0)),1,0)
+    #   =1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,2)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=2),1,0)+IF(G30=2,1,0)>0)*1+IF(K30=2,1,0)>0),((COUNTI
+    #   F(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:
+    #   $E$6,10)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=10),1,0)+IF(G30=10,1,0)>0)*1+IF(K30=10,1,0)>0)),1,0)=1),AND(IF(AND(((COUNTIF(TRUNG_GIAN
+    #   !$C$6:$E$6,1)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=1),1,0)+IF(G30=1,1,0)>0)*1+IF(K30=1,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,5)+IF(A
+    #   ND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=5),1,0)+IF(G30=5,1,0)>0)*1+IF(K30=5,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,9)+IF(AND(NHAP_LIEU!$C$9<
+    #   >"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,1,0)>0)),1,0)=1,IF(AND(((COUNTIF(TRUNG_GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"K
+    #   hông rõ giờ",TRUNG_GIAN!$F$6=3),1,0)+IF(G30=3,1,0)>0)*1+IF(K30=3,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,7)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG
+    #   _GIAN!$F$6=7),1,0)+IF(G30=7,1,0)>0)*1+IF(K30=7,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,11)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=11),1,
+    #   0)+IF(G30=11,1,0)>0)*1+IF(K30=11,1,0)>0)),1,0)=1)),", trong đó hai cục tương khắc nhau","")&": chủ về đại họa, cái chết khó tránh – chỉ là dấu hiệu cầ
+    #   n đề phòng (P2 tr.282 đ.12). ","")
+    return (X.cat(X.cat('• Tứ trụ, đại vận, lưu niên có sáu chi hợp thành hai tam hợp cục khác nhau',(', trong đó hai cục tương khắc nhau' if X.truthy(X.OR(X.AND(X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 4.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),4.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),4.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),4.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 8.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),8.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),8.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),8.0)) else 0.0)),0.0))) else 0.0),1.0), X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),10.0)) else 0.0)),0.0))) else 0.0),1.0)), X.AND(X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),9.0)) else 0.0)),0.0))) else 0.0),1.0), X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),10.0)) else 0.0)),0.0))) else 0.0),1.0)), X.AND(X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),9.0)) else 0.0)),0.0))) else 0.0),1.0), X.eq((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 7.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),7.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),7.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),7.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 11.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),11.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),11.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),11.0)) else 0.0)),0.0))) else 0.0),1.0)))) else '')),': chủ về đại họa, cái chết khó tránh – chỉ là dấu hiệu cần đề phòng (P2 tr.282 đ.12). ') if X.truthy(X.AND(X.ge(X.add(X.add(X.add((1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 4.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),4.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),4.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),4.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 8.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),8.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),8.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),8.0)) else 0.0)),0.0))) else 0.0),(1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),9.0)) else 0.0)),0.0))) else 0.0)),(1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),10.0)) else 0.0)),0.0))) else 0.0)),(1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 7.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),7.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),7.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),7.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 11.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),11.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),11.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),11.0)) else 0.0)),0.0))) else 0.0)),2.0), X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-121), 4.0),1.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 4.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),4.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),4.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),4.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 8.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),8.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),8.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),8.0)) else 0.0)),0.0))) else 0.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 1.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),1.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),1.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),1.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 5.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),5.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),5.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),5.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),9.0)) else 0.0)),0.0))) else 0.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 2.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),2.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),2.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),2.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 10.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),10.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),10.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),10.0)) else 0.0)),0.0))) else 0.0), lambda: (1.0 if X.truthy(X.AND(X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 7.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),7.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),7.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),7.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 11.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),11.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-125),11.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),11.0)) else 0.0)),0.0))) else 0.0)),1.0))) else '')
+
+def f266(E, r, c):
+    # Ô EC30, EC31, EC32, EC33, EC34, EC35, EC36, EC37, EC38, EC39, EC40, EC41 … (100 ô)
+    # = IF(AND(OR(K30=0,K30=3,K30=6,K30=9),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,0)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=0),1,0)+IF(G30=0,1,0)>0)*1+
+    #   IF(K30=0,1,0)>0),((COUNTIF(TRUNG_GIAN!$C$6:$E$6,3)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=3),1,0)+IF(G30=3,1,0)>0)*1+IF(K30=3,1,0)>0),(
+    #   (COUNTIF(TRUNG_GIAN!$C$6:$E$6,6)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=6),1,0)+IF(G30=6,1,0)>0)*1+IF(K30=6,1,0)>0),((COUNTIF(TRUNG_GIA
+    #   N!$C$6:$E$6,9)+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=9),1,0)+IF(G30=9,1,0)>0)*1+IF(K30=9,1,0)>0)),"• Tứ trụ, đại vận, lưu niên có đủ b
+    #   ốn chữ tí, ngọ, mão, dậu: tốt (P2 tr.283 đ.17). ","")
+    return ('• Tứ trụ, đại vận, lưu niên có đủ bốn chữ tí, ngọ, mão, dậu: tốt (P2 tr.283 đ.17). ' if X.truthy(X.AND(X.OR(X.eq(E.v(15,r,c-122),0.0), X.eq(E.v(15,r,c-122),3.0), X.eq(E.v(15,r,c-122),6.0), X.eq(E.v(15,r,c-122),9.0)), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 0.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),0.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-126),0.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),0.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 3.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),3.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-126),3.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),3.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 6.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),6.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-126),6.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),6.0)) else 0.0)),0.0), X.gt(X.add(X.mul(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), 9.0),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),9.0))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-126),9.0)) else 0.0)),0.0),1.0),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),9.0)) else 0.0)),0.0))) else '')
+
+def f267(E, r, c):
+    # Ô ED30, ED31, ED32, ED33, ED34, ED35, ED36, ED37, ED38, ED39, ED40, ED41 … (100 ô)
+    # = IF((IF(INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)>=0,1,0)+IF(INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)>=0,1,0)+IF(INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)>=0,1,0)+IF(AN
+    #   D(NHAP_LIEU!$C$9<>"Không rõ giờ",INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)>=0),1,0))=4,"• Bốn chi trong tứ trụ cùng lục hợp với chi năm: tình cảm sóng gió, 
+    #   bệnh tật hoặc thất bại tài sản, kéo dài (P2 tr.282 đ.10). ","")
+    return ('• Bốn chi trong tứ trụ cùng lục hợp với chi năm: tình cảm sóng gió, bệnh tật hoặc thất bại tài sản, kéo dài (P2 tr.282 đ.10). ' if X.truthy(X.eq(X.add(X.add(X.add((1.0 if X.truthy(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-123),1.0)),0.0)) else 0.0),(1.0 if X.truthy(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-123),1.0)),0.0)) else 0.0)),(1.0 if X.truthy(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-123),1.0)),0.0)) else 0.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-123),1.0)),0.0))) else 0.0)),4.0)) else '')
+
+def f268(E, r, c):
+    # Ô EE30, EE31, EE32, EE33, EE34, EE35, EE36, EE37, EE38, EE39, EE40, EE41 … (100 ô)
+    # = IF(AND(INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ"
+    #   ,TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)),1,0)+IF(P30=INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1),1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" lục
+    #    hợp chi "&INDEX(CHI_TEN,TRUNG_GIAN!$C$6+1)&" (trụ năm) hóa "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)+1)&", hóa thần lộ ở can: nếu hợp hóa 
+    #   thành công thì lấy hóa thần xét cát hung"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)=
+    #   IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110
+    #   ))," – hành này là dụng/hỷ thần: tốt",IF(INDEX(M_LH,TRUNG_GIAN!$C$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này là
+    #    kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-124),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,3),1.0))),' (trụ năm) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-119),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(15,r,c-124),1.0)))) else 0.0)),0.0))) else '')
+
+def f269(E, r, c):
+    # Ô EF30, EF31, EF32, EF33, EF34, EF35, EF36, EF37, EF38, EF39, EF40, EF41 … (100 ô)
+    # = IF(AND(INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ"
+    #   ,TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)),1,0)+IF(P30=INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1),1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" lục
+    #    hợp chi "&INDEX(CHI_TEN,TRUNG_GIAN!$D$6+1)&" (trụ tháng) hóa "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)+1)&", hóa thần lộ ở can: nếu hợp hó
+    #   a thành công thì lấy hóa thần xét cát hung"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1
+    #   )=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$1
+    #   10))," – hành này là dụng/hỷ thần: tốt",IF(INDEX(M_LH,TRUNG_GIAN!$D$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này 
+    #   là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ","
+    #   ")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-125),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' (trụ tháng) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-120),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(15,r,c-125),1.0)))) else 0.0)),0.0))) else '')
+
+def f270(E, r, c):
+    # Ô EG30, EG31, EG32, EG33, EG34, EG35, EG36, EG37, EG38, EG39, EG40, EG41 … (100 ô)
+    # = IF(AND(INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ"
+    #   ,TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)),1,0)+IF(P30=INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1),1,0)>0)),"• Chi năm "&INDEX(CHI_TEN,K30+1)&" lục
+    #    hợp chi "&INDEX(CHI_TEN,TRUNG_GIAN!$E$6+1)&" (trụ ngày) hóa "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)+1)&", hóa thần lộ ở can: nếu hợp hóa
+    #    thành công thì lấy hóa thần xét cát hung"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)
+    #   =IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$11
+    #   0))," – hành này là dụng/hỷ thần: tốt",IF(INDEX(M_LH,TRUNG_GIAN!$E$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này l
+    #   à kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ",""
+    #   )
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-126),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,5),1.0))),' (trụ ngày) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-121),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(15,r,c-126),1.0)))) else 0.0)),0.0))) else '')
+
+def f271(E, r, c):
+    # Ô EH30, EH31, EH32, EH33, EH34, EH35, EH36, EH37, EH38, EH39, EH40, EH41 … (100 ô)
+    # = IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1))+IF(AND
+    #   (NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)),1,0)+IF(P30=INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1),1,0)>0)),"• Chi n
+    #   ăm "&INDEX(CHI_TEN,K30+1)&" lục hợp chi "&INDEX(CHI_TEN,TRUNG_GIAN!$F$6+1)&" (trụ giờ) hóa "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)+1)&", 
+    #   hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung"&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(INDEX
+    #   (M_LH,TRUNG_GIAN!$F$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109),INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG
+    #   _HY_KY!$D$110,DUNG_HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(INDEX(M_LH,TRUNG_GIAN!$F$6+1,K30+1)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUN
+    #   G_HY_KY!$C$111)," – hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay khô
+    #   ng nên chỉ để tham khảo). ","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-127),1.0))),' lục hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,6),1.0))),' (trụ giờ) hóa '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0)),1.0))),', hóa thần lộ ở can: nếu hợp hóa thành công thì lấy hóa thần xét cát hung'),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0)),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0)),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0)),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.282 đ.5; P1 tr.62; sách không nêu lưu niên có cần kề sát hay không nên chỉ để tham khảo). ') if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0)),0.0), X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0))))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-122),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(15,r,c-127),1.0)))) else 0.0)),0.0))) else '')
+
+def f272(E, r, c):
+    # Ô EI30, EI31, EI32, EI33, EI34, EI35, EI36, EI37, EI38, EI39, EI40, EI41 … (100 ô)
+    # = IF(AND(INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1))+IF(AND(NHAP_L
+    #   IEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1)),1,0)=0),P30=INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1))
+    #   ,"• Tứ trụ có chi "&INDEX(CHI_TEN,TRUNG_GIAN!$C$6+1)&" – "&INDEX(CHI_TEN,TRUNG_GIAN!$D$6+1)&" (trụ năm, tháng) lục hợp nhưng chưa hóa; can năm đưa hóa
+    #    thần "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$C$6+1,TRUNG_GIAN!$D$6+1)+1)&" ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). 
+    #   ","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Tứ trụ có chi ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,3),1.0))),' – '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' (trụ năm, tháng) lục hợp nhưng chưa hóa; can năm đưa hóa thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0)),1.0))),' ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0)),0.0), X.eq(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0))))) else 0.0)),0.0), X.eq(E.v(15,r,c-123),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(23,6,4),1.0))))) else '')
+
+def f273(E, r, c):
+    # Ô EJ30, EJ31, EJ32, EJ33, EJ34, EJ35, EJ36, EJ37, EJ38, EJ39, EJ40, EJ41 … (100 ô)
+    # = IF(AND(INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1))+IF(AND(NHAP_L
+    #   IEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1)),1,0)=0),P30=INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1))
+    #   ,"• Tứ trụ có chi "&INDEX(CHI_TEN,TRUNG_GIAN!$D$6+1)&" – "&INDEX(CHI_TEN,TRUNG_GIAN!$E$6+1)&" (trụ tháng, ngày) lục hợp nhưng chưa hóa; can năm đưa hó
+    #   a thần "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$D$6+1,TRUNG_GIAN!$E$6+1)+1)&" ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281).
+    #    ","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Tứ trụ có chi ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' – '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,5),1.0))),' (trụ tháng, ngày) lục hợp nhưng chưa hóa; can năm đưa hóa thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0)),1.0))),' ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ') if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0)),0.0), X.eq(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0))))) else 0.0)),0.0), X.eq(E.v(15,r,c-124),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(23,6,5),1.0))))) else '')
+
+def f274(E, r, c):
+    # Ô EK30, EK31, EK32, EK33, EK34, EK35, EK36, EK37, EK38, EK39, EK40, EK41 … (100 ô)
+    # = IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",AND(INDEX(M_LH,TRUNG_GIAN!$E$6+1,TRUNG_GIAN!$F$6+1)>=0,(COUNTIF(TRUNG_GIAN!$C$7:$E$7,INDEX(M_LH,TRUNG_GIAN!$E$6+
+    #   1,TRUNG_GIAN!$F$6+1))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,TRUNG_GIAN!$F$6+1)),1,0)=0),P30=INDEX(M_LH,TR
+    #   UNG_GIAN!$E$6+1,TRUNG_GIAN!$F$6+1))),"• Tứ trụ có chi "&INDEX(CHI_TEN,TRUNG_GIAN!$E$6+1)&" – "&INDEX(CHI_TEN,TRUNG_GIAN!$F$6+1)&" (trụ ngày, giờ) lục 
+    #   hợp nhưng chưa hóa; can năm đưa hóa thần "&INDEX(HANH_TEN,INDEX(M_LH,TRUNG_GIAN!$E$6+1,TRUNG_GIAN!$F$6+1)+1)&" ra nên hợp cục thành hóa cục, khi tan c
+    #   ục sẽ có thay đổi lớn (P2 tr.281). ","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Tứ trụ có chi ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,5),1.0))),' – '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,6),1.0))),' (trụ ngày, giờ) lục hợp nhưng chưa hóa; can năm đưa hóa thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)),1.0))),' ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ') if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)),0.0), X.eq(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0))))) else 0.0)),0.0), X.eq(E.v(15,r,c-125),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)))))) else '')
+
+def f275(E, r, c):
     # Ô A31
     # = DAI_VAN!$C$22+31-30
     return X.sub(X.add(E.v(14,22,3),31.0),30.0)
 
-def f264(E, r, c):
+def f276(E, r, c):
     # Ô CG31, CG32, CG33, CG34, CG35, CG36, CG37, CG38, CG39, CG40, CG41, CG42 … (99 ô)
     # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),OR(K31=TRUNG_GIAN!$F$6,K31=MOD(13-TRUNG_GIAN!$F$6,12))),"TK3: chi năm trùng/lục hợp chi giờ – dễ có tin vui 
     #   về con cái"&IF(OR(ISNUMBER(SEARCH("Giờ",AR31)),ISNUMBER(SEARCH("Giờ",AR30))),"; ⚠ nhưng năm này hoặc năm liền trước có tín hiệu bất lợi lên trụ giờ (c
     #   on cái) – đọc cùng tín hiệu đó",""),"")
     return (X.cat('TK3: chi năm trùng/lục hợp chi giờ – dễ có tin vui về con cái',('; ⚠ nhưng năm này hoặc năm liền trước có tín hiệu bất lợi lên trụ giờ (con cái) – đọc cùng tín hiệu đó' if X.truthy(X.OR(X.ISNUMBER(lambda: X.SEARCH('Giờ', E.v(15,r,c-41))), X.ISNUMBER(lambda: X.SEARCH('Giờ', E.v(15,r-1,c-41))))) else '')) if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.OR(X.eq(E.v(15,r,c-74),E.v(23,6,6)), X.eq(E.v(15,r,c-74),X.MOD(X.sub(13.0,E.v(23,6,6)), 12.0))))) else '')
 
-def f265(E, r, c):
+def f277(E, r, c):
     # Ô DK31, DL31
     # = IF(DK30="","không có",SUBSTITUTE(DK30," ",", "))
     return ('không có' if X.truthy(X.eq(E.v(15,r-1,c),'')) else X.SUBSTITUTE(E.v(15,r-1,c), ' ', ', '))
 
-def f266(E, r, c):
+def f278(E, r, c):
     # Ô A32
     # = DAI_VAN!$C$22+32-30
     return X.sub(X.add(E.v(14,22,3),32.0),30.0)
 
-def f267(E, r, c):
+def f279(E, r, c):
     # Ô A33
     # = DAI_VAN!$C$22+33-30
     return X.sub(X.add(E.v(14,22,3),33.0),30.0)
 
-def f268(E, r, c):
+def f280(E, r, c):
     # Ô A34
     # = DAI_VAN!$C$22+34-30
     return X.sub(X.add(E.v(14,22,3),34.0),30.0)
 
-def f269(E, r, c):
+def f281(E, r, c):
     # Ô A35
     # = DAI_VAN!$C$22+35-30
     return X.sub(X.add(E.v(14,22,3),35.0),30.0)
 
-def f270(E, r, c):
+def f282(E, r, c):
     # Ô A36
     # = DAI_VAN!$C$22+36-30
     return X.sub(X.add(E.v(14,22,3),36.0),30.0)
 
-def f271(E, r, c):
+def f283(E, r, c):
     # Ô A37
     # = DAI_VAN!$C$22+37-30
     return X.sub(X.add(E.v(14,22,3),37.0),30.0)
 
-def f272(E, r, c):
+def f284(E, r, c):
     # Ô A38
     # = DAI_VAN!$C$22+38-30
     return X.sub(X.add(E.v(14,22,3),38.0),30.0)
 
-def f273(E, r, c):
+def f285(E, r, c):
     # Ô A39
     # = DAI_VAN!$C$22+39-30
     return X.sub(X.add(E.v(14,22,3),39.0),30.0)
 
-def f274(E, r, c):
+def f286(E, r, c):
     # Ô A40
     # = DAI_VAN!$C$22+40-30
     return X.sub(X.add(E.v(14,22,3),40.0),30.0)
 
-def f275(E, r, c):
+def f287(E, r, c):
     # Ô A41
     # = DAI_VAN!$C$22+41-30
     return X.sub(X.add(E.v(14,22,3),41.0),30.0)
 
-def f276(E, r, c):
+def f288(E, r, c):
     # Ô A42
     # = DAI_VAN!$C$22+42-30
     return X.sub(X.add(E.v(14,22,3),42.0),30.0)
 
-def f277(E, r, c):
+def f289(E, r, c):
     # Ô A43
     # = DAI_VAN!$C$22+43-30
     return X.sub(X.add(E.v(14,22,3),43.0),30.0)
 
-def f278(E, r, c):
+def f290(E, r, c):
     # Ô A44
     # = DAI_VAN!$C$22+44-30
     return X.sub(X.add(E.v(14,22,3),44.0),30.0)
 
-def f279(E, r, c):
+def f291(E, r, c):
     # Ô A45
     # = DAI_VAN!$C$22+45-30
     return X.sub(X.add(E.v(14,22,3),45.0),30.0)
 
-def f280(E, r, c):
+def f292(E, r, c):
     # Ô A46
     # = DAI_VAN!$C$22+46-30
     return X.sub(X.add(E.v(14,22,3),46.0),30.0)
 
-def f281(E, r, c):
+def f293(E, r, c):
     # Ô A47
     # = DAI_VAN!$C$22+47-30
     return X.sub(X.add(E.v(14,22,3),47.0),30.0)
 
-def f282(E, r, c):
+def f294(E, r, c):
     # Ô A48
     # = DAI_VAN!$C$22+48-30
     return X.sub(X.add(E.v(14,22,3),48.0),30.0)
 
-def f283(E, r, c):
+def f295(E, r, c):
     # Ô A49
     # = DAI_VAN!$C$22+49-30
     return X.sub(X.add(E.v(14,22,3),49.0),30.0)
 
-def f284(E, r, c):
+def f296(E, r, c):
     # Ô A50
     # = DAI_VAN!$C$22+50-30
     return X.sub(X.add(E.v(14,22,3),50.0),30.0)
 
-def f285(E, r, c):
+def f297(E, r, c):
     # Ô A51
     # = DAI_VAN!$C$22+51-30
     return X.sub(X.add(E.v(14,22,3),51.0),30.0)
 
-def f286(E, r, c):
+def f298(E, r, c):
     # Ô A52
     # = DAI_VAN!$C$22+52-30
     return X.sub(X.add(E.v(14,22,3),52.0),30.0)
 
-def f287(E, r, c):
+def f299(E, r, c):
     # Ô A53
     # = DAI_VAN!$C$22+53-30
     return X.sub(X.add(E.v(14,22,3),53.0),30.0)
 
-def f288(E, r, c):
+def f300(E, r, c):
     # Ô A54
     # = DAI_VAN!$C$22+54-30
     return X.sub(X.add(E.v(14,22,3),54.0),30.0)
 
-def f289(E, r, c):
+def f301(E, r, c):
     # Ô A55
     # = DAI_VAN!$C$22+55-30
     return X.sub(X.add(E.v(14,22,3),55.0),30.0)
 
-def f290(E, r, c):
+def f302(E, r, c):
     # Ô A56
     # = DAI_VAN!$C$22+56-30
     return X.sub(X.add(E.v(14,22,3),56.0),30.0)
 
-def f291(E, r, c):
+def f303(E, r, c):
     # Ô A57
     # = DAI_VAN!$C$22+57-30
     return X.sub(X.add(E.v(14,22,3),57.0),30.0)
 
-def f292(E, r, c):
+def f304(E, r, c):
     # Ô A58
     # = DAI_VAN!$C$22+58-30
     return X.sub(X.add(E.v(14,22,3),58.0),30.0)
 
-def f293(E, r, c):
+def f305(E, r, c):
     # Ô A59
     # = DAI_VAN!$C$22+59-30
     return X.sub(X.add(E.v(14,22,3),59.0),30.0)
 
-def f294(E, r, c):
+def f306(E, r, c):
     # Ô A60
     # = DAI_VAN!$C$22+60-30
     return X.sub(X.add(E.v(14,22,3),60.0),30.0)
 
-def f295(E, r, c):
+def f307(E, r, c):
     # Ô A61
     # = DAI_VAN!$C$22+61-30
     return X.sub(X.add(E.v(14,22,3),61.0),30.0)
 
-def f296(E, r, c):
+def f308(E, r, c):
     # Ô A62
     # = DAI_VAN!$C$22+62-30
     return X.sub(X.add(E.v(14,22,3),62.0),30.0)
 
-def f297(E, r, c):
+def f309(E, r, c):
     # Ô A63
     # = DAI_VAN!$C$22+63-30
     return X.sub(X.add(E.v(14,22,3),63.0),30.0)
 
-def f298(E, r, c):
+def f310(E, r, c):
     # Ô A64
     # = DAI_VAN!$C$22+64-30
     return X.sub(X.add(E.v(14,22,3),64.0),30.0)
 
-def f299(E, r, c):
+def f311(E, r, c):
     # Ô A65
     # = DAI_VAN!$C$22+65-30
     return X.sub(X.add(E.v(14,22,3),65.0),30.0)
 
-def f300(E, r, c):
+def f312(E, r, c):
     # Ô A66
     # = DAI_VAN!$C$22+66-30
     return X.sub(X.add(E.v(14,22,3),66.0),30.0)
 
-def f301(E, r, c):
+def f313(E, r, c):
     # Ô A67
     # = DAI_VAN!$C$22+67-30
     return X.sub(X.add(E.v(14,22,3),67.0),30.0)
 
-def f302(E, r, c):
+def f314(E, r, c):
     # Ô A68
     # = DAI_VAN!$C$22+68-30
     return X.sub(X.add(E.v(14,22,3),68.0),30.0)
 
-def f303(E, r, c):
+def f315(E, r, c):
     # Ô A69
     # = DAI_VAN!$C$22+69-30
     return X.sub(X.add(E.v(14,22,3),69.0),30.0)
 
-def f304(E, r, c):
+def f316(E, r, c):
     # Ô A70
     # = DAI_VAN!$C$22+70-30
     return X.sub(X.add(E.v(14,22,3),70.0),30.0)
 
-def f305(E, r, c):
+def f317(E, r, c):
     # Ô A71
     # = DAI_VAN!$C$22+71-30
     return X.sub(X.add(E.v(14,22,3),71.0),30.0)
 
-def f306(E, r, c):
+def f318(E, r, c):
     # Ô A72
     # = DAI_VAN!$C$22+72-30
     return X.sub(X.add(E.v(14,22,3),72.0),30.0)
 
-def f307(E, r, c):
+def f319(E, r, c):
     # Ô A73
     # = DAI_VAN!$C$22+73-30
     return X.sub(X.add(E.v(14,22,3),73.0),30.0)
 
-def f308(E, r, c):
+def f320(E, r, c):
     # Ô A74
     # = DAI_VAN!$C$22+74-30
     return X.sub(X.add(E.v(14,22,3),74.0),30.0)
 
-def f309(E, r, c):
+def f321(E, r, c):
     # Ô A75
     # = DAI_VAN!$C$22+75-30
     return X.sub(X.add(E.v(14,22,3),75.0),30.0)
 
-def f310(E, r, c):
+def f322(E, r, c):
     # Ô A76
     # = DAI_VAN!$C$22+76-30
     return X.sub(X.add(E.v(14,22,3),76.0),30.0)
 
-def f311(E, r, c):
+def f323(E, r, c):
     # Ô A77
     # = DAI_VAN!$C$22+77-30
     return X.sub(X.add(E.v(14,22,3),77.0),30.0)
 
-def f312(E, r, c):
+def f324(E, r, c):
     # Ô A78
     # = DAI_VAN!$C$22+78-30
     return X.sub(X.add(E.v(14,22,3),78.0),30.0)
 
-def f313(E, r, c):
+def f325(E, r, c):
     # Ô A79
     # = DAI_VAN!$C$22+79-30
     return X.sub(X.add(E.v(14,22,3),79.0),30.0)
 
-def f314(E, r, c):
+def f326(E, r, c):
     # Ô A80
     # = DAI_VAN!$C$22+80-30
     return X.sub(X.add(E.v(14,22,3),80.0),30.0)
 
-def f315(E, r, c):
+def f327(E, r, c):
     # Ô A81
     # = DAI_VAN!$C$22+81-30
     return X.sub(X.add(E.v(14,22,3),81.0),30.0)
 
-def f316(E, r, c):
+def f328(E, r, c):
     # Ô A82
     # = DAI_VAN!$C$22+82-30
     return X.sub(X.add(E.v(14,22,3),82.0),30.0)
 
-def f317(E, r, c):
+def f329(E, r, c):
     # Ô A83
     # = DAI_VAN!$C$22+83-30
     return X.sub(X.add(E.v(14,22,3),83.0),30.0)
 
-def f318(E, r, c):
+def f330(E, r, c):
     # Ô A84
     # = DAI_VAN!$C$22+84-30
     return X.sub(X.add(E.v(14,22,3),84.0),30.0)
 
-def f319(E, r, c):
+def f331(E, r, c):
     # Ô A85
     # = DAI_VAN!$C$22+85-30
     return X.sub(X.add(E.v(14,22,3),85.0),30.0)
 
-def f320(E, r, c):
+def f332(E, r, c):
     # Ô A86
     # = DAI_VAN!$C$22+86-30
     return X.sub(X.add(E.v(14,22,3),86.0),30.0)
 
-def f321(E, r, c):
+def f333(E, r, c):
     # Ô A87
     # = DAI_VAN!$C$22+87-30
     return X.sub(X.add(E.v(14,22,3),87.0),30.0)
 
-def f322(E, r, c):
+def f334(E, r, c):
     # Ô A88
     # = DAI_VAN!$C$22+88-30
     return X.sub(X.add(E.v(14,22,3),88.0),30.0)
 
-def f323(E, r, c):
+def f335(E, r, c):
     # Ô A89
     # = DAI_VAN!$C$22+89-30
     return X.sub(X.add(E.v(14,22,3),89.0),30.0)
 
-def f324(E, r, c):
+def f336(E, r, c):
     # Ô A90
     # = DAI_VAN!$C$22+90-30
     return X.sub(X.add(E.v(14,22,3),90.0),30.0)
 
-def f325(E, r, c):
+def f337(E, r, c):
     # Ô A91
     # = DAI_VAN!$C$22+91-30
     return X.sub(X.add(E.v(14,22,3),91.0),30.0)
 
-def f326(E, r, c):
+def f338(E, r, c):
     # Ô A92
     # = DAI_VAN!$C$22+92-30
     return X.sub(X.add(E.v(14,22,3),92.0),30.0)
 
-def f327(E, r, c):
+def f339(E, r, c):
     # Ô A93
     # = DAI_VAN!$C$22+93-30
     return X.sub(X.add(E.v(14,22,3),93.0),30.0)
 
-def f328(E, r, c):
+def f340(E, r, c):
     # Ô A94
     # = DAI_VAN!$C$22+94-30
     return X.sub(X.add(E.v(14,22,3),94.0),30.0)
 
-def f329(E, r, c):
+def f341(E, r, c):
     # Ô A95
     # = DAI_VAN!$C$22+95-30
     return X.sub(X.add(E.v(14,22,3),95.0),30.0)
 
-def f330(E, r, c):
+def f342(E, r, c):
     # Ô A96
     # = DAI_VAN!$C$22+96-30
     return X.sub(X.add(E.v(14,22,3),96.0),30.0)
 
-def f331(E, r, c):
+def f343(E, r, c):
     # Ô A97
     # = DAI_VAN!$C$22+97-30
     return X.sub(X.add(E.v(14,22,3),97.0),30.0)
 
-def f332(E, r, c):
+def f344(E, r, c):
     # Ô A98
     # = DAI_VAN!$C$22+98-30
     return X.sub(X.add(E.v(14,22,3),98.0),30.0)
 
-def f333(E, r, c):
+def f345(E, r, c):
     # Ô A99
     # = DAI_VAN!$C$22+99-30
     return X.sub(X.add(E.v(14,22,3),99.0),30.0)
 
-def f334(E, r, c):
+def f346(E, r, c):
     # Ô A100
     # = DAI_VAN!$C$22+100-30
     return X.sub(X.add(E.v(14,22,3),100.0),30.0)
 
-def f335(E, r, c):
+def f347(E, r, c):
     # Ô A101
     # = DAI_VAN!$C$22+101-30
     return X.sub(X.add(E.v(14,22,3),101.0),30.0)
 
-def f336(E, r, c):
+def f348(E, r, c):
     # Ô A102
     # = DAI_VAN!$C$22+102-30
     return X.sub(X.add(E.v(14,22,3),102.0),30.0)
 
-def f337(E, r, c):
+def f349(E, r, c):
     # Ô A103
     # = DAI_VAN!$C$22+103-30
     return X.sub(X.add(E.v(14,22,3),103.0),30.0)
 
-def f338(E, r, c):
+def f350(E, r, c):
     # Ô A104
     # = DAI_VAN!$C$22+104-30
     return X.sub(X.add(E.v(14,22,3),104.0),30.0)
 
-def f339(E, r, c):
+def f351(E, r, c):
     # Ô A105
     # = DAI_VAN!$C$22+105-30
     return X.sub(X.add(E.v(14,22,3),105.0),30.0)
 
-def f340(E, r, c):
+def f352(E, r, c):
     # Ô A106
     # = DAI_VAN!$C$22+106-30
     return X.sub(X.add(E.v(14,22,3),106.0),30.0)
 
-def f341(E, r, c):
+def f353(E, r, c):
     # Ô A107
     # = DAI_VAN!$C$22+107-30
     return X.sub(X.add(E.v(14,22,3),107.0),30.0)
 
-def f342(E, r, c):
+def f354(E, r, c):
     # Ô A108
     # = DAI_VAN!$C$22+108-30
     return X.sub(X.add(E.v(14,22,3),108.0),30.0)
 
-def f343(E, r, c):
+def f355(E, r, c):
     # Ô A109
     # = DAI_VAN!$C$22+109-30
     return X.sub(X.add(E.v(14,22,3),109.0),30.0)
 
-def f344(E, r, c):
+def f356(E, r, c):
     # Ô A110
     # = DAI_VAN!$C$22+110-30
     return X.sub(X.add(E.v(14,22,3),110.0),30.0)
 
-def f345(E, r, c):
+def f357(E, r, c):
     # Ô A111
     # = DAI_VAN!$C$22+111-30
     return X.sub(X.add(E.v(14,22,3),111.0),30.0)
 
-def f346(E, r, c):
+def f358(E, r, c):
     # Ô A112
     # = DAI_VAN!$C$22+112-30
     return X.sub(X.add(E.v(14,22,3),112.0),30.0)
 
-def f347(E, r, c):
+def f359(E, r, c):
     # Ô A113
     # = DAI_VAN!$C$22+113-30
     return X.sub(X.add(E.v(14,22,3),113.0),30.0)
 
-def f348(E, r, c):
+def f360(E, r, c):
     # Ô A114
     # = DAI_VAN!$C$22+114-30
     return X.sub(X.add(E.v(14,22,3),114.0),30.0)
 
-def f349(E, r, c):
+def f361(E, r, c):
     # Ô A115
     # = DAI_VAN!$C$22+115-30
     return X.sub(X.add(E.v(14,22,3),115.0),30.0)
 
-def f350(E, r, c):
+def f362(E, r, c):
     # Ô A116
     # = DAI_VAN!$C$22+116-30
     return X.sub(X.add(E.v(14,22,3),116.0),30.0)
 
-def f351(E, r, c):
+def f363(E, r, c):
     # Ô A117
     # = DAI_VAN!$C$22+117-30
     return X.sub(X.add(E.v(14,22,3),117.0),30.0)
 
-def f352(E, r, c):
+def f364(E, r, c):
     # Ô A118
     # = DAI_VAN!$C$22+118-30
     return X.sub(X.add(E.v(14,22,3),118.0),30.0)
 
-def f353(E, r, c):
+def f365(E, r, c):
     # Ô A119
     # = DAI_VAN!$C$22+119-30
     return X.sub(X.add(E.v(14,22,3),119.0),30.0)
 
-def f354(E, r, c):
+def f366(E, r, c):
     # Ô A120
     # = DAI_VAN!$C$22+120-30
     return X.sub(X.add(E.v(14,22,3),120.0),30.0)
 
-def f355(E, r, c):
+def f367(E, r, c):
     # Ô A121
     # = DAI_VAN!$C$22+121-30
     return X.sub(X.add(E.v(14,22,3),121.0),30.0)
 
-def f356(E, r, c):
+def f368(E, r, c):
     # Ô A122
     # = DAI_VAN!$C$22+122-30
     return X.sub(X.add(E.v(14,22,3),122.0),30.0)
 
-def f357(E, r, c):
+def f369(E, r, c):
     # Ô A123
     # = DAI_VAN!$C$22+123-30
     return X.sub(X.add(E.v(14,22,3),123.0),30.0)
 
-def f358(E, r, c):
+def f370(E, r, c):
     # Ô A124
     # = DAI_VAN!$C$22+124-30
     return X.sub(X.add(E.v(14,22,3),124.0),30.0)
 
-def f359(E, r, c):
+def f371(E, r, c):
     # Ô A125
     # = DAI_VAN!$C$22+125-30
     return X.sub(X.add(E.v(14,22,3),125.0),30.0)
 
-def f360(E, r, c):
+def f372(E, r, c):
     # Ô A126
     # = DAI_VAN!$C$22+126-30
     return X.sub(X.add(E.v(14,22,3),126.0),30.0)
 
-def f361(E, r, c):
+def f373(E, r, c):
     # Ô A127
     # = DAI_VAN!$C$22+127-30
     return X.sub(X.add(E.v(14,22,3),127.0),30.0)
 
-def f362(E, r, c):
+def f374(E, r, c):
     # Ô A128
     # = DAI_VAN!$C$22+128-30
     return X.sub(X.add(E.v(14,22,3),128.0),30.0)
 
-def f363(E, r, c):
+def f375(E, r, c):
     # Ô A129
     # = DAI_VAN!$C$22+129-30
     return X.sub(X.add(E.v(14,22,3),129.0),30.0)
@@ -2664,7 +2720,19 @@ CELLS = {
     'DW30': (f260, 30, 127),
     'DX30': (f261, 30, 128),
     'DY30': (f262, 30, 129),
-    'A31': (f263, 31, 1),
+    'DZ30': (f263, 30, 130),
+    'EA30': (f264, 30, 131),
+    'EB30': (f265, 30, 132),
+    'EC30': (f266, 30, 133),
+    'ED30': (f267, 30, 134),
+    'EE30': (f268, 30, 135),
+    'EF30': (f269, 30, 136),
+    'EG30': (f270, 30, 137),
+    'EH30': (f271, 30, 138),
+    'EI30': (f272, 30, 139),
+    'EJ30': (f273, 30, 140),
+    'EK30': (f274, 30, 141),
+    'A31': (f275, 31, 1),
     'B31': (f145, 31, 2),
     'C31': (f146, 31, 3),
     'D31': (f147, 31, 4),
@@ -2746,7 +2814,7 @@ CELLS = {
     'CD31': (f221, 31, 82),
     'CE31': (f222, 31, 83),
     'CF31': (f223, 31, 84),
-    'CG31': (f264, 31, 85),
+    'CG31': (f276, 31, 85),
     'CI31': (f225, 31, 87),
     'CJ31': (f226, 31, 88),
     'CK31': (f227, 31, 89),
@@ -2772,8 +2840,8 @@ CELLS = {
     'DG31': (f246, 31, 111),
     'DI31': (f247, 31, 113),
     'DJ31': (f248, 31, 114),
-    'DK31': (f265, 31, 115),
-    'DL31': (f265, 31, 116),
+    'DK31': (f277, 31, 115),
+    'DL31': (f277, 31, 116),
     'DM31': (f250, 31, 117),
     'DN31': (f251, 31, 118),
     'DO31': (f252, 31, 119),
@@ -2787,7 +2855,19 @@ CELLS = {
     'DW31': (f260, 31, 127),
     'DX31': (f261, 31, 128),
     'DY31': (f262, 31, 129),
-    'A32': (f266, 32, 1),
+    'DZ31': (f263, 31, 130),
+    'EA31': (f264, 31, 131),
+    'EB31': (f265, 31, 132),
+    'EC31': (f266, 31, 133),
+    'ED31': (f267, 31, 134),
+    'EE31': (f268, 31, 135),
+    'EF31': (f269, 31, 136),
+    'EG31': (f270, 31, 137),
+    'EH31': (f271, 31, 138),
+    'EI31': (f272, 31, 139),
+    'EJ31': (f273, 31, 140),
+    'EK31': (f274, 31, 141),
+    'A32': (f278, 32, 1),
     'B32': (f145, 32, 2),
     'C32': (f146, 32, 3),
     'D32': (f147, 32, 4),
@@ -2869,7 +2949,7 @@ CELLS = {
     'CD32': (f221, 32, 82),
     'CE32': (f222, 32, 83),
     'CF32': (f223, 32, 84),
-    'CG32': (f264, 32, 85),
+    'CG32': (f276, 32, 85),
     'CI32': (f225, 32, 87),
     'CJ32': (f226, 32, 88),
     'CK32': (f227, 32, 89),
@@ -2908,7 +2988,19 @@ CELLS = {
     'DW32': (f260, 32, 127),
     'DX32': (f261, 32, 128),
     'DY32': (f262, 32, 129),
-    'A33': (f267, 33, 1),
+    'DZ32': (f263, 32, 130),
+    'EA32': (f264, 32, 131),
+    'EB32': (f265, 32, 132),
+    'EC32': (f266, 32, 133),
+    'ED32': (f267, 32, 134),
+    'EE32': (f268, 32, 135),
+    'EF32': (f269, 32, 136),
+    'EG32': (f270, 32, 137),
+    'EH32': (f271, 32, 138),
+    'EI32': (f272, 32, 139),
+    'EJ32': (f273, 32, 140),
+    'EK32': (f274, 32, 141),
+    'A33': (f279, 33, 1),
     'B33': (f145, 33, 2),
     'C33': (f146, 33, 3),
     'D33': (f147, 33, 4),
@@ -2990,7 +3082,7 @@ CELLS = {
     'CD33': (f221, 33, 82),
     'CE33': (f222, 33, 83),
     'CF33': (f223, 33, 84),
-    'CG33': (f264, 33, 85),
+    'CG33': (f276, 33, 85),
     'CI33': (f225, 33, 87),
     'CJ33': (f226, 33, 88),
     'CK33': (f227, 33, 89),
@@ -3029,7 +3121,19 @@ CELLS = {
     'DW33': (f260, 33, 127),
     'DX33': (f261, 33, 128),
     'DY33': (f262, 33, 129),
-    'A34': (f268, 34, 1),
+    'DZ33': (f263, 33, 130),
+    'EA33': (f264, 33, 131),
+    'EB33': (f265, 33, 132),
+    'EC33': (f266, 33, 133),
+    'ED33': (f267, 33, 134),
+    'EE33': (f268, 33, 135),
+    'EF33': (f269, 33, 136),
+    'EG33': (f270, 33, 137),
+    'EH33': (f271, 33, 138),
+    'EI33': (f272, 33, 139),
+    'EJ33': (f273, 33, 140),
+    'EK33': (f274, 33, 141),
+    'A34': (f280, 34, 1),
     'B34': (f145, 34, 2),
     'C34': (f146, 34, 3),
     'D34': (f147, 34, 4),
@@ -3111,7 +3215,7 @@ CELLS = {
     'CD34': (f221, 34, 82),
     'CE34': (f222, 34, 83),
     'CF34': (f223, 34, 84),
-    'CG34': (f264, 34, 85),
+    'CG34': (f276, 34, 85),
     'CI34': (f225, 34, 87),
     'CJ34': (f226, 34, 88),
     'CK34': (f227, 34, 89),
@@ -3150,7 +3254,19 @@ CELLS = {
     'DW34': (f260, 34, 127),
     'DX34': (f261, 34, 128),
     'DY34': (f262, 34, 129),
-    'A35': (f269, 35, 1),
+    'DZ34': (f263, 34, 130),
+    'EA34': (f264, 34, 131),
+    'EB34': (f265, 34, 132),
+    'EC34': (f266, 34, 133),
+    'ED34': (f267, 34, 134),
+    'EE34': (f268, 34, 135),
+    'EF34': (f269, 34, 136),
+    'EG34': (f270, 34, 137),
+    'EH34': (f271, 34, 138),
+    'EI34': (f272, 34, 139),
+    'EJ34': (f273, 34, 140),
+    'EK34': (f274, 34, 141),
+    'A35': (f281, 35, 1),
     'B35': (f145, 35, 2),
     'C35': (f146, 35, 3),
     'D35': (f147, 35, 4),
@@ -3232,7 +3348,7 @@ CELLS = {
     'CD35': (f221, 35, 82),
     'CE35': (f222, 35, 83),
     'CF35': (f223, 35, 84),
-    'CG35': (f264, 35, 85),
+    'CG35': (f276, 35, 85),
     'CI35': (f225, 35, 87),
     'CJ35': (f226, 35, 88),
     'CK35': (f227, 35, 89),
@@ -3271,7 +3387,19 @@ CELLS = {
     'DW35': (f260, 35, 127),
     'DX35': (f261, 35, 128),
     'DY35': (f262, 35, 129),
-    'A36': (f270, 36, 1),
+    'DZ35': (f263, 35, 130),
+    'EA35': (f264, 35, 131),
+    'EB35': (f265, 35, 132),
+    'EC35': (f266, 35, 133),
+    'ED35': (f267, 35, 134),
+    'EE35': (f268, 35, 135),
+    'EF35': (f269, 35, 136),
+    'EG35': (f270, 35, 137),
+    'EH35': (f271, 35, 138),
+    'EI35': (f272, 35, 139),
+    'EJ35': (f273, 35, 140),
+    'EK35': (f274, 35, 141),
+    'A36': (f282, 36, 1),
     'B36': (f145, 36, 2),
     'C36': (f146, 36, 3),
     'D36': (f147, 36, 4),
@@ -3353,7 +3481,7 @@ CELLS = {
     'CD36': (f221, 36, 82),
     'CE36': (f222, 36, 83),
     'CF36': (f223, 36, 84),
-    'CG36': (f264, 36, 85),
+    'CG36': (f276, 36, 85),
     'CI36': (f225, 36, 87),
     'CJ36': (f226, 36, 88),
     'CK36': (f227, 36, 89),
@@ -3392,7 +3520,19 @@ CELLS = {
     'DW36': (f260, 36, 127),
     'DX36': (f261, 36, 128),
     'DY36': (f262, 36, 129),
-    'A37': (f271, 37, 1),
+    'DZ36': (f263, 36, 130),
+    'EA36': (f264, 36, 131),
+    'EB36': (f265, 36, 132),
+    'EC36': (f266, 36, 133),
+    'ED36': (f267, 36, 134),
+    'EE36': (f268, 36, 135),
+    'EF36': (f269, 36, 136),
+    'EG36': (f270, 36, 137),
+    'EH36': (f271, 36, 138),
+    'EI36': (f272, 36, 139),
+    'EJ36': (f273, 36, 140),
+    'EK36': (f274, 36, 141),
+    'A37': (f283, 37, 1),
     'B37': (f145, 37, 2),
     'C37': (f146, 37, 3),
     'D37': (f147, 37, 4),
@@ -3474,7 +3614,7 @@ CELLS = {
     'CD37': (f221, 37, 82),
     'CE37': (f222, 37, 83),
     'CF37': (f223, 37, 84),
-    'CG37': (f264, 37, 85),
+    'CG37': (f276, 37, 85),
     'CI37': (f225, 37, 87),
     'CJ37': (f226, 37, 88),
     'CK37': (f227, 37, 89),
@@ -3513,7 +3653,19 @@ CELLS = {
     'DW37': (f260, 37, 127),
     'DX37': (f261, 37, 128),
     'DY37': (f262, 37, 129),
-    'A38': (f272, 38, 1),
+    'DZ37': (f263, 37, 130),
+    'EA37': (f264, 37, 131),
+    'EB37': (f265, 37, 132),
+    'EC37': (f266, 37, 133),
+    'ED37': (f267, 37, 134),
+    'EE37': (f268, 37, 135),
+    'EF37': (f269, 37, 136),
+    'EG37': (f270, 37, 137),
+    'EH37': (f271, 37, 138),
+    'EI37': (f272, 37, 139),
+    'EJ37': (f273, 37, 140),
+    'EK37': (f274, 37, 141),
+    'A38': (f284, 38, 1),
     'B38': (f145, 38, 2),
     'C38': (f146, 38, 3),
     'D38': (f147, 38, 4),
@@ -3595,7 +3747,7 @@ CELLS = {
     'CD38': (f221, 38, 82),
     'CE38': (f222, 38, 83),
     'CF38': (f223, 38, 84),
-    'CG38': (f264, 38, 85),
+    'CG38': (f276, 38, 85),
     'CI38': (f225, 38, 87),
     'CJ38': (f226, 38, 88),
     'CK38': (f227, 38, 89),
@@ -3634,7 +3786,19 @@ CELLS = {
     'DW38': (f260, 38, 127),
     'DX38': (f261, 38, 128),
     'DY38': (f262, 38, 129),
-    'A39': (f273, 39, 1),
+    'DZ38': (f263, 38, 130),
+    'EA38': (f264, 38, 131),
+    'EB38': (f265, 38, 132),
+    'EC38': (f266, 38, 133),
+    'ED38': (f267, 38, 134),
+    'EE38': (f268, 38, 135),
+    'EF38': (f269, 38, 136),
+    'EG38': (f270, 38, 137),
+    'EH38': (f271, 38, 138),
+    'EI38': (f272, 38, 139),
+    'EJ38': (f273, 38, 140),
+    'EK38': (f274, 38, 141),
+    'A39': (f285, 39, 1),
     'B39': (f145, 39, 2),
     'C39': (f146, 39, 3),
     'D39': (f147, 39, 4),
@@ -3716,7 +3880,7 @@ CELLS = {
     'CD39': (f221, 39, 82),
     'CE39': (f222, 39, 83),
     'CF39': (f223, 39, 84),
-    'CG39': (f264, 39, 85),
+    'CG39': (f276, 39, 85),
     'CI39': (f225, 39, 87),
     'CJ39': (f226, 39, 88),
     'CK39': (f227, 39, 89),
@@ -3755,7 +3919,19 @@ CELLS = {
     'DW39': (f260, 39, 127),
     'DX39': (f261, 39, 128),
     'DY39': (f262, 39, 129),
-    'A40': (f274, 40, 1),
+    'DZ39': (f263, 39, 130),
+    'EA39': (f264, 39, 131),
+    'EB39': (f265, 39, 132),
+    'EC39': (f266, 39, 133),
+    'ED39': (f267, 39, 134),
+    'EE39': (f268, 39, 135),
+    'EF39': (f269, 39, 136),
+    'EG39': (f270, 39, 137),
+    'EH39': (f271, 39, 138),
+    'EI39': (f272, 39, 139),
+    'EJ39': (f273, 39, 140),
+    'EK39': (f274, 39, 141),
+    'A40': (f286, 40, 1),
     'B40': (f145, 40, 2),
     'C40': (f146, 40, 3),
     'D40': (f147, 40, 4),
@@ -3837,7 +4013,7 @@ CELLS = {
     'CD40': (f221, 40, 82),
     'CE40': (f222, 40, 83),
     'CF40': (f223, 40, 84),
-    'CG40': (f264, 40, 85),
+    'CG40': (f276, 40, 85),
     'CI40': (f225, 40, 87),
     'CJ40': (f226, 40, 88),
     'CK40': (f227, 40, 89),
@@ -3876,7 +4052,19 @@ CELLS = {
     'DW40': (f260, 40, 127),
     'DX40': (f261, 40, 128),
     'DY40': (f262, 40, 129),
-    'A41': (f275, 41, 1),
+    'DZ40': (f263, 40, 130),
+    'EA40': (f264, 40, 131),
+    'EB40': (f265, 40, 132),
+    'EC40': (f266, 40, 133),
+    'ED40': (f267, 40, 134),
+    'EE40': (f268, 40, 135),
+    'EF40': (f269, 40, 136),
+    'EG40': (f270, 40, 137),
+    'EH40': (f271, 40, 138),
+    'EI40': (f272, 40, 139),
+    'EJ40': (f273, 40, 140),
+    'EK40': (f274, 40, 141),
+    'A41': (f287, 41, 1),
     'B41': (f145, 41, 2),
     'C41': (f146, 41, 3),
     'D41': (f147, 41, 4),
@@ -3958,7 +4146,7 @@ CELLS = {
     'CD41': (f221, 41, 82),
     'CE41': (f222, 41, 83),
     'CF41': (f223, 41, 84),
-    'CG41': (f264, 41, 85),
+    'CG41': (f276, 41, 85),
     'CI41': (f225, 41, 87),
     'CJ41': (f226, 41, 88),
     'CK41': (f227, 41, 89),
@@ -3997,7 +4185,19 @@ CELLS = {
     'DW41': (f260, 41, 127),
     'DX41': (f261, 41, 128),
     'DY41': (f262, 41, 129),
-    'A42': (f276, 42, 1),
+    'DZ41': (f263, 41, 130),
+    'EA41': (f264, 41, 131),
+    'EB41': (f265, 41, 132),
+    'EC41': (f266, 41, 133),
+    'ED41': (f267, 41, 134),
+    'EE41': (f268, 41, 135),
+    'EF41': (f269, 41, 136),
+    'EG41': (f270, 41, 137),
+    'EH41': (f271, 41, 138),
+    'EI41': (f272, 41, 139),
+    'EJ41': (f273, 41, 140),
+    'EK41': (f274, 41, 141),
+    'A42': (f288, 42, 1),
     'B42': (f145, 42, 2),
     'C42': (f146, 42, 3),
     'D42': (f147, 42, 4),
@@ -4079,7 +4279,7 @@ CELLS = {
     'CD42': (f221, 42, 82),
     'CE42': (f222, 42, 83),
     'CF42': (f223, 42, 84),
-    'CG42': (f264, 42, 85),
+    'CG42': (f276, 42, 85),
     'CI42': (f225, 42, 87),
     'CJ42': (f226, 42, 88),
     'CK42': (f227, 42, 89),
@@ -4118,7 +4318,19 @@ CELLS = {
     'DW42': (f260, 42, 127),
     'DX42': (f261, 42, 128),
     'DY42': (f262, 42, 129),
-    'A43': (f277, 43, 1),
+    'DZ42': (f263, 42, 130),
+    'EA42': (f264, 42, 131),
+    'EB42': (f265, 42, 132),
+    'EC42': (f266, 42, 133),
+    'ED42': (f267, 42, 134),
+    'EE42': (f268, 42, 135),
+    'EF42': (f269, 42, 136),
+    'EG42': (f270, 42, 137),
+    'EH42': (f271, 42, 138),
+    'EI42': (f272, 42, 139),
+    'EJ42': (f273, 42, 140),
+    'EK42': (f274, 42, 141),
+    'A43': (f289, 43, 1),
     'B43': (f145, 43, 2),
     'C43': (f146, 43, 3),
     'D43': (f147, 43, 4),
@@ -4200,7 +4412,7 @@ CELLS = {
     'CD43': (f221, 43, 82),
     'CE43': (f222, 43, 83),
     'CF43': (f223, 43, 84),
-    'CG43': (f264, 43, 85),
+    'CG43': (f276, 43, 85),
     'CI43': (f225, 43, 87),
     'CJ43': (f226, 43, 88),
     'CK43': (f227, 43, 89),
@@ -4239,7 +4451,19 @@ CELLS = {
     'DW43': (f260, 43, 127),
     'DX43': (f261, 43, 128),
     'DY43': (f262, 43, 129),
-    'A44': (f278, 44, 1),
+    'DZ43': (f263, 43, 130),
+    'EA43': (f264, 43, 131),
+    'EB43': (f265, 43, 132),
+    'EC43': (f266, 43, 133),
+    'ED43': (f267, 43, 134),
+    'EE43': (f268, 43, 135),
+    'EF43': (f269, 43, 136),
+    'EG43': (f270, 43, 137),
+    'EH43': (f271, 43, 138),
+    'EI43': (f272, 43, 139),
+    'EJ43': (f273, 43, 140),
+    'EK43': (f274, 43, 141),
+    'A44': (f290, 44, 1),
     'B44': (f145, 44, 2),
     'C44': (f146, 44, 3),
     'D44': (f147, 44, 4),
@@ -4321,7 +4545,7 @@ CELLS = {
     'CD44': (f221, 44, 82),
     'CE44': (f222, 44, 83),
     'CF44': (f223, 44, 84),
-    'CG44': (f264, 44, 85),
+    'CG44': (f276, 44, 85),
     'CI44': (f225, 44, 87),
     'CJ44': (f226, 44, 88),
     'CK44': (f227, 44, 89),
@@ -4360,7 +4584,19 @@ CELLS = {
     'DW44': (f260, 44, 127),
     'DX44': (f261, 44, 128),
     'DY44': (f262, 44, 129),
-    'A45': (f279, 45, 1),
+    'DZ44': (f263, 44, 130),
+    'EA44': (f264, 44, 131),
+    'EB44': (f265, 44, 132),
+    'EC44': (f266, 44, 133),
+    'ED44': (f267, 44, 134),
+    'EE44': (f268, 44, 135),
+    'EF44': (f269, 44, 136),
+    'EG44': (f270, 44, 137),
+    'EH44': (f271, 44, 138),
+    'EI44': (f272, 44, 139),
+    'EJ44': (f273, 44, 140),
+    'EK44': (f274, 44, 141),
+    'A45': (f291, 45, 1),
     'B45': (f145, 45, 2),
     'C45': (f146, 45, 3),
     'D45': (f147, 45, 4),
@@ -4442,7 +4678,7 @@ CELLS = {
     'CD45': (f221, 45, 82),
     'CE45': (f222, 45, 83),
     'CF45': (f223, 45, 84),
-    'CG45': (f264, 45, 85),
+    'CG45': (f276, 45, 85),
     'CI45': (f225, 45, 87),
     'CJ45': (f226, 45, 88),
     'CK45': (f227, 45, 89),
@@ -4481,7 +4717,19 @@ CELLS = {
     'DW45': (f260, 45, 127),
     'DX45': (f261, 45, 128),
     'DY45': (f262, 45, 129),
-    'A46': (f280, 46, 1),
+    'DZ45': (f263, 45, 130),
+    'EA45': (f264, 45, 131),
+    'EB45': (f265, 45, 132),
+    'EC45': (f266, 45, 133),
+    'ED45': (f267, 45, 134),
+    'EE45': (f268, 45, 135),
+    'EF45': (f269, 45, 136),
+    'EG45': (f270, 45, 137),
+    'EH45': (f271, 45, 138),
+    'EI45': (f272, 45, 139),
+    'EJ45': (f273, 45, 140),
+    'EK45': (f274, 45, 141),
+    'A46': (f292, 46, 1),
     'B46': (f145, 46, 2),
     'C46': (f146, 46, 3),
     'D46': (f147, 46, 4),
@@ -4563,7 +4811,7 @@ CELLS = {
     'CD46': (f221, 46, 82),
     'CE46': (f222, 46, 83),
     'CF46': (f223, 46, 84),
-    'CG46': (f264, 46, 85),
+    'CG46': (f276, 46, 85),
     'CI46': (f225, 46, 87),
     'CJ46': (f226, 46, 88),
     'CK46': (f227, 46, 89),
@@ -4602,7 +4850,19 @@ CELLS = {
     'DW46': (f260, 46, 127),
     'DX46': (f261, 46, 128),
     'DY46': (f262, 46, 129),
-    'A47': (f281, 47, 1),
+    'DZ46': (f263, 46, 130),
+    'EA46': (f264, 46, 131),
+    'EB46': (f265, 46, 132),
+    'EC46': (f266, 46, 133),
+    'ED46': (f267, 46, 134),
+    'EE46': (f268, 46, 135),
+    'EF46': (f269, 46, 136),
+    'EG46': (f270, 46, 137),
+    'EH46': (f271, 46, 138),
+    'EI46': (f272, 46, 139),
+    'EJ46': (f273, 46, 140),
+    'EK46': (f274, 46, 141),
+    'A47': (f293, 47, 1),
     'B47': (f145, 47, 2),
     'C47': (f146, 47, 3),
     'D47': (f147, 47, 4),
@@ -4684,7 +4944,7 @@ CELLS = {
     'CD47': (f221, 47, 82),
     'CE47': (f222, 47, 83),
     'CF47': (f223, 47, 84),
-    'CG47': (f264, 47, 85),
+    'CG47': (f276, 47, 85),
     'CI47': (f225, 47, 87),
     'CJ47': (f226, 47, 88),
     'CK47': (f227, 47, 89),
@@ -4723,7 +4983,19 @@ CELLS = {
     'DW47': (f260, 47, 127),
     'DX47': (f261, 47, 128),
     'DY47': (f262, 47, 129),
-    'A48': (f282, 48, 1),
+    'DZ47': (f263, 47, 130),
+    'EA47': (f264, 47, 131),
+    'EB47': (f265, 47, 132),
+    'EC47': (f266, 47, 133),
+    'ED47': (f267, 47, 134),
+    'EE47': (f268, 47, 135),
+    'EF47': (f269, 47, 136),
+    'EG47': (f270, 47, 137),
+    'EH47': (f271, 47, 138),
+    'EI47': (f272, 47, 139),
+    'EJ47': (f273, 47, 140),
+    'EK47': (f274, 47, 141),
+    'A48': (f294, 48, 1),
     'B48': (f145, 48, 2),
     'C48': (f146, 48, 3),
     'D48': (f147, 48, 4),
@@ -4805,7 +5077,7 @@ CELLS = {
     'CD48': (f221, 48, 82),
     'CE48': (f222, 48, 83),
     'CF48': (f223, 48, 84),
-    'CG48': (f264, 48, 85),
+    'CG48': (f276, 48, 85),
     'CI48': (f225, 48, 87),
     'CJ48': (f226, 48, 88),
     'CK48': (f227, 48, 89),
@@ -4844,7 +5116,19 @@ CELLS = {
     'DW48': (f260, 48, 127),
     'DX48': (f261, 48, 128),
     'DY48': (f262, 48, 129),
-    'A49': (f283, 49, 1),
+    'DZ48': (f263, 48, 130),
+    'EA48': (f264, 48, 131),
+    'EB48': (f265, 48, 132),
+    'EC48': (f266, 48, 133),
+    'ED48': (f267, 48, 134),
+    'EE48': (f268, 48, 135),
+    'EF48': (f269, 48, 136),
+    'EG48': (f270, 48, 137),
+    'EH48': (f271, 48, 138),
+    'EI48': (f272, 48, 139),
+    'EJ48': (f273, 48, 140),
+    'EK48': (f274, 48, 141),
+    'A49': (f295, 49, 1),
     'B49': (f145, 49, 2),
     'C49': (f146, 49, 3),
     'D49': (f147, 49, 4),
@@ -4926,7 +5210,7 @@ CELLS = {
     'CD49': (f221, 49, 82),
     'CE49': (f222, 49, 83),
     'CF49': (f223, 49, 84),
-    'CG49': (f264, 49, 85),
+    'CG49': (f276, 49, 85),
     'CI49': (f225, 49, 87),
     'CJ49': (f226, 49, 88),
     'CK49': (f227, 49, 89),
@@ -4965,7 +5249,19 @@ CELLS = {
     'DW49': (f260, 49, 127),
     'DX49': (f261, 49, 128),
     'DY49': (f262, 49, 129),
-    'A50': (f284, 50, 1),
+    'DZ49': (f263, 49, 130),
+    'EA49': (f264, 49, 131),
+    'EB49': (f265, 49, 132),
+    'EC49': (f266, 49, 133),
+    'ED49': (f267, 49, 134),
+    'EE49': (f268, 49, 135),
+    'EF49': (f269, 49, 136),
+    'EG49': (f270, 49, 137),
+    'EH49': (f271, 49, 138),
+    'EI49': (f272, 49, 139),
+    'EJ49': (f273, 49, 140),
+    'EK49': (f274, 49, 141),
+    'A50': (f296, 50, 1),
     'B50': (f145, 50, 2),
     'C50': (f146, 50, 3),
     'D50': (f147, 50, 4),
@@ -5047,7 +5343,7 @@ CELLS = {
     'CD50': (f221, 50, 82),
     'CE50': (f222, 50, 83),
     'CF50': (f223, 50, 84),
-    'CG50': (f264, 50, 85),
+    'CG50': (f276, 50, 85),
     'CI50': (f225, 50, 87),
     'CJ50': (f226, 50, 88),
     'CK50': (f227, 50, 89),
@@ -5086,7 +5382,19 @@ CELLS = {
     'DW50': (f260, 50, 127),
     'DX50': (f261, 50, 128),
     'DY50': (f262, 50, 129),
-    'A51': (f285, 51, 1),
+    'DZ50': (f263, 50, 130),
+    'EA50': (f264, 50, 131),
+    'EB50': (f265, 50, 132),
+    'EC50': (f266, 50, 133),
+    'ED50': (f267, 50, 134),
+    'EE50': (f268, 50, 135),
+    'EF50': (f269, 50, 136),
+    'EG50': (f270, 50, 137),
+    'EH50': (f271, 50, 138),
+    'EI50': (f272, 50, 139),
+    'EJ50': (f273, 50, 140),
+    'EK50': (f274, 50, 141),
+    'A51': (f297, 51, 1),
     'B51': (f145, 51, 2),
     'C51': (f146, 51, 3),
     'D51': (f147, 51, 4),
@@ -5168,7 +5476,7 @@ CELLS = {
     'CD51': (f221, 51, 82),
     'CE51': (f222, 51, 83),
     'CF51': (f223, 51, 84),
-    'CG51': (f264, 51, 85),
+    'CG51': (f276, 51, 85),
     'CI51': (f225, 51, 87),
     'CJ51': (f226, 51, 88),
     'CK51': (f227, 51, 89),
@@ -5207,7 +5515,19 @@ CELLS = {
     'DW51': (f260, 51, 127),
     'DX51': (f261, 51, 128),
     'DY51': (f262, 51, 129),
-    'A52': (f286, 52, 1),
+    'DZ51': (f263, 51, 130),
+    'EA51': (f264, 51, 131),
+    'EB51': (f265, 51, 132),
+    'EC51': (f266, 51, 133),
+    'ED51': (f267, 51, 134),
+    'EE51': (f268, 51, 135),
+    'EF51': (f269, 51, 136),
+    'EG51': (f270, 51, 137),
+    'EH51': (f271, 51, 138),
+    'EI51': (f272, 51, 139),
+    'EJ51': (f273, 51, 140),
+    'EK51': (f274, 51, 141),
+    'A52': (f298, 52, 1),
     'B52': (f145, 52, 2),
     'C52': (f146, 52, 3),
     'D52': (f147, 52, 4),
@@ -5289,7 +5609,7 @@ CELLS = {
     'CD52': (f221, 52, 82),
     'CE52': (f222, 52, 83),
     'CF52': (f223, 52, 84),
-    'CG52': (f264, 52, 85),
+    'CG52': (f276, 52, 85),
     'CI52': (f225, 52, 87),
     'CJ52': (f226, 52, 88),
     'CK52': (f227, 52, 89),
@@ -5328,7 +5648,19 @@ CELLS = {
     'DW52': (f260, 52, 127),
     'DX52': (f261, 52, 128),
     'DY52': (f262, 52, 129),
-    'A53': (f287, 53, 1),
+    'DZ52': (f263, 52, 130),
+    'EA52': (f264, 52, 131),
+    'EB52': (f265, 52, 132),
+    'EC52': (f266, 52, 133),
+    'ED52': (f267, 52, 134),
+    'EE52': (f268, 52, 135),
+    'EF52': (f269, 52, 136),
+    'EG52': (f270, 52, 137),
+    'EH52': (f271, 52, 138),
+    'EI52': (f272, 52, 139),
+    'EJ52': (f273, 52, 140),
+    'EK52': (f274, 52, 141),
+    'A53': (f299, 53, 1),
     'B53': (f145, 53, 2),
     'C53': (f146, 53, 3),
     'D53': (f147, 53, 4),
@@ -5410,7 +5742,7 @@ CELLS = {
     'CD53': (f221, 53, 82),
     'CE53': (f222, 53, 83),
     'CF53': (f223, 53, 84),
-    'CG53': (f264, 53, 85),
+    'CG53': (f276, 53, 85),
     'CI53': (f225, 53, 87),
     'CJ53': (f226, 53, 88),
     'CK53': (f227, 53, 89),
@@ -5449,7 +5781,19 @@ CELLS = {
     'DW53': (f260, 53, 127),
     'DX53': (f261, 53, 128),
     'DY53': (f262, 53, 129),
-    'A54': (f288, 54, 1),
+    'DZ53': (f263, 53, 130),
+    'EA53': (f264, 53, 131),
+    'EB53': (f265, 53, 132),
+    'EC53': (f266, 53, 133),
+    'ED53': (f267, 53, 134),
+    'EE53': (f268, 53, 135),
+    'EF53': (f269, 53, 136),
+    'EG53': (f270, 53, 137),
+    'EH53': (f271, 53, 138),
+    'EI53': (f272, 53, 139),
+    'EJ53': (f273, 53, 140),
+    'EK53': (f274, 53, 141),
+    'A54': (f300, 54, 1),
     'B54': (f145, 54, 2),
     'C54': (f146, 54, 3),
     'D54': (f147, 54, 4),
@@ -5531,7 +5875,7 @@ CELLS = {
     'CD54': (f221, 54, 82),
     'CE54': (f222, 54, 83),
     'CF54': (f223, 54, 84),
-    'CG54': (f264, 54, 85),
+    'CG54': (f276, 54, 85),
     'CI54': (f225, 54, 87),
     'CJ54': (f226, 54, 88),
     'CK54': (f227, 54, 89),
@@ -5570,7 +5914,19 @@ CELLS = {
     'DW54': (f260, 54, 127),
     'DX54': (f261, 54, 128),
     'DY54': (f262, 54, 129),
-    'A55': (f289, 55, 1),
+    'DZ54': (f263, 54, 130),
+    'EA54': (f264, 54, 131),
+    'EB54': (f265, 54, 132),
+    'EC54': (f266, 54, 133),
+    'ED54': (f267, 54, 134),
+    'EE54': (f268, 54, 135),
+    'EF54': (f269, 54, 136),
+    'EG54': (f270, 54, 137),
+    'EH54': (f271, 54, 138),
+    'EI54': (f272, 54, 139),
+    'EJ54': (f273, 54, 140),
+    'EK54': (f274, 54, 141),
+    'A55': (f301, 55, 1),
     'B55': (f145, 55, 2),
     'C55': (f146, 55, 3),
     'D55': (f147, 55, 4),
@@ -5652,7 +6008,7 @@ CELLS = {
     'CD55': (f221, 55, 82),
     'CE55': (f222, 55, 83),
     'CF55': (f223, 55, 84),
-    'CG55': (f264, 55, 85),
+    'CG55': (f276, 55, 85),
     'CI55': (f225, 55, 87),
     'CJ55': (f226, 55, 88),
     'CK55': (f227, 55, 89),
@@ -5691,7 +6047,19 @@ CELLS = {
     'DW55': (f260, 55, 127),
     'DX55': (f261, 55, 128),
     'DY55': (f262, 55, 129),
-    'A56': (f290, 56, 1),
+    'DZ55': (f263, 55, 130),
+    'EA55': (f264, 55, 131),
+    'EB55': (f265, 55, 132),
+    'EC55': (f266, 55, 133),
+    'ED55': (f267, 55, 134),
+    'EE55': (f268, 55, 135),
+    'EF55': (f269, 55, 136),
+    'EG55': (f270, 55, 137),
+    'EH55': (f271, 55, 138),
+    'EI55': (f272, 55, 139),
+    'EJ55': (f273, 55, 140),
+    'EK55': (f274, 55, 141),
+    'A56': (f302, 56, 1),
     'B56': (f145, 56, 2),
     'C56': (f146, 56, 3),
     'D56': (f147, 56, 4),
@@ -5773,7 +6141,7 @@ CELLS = {
     'CD56': (f221, 56, 82),
     'CE56': (f222, 56, 83),
     'CF56': (f223, 56, 84),
-    'CG56': (f264, 56, 85),
+    'CG56': (f276, 56, 85),
     'CI56': (f225, 56, 87),
     'CJ56': (f226, 56, 88),
     'CK56': (f227, 56, 89),
@@ -5812,7 +6180,19 @@ CELLS = {
     'DW56': (f260, 56, 127),
     'DX56': (f261, 56, 128),
     'DY56': (f262, 56, 129),
-    'A57': (f291, 57, 1),
+    'DZ56': (f263, 56, 130),
+    'EA56': (f264, 56, 131),
+    'EB56': (f265, 56, 132),
+    'EC56': (f266, 56, 133),
+    'ED56': (f267, 56, 134),
+    'EE56': (f268, 56, 135),
+    'EF56': (f269, 56, 136),
+    'EG56': (f270, 56, 137),
+    'EH56': (f271, 56, 138),
+    'EI56': (f272, 56, 139),
+    'EJ56': (f273, 56, 140),
+    'EK56': (f274, 56, 141),
+    'A57': (f303, 57, 1),
     'B57': (f145, 57, 2),
     'C57': (f146, 57, 3),
     'D57': (f147, 57, 4),
@@ -5894,7 +6274,7 @@ CELLS = {
     'CD57': (f221, 57, 82),
     'CE57': (f222, 57, 83),
     'CF57': (f223, 57, 84),
-    'CG57': (f264, 57, 85),
+    'CG57': (f276, 57, 85),
     'CI57': (f225, 57, 87),
     'CJ57': (f226, 57, 88),
     'CK57': (f227, 57, 89),
@@ -5933,7 +6313,19 @@ CELLS = {
     'DW57': (f260, 57, 127),
     'DX57': (f261, 57, 128),
     'DY57': (f262, 57, 129),
-    'A58': (f292, 58, 1),
+    'DZ57': (f263, 57, 130),
+    'EA57': (f264, 57, 131),
+    'EB57': (f265, 57, 132),
+    'EC57': (f266, 57, 133),
+    'ED57': (f267, 57, 134),
+    'EE57': (f268, 57, 135),
+    'EF57': (f269, 57, 136),
+    'EG57': (f270, 57, 137),
+    'EH57': (f271, 57, 138),
+    'EI57': (f272, 57, 139),
+    'EJ57': (f273, 57, 140),
+    'EK57': (f274, 57, 141),
+    'A58': (f304, 58, 1),
     'B58': (f145, 58, 2),
     'C58': (f146, 58, 3),
     'D58': (f147, 58, 4),
@@ -6015,7 +6407,7 @@ CELLS = {
     'CD58': (f221, 58, 82),
     'CE58': (f222, 58, 83),
     'CF58': (f223, 58, 84),
-    'CG58': (f264, 58, 85),
+    'CG58': (f276, 58, 85),
     'CI58': (f225, 58, 87),
     'CJ58': (f226, 58, 88),
     'CK58': (f227, 58, 89),
@@ -6054,7 +6446,19 @@ CELLS = {
     'DW58': (f260, 58, 127),
     'DX58': (f261, 58, 128),
     'DY58': (f262, 58, 129),
-    'A59': (f293, 59, 1),
+    'DZ58': (f263, 58, 130),
+    'EA58': (f264, 58, 131),
+    'EB58': (f265, 58, 132),
+    'EC58': (f266, 58, 133),
+    'ED58': (f267, 58, 134),
+    'EE58': (f268, 58, 135),
+    'EF58': (f269, 58, 136),
+    'EG58': (f270, 58, 137),
+    'EH58': (f271, 58, 138),
+    'EI58': (f272, 58, 139),
+    'EJ58': (f273, 58, 140),
+    'EK58': (f274, 58, 141),
+    'A59': (f305, 59, 1),
     'B59': (f145, 59, 2),
     'C59': (f146, 59, 3),
     'D59': (f147, 59, 4),
@@ -6136,7 +6540,7 @@ CELLS = {
     'CD59': (f221, 59, 82),
     'CE59': (f222, 59, 83),
     'CF59': (f223, 59, 84),
-    'CG59': (f264, 59, 85),
+    'CG59': (f276, 59, 85),
     'CI59': (f225, 59, 87),
     'CJ59': (f226, 59, 88),
     'CK59': (f227, 59, 89),
@@ -6175,7 +6579,19 @@ CELLS = {
     'DW59': (f260, 59, 127),
     'DX59': (f261, 59, 128),
     'DY59': (f262, 59, 129),
-    'A60': (f294, 60, 1),
+    'DZ59': (f263, 59, 130),
+    'EA59': (f264, 59, 131),
+    'EB59': (f265, 59, 132),
+    'EC59': (f266, 59, 133),
+    'ED59': (f267, 59, 134),
+    'EE59': (f268, 59, 135),
+    'EF59': (f269, 59, 136),
+    'EG59': (f270, 59, 137),
+    'EH59': (f271, 59, 138),
+    'EI59': (f272, 59, 139),
+    'EJ59': (f273, 59, 140),
+    'EK59': (f274, 59, 141),
+    'A60': (f306, 60, 1),
     'B60': (f145, 60, 2),
     'C60': (f146, 60, 3),
     'D60': (f147, 60, 4),
@@ -6257,7 +6673,7 @@ CELLS = {
     'CD60': (f221, 60, 82),
     'CE60': (f222, 60, 83),
     'CF60': (f223, 60, 84),
-    'CG60': (f264, 60, 85),
+    'CG60': (f276, 60, 85),
     'CI60': (f225, 60, 87),
     'CJ60': (f226, 60, 88),
     'CK60': (f227, 60, 89),
@@ -6296,7 +6712,19 @@ CELLS = {
     'DW60': (f260, 60, 127),
     'DX60': (f261, 60, 128),
     'DY60': (f262, 60, 129),
-    'A61': (f295, 61, 1),
+    'DZ60': (f263, 60, 130),
+    'EA60': (f264, 60, 131),
+    'EB60': (f265, 60, 132),
+    'EC60': (f266, 60, 133),
+    'ED60': (f267, 60, 134),
+    'EE60': (f268, 60, 135),
+    'EF60': (f269, 60, 136),
+    'EG60': (f270, 60, 137),
+    'EH60': (f271, 60, 138),
+    'EI60': (f272, 60, 139),
+    'EJ60': (f273, 60, 140),
+    'EK60': (f274, 60, 141),
+    'A61': (f307, 61, 1),
     'B61': (f145, 61, 2),
     'C61': (f146, 61, 3),
     'D61': (f147, 61, 4),
@@ -6378,7 +6806,7 @@ CELLS = {
     'CD61': (f221, 61, 82),
     'CE61': (f222, 61, 83),
     'CF61': (f223, 61, 84),
-    'CG61': (f264, 61, 85),
+    'CG61': (f276, 61, 85),
     'CI61': (f225, 61, 87),
     'CJ61': (f226, 61, 88),
     'CK61': (f227, 61, 89),
@@ -6417,7 +6845,19 @@ CELLS = {
     'DW61': (f260, 61, 127),
     'DX61': (f261, 61, 128),
     'DY61': (f262, 61, 129),
-    'A62': (f296, 62, 1),
+    'DZ61': (f263, 61, 130),
+    'EA61': (f264, 61, 131),
+    'EB61': (f265, 61, 132),
+    'EC61': (f266, 61, 133),
+    'ED61': (f267, 61, 134),
+    'EE61': (f268, 61, 135),
+    'EF61': (f269, 61, 136),
+    'EG61': (f270, 61, 137),
+    'EH61': (f271, 61, 138),
+    'EI61': (f272, 61, 139),
+    'EJ61': (f273, 61, 140),
+    'EK61': (f274, 61, 141),
+    'A62': (f308, 62, 1),
     'B62': (f145, 62, 2),
     'C62': (f146, 62, 3),
     'D62': (f147, 62, 4),
@@ -6499,7 +6939,7 @@ CELLS = {
     'CD62': (f221, 62, 82),
     'CE62': (f222, 62, 83),
     'CF62': (f223, 62, 84),
-    'CG62': (f264, 62, 85),
+    'CG62': (f276, 62, 85),
     'CI62': (f225, 62, 87),
     'CJ62': (f226, 62, 88),
     'CK62': (f227, 62, 89),
@@ -6538,7 +6978,19 @@ CELLS = {
     'DW62': (f260, 62, 127),
     'DX62': (f261, 62, 128),
     'DY62': (f262, 62, 129),
-    'A63': (f297, 63, 1),
+    'DZ62': (f263, 62, 130),
+    'EA62': (f264, 62, 131),
+    'EB62': (f265, 62, 132),
+    'EC62': (f266, 62, 133),
+    'ED62': (f267, 62, 134),
+    'EE62': (f268, 62, 135),
+    'EF62': (f269, 62, 136),
+    'EG62': (f270, 62, 137),
+    'EH62': (f271, 62, 138),
+    'EI62': (f272, 62, 139),
+    'EJ62': (f273, 62, 140),
+    'EK62': (f274, 62, 141),
+    'A63': (f309, 63, 1),
     'B63': (f145, 63, 2),
     'C63': (f146, 63, 3),
     'D63': (f147, 63, 4),
@@ -6620,7 +7072,7 @@ CELLS = {
     'CD63': (f221, 63, 82),
     'CE63': (f222, 63, 83),
     'CF63': (f223, 63, 84),
-    'CG63': (f264, 63, 85),
+    'CG63': (f276, 63, 85),
     'CI63': (f225, 63, 87),
     'CJ63': (f226, 63, 88),
     'CK63': (f227, 63, 89),
@@ -6659,7 +7111,19 @@ CELLS = {
     'DW63': (f260, 63, 127),
     'DX63': (f261, 63, 128),
     'DY63': (f262, 63, 129),
-    'A64': (f298, 64, 1),
+    'DZ63': (f263, 63, 130),
+    'EA63': (f264, 63, 131),
+    'EB63': (f265, 63, 132),
+    'EC63': (f266, 63, 133),
+    'ED63': (f267, 63, 134),
+    'EE63': (f268, 63, 135),
+    'EF63': (f269, 63, 136),
+    'EG63': (f270, 63, 137),
+    'EH63': (f271, 63, 138),
+    'EI63': (f272, 63, 139),
+    'EJ63': (f273, 63, 140),
+    'EK63': (f274, 63, 141),
+    'A64': (f310, 64, 1),
     'B64': (f145, 64, 2),
     'C64': (f146, 64, 3),
     'D64': (f147, 64, 4),
@@ -6741,7 +7205,7 @@ CELLS = {
     'CD64': (f221, 64, 82),
     'CE64': (f222, 64, 83),
     'CF64': (f223, 64, 84),
-    'CG64': (f264, 64, 85),
+    'CG64': (f276, 64, 85),
     'CI64': (f225, 64, 87),
     'CJ64': (f226, 64, 88),
     'CK64': (f227, 64, 89),
@@ -6780,7 +7244,19 @@ CELLS = {
     'DW64': (f260, 64, 127),
     'DX64': (f261, 64, 128),
     'DY64': (f262, 64, 129),
-    'A65': (f299, 65, 1),
+    'DZ64': (f263, 64, 130),
+    'EA64': (f264, 64, 131),
+    'EB64': (f265, 64, 132),
+    'EC64': (f266, 64, 133),
+    'ED64': (f267, 64, 134),
+    'EE64': (f268, 64, 135),
+    'EF64': (f269, 64, 136),
+    'EG64': (f270, 64, 137),
+    'EH64': (f271, 64, 138),
+    'EI64': (f272, 64, 139),
+    'EJ64': (f273, 64, 140),
+    'EK64': (f274, 64, 141),
+    'A65': (f311, 65, 1),
     'B65': (f145, 65, 2),
     'C65': (f146, 65, 3),
     'D65': (f147, 65, 4),
@@ -6862,7 +7338,7 @@ CELLS = {
     'CD65': (f221, 65, 82),
     'CE65': (f222, 65, 83),
     'CF65': (f223, 65, 84),
-    'CG65': (f264, 65, 85),
+    'CG65': (f276, 65, 85),
     'CI65': (f225, 65, 87),
     'CJ65': (f226, 65, 88),
     'CK65': (f227, 65, 89),
@@ -6901,7 +7377,19 @@ CELLS = {
     'DW65': (f260, 65, 127),
     'DX65': (f261, 65, 128),
     'DY65': (f262, 65, 129),
-    'A66': (f300, 66, 1),
+    'DZ65': (f263, 65, 130),
+    'EA65': (f264, 65, 131),
+    'EB65': (f265, 65, 132),
+    'EC65': (f266, 65, 133),
+    'ED65': (f267, 65, 134),
+    'EE65': (f268, 65, 135),
+    'EF65': (f269, 65, 136),
+    'EG65': (f270, 65, 137),
+    'EH65': (f271, 65, 138),
+    'EI65': (f272, 65, 139),
+    'EJ65': (f273, 65, 140),
+    'EK65': (f274, 65, 141),
+    'A66': (f312, 66, 1),
     'B66': (f145, 66, 2),
     'C66': (f146, 66, 3),
     'D66': (f147, 66, 4),
@@ -6983,7 +7471,7 @@ CELLS = {
     'CD66': (f221, 66, 82),
     'CE66': (f222, 66, 83),
     'CF66': (f223, 66, 84),
-    'CG66': (f264, 66, 85),
+    'CG66': (f276, 66, 85),
     'CI66': (f225, 66, 87),
     'CJ66': (f226, 66, 88),
     'CK66': (f227, 66, 89),
@@ -7022,7 +7510,19 @@ CELLS = {
     'DW66': (f260, 66, 127),
     'DX66': (f261, 66, 128),
     'DY66': (f262, 66, 129),
-    'A67': (f301, 67, 1),
+    'DZ66': (f263, 66, 130),
+    'EA66': (f264, 66, 131),
+    'EB66': (f265, 66, 132),
+    'EC66': (f266, 66, 133),
+    'ED66': (f267, 66, 134),
+    'EE66': (f268, 66, 135),
+    'EF66': (f269, 66, 136),
+    'EG66': (f270, 66, 137),
+    'EH66': (f271, 66, 138),
+    'EI66': (f272, 66, 139),
+    'EJ66': (f273, 66, 140),
+    'EK66': (f274, 66, 141),
+    'A67': (f313, 67, 1),
     'B67': (f145, 67, 2),
     'C67': (f146, 67, 3),
     'D67': (f147, 67, 4),
@@ -7104,7 +7604,7 @@ CELLS = {
     'CD67': (f221, 67, 82),
     'CE67': (f222, 67, 83),
     'CF67': (f223, 67, 84),
-    'CG67': (f264, 67, 85),
+    'CG67': (f276, 67, 85),
     'CI67': (f225, 67, 87),
     'CJ67': (f226, 67, 88),
     'CK67': (f227, 67, 89),
@@ -7143,7 +7643,19 @@ CELLS = {
     'DW67': (f260, 67, 127),
     'DX67': (f261, 67, 128),
     'DY67': (f262, 67, 129),
-    'A68': (f302, 68, 1),
+    'DZ67': (f263, 67, 130),
+    'EA67': (f264, 67, 131),
+    'EB67': (f265, 67, 132),
+    'EC67': (f266, 67, 133),
+    'ED67': (f267, 67, 134),
+    'EE67': (f268, 67, 135),
+    'EF67': (f269, 67, 136),
+    'EG67': (f270, 67, 137),
+    'EH67': (f271, 67, 138),
+    'EI67': (f272, 67, 139),
+    'EJ67': (f273, 67, 140),
+    'EK67': (f274, 67, 141),
+    'A68': (f314, 68, 1),
     'B68': (f145, 68, 2),
     'C68': (f146, 68, 3),
     'D68': (f147, 68, 4),
@@ -7225,7 +7737,7 @@ CELLS = {
     'CD68': (f221, 68, 82),
     'CE68': (f222, 68, 83),
     'CF68': (f223, 68, 84),
-    'CG68': (f264, 68, 85),
+    'CG68': (f276, 68, 85),
     'CI68': (f225, 68, 87),
     'CJ68': (f226, 68, 88),
     'CK68': (f227, 68, 89),
@@ -7264,7 +7776,19 @@ CELLS = {
     'DW68': (f260, 68, 127),
     'DX68': (f261, 68, 128),
     'DY68': (f262, 68, 129),
-    'A69': (f303, 69, 1),
+    'DZ68': (f263, 68, 130),
+    'EA68': (f264, 68, 131),
+    'EB68': (f265, 68, 132),
+    'EC68': (f266, 68, 133),
+    'ED68': (f267, 68, 134),
+    'EE68': (f268, 68, 135),
+    'EF68': (f269, 68, 136),
+    'EG68': (f270, 68, 137),
+    'EH68': (f271, 68, 138),
+    'EI68': (f272, 68, 139),
+    'EJ68': (f273, 68, 140),
+    'EK68': (f274, 68, 141),
+    'A69': (f315, 69, 1),
     'B69': (f145, 69, 2),
     'C69': (f146, 69, 3),
     'D69': (f147, 69, 4),
@@ -7346,7 +7870,7 @@ CELLS = {
     'CD69': (f221, 69, 82),
     'CE69': (f222, 69, 83),
     'CF69': (f223, 69, 84),
-    'CG69': (f264, 69, 85),
+    'CG69': (f276, 69, 85),
     'CI69': (f225, 69, 87),
     'CJ69': (f226, 69, 88),
     'CK69': (f227, 69, 89),
@@ -7385,7 +7909,19 @@ CELLS = {
     'DW69': (f260, 69, 127),
     'DX69': (f261, 69, 128),
     'DY69': (f262, 69, 129),
-    'A70': (f304, 70, 1),
+    'DZ69': (f263, 69, 130),
+    'EA69': (f264, 69, 131),
+    'EB69': (f265, 69, 132),
+    'EC69': (f266, 69, 133),
+    'ED69': (f267, 69, 134),
+    'EE69': (f268, 69, 135),
+    'EF69': (f269, 69, 136),
+    'EG69': (f270, 69, 137),
+    'EH69': (f271, 69, 138),
+    'EI69': (f272, 69, 139),
+    'EJ69': (f273, 69, 140),
+    'EK69': (f274, 69, 141),
+    'A70': (f316, 70, 1),
     'B70': (f145, 70, 2),
     'C70': (f146, 70, 3),
     'D70': (f147, 70, 4),
@@ -7467,7 +8003,7 @@ CELLS = {
     'CD70': (f221, 70, 82),
     'CE70': (f222, 70, 83),
     'CF70': (f223, 70, 84),
-    'CG70': (f264, 70, 85),
+    'CG70': (f276, 70, 85),
     'CI70': (f225, 70, 87),
     'CJ70': (f226, 70, 88),
     'CK70': (f227, 70, 89),
@@ -7506,7 +8042,19 @@ CELLS = {
     'DW70': (f260, 70, 127),
     'DX70': (f261, 70, 128),
     'DY70': (f262, 70, 129),
-    'A71': (f305, 71, 1),
+    'DZ70': (f263, 70, 130),
+    'EA70': (f264, 70, 131),
+    'EB70': (f265, 70, 132),
+    'EC70': (f266, 70, 133),
+    'ED70': (f267, 70, 134),
+    'EE70': (f268, 70, 135),
+    'EF70': (f269, 70, 136),
+    'EG70': (f270, 70, 137),
+    'EH70': (f271, 70, 138),
+    'EI70': (f272, 70, 139),
+    'EJ70': (f273, 70, 140),
+    'EK70': (f274, 70, 141),
+    'A71': (f317, 71, 1),
     'B71': (f145, 71, 2),
     'C71': (f146, 71, 3),
     'D71': (f147, 71, 4),
@@ -7588,7 +8136,7 @@ CELLS = {
     'CD71': (f221, 71, 82),
     'CE71': (f222, 71, 83),
     'CF71': (f223, 71, 84),
-    'CG71': (f264, 71, 85),
+    'CG71': (f276, 71, 85),
     'CI71': (f225, 71, 87),
     'CJ71': (f226, 71, 88),
     'CK71': (f227, 71, 89),
@@ -7627,7 +8175,19 @@ CELLS = {
     'DW71': (f260, 71, 127),
     'DX71': (f261, 71, 128),
     'DY71': (f262, 71, 129),
-    'A72': (f306, 72, 1),
+    'DZ71': (f263, 71, 130),
+    'EA71': (f264, 71, 131),
+    'EB71': (f265, 71, 132),
+    'EC71': (f266, 71, 133),
+    'ED71': (f267, 71, 134),
+    'EE71': (f268, 71, 135),
+    'EF71': (f269, 71, 136),
+    'EG71': (f270, 71, 137),
+    'EH71': (f271, 71, 138),
+    'EI71': (f272, 71, 139),
+    'EJ71': (f273, 71, 140),
+    'EK71': (f274, 71, 141),
+    'A72': (f318, 72, 1),
     'B72': (f145, 72, 2),
     'C72': (f146, 72, 3),
     'D72': (f147, 72, 4),
@@ -7709,7 +8269,7 @@ CELLS = {
     'CD72': (f221, 72, 82),
     'CE72': (f222, 72, 83),
     'CF72': (f223, 72, 84),
-    'CG72': (f264, 72, 85),
+    'CG72': (f276, 72, 85),
     'CI72': (f225, 72, 87),
     'CJ72': (f226, 72, 88),
     'CK72': (f227, 72, 89),
@@ -7748,7 +8308,19 @@ CELLS = {
     'DW72': (f260, 72, 127),
     'DX72': (f261, 72, 128),
     'DY72': (f262, 72, 129),
-    'A73': (f307, 73, 1),
+    'DZ72': (f263, 72, 130),
+    'EA72': (f264, 72, 131),
+    'EB72': (f265, 72, 132),
+    'EC72': (f266, 72, 133),
+    'ED72': (f267, 72, 134),
+    'EE72': (f268, 72, 135),
+    'EF72': (f269, 72, 136),
+    'EG72': (f270, 72, 137),
+    'EH72': (f271, 72, 138),
+    'EI72': (f272, 72, 139),
+    'EJ72': (f273, 72, 140),
+    'EK72': (f274, 72, 141),
+    'A73': (f319, 73, 1),
     'B73': (f145, 73, 2),
     'C73': (f146, 73, 3),
     'D73': (f147, 73, 4),
@@ -7830,7 +8402,7 @@ CELLS = {
     'CD73': (f221, 73, 82),
     'CE73': (f222, 73, 83),
     'CF73': (f223, 73, 84),
-    'CG73': (f264, 73, 85),
+    'CG73': (f276, 73, 85),
     'CI73': (f225, 73, 87),
     'CJ73': (f226, 73, 88),
     'CK73': (f227, 73, 89),
@@ -7869,7 +8441,19 @@ CELLS = {
     'DW73': (f260, 73, 127),
     'DX73': (f261, 73, 128),
     'DY73': (f262, 73, 129),
-    'A74': (f308, 74, 1),
+    'DZ73': (f263, 73, 130),
+    'EA73': (f264, 73, 131),
+    'EB73': (f265, 73, 132),
+    'EC73': (f266, 73, 133),
+    'ED73': (f267, 73, 134),
+    'EE73': (f268, 73, 135),
+    'EF73': (f269, 73, 136),
+    'EG73': (f270, 73, 137),
+    'EH73': (f271, 73, 138),
+    'EI73': (f272, 73, 139),
+    'EJ73': (f273, 73, 140),
+    'EK73': (f274, 73, 141),
+    'A74': (f320, 74, 1),
     'B74': (f145, 74, 2),
     'C74': (f146, 74, 3),
     'D74': (f147, 74, 4),
@@ -7951,7 +8535,7 @@ CELLS = {
     'CD74': (f221, 74, 82),
     'CE74': (f222, 74, 83),
     'CF74': (f223, 74, 84),
-    'CG74': (f264, 74, 85),
+    'CG74': (f276, 74, 85),
     'CI74': (f225, 74, 87),
     'CJ74': (f226, 74, 88),
     'CK74': (f227, 74, 89),
@@ -7990,7 +8574,19 @@ CELLS = {
     'DW74': (f260, 74, 127),
     'DX74': (f261, 74, 128),
     'DY74': (f262, 74, 129),
-    'A75': (f309, 75, 1),
+    'DZ74': (f263, 74, 130),
+    'EA74': (f264, 74, 131),
+    'EB74': (f265, 74, 132),
+    'EC74': (f266, 74, 133),
+    'ED74': (f267, 74, 134),
+    'EE74': (f268, 74, 135),
+    'EF74': (f269, 74, 136),
+    'EG74': (f270, 74, 137),
+    'EH74': (f271, 74, 138),
+    'EI74': (f272, 74, 139),
+    'EJ74': (f273, 74, 140),
+    'EK74': (f274, 74, 141),
+    'A75': (f321, 75, 1),
     'B75': (f145, 75, 2),
     'C75': (f146, 75, 3),
     'D75': (f147, 75, 4),
@@ -8072,7 +8668,7 @@ CELLS = {
     'CD75': (f221, 75, 82),
     'CE75': (f222, 75, 83),
     'CF75': (f223, 75, 84),
-    'CG75': (f264, 75, 85),
+    'CG75': (f276, 75, 85),
     'CI75': (f225, 75, 87),
     'CJ75': (f226, 75, 88),
     'CK75': (f227, 75, 89),
@@ -8111,7 +8707,19 @@ CELLS = {
     'DW75': (f260, 75, 127),
     'DX75': (f261, 75, 128),
     'DY75': (f262, 75, 129),
-    'A76': (f310, 76, 1),
+    'DZ75': (f263, 75, 130),
+    'EA75': (f264, 75, 131),
+    'EB75': (f265, 75, 132),
+    'EC75': (f266, 75, 133),
+    'ED75': (f267, 75, 134),
+    'EE75': (f268, 75, 135),
+    'EF75': (f269, 75, 136),
+    'EG75': (f270, 75, 137),
+    'EH75': (f271, 75, 138),
+    'EI75': (f272, 75, 139),
+    'EJ75': (f273, 75, 140),
+    'EK75': (f274, 75, 141),
+    'A76': (f322, 76, 1),
     'B76': (f145, 76, 2),
     'C76': (f146, 76, 3),
     'D76': (f147, 76, 4),
@@ -8193,7 +8801,7 @@ CELLS = {
     'CD76': (f221, 76, 82),
     'CE76': (f222, 76, 83),
     'CF76': (f223, 76, 84),
-    'CG76': (f264, 76, 85),
+    'CG76': (f276, 76, 85),
     'CI76': (f225, 76, 87),
     'CJ76': (f226, 76, 88),
     'CK76': (f227, 76, 89),
@@ -8232,7 +8840,19 @@ CELLS = {
     'DW76': (f260, 76, 127),
     'DX76': (f261, 76, 128),
     'DY76': (f262, 76, 129),
-    'A77': (f311, 77, 1),
+    'DZ76': (f263, 76, 130),
+    'EA76': (f264, 76, 131),
+    'EB76': (f265, 76, 132),
+    'EC76': (f266, 76, 133),
+    'ED76': (f267, 76, 134),
+    'EE76': (f268, 76, 135),
+    'EF76': (f269, 76, 136),
+    'EG76': (f270, 76, 137),
+    'EH76': (f271, 76, 138),
+    'EI76': (f272, 76, 139),
+    'EJ76': (f273, 76, 140),
+    'EK76': (f274, 76, 141),
+    'A77': (f323, 77, 1),
     'B77': (f145, 77, 2),
     'C77': (f146, 77, 3),
     'D77': (f147, 77, 4),
@@ -8314,7 +8934,7 @@ CELLS = {
     'CD77': (f221, 77, 82),
     'CE77': (f222, 77, 83),
     'CF77': (f223, 77, 84),
-    'CG77': (f264, 77, 85),
+    'CG77': (f276, 77, 85),
     'CI77': (f225, 77, 87),
     'CJ77': (f226, 77, 88),
     'CK77': (f227, 77, 89),
@@ -8353,7 +8973,19 @@ CELLS = {
     'DW77': (f260, 77, 127),
     'DX77': (f261, 77, 128),
     'DY77': (f262, 77, 129),
-    'A78': (f312, 78, 1),
+    'DZ77': (f263, 77, 130),
+    'EA77': (f264, 77, 131),
+    'EB77': (f265, 77, 132),
+    'EC77': (f266, 77, 133),
+    'ED77': (f267, 77, 134),
+    'EE77': (f268, 77, 135),
+    'EF77': (f269, 77, 136),
+    'EG77': (f270, 77, 137),
+    'EH77': (f271, 77, 138),
+    'EI77': (f272, 77, 139),
+    'EJ77': (f273, 77, 140),
+    'EK77': (f274, 77, 141),
+    'A78': (f324, 78, 1),
     'B78': (f145, 78, 2),
     'C78': (f146, 78, 3),
     'D78': (f147, 78, 4),
@@ -8435,7 +9067,7 @@ CELLS = {
     'CD78': (f221, 78, 82),
     'CE78': (f222, 78, 83),
     'CF78': (f223, 78, 84),
-    'CG78': (f264, 78, 85),
+    'CG78': (f276, 78, 85),
     'CI78': (f225, 78, 87),
     'CJ78': (f226, 78, 88),
     'CK78': (f227, 78, 89),
@@ -8474,7 +9106,19 @@ CELLS = {
     'DW78': (f260, 78, 127),
     'DX78': (f261, 78, 128),
     'DY78': (f262, 78, 129),
-    'A79': (f313, 79, 1),
+    'DZ78': (f263, 78, 130),
+    'EA78': (f264, 78, 131),
+    'EB78': (f265, 78, 132),
+    'EC78': (f266, 78, 133),
+    'ED78': (f267, 78, 134),
+    'EE78': (f268, 78, 135),
+    'EF78': (f269, 78, 136),
+    'EG78': (f270, 78, 137),
+    'EH78': (f271, 78, 138),
+    'EI78': (f272, 78, 139),
+    'EJ78': (f273, 78, 140),
+    'EK78': (f274, 78, 141),
+    'A79': (f325, 79, 1),
     'B79': (f145, 79, 2),
     'C79': (f146, 79, 3),
     'D79': (f147, 79, 4),
@@ -8556,7 +9200,7 @@ CELLS = {
     'CD79': (f221, 79, 82),
     'CE79': (f222, 79, 83),
     'CF79': (f223, 79, 84),
-    'CG79': (f264, 79, 85),
+    'CG79': (f276, 79, 85),
     'CI79': (f225, 79, 87),
     'CJ79': (f226, 79, 88),
     'CK79': (f227, 79, 89),
@@ -8595,7 +9239,19 @@ CELLS = {
     'DW79': (f260, 79, 127),
     'DX79': (f261, 79, 128),
     'DY79': (f262, 79, 129),
-    'A80': (f314, 80, 1),
+    'DZ79': (f263, 79, 130),
+    'EA79': (f264, 79, 131),
+    'EB79': (f265, 79, 132),
+    'EC79': (f266, 79, 133),
+    'ED79': (f267, 79, 134),
+    'EE79': (f268, 79, 135),
+    'EF79': (f269, 79, 136),
+    'EG79': (f270, 79, 137),
+    'EH79': (f271, 79, 138),
+    'EI79': (f272, 79, 139),
+    'EJ79': (f273, 79, 140),
+    'EK79': (f274, 79, 141),
+    'A80': (f326, 80, 1),
     'B80': (f145, 80, 2),
     'C80': (f146, 80, 3),
     'D80': (f147, 80, 4),
@@ -8677,7 +9333,7 @@ CELLS = {
     'CD80': (f221, 80, 82),
     'CE80': (f222, 80, 83),
     'CF80': (f223, 80, 84),
-    'CG80': (f264, 80, 85),
+    'CG80': (f276, 80, 85),
     'CI80': (f225, 80, 87),
     'CJ80': (f226, 80, 88),
     'CK80': (f227, 80, 89),
@@ -8716,7 +9372,19 @@ CELLS = {
     'DW80': (f260, 80, 127),
     'DX80': (f261, 80, 128),
     'DY80': (f262, 80, 129),
-    'A81': (f315, 81, 1),
+    'DZ80': (f263, 80, 130),
+    'EA80': (f264, 80, 131),
+    'EB80': (f265, 80, 132),
+    'EC80': (f266, 80, 133),
+    'ED80': (f267, 80, 134),
+    'EE80': (f268, 80, 135),
+    'EF80': (f269, 80, 136),
+    'EG80': (f270, 80, 137),
+    'EH80': (f271, 80, 138),
+    'EI80': (f272, 80, 139),
+    'EJ80': (f273, 80, 140),
+    'EK80': (f274, 80, 141),
+    'A81': (f327, 81, 1),
     'B81': (f145, 81, 2),
     'C81': (f146, 81, 3),
     'D81': (f147, 81, 4),
@@ -8798,7 +9466,7 @@ CELLS = {
     'CD81': (f221, 81, 82),
     'CE81': (f222, 81, 83),
     'CF81': (f223, 81, 84),
-    'CG81': (f264, 81, 85),
+    'CG81': (f276, 81, 85),
     'CI81': (f225, 81, 87),
     'CJ81': (f226, 81, 88),
     'CK81': (f227, 81, 89),
@@ -8837,7 +9505,19 @@ CELLS = {
     'DW81': (f260, 81, 127),
     'DX81': (f261, 81, 128),
     'DY81': (f262, 81, 129),
-    'A82': (f316, 82, 1),
+    'DZ81': (f263, 81, 130),
+    'EA81': (f264, 81, 131),
+    'EB81': (f265, 81, 132),
+    'EC81': (f266, 81, 133),
+    'ED81': (f267, 81, 134),
+    'EE81': (f268, 81, 135),
+    'EF81': (f269, 81, 136),
+    'EG81': (f270, 81, 137),
+    'EH81': (f271, 81, 138),
+    'EI81': (f272, 81, 139),
+    'EJ81': (f273, 81, 140),
+    'EK81': (f274, 81, 141),
+    'A82': (f328, 82, 1),
     'B82': (f145, 82, 2),
     'C82': (f146, 82, 3),
     'D82': (f147, 82, 4),
@@ -8919,7 +9599,7 @@ CELLS = {
     'CD82': (f221, 82, 82),
     'CE82': (f222, 82, 83),
     'CF82': (f223, 82, 84),
-    'CG82': (f264, 82, 85),
+    'CG82': (f276, 82, 85),
     'CI82': (f225, 82, 87),
     'CJ82': (f226, 82, 88),
     'CK82': (f227, 82, 89),
@@ -8958,7 +9638,19 @@ CELLS = {
     'DW82': (f260, 82, 127),
     'DX82': (f261, 82, 128),
     'DY82': (f262, 82, 129),
-    'A83': (f317, 83, 1),
+    'DZ82': (f263, 82, 130),
+    'EA82': (f264, 82, 131),
+    'EB82': (f265, 82, 132),
+    'EC82': (f266, 82, 133),
+    'ED82': (f267, 82, 134),
+    'EE82': (f268, 82, 135),
+    'EF82': (f269, 82, 136),
+    'EG82': (f270, 82, 137),
+    'EH82': (f271, 82, 138),
+    'EI82': (f272, 82, 139),
+    'EJ82': (f273, 82, 140),
+    'EK82': (f274, 82, 141),
+    'A83': (f329, 83, 1),
     'B83': (f145, 83, 2),
     'C83': (f146, 83, 3),
     'D83': (f147, 83, 4),
@@ -9040,7 +9732,7 @@ CELLS = {
     'CD83': (f221, 83, 82),
     'CE83': (f222, 83, 83),
     'CF83': (f223, 83, 84),
-    'CG83': (f264, 83, 85),
+    'CG83': (f276, 83, 85),
     'CI83': (f225, 83, 87),
     'CJ83': (f226, 83, 88),
     'CK83': (f227, 83, 89),
@@ -9079,7 +9771,19 @@ CELLS = {
     'DW83': (f260, 83, 127),
     'DX83': (f261, 83, 128),
     'DY83': (f262, 83, 129),
-    'A84': (f318, 84, 1),
+    'DZ83': (f263, 83, 130),
+    'EA83': (f264, 83, 131),
+    'EB83': (f265, 83, 132),
+    'EC83': (f266, 83, 133),
+    'ED83': (f267, 83, 134),
+    'EE83': (f268, 83, 135),
+    'EF83': (f269, 83, 136),
+    'EG83': (f270, 83, 137),
+    'EH83': (f271, 83, 138),
+    'EI83': (f272, 83, 139),
+    'EJ83': (f273, 83, 140),
+    'EK83': (f274, 83, 141),
+    'A84': (f330, 84, 1),
     'B84': (f145, 84, 2),
     'C84': (f146, 84, 3),
     'D84': (f147, 84, 4),
@@ -9161,7 +9865,7 @@ CELLS = {
     'CD84': (f221, 84, 82),
     'CE84': (f222, 84, 83),
     'CF84': (f223, 84, 84),
-    'CG84': (f264, 84, 85),
+    'CG84': (f276, 84, 85),
     'CI84': (f225, 84, 87),
     'CJ84': (f226, 84, 88),
     'CK84': (f227, 84, 89),
@@ -9200,7 +9904,19 @@ CELLS = {
     'DW84': (f260, 84, 127),
     'DX84': (f261, 84, 128),
     'DY84': (f262, 84, 129),
-    'A85': (f319, 85, 1),
+    'DZ84': (f263, 84, 130),
+    'EA84': (f264, 84, 131),
+    'EB84': (f265, 84, 132),
+    'EC84': (f266, 84, 133),
+    'ED84': (f267, 84, 134),
+    'EE84': (f268, 84, 135),
+    'EF84': (f269, 84, 136),
+    'EG84': (f270, 84, 137),
+    'EH84': (f271, 84, 138),
+    'EI84': (f272, 84, 139),
+    'EJ84': (f273, 84, 140),
+    'EK84': (f274, 84, 141),
+    'A85': (f331, 85, 1),
     'B85': (f145, 85, 2),
     'C85': (f146, 85, 3),
     'D85': (f147, 85, 4),
@@ -9282,7 +9998,7 @@ CELLS = {
     'CD85': (f221, 85, 82),
     'CE85': (f222, 85, 83),
     'CF85': (f223, 85, 84),
-    'CG85': (f264, 85, 85),
+    'CG85': (f276, 85, 85),
     'CI85': (f225, 85, 87),
     'CJ85': (f226, 85, 88),
     'CK85': (f227, 85, 89),
@@ -9321,7 +10037,19 @@ CELLS = {
     'DW85': (f260, 85, 127),
     'DX85': (f261, 85, 128),
     'DY85': (f262, 85, 129),
-    'A86': (f320, 86, 1),
+    'DZ85': (f263, 85, 130),
+    'EA85': (f264, 85, 131),
+    'EB85': (f265, 85, 132),
+    'EC85': (f266, 85, 133),
+    'ED85': (f267, 85, 134),
+    'EE85': (f268, 85, 135),
+    'EF85': (f269, 85, 136),
+    'EG85': (f270, 85, 137),
+    'EH85': (f271, 85, 138),
+    'EI85': (f272, 85, 139),
+    'EJ85': (f273, 85, 140),
+    'EK85': (f274, 85, 141),
+    'A86': (f332, 86, 1),
     'B86': (f145, 86, 2),
     'C86': (f146, 86, 3),
     'D86': (f147, 86, 4),
@@ -9403,7 +10131,7 @@ CELLS = {
     'CD86': (f221, 86, 82),
     'CE86': (f222, 86, 83),
     'CF86': (f223, 86, 84),
-    'CG86': (f264, 86, 85),
+    'CG86': (f276, 86, 85),
     'CI86': (f225, 86, 87),
     'CJ86': (f226, 86, 88),
     'CK86': (f227, 86, 89),
@@ -9442,7 +10170,19 @@ CELLS = {
     'DW86': (f260, 86, 127),
     'DX86': (f261, 86, 128),
     'DY86': (f262, 86, 129),
-    'A87': (f321, 87, 1),
+    'DZ86': (f263, 86, 130),
+    'EA86': (f264, 86, 131),
+    'EB86': (f265, 86, 132),
+    'EC86': (f266, 86, 133),
+    'ED86': (f267, 86, 134),
+    'EE86': (f268, 86, 135),
+    'EF86': (f269, 86, 136),
+    'EG86': (f270, 86, 137),
+    'EH86': (f271, 86, 138),
+    'EI86': (f272, 86, 139),
+    'EJ86': (f273, 86, 140),
+    'EK86': (f274, 86, 141),
+    'A87': (f333, 87, 1),
     'B87': (f145, 87, 2),
     'C87': (f146, 87, 3),
     'D87': (f147, 87, 4),
@@ -9524,7 +10264,7 @@ CELLS = {
     'CD87': (f221, 87, 82),
     'CE87': (f222, 87, 83),
     'CF87': (f223, 87, 84),
-    'CG87': (f264, 87, 85),
+    'CG87': (f276, 87, 85),
     'CI87': (f225, 87, 87),
     'CJ87': (f226, 87, 88),
     'CK87': (f227, 87, 89),
@@ -9563,7 +10303,19 @@ CELLS = {
     'DW87': (f260, 87, 127),
     'DX87': (f261, 87, 128),
     'DY87': (f262, 87, 129),
-    'A88': (f322, 88, 1),
+    'DZ87': (f263, 87, 130),
+    'EA87': (f264, 87, 131),
+    'EB87': (f265, 87, 132),
+    'EC87': (f266, 87, 133),
+    'ED87': (f267, 87, 134),
+    'EE87': (f268, 87, 135),
+    'EF87': (f269, 87, 136),
+    'EG87': (f270, 87, 137),
+    'EH87': (f271, 87, 138),
+    'EI87': (f272, 87, 139),
+    'EJ87': (f273, 87, 140),
+    'EK87': (f274, 87, 141),
+    'A88': (f334, 88, 1),
     'B88': (f145, 88, 2),
     'C88': (f146, 88, 3),
     'D88': (f147, 88, 4),
@@ -9645,7 +10397,7 @@ CELLS = {
     'CD88': (f221, 88, 82),
     'CE88': (f222, 88, 83),
     'CF88': (f223, 88, 84),
-    'CG88': (f264, 88, 85),
+    'CG88': (f276, 88, 85),
     'CI88': (f225, 88, 87),
     'CJ88': (f226, 88, 88),
     'CK88': (f227, 88, 89),
@@ -9684,7 +10436,19 @@ CELLS = {
     'DW88': (f260, 88, 127),
     'DX88': (f261, 88, 128),
     'DY88': (f262, 88, 129),
-    'A89': (f323, 89, 1),
+    'DZ88': (f263, 88, 130),
+    'EA88': (f264, 88, 131),
+    'EB88': (f265, 88, 132),
+    'EC88': (f266, 88, 133),
+    'ED88': (f267, 88, 134),
+    'EE88': (f268, 88, 135),
+    'EF88': (f269, 88, 136),
+    'EG88': (f270, 88, 137),
+    'EH88': (f271, 88, 138),
+    'EI88': (f272, 88, 139),
+    'EJ88': (f273, 88, 140),
+    'EK88': (f274, 88, 141),
+    'A89': (f335, 89, 1),
     'B89': (f145, 89, 2),
     'C89': (f146, 89, 3),
     'D89': (f147, 89, 4),
@@ -9766,7 +10530,7 @@ CELLS = {
     'CD89': (f221, 89, 82),
     'CE89': (f222, 89, 83),
     'CF89': (f223, 89, 84),
-    'CG89': (f264, 89, 85),
+    'CG89': (f276, 89, 85),
     'CI89': (f225, 89, 87),
     'CJ89': (f226, 89, 88),
     'CK89': (f227, 89, 89),
@@ -9805,7 +10569,19 @@ CELLS = {
     'DW89': (f260, 89, 127),
     'DX89': (f261, 89, 128),
     'DY89': (f262, 89, 129),
-    'A90': (f324, 90, 1),
+    'DZ89': (f263, 89, 130),
+    'EA89': (f264, 89, 131),
+    'EB89': (f265, 89, 132),
+    'EC89': (f266, 89, 133),
+    'ED89': (f267, 89, 134),
+    'EE89': (f268, 89, 135),
+    'EF89': (f269, 89, 136),
+    'EG89': (f270, 89, 137),
+    'EH89': (f271, 89, 138),
+    'EI89': (f272, 89, 139),
+    'EJ89': (f273, 89, 140),
+    'EK89': (f274, 89, 141),
+    'A90': (f336, 90, 1),
     'B90': (f145, 90, 2),
     'C90': (f146, 90, 3),
     'D90': (f147, 90, 4),
@@ -9887,7 +10663,7 @@ CELLS = {
     'CD90': (f221, 90, 82),
     'CE90': (f222, 90, 83),
     'CF90': (f223, 90, 84),
-    'CG90': (f264, 90, 85),
+    'CG90': (f276, 90, 85),
     'CI90': (f225, 90, 87),
     'CJ90': (f226, 90, 88),
     'CK90': (f227, 90, 89),
@@ -9926,7 +10702,19 @@ CELLS = {
     'DW90': (f260, 90, 127),
     'DX90': (f261, 90, 128),
     'DY90': (f262, 90, 129),
-    'A91': (f325, 91, 1),
+    'DZ90': (f263, 90, 130),
+    'EA90': (f264, 90, 131),
+    'EB90': (f265, 90, 132),
+    'EC90': (f266, 90, 133),
+    'ED90': (f267, 90, 134),
+    'EE90': (f268, 90, 135),
+    'EF90': (f269, 90, 136),
+    'EG90': (f270, 90, 137),
+    'EH90': (f271, 90, 138),
+    'EI90': (f272, 90, 139),
+    'EJ90': (f273, 90, 140),
+    'EK90': (f274, 90, 141),
+    'A91': (f337, 91, 1),
     'B91': (f145, 91, 2),
     'C91': (f146, 91, 3),
     'D91': (f147, 91, 4),
@@ -10008,7 +10796,7 @@ CELLS = {
     'CD91': (f221, 91, 82),
     'CE91': (f222, 91, 83),
     'CF91': (f223, 91, 84),
-    'CG91': (f264, 91, 85),
+    'CG91': (f276, 91, 85),
     'CI91': (f225, 91, 87),
     'CJ91': (f226, 91, 88),
     'CK91': (f227, 91, 89),
@@ -10047,7 +10835,19 @@ CELLS = {
     'DW91': (f260, 91, 127),
     'DX91': (f261, 91, 128),
     'DY91': (f262, 91, 129),
-    'A92': (f326, 92, 1),
+    'DZ91': (f263, 91, 130),
+    'EA91': (f264, 91, 131),
+    'EB91': (f265, 91, 132),
+    'EC91': (f266, 91, 133),
+    'ED91': (f267, 91, 134),
+    'EE91': (f268, 91, 135),
+    'EF91': (f269, 91, 136),
+    'EG91': (f270, 91, 137),
+    'EH91': (f271, 91, 138),
+    'EI91': (f272, 91, 139),
+    'EJ91': (f273, 91, 140),
+    'EK91': (f274, 91, 141),
+    'A92': (f338, 92, 1),
     'B92': (f145, 92, 2),
     'C92': (f146, 92, 3),
     'D92': (f147, 92, 4),
@@ -10129,7 +10929,7 @@ CELLS = {
     'CD92': (f221, 92, 82),
     'CE92': (f222, 92, 83),
     'CF92': (f223, 92, 84),
-    'CG92': (f264, 92, 85),
+    'CG92': (f276, 92, 85),
     'CI92': (f225, 92, 87),
     'CJ92': (f226, 92, 88),
     'CK92': (f227, 92, 89),
@@ -10168,7 +10968,19 @@ CELLS = {
     'DW92': (f260, 92, 127),
     'DX92': (f261, 92, 128),
     'DY92': (f262, 92, 129),
-    'A93': (f327, 93, 1),
+    'DZ92': (f263, 92, 130),
+    'EA92': (f264, 92, 131),
+    'EB92': (f265, 92, 132),
+    'EC92': (f266, 92, 133),
+    'ED92': (f267, 92, 134),
+    'EE92': (f268, 92, 135),
+    'EF92': (f269, 92, 136),
+    'EG92': (f270, 92, 137),
+    'EH92': (f271, 92, 138),
+    'EI92': (f272, 92, 139),
+    'EJ92': (f273, 92, 140),
+    'EK92': (f274, 92, 141),
+    'A93': (f339, 93, 1),
     'B93': (f145, 93, 2),
     'C93': (f146, 93, 3),
     'D93': (f147, 93, 4),
@@ -10250,7 +11062,7 @@ CELLS = {
     'CD93': (f221, 93, 82),
     'CE93': (f222, 93, 83),
     'CF93': (f223, 93, 84),
-    'CG93': (f264, 93, 85),
+    'CG93': (f276, 93, 85),
     'CI93': (f225, 93, 87),
     'CJ93': (f226, 93, 88),
     'CK93': (f227, 93, 89),
@@ -10289,7 +11101,19 @@ CELLS = {
     'DW93': (f260, 93, 127),
     'DX93': (f261, 93, 128),
     'DY93': (f262, 93, 129),
-    'A94': (f328, 94, 1),
+    'DZ93': (f263, 93, 130),
+    'EA93': (f264, 93, 131),
+    'EB93': (f265, 93, 132),
+    'EC93': (f266, 93, 133),
+    'ED93': (f267, 93, 134),
+    'EE93': (f268, 93, 135),
+    'EF93': (f269, 93, 136),
+    'EG93': (f270, 93, 137),
+    'EH93': (f271, 93, 138),
+    'EI93': (f272, 93, 139),
+    'EJ93': (f273, 93, 140),
+    'EK93': (f274, 93, 141),
+    'A94': (f340, 94, 1),
     'B94': (f145, 94, 2),
     'C94': (f146, 94, 3),
     'D94': (f147, 94, 4),
@@ -10371,7 +11195,7 @@ CELLS = {
     'CD94': (f221, 94, 82),
     'CE94': (f222, 94, 83),
     'CF94': (f223, 94, 84),
-    'CG94': (f264, 94, 85),
+    'CG94': (f276, 94, 85),
     'CI94': (f225, 94, 87),
     'CJ94': (f226, 94, 88),
     'CK94': (f227, 94, 89),
@@ -10410,7 +11234,19 @@ CELLS = {
     'DW94': (f260, 94, 127),
     'DX94': (f261, 94, 128),
     'DY94': (f262, 94, 129),
-    'A95': (f329, 95, 1),
+    'DZ94': (f263, 94, 130),
+    'EA94': (f264, 94, 131),
+    'EB94': (f265, 94, 132),
+    'EC94': (f266, 94, 133),
+    'ED94': (f267, 94, 134),
+    'EE94': (f268, 94, 135),
+    'EF94': (f269, 94, 136),
+    'EG94': (f270, 94, 137),
+    'EH94': (f271, 94, 138),
+    'EI94': (f272, 94, 139),
+    'EJ94': (f273, 94, 140),
+    'EK94': (f274, 94, 141),
+    'A95': (f341, 95, 1),
     'B95': (f145, 95, 2),
     'C95': (f146, 95, 3),
     'D95': (f147, 95, 4),
@@ -10492,7 +11328,7 @@ CELLS = {
     'CD95': (f221, 95, 82),
     'CE95': (f222, 95, 83),
     'CF95': (f223, 95, 84),
-    'CG95': (f264, 95, 85),
+    'CG95': (f276, 95, 85),
     'CI95': (f225, 95, 87),
     'CJ95': (f226, 95, 88),
     'CK95': (f227, 95, 89),
@@ -10531,7 +11367,19 @@ CELLS = {
     'DW95': (f260, 95, 127),
     'DX95': (f261, 95, 128),
     'DY95': (f262, 95, 129),
-    'A96': (f330, 96, 1),
+    'DZ95': (f263, 95, 130),
+    'EA95': (f264, 95, 131),
+    'EB95': (f265, 95, 132),
+    'EC95': (f266, 95, 133),
+    'ED95': (f267, 95, 134),
+    'EE95': (f268, 95, 135),
+    'EF95': (f269, 95, 136),
+    'EG95': (f270, 95, 137),
+    'EH95': (f271, 95, 138),
+    'EI95': (f272, 95, 139),
+    'EJ95': (f273, 95, 140),
+    'EK95': (f274, 95, 141),
+    'A96': (f342, 96, 1),
     'B96': (f145, 96, 2),
     'C96': (f146, 96, 3),
     'D96': (f147, 96, 4),
@@ -10613,7 +11461,7 @@ CELLS = {
     'CD96': (f221, 96, 82),
     'CE96': (f222, 96, 83),
     'CF96': (f223, 96, 84),
-    'CG96': (f264, 96, 85),
+    'CG96': (f276, 96, 85),
     'CI96': (f225, 96, 87),
     'CJ96': (f226, 96, 88),
     'CK96': (f227, 96, 89),
@@ -10652,7 +11500,19 @@ CELLS = {
     'DW96': (f260, 96, 127),
     'DX96': (f261, 96, 128),
     'DY96': (f262, 96, 129),
-    'A97': (f331, 97, 1),
+    'DZ96': (f263, 96, 130),
+    'EA96': (f264, 96, 131),
+    'EB96': (f265, 96, 132),
+    'EC96': (f266, 96, 133),
+    'ED96': (f267, 96, 134),
+    'EE96': (f268, 96, 135),
+    'EF96': (f269, 96, 136),
+    'EG96': (f270, 96, 137),
+    'EH96': (f271, 96, 138),
+    'EI96': (f272, 96, 139),
+    'EJ96': (f273, 96, 140),
+    'EK96': (f274, 96, 141),
+    'A97': (f343, 97, 1),
     'B97': (f145, 97, 2),
     'C97': (f146, 97, 3),
     'D97': (f147, 97, 4),
@@ -10734,7 +11594,7 @@ CELLS = {
     'CD97': (f221, 97, 82),
     'CE97': (f222, 97, 83),
     'CF97': (f223, 97, 84),
-    'CG97': (f264, 97, 85),
+    'CG97': (f276, 97, 85),
     'CI97': (f225, 97, 87),
     'CJ97': (f226, 97, 88),
     'CK97': (f227, 97, 89),
@@ -10773,7 +11633,19 @@ CELLS = {
     'DW97': (f260, 97, 127),
     'DX97': (f261, 97, 128),
     'DY97': (f262, 97, 129),
-    'A98': (f332, 98, 1),
+    'DZ97': (f263, 97, 130),
+    'EA97': (f264, 97, 131),
+    'EB97': (f265, 97, 132),
+    'EC97': (f266, 97, 133),
+    'ED97': (f267, 97, 134),
+    'EE97': (f268, 97, 135),
+    'EF97': (f269, 97, 136),
+    'EG97': (f270, 97, 137),
+    'EH97': (f271, 97, 138),
+    'EI97': (f272, 97, 139),
+    'EJ97': (f273, 97, 140),
+    'EK97': (f274, 97, 141),
+    'A98': (f344, 98, 1),
     'B98': (f145, 98, 2),
     'C98': (f146, 98, 3),
     'D98': (f147, 98, 4),
@@ -10855,7 +11727,7 @@ CELLS = {
     'CD98': (f221, 98, 82),
     'CE98': (f222, 98, 83),
     'CF98': (f223, 98, 84),
-    'CG98': (f264, 98, 85),
+    'CG98': (f276, 98, 85),
     'CI98': (f225, 98, 87),
     'CJ98': (f226, 98, 88),
     'CK98': (f227, 98, 89),
@@ -10894,7 +11766,19 @@ CELLS = {
     'DW98': (f260, 98, 127),
     'DX98': (f261, 98, 128),
     'DY98': (f262, 98, 129),
-    'A99': (f333, 99, 1),
+    'DZ98': (f263, 98, 130),
+    'EA98': (f264, 98, 131),
+    'EB98': (f265, 98, 132),
+    'EC98': (f266, 98, 133),
+    'ED98': (f267, 98, 134),
+    'EE98': (f268, 98, 135),
+    'EF98': (f269, 98, 136),
+    'EG98': (f270, 98, 137),
+    'EH98': (f271, 98, 138),
+    'EI98': (f272, 98, 139),
+    'EJ98': (f273, 98, 140),
+    'EK98': (f274, 98, 141),
+    'A99': (f345, 99, 1),
     'B99': (f145, 99, 2),
     'C99': (f146, 99, 3),
     'D99': (f147, 99, 4),
@@ -10976,7 +11860,7 @@ CELLS = {
     'CD99': (f221, 99, 82),
     'CE99': (f222, 99, 83),
     'CF99': (f223, 99, 84),
-    'CG99': (f264, 99, 85),
+    'CG99': (f276, 99, 85),
     'CI99': (f225, 99, 87),
     'CJ99': (f226, 99, 88),
     'CK99': (f227, 99, 89),
@@ -11015,7 +11899,19 @@ CELLS = {
     'DW99': (f260, 99, 127),
     'DX99': (f261, 99, 128),
     'DY99': (f262, 99, 129),
-    'A100': (f334, 100, 1),
+    'DZ99': (f263, 99, 130),
+    'EA99': (f264, 99, 131),
+    'EB99': (f265, 99, 132),
+    'EC99': (f266, 99, 133),
+    'ED99': (f267, 99, 134),
+    'EE99': (f268, 99, 135),
+    'EF99': (f269, 99, 136),
+    'EG99': (f270, 99, 137),
+    'EH99': (f271, 99, 138),
+    'EI99': (f272, 99, 139),
+    'EJ99': (f273, 99, 140),
+    'EK99': (f274, 99, 141),
+    'A100': (f346, 100, 1),
     'B100': (f145, 100, 2),
     'C100': (f146, 100, 3),
     'D100': (f147, 100, 4),
@@ -11097,7 +11993,7 @@ CELLS = {
     'CD100': (f221, 100, 82),
     'CE100': (f222, 100, 83),
     'CF100': (f223, 100, 84),
-    'CG100': (f264, 100, 85),
+    'CG100': (f276, 100, 85),
     'CI100': (f225, 100, 87),
     'CJ100': (f226, 100, 88),
     'CK100': (f227, 100, 89),
@@ -11136,7 +12032,19 @@ CELLS = {
     'DW100': (f260, 100, 127),
     'DX100': (f261, 100, 128),
     'DY100': (f262, 100, 129),
-    'A101': (f335, 101, 1),
+    'DZ100': (f263, 100, 130),
+    'EA100': (f264, 100, 131),
+    'EB100': (f265, 100, 132),
+    'EC100': (f266, 100, 133),
+    'ED100': (f267, 100, 134),
+    'EE100': (f268, 100, 135),
+    'EF100': (f269, 100, 136),
+    'EG100': (f270, 100, 137),
+    'EH100': (f271, 100, 138),
+    'EI100': (f272, 100, 139),
+    'EJ100': (f273, 100, 140),
+    'EK100': (f274, 100, 141),
+    'A101': (f347, 101, 1),
     'B101': (f145, 101, 2),
     'C101': (f146, 101, 3),
     'D101': (f147, 101, 4),
@@ -11218,7 +12126,7 @@ CELLS = {
     'CD101': (f221, 101, 82),
     'CE101': (f222, 101, 83),
     'CF101': (f223, 101, 84),
-    'CG101': (f264, 101, 85),
+    'CG101': (f276, 101, 85),
     'CI101': (f225, 101, 87),
     'CJ101': (f226, 101, 88),
     'CK101': (f227, 101, 89),
@@ -11257,7 +12165,19 @@ CELLS = {
     'DW101': (f260, 101, 127),
     'DX101': (f261, 101, 128),
     'DY101': (f262, 101, 129),
-    'A102': (f336, 102, 1),
+    'DZ101': (f263, 101, 130),
+    'EA101': (f264, 101, 131),
+    'EB101': (f265, 101, 132),
+    'EC101': (f266, 101, 133),
+    'ED101': (f267, 101, 134),
+    'EE101': (f268, 101, 135),
+    'EF101': (f269, 101, 136),
+    'EG101': (f270, 101, 137),
+    'EH101': (f271, 101, 138),
+    'EI101': (f272, 101, 139),
+    'EJ101': (f273, 101, 140),
+    'EK101': (f274, 101, 141),
+    'A102': (f348, 102, 1),
     'B102': (f145, 102, 2),
     'C102': (f146, 102, 3),
     'D102': (f147, 102, 4),
@@ -11339,7 +12259,7 @@ CELLS = {
     'CD102': (f221, 102, 82),
     'CE102': (f222, 102, 83),
     'CF102': (f223, 102, 84),
-    'CG102': (f264, 102, 85),
+    'CG102': (f276, 102, 85),
     'CI102': (f225, 102, 87),
     'CJ102': (f226, 102, 88),
     'CK102': (f227, 102, 89),
@@ -11378,7 +12298,19 @@ CELLS = {
     'DW102': (f260, 102, 127),
     'DX102': (f261, 102, 128),
     'DY102': (f262, 102, 129),
-    'A103': (f337, 103, 1),
+    'DZ102': (f263, 102, 130),
+    'EA102': (f264, 102, 131),
+    'EB102': (f265, 102, 132),
+    'EC102': (f266, 102, 133),
+    'ED102': (f267, 102, 134),
+    'EE102': (f268, 102, 135),
+    'EF102': (f269, 102, 136),
+    'EG102': (f270, 102, 137),
+    'EH102': (f271, 102, 138),
+    'EI102': (f272, 102, 139),
+    'EJ102': (f273, 102, 140),
+    'EK102': (f274, 102, 141),
+    'A103': (f349, 103, 1),
     'B103': (f145, 103, 2),
     'C103': (f146, 103, 3),
     'D103': (f147, 103, 4),
@@ -11460,7 +12392,7 @@ CELLS = {
     'CD103': (f221, 103, 82),
     'CE103': (f222, 103, 83),
     'CF103': (f223, 103, 84),
-    'CG103': (f264, 103, 85),
+    'CG103': (f276, 103, 85),
     'CI103': (f225, 103, 87),
     'CJ103': (f226, 103, 88),
     'CK103': (f227, 103, 89),
@@ -11499,7 +12431,19 @@ CELLS = {
     'DW103': (f260, 103, 127),
     'DX103': (f261, 103, 128),
     'DY103': (f262, 103, 129),
-    'A104': (f338, 104, 1),
+    'DZ103': (f263, 103, 130),
+    'EA103': (f264, 103, 131),
+    'EB103': (f265, 103, 132),
+    'EC103': (f266, 103, 133),
+    'ED103': (f267, 103, 134),
+    'EE103': (f268, 103, 135),
+    'EF103': (f269, 103, 136),
+    'EG103': (f270, 103, 137),
+    'EH103': (f271, 103, 138),
+    'EI103': (f272, 103, 139),
+    'EJ103': (f273, 103, 140),
+    'EK103': (f274, 103, 141),
+    'A104': (f350, 104, 1),
     'B104': (f145, 104, 2),
     'C104': (f146, 104, 3),
     'D104': (f147, 104, 4),
@@ -11581,7 +12525,7 @@ CELLS = {
     'CD104': (f221, 104, 82),
     'CE104': (f222, 104, 83),
     'CF104': (f223, 104, 84),
-    'CG104': (f264, 104, 85),
+    'CG104': (f276, 104, 85),
     'CI104': (f225, 104, 87),
     'CJ104': (f226, 104, 88),
     'CK104': (f227, 104, 89),
@@ -11620,7 +12564,19 @@ CELLS = {
     'DW104': (f260, 104, 127),
     'DX104': (f261, 104, 128),
     'DY104': (f262, 104, 129),
-    'A105': (f339, 105, 1),
+    'DZ104': (f263, 104, 130),
+    'EA104': (f264, 104, 131),
+    'EB104': (f265, 104, 132),
+    'EC104': (f266, 104, 133),
+    'ED104': (f267, 104, 134),
+    'EE104': (f268, 104, 135),
+    'EF104': (f269, 104, 136),
+    'EG104': (f270, 104, 137),
+    'EH104': (f271, 104, 138),
+    'EI104': (f272, 104, 139),
+    'EJ104': (f273, 104, 140),
+    'EK104': (f274, 104, 141),
+    'A105': (f351, 105, 1),
     'B105': (f145, 105, 2),
     'C105': (f146, 105, 3),
     'D105': (f147, 105, 4),
@@ -11702,7 +12658,7 @@ CELLS = {
     'CD105': (f221, 105, 82),
     'CE105': (f222, 105, 83),
     'CF105': (f223, 105, 84),
-    'CG105': (f264, 105, 85),
+    'CG105': (f276, 105, 85),
     'CI105': (f225, 105, 87),
     'CJ105': (f226, 105, 88),
     'CK105': (f227, 105, 89),
@@ -11741,7 +12697,19 @@ CELLS = {
     'DW105': (f260, 105, 127),
     'DX105': (f261, 105, 128),
     'DY105': (f262, 105, 129),
-    'A106': (f340, 106, 1),
+    'DZ105': (f263, 105, 130),
+    'EA105': (f264, 105, 131),
+    'EB105': (f265, 105, 132),
+    'EC105': (f266, 105, 133),
+    'ED105': (f267, 105, 134),
+    'EE105': (f268, 105, 135),
+    'EF105': (f269, 105, 136),
+    'EG105': (f270, 105, 137),
+    'EH105': (f271, 105, 138),
+    'EI105': (f272, 105, 139),
+    'EJ105': (f273, 105, 140),
+    'EK105': (f274, 105, 141),
+    'A106': (f352, 106, 1),
     'B106': (f145, 106, 2),
     'C106': (f146, 106, 3),
     'D106': (f147, 106, 4),
@@ -11823,7 +12791,7 @@ CELLS = {
     'CD106': (f221, 106, 82),
     'CE106': (f222, 106, 83),
     'CF106': (f223, 106, 84),
-    'CG106': (f264, 106, 85),
+    'CG106': (f276, 106, 85),
     'CI106': (f225, 106, 87),
     'CJ106': (f226, 106, 88),
     'CK106': (f227, 106, 89),
@@ -11862,7 +12830,19 @@ CELLS = {
     'DW106': (f260, 106, 127),
     'DX106': (f261, 106, 128),
     'DY106': (f262, 106, 129),
-    'A107': (f341, 107, 1),
+    'DZ106': (f263, 106, 130),
+    'EA106': (f264, 106, 131),
+    'EB106': (f265, 106, 132),
+    'EC106': (f266, 106, 133),
+    'ED106': (f267, 106, 134),
+    'EE106': (f268, 106, 135),
+    'EF106': (f269, 106, 136),
+    'EG106': (f270, 106, 137),
+    'EH106': (f271, 106, 138),
+    'EI106': (f272, 106, 139),
+    'EJ106': (f273, 106, 140),
+    'EK106': (f274, 106, 141),
+    'A107': (f353, 107, 1),
     'B107': (f145, 107, 2),
     'C107': (f146, 107, 3),
     'D107': (f147, 107, 4),
@@ -11944,7 +12924,7 @@ CELLS = {
     'CD107': (f221, 107, 82),
     'CE107': (f222, 107, 83),
     'CF107': (f223, 107, 84),
-    'CG107': (f264, 107, 85),
+    'CG107': (f276, 107, 85),
     'CI107': (f225, 107, 87),
     'CJ107': (f226, 107, 88),
     'CK107': (f227, 107, 89),
@@ -11983,7 +12963,19 @@ CELLS = {
     'DW107': (f260, 107, 127),
     'DX107': (f261, 107, 128),
     'DY107': (f262, 107, 129),
-    'A108': (f342, 108, 1),
+    'DZ107': (f263, 107, 130),
+    'EA107': (f264, 107, 131),
+    'EB107': (f265, 107, 132),
+    'EC107': (f266, 107, 133),
+    'ED107': (f267, 107, 134),
+    'EE107': (f268, 107, 135),
+    'EF107': (f269, 107, 136),
+    'EG107': (f270, 107, 137),
+    'EH107': (f271, 107, 138),
+    'EI107': (f272, 107, 139),
+    'EJ107': (f273, 107, 140),
+    'EK107': (f274, 107, 141),
+    'A108': (f354, 108, 1),
     'B108': (f145, 108, 2),
     'C108': (f146, 108, 3),
     'D108': (f147, 108, 4),
@@ -12065,7 +13057,7 @@ CELLS = {
     'CD108': (f221, 108, 82),
     'CE108': (f222, 108, 83),
     'CF108': (f223, 108, 84),
-    'CG108': (f264, 108, 85),
+    'CG108': (f276, 108, 85),
     'CI108': (f225, 108, 87),
     'CJ108': (f226, 108, 88),
     'CK108': (f227, 108, 89),
@@ -12104,7 +13096,19 @@ CELLS = {
     'DW108': (f260, 108, 127),
     'DX108': (f261, 108, 128),
     'DY108': (f262, 108, 129),
-    'A109': (f343, 109, 1),
+    'DZ108': (f263, 108, 130),
+    'EA108': (f264, 108, 131),
+    'EB108': (f265, 108, 132),
+    'EC108': (f266, 108, 133),
+    'ED108': (f267, 108, 134),
+    'EE108': (f268, 108, 135),
+    'EF108': (f269, 108, 136),
+    'EG108': (f270, 108, 137),
+    'EH108': (f271, 108, 138),
+    'EI108': (f272, 108, 139),
+    'EJ108': (f273, 108, 140),
+    'EK108': (f274, 108, 141),
+    'A109': (f355, 109, 1),
     'B109': (f145, 109, 2),
     'C109': (f146, 109, 3),
     'D109': (f147, 109, 4),
@@ -12186,7 +13190,7 @@ CELLS = {
     'CD109': (f221, 109, 82),
     'CE109': (f222, 109, 83),
     'CF109': (f223, 109, 84),
-    'CG109': (f264, 109, 85),
+    'CG109': (f276, 109, 85),
     'CI109': (f225, 109, 87),
     'CJ109': (f226, 109, 88),
     'CK109': (f227, 109, 89),
@@ -12225,7 +13229,19 @@ CELLS = {
     'DW109': (f260, 109, 127),
     'DX109': (f261, 109, 128),
     'DY109': (f262, 109, 129),
-    'A110': (f344, 110, 1),
+    'DZ109': (f263, 109, 130),
+    'EA109': (f264, 109, 131),
+    'EB109': (f265, 109, 132),
+    'EC109': (f266, 109, 133),
+    'ED109': (f267, 109, 134),
+    'EE109': (f268, 109, 135),
+    'EF109': (f269, 109, 136),
+    'EG109': (f270, 109, 137),
+    'EH109': (f271, 109, 138),
+    'EI109': (f272, 109, 139),
+    'EJ109': (f273, 109, 140),
+    'EK109': (f274, 109, 141),
+    'A110': (f356, 110, 1),
     'B110': (f145, 110, 2),
     'C110': (f146, 110, 3),
     'D110': (f147, 110, 4),
@@ -12307,7 +13323,7 @@ CELLS = {
     'CD110': (f221, 110, 82),
     'CE110': (f222, 110, 83),
     'CF110': (f223, 110, 84),
-    'CG110': (f264, 110, 85),
+    'CG110': (f276, 110, 85),
     'CI110': (f225, 110, 87),
     'CJ110': (f226, 110, 88),
     'CK110': (f227, 110, 89),
@@ -12346,7 +13362,19 @@ CELLS = {
     'DW110': (f260, 110, 127),
     'DX110': (f261, 110, 128),
     'DY110': (f262, 110, 129),
-    'A111': (f345, 111, 1),
+    'DZ110': (f263, 110, 130),
+    'EA110': (f264, 110, 131),
+    'EB110': (f265, 110, 132),
+    'EC110': (f266, 110, 133),
+    'ED110': (f267, 110, 134),
+    'EE110': (f268, 110, 135),
+    'EF110': (f269, 110, 136),
+    'EG110': (f270, 110, 137),
+    'EH110': (f271, 110, 138),
+    'EI110': (f272, 110, 139),
+    'EJ110': (f273, 110, 140),
+    'EK110': (f274, 110, 141),
+    'A111': (f357, 111, 1),
     'B111': (f145, 111, 2),
     'C111': (f146, 111, 3),
     'D111': (f147, 111, 4),
@@ -12428,7 +13456,7 @@ CELLS = {
     'CD111': (f221, 111, 82),
     'CE111': (f222, 111, 83),
     'CF111': (f223, 111, 84),
-    'CG111': (f264, 111, 85),
+    'CG111': (f276, 111, 85),
     'CI111': (f225, 111, 87),
     'CJ111': (f226, 111, 88),
     'CK111': (f227, 111, 89),
@@ -12467,7 +13495,19 @@ CELLS = {
     'DW111': (f260, 111, 127),
     'DX111': (f261, 111, 128),
     'DY111': (f262, 111, 129),
-    'A112': (f346, 112, 1),
+    'DZ111': (f263, 111, 130),
+    'EA111': (f264, 111, 131),
+    'EB111': (f265, 111, 132),
+    'EC111': (f266, 111, 133),
+    'ED111': (f267, 111, 134),
+    'EE111': (f268, 111, 135),
+    'EF111': (f269, 111, 136),
+    'EG111': (f270, 111, 137),
+    'EH111': (f271, 111, 138),
+    'EI111': (f272, 111, 139),
+    'EJ111': (f273, 111, 140),
+    'EK111': (f274, 111, 141),
+    'A112': (f358, 112, 1),
     'B112': (f145, 112, 2),
     'C112': (f146, 112, 3),
     'D112': (f147, 112, 4),
@@ -12549,7 +13589,7 @@ CELLS = {
     'CD112': (f221, 112, 82),
     'CE112': (f222, 112, 83),
     'CF112': (f223, 112, 84),
-    'CG112': (f264, 112, 85),
+    'CG112': (f276, 112, 85),
     'CI112': (f225, 112, 87),
     'CJ112': (f226, 112, 88),
     'CK112': (f227, 112, 89),
@@ -12588,7 +13628,19 @@ CELLS = {
     'DW112': (f260, 112, 127),
     'DX112': (f261, 112, 128),
     'DY112': (f262, 112, 129),
-    'A113': (f347, 113, 1),
+    'DZ112': (f263, 112, 130),
+    'EA112': (f264, 112, 131),
+    'EB112': (f265, 112, 132),
+    'EC112': (f266, 112, 133),
+    'ED112': (f267, 112, 134),
+    'EE112': (f268, 112, 135),
+    'EF112': (f269, 112, 136),
+    'EG112': (f270, 112, 137),
+    'EH112': (f271, 112, 138),
+    'EI112': (f272, 112, 139),
+    'EJ112': (f273, 112, 140),
+    'EK112': (f274, 112, 141),
+    'A113': (f359, 113, 1),
     'B113': (f145, 113, 2),
     'C113': (f146, 113, 3),
     'D113': (f147, 113, 4),
@@ -12670,7 +13722,7 @@ CELLS = {
     'CD113': (f221, 113, 82),
     'CE113': (f222, 113, 83),
     'CF113': (f223, 113, 84),
-    'CG113': (f264, 113, 85),
+    'CG113': (f276, 113, 85),
     'CI113': (f225, 113, 87),
     'CJ113': (f226, 113, 88),
     'CK113': (f227, 113, 89),
@@ -12709,7 +13761,19 @@ CELLS = {
     'DW113': (f260, 113, 127),
     'DX113': (f261, 113, 128),
     'DY113': (f262, 113, 129),
-    'A114': (f348, 114, 1),
+    'DZ113': (f263, 113, 130),
+    'EA113': (f264, 113, 131),
+    'EB113': (f265, 113, 132),
+    'EC113': (f266, 113, 133),
+    'ED113': (f267, 113, 134),
+    'EE113': (f268, 113, 135),
+    'EF113': (f269, 113, 136),
+    'EG113': (f270, 113, 137),
+    'EH113': (f271, 113, 138),
+    'EI113': (f272, 113, 139),
+    'EJ113': (f273, 113, 140),
+    'EK113': (f274, 113, 141),
+    'A114': (f360, 114, 1),
     'B114': (f145, 114, 2),
     'C114': (f146, 114, 3),
     'D114': (f147, 114, 4),
@@ -12791,7 +13855,7 @@ CELLS = {
     'CD114': (f221, 114, 82),
     'CE114': (f222, 114, 83),
     'CF114': (f223, 114, 84),
-    'CG114': (f264, 114, 85),
+    'CG114': (f276, 114, 85),
     'CI114': (f225, 114, 87),
     'CJ114': (f226, 114, 88),
     'CK114': (f227, 114, 89),
@@ -12830,7 +13894,19 @@ CELLS = {
     'DW114': (f260, 114, 127),
     'DX114': (f261, 114, 128),
     'DY114': (f262, 114, 129),
-    'A115': (f349, 115, 1),
+    'DZ114': (f263, 114, 130),
+    'EA114': (f264, 114, 131),
+    'EB114': (f265, 114, 132),
+    'EC114': (f266, 114, 133),
+    'ED114': (f267, 114, 134),
+    'EE114': (f268, 114, 135),
+    'EF114': (f269, 114, 136),
+    'EG114': (f270, 114, 137),
+    'EH114': (f271, 114, 138),
+    'EI114': (f272, 114, 139),
+    'EJ114': (f273, 114, 140),
+    'EK114': (f274, 114, 141),
+    'A115': (f361, 115, 1),
     'B115': (f145, 115, 2),
     'C115': (f146, 115, 3),
     'D115': (f147, 115, 4),
@@ -12912,7 +13988,7 @@ CELLS = {
     'CD115': (f221, 115, 82),
     'CE115': (f222, 115, 83),
     'CF115': (f223, 115, 84),
-    'CG115': (f264, 115, 85),
+    'CG115': (f276, 115, 85),
     'CI115': (f225, 115, 87),
     'CJ115': (f226, 115, 88),
     'CK115': (f227, 115, 89),
@@ -12951,7 +14027,19 @@ CELLS = {
     'DW115': (f260, 115, 127),
     'DX115': (f261, 115, 128),
     'DY115': (f262, 115, 129),
-    'A116': (f350, 116, 1),
+    'DZ115': (f263, 115, 130),
+    'EA115': (f264, 115, 131),
+    'EB115': (f265, 115, 132),
+    'EC115': (f266, 115, 133),
+    'ED115': (f267, 115, 134),
+    'EE115': (f268, 115, 135),
+    'EF115': (f269, 115, 136),
+    'EG115': (f270, 115, 137),
+    'EH115': (f271, 115, 138),
+    'EI115': (f272, 115, 139),
+    'EJ115': (f273, 115, 140),
+    'EK115': (f274, 115, 141),
+    'A116': (f362, 116, 1),
     'B116': (f145, 116, 2),
     'C116': (f146, 116, 3),
     'D116': (f147, 116, 4),
@@ -13033,7 +14121,7 @@ CELLS = {
     'CD116': (f221, 116, 82),
     'CE116': (f222, 116, 83),
     'CF116': (f223, 116, 84),
-    'CG116': (f264, 116, 85),
+    'CG116': (f276, 116, 85),
     'CI116': (f225, 116, 87),
     'CJ116': (f226, 116, 88),
     'CK116': (f227, 116, 89),
@@ -13072,7 +14160,19 @@ CELLS = {
     'DW116': (f260, 116, 127),
     'DX116': (f261, 116, 128),
     'DY116': (f262, 116, 129),
-    'A117': (f351, 117, 1),
+    'DZ116': (f263, 116, 130),
+    'EA116': (f264, 116, 131),
+    'EB116': (f265, 116, 132),
+    'EC116': (f266, 116, 133),
+    'ED116': (f267, 116, 134),
+    'EE116': (f268, 116, 135),
+    'EF116': (f269, 116, 136),
+    'EG116': (f270, 116, 137),
+    'EH116': (f271, 116, 138),
+    'EI116': (f272, 116, 139),
+    'EJ116': (f273, 116, 140),
+    'EK116': (f274, 116, 141),
+    'A117': (f363, 117, 1),
     'B117': (f145, 117, 2),
     'C117': (f146, 117, 3),
     'D117': (f147, 117, 4),
@@ -13154,7 +14254,7 @@ CELLS = {
     'CD117': (f221, 117, 82),
     'CE117': (f222, 117, 83),
     'CF117': (f223, 117, 84),
-    'CG117': (f264, 117, 85),
+    'CG117': (f276, 117, 85),
     'CI117': (f225, 117, 87),
     'CJ117': (f226, 117, 88),
     'CK117': (f227, 117, 89),
@@ -13193,7 +14293,19 @@ CELLS = {
     'DW117': (f260, 117, 127),
     'DX117': (f261, 117, 128),
     'DY117': (f262, 117, 129),
-    'A118': (f352, 118, 1),
+    'DZ117': (f263, 117, 130),
+    'EA117': (f264, 117, 131),
+    'EB117': (f265, 117, 132),
+    'EC117': (f266, 117, 133),
+    'ED117': (f267, 117, 134),
+    'EE117': (f268, 117, 135),
+    'EF117': (f269, 117, 136),
+    'EG117': (f270, 117, 137),
+    'EH117': (f271, 117, 138),
+    'EI117': (f272, 117, 139),
+    'EJ117': (f273, 117, 140),
+    'EK117': (f274, 117, 141),
+    'A118': (f364, 118, 1),
     'B118': (f145, 118, 2),
     'C118': (f146, 118, 3),
     'D118': (f147, 118, 4),
@@ -13275,7 +14387,7 @@ CELLS = {
     'CD118': (f221, 118, 82),
     'CE118': (f222, 118, 83),
     'CF118': (f223, 118, 84),
-    'CG118': (f264, 118, 85),
+    'CG118': (f276, 118, 85),
     'CI118': (f225, 118, 87),
     'CJ118': (f226, 118, 88),
     'CK118': (f227, 118, 89),
@@ -13314,7 +14426,19 @@ CELLS = {
     'DW118': (f260, 118, 127),
     'DX118': (f261, 118, 128),
     'DY118': (f262, 118, 129),
-    'A119': (f353, 119, 1),
+    'DZ118': (f263, 118, 130),
+    'EA118': (f264, 118, 131),
+    'EB118': (f265, 118, 132),
+    'EC118': (f266, 118, 133),
+    'ED118': (f267, 118, 134),
+    'EE118': (f268, 118, 135),
+    'EF118': (f269, 118, 136),
+    'EG118': (f270, 118, 137),
+    'EH118': (f271, 118, 138),
+    'EI118': (f272, 118, 139),
+    'EJ118': (f273, 118, 140),
+    'EK118': (f274, 118, 141),
+    'A119': (f365, 119, 1),
     'B119': (f145, 119, 2),
     'C119': (f146, 119, 3),
     'D119': (f147, 119, 4),
@@ -13396,7 +14520,7 @@ CELLS = {
     'CD119': (f221, 119, 82),
     'CE119': (f222, 119, 83),
     'CF119': (f223, 119, 84),
-    'CG119': (f264, 119, 85),
+    'CG119': (f276, 119, 85),
     'CI119': (f225, 119, 87),
     'CJ119': (f226, 119, 88),
     'CK119': (f227, 119, 89),
@@ -13435,7 +14559,19 @@ CELLS = {
     'DW119': (f260, 119, 127),
     'DX119': (f261, 119, 128),
     'DY119': (f262, 119, 129),
-    'A120': (f354, 120, 1),
+    'DZ119': (f263, 119, 130),
+    'EA119': (f264, 119, 131),
+    'EB119': (f265, 119, 132),
+    'EC119': (f266, 119, 133),
+    'ED119': (f267, 119, 134),
+    'EE119': (f268, 119, 135),
+    'EF119': (f269, 119, 136),
+    'EG119': (f270, 119, 137),
+    'EH119': (f271, 119, 138),
+    'EI119': (f272, 119, 139),
+    'EJ119': (f273, 119, 140),
+    'EK119': (f274, 119, 141),
+    'A120': (f366, 120, 1),
     'B120': (f145, 120, 2),
     'C120': (f146, 120, 3),
     'D120': (f147, 120, 4),
@@ -13517,7 +14653,7 @@ CELLS = {
     'CD120': (f221, 120, 82),
     'CE120': (f222, 120, 83),
     'CF120': (f223, 120, 84),
-    'CG120': (f264, 120, 85),
+    'CG120': (f276, 120, 85),
     'CI120': (f225, 120, 87),
     'CJ120': (f226, 120, 88),
     'CK120': (f227, 120, 89),
@@ -13556,7 +14692,19 @@ CELLS = {
     'DW120': (f260, 120, 127),
     'DX120': (f261, 120, 128),
     'DY120': (f262, 120, 129),
-    'A121': (f355, 121, 1),
+    'DZ120': (f263, 120, 130),
+    'EA120': (f264, 120, 131),
+    'EB120': (f265, 120, 132),
+    'EC120': (f266, 120, 133),
+    'ED120': (f267, 120, 134),
+    'EE120': (f268, 120, 135),
+    'EF120': (f269, 120, 136),
+    'EG120': (f270, 120, 137),
+    'EH120': (f271, 120, 138),
+    'EI120': (f272, 120, 139),
+    'EJ120': (f273, 120, 140),
+    'EK120': (f274, 120, 141),
+    'A121': (f367, 121, 1),
     'B121': (f145, 121, 2),
     'C121': (f146, 121, 3),
     'D121': (f147, 121, 4),
@@ -13638,7 +14786,7 @@ CELLS = {
     'CD121': (f221, 121, 82),
     'CE121': (f222, 121, 83),
     'CF121': (f223, 121, 84),
-    'CG121': (f264, 121, 85),
+    'CG121': (f276, 121, 85),
     'CI121': (f225, 121, 87),
     'CJ121': (f226, 121, 88),
     'CK121': (f227, 121, 89),
@@ -13677,7 +14825,19 @@ CELLS = {
     'DW121': (f260, 121, 127),
     'DX121': (f261, 121, 128),
     'DY121': (f262, 121, 129),
-    'A122': (f356, 122, 1),
+    'DZ121': (f263, 121, 130),
+    'EA121': (f264, 121, 131),
+    'EB121': (f265, 121, 132),
+    'EC121': (f266, 121, 133),
+    'ED121': (f267, 121, 134),
+    'EE121': (f268, 121, 135),
+    'EF121': (f269, 121, 136),
+    'EG121': (f270, 121, 137),
+    'EH121': (f271, 121, 138),
+    'EI121': (f272, 121, 139),
+    'EJ121': (f273, 121, 140),
+    'EK121': (f274, 121, 141),
+    'A122': (f368, 122, 1),
     'B122': (f145, 122, 2),
     'C122': (f146, 122, 3),
     'D122': (f147, 122, 4),
@@ -13759,7 +14919,7 @@ CELLS = {
     'CD122': (f221, 122, 82),
     'CE122': (f222, 122, 83),
     'CF122': (f223, 122, 84),
-    'CG122': (f264, 122, 85),
+    'CG122': (f276, 122, 85),
     'CI122': (f225, 122, 87),
     'CJ122': (f226, 122, 88),
     'CK122': (f227, 122, 89),
@@ -13798,7 +14958,19 @@ CELLS = {
     'DW122': (f260, 122, 127),
     'DX122': (f261, 122, 128),
     'DY122': (f262, 122, 129),
-    'A123': (f357, 123, 1),
+    'DZ122': (f263, 122, 130),
+    'EA122': (f264, 122, 131),
+    'EB122': (f265, 122, 132),
+    'EC122': (f266, 122, 133),
+    'ED122': (f267, 122, 134),
+    'EE122': (f268, 122, 135),
+    'EF122': (f269, 122, 136),
+    'EG122': (f270, 122, 137),
+    'EH122': (f271, 122, 138),
+    'EI122': (f272, 122, 139),
+    'EJ122': (f273, 122, 140),
+    'EK122': (f274, 122, 141),
+    'A123': (f369, 123, 1),
     'B123': (f145, 123, 2),
     'C123': (f146, 123, 3),
     'D123': (f147, 123, 4),
@@ -13880,7 +15052,7 @@ CELLS = {
     'CD123': (f221, 123, 82),
     'CE123': (f222, 123, 83),
     'CF123': (f223, 123, 84),
-    'CG123': (f264, 123, 85),
+    'CG123': (f276, 123, 85),
     'CI123': (f225, 123, 87),
     'CJ123': (f226, 123, 88),
     'CK123': (f227, 123, 89),
@@ -13919,7 +15091,19 @@ CELLS = {
     'DW123': (f260, 123, 127),
     'DX123': (f261, 123, 128),
     'DY123': (f262, 123, 129),
-    'A124': (f358, 124, 1),
+    'DZ123': (f263, 123, 130),
+    'EA123': (f264, 123, 131),
+    'EB123': (f265, 123, 132),
+    'EC123': (f266, 123, 133),
+    'ED123': (f267, 123, 134),
+    'EE123': (f268, 123, 135),
+    'EF123': (f269, 123, 136),
+    'EG123': (f270, 123, 137),
+    'EH123': (f271, 123, 138),
+    'EI123': (f272, 123, 139),
+    'EJ123': (f273, 123, 140),
+    'EK123': (f274, 123, 141),
+    'A124': (f370, 124, 1),
     'B124': (f145, 124, 2),
     'C124': (f146, 124, 3),
     'D124': (f147, 124, 4),
@@ -14001,7 +15185,7 @@ CELLS = {
     'CD124': (f221, 124, 82),
     'CE124': (f222, 124, 83),
     'CF124': (f223, 124, 84),
-    'CG124': (f264, 124, 85),
+    'CG124': (f276, 124, 85),
     'CI124': (f225, 124, 87),
     'CJ124': (f226, 124, 88),
     'CK124': (f227, 124, 89),
@@ -14040,7 +15224,19 @@ CELLS = {
     'DW124': (f260, 124, 127),
     'DX124': (f261, 124, 128),
     'DY124': (f262, 124, 129),
-    'A125': (f359, 125, 1),
+    'DZ124': (f263, 124, 130),
+    'EA124': (f264, 124, 131),
+    'EB124': (f265, 124, 132),
+    'EC124': (f266, 124, 133),
+    'ED124': (f267, 124, 134),
+    'EE124': (f268, 124, 135),
+    'EF124': (f269, 124, 136),
+    'EG124': (f270, 124, 137),
+    'EH124': (f271, 124, 138),
+    'EI124': (f272, 124, 139),
+    'EJ124': (f273, 124, 140),
+    'EK124': (f274, 124, 141),
+    'A125': (f371, 125, 1),
     'B125': (f145, 125, 2),
     'C125': (f146, 125, 3),
     'D125': (f147, 125, 4),
@@ -14122,7 +15318,7 @@ CELLS = {
     'CD125': (f221, 125, 82),
     'CE125': (f222, 125, 83),
     'CF125': (f223, 125, 84),
-    'CG125': (f264, 125, 85),
+    'CG125': (f276, 125, 85),
     'CI125': (f225, 125, 87),
     'CJ125': (f226, 125, 88),
     'CK125': (f227, 125, 89),
@@ -14161,7 +15357,19 @@ CELLS = {
     'DW125': (f260, 125, 127),
     'DX125': (f261, 125, 128),
     'DY125': (f262, 125, 129),
-    'A126': (f360, 126, 1),
+    'DZ125': (f263, 125, 130),
+    'EA125': (f264, 125, 131),
+    'EB125': (f265, 125, 132),
+    'EC125': (f266, 125, 133),
+    'ED125': (f267, 125, 134),
+    'EE125': (f268, 125, 135),
+    'EF125': (f269, 125, 136),
+    'EG125': (f270, 125, 137),
+    'EH125': (f271, 125, 138),
+    'EI125': (f272, 125, 139),
+    'EJ125': (f273, 125, 140),
+    'EK125': (f274, 125, 141),
+    'A126': (f372, 126, 1),
     'B126': (f145, 126, 2),
     'C126': (f146, 126, 3),
     'D126': (f147, 126, 4),
@@ -14243,7 +15451,7 @@ CELLS = {
     'CD126': (f221, 126, 82),
     'CE126': (f222, 126, 83),
     'CF126': (f223, 126, 84),
-    'CG126': (f264, 126, 85),
+    'CG126': (f276, 126, 85),
     'CI126': (f225, 126, 87),
     'CJ126': (f226, 126, 88),
     'CK126': (f227, 126, 89),
@@ -14282,7 +15490,19 @@ CELLS = {
     'DW126': (f260, 126, 127),
     'DX126': (f261, 126, 128),
     'DY126': (f262, 126, 129),
-    'A127': (f361, 127, 1),
+    'DZ126': (f263, 126, 130),
+    'EA126': (f264, 126, 131),
+    'EB126': (f265, 126, 132),
+    'EC126': (f266, 126, 133),
+    'ED126': (f267, 126, 134),
+    'EE126': (f268, 126, 135),
+    'EF126': (f269, 126, 136),
+    'EG126': (f270, 126, 137),
+    'EH126': (f271, 126, 138),
+    'EI126': (f272, 126, 139),
+    'EJ126': (f273, 126, 140),
+    'EK126': (f274, 126, 141),
+    'A127': (f373, 127, 1),
     'B127': (f145, 127, 2),
     'C127': (f146, 127, 3),
     'D127': (f147, 127, 4),
@@ -14364,7 +15584,7 @@ CELLS = {
     'CD127': (f221, 127, 82),
     'CE127': (f222, 127, 83),
     'CF127': (f223, 127, 84),
-    'CG127': (f264, 127, 85),
+    'CG127': (f276, 127, 85),
     'CI127': (f225, 127, 87),
     'CJ127': (f226, 127, 88),
     'CK127': (f227, 127, 89),
@@ -14403,7 +15623,19 @@ CELLS = {
     'DW127': (f260, 127, 127),
     'DX127': (f261, 127, 128),
     'DY127': (f262, 127, 129),
-    'A128': (f362, 128, 1),
+    'DZ127': (f263, 127, 130),
+    'EA127': (f264, 127, 131),
+    'EB127': (f265, 127, 132),
+    'EC127': (f266, 127, 133),
+    'ED127': (f267, 127, 134),
+    'EE127': (f268, 127, 135),
+    'EF127': (f269, 127, 136),
+    'EG127': (f270, 127, 137),
+    'EH127': (f271, 127, 138),
+    'EI127': (f272, 127, 139),
+    'EJ127': (f273, 127, 140),
+    'EK127': (f274, 127, 141),
+    'A128': (f374, 128, 1),
     'B128': (f145, 128, 2),
     'C128': (f146, 128, 3),
     'D128': (f147, 128, 4),
@@ -14485,7 +15717,7 @@ CELLS = {
     'CD128': (f221, 128, 82),
     'CE128': (f222, 128, 83),
     'CF128': (f223, 128, 84),
-    'CG128': (f264, 128, 85),
+    'CG128': (f276, 128, 85),
     'CI128': (f225, 128, 87),
     'CJ128': (f226, 128, 88),
     'CK128': (f227, 128, 89),
@@ -14524,7 +15756,19 @@ CELLS = {
     'DW128': (f260, 128, 127),
     'DX128': (f261, 128, 128),
     'DY128': (f262, 128, 129),
-    'A129': (f363, 129, 1),
+    'DZ128': (f263, 128, 130),
+    'EA128': (f264, 128, 131),
+    'EB128': (f265, 128, 132),
+    'EC128': (f266, 128, 133),
+    'ED128': (f267, 128, 134),
+    'EE128': (f268, 128, 135),
+    'EF128': (f269, 128, 136),
+    'EG128': (f270, 128, 137),
+    'EH128': (f271, 128, 138),
+    'EI128': (f272, 128, 139),
+    'EJ128': (f273, 128, 140),
+    'EK128': (f274, 128, 141),
+    'A129': (f375, 129, 1),
     'B129': (f145, 129, 2),
     'C129': (f146, 129, 3),
     'D129': (f147, 129, 4),
@@ -14606,7 +15850,7 @@ CELLS = {
     'CD129': (f221, 129, 82),
     'CE129': (f222, 129, 83),
     'CF129': (f223, 129, 84),
-    'CG129': (f264, 129, 85),
+    'CG129': (f276, 129, 85),
     'CI129': (f225, 129, 87),
     'CJ129': (f226, 129, 88),
     'CK129': (f227, 129, 89),
@@ -14645,4 +15889,16 @@ CELLS = {
     'DW129': (f260, 129, 127),
     'DX129': (f261, 129, 128),
     'DY129': (f262, 129, 129),
+    'DZ129': (f263, 129, 130),
+    'EA129': (f264, 129, 131),
+    'EB129': (f265, 129, 132),
+    'EC129': (f266, 129, 133),
+    'ED129': (f267, 129, 134),
+    'EE129': (f268, 129, 135),
+    'EF129': (f269, 129, 136),
+    'EG129': (f270, 129, 137),
+    'EH129': (f271, 129, 138),
+    'EI129': (f272, 129, 139),
+    'EJ129': (f273, 129, 140),
+    'EK129': (f274, 129, 141),
 }
