@@ -116,10 +116,10 @@ def dai_van_html(E, tdan, lk):
         H.append('<h3 style="margin-bottom:2px">Vận %s (%s tuổi, năm %s–%s): <span style="color:%s">%s</span>%s</h3>'
                  % (html.escape(ten), ('%d–%d' % (t0, t0 + 9)) if t0 is not None else '', d(c + '37'), d(c + '38'), mau, html.escape(muc),
                     ' <span style="color:#4f46e5">◀ đang hành</span>' if d(c + '44').strip() else ''))
-        tom = d(c + '122')
+        tom = d(c + '138') or d(c + '122')
         H.append('<p style="margin:2px 0"><b>%s</b></p>' % html.escape(tom[:1].upper() + tom[1:]))
-        H.append('<p style="margin:2px 0"><span class="nhan">5 năm đầu:</span> <b>%s</b></p>' % lk(d(c + '123')))
-        H.append('<p style="margin:2px 0"><span class="nhan">5 năm sau:</span> <b>%s</b></p>' % lk(d(c + '124')))
+        H.append('<p style="margin:2px 0"><span class="nhan">Can vận (làm chủ cả 10 năm):</span> <b>%s</b></p>' % lk(d(c + '123')))
+        H.append('<p style="margin:2px 0"><span class="nhan">Chi vận (bổ trợ):</span> <b>%s</b></p>' % lk(d(c + '124')))
         H.append('<p style="margin:2px 0"><span class="nhan">Tài lộc:</span> <b>%s – %s</b></p>'
                  % (html.escape(chu_o(E, 'TAI_LOC', c + '89')), lk(chu_o(E, 'TAI_LOC', c + '90'))))
         H.append('<p style="margin:2px 0"><span class="nhan">Công danh:</span> <b>%s</b></p>' % lk(d(c + '127')))

@@ -2,7 +2,6 @@
 """T13 – Lớp phán đoán, gỡ mâu thuẫn (đề xuất hoàn thiện 15/11/2026, giai đoạn T3).
   (a) Bất biến trên 20 lá T7 + lá mẫu:
       • mỗi đại vận / mỗi nửa vận / mỗi năm có ĐÚNG MỘT mức trong thang 5 mức;
-      • năm có dấu hiệu hạn nặng không cao hơn trần (quy tắc luu_nien.tran_khi_han_nang);
       • năm có ≥ 2 lục xung chạm chi mang dụng thần mà can và chi năm đều không có lợi → Xấu hoặc Rất xấu;
       • thọ – yểu: có từ ngưỡng dấu hiệu ngược trở lên thì không kết luận "yểu";
       • kết quả ghi được JSON và chạy lại cho cùng kết quả.
@@ -21,13 +20,11 @@ GOC = os.path.dirname(os.path.abspath(__file__))
 def _bat_bien(ten, hs, p):
     loi = []; qt = quy_tac()
     for d in p['dai_van']:
-        for k in ('muc', 'muc_5_nam_dau', 'muc_5_nam_sau'):
+        for k in ('muc',):
             if d[k] not in MUC: loi.append((ten, d['ten'], k, d[k]))
     vt = VaiTro(hs)
     for y, h in zip(p['luu_nien'], hs['luu_nien']):
         if y['muc'] not in MUC: loi.append((ten, y['nam'], 'mức', y['muc']))
-        if y['han_nang'] and MUC.index(y['muc']) > MUC.index(qt['luu_nien']['tran_khi_han_nang']):
-            loi.append((ten, y['nam'], 'hạn nặng mà mức', y['muc']))
         # từ 1.9.0 mức năm = đúng kết luận tổng hợp của workbook (P1 tr.133) – không còn quy tắc riêng của lớp tổng hợp
     ty = p['tho_yeu']
     if ty['muc'].upper() != (hs['ban_menh'].get('tho_yeu_kl') or 'TRUNG BÌNH').upper():      # phải đúng nguyên kết luận workbook
@@ -61,6 +58,18 @@ def _la_mau():
     if p['luc_than']['Mẹ']['muc'] != 'Kém' or not p['luc_than']['Mẹ']['nguon_khac']: loi.append(('mẫu', 'mẹ: giữ Kém, có nguồn khác nói ngược'))
     s2 = LaSo(**{**s.to_dict(), 'so_con': 2, 'tinh_trang_hon_nhan': 'Đã kết hôn'})
     if not any(x['muc'] == 'Con đầu lòng' for x in phan_doan(hs, s2)['an_muc']): loi.append(('mẫu', 'đã có con mà chưa ẩn "Con đầu lòng"'))
+    # Mục 2.9 (bản 6.8): dòng tham khảo con cái theo lá số hôn phối – đúng câu con cái khi mở lá đó riêng; không có thông tin → không có dòng
+    from battu_core.tong_hop.viet_ban import _dong_hon_phoi, _cau_con_cai
+    s3 = LaSo(**{**s.to_dict(), 'phoi_ngau': [5, 3, 1980, 10, 0]})
+    sp = LaSo(cach_nhap='duong', ngay=5, thang=3, nam=1980, gio=10, phut=0, gioi_tinh='Nữ', nam_xem=2026)
+    hp = ho_so(tinh(sp).E, sp); pp = phan_doan(hp, sp)
+    chuan = _cau_con_cai(hp, pp, {x['muc'] for x in pp['an_muc']}).replace('**', '')
+    dong = _dong_hon_phoi(s3)
+    if not (dong.startswith('Tham khảo thông tin về Con cái theo lá số của vợ (') and dong.endswith(chuan)): loi.append(('mẫu', 'dòng hôn phối (nam → vợ)', dong[:80]))
+    if _dong_hon_phoi(s): loi.append(('mẫu', 'không nhập hôn phối mà vẫn có dòng'))
+    if _dong_hon_phoi(LaSo(**{**s.to_dict(), 'phoi_ngau': [None, None, 1980, None, None]})): loi.append(('mẫu', 'chỉ nhập năm hôn phối mà vẫn có dòng'))
+    s4 = LaSo(**{**sp.to_dict(), 'phoi_ngau': [28, 11, 1978, 8, 30]})
+    if not _dong_hon_phoi(s4).startswith('Tham khảo thông tin về Con cái theo lá số của chồng ('): loi.append(('mẫu', 'dòng hôn phối (nữ → chồng)'))
     return p, loi
 
 

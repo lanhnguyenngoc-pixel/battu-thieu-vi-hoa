@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet PP2_DINH_LUONG – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.8.xlsx (SHA-256 b171b485540d6fb7f1b77d5397c9a0f6a2ddce344baf90abfa50bdfaaf431a5d).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Định dạng có điều kiện – SINH TỰ ĐỘNG bởi tools/dich_dinh_dang_dk.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.8.xlsx (SHA-256 b171b485540d6fb7f1b77d5397c9a0f6a2ddce344baf90abfa50bdfaaf431a5d).
 QUY_TAC: (sheet, [(c1, r1, c2, r2)…], ưu tiên, hàm điều kiện g(E, r, c), kiểu {dam, chu, nen})."""
 from battu_core import xl as X
 

@@ -163,6 +163,42 @@ def _kl(hs, muc, nhan):
     return ''
 
 
+def _cau_con_cai(hs, pd, an_m):
+    """Đoạn kết luận Con cái của MỘT lá số (dùng cho lá chính và lá hôn phối)."""
+    lt = pd['luc_than']
+    d = lt.get('Con cái', {})
+    s2 = '**Con cái: %s.** %s' % (d.get('muc') or '—', _cau(d.get('chinh', '').split(':', 1)[-1], 1))
+    if 'Con đầu lòng' not in an_m:
+        cdl = _kl(hs, 'G. Gia đạo', 'Con đầu lòng').split('Vì sao')[0].strip()
+        if cdl: s2 += ' Con đầu lòng (theo sách): %s.' % cdl.rstrip('.').lower()
+    unh = _kl(hs, 'G. Gia đạo', 'Con cái (UH)')
+    if 'không có con' in unh:
+        s2 += ' Uyên Hải Tử Bình (trọng số thấp hơn) nêu sao con nhập mộ, vô khí – đọc là con muộn hoặc ít, không phải không có con.'
+    vn = _diem(_kl(hs, 'G. Gia đạo', 'Vãn niên – tuổi già (HG)'), 1)
+    if vn: s2 += ' Vãn niên: %s.' % vn[0].replace('[Hóa giải toàn thư] ', '').rstrip('.')
+    return s2
+
+
+def _dong_hon_phoi(la_so):
+    """Mục 2.9 (bản 6.8): MỘT dòng tham khảo con cái theo lá số hôn phối, khi có đủ ngày, tháng, năm, giờ sinh của vợ/chồng.
+    Không đổi kết luận nào của lá chính; lá hôn phối tính bằng đúng bộ tính hiện có, giới tính ngược với lá chính."""
+    pn = list(getattr(la_so, 'phoi_ngau', None) or []) + [None] * 5
+    d, m, y, h, mi = pn[:5]
+    if la_so is None or None in (d, m, y, h): return ''
+    from battu_core.nhap_lieu import LaSo
+    from battu_core.dich_vu import tinh
+    nam = (la_so.gioi_tinh or 'Nam') == 'Nam'
+    s2 = LaSo(cach_nhap='duong', ngay=int(d), thang=int(m), nam=int(y), gio=int(h), phut=int(mi or 0), mui_gio=la_so.mui_gio,
+              gioi_tinh='Nữ' if nam else 'Nam', nam_xem=la_so.nam_xem, vuong_suy=la_so.vuong_suy, che_do_nht=la_so.che_do_nht)
+    try:
+        kq2 = tinh(s2); hs2 = ho_so(kq2.E, s2); pd2 = phan_doan(hs2, s2)
+    except Exception:
+        return ''
+    cau = _cau_con_cai(hs2, pd2, {x['muc'] for x in pd2['an_muc']}).replace('**', '')
+    tt = ', '.join('%s %s' % (t['can'], t['chi']) for t in hs2['tu_tru'])
+    return 'Tham khảo thông tin về Con cái theo lá số của %s (%s) là: %s' % ('vợ' if nam else 'chồng', tt, cau)
+
+
 def soan(hs, pd, la_so=None, ho_ten=''):
     """→ danh sách khối của bản luận giải (10 mục, khoảng 5 trang A4)."""
     bm = hs['ban_menh']; tru = hs['tu_tru']; ls = hs['la_so']; B = []
@@ -327,17 +363,10 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     t1, t2 = ('Năm thuận gia đạo', 'Năm cần nhường nhịn') if 'Thời điểm kết hôn' in an_m else ('Năm thuận kết hôn, tin vui', 'Năm cần thận trọng')
     B.append(('p', '**%s:** %s. **%s:** %s.%s' % (t1, _ds(gd_tot), t2, _ds(gd_xau),
                                                   ' Năm tốt xấu đan xen (có cả dấu hiệu hợp và dấu hiệu khắc): %s.' % _ds(lan) if lan else '')))
-    d = lt.get('Con cái', {})
-    s2 = '**Con cái: %s.** %s' % (d.get('muc') or '—', _cau(d.get('chinh', '').split(':', 1)[-1], 1))
-    if 'Con đầu lòng' not in an_m:
-        cdl = _kl(hs, 'G. Gia đạo', 'Con đầu lòng').split('Vì sao')[0].strip()
-        if cdl: s2 += ' Con đầu lòng (theo sách): %s.' % cdl.rstrip('.').lower()
-    unh = _kl(hs, 'G. Gia đạo', 'Con cái (UH)')
-    if 'không có con' in unh:
-        s2 += ' Uyên Hải Tử Bình (trọng số thấp hơn) nêu sao con nhập mộ, vô khí – đọc là con muộn hoặc ít, không phải không có con.'
-    vn = _diem(_kl(hs, 'G. Gia đạo', 'Vãn niên – tuổi già (HG)'), 1)
-    if vn: s2 += ' Vãn niên: %s.' % vn[0].replace('[Hóa giải toàn thư] ', '').rstrip('.')
+    s2 = _cau_con_cai(hs, pd, an_m)
     B.append(('p', s2))
+    dp = _dong_hon_phoi(la_so)
+    if dp: B.append(('p', dp))
 
     # 7. Cha mẹ – anh em – quan hệ
     B.append(('h2', '7. Cha mẹ – anh em – quan hệ xã hội'))
@@ -394,14 +423,11 @@ def soan(hs, pd, la_so=None, ho_ten=''):
         h = dvh.get(d['ten'], {})
         g = _gop_ten(h.get('quan_he', []), ('xung', 'thien_khac_dia_xung', 'tam_hop', 'tam_hoi'))
         rows.append(['%s (%s–%s)' % (d['ten'], d['nam_bat_dau'], d['nam_ket_thuc']), h.get('thap_than_can', ''), '**%s**' % d['muc'],
-                     '5 năm đầu %s, 5 năm sau %s' % (d['muc_5_nam_dau'].lower(), d['muc_5_nam_sau'].lower()) + (('; ' + '; '.join(g)) if g else '')])
+                     'cả 10 năm %s (can làm chủ, chi bổ trợ)' % d['muc6'].lower() + (('; ' + '; '.join(g)) if g else '')])
     B.append(('bang', ['Đại vận', 'Can vận', 'Mức', 'Ghi chú'], rows))
     i_dang = dv.index(dang) if dang in dv else None
     for d in ([dang] + ([dv[i_dang + 1]] if i_dang is not None and i_dang + 1 < len(dv) else [])) if dang else []:
-        lyd = [x for x in d['ly_do'] if not x.startswith('đại vận')]
-        B.append(('p', '**Vận %s (%s–%s).** 5 năm đầu (can %s) %s; 5 năm sau (chi %s) %s. Căn cứ: %s.' % (
-            d['ten'], d['nam_bat_dau'], d['nam_ket_thuc'], d['ten'].split()[0], d['muc_5_nam_dau'].lower(), d['ten'].split()[-1],
-            d['muc_5_nam_sau'].lower(), '; '.join(re.sub(r'\s*\([+-][\d.]+\)|\s*[+-]\d+\.\d+$', '', x) for x in lyd))))
+        B.append(('p', '**Vận %s (%s–%s).** %s' % (d['ten'], d['nam_bat_dau'], d['nam_ket_thuc'], d['giai_thich'] or d['muc6'])))
     rows = [['%d %s (%s)' % (y['nam'], y['can_chi'], y['tuoi_mu']), '**%s**' % y['muc'], _viec_nam(ln[y['nam']], hs, y)] for y in pd['luu_nien']]
     B.append(('bang', ['Năm (tuổi mụ)', 'Mức', 'Việc chính'], rows))
     for n in (nam_xem, (nam_xem or 0) + 1, (nam_xem or 0) + 2):

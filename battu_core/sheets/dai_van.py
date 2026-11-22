@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DAI_VAN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.8.xlsx (SHA-256 b171b485540d6fb7f1b77d5397c9a0f6a2ddce344baf90abfa50bdfaaf431a5d).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -519,26 +519,27 @@ def f79(E, r, c):
     #   (J$36+9)&") ",""))="","không có",TRIM(IF(C121="RẤT TỐT",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(D121="RẤT TỐT",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF
     #   (E121="RẤT TỐT",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(F121="RẤT TỐT",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="RẤT TỐT",G$35&" ("&G$36&"–"&(G$36
     #   +9)&") ","")&IF(H121="RẤT TỐT",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(I121="RẤT TỐT",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(J121="RẤT TỐT",J$35&" ("
-    #   &J$36&"–"&(J$36+9)&") ","")))&"; tốt: "&IF(TRIM(IF(C121="TỐT",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(D121="TỐT",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&
-    #   IF(E121="TỐT",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(F121="TỐT",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="TỐT",G$35&" ("&G$36&"–"&(G$36+9)&") ","
-    #   ")&IF(H121="TỐT",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(I121="TỐT",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(J121="TỐT",J$35&" ("&J$36&"–"&(J$36+9)&") 
-    #   ",""))="","không có",TRIM(IF(C121="TỐT",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(D121="TỐT",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(E121="TỐT",E$35&" (
-    #   "&E$36&"–"&(E$36+9)&") ","")&IF(F121="TỐT",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="TỐT",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(H121="TỐT",H$35&
-    #   " ("&H$36&"–"&(H$36+9)&") ","")&IF(I121="TỐT",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(J121="TỐT",J$35&" ("&J$36&"–"&(J$36+9)&") ","")))&"; xấu: "&IF(T
-    #   RIM(IF(C121="XẤU",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(D121="XẤU",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(E121="XẤU",E$35&" ("&E$36&"–"&(E$36+9)&")
-    #    ","")&IF(F121="XẤU",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="XẤU",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(H121="XẤU",H$35&" ("&H$36&"–"&(H$36+9)
-    #   &") ","")&IF(I121="XẤU",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(J121="XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ",""))="","không có",TRIM(IF(C121="XẤU",C$35
-    #   &" ("&C$36&"–"&(C$36+9)&") ","")&IF(D121="XẤU",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(E121="XẤU",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(F121="XẤU",F
-    #   $35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="XẤU",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(H121="XẤU",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(I121="XẤU
-    #   ",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(J121="XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ","")))&"; rất xấu: "&IF(TRIM(IF(C121="RẤT XẤU",C$35&" ("&C$36&"–"
-    #   &(C$36+9)&") ","")&IF(D121="RẤT XẤU",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(E121="RẤT XẤU",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(F121="RẤT XẤU",F$3
-    #   5&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="RẤT XẤU",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(H121="RẤT XẤU",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(I12
-    #   1="RẤT XẤU",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(J121="RẤT XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ",""))="","không có",TRIM(IF(C121="RẤT XẤU",C$35&" (
-    #   "&C$36&"–"&(C$36+9)&") ","")&IF(D121="RẤT XẤU",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(E121="RẤT XẤU",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(F121="RẤ
-    #   T XẤU",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="RẤT XẤU",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(H121="RẤT XẤU",H$35&" ("&H$36&"–"&(H$36+9)&") ",
-    #   "")&IF(I121="RẤT XẤU",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(J121="RẤT XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ","")))&". Đang hành: "&LEFT(KET_LUAN!$C$1
-    #   63,MIN(LEN(KET_LUAN!$C$163),300))&" …"
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Đại vận rất tốt: ',('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT TỐT')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT TỐT')) else ''))))),'; tốt: '),('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'TỐT')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'TỐT')) else ''))))),'; xấu: '),('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'XẤU')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'XẤU')) else ''))))),'; rất xấu: '),('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT XẤU')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT XẤU')) else ''))))),'. Đang hành: '),X.LEFT(E.v(3,163,3), X.MIN(X.LEN(E.v(3,163,3)), 300.0))),' …')
+    #   &J$36&"–"&(J$36+9)&") ","")))&"; tốt: "&IF(TRIM(IF(LEFT(C121,3)="TỐT",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(LEFT(D121,3)="TỐT",D$35&" ("&D$36&"–"&(D
+    #   $36+9)&") ","")&IF(LEFT(E121,3)="TỐT",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(LEFT(F121,3)="TỐT",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(LEFT(G121,3)=
+    #   "TỐT",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(LEFT(H121,3)="TỐT",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(LEFT(I121,3)="TỐT",I$35&" ("&I$36&"–"&(I$36+9
+    #   )&") ","")&IF(LEFT(J121,3)="TỐT",J$35&" ("&J$36&"–"&(J$36+9)&") ",""))="","không có",TRIM(IF(LEFT(C121,3)="TỐT",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&I
+    #   F(LEFT(D121,3)="TỐT",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(LEFT(E121,3)="TỐT",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(LEFT(F121,3)="TỐT",F$35&" ("&F
+    #   $36&"–"&(F$36+9)&") ","")&IF(LEFT(G121,3)="TỐT",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(LEFT(H121,3)="TỐT",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(LEF
+    #   T(I121,3)="TỐT",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(LEFT(J121,3)="TỐT",J$35&" ("&J$36&"–"&(J$36+9)&") ","")))&"; xấu: "&IF(TRIM(IF(LEFT(C121,3)="X
+    #   ẤU",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(LEFT(D121,3)="XẤU",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(LEFT(E121,3)="XẤU",E$35&" ("&E$36&"–"&(E$36+9)&
+    #   ") ","")&IF(LEFT(F121,3)="XẤU",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(LEFT(G121,3)="XẤU",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(LEFT(H121,3)="XẤU",H
+    #   $35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(LEFT(I121,3)="XẤU",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(LEFT(J121,3)="XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ",
+    #   ""))="","không có",TRIM(IF(LEFT(C121,3)="XẤU",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(LEFT(D121,3)="XẤU",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(LEFT(
+    #   E121,3)="XẤU",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(LEFT(F121,3)="XẤU",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(LEFT(G121,3)="XẤU",G$35&" ("&G$36&"–"
+    #   &(G$36+9)&") ","")&IF(LEFT(H121,3)="XẤU",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(LEFT(I121,3)="XẤU",I$35&" ("&I$36&"–"&(I$36+9)&") ","")&IF(LEFT(J121,
+    #   3)="XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ","")))&"; rất xấu: "&IF(TRIM(IF(C121="RẤT XẤU",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(D121="RẤT XẤU",D$35&" 
+    #   ("&D$36&"–"&(D$36+9)&") ","")&IF(E121="RẤT XẤU",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(F121="RẤT XẤU",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&IF(G121="R
+    #   ẤT XẤU",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(H121="RẤT XẤU",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(I121="RẤT XẤU",I$35&" ("&I$36&"–"&(I$36+9)&") "
+    #   ,"")&IF(J121="RẤT XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ",""))="","không có",TRIM(IF(C121="RẤT XẤU",C$35&" ("&C$36&"–"&(C$36+9)&") ","")&IF(D121="RẤT XẤ
+    #   U",D$35&" ("&D$36&"–"&(D$36+9)&") ","")&IF(E121="RẤT XẤU",E$35&" ("&E$36&"–"&(E$36+9)&") ","")&IF(F121="RẤT XẤU",F$35&" ("&F$36&"–"&(F$36+9)&") ","")&
+    #   IF(G121="RẤT XẤU",G$35&" ("&G$36&"–"&(G$36+9)&") ","")&IF(H121="RẤT XẤU",H$35&" ("&H$36&"–"&(H$36+9)&") ","")&IF(I121="RẤT XẤU",I$35&" ("&I$36&"–"&(I$
+    #   36+9)&") ","")&IF(J121="RẤT XẤU",J$35&" ("&J$36&"–"&(J$36+9)&") ","")))&". Đang hành: "&LEFT(KET_LUAN!$C$163,MIN(LEN(KET_LUAN!$C$163),300))&" …"
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Đại vận rất tốt: ',('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT TỐT')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT TỐT')) else ''))))),'; tốt: '),('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c), 3.0),'TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+1), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+2), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+3), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+4), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+5), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+6), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+7), 3.0),'TỐT')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c), 3.0),'TỐT')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+1), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+2), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+3), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+4), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+5), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+6), 3.0),'TỐT')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+7), 3.0),'TỐT')) else ''))))),'; xấu: '),('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c), 3.0),'XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+1), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+2), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+3), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+4), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+5), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+6), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+7), 3.0),'XẤU')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c), 3.0),'XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+1), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+2), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+3), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+4), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+5), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+6), 3.0),'XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(X.LEFT(E.v(14,r+27,c+7), 3.0),'XẤU')) else ''))))),'; rất xấu: '),('không có' if X.truthy(X.eq(X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT XẤU')) else ''))),'')) else X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c),' ('),E.v(14,36,c)),'–'),X.add(E.v(14,36,c),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c),'RẤT XẤU')) else ''),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+1),' ('),E.v(14,36,c+1)),'–'),X.add(E.v(14,36,c+1),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+1),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+2),' ('),E.v(14,36,c+2)),'–'),X.add(E.v(14,36,c+2),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+2),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+3),' ('),E.v(14,36,c+3)),'–'),X.add(E.v(14,36,c+3),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+3),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+4),' ('),E.v(14,36,c+4)),'–'),X.add(E.v(14,36,c+4),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+4),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+5),' ('),E.v(14,36,c+5)),'–'),X.add(E.v(14,36,c+5),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+5),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+6),' ('),E.v(14,36,c+6)),'–'),X.add(E.v(14,36,c+6),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+6),'RẤT XẤU')) else '')),(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,35,c+7),' ('),E.v(14,36,c+7)),'–'),X.add(E.v(14,36,c+7),9.0)),') ') if X.truthy(X.eq(E.v(14,r+27,c+7),'RẤT XẤU')) else ''))))),'. Đang hành: '),X.LEFT(E.v(3,163,3), X.MIN(X.LEN(E.v(3,163,3)), 300.0))),' …')
 
 def f80(E, r, c):
     # Ô C97, D97, E97, F97, G97, H97, I97, J97, K97, L97
@@ -672,15 +673,14 @@ def f99(E, r, c):
 
 def f100(E, r, c):
     # Ô C121, D121, E121, F121, G121, H121, I121, J121, K121, L121
-    # = IF((C119>0)=(C120>0),CHOOSE(IF(ABS(C119)>=ABS(C120),C119,C120)+3,"RẤT XẤU","XẤU","BÌNH THƯỜNG","TỐT","RẤT TỐT"),CHOOSE(C119+3,"RẤT XẤU","XẤU","BÌNH TH
-    #   ƯỜNG","TỐT","RẤT TỐT"))
-    return (X.CHOOSE(X.add((E.v(14,r-2,c) if X.truthy(X.ge(X.ABS(E.v(14,r-2,c)),X.ABS(E.v(14,r-1,c)))) else E.v(14,r-1,c)),3.0), lambda: 'RẤT XẤU', lambda: 'XẤU', lambda: 'BÌNH THƯỜNG', lambda: 'TỐT', lambda: 'RẤT TỐT') if X.truthy(X.eq(X.gt(E.v(14,r-2,c),0.0),X.gt(E.v(14,r-1,c),0.0))) else X.CHOOSE(X.add(E.v(14,r-2,c),3.0), lambda: 'RẤT XẤU', lambda: 'XẤU', lambda: 'BÌNH THƯỜNG', lambda: 'TỐT', lambda: 'RẤT TỐT'))
+    # = IF(C119=0,IF((C119>0)=(C120>0),CHOOSE(IF(ABS(C119)>=ABS(C120),C119,C120)+3,"RẤT XẤU","XẤU","BÌNH THƯỜNG","TỐT","RẤT TỐT"),CHOOSE(C119+3,"RẤT XẤU","XẤU
+    #   ","BÌNH THƯỜNG","TỐT","RẤT TỐT")),IF(C119>0,CHOOSE(C137+1,"TỐT VỪA","TỐT","RẤT TỐT"),CHOOSE(C137+1,"XẤU VỪA","XẤU","RẤT XẤU")))
+    return ((X.CHOOSE(X.add((E.v(14,r-2,c) if X.truthy(X.ge(X.ABS(E.v(14,r-2,c)),X.ABS(E.v(14,r-1,c)))) else E.v(14,r-1,c)),3.0), lambda: 'RẤT XẤU', lambda: 'XẤU', lambda: 'BÌNH THƯỜNG', lambda: 'TỐT', lambda: 'RẤT TỐT') if X.truthy(X.eq(X.gt(E.v(14,r-2,c),0.0),X.gt(E.v(14,r-1,c),0.0))) else X.CHOOSE(X.add(E.v(14,r-2,c),3.0), lambda: 'RẤT XẤU', lambda: 'XẤU', lambda: 'BÌNH THƯỜNG', lambda: 'TỐT', lambda: 'RẤT TỐT')) if X.truthy(X.eq(E.v(14,r-2,c),0.0)) else (X.CHOOSE(X.add(E.v(14,r+16,c),1.0), lambda: 'TỐT VỪA', lambda: 'TỐT', lambda: 'RẤT TỐT') if X.truthy(X.gt(E.v(14,r-2,c),0.0)) else X.CHOOSE(X.add(E.v(14,r+16,c),1.0), lambda: 'XẤU VỪA', lambda: 'XẤU', lambda: 'RẤT XẤU')))
 
 def f101(E, r, c):
     # Ô C122, D122, E122, F122, G122, H122, I122, J122, K122, L122
-    # = IF((C119>0)=(C120>0),"cả 10 năm "&LOWER(C121),"5 năm đầu "&LOWER(CHOOSE(C119+3,"RẤT XẤU","XẤU","BÌNH THƯỜNG","TỐT","RẤT TỐT"))&", 5 năm sau "&LOWER(CH
-    #   OOSE(C120+3,"RẤT XẤU","XẤU","BÌNH THƯỜNG","TỐT","RẤT TỐT")))
-    return (X.cat('cả 10 năm ',X.LOWER(E.v(14,r-1,c))) if X.truthy(X.eq(X.gt(E.v(14,r-3,c),0.0),X.gt(E.v(14,r-2,c),0.0))) else X.cat(X.cat(X.cat('5 năm đầu ',X.LOWER(X.CHOOSE(X.add(E.v(14,r-3,c),3.0), lambda: 'RẤT XẤU', lambda: 'XẤU', lambda: 'BÌNH THƯỜNG', lambda: 'TỐT', lambda: 'RẤT TỐT'))),', 5 năm sau '),X.LOWER(X.CHOOSE(X.add(E.v(14,r-2,c),3.0), lambda: 'RẤT XẤU', lambda: 'XẤU', lambda: 'BÌNH THƯỜNG', lambda: 'TỐT', lambda: 'RẤT TỐT'))))
+    # = "cả 10 năm "&LOWER(C121)
+    return X.cat('cả 10 năm ',X.LOWER(E.v(14,r-1,c)))
 
 def f102(E, r, c):
     # Ô C123, D123, E123, F123, G123, H123, I123, J123, K123, L123
@@ -723,6 +723,71 @@ def f106(E, r, c):
     # = IF(C119>0,"Tốt","Xấu")&" – "&IF(AND($C$112=1,OR(C$39="Thương quan",INDEX(M_TT,TRUNG_GIAN!$E$5+1,INDEX(CSDL!$D$18:$D$29,C$34+1)+1)="Thương quan")),"thư
     #   ơng quan gặp quan nên dễ mất chức, thị phi","theo xu thế chung của vận")
     return X.cat(X.cat(('Tốt' if X.truthy(X.gt(E.v(14,r-8,c),0.0)) else 'Xấu'),' – '),('thương quan gặp quan nên dễ mất chức, thị phi' if X.truthy(X.AND(X.eq(E.v(14,112,3),1.0), X.OR(X.eq(E.v(14,39,c),'Thương quan'), X.eq(X.INDEX(E.rg(24,122,16,131,25), X.add(E.v(23,5,5),1.0), X.add(X.INDEX(E.rg(24,18,4,29,4), X.add(E.v(14,34,c),1.0)),1.0)),'Thương quan')))) else 'theo xu thế chung của vận'))
+
+def f107(E, r, c):
+    # Ô C130, D130, E130, F130, G130, H130, I130, J130, K130, L130
+    # = IF(AND(INDEX(M_LH,TRUNG_GIAN!$C$6+1,C$34+1)>=0,OR(TRUNG_GIAN!$C$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,C$34+1),TRUNG_GIAN!$D$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,C$
+    #   34+1),TRUNG_GIAN!$E$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,C$34+1),TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$C$6+1,C$34+1),C$42=INDEX(M_LH,TRUNG_GIAN!$C$6+1,C$34
+    #   +1))),INDEX(M_LH,TRUNG_GIAN!$C$6+1,C$34+1),IF(AND(INDEX(M_LH,TRUNG_GIAN!$D$6+1,C$34+1)>=0,OR(TRUNG_GIAN!$C$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,C$34+1),TRUN
+    #   G_GIAN!$D$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,C$34+1),TRUNG_GIAN!$E$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,C$34+1),TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$D$6+1,C$3
+    #   4+1),C$42=INDEX(M_LH,TRUNG_GIAN!$D$6+1,C$34+1))),INDEX(M_LH,TRUNG_GIAN!$D$6+1,C$34+1),IF(AND(INDEX(M_LH,TRUNG_GIAN!$E$6+1,C$34+1)>=0,OR(TRUNG_GIAN!$C$
+    #   7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,C$34+1),TRUNG_GIAN!$D$7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,C$34+1),TRUNG_GIAN!$E$7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,C$34+1),TRUNG
+    #   _GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$E$6+1,C$34+1),C$42=INDEX(M_LH,TRUNG_GIAN!$E$6+1,C$34+1))),INDEX(M_LH,TRUNG_GIAN!$E$6+1,C$34+1),IF(AND(NOT(NHAP_LIEU!
+    #   $C$9="Không rõ giờ"),INDEX(M_LH,TRUNG_GIAN!$F$6+1,C$34+1)>=0,OR(TRUNG_GIAN!$C$7=INDEX(M_LH,TRUNG_GIAN!$F$6+1,C$34+1),TRUNG_GIAN!$D$7=INDEX(M_LH,TRUNG_
+    #   GIAN!$F$6+1,C$34+1),TRUNG_GIAN!$E$7=INDEX(M_LH,TRUNG_GIAN!$F$6+1,C$34+1),TRUNG_GIAN!$F$7=INDEX(M_LH,TRUNG_GIAN!$F$6+1,C$34+1),C$42=INDEX(M_LH,TRUNG_GI
+    #   AN!$F$6+1,C$34+1))),INDEX(M_LH,TRUNG_GIAN!$F$6+1,C$34+1),-1))))
+    return (X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(14,34,c),1.0)) if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(14,34,c),1.0)),0.0), X.OR(X.eq(E.v(23,7,3),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,4),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,5),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(14,42,c),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,3),1.0), X.add(E.v(14,34,c),1.0)))))) else (X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(14,34,c),1.0)) if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(14,34,c),1.0)),0.0), X.OR(X.eq(E.v(23,7,3),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,4),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,5),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(14,42,c),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,4),1.0), X.add(E.v(14,34,c),1.0)))))) else (X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(14,34,c),1.0)) if X.truthy(X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(14,34,c),1.0)),0.0), X.OR(X.eq(E.v(23,7,3),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,4),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,5),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(14,42,c),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(14,34,c),1.0)))))) else (X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(14,34,c),1.0)) if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(14,34,c),1.0)),0.0), X.OR(X.eq(E.v(23,7,3),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,4),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,5),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(14,34,c),1.0))), X.eq(E.v(14,42,c),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,6),1.0), X.add(E.v(14,34,c),1.0)))))) else X.neg(1.0)))))
+
+def f108(E, r, c):
+    # Ô C131, D131, E131, F131, G131, H131, I131, J131, K131, L131
+    # = IF(C130>=0,C130,C43)
+    return (E.v(14,r-1,c) if X.truthy(X.ge(E.v(14,r-1,c),0.0)) else E.v(14,r-88,c))
+
+def f109(E, r, c):
+    # Ô C132, D132, E132, F132, G132, H132, I132, J132, K132, L132
+    # = IF(DOI_CHIEU!$C$33=2,IF(OR(AND(DUNG_HY_KY!$D$109>=0,C131=DUNG_HY_KY!$D$109),AND(DUNG_HY_KY!$D$110>=0,C131=DUNG_HY_KY!$D$110)),1,IF(AND(DUNG_HY_KY!$D$1
+    #   11>=0,C131=DUNG_HY_KY!$D$111),-1,0)),IF(OR(AND(DUNG_HY_KY!$C$109>=0,C131=DUNG_HY_KY!$C$109),AND(DUNG_HY_KY!$C$110>=0,C131=DUNG_HY_KY!$C$110)),1,IF(AND
+    #   (DUNG_HY_KY!$C$111>=0,C131=DUNG_HY_KY!$C$111),-1,0)))
+    return ((1.0 if X.truthy(X.OR(X.AND(X.ge(E.v(8,109,4),0.0), X.eq(E.v(14,r-1,c),E.v(8,109,4))), X.AND(X.ge(E.v(8,110,4),0.0), X.eq(E.v(14,r-1,c),E.v(8,110,4))))) else (X.neg(1.0) if X.truthy(X.AND(X.ge(E.v(8,111,4),0.0), X.eq(E.v(14,r-1,c),E.v(8,111,4)))) else 0.0)) if X.truthy(X.eq(E.v(7,33,3),2.0)) else (1.0 if X.truthy(X.OR(X.AND(X.ge(E.v(8,109,3),0.0), X.eq(E.v(14,r-1,c),E.v(8,109,3))), X.AND(X.ge(E.v(8,110,3),0.0), X.eq(E.v(14,r-1,c),E.v(8,110,3))))) else (X.neg(1.0) if X.truthy(X.AND(X.ge(E.v(8,111,3),0.0), X.eq(E.v(14,r-1,c),E.v(8,111,3)))) else 0.0)))
+
+def f110(E, r, c):
+    # Ô C133, D133, E133, F133, G133, H133, I133, J133, K133, L133
+    # = IF(LEN(IF(DOI_CHIEU!$C$33=2,C67,C52))>0,-1,IF(LEN(IF(DOI_CHIEU!$C$33=2,C66,C51))>0,1,0))
+    return (X.neg(1.0) if X.truthy(X.gt(X.LEN((E.v(14,r-66,c) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-81,c))),0.0)) else (1.0 if X.truthy(X.gt(X.LEN((E.v(14,r-67,c) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(14,r-82,c))),0.0)) else 0.0))
+
+def f111(E, r, c):
+    # Ô C134, D134, E134, F134, G134, H134, I134, J134, K134, L134
+    # = IF(C133<>0,C133,C132)
+    return (E.v(14,r-1,c) if X.truthy(X.ne(E.v(14,r-1,c),0.0)) else E.v(14,r-2,c))
+
+def f112(E, r, c):
+    # Ô C135, D135, E135, F135, G135, H135, I135, J135, K135, L135
+    # = IF(C119=0,"",IF(OR(C139=1,C139=3,C139=4,AND(C134<>0,C134=-SIGN(C119))),1,0))
+    return ('' if X.truthy(X.eq(E.v(14,r-16,c),0.0)) else (1.0 if X.truthy(X.OR(X.eq(E.v(14,r+4,c),1.0), X.eq(E.v(14,r+4,c),3.0), X.eq(E.v(14,r+4,c),4.0), X.AND(X.ne(E.v(14,r-1,c),0.0), X.eq(E.v(14,r-1,c),X.neg(X.SIGN(E.v(14,r-16,c))))))) else 0.0))
+
+def f113(E, r, c):
+    # Ô C136, D136, E136, F136, G136, H136, I136, J136, K136, L136
+    # = IF(C119=0,"",IF(C135=1,0,IF(OR(C139=0,C139=2,AND(C134<>0,C134=SIGN(C119))),1,0)))
+    return ('' if X.truthy(X.eq(E.v(14,r-17,c),0.0)) else (0.0 if X.truthy(X.eq(E.v(14,r-1,c),1.0)) else (1.0 if X.truthy(X.OR(X.eq(E.v(14,r+3,c),0.0), X.eq(E.v(14,r+3,c),2.0), X.AND(X.ne(E.v(14,r-2,c),0.0), X.eq(E.v(14,r-2,c),X.SIGN(E.v(14,r-17,c)))))) else 0.0)))
+
+def f114(E, r, c):
+    # Ô C137, D137, E137, F137, G137, H137, I137, J137, K137, L137
+    # = IF(C119=0,"",IF(C135=1,MAX(0,IF(ABS(C119)>=2,2,1)-1),IF(C136=1,MIN(2,IF(ABS(C119)>=2,2,1)+1),IF(ABS(C119)>=2,2,1))))
+    return ('' if X.truthy(X.eq(E.v(14,r-18,c),0.0)) else (X.MAX(0.0, X.sub((2.0 if X.truthy(X.ge(X.ABS(E.v(14,r-18,c)),2.0)) else 1.0),1.0)) if X.truthy(X.eq(E.v(14,r-2,c),1.0)) else (X.MIN(2.0, X.add((2.0 if X.truthy(X.ge(X.ABS(E.v(14,r-18,c)),2.0)) else 1.0),1.0)) if X.truthy(X.eq(E.v(14,r-1,c),1.0)) else (2.0 if X.truthy(X.ge(X.ABS(E.v(14,r-18,c)),2.0)) else 1.0))))
+
+def f115(E, r, c):
+    # Ô C138, D138, E138, F138, G138, H138, I138, J138, K138, L138
+    # = IF(C119=0,C121&" – can vận nhàn thần, xét theo chi vận (P1 tr.123).",C121&" – can "&INDEX(CAN_TEN,C$33+1)&" ("&C$39&", hành "&INDEX(HANH_TEN,C$42+1)&"
+    #   ) làm chủ cả 10 năm; chi "&INDEX(CHI_TEN,C$34+1)&IF(C130>=0,", hợp hóa thành "&INDEX(HANH_TEN,C130+1),", hành "&INDEX(HANH_TEN,C$43+1))&IF(C134>0," – 
+    #   cùng chiều can",IF(C134<0," – trái chiều can",""))&IF(C133=-1,"; xung mất chữ mang dụng/hỷ",IF(C133=1,"; xung mất chữ mang kỵ",""))&"; "&CHOOSE(C139+1
+    #   ,"can chi cùng hành","can sinh chi (can xì hơi)","chi sinh can (sinh phù)","can khắc chi (can hao)","chi khắc can (áp chế can)")&" → "&IF(C135=1,"cái 
+    #   "&IF(C119>0,"tốt","xấu")&" giảm một mức",IF(C136=1,"cái "&IF(C119>0,"tốt","xấu")&" tăng thêm","giữ nguyên mức"))&" (P1 tr.122–124; P2 tr.282).")
+    return (X.cat(E.v(14,r-17,c),' – can vận nhàn thần, xét theo chi vận (P1 tr.123).') if X.truthy(X.eq(E.v(14,r-19,c),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(14,r-17,c),' – can '),X.INDEX(E.rg(24,5,1,14,1), X.add(E.v(14,33,c),1.0))),' ('),E.v(14,39,c)),', hành '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(14,42,c),1.0))),') làm chủ cả 10 năm; chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(14,34,c),1.0))),(X.cat(', hợp hóa thành ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(14,r-8,c),1.0))) if X.truthy(X.ge(E.v(14,r-8,c),0.0)) else X.cat(', hành ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(14,43,c),1.0))))),(' – cùng chiều can' if X.truthy(X.gt(E.v(14,r-4,c),0.0)) else (' – trái chiều can' if X.truthy(X.lt(E.v(14,r-4,c),0.0)) else ''))),('; xung mất chữ mang dụng/hỷ' if X.truthy(X.eq(E.v(14,r-5,c),X.neg(1.0))) else ('; xung mất chữ mang kỵ' if X.truthy(X.eq(E.v(14,r-5,c),1.0)) else ''))),'; '),X.CHOOSE(X.add(E.v(14,r+1,c),1.0), lambda: 'can chi cùng hành', lambda: 'can sinh chi (can xì hơi)', lambda: 'chi sinh can (sinh phù)', lambda: 'can khắc chi (can hao)', lambda: 'chi khắc can (áp chế can)')),' → '),(X.cat(X.cat('cái ',('tốt' if X.truthy(X.gt(E.v(14,r-19,c),0.0)) else 'xấu')),' giảm một mức') if X.truthy(X.eq(E.v(14,r-3,c),1.0)) else (X.cat(X.cat('cái ',('tốt' if X.truthy(X.gt(E.v(14,r-19,c),0.0)) else 'xấu')),' tăng thêm') if X.truthy(X.eq(E.v(14,r-2,c),1.0)) else 'giữ nguyên mức'))),' (P1 tr.122–124; P2 tr.282).'))
+
+def f116(E, r, c):
+    # Ô C139, D139, E139, F139, G139, H139, I139, J139, K139, L139
+    # = IF(C42=C131,0,IF(MOD(C42+1,5)=C131,1,IF(MOD(C131+1,5)=C42,2,IF(MOD(C42+2,5)=C131,3,4))))
+    return (0.0 if X.truthy(X.eq(E.v(14,r-97,c),E.v(14,r-8,c))) else (1.0 if X.truthy(X.eq(X.MOD(X.add(E.v(14,r-97,c),1.0), 5.0),E.v(14,r-8,c))) else (2.0 if X.truthy(X.eq(X.MOD(X.add(E.v(14,r-8,c),1.0), 5.0),E.v(14,r-97,c))) else (3.0 if X.truthy(X.eq(X.MOD(X.add(E.v(14,r-97,c),2.0), 5.0),E.v(14,r-8,c))) else 4.0))))
 
 CELLS = {
     'C5': (f0, 5, 3),
@@ -1516,4 +1581,104 @@ CELLS = {
     'J127': (f106, 127, 10),
     'K127': (f106, 127, 11),
     'L127': (f106, 127, 12),
+    'C130': (f107, 130, 3),
+    'D130': (f107, 130, 4),
+    'E130': (f107, 130, 5),
+    'F130': (f107, 130, 6),
+    'G130': (f107, 130, 7),
+    'H130': (f107, 130, 8),
+    'I130': (f107, 130, 9),
+    'J130': (f107, 130, 10),
+    'K130': (f107, 130, 11),
+    'L130': (f107, 130, 12),
+    'C131': (f108, 131, 3),
+    'D131': (f108, 131, 4),
+    'E131': (f108, 131, 5),
+    'F131': (f108, 131, 6),
+    'G131': (f108, 131, 7),
+    'H131': (f108, 131, 8),
+    'I131': (f108, 131, 9),
+    'J131': (f108, 131, 10),
+    'K131': (f108, 131, 11),
+    'L131': (f108, 131, 12),
+    'C132': (f109, 132, 3),
+    'D132': (f109, 132, 4),
+    'E132': (f109, 132, 5),
+    'F132': (f109, 132, 6),
+    'G132': (f109, 132, 7),
+    'H132': (f109, 132, 8),
+    'I132': (f109, 132, 9),
+    'J132': (f109, 132, 10),
+    'K132': (f109, 132, 11),
+    'L132': (f109, 132, 12),
+    'C133': (f110, 133, 3),
+    'D133': (f110, 133, 4),
+    'E133': (f110, 133, 5),
+    'F133': (f110, 133, 6),
+    'G133': (f110, 133, 7),
+    'H133': (f110, 133, 8),
+    'I133': (f110, 133, 9),
+    'J133': (f110, 133, 10),
+    'K133': (f110, 133, 11),
+    'L133': (f110, 133, 12),
+    'C134': (f111, 134, 3),
+    'D134': (f111, 134, 4),
+    'E134': (f111, 134, 5),
+    'F134': (f111, 134, 6),
+    'G134': (f111, 134, 7),
+    'H134': (f111, 134, 8),
+    'I134': (f111, 134, 9),
+    'J134': (f111, 134, 10),
+    'K134': (f111, 134, 11),
+    'L134': (f111, 134, 12),
+    'C135': (f112, 135, 3),
+    'D135': (f112, 135, 4),
+    'E135': (f112, 135, 5),
+    'F135': (f112, 135, 6),
+    'G135': (f112, 135, 7),
+    'H135': (f112, 135, 8),
+    'I135': (f112, 135, 9),
+    'J135': (f112, 135, 10),
+    'K135': (f112, 135, 11),
+    'L135': (f112, 135, 12),
+    'C136': (f113, 136, 3),
+    'D136': (f113, 136, 4),
+    'E136': (f113, 136, 5),
+    'F136': (f113, 136, 6),
+    'G136': (f113, 136, 7),
+    'H136': (f113, 136, 8),
+    'I136': (f113, 136, 9),
+    'J136': (f113, 136, 10),
+    'K136': (f113, 136, 11),
+    'L136': (f113, 136, 12),
+    'C137': (f114, 137, 3),
+    'D137': (f114, 137, 4),
+    'E137': (f114, 137, 5),
+    'F137': (f114, 137, 6),
+    'G137': (f114, 137, 7),
+    'H137': (f114, 137, 8),
+    'I137': (f114, 137, 9),
+    'J137': (f114, 137, 10),
+    'K137': (f114, 137, 11),
+    'L137': (f114, 137, 12),
+    'C138': (f115, 138, 3),
+    'D138': (f115, 138, 4),
+    'E138': (f115, 138, 5),
+    'F138': (f115, 138, 6),
+    'G138': (f115, 138, 7),
+    'H138': (f115, 138, 8),
+    'I138': (f115, 138, 9),
+    'J138': (f115, 138, 10),
+    'K138': (f115, 138, 11),
+    'L138': (f115, 138, 12),
+    'C139': (f116, 139, 3),
+    'D139': (f116, 139, 4),
+    'E139': (f116, 139, 5),
+    'F139': (f116, 139, 6),
+    'G139': (f116, 139, 7),
+    'H139': (f116, 139, 8),
+    'I139': (f116, 139, 9),
+    'J139': (f116, 139, 10),
+    'K139': (f116, 139, 11),
+    'L139': (f116, 139, 12),
 }

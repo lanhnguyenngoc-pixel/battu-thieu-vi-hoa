@@ -43,7 +43,7 @@ def ho_so_gon(hs, pd):
             'vuong_suy': pd['vuong_suy'], 'tho_yeu': pd['tho_yeu'], 'tai_loc': pd['tai_loc'], 'an_muc': pd['an_muc'],
             'luc_than': {k: {'muc': v['muc'], 'chinh': v['chinh'][:400], 'ghi_chu': v.get('dien_giai', '')} for k, v in pd['luc_than'].items()},
             'dai_van': [{'ten': d['ten'], 'nam': '%s–%s' % (d['nam_bat_dau'], d['nam_ket_thuc']), 'thap_than_can': dv_hs.get(d['ten'], {}).get('thap_than_can'),
-                         'muc': d['muc'], '5_nam_dau': d['muc_5_nam_dau'], '5_nam_sau': d['muc_5_nam_sau'], 'can_cu': d['ly_do']} for d in pd['dai_van']],
+                         'muc': d['muc6'] or d['muc'], 'giai_thich': d['giai_thich'], 'can_cu': d['ly_do']} for d in pd['dai_van']],
             'luu_nien': [{'nam': y['nam'], 'can_chi': y['can_chi'], 'tuoi_mu': y['tuoi_mu'], 'muc': y['muc'], 'can_cu': y['ly_do'],
                           'thap_than_can': ln_hs.get(y['nam'], {}).get('thap_than_can'), 'viec_ung': ln_hs.get(y['nam'], {}).get('viec_ung'),
                           'tang_phu': (ln_hs.get(y['nam'], {}).get('tang_phu') or '')[:200]} for y in pd['luu_nien']]},

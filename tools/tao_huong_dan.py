@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.0 (quy tắc 6.7)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.1 (quy tắc 6.8)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.7; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.9.0_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.9.1_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -88,8 +88,8 @@ H.append('<p>Người mới học nên đọc theo thứ tự trên thanh bên: 
 H.append('<h2>4b. Lá số trực quan</h2>')
 anh('18_la_so_truc_quan.png', 'Lá số: can chi lớn tô màu theo hành (Mộc xanh lá, Hỏa đỏ, Thổ nâu, Kim vàng, Thủy xanh dương); trụ ngày (nhật chủ) nền tím')
 H.append('<p>Mỗi thẻ đại vận ghi: tuổi và năm bắt đầu – kết thúc, thập thần của can vận và <b>KẾT LUẬN</b> theo cách của sách Thiệu Vĩ Hoa '
-         '(Rất tốt, Tốt – chữ đỏ / Xấu, Rất xấu), kèm tóm tắt 10 năm (5 năm đầu theo can, 5 năm sau theo chi). '
-         'Rê chuột lên thẻ để xem lý do từng nửa vận.</p>')
+         '(Rất tốt, Tốt, Tốt vừa – chữ đỏ / Xấu vừa, Xấu, Rất xấu), kèm một câu giải thích: can vận làm chủ cả 10 năm, chi vận bổ trợ làm tăng hay giảm một mức. '
+         'Rê chuột lên thẻ để xem lời giải thích đầy đủ.</p>')
 H.append('<h2>5. Theo lĩnh vực, Luận giải và tìm kiếm</h2>')
 anh('02_linh_vuc_C_ban_menh.png', 'Mục C – Bản mệnh: khung KẾT LUẬN ở trên, căn cứ chi tiết ở dưới; chữ đỏ đậm = điểm tốt')
 anh('05_tim_kiem.png', 'Tìm kiếm: gõ từ khóa rồi Enter; bấm một kết quả để nhảy tới chỗ đó')
@@ -162,6 +162,10 @@ H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Định dạng
 
 H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing="0">'
          '<tr><th width="34%">Câu hỏi</th><th>Trả lời</th></tr>'
+         '<tr><td>Quy tắc 6.8 khác 6.7 ở đâu?</td><td>(1) Được sinh theo phương pháp 1 tính ấn ở mọi can chi trong cả bốn trụ (P1 tr.70). (2) Đại vận: can chi cùng tác dụng cả 10 năm (P1 tr.122–125), mức 6 bậc (Rất tốt, Tốt, Tốt vừa, Xấu vừa, Xấu, Rất xấu) kèm câu giải thích; chi vận xét hợp hóa và xung với chi tứ trụ. '
+         '(3) Điều hầu: Mộc sinh mùa hạ cần Thủy (P1 tr.76, 100). (4) Bảng Ngũ hành thiếu mục I: mục “được lệnh” ở chế độ theo sách không xét “giả” như chế độ theo trang, mục “cùng hành” ở chế độ theo trang tính cả nhật chủ Mậu, Kỷ. '
+         '(5) Sao con cái của mệnh nữ: chính quan, thương quan nghiêng về con trai; thất sát, thực thần nghiêng về con gái (P2 tr.504). (6) Nhập đủ ngày giờ sinh vợ/chồng thì có thêm một dòng tham khảo về con cái theo lá số của người đó. '
+         '(7) Lớp tổng hợp không còn chấm điểm riêng, chỉ lấy mức và lời giải thích của bảng tính.</td></tr>'
          '<tr><td>Quy tắc 6.7 khác 6.6 ở đâu?</td><td>Bỏ quy tắc vượng suy theo ngưỡng PP2 của bản 6.6, trở lại cách 6.5 (PP1 đủ 5 bước, bước 5 có thể đổi kết luận). Đo trên 73 lá Thiệu Vĩ Hoa: 6.5 đúng 64, 6.6 đúng 63; bỏ 5 lá sách tự mâu thuẫn: 6.5 đúng 64/68, 6.6 đúng 61/68. Thọ – yểu xét lại theo P1 tr.172–173 kèm luận thêm (xem câu dưới). Mức đại vận và lưu niên ở Luận giải tổng hợp lấy đúng mức của bảng tính.</td></tr>'
          '<tr><td>"Ứng viên dụng thần thay thế" là gì?</td><td>Từ quy tắc 6.6, ngoài dụng thần chính công cụ ghi thêm các hành mà sách cũng có thể chọn: '
          'dụng thần theo phù ức khi đang ưu tiên điều hầu, dụng thần nếu luận như chính cách, hành điều hầu theo mùa, các ứng viên sau khi dụng thần đã mạnh ngang phe mình. '
@@ -177,7 +181,7 @@ H.append('<h2>9. Câu hỏi thường gặp</h2><table width="100%" cellspacing=
          '<tr><td>Vì sao PP1 và PP2 khác nhau?</td><td>Hai phương pháp của sách; xem mục ⚖ Phân tích → Đối chiếu. Lựa chọn dùng cho kết luận đặt ở Nhập liệu → Tùy chọn nâng cao.</td></tr>'
          '<tr><td>Sinh tháng nhuận âm lịch?</td><td>Chọn Âm lịch và đánh dấu Tháng nhuận; phần mềm đổi đúng sang dương lịch.</td></tr>'
          '<tr><td>Có cần Internet?</td><td>Không. Phần mềm không gửi dữ liệu đi đâu – trừ khi bạn tự bấm ✨ Nâng cao bằng AI (khi đó gửi tứ trụ, năm sinh và kết luận đã tính, không gửi họ tên).</td></tr>'
-         '<tr><td>Mức năm ở Luận giải tổng hợp có khác bảng Lưu niên không?</td><td>Không. Từ bản 1.9.0 mức năm và mức đại vận lấy đúng kết luận tổng hợp của bảng tính theo phương pháp đang dùng (bảng P1 tr.133); lớp tổng hợp chỉ sắp xếp, diễn giải.</td></tr></table>')
+         '<tr><td>Mức năm ở Luận giải tổng hợp có khác bảng Lưu niên không?</td><td>Không. Từ bản 1.9.0 (và 1.9.1) mức năm và mức đại vận lấy đúng kết luận tổng hợp của bảng tính theo phương pháp đang dùng (bảng P1 tr.133); lớp tổng hợp chỉ sắp xếp, diễn giải.</td></tr></table>')
 H.append('<p class="nho">Nguồn sách: Thiệu Vĩ Hoa, <i>Dự đoán theo Tứ trụ</i> (Phần 1, Phần 2) và các sách tham khảo ghi ở mục Tham khảo.</p>')
 
 

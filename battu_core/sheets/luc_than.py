@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet LUC_THAN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.8.xlsx (SHA-256 b171b485540d6fb7f1b77d5397c9a0f6a2ddce344baf90abfa50bdfaaf431a5d).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -156,15 +156,15 @@ def f20(E, r, c):
 
 def f21(E, r, c):
     # Ô G19
-    # = IF(NHAP_LIEU!$C$22="Nam","Thất sát (con trai), Chính quan (con gái)","Thực thần, Thương quan")
-    return ('Thất sát (con trai), Chính quan (con gái)' if X.truthy(X.eq(E.v(2,22,3),'Nam')) else 'Thực thần, Thương quan')
+    # = IF(NHAP_LIEU!$C$22="Nam","Thất sát, Thực thần (con trai); Chính quan, Thương quan (con gái)","Chính quan, Thương quan (con trai); Thất sát, Thực thần 
+    #   (con gái)")
+    return ('Thất sát, Thực thần (con trai); Chính quan, Thương quan (con gái)' if X.truthy(X.eq(E.v(2,22,3),'Nam')) else 'Chính quan, Thương quan (con trai); Thất sát, Thực thần (con gái)')
 
 def f22(E, r, c):
     # Ô H19
-    # = IF(NHAP_LIEU!$C$22="Nam",(COUNTIFS(SAO!$F$5:$F$20,"Thất sát",SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)+COUNTIFS(SAO!$F$5:$F$20,"Chính quan",SAO!$X$5:$X$20,1,
-    #   SAO!$Y$5:$Y$20,0)),(COUNTIFS(SAO!$F$5:$F$20,"Thực thần",SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)+COUNTIFS(SAO!$F$5:$F$20,"Thương quan",SAO!$X$5:$X$20,1,SAO!
-    #   $Y$5:$Y$20,0)))
-    return (X.add(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thất sát', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0),X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính quan', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0)) if X.truthy(X.eq(E.v(2,22,3),'Nam')) else X.add(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0),X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0)))
+    # = COUNTIFS(SAO!$F$5:$F$20,"Thất sát",SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)+COUNTIFS(SAO!$F$5:$F$20,"Chính quan",SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)+COUNTIFS
+    #   (SAO!$F$5:$F$20,"Thực thần",SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)+COUNTIFS(SAO!$F$5:$F$20,"Thương quan",SAO!$X$5:$X$20,1,SAO!$Y$5:$Y$20,0)
+    return X.add(X.add(X.add(X.COUNTIFS(E.rg(13,5,6,20,6), 'Thất sát', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0),X.COUNTIFS(E.rg(13,5,6,20,6), 'Chính quan', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0)),X.COUNTIFS(E.rg(13,5,6,20,6), 'Thực thần', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0)),X.COUNTIFS(E.rg(13,5,6,20,6), 'Thương quan', E.rg(13,5,24,20,24), 1.0, E.rg(13,5,25,20,25), 0.0))
 
 def f23(E, r, c):
     # Ô K19

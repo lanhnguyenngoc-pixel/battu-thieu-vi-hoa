@@ -240,3 +240,10 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Đổi mã trùng: DT-3 (6.6) → DT-4, DT-1 (6.6) → DT-5. MAU_THUAN dòng 181–183.
 - Trình bày trang đọc (yêu cầu 16/11/2026): ngắt đoạn ở lớp hiển thị (export/ngat_doan.py) – mỗi gạch đầu dòng "•", mục (a)…(f), nhãn "DỮ KIỆN / QUY TẮC / KẾT LUẬN", câu mở bằng nhãn ("Dấu hiệu mệnh yểu (3): …") xuống dòng riêng; đoạn dài gom thành đoạn ≤ ~230 ký tự; không ngắt trong ngoặc, câu trích, chữ đậm. Áp cho Luận giải chung, Theo lĩnh vực, Luận giải chi tiết, Luận giải tổng hợp, PDF, Word; giãn dòng 135–145% trên màn hình, bản in tổng hợp vẫn ≤ 5 trang. Không đổi giá trị ô.
 - Kiểm: xem BAO_CAO_KIEM_THU_TONG.md mục 1.9.0 – mọi bộ ĐẠT.
+
+## 1.9.1 – Quy tắc 6.8 giai đoạn 1 (22/11/2026)
+- Đã làm (theo KE_HOACH_6.8.md): phương án D (ấn ở mọi can chi cả bốn trụ, P1 tr.70); NHT mục I (bỏ nhánh "giả" ở "được lệnh", bỏ nhánh Nhật chủ Thổ ở "cùng hành"); điều hầu Mộc mùa hạ cần Thủy (P1 tr.76, 100); sao con cái mệnh nữ (thất sát, thực thần ↔ chính quan, thương quan theo giới); đại vận: can chi cùng tác dụng cả 10 năm, mức 6 bậc (Rất tốt/Tốt/Tốt vừa/Xấu vừa/Xấu/Rất xấu) + câu giải thích, chi vận xét hợp hóa và xung; dòng con cái theo lá số vợ/chồng khi nhập đủ ngày giờ; lớp tổng hợp lấy đúng mức và giải thích của workbook; quy trình phát hành (tag v1.9.1).
+- Đo: 194 vận, 139 → 136 vận tốt/xấu cùng chiều do phương án D (3 vận P1-VD3 Nhược → Vượng), không do logic mức mới; Mộc mùa hạ: 73 lá không đổi, 501 lá đổi 13/18/23 lá; NHT 34 lá: PA1 điểm 34 → 31, PA2 kết luận 26 → 29; ví dụ trong tài liệu Word khớp phần mềm.
+- Kiểm: toàn bộ bộ kiểm thử ĐẠT (xem BAO_CAO_KIEM_THU_TONG.md); B1 lệch do lỗi LibreOffice MT-13, thay bằng B1b.
+- Chưa làm (giai đoạn 2, cần thiết kế và đo riêng): xu thế năm can+chi (2.1/2.11), người ứng 6 bước (2.2), điều 6–8 (2.3), bốn bổ sung 2.7, bảng dấu hiệu con cái (2.8), ô nhập riêng và can chi vợ/chồng (2.9 phần mở rộng).
+- Điểm cần quyết: đại vận can nhàn (điểm can = 0) giữ nhánh cũ "bình thường" vì kế hoạch 6 bậc chưa có mức này; hợp hóa chỉ xét lục hợp; ô vợ/chồng dùng chung phoi_ngau (cần đủ giờ); LUU_NIEN vẫn chia 5/5 khi ghép đại vận.

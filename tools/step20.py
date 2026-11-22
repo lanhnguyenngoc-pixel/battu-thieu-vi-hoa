@@ -6,6 +6,7 @@
   Đo trước khi duyệt: 73 lá Thiệu Vĩ Hoa 64 → 63 (P1-VD3 Nhược → Vượng); 50 lá ngẫu nhiên: không đổi kết luận, 3 lá Rất vượng → Quá vượng.
 Dùng: python3 tools/step20.py <workbook_6.7.xlsx> <workbook_6.8.xlsx> <cổng>"""
 import sys, os, re, time, json, shutil, subprocess, zipfile as _z
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 B = '/home/claude/HO_SO_PM/HO_SO_PM/06_MA_THAM_CHIEU/build_excel'
 sys.path.insert(0, B)
 import xpatch
@@ -36,8 +37,14 @@ n = o.replace('cũng không tàng trong chi năm, ngày, giờ (chi tháng chỉ
 assert n != o; p.set_formula(S, 'C106', n, text=True, why=why)
 t = p.text_of('TRANG_CHU', 'B3'); i = t.find(' · Căn cứ'); assert i > 0
 p.set_text('TRANG_CHU', 'B3', 'Bản 6.8 – 21/11/2026 (6.7, PP1 “được sinh” xét ấn ở các can chi khác trong cả bốn trụ – P1 tr.70; '
-           'vượng suy PP1 đủ 5 bước; thọ – yểu theo P1 tr.172–173 kèm luận thêm)' + t[i:], why='Bản 6.8')
+           'vượng suy PP1 đủ 5 bước; thọ – yểu theo P1 tr.172–173 kèm luận thêm; đại vận 6 mức, can chi tác dụng cả 10 năm; Mộc mùa hạ cần Thủy điều hầu; '
+           'Ngũ hành thiếu mục I; sao con cái mệnh nữ theo P2 tr.504)' + t[i:], why='Bản 6.8')
 
+import step20_bo_sung as BS
+BS.ngu_hanh_thieu(p, 'Bản 6.8 (duyệt 18/11/2026): Ngũ hành thiếu mục I')
+BS.sao_con(p, 'Bản 6.8 (duyệt 17/11/2026): sao con cái nam/nữ theo P2 tr.504')
+BS.dai_van(p, 'Bản 6.8 (duyệt 17/11/2026): đại vận 10 năm, mức 6 bậc (mục 2.4, 2.5)')
+BS.dieu_hau(p, 'Bản 6.8 (duyệt 17/11/2026): điều hầu', moc_ha=os.environ.get('MOC_HA', '1') == '1')
 tmp = '/tmp/s20_tmp.xlsx'; p.save(tmp)
 print('vá xong', len(p.log), 'ô', flush=True)
 if os.environ.get('CHI_VA'):

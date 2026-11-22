@@ -3,8 +3,8 @@
 
 Đầu vào: hồ sơ dữ kiện (tong_hop.du_kien.ho_so) + quy tắc battu_core/data/quy_tac_tong_hop.json (chủ dự án duyệt).
 Đầu ra: MỘT kết luận cho mỗi việc, kèm dòng lý do, để bản luận giải không còn hai kết luận trái nhau:
-  dai_van   – thang 5 mức cho cả vận, 5 năm đầu (can) và 5 năm sau (chi)                       (A1)
-  luu_nien  – một điểm năm duy nhất, trừ nặng khi xung chi mang dụng thần / cung phu thê, hạn nặng  (A2, A3)
+  dai_van   – mức 6 bậc của workbook cho cả 10 năm (can làm chủ, chi bổ trợ) kèm câu giải thích      (A1)
+  luu_nien  – mức năm lấy nguyên của workbook (bản 6.8: không chấm điểm riêng ở lớp này)            (A2, A3)
   tho_yeu   – lấy nguyên kết luận cuối của workbook (P1 tr.172–173 + luận thêm)                  (A4)
   tai_loc   – một thang                                                                        (A5)
   luc_than  – kết luận Thiệu Vĩ Hoa + nguồn khác nói ngược (có trọng số)                         (A6)
@@ -65,42 +65,6 @@ class VaiTro:
     def nhan(self, h): return {'dung': 'dụng thần', 'hy': 'hỷ thần', 'ky': 'kỵ thần'}.get(self.ten.get(h), '')
 
 
-def _dieu_chinh(qh, vt, qt, nhat_can):
-    """Điều chỉnh điểm theo quan hệ của trụ ngoài với tứ trụ → (điểm can, điểm chi, [lý do])."""
-    dc_can = dc_chi = 0.0; ly = []; xung = hinh = 0; hanh_hop = set()
-    for q in qh:
-        l = q['loai']; cham = q.get('cham') or []
-        vai = cham[0].get('vai_tro') if cham else None
-        if l == 'xung':
-            if vai == 'dụng' and xung < qt['xung_toi_da_lan']:
-                dc_chi += qt['xung_chi_dung']; xung += 1; ly.append('%s – chạm dụng thần (%+.1f)' % (q['ten'], qt['xung_chi_dung']))
-            elif vai == 'kỵ':
-                dc_chi += qt['xung_chi_ky']; ly.append('%s – xung mất kỵ thần (%+.1f)' % (q['ten'], qt['xung_chi_ky']))
-            if q.get('cham_cung_phu_the'):
-                dc_chi += qt['xung_cung_phu_the']; ly.append('%s – chạm cung phu thê (%+.1f)' % (q['ten'], qt['xung_cung_phu_the']))
-        elif l == 'thien_khac_dia_xung':
-            dc_chi += qt['thien_khac_dia_xung']; ly.append('%s (%+.1f)' % (q['ten'], qt['thien_khac_dia_xung']))
-        elif l in ('ban_hop', 'tam_hop', 'tam_hoi') and q.get('hanh') in Q.HANH:
-            h = Q.HANH.index(q['hanh'])
-            if h in hanh_hop: continue
-            hanh_hop.add(h); t = vt.ten.get(h)
-            if t == 'dung': dc_chi += qt['hop_thanh_hanh_dung']; ly.append('%s – thành hành dụng thần (%+.1f)' % (q['ten'], qt['hop_thanh_hanh_dung']))
-            elif t == 'ky': dc_chi += qt['hop_thanh_hanh_ky']; ly.append('%s – thành hành kỵ thần (%+.1f)' % (q['ten'], qt['hop_thanh_hanh_ky']))
-        elif l == 'luc_hop' and q.get('cham_cung_phu_the') and 'hop_cung_phu_the' in qt:
-            h = Q.HANH.index(q['hanh']) if q.get('hanh') in Q.HANH else None
-            if vt.ten.get(h) != 'ky': dc_chi += qt['hop_cung_phu_the']; ly.append('%s – hợp cung phu thê (%+.1f)' % (q['ten'], qt['hop_cung_phu_the']))
-        elif l == 'can_hop' and 'tai_hop_nhat_chu' in qt and q['vi_tri'][1] == 'can ngày':
-            ngoai = q['chu'][0]
-            if vt.N is not None and ngoai in Q.CAN and Q.HANH_CAN[Q.CAN.index(ngoai)] == (vt.N + 2) % 5:
-                dc_can += qt['tai_hop_nhat_chu']; ly.append('%s – tài hợp nhật chủ (%+.1f)' % (q['ten'], qt['tai_hop_nhat_chu']))
-        elif l in ('hinh', 'trung_chi'):
-            if hinh * qt['hinh_moi_lan'] > qt['hinh_toi_da']:
-                dc_chi += qt['hinh_moi_lan']; hinh += 1; ly.append('%s (%+.2f)' % (q['ten'], qt['hinh_moi_lan']))
-        elif l == 'tam_hinh':
-            dc_chi += qt['tam_hinh']; ly.append('%s (%+.1f)' % (q['ten'], qt['tam_hinh']))
-    return dc_can, dc_chi, ly
-
-
 def _vai_ly(vt, chu, la_can):
     d = vt.can(chu) if la_can else vt.chi(chu)
     h = Q.HANH_CAN[Q.CAN.index(chu)] if la_can else Q.HANH_CHI[Q.CHI.index(chu)]
@@ -110,17 +74,10 @@ def _vai_ly(vt, chu, la_can):
 
 # ---------------------------------------------------------------- đại vận, lưu niên
 def _muc_wb(t):
+    """Nhãn mức đại vận của workbook (6 bậc) → (mức 5 bậc cho các chỗ cũ, nhãn 6 bậc viết thường hoa đầu)."""
     t = (t or '').strip().upper()
-    return {'RẤT TỐT': 'Rất tốt', 'TỐT': 'Tốt', 'RẤT XẤU': 'Rất xấu', 'XẤU': 'Xấu'}.get(t) or ('Trung bình' if t else '')
-
-
-def _muc_diem(x):
-    return 'Rất tốt' if x >= 2 else 'Tốt' if x >= 1 else 'Rất xấu' if x <= -2 else 'Xấu' if x <= -1 else 'Trung bình'
-
-
-def _cung_huong(wb, rieng):
-    """Kết luận lấy đúng mức của workbook (một kết luận cho mỗi vận – quyết định 16/11/2026); điểm riêng chỉ để ghi lý do."""
-    return wb or rieng
+    m5 = {'RẤT TỐT': 'Rất tốt', 'TỐT': 'Tốt', 'TỐT VỪA': 'Tốt', 'BÌNH THƯỜNG': 'Trung bình', 'XẤU VỪA': 'Xấu', 'XẤU': 'Xấu', 'RẤT XẤU': 'Rất xấu'}.get(t)
+    return (m5 or ('Trung bình' if t else '')), (t.capitalize() if t else '')
 
 
 # Thang xếp hạng năm của workbook (bảng P1 tr.133, CSDL COMBO_TAB) → 5 mức của bản luận giải
@@ -135,56 +92,35 @@ def _muc_nam_wb(t):
 
 
 def dai_van(hs, vt=None):
-    vt = vt or VaiTro(hs); qt = quy_tac()['dai_van']; ra = []
+    """Bản 6.8: mức, câu giải thích lấy nguyên của workbook (DAI_VAN – can chi tác dụng cả 10 năm, P1 tr.122–125); không chấm điểm riêng."""
+    vt = vt or VaiTro(hs); ra = []
     for d in hs['dai_van']:
         if d['can'] not in Q.CAN or d['chi'] not in Q.CHI: continue
-        dcan, lcan = _vai_ly(vt, d['can'], True); dchi, lchi = _vai_ly(vt, d['chi'], False)
-        a, b, ly = _dieu_chinh(d.get('quan_he', []), vt, qt, hs['tu_tru'][2]['can'])
-        nua1, nua2 = dcan + a, dchi + b; tong = nua1 + nua2
-        muc, m1, m2 = _muc(tong, qt['nguong']), _muc(nua1, qt['nguong_nua']), _muc(nua2, qt['nguong_nua'])
-        # Hướng của vận lấy theo KẾT LUẬN ĐẠI VẬN của workbook (P1 tr.124–125 – khớp sách 72% trên 171 vận ví dụ,
-        # điểm riêng của lớp tổng hợp chỉ khớp 41%). Điểm riêng chỉ dùng để phân "Rất" và ghi lý do.
-        wb = _muc_wb(d.get('ket_luan'))
-        if wb:
-            muc = _cung_huong(wb, muc)
-            if isinstance(d.get('diem_dau'), int): m1 = _cung_huong(_muc_diem(d['diem_dau']), m1)
-            if isinstance(d.get('diem_sau'), int): m2 = _cung_huong(_muc_diem(d['diem_sau']), m2)
-            ly.append('hướng vận theo workbook (P1 tr.124–125): %s' % (d.get('tom_tat_10_nam') or wb))
+        _, lcan = _vai_ly(vt, d['can'], True); _, lchi = _vai_ly(vt, d['chi'], False)
+        m5, m6 = _muc_wb(d.get('ket_luan'))
+        gt = (d.get('giai_thich') or '').strip()
         ra.append({'ten': d['ten'], 'nam_bat_dau': d.get('nam_bat_dau'), 'nam_ket_thuc': d.get('nam_ket_thuc'),
                    'tuoi_bat_dau': d.get('tuoi_bat_dau'), 'dang_hanh': d.get('dang_hanh'),
-                   'diem': round(tong, 2), 'muc': muc,
-                   'diem_5_nam_dau': round(nua1, 2), 'muc_5_nam_dau': m1,
-                   'diem_5_nam_sau': round(nua2, 2), 'muc_5_nam_sau': m2,
-                   'ly_do': [lcan, lchi] + ly, 'workbook': {'pp1': d.get('xu_the_pp1'), 'pp2': d.get('xu_the_pp2')}})
+                   'muc': m5 or 'Trung bình', 'muc6': m6, 'giai_thich': gt,
+                   'ly_do': [gt] if gt else [lcan, lchi], 'workbook': {'pp1': d.get('xu_the_pp1'), 'pp2': d.get('xu_the_pp2')}})
     return ra
 
 
+_RANK = {m: i for i, m in enumerate(MUC)}
+
+
 def luu_nien(hs, dv=None, vt=None, nam=None):
-    vt = vt or VaiTro(hs); qt = quy_tac()['luu_nien']; dv = dv if dv is not None else dai_van(hs, vt)
-    ra = []
+    """Bản 6.8: mức năm lấy nguyên của workbook (P1 tr.133, phương pháp khuyến nghị); 'diem' chỉ là số thứ tự để sắp xếp."""
+    vt = vt or VaiTro(hs); ra = []
     for y in (nam if nam is not None else hs['luu_nien']):
         if y.get('can') not in Q.CAN or y.get('chi') not in Q.CHI: continue
-        dcan, lcan = _vai_ly(vt, y['can'], True); dchi, lchi = _vai_ly(vt, y['chi'], False)
-        a, b, ly = _dieu_chinh(y.get('quan_he', []), vt, qt, hs['tu_tru'][2]['can'])
-        tong = dcan + dchi + a + b
-        for q in y.get('quan_he_voi_dai_van', []):
-            if q['loai'] == 'xung': tong += qt['xung_dai_van']; ly.append('%s – tuế vận xung (%+.1f)' % (q['ten'], qt['xung_dai_van']))
-        v = next((x for x in dv if x['ten'] == y.get('dai_van')), None)
-        if v and isinstance(v.get('nam_bat_dau'), int):
-            nua = v['diem_5_nam_dau'] if y['nam'] - v['nam_bat_dau'] < 5 else v['diem_5_nam_sau']
-            tong += qt['he_so_van'] * nua
-            ly.append('đại vận %s, %s: %+.1f × %.1f' % (v['ten'], '5 năm đầu' if y['nam'] - v['nam_bat_dau'] < 5 else '5 năm sau', nua, qt['he_so_van']))
+        _, lcan = _vai_ly(vt, y['can'], True); _, lchi = _vai_ly(vt, y['chi'], False)
         han = y.get('so_dau_hieu_nang') if isinstance(y.get('so_dau_hieu_nang'), int) else 0
-        if han:
-            tong += qt['han_nang_moi_dau_hieu'] * han; ly.append('%d dấu hiệu hạn nặng của workbook (%+.1f)' % (han, qt['han_nang_moi_dau_hieu'] * han))
-        muc = _muc(tong, qt['nguong'])
-        if han and MUC.index(muc) > MUC.index(qt['tran_khi_han_nang']):
-            muc = qt['tran_khi_han_nang']; ly.append('có hạn nặng → không xếp cao hơn "%s"' % muc)
-        # Mức của năm lấy theo xếp hạng của workbook (P1 tr.133, phương pháp khuyến nghị); điểm riêng chỉ để sắp thứ tự, ghi lý do
-        wbn = _muc_nam_wb(y.get('tong_hop_pp2') if hs.get('phuong_phap') == 2 else y.get('tong_hop_pp1'))
-        if wbn: muc = wbn
+        wbn = _muc_nam_wb(y.get('tong_hop_pp2') if hs.get('phuong_phap') == 2 else y.get('tong_hop_pp1')) or 'Trung bình'
+        ly = [lcan, lchi]
+        if han: ly.append('%d dấu hiệu hạn nặng của workbook' % han)
         ra.append({'nam': y['nam'], 'can_chi': y.get('luu_nien'), 'tuoi_mu': y.get('tuoi_mu'), 'tuoi_thuc': y.get('tuoi_thuc'),
-                   'diem': round(tong, 2), 'muc': muc, 'han_nang': han, 'ly_do': [lcan, lchi] + ly,
+                   'diem': _RANK[wbn] * 10 - han, 'muc': wbn, 'han_nang': han, 'ly_do': ly,
                    'workbook': {'pp1': y.get('tong_hop_pp1'), 'pp2': y.get('tong_hop_pp2')}})
     return ra
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DUNG_HY_KY – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: BAT_TU_THIEU_VI_HOA_6.7.xlsx (SHA-256 dcf8f7197725556e83c21fc3cad8e606d5206ee8bb06294670407401619c8232).
+Nguồn: BAT_TU_THIEU_VI_HOA_6.8.xlsx (SHA-256 b171b485540d6fb7f1b77d5397c9a0f6a2ddce344baf90abfa50bdfaaf431a5d).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1414,8 +1414,10 @@ def f234(E, r, c):
     #   $162=4,IF(COUNTIF(TRUNG_GIAN!$C$6:$F$6,7)+COUNTIF(TRUNG_GIAN!$C$6:$F$6,10)>0," Có Mùi/Tuất (táo thổ) càng làm tăng thế hỏa.",""),IF(COUNTIF(TRUNG_GIAN
     #   !$C$6:$F$6,1)+COUNTIF(TRUNG_GIAN!$C$6:$F$6,4)>0," Có Sửu/Thìn (thấp thổ) không chặn được thủy mà còn tăng thế thủy.",""))&IF($C$162=$C$159," ⚠ Hành đi
     #   ều hầu TRÙNG kỵ thần phù ức: hai nhu cầu ngược nhau – chấm vận, năm vẫn theo dụng thần sinh phù.",IF($C$163="BẮT BUỘC",IF($C$162=4," Lợi đi về phương 
-    #   Bắc, dùng màu đen."," Lợi đi về phương Nam, dùng màu đỏ."),""))&" Dụng thần sinh phù làm chủ, điều hầu là bổ trợ (P1 tr.100, 111-113).")
-    return (X.cat(X.cat('KHÔNG CẦN điều hầu: sinh tháng ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' (xuân, thu hoặc cuối mùa) nóng lạnh vừa phải – chỉ xét sinh khắc chế hóa (P1 tr.100-101).') if X.truthy(X.lt(E.v(8,162,3),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(8,163,3),' điều hầu bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,162,3),1.0))),' ('),(X.cat(X.cat(X.cat(X.cat('sinh tháng ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' không phải mùa đông/hạ nhưng tứ trụ '),(X.cat(E.v(8,162,12),'/4 chi thấp, Hỏa dưới 10% → thiên hàn thấp, cần ấm') if X.truthy(X.eq(E.v(8,162,3),1.0)) else X.cat(E.v(8,162,13),'/4 chi táo, Thủy dưới 10% → thiên táo nóng, cần nhuận'))),'; ngưỡng là quy ước kỹ thuật') if X.truthy(X.lt(E.v(8,162,10),0.0)) else ('tứ trụ sinh mùa hạ, thiên nóng – khô, cần nhuận' if X.truthy(X.eq(E.v(8,162,3),4.0)) else 'tứ trụ sinh mùa đông, thiên lạnh – ẩm, cần ấm'))),'). '),(X.cat(X.cat(X.cat(X.cat('Tứ trụ CÓ ',E.v(8,164,3)),' chữ hành '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,162,3),1.0))),' → có thuốc điều hầu.') if X.truthy(X.gt(E.v(8,164,3),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat('Tứ trụ KHUYẾT hành ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,162,3),1.0))),' → '),('tứ trụ BỆNH NẶNG (P1 tr.112)' if X.truthy(X.eq(E.v(8,163,3),'BẮT BUỘC')) else 'thiếu điều hầu')),'; vận bổ cứu: '),('không có trong 10 đại vận' if X.truthy(X.eq(E.v(8,165,3),'')) else E.v(8,165,3))))),((' Có Mùi/Tuất (táo thổ) càng làm tăng thế hỏa.' if X.truthy(X.gt(X.add(X.COUNTIF(E.rg(23,6,3,6,6), 7.0),X.COUNTIF(E.rg(23,6,3,6,6), 10.0)),0.0)) else '') if X.truthy(X.eq(E.v(8,162,3),4.0)) else (' Có Sửu/Thìn (thấp thổ) không chặn được thủy mà còn tăng thế thủy.' if X.truthy(X.gt(X.add(X.COUNTIF(E.rg(23,6,3,6,6), 1.0),X.COUNTIF(E.rg(23,6,3,6,6), 4.0)),0.0)) else ''))),(' ⚠ Hành điều hầu TRÙNG kỵ thần phù ức: hai nhu cầu ngược nhau – chấm vận, năm vẫn theo dụng thần sinh phù.' if X.truthy(X.eq(E.v(8,162,3),E.v(8,159,3))) else ((' Lợi đi về phương Bắc, dùng màu đen.' if X.truthy(X.eq(E.v(8,162,3),4.0)) else ' Lợi đi về phương Nam, dùng màu đỏ.') if X.truthy(X.eq(E.v(8,163,3),'BẮT BUỘC')) else ''))),' Dụng thần sinh phù làm chủ, điều hầu là bổ trợ (P1 tr.100, 111-113).'))
+    #   Bắc, dùng màu đen."," Lợi đi về phương Nam, dùng màu đỏ."),""))&IF($C$215<0," Đây là dụng thần bổ trợ theo khí hậu mệnh cục, KHÔNG thay dụng thần và k
+    #   hông đổi xu thế vận (P1 tr.100, 111–113)."," Có xét thay dụng thần và vận điều hầu chuyển tốt (P1 tr.76–79).")&" Dụng thần sinh phù làm chủ, điều hầu 
+    #   là bổ trợ (P1 tr.100, 111-113).")
+    return (X.cat(X.cat('KHÔNG CẦN điều hầu: sinh tháng ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' (xuân, thu hoặc cuối mùa) nóng lạnh vừa phải – chỉ xét sinh khắc chế hóa (P1 tr.100-101).') if X.truthy(X.lt(E.v(8,162,3),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(8,163,3),' điều hầu bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,162,3),1.0))),' ('),(X.cat(X.cat(X.cat(X.cat('sinh tháng ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' không phải mùa đông/hạ nhưng tứ trụ '),(X.cat(E.v(8,162,12),'/4 chi thấp, Hỏa dưới 10% → thiên hàn thấp, cần ấm') if X.truthy(X.eq(E.v(8,162,3),1.0)) else X.cat(E.v(8,162,13),'/4 chi táo, Thủy dưới 10% → thiên táo nóng, cần nhuận'))),'; ngưỡng là quy ước kỹ thuật') if X.truthy(X.lt(E.v(8,162,10),0.0)) else ('tứ trụ sinh mùa hạ, thiên nóng – khô, cần nhuận' if X.truthy(X.eq(E.v(8,162,3),4.0)) else 'tứ trụ sinh mùa đông, thiên lạnh – ẩm, cần ấm'))),'). '),(X.cat(X.cat(X.cat(X.cat('Tứ trụ CÓ ',E.v(8,164,3)),' chữ hành '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,162,3),1.0))),' → có thuốc điều hầu.') if X.truthy(X.gt(E.v(8,164,3),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat('Tứ trụ KHUYẾT hành ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,162,3),1.0))),' → '),('tứ trụ BỆNH NẶNG (P1 tr.112)' if X.truthy(X.eq(E.v(8,163,3),'BẮT BUỘC')) else 'thiếu điều hầu')),'; vận bổ cứu: '),('không có trong 10 đại vận' if X.truthy(X.eq(E.v(8,165,3),'')) else E.v(8,165,3))))),((' Có Mùi/Tuất (táo thổ) càng làm tăng thế hỏa.' if X.truthy(X.gt(X.add(X.COUNTIF(E.rg(23,6,3,6,6), 7.0),X.COUNTIF(E.rg(23,6,3,6,6), 10.0)),0.0)) else '') if X.truthy(X.eq(E.v(8,162,3),4.0)) else (' Có Sửu/Thìn (thấp thổ) không chặn được thủy mà còn tăng thế thủy.' if X.truthy(X.gt(X.add(X.COUNTIF(E.rg(23,6,3,6,6), 1.0),X.COUNTIF(E.rg(23,6,3,6,6), 4.0)),0.0)) else ''))),(' ⚠ Hành điều hầu TRÙNG kỵ thần phù ức: hai nhu cầu ngược nhau – chấm vận, năm vẫn theo dụng thần sinh phù.' if X.truthy(X.eq(E.v(8,162,3),E.v(8,159,3))) else ((' Lợi đi về phương Bắc, dùng màu đen.' if X.truthy(X.eq(E.v(8,162,3),4.0)) else ' Lợi đi về phương Nam, dùng màu đỏ.') if X.truthy(X.eq(E.v(8,163,3),'BẮT BUỘC')) else ''))),(' Đây là dụng thần bổ trợ theo khí hậu mệnh cục, KHÔNG thay dụng thần và không đổi xu thế vận (P1 tr.100, 111–113).' if X.truthy(X.lt(E.v(8,215,3),0.0)) else ' Có xét thay dụng thần và vận điều hầu chuyển tốt (P1 tr.76–79).')),' Dụng thần sinh phù làm chủ, điều hầu là bổ trợ (P1 tr.100, 111-113).'))
 
 def f235(E, r, c):
     # Ô C172
@@ -1919,8 +1921,8 @@ def f295(E, r, c):
 def f296(E, r, c):
     # Ô C215
     # = IF(AND(OR(TRUNG_GIAN!$D$6=11,TRUNG_GIAN!$D$6=0,TRUNG_GIAN!$D$6=1,TRUNG_GIAN!$D$6=2),OR(TRUNG_GIAN!$E$7=0,TRUNG_GIAN!$E$7=3,TRUNG_GIAN!$E$7=4)),1,IF(AN
-    #   D(OR(TRUNG_GIAN!$D$6=5,TRUNG_GIAN!$D$6=6,TRUNG_GIAN!$D$6=7),OR(TRUNG_GIAN!$E$7=1,TRUNG_GIAN!$E$7=2,TRUNG_GIAN!$E$7=3)),4,-1))
-    return (1.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),11.0), X.eq(E.v(23,6,4),0.0), X.eq(E.v(23,6,4),1.0), X.eq(E.v(23,6,4),2.0)), X.OR(X.eq(E.v(23,7,5),0.0), X.eq(E.v(23,7,5),3.0), X.eq(E.v(23,7,5),4.0)))) else (4.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),5.0), X.eq(E.v(23,6,4),6.0), X.eq(E.v(23,6,4),7.0)), X.OR(X.eq(E.v(23,7,5),1.0), X.eq(E.v(23,7,5),2.0), X.eq(E.v(23,7,5),3.0)))) else X.neg(1.0)))
+    #   D(OR(TRUNG_GIAN!$D$6=5,TRUNG_GIAN!$D$6=6,TRUNG_GIAN!$D$6=7),OR(TRUNG_GIAN!$E$7=0,TRUNG_GIAN!$E$7=1,TRUNG_GIAN!$E$7=2,TRUNG_GIAN!$E$7=3)),4,-1))
+    return (1.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),11.0), X.eq(E.v(23,6,4),0.0), X.eq(E.v(23,6,4),1.0), X.eq(E.v(23,6,4),2.0)), X.OR(X.eq(E.v(23,7,5),0.0), X.eq(E.v(23,7,5),3.0), X.eq(E.v(23,7,5),4.0)))) else (4.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),5.0), X.eq(E.v(23,6,4),6.0), X.eq(E.v(23,6,4),7.0)), X.OR(X.eq(E.v(23,7,5),0.0), X.eq(E.v(23,7,5),1.0), X.eq(E.v(23,7,5),2.0), X.eq(E.v(23,7,5),3.0)))) else X.neg(1.0)))
 
 def f297(E, r, c):
     # Ô D215
@@ -1951,30 +1953,36 @@ def f301(E, r, c):
     return ('' if X.truthy(X.eq(E.v(8,r-1,c),E.v(8,r-4,c))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Nhật chủ ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' sinh tháng '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,4),1.0))),' ('),('mùa nóng' if X.truthy(X.OR(X.eq(E.v(23,6,4),5.0), X.eq(E.v(23,6,4),6.0), X.eq(E.v(23,6,4),7.0))) else 'mùa lạnh')),') cần '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,215,3),1.0))),' để điều hầu; '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,215,3),1.0))),' chỉ chiếm '),X.TEXT(E.v(8,216,3), '0%')),' tổng độ nên lấy '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(8,215,3),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,r-1,c),1.0))),') làm dụng thần thay cho '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,r-4,c)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,r-4,c),1.0))),').'))
 
 def f302(E, r, c):
-    # Ô C219, D219
-    # = IF(C218="","","P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần")
-    return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần')
+    # Ô C219
+    # = IF(C218="","","P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần; P1 t
+    #   r.76 (mộc mùa hạ rễ lá khô, cần nước tưới)")
+    return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần; P1 tr.76 (mộc mùa hạ rễ lá khô, cần nước tưới)')
 
 def f303(E, r, c):
+    # Ô D219
+    # = IF(D218="","","P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần")
+    return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần')
+
+def f304(E, r, c):
     # Ô C222, D222
     # = IF(OR(C$72<>"",C$91="TH",C$214<0,C$217=C$214),"","• "&INDEX(HANH_TEN,MOD(C$5+C$214,5)+1)&" ("&INDEX(NHOM_TEN,C$214+1)&")"&": dụng thần theo phù ức (P1
     #    tr.99) – công cụ đang ưu tiên điều hầu."&CHAR(10))
     return ('' if X.truthy(X.OR(X.ne(E.v(8,72,c),''), X.eq(E.v(8,91,c),'TH'), X.lt(E.v(8,214,c),0.0), X.eq(E.v(8,217,c),E.v(8,214,c)))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,214,c)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,214,c),1.0))),')'),': dụng thần theo phù ức (P1 tr.99) – công cụ đang ưu tiên điều hầu.'),X.CHAR(10.0)))
 
-def f304(E, r, c):
+def f305(E, r, c):
     # Ô C223, D223
     # = IF(OR(C$72="",C$217<0),"","• "&INDEX(HANH_TEN,MOD(C$5+C$217,5)+1)&" ("&INDEX(NHOM_TEN,C$217+1)&")"&": dụng thần nếu luận như chính cách – có lá đủ điề
     #   u kiện cách đặc biệt mà tác giả vẫn luận chính cách (P2 tr.400, 419, 430)."&CHAR(10))
     return ('' if X.truthy(X.OR(X.eq(E.v(8,72,c),''), X.lt(E.v(8,217,c),0.0))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,217,c)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,217,c),1.0))),')'),': dụng thần nếu luận như chính cách – có lá đủ điều kiện cách đặc biệt mà tác giả vẫn luận chính cách (P2 tr.400, 419, 430).'),X.CHAR(10.0)))
 
-def f305(E, r, c):
+def f306(E, r, c):
     # Ô C224, D224
     # = IF(OR($C$215<0,C$91="TH",C$103<0),"",IF(OR(MOD($C$215-C$5,5)=C$103,MOD($C$215-C$5,5)=C$104,AND(C222<>"",MOD($C$215-C$5,5)=C$214),AND(C223<>"",MOD($C$2
     #   15-C$5,5)=C$217)),"","• "&INDEX(HANH_TEN,MOD(C$5+MOD($C$215-C$5,5),5)+1)&" ("&INDEX(NHOM_TEN,MOD($C$215-C$5,5)+1)&")"&": hành điều hầu theo mùa (P1 tr
     #   .76–79, 100), hiện chiếm "&TEXT(N($C$216),"0%")&" tổng độ."&CHAR(10)))
     return ('' if X.truthy(X.OR(X.lt(E.v(8,215,3),0.0), X.eq(E.v(8,91,c),'TH'), X.lt(E.v(8,103,c),0.0))) else ('' if X.truthy(X.OR(X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,103,c)), X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,104,c)), X.AND(X.ne(E.v(8,r-2,c),''), X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,214,c))), X.AND(X.ne(E.v(8,r-1,c),''), X.eq(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,217,c))))) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0)), 5.0),1.0))),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),1.0))),')'),': hành điều hầu theo mùa (P1 tr.76–79, 100), hiện chiếm '),X.TEXT(X.N(E.v(8,216,3)), '0%')),' tổng độ.'),X.CHAR(10.0))))
 
-def f306(E, r, c):
+def f307(E, r, c):
     # Ô C225, D225
     # = IF(OR(C$72<>"",C$7<>1,C$103<1,C$103>3,SUM($D$12:$D$16)=0),"",IF(INDEX($D$12:$D$16,C$103+1)<$D$12+$D$16,"",IF(LEN(IF(AND(C$93>=0,C$93<>C$103,INDEX(C$20
     #   9:C$213,MAX(0,C$93)+1)=1),INDEX(HANH_TEN,MOD(C$5+C$93,5)+1)&" ("&INDEX(NHOM_TEN,C$93+1)&")"&", ","")&IF(AND(C$94>=0,C$94<>C$103,INDEX(C$209:C$213,MAX(
@@ -1990,13 +1998,13 @@ def f306(E, r, c):
     #   P1 tr.99 (P2 tr.427)."&CHAR(10))))
     return ('' if X.truthy(X.OR(X.ne(E.v(8,72,c),''), X.ne(E.v(8,7,c),1.0), X.lt(E.v(8,103,c),1.0), X.gt(E.v(8,103,c),3.0), X.eq(X.SUM(E.rg(8,12,4,16,4)),0.0))) else ('' if X.truthy(X.lt(X.INDEX(E.rg(8,12,4,16,4), X.add(E.v(8,103,c),1.0)),X.add(E.v(8,12,4),E.v(8,16,4)))) else ('' if X.truthy(X.eq(X.LEN(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,93,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,93,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,93,c),0.0), X.ne(E.v(8,93,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,93,c,93,c)),1.0)),1.0))) else ''),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,94,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,94,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,94,c),0.0), X.ne(E.v(8,94,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,94,c,94,c)),1.0)),1.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,95,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,95,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,95,c),0.0), X.ne(E.v(8,95,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,95,c,95,c)),1.0)),1.0))) else ''))),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• ',X.LEFT(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,93,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,93,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,93,c),0.0), X.ne(E.v(8,93,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,93,c,93,c)),1.0)),1.0))) else ''),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,94,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,94,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,94,c),0.0), X.ne(E.v(8,94,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,94,c,94,c)),1.0)),1.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,95,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,95,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,95,c),0.0), X.ne(E.v(8,95,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,95,c,95,c)),1.0)),1.0))) else '')), X.sub(X.LEN(X.cat(X.cat((X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,93,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,93,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,93,c),0.0), X.ne(E.v(8,93,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,93,c,93,c)),1.0)),1.0))) else ''),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,94,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,94,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,94,c),0.0), X.ne(E.v(8,94,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,94,c,94,c)),1.0)),1.0))) else '')),(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,95,c)), 5.0),1.0)),' ('),X.INDEX(E.rg(24,54,1,58,1), X.add(E.v(8,95,c),1.0))),')'),', ') if X.truthy(X.AND(X.ge(E.v(8,95,c),0.0), X.ne(E.v(8,95,c),E.v(8,103,c)), X.eq(X.INDEX(E.rg(8,209,c,213,c), X.add(X.MAX(0.0, E.rg(8,95,c,95,c)),1.0)),1.0))) else ''))),2.0))),': dụng thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(8,5,c),E.v(8,103,c)), 5.0),1.0))),' đã chiếm '),X.TEXT(X.div(X.INDEX(E.rg(8,12,4,16,4), X.add(E.v(8,103,c),1.0)),X.SUM(E.rg(8,12,4,16,4))), '0%')),' tổng độ, không kém phe mình ('),X.TEXT(X.div(X.add(E.v(8,12,4),E.v(8,16,4)),X.SUM(E.rg(8,12,4,16,4))), '0%')),') – sách có lá bỏ dụng thần đã chế áp đủ để lấy các ứng viên sau theo thứ tự P1 tr.99 (P2 tr.427).'),X.CHAR(10.0)))))
 
-def f307(E, r, c):
+def f308(E, r, c):
     # Ô C226
     # = IF(IF(DOI_CHIEU!$C$33=2,D222&D223&D224&D225,C222&C223&C224&C225)="","",LEFT(IF(DOI_CHIEU!$C$33=2,D222&D223&D224&D225,C222&C223&C224&C225),LEN(IF(DOI_C
     #   HIEU!$C$33=2,D222&D223&D224&D225,C222&C223&C224&C225))-1))
     return ('' if X.truthy(X.eq((X.cat(X.cat(X.cat(E.v(8,r-4,c+1),E.v(8,r-3,c+1)),E.v(8,r-2,c+1)),E.v(8,r-1,c+1)) if X.truthy(X.eq(E.v(7,33,3),2.0)) else X.cat(X.cat(X.cat(E.v(8,r-4,c),E.v(8,r-3,c)),E.v(8,r-2,c)),E.v(8,r-1,c))),'')) else X.LEFT((X.cat(X.cat(X.cat(E.v(8,r-4,c+1),E.v(8,r-3,c+1)),E.v(8,r-2,c+1)),E.v(8,r-1,c+1)) if X.truthy(X.eq(E.v(7,33,3),2.0)) else X.cat(X.cat(X.cat(E.v(8,r-4,c),E.v(8,r-3,c)),E.v(8,r-2,c)),E.v(8,r-1,c))), X.sub(X.LEN((X.cat(X.cat(X.cat(E.v(8,r-4,c+1),E.v(8,r-3,c+1)),E.v(8,r-2,c+1)),E.v(8,r-1,c+1)) if X.truthy(X.eq(E.v(7,33,3),2.0)) else X.cat(X.cat(X.cat(E.v(8,r-4,c),E.v(8,r-3,c)),E.v(8,r-2,c)),E.v(8,r-1,c)))),1.0)))
 
-def f308(E, r, c):
+def f309(E, r, c):
     # Ô C227
     # = IF(C226="","CAO – các nguyên tắc chọn dụng thần cùng chỉ một hành.","CẦN CÂN NHẮC – có "&(LEN(C226)-LEN(SUBSTITUTE(C226,"•",""))+0)&" ứng viên khác; n
     #   ếu các năm đã qua hợp ứng viên nào hơn thì nên theo ứng viên đó (P2 tr.445; P1 tr.201).")
@@ -2401,15 +2409,15 @@ CELLS = {
     'C218': (f301, 218, 3),
     'D218': (f301, 218, 4),
     'C219': (f302, 219, 3),
-    'D219': (f302, 219, 4),
-    'C222': (f303, 222, 3),
-    'D222': (f303, 222, 4),
-    'C223': (f304, 223, 3),
-    'D223': (f304, 223, 4),
-    'C224': (f305, 224, 3),
-    'D224': (f305, 224, 4),
-    'C225': (f306, 225, 3),
-    'D225': (f306, 225, 4),
-    'C226': (f307, 226, 3),
-    'C227': (f308, 227, 3),
+    'D219': (f303, 219, 4),
+    'C222': (f304, 222, 3),
+    'D222': (f304, 222, 4),
+    'C223': (f305, 223, 3),
+    'D223': (f305, 223, 4),
+    'C224': (f306, 224, 3),
+    'D224': (f306, 224, 4),
+    'C225': (f307, 225, 3),
+    'D225': (f307, 225, 4),
+    'C226': (f308, 226, 3),
+    'C227': (f309, 227, 3),
 }

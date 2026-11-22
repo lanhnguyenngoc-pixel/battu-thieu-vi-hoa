@@ -118,8 +118,8 @@ class TrangLaSo(QWidget):
                          mau_xt, html.escape(xt), html.escape(d(122, c)), '<br><b style="color:#4f46e5">◀ ĐANG HÀNH</b>' if dang else ''))
             a.setAlignment(Qt.AlignHCenter | Qt.AlignTop)
             f.setStyleSheet('#the{border:2px solid #7c3aed;}' if dang else '')
-            f.setToolTip('%s – năm %s–%s\n%s – %s\n5 năm đầu: %s\n5 năm sau: %s\n\nNhật can tại chi vận: %s\nTàng can chi vận: %s\n\n%s'
-                         % (d(35, c), d(37, c), d(38, c), d(121, c), d(122, c), d(123, c), d(124, c), d(41, c), d(40, c), goi_y('đại vận ' + d(39, c), td)))
+            f.setToolTip('%s – năm %s–%s\n%s\n\nCan vận (chủ): %s\nChi vận (bổ trợ): %s\n\nNhật can tại chi vận: %s\nTàng can chi vận: %s\n\n%s'
+                         % (d(35, c), d(37, c), d(38, c), d(138, c) or d(121, c), d(123, c), d(124, c), d(41, c), d(40, c), goi_y('đại vận ' + d(39, c), td)))
 
 
 # ---------------------------------------------------------------- LUẬN GIẢI – BÀI ĐỌC

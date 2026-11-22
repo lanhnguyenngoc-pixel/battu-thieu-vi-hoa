@@ -109,7 +109,8 @@ def _dai_van(E):
         # Kết luận đại vận theo cách của tác giả (P1 tr.124–125, đề xuất DV-1 đã duyệt) – DAI_VAN mục F
         for k, nhan in (('ket_luan', 'KẾT LUẬN ĐẠI VẬN'), ('diem_dau', 'Điểm 5 năm đầu (phương pháp khuyến nghị)'),
                         ('diem_sau', 'Điểm 5 năm sau (phương pháp khuyến nghị)'), ('tom_tat_10_nam', 'Tóm tắt 10 năm'),
-                        ('vi_sao_dau', 'Vì sao – 5 năm đầu'), ('vi_sao_sau', 'Vì sao – 5 năm sau'),
+                        ('vi_sao_dau', 'Vì sao – can vận (chủ, cả 10 năm)'), ('vi_sao_sau', 'Vì sao – chi vận (bổ trợ, cả 10 năm)'),
+                        ('giai_thich', 'Giải thích mức đại vận (P1 tr.122–124; P2 tr.282)'),
                         ('tai_loc_van', 'Tài lộc trong vận'), ('cong_danh_van', 'Công danh trong vận')):
             rr = next((r for kk, (r, _) in dong.items() if kk == nhan or (len(nhan) > 20 and kk.startswith(nhan))), None)
             v = E.raw(si, rr, c) if rr else None

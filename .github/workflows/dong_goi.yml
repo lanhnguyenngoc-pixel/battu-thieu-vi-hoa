@@ -4,6 +4,11 @@
 name: dong-goi
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Nhãn phát hành (vd v1.9.1) – để trống thì chỉ dựng bộ cài, không phát hành'
+        required: false
+        default: ''
   push:
     tags: ['v*']
 env:
@@ -112,7 +117,7 @@ jobs:
           APP="dist/Bát Tự Thiệu Vĩ Hoa.app"
           codesign --force --deep -s - "$APP"
           mkdir -p dmg_goc dist_cai && cp -R "$APP" dmg_goc/ && ln -s /Applications dmg_goc/Applications
-          hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder dmg_goc -ov -format UDZO "dist_cai/BatTuThieuViHoa_1.9.0_macOS_${{ matrix.kien_truc }}.dmg"
+          hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder dmg_goc -ov -format UDZO "dist_cai/BatTuThieuViHoa_1.9.1_macOS_${{ matrix.kien_truc }}.dmg"
       - name: Cài – tự kiểm không mạng – gỡ
         run: |
           set -e
@@ -153,3 +158,26 @@ jobs:
           git init -q -b bo-cai && git config user.name "github-actions" && git config user.email "actions@github.com"
           git add -A && git commit -q -m "Bộ cài – lượt ${{ github.run_id }}"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" bo-cai
+  phat_hanh:
+    # Gộp bước phát hành vào đóng gói (bản 6.8): khi có nhãn (đẩy nhãn v* hoặc nhập `tag`), tải .exe/.dmg của CHÍNH lượt chạy này
+    # và tạo bản phát hành để tải về không cần đăng nhập. phat_hanh.yml vẫn giữ để phát hành lại từ một lượt chạy cũ.
+    needs: [windows, macos]
+    if: ${{ always() && needs.windows.result == 'success' && needs.macos.result != 'cancelled' && (startsWith(github.ref, 'refs/tags/v') || inputs.tag != '') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: cai
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          R: ${{ github.repository }}
+          TAG: ${{ inputs.tag != '' && inputs.tag || github.ref_name }}
+        run: |
+          set -e
+          cd cai
+          find . -type f \( -name '*.exe' -o -name '*.dmg' \) -exec mv {} . \;
+          ls -la
+          gh release delete "$TAG" -R "$R" -y --cleanup-tag || true
+          gh release create "$TAG" -R "$R" --target "${{ github.sha }}" -t "Bát Tự Thiệu Vĩ Hoa $TAG" -n "Bộ cài $TAG" ./*.exe ./*.dmg
