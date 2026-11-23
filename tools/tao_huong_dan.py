@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.2 (quy tắc 6.9)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.2 (quy tắc 6.10)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.7; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
