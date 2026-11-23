@@ -4,7 +4,7 @@ Tệp: `tests/danh_muc_la_so_chuan.json` (kho mã) và `DANH_MUC_LA_SO_CHUAN_GOC
 
 ## 1. Cách lập
 - Lấy 501 lá của bộ kiểm thử (`tests/cases501_a.json`, `cases501_b.json`). Bỏ 49 lá "Trang" (lá của người dùng, không nhãn) và 1 lá ngoài sách → còn 451 dòng từ sách.
-- Gộp lá trùng tứ trụ giữa các nguồn → 433 tứ trụ khác nhau.
+- Gộp lá trùng tứ trụ giữa các nguồn → 433 tứ trụ khác nhau; thêm 9 lá sách "Một trăm cách đoán mệnh" (23/11/2026) → 442.
 - Kiểm tứ trụ: đúng âm dương từng trụ; can tháng đúng ngũ hổ độn theo can năm; can giờ đúng ngũ thử độn theo can ngày. Can ngày không kiểm được vì thiếu ngày sinh.
 - Chạy bộ công cụ trên từng lá (Nam, nhập can chi) lấy kết luận vượng/nhược cuối và dụng thần.
 
@@ -12,17 +12,17 @@ Tệp: `tests/danh_muc_la_so_chuan.json` (kho mã) và `DANH_MUC_LA_SO_CHUAN_GOC
 | Hạng | Ý nghĩa | Số lá |
 |---|---|---|
 | A | Chuẩn gốc Thiệu Vĩ Hoa: tứ trụ qua kiểm tra, nhãn vượng/nhược rõ | 62 |
-| B | Chuẩn gốc sách khác (Trích Thiên Tủy 261, Tử Bình Chân Thuyên 49, Uyên Hải 28, Hoàng Thăng Long 11 sau khi trừ lá trùng) | 344 |
+| B | Chuẩn gốc sách khác (Trích Thiên Tủy 261, Tử Bình Chân Thuyên 49, Uyên Hải 28, Hoàng Thăng Long 11, Một trăm cách đoán mệnh 6) | 350 |
 | C | Cách đặc biệt (tòng, hóa, gia tường), không có nhãn vượng/nhược | 16 |
-| M | Cùng tứ trụ nhưng hai sách ghi nhãn khác nhau | 1 |
-| X | Tứ trụ không qua kiểm tra (nghi chép sai hoặc sách in sai) | 10 |
+| M | Nhãn mâu thuẫn (hai sách ghi khác nhau, hoặc sách tự mâu thuẫn với quy tắc đã chốt) | 3 |
+| X | Tứ trụ không qua kiểm tra, hoặc trang sách thiếu nên chưa có nhãn | 11 |
 
 ## 3. Độ khớp hiện tại
 | Nhóm | Số lá | Vượng suy khớp | Lá có nhãn dụng thần | Dụng thần khớp |
 |---|---|---|---|---|
 | A – Thiệu Vĩ Hoa | 62 | 53 (85%) | 34 | 18 |
-| B – sách khác | 344 | 225 (65%) | 258 | 90 |
-| A + B | 406 | 278 (68%) | 292 | 108 |
+| B – sách khác | 350 | 229 (65%) | 263 | 91 |
+| A + B | 412 | 282 (68%) | 297 | 109 |
 Lưu ý: số này khác "64/73" ở báo cáo cũ vì cách đếm khác (bỏ cách đặc biệt, gộp lá trùng, bỏ lá nghi sai); khi so trước/sau phải dùng cùng một bộ này. Dụng thần: Trích Thiên Tủy có nhãn đủ; Thiệu Vĩ Hoa mới có 34 lá nhãn đã đối chiếu; ba sách còn lại gần như chưa có nhãn dụng thần. Tác giả khác chọn dụng thần theo phong cách khác nhau, nên hạng B chỉ là số tham khảo phụ.
 
 ## 4. Cách dùng khi sửa quy tắc
@@ -31,7 +31,7 @@ Lưu ý: số này khác "64/73" ở báo cáo cũ vì cách đếm khác (bỏ 
 3. Hạng X: soát lại ảnh sách rồi chuyển sang A/B. Hạng M: xem lại sách.
 4. Lá mới người dùng gửi (như 9 lá "Một trăm cách đoán mệnh") thêm vào danh mục sau khi dựng tứ trụ và qua kiểm tra.
 
-## 5. Hạng X – cần soát lại sách (10 lá)
+## 5. Hạng X – cần soát lại sách (11 lá: 10 lá tứ trụ sai + MTC-VD9 thiếu trang kết)
 - X-001 P1 tr.72 – Quý Mão,Mậu Ngọ,Tân Sửu,Đinh Mùi – P1 tr.72-73 (can giờ sai ngũ thử độn)
 - X-002 Tòng sát VD1 – Nhâm Tí,Quý Sửu,Bính Tí,Canh Tí – P2 tr.374 (can giờ sai ngũ thử độn)
 - X-003 TTT#203 – Mậu Thìn,Kỷ Dậu,Ất Hợi,Giáp Thân – Trích Thiên Tủy (Nhậm Thiết Tiều) (can tháng sai ngũ hổ độn)
@@ -42,6 +42,21 @@ Lưu ý: số này khác "64/73" ở báo cáo cũ vì cách đếm khác (bỏ 
 - X-008 UH108 – Ất Dậu,Ất Mão,Tân Mão,Tân Mão – Uyên Hải Tử Bình (can tháng sai ngũ hổ độn)
 - X-009 HTL X-V5 – Canh Tí,Đinh Sửu,Quý Dậu,Quý Tị – Hoàng Thăng Long (can tháng sai ngũ hổ độn; can giờ sai ngũ thử độn)
 - X-010 HTL X-V12 – Ất Tị,Giáp Thân,Ất Mùi,Đinh Tị – Hoàng Thăng Long (can giờ sai ngũ thử độn)
+
+## 5b. Chín lá "Một trăm cách đoán mệnh" – nội dung in sai đã chuẩn hóa (tr.21–38)
+Quy ước chính tả: Tý = Tí, Tỵ/Ty = Tị. Tứ trụ đều qua kiểm tra ngũ hổ độn, ngũ thử độn.
+| Mã | Lá | Tứ trụ chuẩn | Sách in sai → chuẩn | Nhãn sách |
+|---|---|---|---|---|
+| M-002 | VD1 (nam) | Nhâm Thân, Nhâm Tí, Mậu Ngọ, Ất Mão | Không in bảng; dựng từ lời văn, kiểm bằng dãy vận | Gọi "thân vượng" nhưng dụng Thổ theo thân nhược → mâu thuẫn |
+| B-345 | VD2 (nam) | Quý Mùi, Ất Mão, Bính Dần, Canh Dần | Bảng in trùng bảng VD6 → dựng từ lời văn, kiểm vận nghịch | Nhược; chưa ghi dụng thần |
+| B-346 | VD3 (nam) | Canh Tuất, Mậu Tí, Quý Dậu, Quý Hợi | Bảng in trùng bảng VD4 → dựng từ lời văn, kiểm vận | Vượng; dụng Mộc (Thực thương) |
+| B-347 | VD4 (nam) | Nhâm Thân, Nhâm Tí, Mậu Dần, Ất Mão | Bảng tr.27 đúng | Nhược; dụng Hỏa (Ấn) |
+| B-348 | VD5 (nam) | Ất Mùi, Kỷ Mão, Canh Tí, Tân Tị | Bảng in trùng bảng VD6 → dựng từ lời văn, kiểm vận nghịch; lần dựng đầu nhầm Quý Mùi/Ất Mão, đã sửa | "Can ngày không yếu" (vượng); dụng Hỏa (Quan sát) |
+| M-003 | VD6 (nữ) | Canh Ngọ, Mậu Dần, Kỷ Dậu, Giáp Tí | Bảng tr.31 đúng | Giáp–Kỷ hợp làm Kỷ vượng, trái P1 tr.62 → mâu thuẫn quy tắc |
+| B-349 | VD7 (nam) | Giáp Thân, Bính Tí, Nhâm Dần, Tân Hợi | Bảng tr.33 đúng | Vượng; dụng Thổ (Thất sát) |
+| B-350 | VD8 (nam) | Giáp Ngọ, Đinh Sửu, Nhâm Thìn, Giáp Thìn | Bảng tr.35 đúng, đối chiếu lời văn | Nhược; dụng Kim (Ấn) |
+| X-011 | VD9 (nam) | Bính Dần, Giáp Ngọ, Ất Tị, Kỷ Mão | Bảng tr.38 đúng; trang kết bị cắt | Chưa có nhãn |
+Độ khớp 6 lá hạng B của sách này: vượng suy 4/6 (lệch VD2, VD5); dụng thần 1/5 (khớp VD8; VD4 công cụ chọn Thổ, hỷ Hỏa nên chỉ lệch ở chữ dụng).
 
 ## 6. Hạng A – lá còn lệch công cụ
 - A-006 P2-VD7 (tính độ) (P2 tr.351-355) – Ất Dậu,Canh Thìn,Quý Dậu,Mậu Ngọ – sách vượng, công cụ nhược; dụng thần sách –, công cụ Kim (Ấn)

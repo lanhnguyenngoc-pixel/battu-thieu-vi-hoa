@@ -16751,5 +16751,359 @@
   "khop_vuong_suy": true,
   "khop_dung_than": null,
   "cach_cuc_cong_cu": "Chính cách"
+ },
+ {
+  "ma": "M-002",
+  "hang": "M",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD1 Cát tham chính (Nam)",
+  "trang": "tr.21-23",
+  "tu_tru": "Nhâm Thân,Nhâm Tí,Mậu Ngọ,Ất Mão",
+  "can": [
+   "Nhâm",
+   "Nhâm",
+   "Mậu",
+   "Ất"
+  ],
+  "chi": [
+   "Thân",
+   "Tí",
+   "Ngọ",
+   "Mão"
+  ],
+  "nhan_vuong_suy": "V",
+  "nhan_dung_than": [
+   "Thổ"
+  ],
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD1"
+  ],
+  "cong_cu_vuong_suy": "N",
+  "cong_cu_dung_than": "Thổ (Tỉ kiếp)",
+  "cong_cu_hanh_dung": "Thổ",
+  "khop_vuong_suy": null,
+  "khop_dung_than": null,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Sách không in bảng; dựng từ lời văn, kiểm bằng dãy vận Quý Sửu… Kỷ Mùi. Nhãn: sách gọi \"thân vượng\" nhưng chọn dụng thần theo thân nhược → tự mâu thuẫn."
+ },
+ {
+  "ma": "B-345",
+  "hang": "B",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD2 Trích thiên tủy (Nam)",
+  "trang": "tr.24-26",
+  "tu_tru": "Quý Mùi,Ất Mão,Bính Dần,Canh Dần",
+  "can": [
+   "Quý",
+   "Ất",
+   "Bính",
+   "Canh"
+  ],
+  "chi": [
+   "Mùi",
+   "Mão",
+   "Dần",
+   "Dần"
+  ],
+  "nhan_vuong_suy": "N",
+  "nhan_dung_than": null,
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD2"
+  ],
+  "cong_cu_vuong_suy": "V",
+  "cong_cu_dung_than": "Kim (Tài)",
+  "cong_cu_hanh_dung": "Kim",
+  "khop_vuong_suy": false,
+  "khop_dung_than": null,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng in ở VD2 trùng bảng VD6 (in sai); dựng từ lời văn, kiểm bằng vận nghịch Giáp Dần, Quý Sửu, Nhâm Tí…"
+ },
+ {
+  "ma": "B-346",
+  "hang": "B",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD3 Mệnh thân vượng ấn vượng (Nam)",
+  "trang": "tr.26-27",
+  "tu_tru": "Canh Tuất,Mậu Tí,Quý Dậu,Quý Hợi",
+  "can": [
+   "Canh",
+   "Mậu",
+   "Quý",
+   "Quý"
+  ],
+  "chi": [
+   "Tuất",
+   "Tí",
+   "Dậu",
+   "Hợi"
+  ],
+  "nhan_vuong_suy": "V",
+  "nhan_dung_than": [
+   "Mộc"
+  ],
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD3"
+  ],
+  "cong_cu_vuong_suy": "V",
+  "cong_cu_dung_than": "Hỏa (Tài)",
+  "cong_cu_hanh_dung": "Hỏa",
+  "khop_vuong_suy": true,
+  "khop_dung_than": false,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng in ở VD3 trùng bảng VD4 (in sai); dựng từ lời văn, kiểm bằng dãy vận Kỷ Sửu… Nhâm Thìn."
+ },
+ {
+  "ma": "B-347",
+  "hang": "B",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD4 Mệnh thân yếu tài quan vượng (Nam)",
+  "trang": "tr.27-29",
+  "tu_tru": "Nhâm Thân,Nhâm Tí,Mậu Dần,Ất Mão",
+  "can": [
+   "Nhâm",
+   "Nhâm",
+   "Mậu",
+   "Ất"
+  ],
+  "chi": [
+   "Thân",
+   "Tí",
+   "Dần",
+   "Mão"
+  ],
+  "nhan_vuong_suy": "N",
+  "nhan_dung_than": [
+   "Hỏa"
+  ],
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD4"
+  ],
+  "cong_cu_vuong_suy": "N",
+  "cong_cu_dung_than": "Thổ (Tỉ kiếp)",
+  "cong_cu_hanh_dung": "Thổ",
+  "khop_vuong_suy": true,
+  "khop_dung_than": false,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng in tr.27 đúng; ghi \"Tý\" = Tí."
+ },
+ {
+  "ma": "B-348",
+  "hang": "B",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD5 Tử bình chân thuyên (Nam)",
+  "trang": "tr.29-31",
+  "tu_tru": "Ất Mùi,Kỷ Mão,Canh Tí,Tân Tị",
+  "can": [
+   "Ất",
+   "Kỷ",
+   "Canh",
+   "Tân"
+  ],
+  "chi": [
+   "Mùi",
+   "Mão",
+   "Tí",
+   "Tị"
+  ],
+  "nhan_vuong_suy": "V",
+  "nhan_dung_than": [
+   "Hỏa"
+  ],
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD5"
+  ],
+  "cong_cu_vuong_suy": "N",
+  "cong_cu_dung_than": "Kim (Tỉ kiếp)",
+  "cong_cu_hanh_dung": "Kim",
+  "khop_vuong_suy": false,
+  "khop_dung_than": false,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng in ở VD5 trùng bảng VD6 (in sai); dựng từ lời văn, kiểm bằng vận nghịch Mậu Dần, Đinh Sửu, Bính Tí, Ất Hợi, Giáp Tuất, Quý Dậu, Nhâm Thân. Lần dựng đầu nhầm Quý Mùi/Ất Mão, đã sửa. Nhãn \"can ngày không yếu\"."
+ },
+ {
+  "ma": "M-003",
+  "hang": "M",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD6 Thần phong thông khảo (Nữ)",
+  "trang": "tr.31-33",
+  "tu_tru": "Canh Ngọ,Mậu Dần,Kỷ Dậu,Giáp Tí",
+  "can": [
+   "Canh",
+   "Mậu",
+   "Kỷ",
+   "Giáp"
+  ],
+  "chi": [
+   "Ngọ",
+   "Dần",
+   "Dậu",
+   "Tí"
+  ],
+  "nhan_vuong_suy": "V",
+  "nhan_dung_than": null,
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD6"
+  ],
+  "cong_cu_vuong_suy": "N",
+  "cong_cu_dung_than": "Hỏa (Ấn)",
+  "cong_cu_hanh_dung": "Hỏa",
+  "khop_vuong_suy": null,
+  "khop_dung_than": null,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng tr.31 đúng. Nhãn: sách nói Giáp–Kỷ hợp làm Kỷ \"từ yếu thành vượng\" dù chi tháng Dần (Mộc), trái P1 tr.62 → nhãn mâu thuẫn quy tắc."
+ },
+ {
+  "ma": "B-349",
+  "hang": "B",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD7 Trích thiên tủy (Nam)",
+  "trang": "tr.33-35",
+  "tu_tru": "Giáp Thân,Bính Tí,Nhâm Dần,Tân Hợi",
+  "can": [
+   "Giáp",
+   "Bính",
+   "Nhâm",
+   "Tân"
+  ],
+  "chi": [
+   "Thân",
+   "Tí",
+   "Dần",
+   "Hợi"
+  ],
+  "nhan_vuong_suy": "V",
+  "nhan_dung_than": [
+   "Thổ"
+  ],
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD7"
+  ],
+  "cong_cu_vuong_suy": "V",
+  "cong_cu_dung_than": "Hỏa (Tài)",
+  "cong_cu_hanh_dung": "Hỏa",
+  "khop_vuong_suy": true,
+  "khop_dung_than": false,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng tr.33 đúng."
+ },
+ {
+  "ma": "B-350",
+  "hang": "B",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD8 Thần phong thông khảo (Nam)",
+  "trang": "tr.35-37",
+  "tu_tru": "Giáp Ngọ,Đinh Sửu,Nhâm Thìn,Giáp Thìn",
+  "can": [
+   "Giáp",
+   "Đinh",
+   "Nhâm",
+   "Giáp"
+  ],
+  "chi": [
+   "Ngọ",
+   "Sửu",
+   "Thìn",
+   "Thìn"
+  ],
+  "nhan_vuong_suy": "N",
+  "nhan_dung_than": [
+   "Kim"
+  ],
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD8"
+  ],
+  "cong_cu_vuong_suy": "N",
+  "cong_cu_dung_than": "Kim (Ấn)",
+  "cong_cu_hanh_dung": "Kim",
+  "khop_vuong_suy": true,
+  "khop_dung_than": true,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng tr.35 đúng, đối chiếu lời văn."
+ },
+ {
+  "ma": "X-011",
+  "hang": "X",
+  "nguon": [
+   "Một trăm cách đoán mệnh – mỗi mệnh một lý"
+  ],
+  "nguon_ma": [
+   "MTC"
+  ],
+  "ten": "MTC-VD9 Tam mệnh thông hội (Nam)",
+  "trang": "tr.38",
+  "tu_tru": "Bính Dần,Giáp Ngọ,Ất Tị,Kỷ Mão",
+  "can": [
+   "Bính",
+   "Giáp",
+   "Ất",
+   "Kỷ"
+  ],
+  "chi": [
+   "Dần",
+   "Ngọ",
+   "Tị",
+   "Mão"
+  ],
+  "nhan_vuong_suy": "",
+  "nhan_dung_than": null,
+  "loi_kiem_tra": [],
+  "id_goc": [
+   "MTC|VD9"
+  ],
+  "cong_cu_vuong_suy": "V",
+  "cong_cu_dung_than": "Thủy (Ấn)",
+  "cong_cu_hanh_dung": "Thủy",
+  "khop_vuong_suy": null,
+  "khop_dung_than": null,
+  "cach_cuc_cong_cu": "Chính cách",
+  "chuan_hoa": "Bảng tr.38 đúng nhưng trang kết bị cắt, chưa có kết luận vượng suy; chờ trang đủ."
  }
 ]
