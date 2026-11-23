@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet LUU_NIEN – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: B69n.xlsx (SHA-256 9228d1ab613379f50ca7126e315efcbb940599c6e1784212c489756674ca8b67).
+Nguồn: 6.10_G.xlsx (SHA-256 a34b9bd88b9052807174d240d6d3d83136557f1d078a7e3a3ba2d95e1eadc33f).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1782,8 +1782,8 @@ def f261(E, r, c):
 
 def f262(E, r, c):
     # Ô DY30, DY31, DY32, DY33, DY34, DY35, DY36, DY37, DY38, DY39, DY40, DY41 … (100 ô)
-    # = TRIM(DZ30&EA30&EB30&EC30&ED30&EE30&EF30&EG30&EH30&EI30&EJ30&EK30)
-    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(15,r,c+1),E.v(15,r,c+2)),E.v(15,r,c+3)),E.v(15,r,c+4)),E.v(15,r,c+5)),E.v(15,r,c+6)),E.v(15,r,c+7)),E.v(15,r,c+8)),E.v(15,r,c+9)),E.v(15,r,c+10)),E.v(15,r,c+11)),E.v(15,r,c+12)))
+    # = TRIM(DZ30&EA30&EB30&EC30&ED30&EE30&EF30&EG30&EH30&EI30&EJ30&EK30&EM30)
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(E.v(15,r,c+1),E.v(15,r,c+2)),E.v(15,r,c+3)),E.v(15,r,c+4)),E.v(15,r,c+5)),E.v(15,r,c+6)),E.v(15,r,c+7)),E.v(15,r,c+8)),E.v(15,r,c+9)),E.v(15,r,c+10)),E.v(15,r,c+11)),E.v(15,r,c+12)),E.v(15,r,c+14)))
 
 def f263(E, r, c):
     # Ô DZ30, DZ31, DZ32, DZ33, DZ34, DZ35, DZ36, DZ37, DZ38, DZ39, DZ40, DZ41 … (100 ô)
@@ -1946,508 +1946,529 @@ def f274(E, r, c):
     return (X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Tứ trụ có chi ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,5),1.0))),' – '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,6),1.0))),' (trụ ngày, giờ) lục hợp nhưng chưa hóa; can năm đưa hóa thần '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)),1.0))),' ra nên hợp cục thành hóa cục, khi tan cục sẽ có thay đổi lớn (P2 tr.281). ') if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.AND(X.ge(X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)),0.0), X.eq(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0))),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0))))) else 0.0)),0.0), X.eq(E.v(15,r,c-125),X.INDEX(E.rg(24,32,16,43,27), X.add(E.v(23,6,5),1.0), X.add(E.v(23,6,6),1.0)))))) else '')
 
 def f275(E, r, c):
+    # Ô EL30, EL31, EL32, EL33, EL34, EL35, EL36, EL37, EL38, EL39, EL40, EL41 … (100 ô)
+    # = IF(AND((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+4,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(K30+4,12)),1,0)+IF(G30=MOD(K30+4,12),1,0
+    #   )>0),NOT((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+8,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$6=MOD(K30+8,12)),1,0)+IF(G30=MOD(K30+8,12),1
+    #   ,0)>0)),OR(MOD(K30,3)=0,MOD(MOD(K30+4,12),3)=0)),MOD(K30+4,12),IF(AND((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+8,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ gi
+    #   ờ",TRUNG_GIAN!$F$6=MOD(K30+8,12)),1,0)+IF(G30=MOD(K30+8,12),1,0)>0),NOT((COUNTIF(TRUNG_GIAN!$C$6:$E$6,MOD(K30+4,12))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ 
+    #   giờ",TRUNG_GIAN!$F$6=MOD(K30+4,12)),1,0)+IF(G30=MOD(K30+4,12),1,0)>0)),OR(MOD(K30,3)=0,MOD(MOD(K30+8,12),3)=0)),MOD(K30+8,12),-1))
+    return (X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0) if X.truthy(X.AND(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-135),X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0))) else 0.0)),0.0), X.NOT(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-135),X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0))) else 0.0)),0.0)), X.OR(X.eq(X.MOD(E.v(15,r,c-131), 3.0),0.0), X.eq(X.MOD(X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0), 3.0),0.0)))) else (X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0) if X.truthy(X.AND(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-135),X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0))) else 0.0)),0.0), X.NOT(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,6,3,6,5), X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,6,6),X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-135),X.MOD(X.add(E.v(15,r,c-131),4.0), 12.0))) else 0.0)),0.0)), X.OR(X.eq(X.MOD(E.v(15,r,c-131), 3.0),0.0), X.eq(X.MOD(X.MOD(X.add(E.v(15,r,c-131),8.0), 12.0), 3.0),0.0)))) else X.neg(1.0)))
+
+def f276(E, r, c):
+    # Ô EM30, EM31, EM32, EM33, EM34, EM35, EM36, EM37, EM38, EM39, EM40, EM41 … (100 ô)
+    # = IF(EL30<0,"","• Chi năm "&INDEX(CHI_TEN,K30+1)&" bán hợp chi "&INDEX(CHI_TEN,EL30+1)&" (tứ trụ/đại vận) thành "&INDEX(HANH_TEN,CHOOSE(MOD(K30,4)+1,4,3
+    #   ,1,0)+1)&" cục"&IF((COUNTIF(TRUNG_GIAN!$C$7:$E$7,CHOOSE(MOD(K30,4)+1,4,3,1,0))+IF(AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=CHOOSE(MOD(K30,4)
+    #   +1,4,3,1,0)),1,0)+IF(P30=CHOOSE(MOD(K30,4)+1,4,3,1,0),1,0)>0)," – có can "&INDEX(HANH_TEN,CHOOSE(MOD(K30,4)+1,4,3,1,0)+1)&" dẫn: hợp hóa thành"," – ch
+    #   ưa có can "&INDEX(HANH_TEN,CHOOSE(MOD(K30,4)+1,4,3,1,0)+1)&" dẫn: hợp mà không hóa, chờ năm/vận có can "&INDEX(HANH_TEN,CHOOSE(MOD(K30,4)+1,4,3,1,0)+1
+    #   ))&IF(IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY_KY!$C$109)<0,"",IF(OR(CHOOSE(MOD(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$109,DUNG_HY
+    #   _KY!$C$109),CHOOSE(MOD(K30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$110,DUNG_HY_KY!$C$110))," – hành này là dụng/hỷ thần: tốt",IF(CHOOSE(MOD(K
+    #   30,4)+1,4,3,1,0)=IF(DOI_CHIEU!$C$33=2,DUNG_HY_KY!$D$111,DUNG_HY_KY!$C$111)," – hành này là kỵ thần: hung"," – hành này là nhàn thần")))&" (P2 tr.343; 
+    #   P1 tr.62; bán hợp lưu niên là suy luận, chỉ ghi, không đổi xu thế). ")
+    return ('' if X.truthy(X.lt(E.v(15,r,c-1),0.0)) else X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('• Chi năm ',X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-132),1.0))),' bán hợp chi '),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(15,r,c-1),1.0))),' (tứ trụ/đại vận) thành '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),1.0))),' cục'),(X.cat(X.cat(' – có can ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),1.0))),' dẫn: hợp hóa thành') if X.truthy(X.gt(X.add(X.add(X.COUNTIF(E.rg(23,7,3,7,5), X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0)),(1.0 if X.truthy(X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0)))) else 0.0)),(1.0 if X.truthy(X.eq(E.v(15,r,c-127),X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0))) else 0.0)),0.0)) else X.cat(X.cat(X.cat(' – chưa có can ',X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),1.0))),' dẫn: hợp mà không hóa, chờ năm/vận có can '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),1.0))))),('' if X.truthy(X.lt((E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3)),0.0)) else (' – hành này là dụng/hỷ thần: tốt' if X.truthy(X.OR(X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,109,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,109,3))), X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,110,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,110,3))))) else (' – hành này là kỵ thần: hung' if X.truthy(X.eq(X.CHOOSE(X.add(X.MOD(E.v(15,r,c-132), 4.0),1.0), lambda: 4.0, lambda: 3.0, lambda: 1.0, lambda: 0.0),(E.v(8,111,4) if X.truthy(X.eq(E.v(7,33,3),2.0)) else E.v(8,111,3)))) else ' – hành này là nhàn thần')))),' (P2 tr.343; P1 tr.62; bán hợp lưu niên là suy luận, chỉ ghi, không đổi xu thế). '))
+
+def f277(E, r, c):
     # Ô A31
     # = DAI_VAN!$C$22+31-30
     return X.sub(X.add(E.v(14,22,3),31.0),30.0)
 
-def f276(E, r, c):
+def f278(E, r, c):
     # Ô CG31, CG32, CG33, CG34, CG35, CG36, CG37, CG38, CG39, CG40, CG41, CG42 … (99 ô)
     # = IF(AND(NOT(NHAP_LIEU!$C$9="Không rõ giờ"),OR(K31=TRUNG_GIAN!$F$6,K31=MOD(13-TRUNG_GIAN!$F$6,12))),"TK3: chi năm trùng/lục hợp chi giờ – dễ có tin vui 
     #   về con cái"&IF(OR(ISNUMBER(SEARCH("Giờ",AR31)),ISNUMBER(SEARCH("Giờ",AR30))),"; ⚠ nhưng năm này hoặc năm liền trước có tín hiệu bất lợi lên trụ giờ (c
     #   on cái) – đọc cùng tín hiệu đó",""),"")
     return (X.cat('TK3: chi năm trùng/lục hợp chi giờ – dễ có tin vui về con cái',('; ⚠ nhưng năm này hoặc năm liền trước có tín hiệu bất lợi lên trụ giờ (con cái) – đọc cùng tín hiệu đó' if X.truthy(X.OR(X.ISNUMBER(lambda: X.SEARCH('Giờ', E.v(15,r,c-41))), X.ISNUMBER(lambda: X.SEARCH('Giờ', E.v(15,r-1,c-41))))) else '')) if X.truthy(X.AND(X.NOT(X.eq(E.v(2,9,3),'Không rõ giờ')), X.OR(X.eq(E.v(15,r,c-74),E.v(23,6,6)), X.eq(E.v(15,r,c-74),X.MOD(X.sub(13.0,E.v(23,6,6)), 12.0))))) else '')
 
-def f277(E, r, c):
+def f279(E, r, c):
     # Ô DK31, DL31
     # = IF(DK30="","không có",SUBSTITUTE(DK30," ",", "))
     return ('không có' if X.truthy(X.eq(E.v(15,r-1,c),'')) else X.SUBSTITUTE(E.v(15,r-1,c), ' ', ', '))
 
-def f278(E, r, c):
+def f280(E, r, c):
     # Ô A32
     # = DAI_VAN!$C$22+32-30
     return X.sub(X.add(E.v(14,22,3),32.0),30.0)
 
-def f279(E, r, c):
+def f281(E, r, c):
     # Ô A33
     # = DAI_VAN!$C$22+33-30
     return X.sub(X.add(E.v(14,22,3),33.0),30.0)
 
-def f280(E, r, c):
+def f282(E, r, c):
     # Ô A34
     # = DAI_VAN!$C$22+34-30
     return X.sub(X.add(E.v(14,22,3),34.0),30.0)
 
-def f281(E, r, c):
+def f283(E, r, c):
     # Ô A35
     # = DAI_VAN!$C$22+35-30
     return X.sub(X.add(E.v(14,22,3),35.0),30.0)
 
-def f282(E, r, c):
+def f284(E, r, c):
     # Ô A36
     # = DAI_VAN!$C$22+36-30
     return X.sub(X.add(E.v(14,22,3),36.0),30.0)
 
-def f283(E, r, c):
+def f285(E, r, c):
     # Ô A37
     # = DAI_VAN!$C$22+37-30
     return X.sub(X.add(E.v(14,22,3),37.0),30.0)
 
-def f284(E, r, c):
+def f286(E, r, c):
     # Ô A38
     # = DAI_VAN!$C$22+38-30
     return X.sub(X.add(E.v(14,22,3),38.0),30.0)
 
-def f285(E, r, c):
+def f287(E, r, c):
     # Ô A39
     # = DAI_VAN!$C$22+39-30
     return X.sub(X.add(E.v(14,22,3),39.0),30.0)
 
-def f286(E, r, c):
+def f288(E, r, c):
     # Ô A40
     # = DAI_VAN!$C$22+40-30
     return X.sub(X.add(E.v(14,22,3),40.0),30.0)
 
-def f287(E, r, c):
+def f289(E, r, c):
     # Ô A41
     # = DAI_VAN!$C$22+41-30
     return X.sub(X.add(E.v(14,22,3),41.0),30.0)
 
-def f288(E, r, c):
+def f290(E, r, c):
     # Ô A42
     # = DAI_VAN!$C$22+42-30
     return X.sub(X.add(E.v(14,22,3),42.0),30.0)
 
-def f289(E, r, c):
+def f291(E, r, c):
     # Ô A43
     # = DAI_VAN!$C$22+43-30
     return X.sub(X.add(E.v(14,22,3),43.0),30.0)
 
-def f290(E, r, c):
+def f292(E, r, c):
     # Ô A44
     # = DAI_VAN!$C$22+44-30
     return X.sub(X.add(E.v(14,22,3),44.0),30.0)
 
-def f291(E, r, c):
+def f293(E, r, c):
     # Ô A45
     # = DAI_VAN!$C$22+45-30
     return X.sub(X.add(E.v(14,22,3),45.0),30.0)
 
-def f292(E, r, c):
+def f294(E, r, c):
     # Ô A46
     # = DAI_VAN!$C$22+46-30
     return X.sub(X.add(E.v(14,22,3),46.0),30.0)
 
-def f293(E, r, c):
+def f295(E, r, c):
     # Ô A47
     # = DAI_VAN!$C$22+47-30
     return X.sub(X.add(E.v(14,22,3),47.0),30.0)
 
-def f294(E, r, c):
+def f296(E, r, c):
     # Ô A48
     # = DAI_VAN!$C$22+48-30
     return X.sub(X.add(E.v(14,22,3),48.0),30.0)
 
-def f295(E, r, c):
+def f297(E, r, c):
     # Ô A49
     # = DAI_VAN!$C$22+49-30
     return X.sub(X.add(E.v(14,22,3),49.0),30.0)
 
-def f296(E, r, c):
+def f298(E, r, c):
     # Ô A50
     # = DAI_VAN!$C$22+50-30
     return X.sub(X.add(E.v(14,22,3),50.0),30.0)
 
-def f297(E, r, c):
+def f299(E, r, c):
     # Ô A51
     # = DAI_VAN!$C$22+51-30
     return X.sub(X.add(E.v(14,22,3),51.0),30.0)
 
-def f298(E, r, c):
+def f300(E, r, c):
     # Ô A52
     # = DAI_VAN!$C$22+52-30
     return X.sub(X.add(E.v(14,22,3),52.0),30.0)
 
-def f299(E, r, c):
+def f301(E, r, c):
     # Ô A53
     # = DAI_VAN!$C$22+53-30
     return X.sub(X.add(E.v(14,22,3),53.0),30.0)
 
-def f300(E, r, c):
+def f302(E, r, c):
     # Ô A54
     # = DAI_VAN!$C$22+54-30
     return X.sub(X.add(E.v(14,22,3),54.0),30.0)
 
-def f301(E, r, c):
+def f303(E, r, c):
     # Ô A55
     # = DAI_VAN!$C$22+55-30
     return X.sub(X.add(E.v(14,22,3),55.0),30.0)
 
-def f302(E, r, c):
+def f304(E, r, c):
     # Ô A56
     # = DAI_VAN!$C$22+56-30
     return X.sub(X.add(E.v(14,22,3),56.0),30.0)
 
-def f303(E, r, c):
+def f305(E, r, c):
     # Ô A57
     # = DAI_VAN!$C$22+57-30
     return X.sub(X.add(E.v(14,22,3),57.0),30.0)
 
-def f304(E, r, c):
+def f306(E, r, c):
     # Ô A58
     # = DAI_VAN!$C$22+58-30
     return X.sub(X.add(E.v(14,22,3),58.0),30.0)
 
-def f305(E, r, c):
+def f307(E, r, c):
     # Ô A59
     # = DAI_VAN!$C$22+59-30
     return X.sub(X.add(E.v(14,22,3),59.0),30.0)
 
-def f306(E, r, c):
+def f308(E, r, c):
     # Ô A60
     # = DAI_VAN!$C$22+60-30
     return X.sub(X.add(E.v(14,22,3),60.0),30.0)
 
-def f307(E, r, c):
+def f309(E, r, c):
     # Ô A61
     # = DAI_VAN!$C$22+61-30
     return X.sub(X.add(E.v(14,22,3),61.0),30.0)
 
-def f308(E, r, c):
+def f310(E, r, c):
     # Ô A62
     # = DAI_VAN!$C$22+62-30
     return X.sub(X.add(E.v(14,22,3),62.0),30.0)
 
-def f309(E, r, c):
+def f311(E, r, c):
     # Ô A63
     # = DAI_VAN!$C$22+63-30
     return X.sub(X.add(E.v(14,22,3),63.0),30.0)
 
-def f310(E, r, c):
+def f312(E, r, c):
     # Ô A64
     # = DAI_VAN!$C$22+64-30
     return X.sub(X.add(E.v(14,22,3),64.0),30.0)
 
-def f311(E, r, c):
+def f313(E, r, c):
     # Ô A65
     # = DAI_VAN!$C$22+65-30
     return X.sub(X.add(E.v(14,22,3),65.0),30.0)
 
-def f312(E, r, c):
+def f314(E, r, c):
     # Ô A66
     # = DAI_VAN!$C$22+66-30
     return X.sub(X.add(E.v(14,22,3),66.0),30.0)
 
-def f313(E, r, c):
+def f315(E, r, c):
     # Ô A67
     # = DAI_VAN!$C$22+67-30
     return X.sub(X.add(E.v(14,22,3),67.0),30.0)
 
-def f314(E, r, c):
+def f316(E, r, c):
     # Ô A68
     # = DAI_VAN!$C$22+68-30
     return X.sub(X.add(E.v(14,22,3),68.0),30.0)
 
-def f315(E, r, c):
+def f317(E, r, c):
     # Ô A69
     # = DAI_VAN!$C$22+69-30
     return X.sub(X.add(E.v(14,22,3),69.0),30.0)
 
-def f316(E, r, c):
+def f318(E, r, c):
     # Ô A70
     # = DAI_VAN!$C$22+70-30
     return X.sub(X.add(E.v(14,22,3),70.0),30.0)
 
-def f317(E, r, c):
+def f319(E, r, c):
     # Ô A71
     # = DAI_VAN!$C$22+71-30
     return X.sub(X.add(E.v(14,22,3),71.0),30.0)
 
-def f318(E, r, c):
+def f320(E, r, c):
     # Ô A72
     # = DAI_VAN!$C$22+72-30
     return X.sub(X.add(E.v(14,22,3),72.0),30.0)
 
-def f319(E, r, c):
+def f321(E, r, c):
     # Ô A73
     # = DAI_VAN!$C$22+73-30
     return X.sub(X.add(E.v(14,22,3),73.0),30.0)
 
-def f320(E, r, c):
+def f322(E, r, c):
     # Ô A74
     # = DAI_VAN!$C$22+74-30
     return X.sub(X.add(E.v(14,22,3),74.0),30.0)
 
-def f321(E, r, c):
+def f323(E, r, c):
     # Ô A75
     # = DAI_VAN!$C$22+75-30
     return X.sub(X.add(E.v(14,22,3),75.0),30.0)
 
-def f322(E, r, c):
+def f324(E, r, c):
     # Ô A76
     # = DAI_VAN!$C$22+76-30
     return X.sub(X.add(E.v(14,22,3),76.0),30.0)
 
-def f323(E, r, c):
+def f325(E, r, c):
     # Ô A77
     # = DAI_VAN!$C$22+77-30
     return X.sub(X.add(E.v(14,22,3),77.0),30.0)
 
-def f324(E, r, c):
+def f326(E, r, c):
     # Ô A78
     # = DAI_VAN!$C$22+78-30
     return X.sub(X.add(E.v(14,22,3),78.0),30.0)
 
-def f325(E, r, c):
+def f327(E, r, c):
     # Ô A79
     # = DAI_VAN!$C$22+79-30
     return X.sub(X.add(E.v(14,22,3),79.0),30.0)
 
-def f326(E, r, c):
+def f328(E, r, c):
     # Ô A80
     # = DAI_VAN!$C$22+80-30
     return X.sub(X.add(E.v(14,22,3),80.0),30.0)
 
-def f327(E, r, c):
+def f329(E, r, c):
     # Ô A81
     # = DAI_VAN!$C$22+81-30
     return X.sub(X.add(E.v(14,22,3),81.0),30.0)
 
-def f328(E, r, c):
+def f330(E, r, c):
     # Ô A82
     # = DAI_VAN!$C$22+82-30
     return X.sub(X.add(E.v(14,22,3),82.0),30.0)
 
-def f329(E, r, c):
+def f331(E, r, c):
     # Ô A83
     # = DAI_VAN!$C$22+83-30
     return X.sub(X.add(E.v(14,22,3),83.0),30.0)
 
-def f330(E, r, c):
+def f332(E, r, c):
     # Ô A84
     # = DAI_VAN!$C$22+84-30
     return X.sub(X.add(E.v(14,22,3),84.0),30.0)
 
-def f331(E, r, c):
+def f333(E, r, c):
     # Ô A85
     # = DAI_VAN!$C$22+85-30
     return X.sub(X.add(E.v(14,22,3),85.0),30.0)
 
-def f332(E, r, c):
+def f334(E, r, c):
     # Ô A86
     # = DAI_VAN!$C$22+86-30
     return X.sub(X.add(E.v(14,22,3),86.0),30.0)
 
-def f333(E, r, c):
+def f335(E, r, c):
     # Ô A87
     # = DAI_VAN!$C$22+87-30
     return X.sub(X.add(E.v(14,22,3),87.0),30.0)
 
-def f334(E, r, c):
+def f336(E, r, c):
     # Ô A88
     # = DAI_VAN!$C$22+88-30
     return X.sub(X.add(E.v(14,22,3),88.0),30.0)
 
-def f335(E, r, c):
+def f337(E, r, c):
     # Ô A89
     # = DAI_VAN!$C$22+89-30
     return X.sub(X.add(E.v(14,22,3),89.0),30.0)
 
-def f336(E, r, c):
+def f338(E, r, c):
     # Ô A90
     # = DAI_VAN!$C$22+90-30
     return X.sub(X.add(E.v(14,22,3),90.0),30.0)
 
-def f337(E, r, c):
+def f339(E, r, c):
     # Ô A91
     # = DAI_VAN!$C$22+91-30
     return X.sub(X.add(E.v(14,22,3),91.0),30.0)
 
-def f338(E, r, c):
+def f340(E, r, c):
     # Ô A92
     # = DAI_VAN!$C$22+92-30
     return X.sub(X.add(E.v(14,22,3),92.0),30.0)
 
-def f339(E, r, c):
+def f341(E, r, c):
     # Ô A93
     # = DAI_VAN!$C$22+93-30
     return X.sub(X.add(E.v(14,22,3),93.0),30.0)
 
-def f340(E, r, c):
+def f342(E, r, c):
     # Ô A94
     # = DAI_VAN!$C$22+94-30
     return X.sub(X.add(E.v(14,22,3),94.0),30.0)
 
-def f341(E, r, c):
+def f343(E, r, c):
     # Ô A95
     # = DAI_VAN!$C$22+95-30
     return X.sub(X.add(E.v(14,22,3),95.0),30.0)
 
-def f342(E, r, c):
+def f344(E, r, c):
     # Ô A96
     # = DAI_VAN!$C$22+96-30
     return X.sub(X.add(E.v(14,22,3),96.0),30.0)
 
-def f343(E, r, c):
+def f345(E, r, c):
     # Ô A97
     # = DAI_VAN!$C$22+97-30
     return X.sub(X.add(E.v(14,22,3),97.0),30.0)
 
-def f344(E, r, c):
+def f346(E, r, c):
     # Ô A98
     # = DAI_VAN!$C$22+98-30
     return X.sub(X.add(E.v(14,22,3),98.0),30.0)
 
-def f345(E, r, c):
+def f347(E, r, c):
     # Ô A99
     # = DAI_VAN!$C$22+99-30
     return X.sub(X.add(E.v(14,22,3),99.0),30.0)
 
-def f346(E, r, c):
+def f348(E, r, c):
     # Ô A100
     # = DAI_VAN!$C$22+100-30
     return X.sub(X.add(E.v(14,22,3),100.0),30.0)
 
-def f347(E, r, c):
+def f349(E, r, c):
     # Ô A101
     # = DAI_VAN!$C$22+101-30
     return X.sub(X.add(E.v(14,22,3),101.0),30.0)
 
-def f348(E, r, c):
+def f350(E, r, c):
     # Ô A102
     # = DAI_VAN!$C$22+102-30
     return X.sub(X.add(E.v(14,22,3),102.0),30.0)
 
-def f349(E, r, c):
+def f351(E, r, c):
     # Ô A103
     # = DAI_VAN!$C$22+103-30
     return X.sub(X.add(E.v(14,22,3),103.0),30.0)
 
-def f350(E, r, c):
+def f352(E, r, c):
     # Ô A104
     # = DAI_VAN!$C$22+104-30
     return X.sub(X.add(E.v(14,22,3),104.0),30.0)
 
-def f351(E, r, c):
+def f353(E, r, c):
     # Ô A105
     # = DAI_VAN!$C$22+105-30
     return X.sub(X.add(E.v(14,22,3),105.0),30.0)
 
-def f352(E, r, c):
+def f354(E, r, c):
     # Ô A106
     # = DAI_VAN!$C$22+106-30
     return X.sub(X.add(E.v(14,22,3),106.0),30.0)
 
-def f353(E, r, c):
+def f355(E, r, c):
     # Ô A107
     # = DAI_VAN!$C$22+107-30
     return X.sub(X.add(E.v(14,22,3),107.0),30.0)
 
-def f354(E, r, c):
+def f356(E, r, c):
     # Ô A108
     # = DAI_VAN!$C$22+108-30
     return X.sub(X.add(E.v(14,22,3),108.0),30.0)
 
-def f355(E, r, c):
+def f357(E, r, c):
     # Ô A109
     # = DAI_VAN!$C$22+109-30
     return X.sub(X.add(E.v(14,22,3),109.0),30.0)
 
-def f356(E, r, c):
+def f358(E, r, c):
     # Ô A110
     # = DAI_VAN!$C$22+110-30
     return X.sub(X.add(E.v(14,22,3),110.0),30.0)
 
-def f357(E, r, c):
+def f359(E, r, c):
     # Ô A111
     # = DAI_VAN!$C$22+111-30
     return X.sub(X.add(E.v(14,22,3),111.0),30.0)
 
-def f358(E, r, c):
+def f360(E, r, c):
     # Ô A112
     # = DAI_VAN!$C$22+112-30
     return X.sub(X.add(E.v(14,22,3),112.0),30.0)
 
-def f359(E, r, c):
+def f361(E, r, c):
     # Ô A113
     # = DAI_VAN!$C$22+113-30
     return X.sub(X.add(E.v(14,22,3),113.0),30.0)
 
-def f360(E, r, c):
+def f362(E, r, c):
     # Ô A114
     # = DAI_VAN!$C$22+114-30
     return X.sub(X.add(E.v(14,22,3),114.0),30.0)
 
-def f361(E, r, c):
+def f363(E, r, c):
     # Ô A115
     # = DAI_VAN!$C$22+115-30
     return X.sub(X.add(E.v(14,22,3),115.0),30.0)
 
-def f362(E, r, c):
+def f364(E, r, c):
     # Ô A116
     # = DAI_VAN!$C$22+116-30
     return X.sub(X.add(E.v(14,22,3),116.0),30.0)
 
-def f363(E, r, c):
+def f365(E, r, c):
     # Ô A117
     # = DAI_VAN!$C$22+117-30
     return X.sub(X.add(E.v(14,22,3),117.0),30.0)
 
-def f364(E, r, c):
+def f366(E, r, c):
     # Ô A118
     # = DAI_VAN!$C$22+118-30
     return X.sub(X.add(E.v(14,22,3),118.0),30.0)
 
-def f365(E, r, c):
+def f367(E, r, c):
     # Ô A119
     # = DAI_VAN!$C$22+119-30
     return X.sub(X.add(E.v(14,22,3),119.0),30.0)
 
-def f366(E, r, c):
+def f368(E, r, c):
     # Ô A120
     # = DAI_VAN!$C$22+120-30
     return X.sub(X.add(E.v(14,22,3),120.0),30.0)
 
-def f367(E, r, c):
+def f369(E, r, c):
     # Ô A121
     # = DAI_VAN!$C$22+121-30
     return X.sub(X.add(E.v(14,22,3),121.0),30.0)
 
-def f368(E, r, c):
+def f370(E, r, c):
     # Ô A122
     # = DAI_VAN!$C$22+122-30
     return X.sub(X.add(E.v(14,22,3),122.0),30.0)
 
-def f369(E, r, c):
+def f371(E, r, c):
     # Ô A123
     # = DAI_VAN!$C$22+123-30
     return X.sub(X.add(E.v(14,22,3),123.0),30.0)
 
-def f370(E, r, c):
+def f372(E, r, c):
     # Ô A124
     # = DAI_VAN!$C$22+124-30
     return X.sub(X.add(E.v(14,22,3),124.0),30.0)
 
-def f371(E, r, c):
+def f373(E, r, c):
     # Ô A125
     # = DAI_VAN!$C$22+125-30
     return X.sub(X.add(E.v(14,22,3),125.0),30.0)
 
-def f372(E, r, c):
+def f374(E, r, c):
     # Ô A126
     # = DAI_VAN!$C$22+126-30
     return X.sub(X.add(E.v(14,22,3),126.0),30.0)
 
-def f373(E, r, c):
+def f375(E, r, c):
     # Ô A127
     # = DAI_VAN!$C$22+127-30
     return X.sub(X.add(E.v(14,22,3),127.0),30.0)
 
-def f374(E, r, c):
+def f376(E, r, c):
     # Ô A128
     # = DAI_VAN!$C$22+128-30
     return X.sub(X.add(E.v(14,22,3),128.0),30.0)
 
-def f375(E, r, c):
+def f377(E, r, c):
     # Ô A129
     # = DAI_VAN!$C$22+129-30
     return X.sub(X.add(E.v(14,22,3),129.0),30.0)
@@ -2732,7 +2753,9 @@ CELLS = {
     'EI30': (f272, 30, 139),
     'EJ30': (f273, 30, 140),
     'EK30': (f274, 30, 141),
-    'A31': (f275, 31, 1),
+    'EL30': (f275, 30, 142),
+    'EM30': (f276, 30, 143),
+    'A31': (f277, 31, 1),
     'B31': (f145, 31, 2),
     'C31': (f146, 31, 3),
     'D31': (f147, 31, 4),
@@ -2814,7 +2837,7 @@ CELLS = {
     'CD31': (f221, 31, 82),
     'CE31': (f222, 31, 83),
     'CF31': (f223, 31, 84),
-    'CG31': (f276, 31, 85),
+    'CG31': (f278, 31, 85),
     'CI31': (f225, 31, 87),
     'CJ31': (f226, 31, 88),
     'CK31': (f227, 31, 89),
@@ -2840,8 +2863,8 @@ CELLS = {
     'DG31': (f246, 31, 111),
     'DI31': (f247, 31, 113),
     'DJ31': (f248, 31, 114),
-    'DK31': (f277, 31, 115),
-    'DL31': (f277, 31, 116),
+    'DK31': (f279, 31, 115),
+    'DL31': (f279, 31, 116),
     'DM31': (f250, 31, 117),
     'DN31': (f251, 31, 118),
     'DO31': (f252, 31, 119),
@@ -2867,7 +2890,9 @@ CELLS = {
     'EI31': (f272, 31, 139),
     'EJ31': (f273, 31, 140),
     'EK31': (f274, 31, 141),
-    'A32': (f278, 32, 1),
+    'EL31': (f275, 31, 142),
+    'EM31': (f276, 31, 143),
+    'A32': (f280, 32, 1),
     'B32': (f145, 32, 2),
     'C32': (f146, 32, 3),
     'D32': (f147, 32, 4),
@@ -2949,7 +2974,7 @@ CELLS = {
     'CD32': (f221, 32, 82),
     'CE32': (f222, 32, 83),
     'CF32': (f223, 32, 84),
-    'CG32': (f276, 32, 85),
+    'CG32': (f278, 32, 85),
     'CI32': (f225, 32, 87),
     'CJ32': (f226, 32, 88),
     'CK32': (f227, 32, 89),
@@ -3000,7 +3025,9 @@ CELLS = {
     'EI32': (f272, 32, 139),
     'EJ32': (f273, 32, 140),
     'EK32': (f274, 32, 141),
-    'A33': (f279, 33, 1),
+    'EL32': (f275, 32, 142),
+    'EM32': (f276, 32, 143),
+    'A33': (f281, 33, 1),
     'B33': (f145, 33, 2),
     'C33': (f146, 33, 3),
     'D33': (f147, 33, 4),
@@ -3082,7 +3109,7 @@ CELLS = {
     'CD33': (f221, 33, 82),
     'CE33': (f222, 33, 83),
     'CF33': (f223, 33, 84),
-    'CG33': (f276, 33, 85),
+    'CG33': (f278, 33, 85),
     'CI33': (f225, 33, 87),
     'CJ33': (f226, 33, 88),
     'CK33': (f227, 33, 89),
@@ -3133,7 +3160,9 @@ CELLS = {
     'EI33': (f272, 33, 139),
     'EJ33': (f273, 33, 140),
     'EK33': (f274, 33, 141),
-    'A34': (f280, 34, 1),
+    'EL33': (f275, 33, 142),
+    'EM33': (f276, 33, 143),
+    'A34': (f282, 34, 1),
     'B34': (f145, 34, 2),
     'C34': (f146, 34, 3),
     'D34': (f147, 34, 4),
@@ -3215,7 +3244,7 @@ CELLS = {
     'CD34': (f221, 34, 82),
     'CE34': (f222, 34, 83),
     'CF34': (f223, 34, 84),
-    'CG34': (f276, 34, 85),
+    'CG34': (f278, 34, 85),
     'CI34': (f225, 34, 87),
     'CJ34': (f226, 34, 88),
     'CK34': (f227, 34, 89),
@@ -3266,7 +3295,9 @@ CELLS = {
     'EI34': (f272, 34, 139),
     'EJ34': (f273, 34, 140),
     'EK34': (f274, 34, 141),
-    'A35': (f281, 35, 1),
+    'EL34': (f275, 34, 142),
+    'EM34': (f276, 34, 143),
+    'A35': (f283, 35, 1),
     'B35': (f145, 35, 2),
     'C35': (f146, 35, 3),
     'D35': (f147, 35, 4),
@@ -3348,7 +3379,7 @@ CELLS = {
     'CD35': (f221, 35, 82),
     'CE35': (f222, 35, 83),
     'CF35': (f223, 35, 84),
-    'CG35': (f276, 35, 85),
+    'CG35': (f278, 35, 85),
     'CI35': (f225, 35, 87),
     'CJ35': (f226, 35, 88),
     'CK35': (f227, 35, 89),
@@ -3399,7 +3430,9 @@ CELLS = {
     'EI35': (f272, 35, 139),
     'EJ35': (f273, 35, 140),
     'EK35': (f274, 35, 141),
-    'A36': (f282, 36, 1),
+    'EL35': (f275, 35, 142),
+    'EM35': (f276, 35, 143),
+    'A36': (f284, 36, 1),
     'B36': (f145, 36, 2),
     'C36': (f146, 36, 3),
     'D36': (f147, 36, 4),
@@ -3481,7 +3514,7 @@ CELLS = {
     'CD36': (f221, 36, 82),
     'CE36': (f222, 36, 83),
     'CF36': (f223, 36, 84),
-    'CG36': (f276, 36, 85),
+    'CG36': (f278, 36, 85),
     'CI36': (f225, 36, 87),
     'CJ36': (f226, 36, 88),
     'CK36': (f227, 36, 89),
@@ -3532,7 +3565,9 @@ CELLS = {
     'EI36': (f272, 36, 139),
     'EJ36': (f273, 36, 140),
     'EK36': (f274, 36, 141),
-    'A37': (f283, 37, 1),
+    'EL36': (f275, 36, 142),
+    'EM36': (f276, 36, 143),
+    'A37': (f285, 37, 1),
     'B37': (f145, 37, 2),
     'C37': (f146, 37, 3),
     'D37': (f147, 37, 4),
@@ -3614,7 +3649,7 @@ CELLS = {
     'CD37': (f221, 37, 82),
     'CE37': (f222, 37, 83),
     'CF37': (f223, 37, 84),
-    'CG37': (f276, 37, 85),
+    'CG37': (f278, 37, 85),
     'CI37': (f225, 37, 87),
     'CJ37': (f226, 37, 88),
     'CK37': (f227, 37, 89),
@@ -3665,7 +3700,9 @@ CELLS = {
     'EI37': (f272, 37, 139),
     'EJ37': (f273, 37, 140),
     'EK37': (f274, 37, 141),
-    'A38': (f284, 38, 1),
+    'EL37': (f275, 37, 142),
+    'EM37': (f276, 37, 143),
+    'A38': (f286, 38, 1),
     'B38': (f145, 38, 2),
     'C38': (f146, 38, 3),
     'D38': (f147, 38, 4),
@@ -3747,7 +3784,7 @@ CELLS = {
     'CD38': (f221, 38, 82),
     'CE38': (f222, 38, 83),
     'CF38': (f223, 38, 84),
-    'CG38': (f276, 38, 85),
+    'CG38': (f278, 38, 85),
     'CI38': (f225, 38, 87),
     'CJ38': (f226, 38, 88),
     'CK38': (f227, 38, 89),
@@ -3798,7 +3835,9 @@ CELLS = {
     'EI38': (f272, 38, 139),
     'EJ38': (f273, 38, 140),
     'EK38': (f274, 38, 141),
-    'A39': (f285, 39, 1),
+    'EL38': (f275, 38, 142),
+    'EM38': (f276, 38, 143),
+    'A39': (f287, 39, 1),
     'B39': (f145, 39, 2),
     'C39': (f146, 39, 3),
     'D39': (f147, 39, 4),
@@ -3880,7 +3919,7 @@ CELLS = {
     'CD39': (f221, 39, 82),
     'CE39': (f222, 39, 83),
     'CF39': (f223, 39, 84),
-    'CG39': (f276, 39, 85),
+    'CG39': (f278, 39, 85),
     'CI39': (f225, 39, 87),
     'CJ39': (f226, 39, 88),
     'CK39': (f227, 39, 89),
@@ -3931,7 +3970,9 @@ CELLS = {
     'EI39': (f272, 39, 139),
     'EJ39': (f273, 39, 140),
     'EK39': (f274, 39, 141),
-    'A40': (f286, 40, 1),
+    'EL39': (f275, 39, 142),
+    'EM39': (f276, 39, 143),
+    'A40': (f288, 40, 1),
     'B40': (f145, 40, 2),
     'C40': (f146, 40, 3),
     'D40': (f147, 40, 4),
@@ -4013,7 +4054,7 @@ CELLS = {
     'CD40': (f221, 40, 82),
     'CE40': (f222, 40, 83),
     'CF40': (f223, 40, 84),
-    'CG40': (f276, 40, 85),
+    'CG40': (f278, 40, 85),
     'CI40': (f225, 40, 87),
     'CJ40': (f226, 40, 88),
     'CK40': (f227, 40, 89),
@@ -4064,7 +4105,9 @@ CELLS = {
     'EI40': (f272, 40, 139),
     'EJ40': (f273, 40, 140),
     'EK40': (f274, 40, 141),
-    'A41': (f287, 41, 1),
+    'EL40': (f275, 40, 142),
+    'EM40': (f276, 40, 143),
+    'A41': (f289, 41, 1),
     'B41': (f145, 41, 2),
     'C41': (f146, 41, 3),
     'D41': (f147, 41, 4),
@@ -4146,7 +4189,7 @@ CELLS = {
     'CD41': (f221, 41, 82),
     'CE41': (f222, 41, 83),
     'CF41': (f223, 41, 84),
-    'CG41': (f276, 41, 85),
+    'CG41': (f278, 41, 85),
     'CI41': (f225, 41, 87),
     'CJ41': (f226, 41, 88),
     'CK41': (f227, 41, 89),
@@ -4197,7 +4240,9 @@ CELLS = {
     'EI41': (f272, 41, 139),
     'EJ41': (f273, 41, 140),
     'EK41': (f274, 41, 141),
-    'A42': (f288, 42, 1),
+    'EL41': (f275, 41, 142),
+    'EM41': (f276, 41, 143),
+    'A42': (f290, 42, 1),
     'B42': (f145, 42, 2),
     'C42': (f146, 42, 3),
     'D42': (f147, 42, 4),
@@ -4279,7 +4324,7 @@ CELLS = {
     'CD42': (f221, 42, 82),
     'CE42': (f222, 42, 83),
     'CF42': (f223, 42, 84),
-    'CG42': (f276, 42, 85),
+    'CG42': (f278, 42, 85),
     'CI42': (f225, 42, 87),
     'CJ42': (f226, 42, 88),
     'CK42': (f227, 42, 89),
@@ -4330,7 +4375,9 @@ CELLS = {
     'EI42': (f272, 42, 139),
     'EJ42': (f273, 42, 140),
     'EK42': (f274, 42, 141),
-    'A43': (f289, 43, 1),
+    'EL42': (f275, 42, 142),
+    'EM42': (f276, 42, 143),
+    'A43': (f291, 43, 1),
     'B43': (f145, 43, 2),
     'C43': (f146, 43, 3),
     'D43': (f147, 43, 4),
@@ -4412,7 +4459,7 @@ CELLS = {
     'CD43': (f221, 43, 82),
     'CE43': (f222, 43, 83),
     'CF43': (f223, 43, 84),
-    'CG43': (f276, 43, 85),
+    'CG43': (f278, 43, 85),
     'CI43': (f225, 43, 87),
     'CJ43': (f226, 43, 88),
     'CK43': (f227, 43, 89),
@@ -4463,7 +4510,9 @@ CELLS = {
     'EI43': (f272, 43, 139),
     'EJ43': (f273, 43, 140),
     'EK43': (f274, 43, 141),
-    'A44': (f290, 44, 1),
+    'EL43': (f275, 43, 142),
+    'EM43': (f276, 43, 143),
+    'A44': (f292, 44, 1),
     'B44': (f145, 44, 2),
     'C44': (f146, 44, 3),
     'D44': (f147, 44, 4),
@@ -4545,7 +4594,7 @@ CELLS = {
     'CD44': (f221, 44, 82),
     'CE44': (f222, 44, 83),
     'CF44': (f223, 44, 84),
-    'CG44': (f276, 44, 85),
+    'CG44': (f278, 44, 85),
     'CI44': (f225, 44, 87),
     'CJ44': (f226, 44, 88),
     'CK44': (f227, 44, 89),
@@ -4596,7 +4645,9 @@ CELLS = {
     'EI44': (f272, 44, 139),
     'EJ44': (f273, 44, 140),
     'EK44': (f274, 44, 141),
-    'A45': (f291, 45, 1),
+    'EL44': (f275, 44, 142),
+    'EM44': (f276, 44, 143),
+    'A45': (f293, 45, 1),
     'B45': (f145, 45, 2),
     'C45': (f146, 45, 3),
     'D45': (f147, 45, 4),
@@ -4678,7 +4729,7 @@ CELLS = {
     'CD45': (f221, 45, 82),
     'CE45': (f222, 45, 83),
     'CF45': (f223, 45, 84),
-    'CG45': (f276, 45, 85),
+    'CG45': (f278, 45, 85),
     'CI45': (f225, 45, 87),
     'CJ45': (f226, 45, 88),
     'CK45': (f227, 45, 89),
@@ -4729,7 +4780,9 @@ CELLS = {
     'EI45': (f272, 45, 139),
     'EJ45': (f273, 45, 140),
     'EK45': (f274, 45, 141),
-    'A46': (f292, 46, 1),
+    'EL45': (f275, 45, 142),
+    'EM45': (f276, 45, 143),
+    'A46': (f294, 46, 1),
     'B46': (f145, 46, 2),
     'C46': (f146, 46, 3),
     'D46': (f147, 46, 4),
@@ -4811,7 +4864,7 @@ CELLS = {
     'CD46': (f221, 46, 82),
     'CE46': (f222, 46, 83),
     'CF46': (f223, 46, 84),
-    'CG46': (f276, 46, 85),
+    'CG46': (f278, 46, 85),
     'CI46': (f225, 46, 87),
     'CJ46': (f226, 46, 88),
     'CK46': (f227, 46, 89),
@@ -4862,7 +4915,9 @@ CELLS = {
     'EI46': (f272, 46, 139),
     'EJ46': (f273, 46, 140),
     'EK46': (f274, 46, 141),
-    'A47': (f293, 47, 1),
+    'EL46': (f275, 46, 142),
+    'EM46': (f276, 46, 143),
+    'A47': (f295, 47, 1),
     'B47': (f145, 47, 2),
     'C47': (f146, 47, 3),
     'D47': (f147, 47, 4),
@@ -4944,7 +4999,7 @@ CELLS = {
     'CD47': (f221, 47, 82),
     'CE47': (f222, 47, 83),
     'CF47': (f223, 47, 84),
-    'CG47': (f276, 47, 85),
+    'CG47': (f278, 47, 85),
     'CI47': (f225, 47, 87),
     'CJ47': (f226, 47, 88),
     'CK47': (f227, 47, 89),
@@ -4995,7 +5050,9 @@ CELLS = {
     'EI47': (f272, 47, 139),
     'EJ47': (f273, 47, 140),
     'EK47': (f274, 47, 141),
-    'A48': (f294, 48, 1),
+    'EL47': (f275, 47, 142),
+    'EM47': (f276, 47, 143),
+    'A48': (f296, 48, 1),
     'B48': (f145, 48, 2),
     'C48': (f146, 48, 3),
     'D48': (f147, 48, 4),
@@ -5077,7 +5134,7 @@ CELLS = {
     'CD48': (f221, 48, 82),
     'CE48': (f222, 48, 83),
     'CF48': (f223, 48, 84),
-    'CG48': (f276, 48, 85),
+    'CG48': (f278, 48, 85),
     'CI48': (f225, 48, 87),
     'CJ48': (f226, 48, 88),
     'CK48': (f227, 48, 89),
@@ -5128,7 +5185,9 @@ CELLS = {
     'EI48': (f272, 48, 139),
     'EJ48': (f273, 48, 140),
     'EK48': (f274, 48, 141),
-    'A49': (f295, 49, 1),
+    'EL48': (f275, 48, 142),
+    'EM48': (f276, 48, 143),
+    'A49': (f297, 49, 1),
     'B49': (f145, 49, 2),
     'C49': (f146, 49, 3),
     'D49': (f147, 49, 4),
@@ -5210,7 +5269,7 @@ CELLS = {
     'CD49': (f221, 49, 82),
     'CE49': (f222, 49, 83),
     'CF49': (f223, 49, 84),
-    'CG49': (f276, 49, 85),
+    'CG49': (f278, 49, 85),
     'CI49': (f225, 49, 87),
     'CJ49': (f226, 49, 88),
     'CK49': (f227, 49, 89),
@@ -5261,7 +5320,9 @@ CELLS = {
     'EI49': (f272, 49, 139),
     'EJ49': (f273, 49, 140),
     'EK49': (f274, 49, 141),
-    'A50': (f296, 50, 1),
+    'EL49': (f275, 49, 142),
+    'EM49': (f276, 49, 143),
+    'A50': (f298, 50, 1),
     'B50': (f145, 50, 2),
     'C50': (f146, 50, 3),
     'D50': (f147, 50, 4),
@@ -5343,7 +5404,7 @@ CELLS = {
     'CD50': (f221, 50, 82),
     'CE50': (f222, 50, 83),
     'CF50': (f223, 50, 84),
-    'CG50': (f276, 50, 85),
+    'CG50': (f278, 50, 85),
     'CI50': (f225, 50, 87),
     'CJ50': (f226, 50, 88),
     'CK50': (f227, 50, 89),
@@ -5394,7 +5455,9 @@ CELLS = {
     'EI50': (f272, 50, 139),
     'EJ50': (f273, 50, 140),
     'EK50': (f274, 50, 141),
-    'A51': (f297, 51, 1),
+    'EL50': (f275, 50, 142),
+    'EM50': (f276, 50, 143),
+    'A51': (f299, 51, 1),
     'B51': (f145, 51, 2),
     'C51': (f146, 51, 3),
     'D51': (f147, 51, 4),
@@ -5476,7 +5539,7 @@ CELLS = {
     'CD51': (f221, 51, 82),
     'CE51': (f222, 51, 83),
     'CF51': (f223, 51, 84),
-    'CG51': (f276, 51, 85),
+    'CG51': (f278, 51, 85),
     'CI51': (f225, 51, 87),
     'CJ51': (f226, 51, 88),
     'CK51': (f227, 51, 89),
@@ -5527,7 +5590,9 @@ CELLS = {
     'EI51': (f272, 51, 139),
     'EJ51': (f273, 51, 140),
     'EK51': (f274, 51, 141),
-    'A52': (f298, 52, 1),
+    'EL51': (f275, 51, 142),
+    'EM51': (f276, 51, 143),
+    'A52': (f300, 52, 1),
     'B52': (f145, 52, 2),
     'C52': (f146, 52, 3),
     'D52': (f147, 52, 4),
@@ -5609,7 +5674,7 @@ CELLS = {
     'CD52': (f221, 52, 82),
     'CE52': (f222, 52, 83),
     'CF52': (f223, 52, 84),
-    'CG52': (f276, 52, 85),
+    'CG52': (f278, 52, 85),
     'CI52': (f225, 52, 87),
     'CJ52': (f226, 52, 88),
     'CK52': (f227, 52, 89),
@@ -5660,7 +5725,9 @@ CELLS = {
     'EI52': (f272, 52, 139),
     'EJ52': (f273, 52, 140),
     'EK52': (f274, 52, 141),
-    'A53': (f299, 53, 1),
+    'EL52': (f275, 52, 142),
+    'EM52': (f276, 52, 143),
+    'A53': (f301, 53, 1),
     'B53': (f145, 53, 2),
     'C53': (f146, 53, 3),
     'D53': (f147, 53, 4),
@@ -5742,7 +5809,7 @@ CELLS = {
     'CD53': (f221, 53, 82),
     'CE53': (f222, 53, 83),
     'CF53': (f223, 53, 84),
-    'CG53': (f276, 53, 85),
+    'CG53': (f278, 53, 85),
     'CI53': (f225, 53, 87),
     'CJ53': (f226, 53, 88),
     'CK53': (f227, 53, 89),
@@ -5793,7 +5860,9 @@ CELLS = {
     'EI53': (f272, 53, 139),
     'EJ53': (f273, 53, 140),
     'EK53': (f274, 53, 141),
-    'A54': (f300, 54, 1),
+    'EL53': (f275, 53, 142),
+    'EM53': (f276, 53, 143),
+    'A54': (f302, 54, 1),
     'B54': (f145, 54, 2),
     'C54': (f146, 54, 3),
     'D54': (f147, 54, 4),
@@ -5875,7 +5944,7 @@ CELLS = {
     'CD54': (f221, 54, 82),
     'CE54': (f222, 54, 83),
     'CF54': (f223, 54, 84),
-    'CG54': (f276, 54, 85),
+    'CG54': (f278, 54, 85),
     'CI54': (f225, 54, 87),
     'CJ54': (f226, 54, 88),
     'CK54': (f227, 54, 89),
@@ -5926,7 +5995,9 @@ CELLS = {
     'EI54': (f272, 54, 139),
     'EJ54': (f273, 54, 140),
     'EK54': (f274, 54, 141),
-    'A55': (f301, 55, 1),
+    'EL54': (f275, 54, 142),
+    'EM54': (f276, 54, 143),
+    'A55': (f303, 55, 1),
     'B55': (f145, 55, 2),
     'C55': (f146, 55, 3),
     'D55': (f147, 55, 4),
@@ -6008,7 +6079,7 @@ CELLS = {
     'CD55': (f221, 55, 82),
     'CE55': (f222, 55, 83),
     'CF55': (f223, 55, 84),
-    'CG55': (f276, 55, 85),
+    'CG55': (f278, 55, 85),
     'CI55': (f225, 55, 87),
     'CJ55': (f226, 55, 88),
     'CK55': (f227, 55, 89),
@@ -6059,7 +6130,9 @@ CELLS = {
     'EI55': (f272, 55, 139),
     'EJ55': (f273, 55, 140),
     'EK55': (f274, 55, 141),
-    'A56': (f302, 56, 1),
+    'EL55': (f275, 55, 142),
+    'EM55': (f276, 55, 143),
+    'A56': (f304, 56, 1),
     'B56': (f145, 56, 2),
     'C56': (f146, 56, 3),
     'D56': (f147, 56, 4),
@@ -6141,7 +6214,7 @@ CELLS = {
     'CD56': (f221, 56, 82),
     'CE56': (f222, 56, 83),
     'CF56': (f223, 56, 84),
-    'CG56': (f276, 56, 85),
+    'CG56': (f278, 56, 85),
     'CI56': (f225, 56, 87),
     'CJ56': (f226, 56, 88),
     'CK56': (f227, 56, 89),
@@ -6192,7 +6265,9 @@ CELLS = {
     'EI56': (f272, 56, 139),
     'EJ56': (f273, 56, 140),
     'EK56': (f274, 56, 141),
-    'A57': (f303, 57, 1),
+    'EL56': (f275, 56, 142),
+    'EM56': (f276, 56, 143),
+    'A57': (f305, 57, 1),
     'B57': (f145, 57, 2),
     'C57': (f146, 57, 3),
     'D57': (f147, 57, 4),
@@ -6274,7 +6349,7 @@ CELLS = {
     'CD57': (f221, 57, 82),
     'CE57': (f222, 57, 83),
     'CF57': (f223, 57, 84),
-    'CG57': (f276, 57, 85),
+    'CG57': (f278, 57, 85),
     'CI57': (f225, 57, 87),
     'CJ57': (f226, 57, 88),
     'CK57': (f227, 57, 89),
@@ -6325,7 +6400,9 @@ CELLS = {
     'EI57': (f272, 57, 139),
     'EJ57': (f273, 57, 140),
     'EK57': (f274, 57, 141),
-    'A58': (f304, 58, 1),
+    'EL57': (f275, 57, 142),
+    'EM57': (f276, 57, 143),
+    'A58': (f306, 58, 1),
     'B58': (f145, 58, 2),
     'C58': (f146, 58, 3),
     'D58': (f147, 58, 4),
@@ -6407,7 +6484,7 @@ CELLS = {
     'CD58': (f221, 58, 82),
     'CE58': (f222, 58, 83),
     'CF58': (f223, 58, 84),
-    'CG58': (f276, 58, 85),
+    'CG58': (f278, 58, 85),
     'CI58': (f225, 58, 87),
     'CJ58': (f226, 58, 88),
     'CK58': (f227, 58, 89),
@@ -6458,7 +6535,9 @@ CELLS = {
     'EI58': (f272, 58, 139),
     'EJ58': (f273, 58, 140),
     'EK58': (f274, 58, 141),
-    'A59': (f305, 59, 1),
+    'EL58': (f275, 58, 142),
+    'EM58': (f276, 58, 143),
+    'A59': (f307, 59, 1),
     'B59': (f145, 59, 2),
     'C59': (f146, 59, 3),
     'D59': (f147, 59, 4),
@@ -6540,7 +6619,7 @@ CELLS = {
     'CD59': (f221, 59, 82),
     'CE59': (f222, 59, 83),
     'CF59': (f223, 59, 84),
-    'CG59': (f276, 59, 85),
+    'CG59': (f278, 59, 85),
     'CI59': (f225, 59, 87),
     'CJ59': (f226, 59, 88),
     'CK59': (f227, 59, 89),
@@ -6591,7 +6670,9 @@ CELLS = {
     'EI59': (f272, 59, 139),
     'EJ59': (f273, 59, 140),
     'EK59': (f274, 59, 141),
-    'A60': (f306, 60, 1),
+    'EL59': (f275, 59, 142),
+    'EM59': (f276, 59, 143),
+    'A60': (f308, 60, 1),
     'B60': (f145, 60, 2),
     'C60': (f146, 60, 3),
     'D60': (f147, 60, 4),
@@ -6673,7 +6754,7 @@ CELLS = {
     'CD60': (f221, 60, 82),
     'CE60': (f222, 60, 83),
     'CF60': (f223, 60, 84),
-    'CG60': (f276, 60, 85),
+    'CG60': (f278, 60, 85),
     'CI60': (f225, 60, 87),
     'CJ60': (f226, 60, 88),
     'CK60': (f227, 60, 89),
@@ -6724,7 +6805,9 @@ CELLS = {
     'EI60': (f272, 60, 139),
     'EJ60': (f273, 60, 140),
     'EK60': (f274, 60, 141),
-    'A61': (f307, 61, 1),
+    'EL60': (f275, 60, 142),
+    'EM60': (f276, 60, 143),
+    'A61': (f309, 61, 1),
     'B61': (f145, 61, 2),
     'C61': (f146, 61, 3),
     'D61': (f147, 61, 4),
@@ -6806,7 +6889,7 @@ CELLS = {
     'CD61': (f221, 61, 82),
     'CE61': (f222, 61, 83),
     'CF61': (f223, 61, 84),
-    'CG61': (f276, 61, 85),
+    'CG61': (f278, 61, 85),
     'CI61': (f225, 61, 87),
     'CJ61': (f226, 61, 88),
     'CK61': (f227, 61, 89),
@@ -6857,7 +6940,9 @@ CELLS = {
     'EI61': (f272, 61, 139),
     'EJ61': (f273, 61, 140),
     'EK61': (f274, 61, 141),
-    'A62': (f308, 62, 1),
+    'EL61': (f275, 61, 142),
+    'EM61': (f276, 61, 143),
+    'A62': (f310, 62, 1),
     'B62': (f145, 62, 2),
     'C62': (f146, 62, 3),
     'D62': (f147, 62, 4),
@@ -6939,7 +7024,7 @@ CELLS = {
     'CD62': (f221, 62, 82),
     'CE62': (f222, 62, 83),
     'CF62': (f223, 62, 84),
-    'CG62': (f276, 62, 85),
+    'CG62': (f278, 62, 85),
     'CI62': (f225, 62, 87),
     'CJ62': (f226, 62, 88),
     'CK62': (f227, 62, 89),
@@ -6990,7 +7075,9 @@ CELLS = {
     'EI62': (f272, 62, 139),
     'EJ62': (f273, 62, 140),
     'EK62': (f274, 62, 141),
-    'A63': (f309, 63, 1),
+    'EL62': (f275, 62, 142),
+    'EM62': (f276, 62, 143),
+    'A63': (f311, 63, 1),
     'B63': (f145, 63, 2),
     'C63': (f146, 63, 3),
     'D63': (f147, 63, 4),
@@ -7072,7 +7159,7 @@ CELLS = {
     'CD63': (f221, 63, 82),
     'CE63': (f222, 63, 83),
     'CF63': (f223, 63, 84),
-    'CG63': (f276, 63, 85),
+    'CG63': (f278, 63, 85),
     'CI63': (f225, 63, 87),
     'CJ63': (f226, 63, 88),
     'CK63': (f227, 63, 89),
@@ -7123,7 +7210,9 @@ CELLS = {
     'EI63': (f272, 63, 139),
     'EJ63': (f273, 63, 140),
     'EK63': (f274, 63, 141),
-    'A64': (f310, 64, 1),
+    'EL63': (f275, 63, 142),
+    'EM63': (f276, 63, 143),
+    'A64': (f312, 64, 1),
     'B64': (f145, 64, 2),
     'C64': (f146, 64, 3),
     'D64': (f147, 64, 4),
@@ -7205,7 +7294,7 @@ CELLS = {
     'CD64': (f221, 64, 82),
     'CE64': (f222, 64, 83),
     'CF64': (f223, 64, 84),
-    'CG64': (f276, 64, 85),
+    'CG64': (f278, 64, 85),
     'CI64': (f225, 64, 87),
     'CJ64': (f226, 64, 88),
     'CK64': (f227, 64, 89),
@@ -7256,7 +7345,9 @@ CELLS = {
     'EI64': (f272, 64, 139),
     'EJ64': (f273, 64, 140),
     'EK64': (f274, 64, 141),
-    'A65': (f311, 65, 1),
+    'EL64': (f275, 64, 142),
+    'EM64': (f276, 64, 143),
+    'A65': (f313, 65, 1),
     'B65': (f145, 65, 2),
     'C65': (f146, 65, 3),
     'D65': (f147, 65, 4),
@@ -7338,7 +7429,7 @@ CELLS = {
     'CD65': (f221, 65, 82),
     'CE65': (f222, 65, 83),
     'CF65': (f223, 65, 84),
-    'CG65': (f276, 65, 85),
+    'CG65': (f278, 65, 85),
     'CI65': (f225, 65, 87),
     'CJ65': (f226, 65, 88),
     'CK65': (f227, 65, 89),
@@ -7389,7 +7480,9 @@ CELLS = {
     'EI65': (f272, 65, 139),
     'EJ65': (f273, 65, 140),
     'EK65': (f274, 65, 141),
-    'A66': (f312, 66, 1),
+    'EL65': (f275, 65, 142),
+    'EM65': (f276, 65, 143),
+    'A66': (f314, 66, 1),
     'B66': (f145, 66, 2),
     'C66': (f146, 66, 3),
     'D66': (f147, 66, 4),
@@ -7471,7 +7564,7 @@ CELLS = {
     'CD66': (f221, 66, 82),
     'CE66': (f222, 66, 83),
     'CF66': (f223, 66, 84),
-    'CG66': (f276, 66, 85),
+    'CG66': (f278, 66, 85),
     'CI66': (f225, 66, 87),
     'CJ66': (f226, 66, 88),
     'CK66': (f227, 66, 89),
@@ -7522,7 +7615,9 @@ CELLS = {
     'EI66': (f272, 66, 139),
     'EJ66': (f273, 66, 140),
     'EK66': (f274, 66, 141),
-    'A67': (f313, 67, 1),
+    'EL66': (f275, 66, 142),
+    'EM66': (f276, 66, 143),
+    'A67': (f315, 67, 1),
     'B67': (f145, 67, 2),
     'C67': (f146, 67, 3),
     'D67': (f147, 67, 4),
@@ -7604,7 +7699,7 @@ CELLS = {
     'CD67': (f221, 67, 82),
     'CE67': (f222, 67, 83),
     'CF67': (f223, 67, 84),
-    'CG67': (f276, 67, 85),
+    'CG67': (f278, 67, 85),
     'CI67': (f225, 67, 87),
     'CJ67': (f226, 67, 88),
     'CK67': (f227, 67, 89),
@@ -7655,7 +7750,9 @@ CELLS = {
     'EI67': (f272, 67, 139),
     'EJ67': (f273, 67, 140),
     'EK67': (f274, 67, 141),
-    'A68': (f314, 68, 1),
+    'EL67': (f275, 67, 142),
+    'EM67': (f276, 67, 143),
+    'A68': (f316, 68, 1),
     'B68': (f145, 68, 2),
     'C68': (f146, 68, 3),
     'D68': (f147, 68, 4),
@@ -7737,7 +7834,7 @@ CELLS = {
     'CD68': (f221, 68, 82),
     'CE68': (f222, 68, 83),
     'CF68': (f223, 68, 84),
-    'CG68': (f276, 68, 85),
+    'CG68': (f278, 68, 85),
     'CI68': (f225, 68, 87),
     'CJ68': (f226, 68, 88),
     'CK68': (f227, 68, 89),
@@ -7788,7 +7885,9 @@ CELLS = {
     'EI68': (f272, 68, 139),
     'EJ68': (f273, 68, 140),
     'EK68': (f274, 68, 141),
-    'A69': (f315, 69, 1),
+    'EL68': (f275, 68, 142),
+    'EM68': (f276, 68, 143),
+    'A69': (f317, 69, 1),
     'B69': (f145, 69, 2),
     'C69': (f146, 69, 3),
     'D69': (f147, 69, 4),
@@ -7870,7 +7969,7 @@ CELLS = {
     'CD69': (f221, 69, 82),
     'CE69': (f222, 69, 83),
     'CF69': (f223, 69, 84),
-    'CG69': (f276, 69, 85),
+    'CG69': (f278, 69, 85),
     'CI69': (f225, 69, 87),
     'CJ69': (f226, 69, 88),
     'CK69': (f227, 69, 89),
@@ -7921,7 +8020,9 @@ CELLS = {
     'EI69': (f272, 69, 139),
     'EJ69': (f273, 69, 140),
     'EK69': (f274, 69, 141),
-    'A70': (f316, 70, 1),
+    'EL69': (f275, 69, 142),
+    'EM69': (f276, 69, 143),
+    'A70': (f318, 70, 1),
     'B70': (f145, 70, 2),
     'C70': (f146, 70, 3),
     'D70': (f147, 70, 4),
@@ -8003,7 +8104,7 @@ CELLS = {
     'CD70': (f221, 70, 82),
     'CE70': (f222, 70, 83),
     'CF70': (f223, 70, 84),
-    'CG70': (f276, 70, 85),
+    'CG70': (f278, 70, 85),
     'CI70': (f225, 70, 87),
     'CJ70': (f226, 70, 88),
     'CK70': (f227, 70, 89),
@@ -8054,7 +8155,9 @@ CELLS = {
     'EI70': (f272, 70, 139),
     'EJ70': (f273, 70, 140),
     'EK70': (f274, 70, 141),
-    'A71': (f317, 71, 1),
+    'EL70': (f275, 70, 142),
+    'EM70': (f276, 70, 143),
+    'A71': (f319, 71, 1),
     'B71': (f145, 71, 2),
     'C71': (f146, 71, 3),
     'D71': (f147, 71, 4),
@@ -8136,7 +8239,7 @@ CELLS = {
     'CD71': (f221, 71, 82),
     'CE71': (f222, 71, 83),
     'CF71': (f223, 71, 84),
-    'CG71': (f276, 71, 85),
+    'CG71': (f278, 71, 85),
     'CI71': (f225, 71, 87),
     'CJ71': (f226, 71, 88),
     'CK71': (f227, 71, 89),
@@ -8187,7 +8290,9 @@ CELLS = {
     'EI71': (f272, 71, 139),
     'EJ71': (f273, 71, 140),
     'EK71': (f274, 71, 141),
-    'A72': (f318, 72, 1),
+    'EL71': (f275, 71, 142),
+    'EM71': (f276, 71, 143),
+    'A72': (f320, 72, 1),
     'B72': (f145, 72, 2),
     'C72': (f146, 72, 3),
     'D72': (f147, 72, 4),
@@ -8269,7 +8374,7 @@ CELLS = {
     'CD72': (f221, 72, 82),
     'CE72': (f222, 72, 83),
     'CF72': (f223, 72, 84),
-    'CG72': (f276, 72, 85),
+    'CG72': (f278, 72, 85),
     'CI72': (f225, 72, 87),
     'CJ72': (f226, 72, 88),
     'CK72': (f227, 72, 89),
@@ -8320,7 +8425,9 @@ CELLS = {
     'EI72': (f272, 72, 139),
     'EJ72': (f273, 72, 140),
     'EK72': (f274, 72, 141),
-    'A73': (f319, 73, 1),
+    'EL72': (f275, 72, 142),
+    'EM72': (f276, 72, 143),
+    'A73': (f321, 73, 1),
     'B73': (f145, 73, 2),
     'C73': (f146, 73, 3),
     'D73': (f147, 73, 4),
@@ -8402,7 +8509,7 @@ CELLS = {
     'CD73': (f221, 73, 82),
     'CE73': (f222, 73, 83),
     'CF73': (f223, 73, 84),
-    'CG73': (f276, 73, 85),
+    'CG73': (f278, 73, 85),
     'CI73': (f225, 73, 87),
     'CJ73': (f226, 73, 88),
     'CK73': (f227, 73, 89),
@@ -8453,7 +8560,9 @@ CELLS = {
     'EI73': (f272, 73, 139),
     'EJ73': (f273, 73, 140),
     'EK73': (f274, 73, 141),
-    'A74': (f320, 74, 1),
+    'EL73': (f275, 73, 142),
+    'EM73': (f276, 73, 143),
+    'A74': (f322, 74, 1),
     'B74': (f145, 74, 2),
     'C74': (f146, 74, 3),
     'D74': (f147, 74, 4),
@@ -8535,7 +8644,7 @@ CELLS = {
     'CD74': (f221, 74, 82),
     'CE74': (f222, 74, 83),
     'CF74': (f223, 74, 84),
-    'CG74': (f276, 74, 85),
+    'CG74': (f278, 74, 85),
     'CI74': (f225, 74, 87),
     'CJ74': (f226, 74, 88),
     'CK74': (f227, 74, 89),
@@ -8586,7 +8695,9 @@ CELLS = {
     'EI74': (f272, 74, 139),
     'EJ74': (f273, 74, 140),
     'EK74': (f274, 74, 141),
-    'A75': (f321, 75, 1),
+    'EL74': (f275, 74, 142),
+    'EM74': (f276, 74, 143),
+    'A75': (f323, 75, 1),
     'B75': (f145, 75, 2),
     'C75': (f146, 75, 3),
     'D75': (f147, 75, 4),
@@ -8668,7 +8779,7 @@ CELLS = {
     'CD75': (f221, 75, 82),
     'CE75': (f222, 75, 83),
     'CF75': (f223, 75, 84),
-    'CG75': (f276, 75, 85),
+    'CG75': (f278, 75, 85),
     'CI75': (f225, 75, 87),
     'CJ75': (f226, 75, 88),
     'CK75': (f227, 75, 89),
@@ -8719,7 +8830,9 @@ CELLS = {
     'EI75': (f272, 75, 139),
     'EJ75': (f273, 75, 140),
     'EK75': (f274, 75, 141),
-    'A76': (f322, 76, 1),
+    'EL75': (f275, 75, 142),
+    'EM75': (f276, 75, 143),
+    'A76': (f324, 76, 1),
     'B76': (f145, 76, 2),
     'C76': (f146, 76, 3),
     'D76': (f147, 76, 4),
@@ -8801,7 +8914,7 @@ CELLS = {
     'CD76': (f221, 76, 82),
     'CE76': (f222, 76, 83),
     'CF76': (f223, 76, 84),
-    'CG76': (f276, 76, 85),
+    'CG76': (f278, 76, 85),
     'CI76': (f225, 76, 87),
     'CJ76': (f226, 76, 88),
     'CK76': (f227, 76, 89),
@@ -8852,7 +8965,9 @@ CELLS = {
     'EI76': (f272, 76, 139),
     'EJ76': (f273, 76, 140),
     'EK76': (f274, 76, 141),
-    'A77': (f323, 77, 1),
+    'EL76': (f275, 76, 142),
+    'EM76': (f276, 76, 143),
+    'A77': (f325, 77, 1),
     'B77': (f145, 77, 2),
     'C77': (f146, 77, 3),
     'D77': (f147, 77, 4),
@@ -8934,7 +9049,7 @@ CELLS = {
     'CD77': (f221, 77, 82),
     'CE77': (f222, 77, 83),
     'CF77': (f223, 77, 84),
-    'CG77': (f276, 77, 85),
+    'CG77': (f278, 77, 85),
     'CI77': (f225, 77, 87),
     'CJ77': (f226, 77, 88),
     'CK77': (f227, 77, 89),
@@ -8985,7 +9100,9 @@ CELLS = {
     'EI77': (f272, 77, 139),
     'EJ77': (f273, 77, 140),
     'EK77': (f274, 77, 141),
-    'A78': (f324, 78, 1),
+    'EL77': (f275, 77, 142),
+    'EM77': (f276, 77, 143),
+    'A78': (f326, 78, 1),
     'B78': (f145, 78, 2),
     'C78': (f146, 78, 3),
     'D78': (f147, 78, 4),
@@ -9067,7 +9184,7 @@ CELLS = {
     'CD78': (f221, 78, 82),
     'CE78': (f222, 78, 83),
     'CF78': (f223, 78, 84),
-    'CG78': (f276, 78, 85),
+    'CG78': (f278, 78, 85),
     'CI78': (f225, 78, 87),
     'CJ78': (f226, 78, 88),
     'CK78': (f227, 78, 89),
@@ -9118,7 +9235,9 @@ CELLS = {
     'EI78': (f272, 78, 139),
     'EJ78': (f273, 78, 140),
     'EK78': (f274, 78, 141),
-    'A79': (f325, 79, 1),
+    'EL78': (f275, 78, 142),
+    'EM78': (f276, 78, 143),
+    'A79': (f327, 79, 1),
     'B79': (f145, 79, 2),
     'C79': (f146, 79, 3),
     'D79': (f147, 79, 4),
@@ -9200,7 +9319,7 @@ CELLS = {
     'CD79': (f221, 79, 82),
     'CE79': (f222, 79, 83),
     'CF79': (f223, 79, 84),
-    'CG79': (f276, 79, 85),
+    'CG79': (f278, 79, 85),
     'CI79': (f225, 79, 87),
     'CJ79': (f226, 79, 88),
     'CK79': (f227, 79, 89),
@@ -9251,7 +9370,9 @@ CELLS = {
     'EI79': (f272, 79, 139),
     'EJ79': (f273, 79, 140),
     'EK79': (f274, 79, 141),
-    'A80': (f326, 80, 1),
+    'EL79': (f275, 79, 142),
+    'EM79': (f276, 79, 143),
+    'A80': (f328, 80, 1),
     'B80': (f145, 80, 2),
     'C80': (f146, 80, 3),
     'D80': (f147, 80, 4),
@@ -9333,7 +9454,7 @@ CELLS = {
     'CD80': (f221, 80, 82),
     'CE80': (f222, 80, 83),
     'CF80': (f223, 80, 84),
-    'CG80': (f276, 80, 85),
+    'CG80': (f278, 80, 85),
     'CI80': (f225, 80, 87),
     'CJ80': (f226, 80, 88),
     'CK80': (f227, 80, 89),
@@ -9384,7 +9505,9 @@ CELLS = {
     'EI80': (f272, 80, 139),
     'EJ80': (f273, 80, 140),
     'EK80': (f274, 80, 141),
-    'A81': (f327, 81, 1),
+    'EL80': (f275, 80, 142),
+    'EM80': (f276, 80, 143),
+    'A81': (f329, 81, 1),
     'B81': (f145, 81, 2),
     'C81': (f146, 81, 3),
     'D81': (f147, 81, 4),
@@ -9466,7 +9589,7 @@ CELLS = {
     'CD81': (f221, 81, 82),
     'CE81': (f222, 81, 83),
     'CF81': (f223, 81, 84),
-    'CG81': (f276, 81, 85),
+    'CG81': (f278, 81, 85),
     'CI81': (f225, 81, 87),
     'CJ81': (f226, 81, 88),
     'CK81': (f227, 81, 89),
@@ -9517,7 +9640,9 @@ CELLS = {
     'EI81': (f272, 81, 139),
     'EJ81': (f273, 81, 140),
     'EK81': (f274, 81, 141),
-    'A82': (f328, 82, 1),
+    'EL81': (f275, 81, 142),
+    'EM81': (f276, 81, 143),
+    'A82': (f330, 82, 1),
     'B82': (f145, 82, 2),
     'C82': (f146, 82, 3),
     'D82': (f147, 82, 4),
@@ -9599,7 +9724,7 @@ CELLS = {
     'CD82': (f221, 82, 82),
     'CE82': (f222, 82, 83),
     'CF82': (f223, 82, 84),
-    'CG82': (f276, 82, 85),
+    'CG82': (f278, 82, 85),
     'CI82': (f225, 82, 87),
     'CJ82': (f226, 82, 88),
     'CK82': (f227, 82, 89),
@@ -9650,7 +9775,9 @@ CELLS = {
     'EI82': (f272, 82, 139),
     'EJ82': (f273, 82, 140),
     'EK82': (f274, 82, 141),
-    'A83': (f329, 83, 1),
+    'EL82': (f275, 82, 142),
+    'EM82': (f276, 82, 143),
+    'A83': (f331, 83, 1),
     'B83': (f145, 83, 2),
     'C83': (f146, 83, 3),
     'D83': (f147, 83, 4),
@@ -9732,7 +9859,7 @@ CELLS = {
     'CD83': (f221, 83, 82),
     'CE83': (f222, 83, 83),
     'CF83': (f223, 83, 84),
-    'CG83': (f276, 83, 85),
+    'CG83': (f278, 83, 85),
     'CI83': (f225, 83, 87),
     'CJ83': (f226, 83, 88),
     'CK83': (f227, 83, 89),
@@ -9783,7 +9910,9 @@ CELLS = {
     'EI83': (f272, 83, 139),
     'EJ83': (f273, 83, 140),
     'EK83': (f274, 83, 141),
-    'A84': (f330, 84, 1),
+    'EL83': (f275, 83, 142),
+    'EM83': (f276, 83, 143),
+    'A84': (f332, 84, 1),
     'B84': (f145, 84, 2),
     'C84': (f146, 84, 3),
     'D84': (f147, 84, 4),
@@ -9865,7 +9994,7 @@ CELLS = {
     'CD84': (f221, 84, 82),
     'CE84': (f222, 84, 83),
     'CF84': (f223, 84, 84),
-    'CG84': (f276, 84, 85),
+    'CG84': (f278, 84, 85),
     'CI84': (f225, 84, 87),
     'CJ84': (f226, 84, 88),
     'CK84': (f227, 84, 89),
@@ -9916,7 +10045,9 @@ CELLS = {
     'EI84': (f272, 84, 139),
     'EJ84': (f273, 84, 140),
     'EK84': (f274, 84, 141),
-    'A85': (f331, 85, 1),
+    'EL84': (f275, 84, 142),
+    'EM84': (f276, 84, 143),
+    'A85': (f333, 85, 1),
     'B85': (f145, 85, 2),
     'C85': (f146, 85, 3),
     'D85': (f147, 85, 4),
@@ -9998,7 +10129,7 @@ CELLS = {
     'CD85': (f221, 85, 82),
     'CE85': (f222, 85, 83),
     'CF85': (f223, 85, 84),
-    'CG85': (f276, 85, 85),
+    'CG85': (f278, 85, 85),
     'CI85': (f225, 85, 87),
     'CJ85': (f226, 85, 88),
     'CK85': (f227, 85, 89),
@@ -10049,7 +10180,9 @@ CELLS = {
     'EI85': (f272, 85, 139),
     'EJ85': (f273, 85, 140),
     'EK85': (f274, 85, 141),
-    'A86': (f332, 86, 1),
+    'EL85': (f275, 85, 142),
+    'EM85': (f276, 85, 143),
+    'A86': (f334, 86, 1),
     'B86': (f145, 86, 2),
     'C86': (f146, 86, 3),
     'D86': (f147, 86, 4),
@@ -10131,7 +10264,7 @@ CELLS = {
     'CD86': (f221, 86, 82),
     'CE86': (f222, 86, 83),
     'CF86': (f223, 86, 84),
-    'CG86': (f276, 86, 85),
+    'CG86': (f278, 86, 85),
     'CI86': (f225, 86, 87),
     'CJ86': (f226, 86, 88),
     'CK86': (f227, 86, 89),
@@ -10182,7 +10315,9 @@ CELLS = {
     'EI86': (f272, 86, 139),
     'EJ86': (f273, 86, 140),
     'EK86': (f274, 86, 141),
-    'A87': (f333, 87, 1),
+    'EL86': (f275, 86, 142),
+    'EM86': (f276, 86, 143),
+    'A87': (f335, 87, 1),
     'B87': (f145, 87, 2),
     'C87': (f146, 87, 3),
     'D87': (f147, 87, 4),
@@ -10264,7 +10399,7 @@ CELLS = {
     'CD87': (f221, 87, 82),
     'CE87': (f222, 87, 83),
     'CF87': (f223, 87, 84),
-    'CG87': (f276, 87, 85),
+    'CG87': (f278, 87, 85),
     'CI87': (f225, 87, 87),
     'CJ87': (f226, 87, 88),
     'CK87': (f227, 87, 89),
@@ -10315,7 +10450,9 @@ CELLS = {
     'EI87': (f272, 87, 139),
     'EJ87': (f273, 87, 140),
     'EK87': (f274, 87, 141),
-    'A88': (f334, 88, 1),
+    'EL87': (f275, 87, 142),
+    'EM87': (f276, 87, 143),
+    'A88': (f336, 88, 1),
     'B88': (f145, 88, 2),
     'C88': (f146, 88, 3),
     'D88': (f147, 88, 4),
@@ -10397,7 +10534,7 @@ CELLS = {
     'CD88': (f221, 88, 82),
     'CE88': (f222, 88, 83),
     'CF88': (f223, 88, 84),
-    'CG88': (f276, 88, 85),
+    'CG88': (f278, 88, 85),
     'CI88': (f225, 88, 87),
     'CJ88': (f226, 88, 88),
     'CK88': (f227, 88, 89),
@@ -10448,7 +10585,9 @@ CELLS = {
     'EI88': (f272, 88, 139),
     'EJ88': (f273, 88, 140),
     'EK88': (f274, 88, 141),
-    'A89': (f335, 89, 1),
+    'EL88': (f275, 88, 142),
+    'EM88': (f276, 88, 143),
+    'A89': (f337, 89, 1),
     'B89': (f145, 89, 2),
     'C89': (f146, 89, 3),
     'D89': (f147, 89, 4),
@@ -10530,7 +10669,7 @@ CELLS = {
     'CD89': (f221, 89, 82),
     'CE89': (f222, 89, 83),
     'CF89': (f223, 89, 84),
-    'CG89': (f276, 89, 85),
+    'CG89': (f278, 89, 85),
     'CI89': (f225, 89, 87),
     'CJ89': (f226, 89, 88),
     'CK89': (f227, 89, 89),
@@ -10581,7 +10720,9 @@ CELLS = {
     'EI89': (f272, 89, 139),
     'EJ89': (f273, 89, 140),
     'EK89': (f274, 89, 141),
-    'A90': (f336, 90, 1),
+    'EL89': (f275, 89, 142),
+    'EM89': (f276, 89, 143),
+    'A90': (f338, 90, 1),
     'B90': (f145, 90, 2),
     'C90': (f146, 90, 3),
     'D90': (f147, 90, 4),
@@ -10663,7 +10804,7 @@ CELLS = {
     'CD90': (f221, 90, 82),
     'CE90': (f222, 90, 83),
     'CF90': (f223, 90, 84),
-    'CG90': (f276, 90, 85),
+    'CG90': (f278, 90, 85),
     'CI90': (f225, 90, 87),
     'CJ90': (f226, 90, 88),
     'CK90': (f227, 90, 89),
@@ -10714,7 +10855,9 @@ CELLS = {
     'EI90': (f272, 90, 139),
     'EJ90': (f273, 90, 140),
     'EK90': (f274, 90, 141),
-    'A91': (f337, 91, 1),
+    'EL90': (f275, 90, 142),
+    'EM90': (f276, 90, 143),
+    'A91': (f339, 91, 1),
     'B91': (f145, 91, 2),
     'C91': (f146, 91, 3),
     'D91': (f147, 91, 4),
@@ -10796,7 +10939,7 @@ CELLS = {
     'CD91': (f221, 91, 82),
     'CE91': (f222, 91, 83),
     'CF91': (f223, 91, 84),
-    'CG91': (f276, 91, 85),
+    'CG91': (f278, 91, 85),
     'CI91': (f225, 91, 87),
     'CJ91': (f226, 91, 88),
     'CK91': (f227, 91, 89),
@@ -10847,7 +10990,9 @@ CELLS = {
     'EI91': (f272, 91, 139),
     'EJ91': (f273, 91, 140),
     'EK91': (f274, 91, 141),
-    'A92': (f338, 92, 1),
+    'EL91': (f275, 91, 142),
+    'EM91': (f276, 91, 143),
+    'A92': (f340, 92, 1),
     'B92': (f145, 92, 2),
     'C92': (f146, 92, 3),
     'D92': (f147, 92, 4),
@@ -10929,7 +11074,7 @@ CELLS = {
     'CD92': (f221, 92, 82),
     'CE92': (f222, 92, 83),
     'CF92': (f223, 92, 84),
-    'CG92': (f276, 92, 85),
+    'CG92': (f278, 92, 85),
     'CI92': (f225, 92, 87),
     'CJ92': (f226, 92, 88),
     'CK92': (f227, 92, 89),
@@ -10980,7 +11125,9 @@ CELLS = {
     'EI92': (f272, 92, 139),
     'EJ92': (f273, 92, 140),
     'EK92': (f274, 92, 141),
-    'A93': (f339, 93, 1),
+    'EL92': (f275, 92, 142),
+    'EM92': (f276, 92, 143),
+    'A93': (f341, 93, 1),
     'B93': (f145, 93, 2),
     'C93': (f146, 93, 3),
     'D93': (f147, 93, 4),
@@ -11062,7 +11209,7 @@ CELLS = {
     'CD93': (f221, 93, 82),
     'CE93': (f222, 93, 83),
     'CF93': (f223, 93, 84),
-    'CG93': (f276, 93, 85),
+    'CG93': (f278, 93, 85),
     'CI93': (f225, 93, 87),
     'CJ93': (f226, 93, 88),
     'CK93': (f227, 93, 89),
@@ -11113,7 +11260,9 @@ CELLS = {
     'EI93': (f272, 93, 139),
     'EJ93': (f273, 93, 140),
     'EK93': (f274, 93, 141),
-    'A94': (f340, 94, 1),
+    'EL93': (f275, 93, 142),
+    'EM93': (f276, 93, 143),
+    'A94': (f342, 94, 1),
     'B94': (f145, 94, 2),
     'C94': (f146, 94, 3),
     'D94': (f147, 94, 4),
@@ -11195,7 +11344,7 @@ CELLS = {
     'CD94': (f221, 94, 82),
     'CE94': (f222, 94, 83),
     'CF94': (f223, 94, 84),
-    'CG94': (f276, 94, 85),
+    'CG94': (f278, 94, 85),
     'CI94': (f225, 94, 87),
     'CJ94': (f226, 94, 88),
     'CK94': (f227, 94, 89),
@@ -11246,7 +11395,9 @@ CELLS = {
     'EI94': (f272, 94, 139),
     'EJ94': (f273, 94, 140),
     'EK94': (f274, 94, 141),
-    'A95': (f341, 95, 1),
+    'EL94': (f275, 94, 142),
+    'EM94': (f276, 94, 143),
+    'A95': (f343, 95, 1),
     'B95': (f145, 95, 2),
     'C95': (f146, 95, 3),
     'D95': (f147, 95, 4),
@@ -11328,7 +11479,7 @@ CELLS = {
     'CD95': (f221, 95, 82),
     'CE95': (f222, 95, 83),
     'CF95': (f223, 95, 84),
-    'CG95': (f276, 95, 85),
+    'CG95': (f278, 95, 85),
     'CI95': (f225, 95, 87),
     'CJ95': (f226, 95, 88),
     'CK95': (f227, 95, 89),
@@ -11379,7 +11530,9 @@ CELLS = {
     'EI95': (f272, 95, 139),
     'EJ95': (f273, 95, 140),
     'EK95': (f274, 95, 141),
-    'A96': (f342, 96, 1),
+    'EL95': (f275, 95, 142),
+    'EM95': (f276, 95, 143),
+    'A96': (f344, 96, 1),
     'B96': (f145, 96, 2),
     'C96': (f146, 96, 3),
     'D96': (f147, 96, 4),
@@ -11461,7 +11614,7 @@ CELLS = {
     'CD96': (f221, 96, 82),
     'CE96': (f222, 96, 83),
     'CF96': (f223, 96, 84),
-    'CG96': (f276, 96, 85),
+    'CG96': (f278, 96, 85),
     'CI96': (f225, 96, 87),
     'CJ96': (f226, 96, 88),
     'CK96': (f227, 96, 89),
@@ -11512,7 +11665,9 @@ CELLS = {
     'EI96': (f272, 96, 139),
     'EJ96': (f273, 96, 140),
     'EK96': (f274, 96, 141),
-    'A97': (f343, 97, 1),
+    'EL96': (f275, 96, 142),
+    'EM96': (f276, 96, 143),
+    'A97': (f345, 97, 1),
     'B97': (f145, 97, 2),
     'C97': (f146, 97, 3),
     'D97': (f147, 97, 4),
@@ -11594,7 +11749,7 @@ CELLS = {
     'CD97': (f221, 97, 82),
     'CE97': (f222, 97, 83),
     'CF97': (f223, 97, 84),
-    'CG97': (f276, 97, 85),
+    'CG97': (f278, 97, 85),
     'CI97': (f225, 97, 87),
     'CJ97': (f226, 97, 88),
     'CK97': (f227, 97, 89),
@@ -11645,7 +11800,9 @@ CELLS = {
     'EI97': (f272, 97, 139),
     'EJ97': (f273, 97, 140),
     'EK97': (f274, 97, 141),
-    'A98': (f344, 98, 1),
+    'EL97': (f275, 97, 142),
+    'EM97': (f276, 97, 143),
+    'A98': (f346, 98, 1),
     'B98': (f145, 98, 2),
     'C98': (f146, 98, 3),
     'D98': (f147, 98, 4),
@@ -11727,7 +11884,7 @@ CELLS = {
     'CD98': (f221, 98, 82),
     'CE98': (f222, 98, 83),
     'CF98': (f223, 98, 84),
-    'CG98': (f276, 98, 85),
+    'CG98': (f278, 98, 85),
     'CI98': (f225, 98, 87),
     'CJ98': (f226, 98, 88),
     'CK98': (f227, 98, 89),
@@ -11778,7 +11935,9 @@ CELLS = {
     'EI98': (f272, 98, 139),
     'EJ98': (f273, 98, 140),
     'EK98': (f274, 98, 141),
-    'A99': (f345, 99, 1),
+    'EL98': (f275, 98, 142),
+    'EM98': (f276, 98, 143),
+    'A99': (f347, 99, 1),
     'B99': (f145, 99, 2),
     'C99': (f146, 99, 3),
     'D99': (f147, 99, 4),
@@ -11860,7 +12019,7 @@ CELLS = {
     'CD99': (f221, 99, 82),
     'CE99': (f222, 99, 83),
     'CF99': (f223, 99, 84),
-    'CG99': (f276, 99, 85),
+    'CG99': (f278, 99, 85),
     'CI99': (f225, 99, 87),
     'CJ99': (f226, 99, 88),
     'CK99': (f227, 99, 89),
@@ -11911,7 +12070,9 @@ CELLS = {
     'EI99': (f272, 99, 139),
     'EJ99': (f273, 99, 140),
     'EK99': (f274, 99, 141),
-    'A100': (f346, 100, 1),
+    'EL99': (f275, 99, 142),
+    'EM99': (f276, 99, 143),
+    'A100': (f348, 100, 1),
     'B100': (f145, 100, 2),
     'C100': (f146, 100, 3),
     'D100': (f147, 100, 4),
@@ -11993,7 +12154,7 @@ CELLS = {
     'CD100': (f221, 100, 82),
     'CE100': (f222, 100, 83),
     'CF100': (f223, 100, 84),
-    'CG100': (f276, 100, 85),
+    'CG100': (f278, 100, 85),
     'CI100': (f225, 100, 87),
     'CJ100': (f226, 100, 88),
     'CK100': (f227, 100, 89),
@@ -12044,7 +12205,9 @@ CELLS = {
     'EI100': (f272, 100, 139),
     'EJ100': (f273, 100, 140),
     'EK100': (f274, 100, 141),
-    'A101': (f347, 101, 1),
+    'EL100': (f275, 100, 142),
+    'EM100': (f276, 100, 143),
+    'A101': (f349, 101, 1),
     'B101': (f145, 101, 2),
     'C101': (f146, 101, 3),
     'D101': (f147, 101, 4),
@@ -12126,7 +12289,7 @@ CELLS = {
     'CD101': (f221, 101, 82),
     'CE101': (f222, 101, 83),
     'CF101': (f223, 101, 84),
-    'CG101': (f276, 101, 85),
+    'CG101': (f278, 101, 85),
     'CI101': (f225, 101, 87),
     'CJ101': (f226, 101, 88),
     'CK101': (f227, 101, 89),
@@ -12177,7 +12340,9 @@ CELLS = {
     'EI101': (f272, 101, 139),
     'EJ101': (f273, 101, 140),
     'EK101': (f274, 101, 141),
-    'A102': (f348, 102, 1),
+    'EL101': (f275, 101, 142),
+    'EM101': (f276, 101, 143),
+    'A102': (f350, 102, 1),
     'B102': (f145, 102, 2),
     'C102': (f146, 102, 3),
     'D102': (f147, 102, 4),
@@ -12259,7 +12424,7 @@ CELLS = {
     'CD102': (f221, 102, 82),
     'CE102': (f222, 102, 83),
     'CF102': (f223, 102, 84),
-    'CG102': (f276, 102, 85),
+    'CG102': (f278, 102, 85),
     'CI102': (f225, 102, 87),
     'CJ102': (f226, 102, 88),
     'CK102': (f227, 102, 89),
@@ -12310,7 +12475,9 @@ CELLS = {
     'EI102': (f272, 102, 139),
     'EJ102': (f273, 102, 140),
     'EK102': (f274, 102, 141),
-    'A103': (f349, 103, 1),
+    'EL102': (f275, 102, 142),
+    'EM102': (f276, 102, 143),
+    'A103': (f351, 103, 1),
     'B103': (f145, 103, 2),
     'C103': (f146, 103, 3),
     'D103': (f147, 103, 4),
@@ -12392,7 +12559,7 @@ CELLS = {
     'CD103': (f221, 103, 82),
     'CE103': (f222, 103, 83),
     'CF103': (f223, 103, 84),
-    'CG103': (f276, 103, 85),
+    'CG103': (f278, 103, 85),
     'CI103': (f225, 103, 87),
     'CJ103': (f226, 103, 88),
     'CK103': (f227, 103, 89),
@@ -12443,7 +12610,9 @@ CELLS = {
     'EI103': (f272, 103, 139),
     'EJ103': (f273, 103, 140),
     'EK103': (f274, 103, 141),
-    'A104': (f350, 104, 1),
+    'EL103': (f275, 103, 142),
+    'EM103': (f276, 103, 143),
+    'A104': (f352, 104, 1),
     'B104': (f145, 104, 2),
     'C104': (f146, 104, 3),
     'D104': (f147, 104, 4),
@@ -12525,7 +12694,7 @@ CELLS = {
     'CD104': (f221, 104, 82),
     'CE104': (f222, 104, 83),
     'CF104': (f223, 104, 84),
-    'CG104': (f276, 104, 85),
+    'CG104': (f278, 104, 85),
     'CI104': (f225, 104, 87),
     'CJ104': (f226, 104, 88),
     'CK104': (f227, 104, 89),
@@ -12576,7 +12745,9 @@ CELLS = {
     'EI104': (f272, 104, 139),
     'EJ104': (f273, 104, 140),
     'EK104': (f274, 104, 141),
-    'A105': (f351, 105, 1),
+    'EL104': (f275, 104, 142),
+    'EM104': (f276, 104, 143),
+    'A105': (f353, 105, 1),
     'B105': (f145, 105, 2),
     'C105': (f146, 105, 3),
     'D105': (f147, 105, 4),
@@ -12658,7 +12829,7 @@ CELLS = {
     'CD105': (f221, 105, 82),
     'CE105': (f222, 105, 83),
     'CF105': (f223, 105, 84),
-    'CG105': (f276, 105, 85),
+    'CG105': (f278, 105, 85),
     'CI105': (f225, 105, 87),
     'CJ105': (f226, 105, 88),
     'CK105': (f227, 105, 89),
@@ -12709,7 +12880,9 @@ CELLS = {
     'EI105': (f272, 105, 139),
     'EJ105': (f273, 105, 140),
     'EK105': (f274, 105, 141),
-    'A106': (f352, 106, 1),
+    'EL105': (f275, 105, 142),
+    'EM105': (f276, 105, 143),
+    'A106': (f354, 106, 1),
     'B106': (f145, 106, 2),
     'C106': (f146, 106, 3),
     'D106': (f147, 106, 4),
@@ -12791,7 +12964,7 @@ CELLS = {
     'CD106': (f221, 106, 82),
     'CE106': (f222, 106, 83),
     'CF106': (f223, 106, 84),
-    'CG106': (f276, 106, 85),
+    'CG106': (f278, 106, 85),
     'CI106': (f225, 106, 87),
     'CJ106': (f226, 106, 88),
     'CK106': (f227, 106, 89),
@@ -12842,7 +13015,9 @@ CELLS = {
     'EI106': (f272, 106, 139),
     'EJ106': (f273, 106, 140),
     'EK106': (f274, 106, 141),
-    'A107': (f353, 107, 1),
+    'EL106': (f275, 106, 142),
+    'EM106': (f276, 106, 143),
+    'A107': (f355, 107, 1),
     'B107': (f145, 107, 2),
     'C107': (f146, 107, 3),
     'D107': (f147, 107, 4),
@@ -12924,7 +13099,7 @@ CELLS = {
     'CD107': (f221, 107, 82),
     'CE107': (f222, 107, 83),
     'CF107': (f223, 107, 84),
-    'CG107': (f276, 107, 85),
+    'CG107': (f278, 107, 85),
     'CI107': (f225, 107, 87),
     'CJ107': (f226, 107, 88),
     'CK107': (f227, 107, 89),
@@ -12975,7 +13150,9 @@ CELLS = {
     'EI107': (f272, 107, 139),
     'EJ107': (f273, 107, 140),
     'EK107': (f274, 107, 141),
-    'A108': (f354, 108, 1),
+    'EL107': (f275, 107, 142),
+    'EM107': (f276, 107, 143),
+    'A108': (f356, 108, 1),
     'B108': (f145, 108, 2),
     'C108': (f146, 108, 3),
     'D108': (f147, 108, 4),
@@ -13057,7 +13234,7 @@ CELLS = {
     'CD108': (f221, 108, 82),
     'CE108': (f222, 108, 83),
     'CF108': (f223, 108, 84),
-    'CG108': (f276, 108, 85),
+    'CG108': (f278, 108, 85),
     'CI108': (f225, 108, 87),
     'CJ108': (f226, 108, 88),
     'CK108': (f227, 108, 89),
@@ -13108,7 +13285,9 @@ CELLS = {
     'EI108': (f272, 108, 139),
     'EJ108': (f273, 108, 140),
     'EK108': (f274, 108, 141),
-    'A109': (f355, 109, 1),
+    'EL108': (f275, 108, 142),
+    'EM108': (f276, 108, 143),
+    'A109': (f357, 109, 1),
     'B109': (f145, 109, 2),
     'C109': (f146, 109, 3),
     'D109': (f147, 109, 4),
@@ -13190,7 +13369,7 @@ CELLS = {
     'CD109': (f221, 109, 82),
     'CE109': (f222, 109, 83),
     'CF109': (f223, 109, 84),
-    'CG109': (f276, 109, 85),
+    'CG109': (f278, 109, 85),
     'CI109': (f225, 109, 87),
     'CJ109': (f226, 109, 88),
     'CK109': (f227, 109, 89),
@@ -13241,7 +13420,9 @@ CELLS = {
     'EI109': (f272, 109, 139),
     'EJ109': (f273, 109, 140),
     'EK109': (f274, 109, 141),
-    'A110': (f356, 110, 1),
+    'EL109': (f275, 109, 142),
+    'EM109': (f276, 109, 143),
+    'A110': (f358, 110, 1),
     'B110': (f145, 110, 2),
     'C110': (f146, 110, 3),
     'D110': (f147, 110, 4),
@@ -13323,7 +13504,7 @@ CELLS = {
     'CD110': (f221, 110, 82),
     'CE110': (f222, 110, 83),
     'CF110': (f223, 110, 84),
-    'CG110': (f276, 110, 85),
+    'CG110': (f278, 110, 85),
     'CI110': (f225, 110, 87),
     'CJ110': (f226, 110, 88),
     'CK110': (f227, 110, 89),
@@ -13374,7 +13555,9 @@ CELLS = {
     'EI110': (f272, 110, 139),
     'EJ110': (f273, 110, 140),
     'EK110': (f274, 110, 141),
-    'A111': (f357, 111, 1),
+    'EL110': (f275, 110, 142),
+    'EM110': (f276, 110, 143),
+    'A111': (f359, 111, 1),
     'B111': (f145, 111, 2),
     'C111': (f146, 111, 3),
     'D111': (f147, 111, 4),
@@ -13456,7 +13639,7 @@ CELLS = {
     'CD111': (f221, 111, 82),
     'CE111': (f222, 111, 83),
     'CF111': (f223, 111, 84),
-    'CG111': (f276, 111, 85),
+    'CG111': (f278, 111, 85),
     'CI111': (f225, 111, 87),
     'CJ111': (f226, 111, 88),
     'CK111': (f227, 111, 89),
@@ -13507,7 +13690,9 @@ CELLS = {
     'EI111': (f272, 111, 139),
     'EJ111': (f273, 111, 140),
     'EK111': (f274, 111, 141),
-    'A112': (f358, 112, 1),
+    'EL111': (f275, 111, 142),
+    'EM111': (f276, 111, 143),
+    'A112': (f360, 112, 1),
     'B112': (f145, 112, 2),
     'C112': (f146, 112, 3),
     'D112': (f147, 112, 4),
@@ -13589,7 +13774,7 @@ CELLS = {
     'CD112': (f221, 112, 82),
     'CE112': (f222, 112, 83),
     'CF112': (f223, 112, 84),
-    'CG112': (f276, 112, 85),
+    'CG112': (f278, 112, 85),
     'CI112': (f225, 112, 87),
     'CJ112': (f226, 112, 88),
     'CK112': (f227, 112, 89),
@@ -13640,7 +13825,9 @@ CELLS = {
     'EI112': (f272, 112, 139),
     'EJ112': (f273, 112, 140),
     'EK112': (f274, 112, 141),
-    'A113': (f359, 113, 1),
+    'EL112': (f275, 112, 142),
+    'EM112': (f276, 112, 143),
+    'A113': (f361, 113, 1),
     'B113': (f145, 113, 2),
     'C113': (f146, 113, 3),
     'D113': (f147, 113, 4),
@@ -13722,7 +13909,7 @@ CELLS = {
     'CD113': (f221, 113, 82),
     'CE113': (f222, 113, 83),
     'CF113': (f223, 113, 84),
-    'CG113': (f276, 113, 85),
+    'CG113': (f278, 113, 85),
     'CI113': (f225, 113, 87),
     'CJ113': (f226, 113, 88),
     'CK113': (f227, 113, 89),
@@ -13773,7 +13960,9 @@ CELLS = {
     'EI113': (f272, 113, 139),
     'EJ113': (f273, 113, 140),
     'EK113': (f274, 113, 141),
-    'A114': (f360, 114, 1),
+    'EL113': (f275, 113, 142),
+    'EM113': (f276, 113, 143),
+    'A114': (f362, 114, 1),
     'B114': (f145, 114, 2),
     'C114': (f146, 114, 3),
     'D114': (f147, 114, 4),
@@ -13855,7 +14044,7 @@ CELLS = {
     'CD114': (f221, 114, 82),
     'CE114': (f222, 114, 83),
     'CF114': (f223, 114, 84),
-    'CG114': (f276, 114, 85),
+    'CG114': (f278, 114, 85),
     'CI114': (f225, 114, 87),
     'CJ114': (f226, 114, 88),
     'CK114': (f227, 114, 89),
@@ -13906,7 +14095,9 @@ CELLS = {
     'EI114': (f272, 114, 139),
     'EJ114': (f273, 114, 140),
     'EK114': (f274, 114, 141),
-    'A115': (f361, 115, 1),
+    'EL114': (f275, 114, 142),
+    'EM114': (f276, 114, 143),
+    'A115': (f363, 115, 1),
     'B115': (f145, 115, 2),
     'C115': (f146, 115, 3),
     'D115': (f147, 115, 4),
@@ -13988,7 +14179,7 @@ CELLS = {
     'CD115': (f221, 115, 82),
     'CE115': (f222, 115, 83),
     'CF115': (f223, 115, 84),
-    'CG115': (f276, 115, 85),
+    'CG115': (f278, 115, 85),
     'CI115': (f225, 115, 87),
     'CJ115': (f226, 115, 88),
     'CK115': (f227, 115, 89),
@@ -14039,7 +14230,9 @@ CELLS = {
     'EI115': (f272, 115, 139),
     'EJ115': (f273, 115, 140),
     'EK115': (f274, 115, 141),
-    'A116': (f362, 116, 1),
+    'EL115': (f275, 115, 142),
+    'EM115': (f276, 115, 143),
+    'A116': (f364, 116, 1),
     'B116': (f145, 116, 2),
     'C116': (f146, 116, 3),
     'D116': (f147, 116, 4),
@@ -14121,7 +14314,7 @@ CELLS = {
     'CD116': (f221, 116, 82),
     'CE116': (f222, 116, 83),
     'CF116': (f223, 116, 84),
-    'CG116': (f276, 116, 85),
+    'CG116': (f278, 116, 85),
     'CI116': (f225, 116, 87),
     'CJ116': (f226, 116, 88),
     'CK116': (f227, 116, 89),
@@ -14172,7 +14365,9 @@ CELLS = {
     'EI116': (f272, 116, 139),
     'EJ116': (f273, 116, 140),
     'EK116': (f274, 116, 141),
-    'A117': (f363, 117, 1),
+    'EL116': (f275, 116, 142),
+    'EM116': (f276, 116, 143),
+    'A117': (f365, 117, 1),
     'B117': (f145, 117, 2),
     'C117': (f146, 117, 3),
     'D117': (f147, 117, 4),
@@ -14254,7 +14449,7 @@ CELLS = {
     'CD117': (f221, 117, 82),
     'CE117': (f222, 117, 83),
     'CF117': (f223, 117, 84),
-    'CG117': (f276, 117, 85),
+    'CG117': (f278, 117, 85),
     'CI117': (f225, 117, 87),
     'CJ117': (f226, 117, 88),
     'CK117': (f227, 117, 89),
@@ -14305,7 +14500,9 @@ CELLS = {
     'EI117': (f272, 117, 139),
     'EJ117': (f273, 117, 140),
     'EK117': (f274, 117, 141),
-    'A118': (f364, 118, 1),
+    'EL117': (f275, 117, 142),
+    'EM117': (f276, 117, 143),
+    'A118': (f366, 118, 1),
     'B118': (f145, 118, 2),
     'C118': (f146, 118, 3),
     'D118': (f147, 118, 4),
@@ -14387,7 +14584,7 @@ CELLS = {
     'CD118': (f221, 118, 82),
     'CE118': (f222, 118, 83),
     'CF118': (f223, 118, 84),
-    'CG118': (f276, 118, 85),
+    'CG118': (f278, 118, 85),
     'CI118': (f225, 118, 87),
     'CJ118': (f226, 118, 88),
     'CK118': (f227, 118, 89),
@@ -14438,7 +14635,9 @@ CELLS = {
     'EI118': (f272, 118, 139),
     'EJ118': (f273, 118, 140),
     'EK118': (f274, 118, 141),
-    'A119': (f365, 119, 1),
+    'EL118': (f275, 118, 142),
+    'EM118': (f276, 118, 143),
+    'A119': (f367, 119, 1),
     'B119': (f145, 119, 2),
     'C119': (f146, 119, 3),
     'D119': (f147, 119, 4),
@@ -14520,7 +14719,7 @@ CELLS = {
     'CD119': (f221, 119, 82),
     'CE119': (f222, 119, 83),
     'CF119': (f223, 119, 84),
-    'CG119': (f276, 119, 85),
+    'CG119': (f278, 119, 85),
     'CI119': (f225, 119, 87),
     'CJ119': (f226, 119, 88),
     'CK119': (f227, 119, 89),
@@ -14571,7 +14770,9 @@ CELLS = {
     'EI119': (f272, 119, 139),
     'EJ119': (f273, 119, 140),
     'EK119': (f274, 119, 141),
-    'A120': (f366, 120, 1),
+    'EL119': (f275, 119, 142),
+    'EM119': (f276, 119, 143),
+    'A120': (f368, 120, 1),
     'B120': (f145, 120, 2),
     'C120': (f146, 120, 3),
     'D120': (f147, 120, 4),
@@ -14653,7 +14854,7 @@ CELLS = {
     'CD120': (f221, 120, 82),
     'CE120': (f222, 120, 83),
     'CF120': (f223, 120, 84),
-    'CG120': (f276, 120, 85),
+    'CG120': (f278, 120, 85),
     'CI120': (f225, 120, 87),
     'CJ120': (f226, 120, 88),
     'CK120': (f227, 120, 89),
@@ -14704,7 +14905,9 @@ CELLS = {
     'EI120': (f272, 120, 139),
     'EJ120': (f273, 120, 140),
     'EK120': (f274, 120, 141),
-    'A121': (f367, 121, 1),
+    'EL120': (f275, 120, 142),
+    'EM120': (f276, 120, 143),
+    'A121': (f369, 121, 1),
     'B121': (f145, 121, 2),
     'C121': (f146, 121, 3),
     'D121': (f147, 121, 4),
@@ -14786,7 +14989,7 @@ CELLS = {
     'CD121': (f221, 121, 82),
     'CE121': (f222, 121, 83),
     'CF121': (f223, 121, 84),
-    'CG121': (f276, 121, 85),
+    'CG121': (f278, 121, 85),
     'CI121': (f225, 121, 87),
     'CJ121': (f226, 121, 88),
     'CK121': (f227, 121, 89),
@@ -14837,7 +15040,9 @@ CELLS = {
     'EI121': (f272, 121, 139),
     'EJ121': (f273, 121, 140),
     'EK121': (f274, 121, 141),
-    'A122': (f368, 122, 1),
+    'EL121': (f275, 121, 142),
+    'EM121': (f276, 121, 143),
+    'A122': (f370, 122, 1),
     'B122': (f145, 122, 2),
     'C122': (f146, 122, 3),
     'D122': (f147, 122, 4),
@@ -14919,7 +15124,7 @@ CELLS = {
     'CD122': (f221, 122, 82),
     'CE122': (f222, 122, 83),
     'CF122': (f223, 122, 84),
-    'CG122': (f276, 122, 85),
+    'CG122': (f278, 122, 85),
     'CI122': (f225, 122, 87),
     'CJ122': (f226, 122, 88),
     'CK122': (f227, 122, 89),
@@ -14970,7 +15175,9 @@ CELLS = {
     'EI122': (f272, 122, 139),
     'EJ122': (f273, 122, 140),
     'EK122': (f274, 122, 141),
-    'A123': (f369, 123, 1),
+    'EL122': (f275, 122, 142),
+    'EM122': (f276, 122, 143),
+    'A123': (f371, 123, 1),
     'B123': (f145, 123, 2),
     'C123': (f146, 123, 3),
     'D123': (f147, 123, 4),
@@ -15052,7 +15259,7 @@ CELLS = {
     'CD123': (f221, 123, 82),
     'CE123': (f222, 123, 83),
     'CF123': (f223, 123, 84),
-    'CG123': (f276, 123, 85),
+    'CG123': (f278, 123, 85),
     'CI123': (f225, 123, 87),
     'CJ123': (f226, 123, 88),
     'CK123': (f227, 123, 89),
@@ -15103,7 +15310,9 @@ CELLS = {
     'EI123': (f272, 123, 139),
     'EJ123': (f273, 123, 140),
     'EK123': (f274, 123, 141),
-    'A124': (f370, 124, 1),
+    'EL123': (f275, 123, 142),
+    'EM123': (f276, 123, 143),
+    'A124': (f372, 124, 1),
     'B124': (f145, 124, 2),
     'C124': (f146, 124, 3),
     'D124': (f147, 124, 4),
@@ -15185,7 +15394,7 @@ CELLS = {
     'CD124': (f221, 124, 82),
     'CE124': (f222, 124, 83),
     'CF124': (f223, 124, 84),
-    'CG124': (f276, 124, 85),
+    'CG124': (f278, 124, 85),
     'CI124': (f225, 124, 87),
     'CJ124': (f226, 124, 88),
     'CK124': (f227, 124, 89),
@@ -15236,7 +15445,9 @@ CELLS = {
     'EI124': (f272, 124, 139),
     'EJ124': (f273, 124, 140),
     'EK124': (f274, 124, 141),
-    'A125': (f371, 125, 1),
+    'EL124': (f275, 124, 142),
+    'EM124': (f276, 124, 143),
+    'A125': (f373, 125, 1),
     'B125': (f145, 125, 2),
     'C125': (f146, 125, 3),
     'D125': (f147, 125, 4),
@@ -15318,7 +15529,7 @@ CELLS = {
     'CD125': (f221, 125, 82),
     'CE125': (f222, 125, 83),
     'CF125': (f223, 125, 84),
-    'CG125': (f276, 125, 85),
+    'CG125': (f278, 125, 85),
     'CI125': (f225, 125, 87),
     'CJ125': (f226, 125, 88),
     'CK125': (f227, 125, 89),
@@ -15369,7 +15580,9 @@ CELLS = {
     'EI125': (f272, 125, 139),
     'EJ125': (f273, 125, 140),
     'EK125': (f274, 125, 141),
-    'A126': (f372, 126, 1),
+    'EL125': (f275, 125, 142),
+    'EM125': (f276, 125, 143),
+    'A126': (f374, 126, 1),
     'B126': (f145, 126, 2),
     'C126': (f146, 126, 3),
     'D126': (f147, 126, 4),
@@ -15451,7 +15664,7 @@ CELLS = {
     'CD126': (f221, 126, 82),
     'CE126': (f222, 126, 83),
     'CF126': (f223, 126, 84),
-    'CG126': (f276, 126, 85),
+    'CG126': (f278, 126, 85),
     'CI126': (f225, 126, 87),
     'CJ126': (f226, 126, 88),
     'CK126': (f227, 126, 89),
@@ -15502,7 +15715,9 @@ CELLS = {
     'EI126': (f272, 126, 139),
     'EJ126': (f273, 126, 140),
     'EK126': (f274, 126, 141),
-    'A127': (f373, 127, 1),
+    'EL126': (f275, 126, 142),
+    'EM126': (f276, 126, 143),
+    'A127': (f375, 127, 1),
     'B127': (f145, 127, 2),
     'C127': (f146, 127, 3),
     'D127': (f147, 127, 4),
@@ -15584,7 +15799,7 @@ CELLS = {
     'CD127': (f221, 127, 82),
     'CE127': (f222, 127, 83),
     'CF127': (f223, 127, 84),
-    'CG127': (f276, 127, 85),
+    'CG127': (f278, 127, 85),
     'CI127': (f225, 127, 87),
     'CJ127': (f226, 127, 88),
     'CK127': (f227, 127, 89),
@@ -15635,7 +15850,9 @@ CELLS = {
     'EI127': (f272, 127, 139),
     'EJ127': (f273, 127, 140),
     'EK127': (f274, 127, 141),
-    'A128': (f374, 128, 1),
+    'EL127': (f275, 127, 142),
+    'EM127': (f276, 127, 143),
+    'A128': (f376, 128, 1),
     'B128': (f145, 128, 2),
     'C128': (f146, 128, 3),
     'D128': (f147, 128, 4),
@@ -15717,7 +15934,7 @@ CELLS = {
     'CD128': (f221, 128, 82),
     'CE128': (f222, 128, 83),
     'CF128': (f223, 128, 84),
-    'CG128': (f276, 128, 85),
+    'CG128': (f278, 128, 85),
     'CI128': (f225, 128, 87),
     'CJ128': (f226, 128, 88),
     'CK128': (f227, 128, 89),
@@ -15768,7 +15985,9 @@ CELLS = {
     'EI128': (f272, 128, 139),
     'EJ128': (f273, 128, 140),
     'EK128': (f274, 128, 141),
-    'A129': (f375, 129, 1),
+    'EL128': (f275, 128, 142),
+    'EM128': (f276, 128, 143),
+    'A129': (f377, 129, 1),
     'B129': (f145, 129, 2),
     'C129': (f146, 129, 3),
     'D129': (f147, 129, 4),
@@ -15850,7 +16069,7 @@ CELLS = {
     'CD129': (f221, 129, 82),
     'CE129': (f222, 129, 83),
     'CF129': (f223, 129, 84),
-    'CG129': (f276, 129, 85),
+    'CG129': (f278, 129, 85),
     'CI129': (f225, 129, 87),
     'CJ129': (f226, 129, 88),
     'CK129': (f227, 129, 89),
@@ -15901,4 +16120,6 @@ CELLS = {
     'EI129': (f272, 129, 139),
     'EJ129': (f273, 129, 140),
     'EK129': (f274, 129, 141),
+    'EL129': (f275, 129, 142),
+    'EM129': (f276, 129, 143),
 }

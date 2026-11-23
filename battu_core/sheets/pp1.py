@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet PP1_DINH_TINH – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: B69n.xlsx (SHA-256 9228d1ab613379f50ca7126e315efcbb940599c6e1784212c489756674ca8b67).
+Nguồn: 6.10_G.xlsx (SHA-256 a34b9bd88b9052807174d240d6d3d83136557f1d078a7e3a3ba2d95e1eadc33f).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -595,8 +595,10 @@ def f105(E, r, c):
 def f106(E, r, c):
     # Ô C72
     # = SIGN(IF(C12=1,IF(OR(TRUNG_GIAN!C$55=TRUNG_GIAN!$E$7,TRUNG_GIAN!C$55=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),0)+IF(D12=1,IF(OR(TRUNG_GIAN!D$55=TRUNG_GIAN!$E$7,
-    #   TRUNG_GIAN!D$55=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),0)+IF(E12=1,IF(OR(TRUNG_GIAN!E$55=TRUNG_GIAN!$E$7,TRUNG_GIAN!E$55=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),0))
-    return X.SIGN(X.add(X.add(((1.0 if X.truthy(X.OR(X.eq(E.v(23,55,c),E.v(23,7,5)), X.eq(E.v(23,55,c),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r-60,c),1.0)) else 0.0),((1.0 if X.truthy(X.OR(X.eq(E.v(23,55,c+1),E.v(23,7,5)), X.eq(E.v(23,55,c+1),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r-60,c+1),1.0)) else 0.0)),((1.0 if X.truthy(X.OR(X.eq(E.v(23,55,c+2),E.v(23,7,5)), X.eq(E.v(23,55,c+2),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r-60,c+2),1.0)) else 0.0)))
+    #   TRUNG_GIAN!D$55=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),0)+IF(E12=1,IF(OR(TRUNG_GIAN!E$55=TRUNG_GIAN!$E$7,TRUNG_GIAN!E$55=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),0)+I
+    #   F(C123=1,IF(OR(C122=TRUNG_GIAN!$E$7,C122=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),0)+IF(D123=1,IF(OR(D122=TRUNG_GIAN!$E$7,D122=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),
+    #   0)+IF(E123=1,IF(OR(E122=TRUNG_GIAN!$E$7,E122=MOD(TRUNG_GIAN!$E$7+4,5)),1,-1),0))
+    return X.SIGN(X.add(X.add(X.add(X.add(X.add(((1.0 if X.truthy(X.OR(X.eq(E.v(23,55,c),E.v(23,7,5)), X.eq(E.v(23,55,c),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r-60,c),1.0)) else 0.0),((1.0 if X.truthy(X.OR(X.eq(E.v(23,55,c+1),E.v(23,7,5)), X.eq(E.v(23,55,c+1),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r-60,c+1),1.0)) else 0.0)),((1.0 if X.truthy(X.OR(X.eq(E.v(23,55,c+2),E.v(23,7,5)), X.eq(E.v(23,55,c+2),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r-60,c+2),1.0)) else 0.0)),((1.0 if X.truthy(X.OR(X.eq(E.v(9,r+50,c),E.v(23,7,5)), X.eq(E.v(9,r+50,c),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r+51,c),1.0)) else 0.0)),((1.0 if X.truthy(X.OR(X.eq(E.v(9,r+50,c+1),E.v(23,7,5)), X.eq(E.v(9,r+50,c+1),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r+51,c+1),1.0)) else 0.0)),((1.0 if X.truthy(X.OR(X.eq(E.v(9,r+50,c+2),E.v(23,7,5)), X.eq(E.v(9,r+50,c+2),X.MOD(X.add(E.v(23,7,5),4.0), 5.0)))) else X.neg(1.0)) if X.truthy(X.eq(E.v(9,r+51,c+2),1.0)) else 0.0)))
 
 def f107(E, r, c):
     # Ô C74, D74, F74
@@ -957,12 +959,12 @@ def f150(E, r, c):
     # = "Quy tắc áp dụng: "&C92&". "&IF(ISNUMBER(SEARCH("phân xử",C92)),"Vì không được lệnh mà vẫn có ≥ 2 điều nhưng các điều đó không đủ mạnh, sách gọi là ""
     #   nửa vượng nửa nhược"" và phải phân xử theo 4 mặt (P1 tr.71): a) "&IF(C71>0,"hợp hóa tạo ra hành sinh/trợ nhật chủ → +1",IF(C71<0,"hợp hóa tạo ra hành 
     #   khắc/tiết/hao nhật chủ → −1","không có hợp hóa liên quan → 0"))&"; b) "&IF(C72>0,"bán hợp sinh/trợ nhật chủ → +1",IF(C72<0,"bán hợp khắc/tiết/hao nhật
-    #    chủ → −1","không có bán hợp liên quan → 0"))&"; c) phe mình có "&C82&" yếu tố vượng tại lệnh, phe khắc–tiết–hao có "&C83&" → "&IF(C84>0,"+1",IF(C84<0
-    #   ,"−1","0"))&"; d) tỉ lệ yếu tố phe mình bị vô hiệu (hợp mất, khắc chế, xung, ở xa) "&TEXT(C85,"0%")&", phe kia "&TEXT(C86,"0%")&" → "&IF(C87>0,"+1",IF
-    #   (C87<0,"−1","0"))&". Tổng "&C88&" → "&IF(C88>0,"nghiêng VƯỢNG",IF(C88<0,"nghiêng NHƯỢC","cân bằng – TRUNG HÒA"))&".",IF(C62=1,"Được lệnh là điều kiện 
-    #   nặng nhất; chỉ cần thêm 1 trong 3 điều còn lại là vượng (P1 tr.70).","Không được lệnh thì phải có ≥ 2 điều và các điều đó mạnh mới là vượng (P1 tr.70-
-    #   71)."))
-    return X.cat(X.cat(X.cat('Quy tắc áp dụng: ',E.v(9,r-17,c)),'. '),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Vì không được lệnh mà vẫn có ≥ 2 điều nhưng các điều đó không đủ mạnh, sách gọi là "nửa vượng nửa nhược" và phải phân xử theo 4 mặt (P1 tr.71): a) ',('hợp hóa tạo ra hành sinh/trợ nhật chủ → +1' if X.truthy(X.gt(E.v(9,r-38,c),0.0)) else ('hợp hóa tạo ra hành khắc/tiết/hao nhật chủ → −1' if X.truthy(X.lt(E.v(9,r-38,c),0.0)) else 'không có hợp hóa liên quan → 0'))),'; b) '),('bán hợp sinh/trợ nhật chủ → +1' if X.truthy(X.gt(E.v(9,r-37,c),0.0)) else ('bán hợp khắc/tiết/hao nhật chủ → −1' if X.truthy(X.lt(E.v(9,r-37,c),0.0)) else 'không có bán hợp liên quan → 0'))),'; c) phe mình có '),E.v(9,r-27,c)),' yếu tố vượng tại lệnh, phe khắc–tiết–hao có '),E.v(9,r-26,c)),' → '),('+1' if X.truthy(X.gt(E.v(9,r-25,c),0.0)) else ('−1' if X.truthy(X.lt(E.v(9,r-25,c),0.0)) else '0'))),'; d) tỉ lệ yếu tố phe mình bị vô hiệu (hợp mất, khắc chế, xung, ở xa) '),X.TEXT(E.v(9,r-24,c), '0%')),', phe kia '),X.TEXT(E.v(9,r-23,c), '0%')),' → '),('+1' if X.truthy(X.gt(E.v(9,r-22,c),0.0)) else ('−1' if X.truthy(X.lt(E.v(9,r-22,c),0.0)) else '0'))),'. Tổng '),E.v(9,r-21,c)),' → '),('nghiêng VƯỢNG' if X.truthy(X.gt(E.v(9,r-21,c),0.0)) else ('nghiêng NHƯỢC' if X.truthy(X.lt(E.v(9,r-21,c),0.0)) else 'cân bằng – TRUNG HÒA'))),'.') if X.truthy(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,r-17,c)))) else ('Được lệnh là điều kiện nặng nhất; chỉ cần thêm 1 trong 3 điều còn lại là vượng (P1 tr.70).' if X.truthy(X.eq(E.v(9,r-47,c),1.0)) else 'Không được lệnh thì phải có ≥ 2 điều và các điều đó mạnh mới là vượng (P1 tr.70-71).')))
+    #    chủ → −1","không có bán hợp liên quan → 0"))&IF(LEN(C125)>0," (có tính bán hội "&C125&" – suy luận ngoài sách, chưa được sách xác nhận)","")&"; c) ph
+    #   e mình có "&C82&" yếu tố vượng tại lệnh, phe khắc–tiết–hao có "&C83&" → "&IF(C84>0,"+1",IF(C84<0,"−1","0"))&"; d) tỉ lệ yếu tố phe mình bị vô hiệu (hợ
+    #   p mất, khắc chế, xung, ở xa) "&TEXT(C85,"0%")&", phe kia "&TEXT(C86,"0%")&" → "&IF(C87>0,"+1",IF(C87<0,"−1","0"))&". Tổng "&C88&" → "&IF(C88>0,"nghiên
+    #   g VƯỢNG",IF(C88<0,"nghiêng NHƯỢC","cân bằng – TRUNG HÒA"))&".",IF(C62=1,"Được lệnh là điều kiện nặng nhất; chỉ cần thêm 1 trong 3 điều còn lại là vượn
+    #   g (P1 tr.70).","Không được lệnh thì phải có ≥ 2 điều và các điều đó mạnh mới là vượng (P1 tr.70-71)."))
+    return X.cat(X.cat(X.cat('Quy tắc áp dụng: ',E.v(9,r-17,c)),'. '),(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('Vì không được lệnh mà vẫn có ≥ 2 điều nhưng các điều đó không đủ mạnh, sách gọi là "nửa vượng nửa nhược" và phải phân xử theo 4 mặt (P1 tr.71): a) ',('hợp hóa tạo ra hành sinh/trợ nhật chủ → +1' if X.truthy(X.gt(E.v(9,r-38,c),0.0)) else ('hợp hóa tạo ra hành khắc/tiết/hao nhật chủ → −1' if X.truthy(X.lt(E.v(9,r-38,c),0.0)) else 'không có hợp hóa liên quan → 0'))),'; b) '),('bán hợp sinh/trợ nhật chủ → +1' if X.truthy(X.gt(E.v(9,r-37,c),0.0)) else ('bán hợp khắc/tiết/hao nhật chủ → −1' if X.truthy(X.lt(E.v(9,r-37,c),0.0)) else 'không có bán hợp liên quan → 0'))),(X.cat(X.cat(' (có tính bán hội ',E.v(9,r+16,c)),' – suy luận ngoài sách, chưa được sách xác nhận)') if X.truthy(X.gt(X.LEN(E.v(9,r+16,c)),0.0)) else '')),'; c) phe mình có '),E.v(9,r-27,c)),' yếu tố vượng tại lệnh, phe khắc–tiết–hao có '),E.v(9,r-26,c)),' → '),('+1' if X.truthy(X.gt(E.v(9,r-25,c),0.0)) else ('−1' if X.truthy(X.lt(E.v(9,r-25,c),0.0)) else '0'))),'; d) tỉ lệ yếu tố phe mình bị vô hiệu (hợp mất, khắc chế, xung, ở xa) '),X.TEXT(E.v(9,r-24,c), '0%')),', phe kia '),X.TEXT(E.v(9,r-23,c), '0%')),' → '),('+1' if X.truthy(X.gt(E.v(9,r-22,c),0.0)) else ('−1' if X.truthy(X.lt(E.v(9,r-22,c),0.0)) else '0'))),'. Tổng '),E.v(9,r-21,c)),' → '),('nghiêng VƯỢNG' if X.truthy(X.gt(E.v(9,r-21,c),0.0)) else ('nghiêng NHƯỢC' if X.truthy(X.lt(E.v(9,r-21,c),0.0)) else 'cân bằng – TRUNG HÒA'))),'.') if X.truthy(X.ISNUMBER(lambda: X.SEARCH('phân xử', E.v(9,r-17,c)))) else ('Được lệnh là điều kiện nặng nhất; chỉ cần thêm 1 trong 3 điều còn lại là vượng (P1 tr.70).' if X.truthy(X.eq(E.v(9,r-47,c),1.0)) else 'Không được lệnh thì phải có ≥ 2 điều và các điều đó mạnh mới là vượng (P1 tr.70-71).')))
 
 def f151(E, r, c):
     # Ô J109
@@ -1026,6 +1028,35 @@ def f159(E, r, c):
     # Ô C119
     # = "P1 tr.70 (quy tắc 3: các điều phải mạnh, giúp ích nhiều); P1 tr.71–72 (so sánh mức độ được sinh – bị khắc; phán đoán tổng hợp)"
     return 'P1 tr.70 (quy tắc 3: các điều phải mạnh, giúp ích nhiều); P1 tr.71–72 (so sánh mức độ được sinh – bị khắc; phán đoán tổng hợp)'
+
+def f160(E, r, c):
+    # Ô C122, D122
+    # = IF(OR(AND(TRUNG_GIAN!C$6=2,TRUNG_GIAN!D$6=3),AND(TRUNG_GIAN!C$6=3,TRUNG_GIAN!D$6=2)),0,IF(OR(AND(TRUNG_GIAN!C$6=5,TRUNG_GIAN!D$6=6),AND(TRUNG_GIAN!C$6
+    #   =6,TRUNG_GIAN!D$6=5)),1,IF(OR(AND(TRUNG_GIAN!C$6=8,TRUNG_GIAN!D$6=9),AND(TRUNG_GIAN!C$6=9,TRUNG_GIAN!D$6=8)),3,IF(OR(AND(TRUNG_GIAN!C$6=11,TRUNG_GIAN!
+    #   D$6=0),AND(TRUNG_GIAN!C$6=0,TRUNG_GIAN!D$6=11)),4,-1))))
+    return (0.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),2.0), X.eq(E.v(23,6,c+1),3.0)), X.AND(X.eq(E.v(23,6,c),3.0), X.eq(E.v(23,6,c+1),2.0)))) else (1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),5.0), X.eq(E.v(23,6,c+1),6.0)), X.AND(X.eq(E.v(23,6,c),6.0), X.eq(E.v(23,6,c+1),5.0)))) else (3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),8.0), X.eq(E.v(23,6,c+1),9.0)), X.AND(X.eq(E.v(23,6,c),9.0), X.eq(E.v(23,6,c+1),8.0)))) else (4.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),11.0), X.eq(E.v(23,6,c+1),0.0)), X.AND(X.eq(E.v(23,6,c),0.0), X.eq(E.v(23,6,c+1),11.0)))) else X.neg(1.0)))))
+
+def f161(E, r, c):
+    # Ô E122
+    # = IF(NHAP_LIEU!$C$9="Không rõ giờ",-1,IF(OR(AND(TRUNG_GIAN!E$6=2,TRUNG_GIAN!F$6=3),AND(TRUNG_GIAN!E$6=3,TRUNG_GIAN!F$6=2)),0,IF(OR(AND(TRUNG_GIAN!E$6=5,
+    #   TRUNG_GIAN!F$6=6),AND(TRUNG_GIAN!E$6=6,TRUNG_GIAN!F$6=5)),1,IF(OR(AND(TRUNG_GIAN!E$6=8,TRUNG_GIAN!F$6=9),AND(TRUNG_GIAN!E$6=9,TRUNG_GIAN!F$6=8)),3,IF(
+    #   OR(AND(TRUNG_GIAN!E$6=11,TRUNG_GIAN!F$6=0),AND(TRUNG_GIAN!E$6=0,TRUNG_GIAN!F$6=11)),4,-1)))))
+    return (X.neg(1.0) if X.truthy(X.eq(E.v(2,9,3),'Không rõ giờ')) else (0.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),2.0), X.eq(E.v(23,6,c+1),3.0)), X.AND(X.eq(E.v(23,6,c),3.0), X.eq(E.v(23,6,c+1),2.0)))) else (1.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),5.0), X.eq(E.v(23,6,c+1),6.0)), X.AND(X.eq(E.v(23,6,c),6.0), X.eq(E.v(23,6,c+1),5.0)))) else (3.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),8.0), X.eq(E.v(23,6,c+1),9.0)), X.AND(X.eq(E.v(23,6,c),9.0), X.eq(E.v(23,6,c+1),8.0)))) else (4.0 if X.truthy(X.OR(X.AND(X.eq(E.v(23,6,c),11.0), X.eq(E.v(23,6,c+1),0.0)), X.AND(X.eq(E.v(23,6,c),0.0), X.eq(E.v(23,6,c+1),11.0)))) else X.neg(1.0))))))
+
+def f162(E, r, c):
+    # Ô C123, D123, E123
+    # = IF(AND(C122>=0,TRUNG_GIAN!C56=1,TRUNG_GIAN!C57=0),1,0)
+    return (1.0 if X.truthy(X.AND(X.ge(E.v(9,r-1,c),0.0), X.eq(E.v(23,r-67,c),1.0), X.eq(E.v(23,r-66,c),0.0))) else 0.0)
+
+def f163(E, r, c):
+    # Ô C124, D124, E124
+    # = IF(C123=1,INDEX(CHI_TEN,TRUNG_GIAN!C$6+1)&"–"&INDEX(CHI_TEN,TRUNG_GIAN!D$6+1)&" ("&INDEX(HANH_TEN,C122+1)&")","")
+    return (X.cat(X.cat(X.cat(X.cat(X.cat(X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,c),1.0)),'–'),X.INDEX(E.rg(24,18,1,29,1), X.add(E.v(23,6,c+1),1.0))),' ('),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(9,r-2,c),1.0))),')') if X.truthy(X.eq(E.v(9,r-1,c),1.0)) else '')
+
+def f164(E, r, c):
+    # Ô C125
+    # = TRIM(C124&" "&D124&" "&E124)
+    return X.TRIM(X.cat(X.cat(X.cat(X.cat(E.v(9,r-1,c),' '),E.v(9,r-1,c+1)),' '),E.v(9,r-1,c+2)))
 
 CELLS = {
     'C6': (f0, 6, 3),
@@ -1279,4 +1310,14 @@ CELLS = {
     'C117': (f157, 117, 3),
     'C118': (f158, 118, 3),
     'C119': (f159, 119, 3),
+    'C122': (f160, 122, 3),
+    'D122': (f160, 122, 4),
+    'E122': (f161, 122, 5),
+    'C123': (f162, 123, 3),
+    'D123': (f162, 123, 4),
+    'E123': (f162, 123, 5),
+    'C124': (f163, 124, 3),
+    'D124': (f163, 124, 4),
+    'E124': (f163, 124, 5),
+    'C125': (f164, 125, 3),
 }
