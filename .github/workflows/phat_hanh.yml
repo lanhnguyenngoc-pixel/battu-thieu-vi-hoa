@@ -20,3 +20,8 @@ jobs:
           ls -la
           gh release delete "${{ inputs.tag }}" -R "$R" -y --cleanup-tag || true
           gh release create "${{ inputs.tag }}" -R "$R" --target "${{ github.sha }}" -t "Bát Tự Thiệu Vĩ Hoa ${{ inputs.tag }}" -n "Bộ cài ${{ inputs.tag }}" ./*.exe ./*.dmg
+          # Dọn bản cũ: chỉ giữ bản mới nhất và 1 bản liền trước
+          gh release list -R "$R" -L 100 --json tagName,createdAt -q 'sort_by(.createdAt)|reverse|.[2:]|.[].tagName' | while read t; do
+            [ -n "$t" ] && gh release delete "$t" -R "$R" -y --cleanup-tag
+          done
+          gh release list -R "$R"
