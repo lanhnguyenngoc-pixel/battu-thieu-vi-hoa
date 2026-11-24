@@ -248,6 +248,12 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Chưa làm (giai đoạn 2, cần thiết kế và đo riêng): xu thế năm can+chi (2.1/2.11), người ứng 6 bước (2.2), điều 6–8 (2.3), bốn bổ sung 2.7, bảng dấu hiệu con cái (2.8), ô nhập riêng và can chi vợ/chồng (2.9 phần mở rộng).
 - Điểm cần quyết: đại vận can nhàn (điểm can = 0) giữ nhánh cũ "bình thường" vì kế hoạch 6 bậc chưa có mức này; hợp hóa chỉ xét lục hợp; ô vợ/chồng dùng chung phoi_ngau (cần đủ giờ); LUU_NIEN vẫn chia 5/5 khi ghép đại vận.
 
+## 1.9.4 – Bốn kiểu lá số dễ tai ương + Bảng sức khỏe 10 năm (24/11/2026)
+- Chỉ ở phần mềm (không đổi ô nào của workbook, quy tắc vẫn 6.11): `battu_core/tong_hop/tai_uong.py`; trang "✚ Sức khỏe 10 năm" (xem, PDF, Word); tóm lược trong mục Sức khỏe của Luận giải tổng hợp (vẫn ≤ 5 trang).
+- Bốn kiểu: Kiêu thần đoạt thực; Dương Nhẫn quá nặng (từ 2 chữ trở lên, tính mệnh + vận hiện tại); ngũ hành quá lệch (một hành ≥ 55% kèm hành gần như không có, hoặc thân quá yếu); đại vận vào Tử – Mộ – Tuyệt kèm thiên khắc địa xung trụ Ngày. Nhãn bắt buộc: "cách luận tham khảo thêm thuộc dễ gặp tai ương nhất." Không đổi mức tài lộc, sự nghiệp, hôn nhân.
+- Bảng 10 năm liên tiếp từ năm đặt xem: mức năm lấy từ lưu niên, tạng phủ, dấu hiệu hạn nặng, cờ từng kiểu; cờ ở bảng đại vận.
+- Đo: ngưỡng chọn trên 73 lá sách + 300 lá ngẫu nhiên (xem Project: KET_QUA_4_KIEU). Kiểm thử mới T17 (60 lá: nhãn, đủ 10 năm liên tiếp, cờ có lý do) ĐẠT; T14, T5, T11, T12, T15, T16 đạt; tự kiểm bộ cài đạt.
+
 ## 1.9.3 – Quy tắc 6.11: bảng Ngũ hành thiếu, mục I, PA2 mới (24/11/2026)
 - Chế độ PA2 – Theo sách: được lệnh (48%) và đắc địa (20%) có xét giả; đắc địa xét can năm, can ngày, can giờ tại chi tháng (Trường sinh, Lộc, Kình dương, Mộ khố); cùng hành (20%) và được sinh (12%) theo hành gốc, không hợp hóa. PA1, mục II, PP1, dụng thần, đại vận không đổi.
 - Đo 48 lá trang: khớp điểm 18 → 19, khớp nhóm 41 → 32. Kiểm thử tổng đạt (B1_KHONG_RO_GIO lệch là lỗi cũ MT-13, đã có B1b). Sổ tay 6.11; đáp án sinh lại.

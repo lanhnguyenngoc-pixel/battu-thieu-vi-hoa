@@ -442,7 +442,11 @@ def soan(hs, pd, la_so=None, ho_ten=''):
         if pln[y['nam']]['muc'] in _XAU or (m2 and m2.group(1) != 'CHÚ Ý'):
             rows.append(['%d %s' % (y['nam'], y['luu_nien']), pln[y['nam']]['muc'], ('%s – %s' % (m2.group(1).capitalize(), m2.group(2).strip())) if m2 else ''])
     if rows: B.append(('bang', ['Năm cần giữ sức', 'Mức năm', 'Tạng phủ cần chú ý'], rows))
-    B.append(('nho', 'Đây là xu hướng mệnh lý để tham khảo, không thay cho khám và tư vấn của bác sĩ.'))
+    from battu_core.tong_hop import tai_uong as TU
+    _tu = TU.phan_tich(hs); _cy = TU.nam_ngan(hs)
+    _ct = TU.cau_tong_hop(hs) if _tu['co_it_nhat_mot'] else ''
+    if _cy: _ct = (_ct + ' ' if _ct else '') + '**Năm cần chú ý (10 năm từ năm xem):** %s.' % _cy
+    B.append(('nho', (_ct + ' ' if _ct else '') + 'Đây là xu hướng mệnh lý để tham khảo, không thay cho khám và tư vấn của bác sĩ; xem thêm trang "Sức khỏe 10 năm".'))
 
     # 9. Vận trình
     B.append(('h2', '9. Đại vận và lưu niên'))

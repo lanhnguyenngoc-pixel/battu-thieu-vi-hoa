@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau, KetQua
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.9.3 · Quy tắc 6.11'
+PHIEN_BAN = 'Phiên bản 1.9.4 · Quy tắc 6.11'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -638,10 +638,12 @@ class CuaSoChinh(QMainWindow):
         from ui.trang_v14 import TrangDoiChieu
         from ui.trang_tong_hop import TrangTongHop
         self.t_dc = TrangDoiChieu(); self.t_th = TrangTongHop()
+        from ui.trang_suc_khoe import TrangSucKhoe
+        self.t_sk10 = TrangSucKhoe()
         self.t_ds = TrangDanhSach(self.kho); self.t_ss = TrangSoSanh(self.kho)
         # (nhãn, trang, nhóm): 'A' đọc lá số – luôn hiện; 'CG' chỉ ở chế độ chuyên gia; 'KRG' khi bật Không rõ giờ hoặc chuyên gia
         self.muc = [('✎   Nhập liệu', self.t_nhap, 'A'), ('☷   Lá số', self.t_ls, 'A'), ('★   Luận giải chung', self.t_tt, 'A'),
-                    ('✦   Luận giải tổng hợp', self.t_th, 'A'), ('❦   Luận giải chi tiết', self.t_lg, 'A'), ('↯   Vận trình', self.t_vt, 'A'), ('▤   Theo lĩnh vực', self.t_lv, 'A'),
+                    ('✦   Luận giải tổng hợp', self.t_th, 'A'), ('❦   Luận giải chi tiết', self.t_lg, 'A'), ('↯   Vận trình', self.t_vt, 'A'), ('▤   Theo lĩnh vực', self.t_lv, 'A'), ('✚   Sức khỏe 10 năm', self.t_sk10, 'A'),
                     ('☯   Ngũ hành thiếu', self.t_nht, 'A'), ('✓   Kiểm chứng sự việc', self.t_sk, 'A'),
                     ('⚑   Đối chiếu thực tế', self.t_dc, 'A'),
                     ('◷   Không rõ giờ', self.t_krg, 'KRG'), ('◫   Trung gian', self.t_tg, 'CG'), ('⚖   Phân tích', self.t_pt, 'CG'),
@@ -651,7 +653,7 @@ class CuaSoChinh(QMainWindow):
         for i, (t, w, nhom) in enumerate(self.muc):
             b = QPushButton(t); b.setObjectName('nav'); b.setCheckable(True); b.setCursor(Qt.PointingHandCursor)
             self.nav.addButton(b, i); sv.addWidget(b); self.trang.addWidget(w)
-            if i in (9, 13): sv.addSpacing(6)
+            if i in (10, 14): sv.addSpacing(6)
         sv.addStretch()
         self.cg = QCheckBox('Chế độ chuyên gia'); self.cg.setObjectName('cg')
         self.cg.setToolTip('Hiện thêm Trung gian, Phân tích, Chuyên đề, Lưu niên 100 năm, Theo dõi và địa chỉ ô Excel khi rê chuột')
