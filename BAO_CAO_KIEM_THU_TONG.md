@@ -1,10 +1,10 @@
 # BÁO CÁO KIỂM THỬ TỔNG – GIAI ĐOẠN 6
 
-Ngày chạy: 23/11/2026 01:15 · Nguồn: workbook SHA-256 `9228d1ab613379f50ca7126e315efcbb940599c6e1784212c489756674ca8b67`
+Ngày chạy: 24/11/2026 14:14 · Nguồn: workbook SHA-256 `cd316c8e8e61b4745958cdd10b2c156f9f6411139f453a8d258139a442ecdd1b`
 
 Phạm vi đã cài: CSDL (toàn sheet), NHAP_LIEU (toàn sheet), TRUNG_GIAN (toàn sheet), DAI_VAN (toàn sheet), KIEM_THU (toàn sheet), PP1_DINH_TINH (toàn sheet), PP2_DINH_LUONG (toàn sheet), THONG_CAN (toàn sheet), DOI_CHIEU (toàn sheet), DUNG_HY_KY (toàn sheet), LUU_NIEN (toàn sheet), THEO_DOI (toàn sheet), NGU_HANH_THIEU (toàn sheet), LUC_THAN (toàn sheet), HON_NHAN (toàn sheet), MENH_CUC (toàn sheet), TAI_LOC (toàn sheet), TO_CHAT (toàn sheet), SU_NGHIEP (toàn sheet), SUC_KHOE (toàn sheet), THAN_SAT (toàn sheet), SAO (toàn sheet), BAO_PHU (toàn sheet), KHONG_RO_GIO (toàn sheet), KET_LUAN (toàn sheet), LUAN_GIAI (toàn sheet), DOC_NHANH (toàn sheet), SU_KIEN (toàn sheet), TRANG_CHU (toàn sheet), THAM_KHAO (toàn sheet)
 
-## T1 – Đáp án từng ô (05_KIEM_THU/dap_an_o, 30 lá, 53.4 giây)
+## T1 – Đáp án từng ô (05_KIEM_THU/dap_an_o, 30 lá, 41.9 giây)
 
 | Sheet | Ô khớp / tổng | Kết quả |
 |---|---|---|
@@ -16,13 +16,13 @@ Phạm vi đã cài: CSDL (toàn sheet), NHAP_LIEU (toàn sheet), TRUNG_GIAN (to
 | KHONG_RO_GIO | 14910 / 14910 | ĐẠT 100% |
 | DOI_CHIEU | 3150 / 3150 | ĐẠT 100% |
 | DUNG_HY_KY | 12270 / 12270 | ĐẠT 100% |
-| PP1_DINH_TINH | 7530 / 7530 | ĐẠT 100% |
+| PP1_DINH_TINH | 7830 / 7830 | ĐẠT 100% |
 | PP2_DINH_LUONG | 8040 / 8040 | ĐẠT 100% |
 | THONG_CAN | 8670 / 8670 | ĐẠT 100% |
 | THAN_SAT | 15330 / 15330 | ĐẠT 100% |
 | SAO | 10560 / 10560 | ĐẠT 100% |
-| DAI_VAN | 26730 / 26730 | ĐẠT 100% |
-| LUU_NIEN | 403440 / 403440 | ĐẠT 100% |
+| DAI_VAN | 29130 / 29130 | ĐẠT 100% |
+| LUU_NIEN | 409440 / 409440 | ĐẠT 100% |
 | LUC_THAN | 50280 / 50280 | ĐẠT 100% |
 | HON_NHAN | 35940 / 35940 | ĐẠT 100% |
 | MENH_CUC | 10560 / 10560 | ĐẠT 100% |
@@ -38,11 +38,11 @@ Phạm vi đã cài: CSDL (toàn sheet), NHAP_LIEU (toàn sheet), TRUNG_GIAN (to
 | BAO_PHU | 1260 / 1260 | ĐẠT 100% |
 | DOC_NHANH | 390 / 390 | ĐẠT 100% |
 | SU_KIEN | 17160 / 17160 | ĐẠT 100% |
-| **Tổng** | **940530 / 940530** | ĐẠT |
+| **Tổng** | **949230 / 949230** | ĐẠT |
 
 Ô lệch: không có
 
-## T3 – Lịch (05_KIEM_THU/lich, 710 thời điểm, 2.2 giây)
+## T3 – Lịch (05_KIEM_THU/lich, 710 thời điểm, 1.7 giây)
 
 | Hạng mục | Khớp / tổng |
 |---|---|
@@ -59,20 +59,20 @@ Phạm vi đã cài: CSDL (toàn sheet), NHAP_LIEU (toàn sheet), TRUNG_GIAN (to
 
 ## T1b – Nhánh tùy chọn (MT-05) và T1-KRG (MT-04) – đáp án lấy bằng tools/oracle_mo_rong.py
 
-Kiểm chính oracle mở rộng: biến thể KRG0 (mặc định) trùng dap_an_o **940530 / 940530** ô.
+Kiểm chính oracle mở rộng: biến thể KRG0 (mặc định) trùng dap_an_o **949230 / 949230** ô.
 
 | Biến thể | Mô tả | Số lá | Ô khớp / tổng (sheet đã cài) | Kết quả |
 |---|---|---|---|---|
-| KRG0 | Mặc định (như dap_an_o) + vùng Bảng dữ liệu KHONG_RO_GIO C118:D285 (MT-04) | 30 | 949830 / 949830 | ĐẠT 100% |
-| B1_KHONG_RO_GIO | NHAP_LIEU C9 = Không rõ giờ | 30 | 944143 / 949830 | LỆCH 5687 – đáp án hỏng do Bảng dữ liệu LibreOffice (MT-13), thay bằng B1b |
-| B2_THEO_PP1 | NHAP_LIEU C14 = Theo PP1 | 30 | 949830 / 949830 | ĐẠT 100% |
-| B3_THEO_PP2 | NHAP_LIEU C14 = Theo PP2 | 30 | 949830 / 949830 | ĐẠT 100% |
-| B4_PA1 | NGU_HANH_THIEU E3 = PA1 – Theo trang | 30 | 949830 / 949830 | ĐẠT 100% |
-| B5_SU_KIEN | Nhập sự kiện mẫu: SU_KIEN B6:C10, KHONG_RO_GIO C11:D13 (năm theo DAI_VAN C22 của từng lá), THEO_DOI N/P dòng 12, 13, 20 | 30 | 949830 / 949830 | ĐẠT 100% |
-| KRG_VONG | Mặc định + Bảng dữ liệu KHONG_RO_GIO tính bằng vòng 12 giờ (MT-13) | 30 | 949830 / 949830 | ĐẠT 100% |
-| B1b_KHONG_RO_GIO | NHAP_LIEU C9 = Không rõ giờ; Bảng dữ liệu tính bằng vòng 12 giờ (MT-13) – thay B1 | 30 | 949830 / 949830 | ĐẠT 100% |
+| KRG0 | Mặc định (như dap_an_o) + vùng Bảng dữ liệu KHONG_RO_GIO C118:D285 (MT-04) | 30 | 958530 / 958530 | ĐẠT 100% |
+| B1_KHONG_RO_GIO | NHAP_LIEU C9 = Không rõ giờ | 30 | 952847 / 958530 | LỆCH 5683 – đáp án hỏng do Bảng dữ liệu LibreOffice (MT-13), thay bằng B1b |
+| B2_THEO_PP1 | NHAP_LIEU C14 = Theo PP1 | 30 | 958530 / 958530 | ĐẠT 100% |
+| B3_THEO_PP2 | NHAP_LIEU C14 = Theo PP2 | 30 | 958530 / 958530 | ĐẠT 100% |
+| B4_PA1 | NGU_HANH_THIEU E3 = PA1 – Theo trang | 30 | 958530 / 958530 | ĐẠT 100% |
+| B5_SU_KIEN | Nhập sự kiện mẫu: SU_KIEN B6:C10, KHONG_RO_GIO C11:D13 (năm theo DAI_VAN C22 của từng lá), THEO_DOI N/P dòng 12, 13, 20 | 30 | 958530 / 958530 | ĐẠT 100% |
+| KRG_VONG | Mặc định + Bảng dữ liệu KHONG_RO_GIO tính bằng vòng 12 giờ (MT-13) | 30 | 958530 / 958530 | ĐẠT 100% |
+| B1b_KHONG_RO_GIO | NHAP_LIEU C9 = Không rõ giờ; Bảng dữ liệu tính bằng vòng 12 giờ (MT-13) – thay B1 | 30 | 958530 / 958530 | ĐẠT 100% |
 
-## T2 – Kết quả chính 501 lá (bo_la + ket_qua_6.3, 842.3 giây)
+## T2 – Kết quả chính 501 lá (bo_la + ket_qua_6.3, 745.3 giây)
 
 (a) Khóa của scripts/uno_run59.py thuộc sheet đã cài (đọc như uno_run59: getString theo định dạng ô):
 
@@ -140,13 +140,13 @@ Khóa thuộc giai đoạn sau (so khi cài sheet tương ứng):
 | THEO_DOI | 2508006 / 2508006 |
 | DOI_CHIEU | 52605 / 52605 |
 | DUNG_HY_KY | 204909 / 204909 |
-| PP1_DINH_TINH | 125751 / 125751 |
+| PP1_DINH_TINH | 130761 / 130761 |
 | PP2_DINH_LUONG | 134268 / 134268 |
 | THONG_CAN | 144789 / 144789 |
 | THAN_SAT | 256011 / 256011 |
 | SAO | 176352 / 176352 |
-| DAI_VAN | 446391 / 446391 |
-| LUU_NIEN | 6737448 / 6737448 |
+| DAI_VAN | 486471 / 486471 |
+| LUU_NIEN | 6837648 / 6837648 |
 | LUC_THAN | 839676 / 839676 |
 | HON_NHAN | 600198 / 600198 |
 | MENH_CUC | 176352 / 176352 |
@@ -162,9 +162,9 @@ Khóa thuộc giai đoạn sau (so khi cài sheet tương ứng):
 | BAO_PHU | 21042 / 21042 |
 | DOC_NHANH | 6513 / 6513 |
 | SU_KIEN | 286572 / 286572 |
-| **Tổng** | **15457854 / 15457854** |
+| **Tổng** | **15603144 / 15603144** |
 
-## T4 – Hợp/xung (hop_xung, 510 lá gồm 9 ca biên, 2.5 giây)
+## T4 – Hợp/xung (hop_xung, 510 lá gồm 9 ca biên, 2.3 giây)
 
 So trùng từng giá trị scripts/run_hop.py đã ghi (đọc như run_hop: getString/getValue). Gói hồ sơ không ghi văn bản "6 bất biến"; các giá trị so ở đây là dữ liệu mà các bất biến được tính trên đó.
 
@@ -203,12 +203,12 @@ Lá ngày giờ dương lịch (từ data39, dv16), tứ trụ theo lịch tiế
 
 | Chế độ | Số lá | NGU_HANH_THIEU | Mọi sheet đã cài |
 |---|---|---|---|
-| T8C_PA1 | 55 | 13310 / 13310 | 1741355 / 1741355 ĐẠT 100% |
-| T8C_PA2 | 55 | 13310 / 13310 | 1741355 / 1741355 ĐẠT 100% |
+| T8C_PA1 | 55 | 13310 / 13310 | 1757305 / 1757305 ĐẠT 100% |
+| T8C_PA2 | 55 | 13310 / 13310 | 1757305 / 1757305 ĐẠT 100% |
 
 ## T6 – Kho lá số SQLite (YÊU CẦU 5.3)
 
-Lưu 12 lá (t8_chuan.json, có lá Không rõ giờ) → mở lại → tính lại; so khối TÓM TẮT KET_LUAN B2:C12 + tứ trụ với ảnh chụp lúc lưu (33.9 giây).
+Lưu 12 lá (t8_chuan.json, có lá Không rõ giờ) → mở lại → tính lại; so khối TÓM TẮT KET_LUAN B2:C12 + tứ trụ với ảnh chụp lúc lưu (29.0 giây).
 
 | Hạng mục | Kết quả |
 |---|---|
@@ -225,7 +225,7 @@ Lưu 12 lá (t8_chuan.json, có lá Không rõ giờ) → mở lại → tính l
 
 ## T7 – 20 lá NGẪU NHIÊN MỚI (oracle_dump.py nguyên bản, không mượn ô nào)
 
-tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–2100, 6 lá tự nhập can chi; 23.0 giây.
+tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–2100, 6 lá tự nhập can chi; 20.3 giây.
 
 | Sheet | Ô khớp / tổng | Kết quả |
 |---|---|---|
@@ -237,13 +237,13 @@ tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–
 | KHONG_RO_GIO | 9940 / 9940 | ĐẠT 100% |
 | DOI_CHIEU | 2100 / 2100 | ĐẠT 100% |
 | DUNG_HY_KY | 8180 / 8180 | ĐẠT 100% |
-| PP1_DINH_TINH | 5020 / 5020 | ĐẠT 100% |
+| PP1_DINH_TINH | 5220 / 5220 | ĐẠT 100% |
 | PP2_DINH_LUONG | 5360 / 5360 | ĐẠT 100% |
 | THONG_CAN | 5780 / 5780 | ĐẠT 100% |
 | THAN_SAT | 10220 / 10220 | ĐẠT 100% |
 | SAO | 7040 / 7040 | ĐẠT 100% |
-| DAI_VAN | 17820 / 17820 | ĐẠT 100% |
-| LUU_NIEN | 268960 / 268960 | ĐẠT 100% |
+| DAI_VAN | 19420 / 19420 | ĐẠT 100% |
+| LUU_NIEN | 272960 / 272960 | ĐẠT 100% |
 | LUC_THAN | 33520 / 33520 | ĐẠT 100% |
 | HON_NHAN | 23960 / 23960 | ĐẠT 100% |
 | MENH_CUC | 7040 / 7040 | ĐẠT 100% |
@@ -259,21 +259,21 @@ tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–
 | BAO_PHU | 840 / 840 | ĐẠT 100% |
 | DOC_NHANH | 260 / 260 | ĐẠT 100% |
 | SU_KIEN | 11440 / 11440 | ĐẠT 100% |
-| **Tổng** | **627020 / 627020** | ĐẠT 100% |
+| **Tổng** | **632820 / 632820** | ĐẠT 100% |
 
-## T5 – Xuất PDF / XLSX / JSON (5 lá T7, 44.0 giây)
+## T5 – Xuất PDF / XLSX / JSON (5 lá T7, 39.1 giây)
 
 | Định dạng | Kiểm | Kết quả |
 |---|---|---|
-| JSON | mọi ô công thức trùng đáp án oracle | 156755 / 156755 |
-| XLSX | mở lại, mọi ô công thức của 30 sheet hiển thị trùng JSON; giữ gộp ô, cột/dòng ẩn | 157815 / 157815 |
-| PDF | số trang, "Trang i/n" mỗi trang, khối KẾT LUẬN, phiên bản quy tắc | 5 / 5 lá |
+| JSON | mọi ô công thức trùng đáp án oracle | 158205 / 158205 |
+| XLSX | mở lại, mọi ô công thức của 30 sheet hiển thị trùng JSON; giữ gộp ô, cột/dòng ẩn | 159265 / 159265 |
+| PDF | số trang, "Trang i/n" mỗi trang, khối KẾT LUẬN, phiên bản quy tắc | 5 / 5 lá (chạy lại sau khi test lấy nhãn từ PHIEN_BAN_QUY_TAC thay vì chữ "6.9" cố định) |
 
 ## T9 – Nhập sự việc SU_KIEN (bản 1.1.0): 20 lá T7 × 6 sự việc, đáp án tools/oracle_mo_rong.py (T7_SU_KIEN)
 
 | Hạng mục | Kết quả |
 |---|---|
-| Mọi ô công thức 33 sheet | 633220 / 633220 |
+| Mọi ô công thức 33 sheet | 639020 / 639020 |
 | Riêng SU_KIEN | 11440 / 11440 |
 | Đường nhập LaSo.su_kien → ô SU_KIEN B/C/D trùng ô oracle đã nhập | 20 / 20 lá |
 | Lưu SQLite → mở lại giữ nguyên sự việc | ĐẠT |
@@ -282,23 +282,8 @@ tests/t7_ngau_nhien.json (hạt giống 20261114): 14 lá dương lịch 1900–
 
 | Hạng mục | Kết quả |
 |---|---|
-| Mọi ô công thức 33 sheet | 633220 / 633220 |
+| Mọi ô công thức 33 sheet | 639020 / 639020 |
 | Riêng Hôn nhân / Không rõ giờ / Theo dõi | 23960 / 23960 · 16140 / 16140 · 100120 / 100120 |
 | Đường nhập giao diện → ô workbook (C34:G34, C11:E22, N/O/P theo năm) | 6840 / 6840 ô |
 | Lưu SQLite → mở lại giữ nguyên | ĐẠT |
 
-## Phụ lục – kiểm thử bổ sung bản 6.9 (22/11/2026)
-
-| Bộ kiểm | Kết quả |
-|---|---|
-| T11 hiển thị | 129860 ô đạt |
-| T12 quan hệ | 521 lá đạt |
-| T13 phân đoạn (có kiểm LaSo.to_dict/from_dict giữ phoi_tu_tru) | ĐẠT |
-| T14 bản luận giải, T15 AI, T16 sách | ĐẠT; T16: đại vận khớp sách 120/171 (70%) so với workbook 76 (44%); vượng–nhược 56/65 (86%) |
-| Kho lá khó | ĐẠT |
-| Ghi chú | Test PDF (T5) từng đòi nhãn "Quy tắc 6.7" nên báo 0/5; đã sửa test, chạy lại T5 đạt 5/5 |
-
-### Bổ sung ngày 23/11/2026 (bản dựng lại sau hai thay đổi)
-- Lỗi Excel "Repaired / Removed Records: Formula" (sheet LUU_NIEN, LUC_THAN): 101 công thức vượt 8192 ký tự → tách ô phụ, giá trị không đổi; kiểm tra bằng tests/t_gioi_han_excel.py: công thức dài nhất 7888 ký tự, 0 ô vượt giới hạn. Chưa mở bằng Excel thật – cần người dùng mở bản mới và báo lại.
-- NGU_HANH_THIEU mục I (PA2 – theo sách): cột Trạng thái C9:C11 hiện theo vòng trường sinh Thổ theo Thủy (Mậu như Nhâm, Kỷ như Quý) cho khớp cách tính ở D7, D9:D11; ghi chú F8 nói rõ dòng này khác bảng sách P1 tr.34 (vòng Hỏa) do yêu cầu G140. Điểm 48/20/20/12 không đổi; PP1, dụng thần, đại vận không đổi. Lá 15/8/2012 0h45 nữ: Thìn "Mộ", Thân "Trường sinh", Tí "Đế vượng"; 88% Quá vượng.
-- Oracle chạy lại 23/11/2026 trên workbook mới; T1…T10 ĐẠT như bảng trên; B1 lệch 5687 là lỗi MT-13 đã biết (thay bằng B1b 100%); T11–T16, kho lá số, dấu vân tay ĐẠT.

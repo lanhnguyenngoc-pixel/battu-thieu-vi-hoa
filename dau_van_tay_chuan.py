@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
-"""SINH TỰ ĐỘNG bởi tools/dau_van_tay.py – workbook SHA-256 a34b9bd88b9052807174d240d6d3d83136557f1d078a7e3a3ba2d95e1eadc33f."""
-DAU_VAN_TAY = ['36e86456e8645ac1d4465532de7db1039bcf7772526f0558c480b9a620880393', 'cb4161dc56bad2082113eb4c6abea1ece232f893fbd974dd8ceff7f5f8dc5d1c', 'bf6efe8aeaef34a796b6e0d124290659f419d2d9141f7692cbdbfb3c47841cba']
+"""SINH TỰ ĐỘNG bởi tools/dau_van_tay.py – workbook SHA-256 cd316c8e8e61b4745958cdd10b2c156f9f6411139f453a8d258139a442ecdd1b."""
+DAU_VAN_TAY = ['10df91b6f83dfe15f0864706663fc1778e3f2f9f5e0e8b319acd8f2b6e9f65af', '18b64c93c3ce11f10f041d03b553777eb1a393aafc7f963811a34b64a3726d9f', 'ef0c27430187406b8726f4a7a93fa97440f2a1433cad3e923f633d22cef3526f']
