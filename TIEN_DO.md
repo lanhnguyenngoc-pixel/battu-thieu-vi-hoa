@@ -248,6 +248,11 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Chưa làm (giai đoạn 2, cần thiết kế và đo riêng): xu thế năm can+chi (2.1/2.11), người ứng 6 bước (2.2), điều 6–8 (2.3), bốn bổ sung 2.7, bảng dấu hiệu con cái (2.8), ô nhập riêng và can chi vợ/chồng (2.9 phần mở rộng).
 - Điểm cần quyết: đại vận can nhàn (điểm can = 0) giữ nhánh cũ "bình thường" vì kế hoạch 6 bậc chưa có mức này; hợp hóa chỉ xét lục hợp; ô vợ/chồng dùng chung phoi_ngau (cần đủ giờ); LUU_NIEN vẫn chia 5/5 khi ghép đại vận.
 
+## 1.9.3 – Quy tắc 6.11: bảng Ngũ hành thiếu, mục I, PA2 mới (24/11/2026)
+- Chế độ PA2 – Theo sách: được lệnh (48%) và đắc địa (20%) có xét giả; đắc địa xét can năm, can ngày, can giờ tại chi tháng (Trường sinh, Lộc, Kình dương, Mộ khố); cùng hành (20%) và được sinh (12%) theo hành gốc, không hợp hóa. PA1, mục II, PP1, dụng thần, đại vận không đổi.
+- Đo 48 lá trang: khớp điểm 18 → 19, khớp nhóm 41 → 32. Kiểm thử tổng đạt (B1_KHONG_RO_GIO lệch là lỗi cũ MT-13, đã có B1b). Sổ tay 6.11; đáp án sinh lại.
+- Đo các quy tắc rút từ ví dụ sách (R1, R2, R3a, R3b-1/2, R10): không quy tắc nào được bật (làm giảm chỉ số bộ bảo vệ hoặc không có lợi); chi tiết trong Project: KET_QUA_DO_R1_R10_24_11.md.
+
 ## 1.9.2 – Quy tắc 6.9: giai đoạn 2 của kế hoạch 6.8 (22/11/2026)
 - Đã làm: (1) người ứng của hạn năm (6 bước) và xu thế năm can+chi; điều 6, 7, 8 (P2 tr.288–289); (2) sự nghiệp: cách kình dương; thọ – yểu: dấu hiệu "thân vượng thiếu cả quan sát và thực thương"; (3) con cái (P2 tr.500–514; P1 tr.157): câu tổng hợp (nhiều/vừa/ít con, nuôi dạy, con đầu lòng), danh sách các câu sách ứng với lá số, năm có dấu hiệu bất lợi cho con; hiển thị ở Theo lĩnh vực, Luận giải tổng hợp, PDF, Word; (4) lưu niên: can năm ngũ hợp hóa (P2 tr.282 điều 5) xét theo hành hóa thần; (5) nhập tứ trụ vợ/chồng theo can chi, dòng tham khảo con cái của vợ/chồng thêm vào Theo lĩnh vực (Gia đạo).
 - Đo: "tham hợp quên xung" (PP1 dòng 24) đổi sang tính cả can hợp: 73 lá Thiệu Vĩ Hoa 63 → 62 khớp (P1-VD13 đúng → sai), 501 lá đổi 2 lá → KHÔNG áp dụng, chỉ ghi nhận. Câu tổng hợp con cái trên 574 lá: số con nhiều 209, vừa 274, ít 91; nuôi dạy: thuận 181, có cả hai mặt 194, có trở ngại 198 (bản đầu gộp theo "có/không" thì 98% lá ra "có trở ngại" nên đã đổi sang so số câu thuận với số câu trở ngại, chênh ≥ 2).

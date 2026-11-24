@@ -24,6 +24,6 @@ exe = EXE(pyz, a.scripts, [], exclude_binaries=True, name='BatTuThieuViHoa', con
 coll = COLLECT(exe, a.binaries, a.datas, name='BatTuThieuViHoa')
 if sys.platform == 'darwin':
     app = BUNDLE(coll, name='Bát Tự Thiệu Vĩ Hoa.app', icon=icon, bundle_identifier='vn.battu.thieuvihoa',
-                 info_plist={'CFBundleShortVersionString': '1.9.2', 'CFBundleVersion': '1.9.2',
+                 info_plist={'CFBundleShortVersionString': '1.9.3', 'CFBundleVersion': '1.9.3',
                              'NSHighResolutionCapable': True, 'LSMinimumSystemVersion': '11.0',
                              'CFBundleDisplayName': 'Bát Tự Thiệu Vĩ Hoa'})
