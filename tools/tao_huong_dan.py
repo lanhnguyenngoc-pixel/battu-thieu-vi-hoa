@@ -50,6 +50,7 @@ H.append('<h2>2. Bố cục màn hình và Chế độ chuyên gia</h2><p>Thanh 
          '<tr><td>✎ Nhập liệu</td><td><b>Màn hình đầu tiên</b> khi mở phần mềm: nhập ngày giờ sinh hoặc tứ trụ; sửa xong bấm <b>▶ Luận giải</b> (hoặc Enter, F5). Phần mềm tính ở nền nên vẫn dùng được trong lúc tính; lá đã tính được nhớ lại, mở lại không phải tính lại.</td></tr>'
          '<tr><td>☷ Lá số</td><td>Lá số trực quan: 4 trụ can chi màu theo ngũ hành, thập thần, tàng can, trạng thái nhật can; nạp âm năm; dải 10 đại vận (vận đang hành viền tím).</td></tr>'
          '<tr><td>★ Luận giải chung</td><td>9 dòng kết luận của 9 lĩnh vực; nút Nhập/sửa, Xuất/In, Lưu.</td></tr>'
+         '<tr><td>✚ Dụng – hỷ – kỵ (6.12)</td><td><b>Mới ở 1.9.5.</b> Thổ sinh mùa đông thân nhược cần Hỏa sưởi ấm (Hỏa không lộ ở can thì lấy làm dụng thần); xếp bậc vận khi dụng thần thứ nhất khuyết; kỵ thần thật làm vận nặng thêm một mức; bản Luận giải tổng hợp (tối đa 6 trang) có thêm các dòng tham khảo theo can ngày, theo mùa, hỷ/kỵ ứng với việc và hỷ thần cứu ứng.</td></tr>'
          '<tr><td>✚ Sức khỏe 10 năm</td><td><b>Mới ở 1.9.4.</b> Bảng sức khỏe 10 năm liên tiếp kể từ năm đặt xem (mức năm, tạng phủ cần giữ, dấu hiệu hạn nặng) và bốn kiểu lá số dễ gặp tai ương (Kiêu thần đoạt thực, Dương Nhẫn quá nặng, ngũ hành quá lệch, đại vận vào Tử – Mộ – Tuyệt). Bốn kiểu là cách luận tham khảo thêm thuộc dễ gặp tai ương nhất; không đổi mức tài lộc, sự nghiệp, hôn nhân. Xuất PDF, Word; tóm lược cũng nằm trong mục Sức khỏe của Luận giải tổng hợp. Chỉ tham khảo, không phải chẩn đoán y khoa.</td></tr>'
          '<tr><td>✦ Luận giải tổng hợp</td><td><b>Mới ở 1.7.0.</b> Bản luận giải khoảng 5 trang A4 (tóm tắt nhanh + 10 lĩnh vực), mỗi việc một kết luận đã gỡ mâu thuẫn; xuất PDF, Word; tùy chọn ✨ Nâng cao bằng AI.</td></tr>'
          '<tr><td>❦ Luận giải chi tiết</td><td>Bài đọc liền mạch 8 mục + đánh giá tổng thể + 6 ý cho từng kết luận; chữ gạch chân có chú giải.</td></tr>'
@@ -205,7 +206,8 @@ def main():
     import re
     anh_ = {'anh://' + t: QImage(os.path.join(thu_muc, t)) for t in set(re.findall(r'anh://([\w.]+)', ''.join(H)))}
     for k, v in anh_.items():
-        if v.isNull(): raise SystemExit('Thiếu ảnh ' + k)
+        if v.isNull():
+            print('Thiếu ảnh (dùng khung trống):', k); im = QImage(900, 120, QImage.Format_RGB32); im.fill(0xFFF1F3F9); anh_[k] = im
     n = html_ra_pdf('<html><body>' + ''.join(H) + '</body></html>', ra, 'Hướng dẫn sử dụng – Bát Tự Thiệu Vĩ Hoa', anh_, CSS)
     print('Hướng dẫn sử dụng:', ra, n, 'trang')
 
