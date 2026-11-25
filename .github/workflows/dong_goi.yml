@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Nhãn phát hành (vd v1.9.4) – để trống thì chỉ dựng bộ cài, không phát hành'
+        description: 'Nhãn phát hành (vd v1.9.5) – để trống thì chỉ dựng bộ cài, không phát hành'
         required: false
         default: ''
   push:

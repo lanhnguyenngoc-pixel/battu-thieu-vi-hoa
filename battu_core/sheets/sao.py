@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet SAO – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: 6.11_P.xlsx (SHA-256 cd316c8e8e61b4745958cdd10b2c156f9f6411139f453a8d258139a442ecdd1b).
+Nguồn: 6.12.xlsx (SHA-256 78433e5f266e043473fa963e98d301668af5c750ed54a0385f8e16e49558a0ee).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 

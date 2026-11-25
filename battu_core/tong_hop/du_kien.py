@@ -66,6 +66,7 @@ def _ban_menh(E):
     return {'ket_luan': g('KẾT LUẬN BẢN MỆNH'), 'vuong_suy': g('VƯỢNG SUY – KHUYẾN NGHỊ'),
             'pp1': g('Trạng thái nhật chủ'), 'phe_minh_pt': phe_minh, 'do_theo_hanh': do,
             'cach_cuc': g('Cách cục'), 'dung_than': dung, 'hy_than': hy, 'ky_than': ky,
+            'dung_khuyet': E.gia_tri('DUNG_HY_KY', 'D97' if int(E.gia_tri('DOI_CHIEU', 'C33') or 0) == 2 else 'C97'),
             'hanh_dung': _hanh_dau(dung), 'hanh_hy': _hanh_dau(hy), 'hanh_ky': _hanh_dau(ky),
             'vi_sao_dung': g('Vì sao chọn dụng'), 'dieu_hau': g('Điều hầu'), 'menh_cuc': g('Kết luận mệnh cục'),
             'ung_vien_dung': _s(E.gia_tri('DUNG_HY_KY', 'C226')), 'goi_y_su_kien': _s(E.gia_tri('SU_KIEN', 'B38')), 'tho_yeu_kl': _s(E.gia_tri('MENH_CUC', 'C126')), 'tho_yeu_ly_do': _s(E.gia_tri('MENH_CUC', 'C127')), 'tho_yeu_buoc1': _s(E.gia_tri('MENH_CUC', 'C114')), 'tho_yeu_bang173': _s(E.gia_tri('MENH_CUC', 'U21')), 'muc_chac_dung': _s(E.gia_tri('DUNG_HY_KY', 'C227')),

@@ -248,6 +248,14 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Chưa làm (giai đoạn 2, cần thiết kế và đo riêng): xu thế năm can+chi (2.1/2.11), người ứng 6 bước (2.2), điều 6–8 (2.3), bốn bổ sung 2.7, bảng dấu hiệu con cái (2.8), ô nhập riêng và can chi vợ/chồng (2.9 phần mở rộng).
 - Điểm cần quyết: đại vận can nhàn (điểm can = 0) giữ nhánh cũ "bình thường" vì kế hoạch 6 bậc chưa có mức này; hợp hóa chỉ xét lục hợp; ô vợ/chồng dùng chung phoi_ngau (cần đủ giờ); LUU_NIEN vẫn chia 5/5 khi ghép đại vận.
 
+## 1.9.5 – Quy tắc 6.12: dụng – hỷ – kỵ thần theo P1 tr.73–124 (25/11/2026)
+- Sổ tay 6.12 (tools/step28.py + step28_dt_moi.py): (1) Thổ sinh tháng Hợi/Tý/Sửu/Dần, thân nhược → cần Hỏa điều hầu (P1 tr.78), Hỏa không lộ ở can (tàng can không tính, theo Cùng Thông Bảo Giám; người dùng chọn 25/11) thì lấy làm dụng thần (DUNG_HY_KY C215, C217, D217, C219); nhóm điều hầu cũ giữ ngưỡng 20%; thân vượng thì không đổi. (2) Xếp bậc vận khi dụng thần thứ nhất khuyết (DAI_VAN dòng 114, 128; P1 tr.102–103): hành thứ nhất ±2, dụng thần được chọn ±1. (3) Kỵ thần thật (DAI_VAN dòng 129, 136; tr.98): vận hành kỵ nặng thêm một mức. Không thêm cặp thông quan Thực thương – Quan sát vì P1 tr.110 nêu cặp này không thành mâu thuẫn.
+- Phần mềm: lớp hiển thị `tong_hop/dung_hy_ky_hien.py` – "tham khảo thêm" theo can ngày (tr.74–75), theo mùa sinh (tr.75–79), hỷ/kỵ của dụng thần → việc (tr.96–98), nằm trong mục 2 bản luận giải; bản luận giải ≤ 6 trang. Kiểm thử mới T18.
+- Chủ dự án duyệt: tháng Dần tính cho Thổ đông; tr.74 hiển thị "thổ chế thủy" (sách in "mộc", ghi chú); Thổ đông dùng "Hỏa không lộ ở can" thay cho ngưỡng 20% (sách không nêu số).
+- Mặc định đang áp dụng (chưa có chỉ thị riêng): ngưỡng "thái quá" chỉ hiển thị, khuyết điều hầu chỉ cảnh báo.
+- Hỷ thần cứu ứng hai hướng và "gánh vác" khi dụng khuyết (tr.97–98) đã đưa vào bản luận giải. Chưa làm: bốn cặp cứu ứng chi tiết giữa các thập thần (phần còn lại của H14), vì chưa đối chiếu xong trang sách.
+- Kiểm cuối (25/11/2026): đáp án LibreOffice sinh lại một lần cho 6.12; tests.chay_tat_ca đạt 100% (T1 949.320/949.320, T2 501 lá 15.604.647/15.604.647, T7–T10, T8C đều khớp; B1_KHONG_RO_GIO lệch 5.689 ô là lỗi cũ MT-13, B1b khớp 100%); T11–T18 ĐẠT. Đại vận 73 lá Thiệu Vĩ Hoa: khớp sách 76 → 77/171; vượng – nhược 56/65 không đổi.
+
 ## 1.9.4 – Bốn kiểu lá số dễ tai ương + Bảng sức khỏe 10 năm (24/11/2026)
 - Chỉ ở phần mềm (không đổi ô nào của workbook, quy tắc vẫn 6.11): `battu_core/tong_hop/tai_uong.py`; trang "✚ Sức khỏe 10 năm" (xem, PDF, Word); tóm lược trong mục Sức khỏe của Luận giải tổng hợp (vẫn ≤ 5 trang).
 - Bốn kiểu: Kiêu thần đoạt thực; Dương Nhẫn quá nặng (từ 2 chữ trở lên, tính mệnh + vận hiện tại); ngũ hành quá lệch (một hành ≥ 55% kèm hành gần như không có, hoặc thân quá yếu); đại vận vào Tử – Mộ – Tuyệt kèm thiên khắc địa xung trụ Ngày. Nhãn bắt buộc: "cách luận tham khảo thêm thuộc dễ gặp tai ương nhất." Không đổi mức tài lộc, sự nghiệp, hôn nhân.

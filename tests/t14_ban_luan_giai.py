@@ -5,7 +5,7 @@ Trên lá mẫu Nguyễn Ngọc Lanh + 20 lá T7:
   • không mâu thuẫn trong bản: một năm không vừa ở danh sách "thuận" vừa ở danh sách "cần thận trọng"
     (gia đạo; tiền bạc); mức của năm trong bảng = mức của lớp phán đoán;
   • không còn "(xem căn cứ sách)", không còn chữ workbook bị cắt (đoạn kết thúc bằng chữ cái + "…");
-  • PDF ≤ 5 trang A4 (chủ dự án duyệt 15/11/2026: khoảng 5 trang); .docx là gói hợp lệ, document.xml đọc được.
+  • PDF ≤ 6 trang A4 (chủ dự án duyệt 25/11/2026); .docx là gói hợp lệ, document.xml đọc được.
 Dùng: python -m tests.t14_ban_luan_giai"""
 import sys, os, json, re, time, tempfile, zipfile
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
@@ -65,7 +65,7 @@ def kiem(ten, B, pd, tmp, pdf=True):
     so = None
     if pdf:
         so = xuat_pdf(B, os.path.join(tmp, 'a.pdf'))
-        if not (1 <= so <= 5): loi.append((ten, 'PDF %d trang' % so))
+        if not (1 <= so <= 6): loi.append((ten, 'PDF %d trang' % so))
     return loi, so
 
 

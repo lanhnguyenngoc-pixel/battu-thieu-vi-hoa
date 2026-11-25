@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet DUNG_HY_KY – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: 6.11_P.xlsx (SHA-256 cd316c8e8e61b4745958cdd10b2c156f9f6411139f453a8d258139a442ecdd1b).
+Nguồn: 6.12.xlsx (SHA-256 78433e5f266e043473fa963e98d301668af5c750ed54a0385f8e16e49558a0ee).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -1920,9 +1920,10 @@ def f295(E, r, c):
 
 def f296(E, r, c):
     # Ô C215
-    # = IF(AND(OR(TRUNG_GIAN!$D$6=11,TRUNG_GIAN!$D$6=0,TRUNG_GIAN!$D$6=1,TRUNG_GIAN!$D$6=2),OR(TRUNG_GIAN!$E$7=0,TRUNG_GIAN!$E$7=3,TRUNG_GIAN!$E$7=4)),1,IF(AN
-    #   D(OR(TRUNG_GIAN!$D$6=5,TRUNG_GIAN!$D$6=6,TRUNG_GIAN!$D$6=7),OR(TRUNG_GIAN!$E$7=0,TRUNG_GIAN!$E$7=1,TRUNG_GIAN!$E$7=2,TRUNG_GIAN!$E$7=3)),4,-1))
-    return (1.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),11.0), X.eq(E.v(23,6,4),0.0), X.eq(E.v(23,6,4),1.0), X.eq(E.v(23,6,4),2.0)), X.OR(X.eq(E.v(23,7,5),0.0), X.eq(E.v(23,7,5),3.0), X.eq(E.v(23,7,5),4.0)))) else (4.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),5.0), X.eq(E.v(23,6,4),6.0), X.eq(E.v(23,6,4),7.0)), X.OR(X.eq(E.v(23,7,5),0.0), X.eq(E.v(23,7,5),1.0), X.eq(E.v(23,7,5),2.0), X.eq(E.v(23,7,5),3.0)))) else X.neg(1.0)))
+    # = IF(AND(OR(TRUNG_GIAN!$D$6=11,TRUNG_GIAN!$D$6=0,TRUNG_GIAN!$D$6=1,TRUNG_GIAN!$D$6=2),OR(TRUNG_GIAN!$E$7=0,TRUNG_GIAN!$E$7=3,TRUNG_GIAN!$E$7=4,AND(TRUNG
+    #   _GIAN!$E$7=2,OR($C$7=0,$D$7=0)))),1,IF(AND(OR(TRUNG_GIAN!$D$6=5,TRUNG_GIAN!$D$6=6,TRUNG_GIAN!$D$6=7),OR(TRUNG_GIAN!$E$7=0,TRUNG_GIAN!$E$7=1,TRUNG_GIAN
+    #   !$E$7=2,TRUNG_GIAN!$E$7=3)),4,-1))
+    return (1.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),11.0), X.eq(E.v(23,6,4),0.0), X.eq(E.v(23,6,4),1.0), X.eq(E.v(23,6,4),2.0)), X.OR(X.eq(E.v(23,7,5),0.0), X.eq(E.v(23,7,5),3.0), X.eq(E.v(23,7,5),4.0), X.AND(X.eq(E.v(23,7,5),2.0), X.OR(X.eq(E.v(8,7,3),0.0), X.eq(E.v(8,7,4),0.0)))))) else (4.0 if X.truthy(X.AND(X.OR(X.eq(E.v(23,6,4),5.0), X.eq(E.v(23,6,4),6.0), X.eq(E.v(23,6,4),7.0)), X.OR(X.eq(E.v(23,7,5),0.0), X.eq(E.v(23,7,5),1.0), X.eq(E.v(23,7,5),2.0), X.eq(E.v(23,7,5),3.0)))) else X.neg(1.0)))
 
 def f297(E, r, c):
     # Ô D215
@@ -1941,8 +1942,9 @@ def f299(E, r, c):
 
 def f300(E, r, c):
     # Ô C217, D217
-    # = IF(AND(C$91<>"TH",$C$215>=0,N($C$216)<0.2,MOD($C$215-C$5,5)<>C214),MOD($C$215-C$5,5),C214)
-    return (X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0) if X.truthy(X.AND(X.ne(E.v(8,91,c),'TH'), X.ge(E.v(8,215,3),0.0), X.lt(X.N(E.v(8,216,3)),0.2), X.ne(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,r-3,c)))) else E.v(8,r-3,c))
+    # = IF(AND(C$91<>"TH",$C$215>=0,IF(TRUNG_GIAN!$E$7=2,C$7=0,TRUE()),IF(AND(TRUNG_GIAN!$E$7=2,$C$215=1),NOT(OR(TRUNG_GIAN!$C$7=$C$215,TRUNG_GIAN!$D$7=$C$215
+    #   ,AND(NHAP_LIEU!$C$9<>"Không rõ giờ",TRUNG_GIAN!$F$7=$C$215))),N($C$216)<0.2),MOD($C$215-C$5,5)<>C214),MOD($C$215-C$5,5),C214)
+    return (X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0) if X.truthy(X.AND(X.ne(E.v(8,91,c),'TH'), X.ge(E.v(8,215,3),0.0), (X.eq(E.v(8,7,c),0.0) if X.truthy(X.eq(E.v(23,7,5),2.0)) else X.TRUE()), (X.NOT(X.OR(X.eq(E.v(23,7,3),E.v(8,215,3)), X.eq(E.v(23,7,4),E.v(8,215,3)), X.AND(X.ne(E.v(2,9,3),'Không rõ giờ'), X.eq(E.v(23,7,6),E.v(8,215,3))))) if X.truthy(X.AND(X.eq(E.v(23,7,5),2.0), X.eq(E.v(8,215,3),1.0))) else X.lt(X.N(E.v(8,216,3)),0.2)), X.ne(X.MOD(X.sub(E.v(8,215,3),E.v(8,5,c)), 5.0),E.v(8,r-3,c)))) else E.v(8,r-3,c))
 
 def f301(E, r, c):
     # Ô C218, D218
@@ -1954,14 +1956,15 @@ def f301(E, r, c):
 
 def f302(E, r, c):
     # Ô C219
-    # = IF(C218="","","P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần; P1 t
-    #   r.76 (mộc mùa hạ rễ lá khô, cần nước tưới)")
-    return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần; P1 tr.76 (mộc mùa hạ rễ lá khô, cần nước tưới)')
+    # = IF(C218="","","P1 tr.76–79 (thổ mùa đông: tr.78): sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắ
+    #   c chọn dụng thần; P1 tr.76 (mộc mùa hạ rễ lá khô, cần nước tưới)")
+    return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79 (thổ mùa đông: tr.78): sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần; P1 tr.76 (mộc mùa hạ rễ lá khô, cần nước tưới)')
 
 def f303(E, r, c):
     # Ô D219
-    # = IF(D218="","","P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần")
-    return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79: sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần')
+    # = IF(D218="","","P1 tr.76–79 (thổ mùa đông: tr.78): sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắ
+    #   c chọn dụng thần")
+    return ('' if X.truthy(X.eq(E.v(8,r-1,c),'')) else 'P1 tr.76–79 (thổ mùa đông: tr.78): sinh mùa lạnh cần hỏa sưởi ấm, sinh mùa nóng cần thủy điều hòa; P1 tr.100: điều hầu là một nguyên tắc chọn dụng thần')
 
 def f304(E, r, c):
     # Ô C222, D222

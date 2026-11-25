@@ -297,6 +297,14 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     vsd = _cau(bm.get('vi_sao_dung'), 3)
     if vsd: B.append(('p', '**Vì sao chọn dụng thần.** %s' % vsd.replace('PP1: ', '')))
     if bm.get('dieu_hau'): B.append(('p', '**Điều hầu.** %s' % _cau(bm['dieu_hau'], 2)))
+    from battu_core.tong_hop import dung_hy_ky_hien as H
+    hn = Q.HANH[Q.HANH_CAN[Q.CAN.index(nc)]] if nc in Q.CAN else ''
+    for t in (H.the_ngu_hanh(hn, vuong), H.theo_mua(hn, tru[1]['chi'])):
+        if t: B.append(('p', t))
+    cu = H.hy_cuu_ung(hn, bm.get('hanh_dung'), vuong, bool(bm.get('dung_khuyet')) and chinh_cach)
+    if cu and chinh_cach: B.append(('p', cu))
+    vk = H.hy_ky_viec(bm.get('dung_than') or '')
+    if vk: B.append(('p', 'Tham khảo thêm – dụng thần gặp thuận (P1 tr.96–98): %s. Khi bị kỵ thần phá: %s. %s' % (vk[0], vk[1], H.LUU_Y_TR98)))
     if bm.get('ung_vien_dung'):
         B.append(('p', '**Ứng viên dụng thần thay thế (tham khảo).** %s %s' % (
             '; '.join(x.strip('• ').split(':')[0] + ' – ' + _cau(x.split(':', 1)[1], 1) for x in bm['ung_vien_dung'].split('\n') if ':' in x),
