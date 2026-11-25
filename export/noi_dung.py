@@ -9,8 +9,8 @@ from battu_core.hien_thi import hien_thi_o
 from battu_core.dinh_dang_dk import kieu_sheet
 from battu_core import sheets as S
 
-PHIEN_BAN_QUY_TAC = '6.12'
-PHIEN_BAN_PM = '1.9.5'
+PHIEN_BAN_QUY_TAC = '6.13'
+PHIEN_BAN_PM = '1.9.6'
 TEN_PHAN_MEM = 'Bát Tự Thiệu Vĩ Hoa'
 SHEET_AN = ('MAU_THUAN', 'KIEM_THU', 'CSDL')          # chỉ tính ẩn (quyết định 14/11/2026)
 DONG_PHU_TRO_KL = range(200, 252)

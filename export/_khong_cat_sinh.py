@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """SINH TỰ ĐỘNG bởi tools/sinh_khong_cat.py – KHÔNG SỬA TAY.
-Bản sao "không cắt" của hàm công thức: X.cat(X.LEFT(x, N), '…') → x. Nguồn sheet SHA-256 78433e5f266e043473fa963e98d301668af5c750ed54a0385f8e16e49558a0ee."""
+Bản sao "không cắt" của hàm công thức: X.cat(X.LEFT(x, N), '…') → x. Nguồn sheet SHA-256 2d62735a45c59ea08d9f0ab1582eb4f404636f044a611f2a1381017526f50634."""
 from battu_core import xl as X
 
-NGUON_SHA256 = '78433e5f266e043473fa963e98d301668af5c750ed54a0385f8e16e49558a0ee'
+NGUON_SHA256 = '2d62735a45c59ea08d9f0ab1582eb4f404636f044a611f2a1381017526f50634'
 
 def _theo_doi__f18(E, r, c):
     return '' if X.truthy(X.eq(E.v(5, r, c - 12), '')) else E.v(15, 30, 66) if X.truthy(X.gt(X.LEN(E.v(15, 30, 66)), 260.0)) else E.v(15, 30, 66)

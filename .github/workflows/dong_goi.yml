@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Nhãn phát hành (vd v1.9.5) – để trống thì chỉ dựng bộ cài, không phát hành'
+        description: 'Nhãn phát hành (vd v1.9.6) – để trống thì chỉ dựng bộ cài, không phát hành'
         required: false
         default: ''
   push:
@@ -117,7 +117,7 @@ jobs:
           APP="dist/Bát Tự Thiệu Vĩ Hoa.app"
           codesign --force --deep -s - "$APP"
           mkdir -p dmg_goc dist_cai && cp -R "$APP" dmg_goc/ && ln -s /Applications dmg_goc/Applications
-          hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder dmg_goc -ov -format UDZO "dist_cai/BatTuThieuViHoa_1.9.5_macOS_${{ matrix.kien_truc }}.dmg"
+          hdiutil create -volname "Bát Tự Thiệu Vĩ Hoa" -srcfolder dmg_goc -ov -format UDZO "dist_cai/BatTuThieuViHoa_1.9.6_macOS_${{ matrix.kien_truc }}.dmg"
       - name: Cài – tự kiểm không mạng – gỡ
         run: |
           set -e

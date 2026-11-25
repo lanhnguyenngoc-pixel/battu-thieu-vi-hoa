@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet TAI_LOC – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: 6.12.xlsx (SHA-256 78433e5f266e043473fa963e98d301668af5c750ed54a0385f8e16e49558a0ee).
+Nguồn: 6.13.xlsx (SHA-256 2d62735a45c59ea08d9f0ab1582eb4f404636f044a611f2a1381017526f50634).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 

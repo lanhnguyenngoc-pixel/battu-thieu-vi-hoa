@@ -278,3 +278,7 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Nuôi dạy con: đổi sang đếm số câu thuận/trở ngại của sách, chỉ tham khảo (khớp sách 5/10 nên không dùng làm kết luận); D23 ghi "nghiêng về; quy tắc sao cha/mẹ chỉ ngược lại". 16 ví dụ sách đã đối chiếu (/tmp/vd16.py).
 - Sửa lỗi: nhánh cache của giao diện làm mất phoi_tu_tru (đã sửa, có test T13); test PDF đòi nhãn 6.7 (đã sửa). Mục 2.11 A không đo được (không có dữ liệu năm–sự việc có nhãn). Đại vận "can nhàn" giữ "bình thường" (sách không có quy tắc riêng).
 - Cập nhật 23/11/2026: (1) sửa lỗi Excel báo "Repaired" – tách 101 công thức > 8192 ký tự, có test tests/t_gioi_han_excel.py; (2) NHT mục I PA2: cột trạng thái đắc địa hiện theo vòng Thủy (khớp cách tính, G140), ghi chú F8 nêu khác sách P1 tr.34 – chỉ ở sheet ngũ hành thiếu; (3) oracle và toàn bộ kiểm thử chạy lại, ĐẠT. Còn lại: người dùng mở workbook bản mới bằng Excel thật và báo cảnh báo (nếu có).
+
+## 1.9.6 – Quy tắc 6.13: PA1 mục I không xét nhật chủ Mậu, Kỷ (25/11/2026)
+- Sổ tay 6.13 (tools/step29.py + step29_pa1_tho.py): chỉ ở chế độ PA1 – Theo trang, dòng "cùng hành" (mục I) không tính khi nhật chủ là Mậu/Kỷ (Thổ); PA2 – Theo sách giữ nguyên. Mục II, III, dụng thần, đại vận không đổi.
+- Kiểm (25/11/2026): chỉ sinh lại đáp án B4_PA1 và T8C_PA1 (các bộ khác chạy PA2 mặc định, không đổi); tests.chay_tat_ca đạt 100% (B4_PA1 958.620/958.620, T8C_PA1 1.757.470/1.757.470; B1_KHONG_RO_GIO lệch đã biết MT-13).
