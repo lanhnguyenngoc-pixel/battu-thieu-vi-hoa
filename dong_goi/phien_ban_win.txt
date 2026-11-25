@@ -3,7 +3,7 @@ VSVersionInfo(
   kids=[StringFileInfo([StringTable('042a04b0', [
     StringStruct('CompanyName', 'Bat Tu Thieu Vi Hoa'),
     StringStruct('FileDescription', 'Bát Tự Thiệu Vĩ Hoa – quy tắc 6.9'),
-    StringStruct('FileVersion', '1.9.4'),
+    StringStruct('FileVersion', '1.9.5'),
     StringStruct('ProductName', 'Bát Tự Thiệu Vĩ Hoa'),
-    StringStruct('ProductVersion', '1.9.4 (quy tắc 6.11)')])]),
+    StringStruct('ProductVersion', '1.9.5 (quy tắc 6.12)')])]),
     VarFileInfo([VarStruct('Translation', [0x042a, 1200])])])
