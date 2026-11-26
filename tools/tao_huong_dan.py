@@ -23,7 +23,7 @@ def anh(ten, chu=''):
     H.append('<p align="center"><img src="anh://%s" width="900"><br><span class="nho">%s</span></p>' % (ten, chu))
 
 
-H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.6 (quy tắc 6.13)</b></p>')
+H.append('<h1>Bát Tự Thiệu Vĩ Hoa</h1><p><b>Hướng dẫn sử dụng – phiên bản 1.9.7 (quy tắc 6.13)</b></p>')
 H.append('<p>Phần mềm lập và luận giải lá số Tứ trụ (Bát tự) theo sách <i>Dự đoán theo Tứ trụ</i> của Thiệu Vĩ Hoa, theo bộ quy tắc 6.7; '
          '<b>kết quả đã được kiểm chứng trên hàng chục triệu phép tính</b>. Phần mềm chạy hoàn toàn '
          'không cần Internet; lá số chỉ lưu trên máy của bạn.</p>')
@@ -32,7 +32,7 @@ H.append('<p class="chu_y">Nội dung sức khỏe chỉ để tham khảo, khô
 
 H.append('<h2>1. Cài đặt và gỡ cài đặt</h2>')
 H.append('<table width="100%" cellspacing="0"><tr><th width="16%">Hệ máy</th><th width="42%">Cài đặt</th><th>Gỡ cài đặt</th></tr>'
-         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.9.6_Windows.exe</b> → Tiếp → Cài đặt. '
+         '<tr><td><b>Windows 10/11</b> (64-bit)</td><td>Bấm đúp <b>BatTuThieuViHoa_Setup_1.9.7_Windows.exe</b> → Tiếp → Cài đặt. '
          'Nếu Windows SmartScreen cảnh báo (phần mềm chưa mua chứng thư số), bấm <i>Thông tin thêm → Vẫn chạy</i>. '
          'Biểu tượng có ở menu Start và màn hình nền.</td><td><i>Cài đặt → Ứng dụng → Bát Tự Thiệu Vĩ Hoa → Gỡ cài đặt</i>, hoặc menu Start → '
          '<i>Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa</i>.</td></tr>'
@@ -79,6 +79,11 @@ H.append('<p>Chọn một trong ba cách: <b>Dương lịch</b> (ngày, tháng, 
          '<p><b>Ngày sinh của vợ/chồng</b> (tùy chọn): nhập ngày, tháng, năm, giờ, phút dương lịch – hoặc chỉ nhập năm – để mục Hôn nhân '
          'xét hợp tuổi theo nạp âm và can chi. Trụ năm của người kia đổi tại Lập xuân (P2 tr.268): nếu chỉ nhập năm, phần mềm coi như sinh sau '
          'Lập xuân và có ghi cảnh báo.</p>'
+         '<p><b>Giờ mặt trời thật</b> (tùy chọn, từ bản 1.9.7): mặc định phần mềm dùng <b>giờ đồng hồ</b> ghi trên giấy khai sinh, như sách. '
+         'Ở màn hình Nhập liệu, mục <i>Cách tính giờ sinh</i> chọn <i>Giờ mặt trời thật</i>, rồi chọn <i>Nơi sinh</i> (tỉnh, thành) hoặc nhập kinh độ. Phần mềm đổi giờ đồng hồ thành giờ mặt trời thật '
+         '(chỉnh theo kinh độ nơi sinh so với kinh tuyến chuẩn của múi giờ, cộng phương trình thời gian), rồi mới lập tứ trụ. Độ lệch thường vài phút đến khoảng 20 phút, nên chỉ đổi kết quả khi giờ sinh nằm sát ranh giờ '
+         '(hoặc sát nửa đêm, hoặc sát tiết khí). Kết quả ghi rõ giờ đã quy đổi và cảnh báo khi tứ trụ khác so với giờ đồng hồ. Không áp dụng khi chọn Không rõ giờ hoặc tự nhập can chi. '
+         'Lá sinh trước 1975 có thể dùng múi giờ khác UTC+7: hãy chỉnh ô UTC+ cho đúng múi giờ lúc sinh.</p>'
          '<p><b>Tứ trụ của vợ/chồng theo can chi</b> (tùy chọn, từ bản 1.9.2): nếu không có đủ ngày giờ sinh, nhập bốn cặp can chi (năm, tháng, ngày, giờ) cách nhau bằng dấu phẩy, '
          'ví dụ “Nhâm Ngọ, Canh Tuất, Ất Mão, Mậu Dần”. Khi đã có đủ ngày, tháng, năm, giờ sinh thì dùng ngày sinh. Phần mềm tính lá số thứ hai bằng đúng bộ tính hiện có (giới tính ngược với lá chính) '
          'và chỉ thêm MỘT dòng “Tham khảo thông tin về Con cái theo lá số của vợ/chồng (…) là: …” ở Theo lĩnh vực (mục Gia đạo) và ở Luận giải tổng hợp, bản PDF, bản Word; dòng này không đổi kết luận nào của lá chính.</p>'

@@ -10,7 +10,7 @@ from battu_core.dinh_dang_dk import kieu_sheet
 from battu_core import sheets as S
 
 PHIEN_BAN_QUY_TAC = '6.13'
-PHIEN_BAN_PM = '1.9.6'
+PHIEN_BAN_PM = '1.9.7'
 TEN_PHAN_MEM = 'Bát Tự Thiệu Vĩ Hoa'
 SHEET_AN = ('MAU_THUAN', 'KIEM_THU', 'CSDL')          # chỉ tính ẩn (quyết định 14/11/2026)
 DONG_PHU_TRO_KL = range(200, 252)
@@ -120,6 +120,9 @@ def thong_tin_la(kq):
     else:
         sinh = 'Tự nhập can chi'
     if s.khong_ro_gio: sinh += ' · Không rõ giờ (đang xem giờ %s)' % s.gio_dang_xem
+    try: q = s.gio_quy_doi()
+    except Exception: q = None
+    if q: sinh += ' · tính theo giờ mặt trời thật %02d:%02d %02d/%02d/%d (%s, lệch %+.0f phút)' % (q[3], q[4], q[0], q[1], q[2], s.noi_sinh or ('kinh độ %g' % s.kinh_do), q[5])
     return [('Họ tên', s.ho_ten or '(chưa đặt tên)'), ('Ngày giờ sinh', sinh), ('Giới tính', s.gioi_tinh),
             ('Tứ trụ (năm · tháng · ngày · giờ)', tru), ('Năm xem', chu_o(E, 'NHAP_LIEU', 31, 3))]
 

@@ -62,6 +62,10 @@ class LaSo:
     # Lớp tổng hợp (đề xuất hoàn thiện 15/11/2026, B4) – KHÔNG phải ô nhập workbook, không đổi kết quả tính:
     tinh_trang_hon_nhan: str = ''        # '' | 'Độc thân' | 'Đã kết hôn' | 'Ly hôn' | 'Góa'
     so_con: int = None                   # None = không nhập
+    # Giờ mặt trời thật (tùy chọn, mặc định tắt – duyệt 26/11/2026): quy đổi giờ đồng hồ → giờ mặt trời thật trước khi đặt vào ô nhập
+    gio_mat_troi: bool = False
+    noi_sinh: str = ''                   # tên tỉnh/thành trong battu_core.gio_mat_troi.KINH_DO, hoặc 'Khác (nhập kinh độ)'
+    kinh_do: float = None                # kinh độ Đông (độ); nếu có thì ưu tiên hơn tên nơi sinh
     phoi_tu_tru: str = ''                # mục 2.9 (bản 6.9): tứ trụ vợ/chồng nhập theo can chi "Can Chi, Can Chi, Can Chi, Can Chi" (năm, tháng, ngày, giờ); chỉ dùng cho dòng tham khảo con cái
 
     def to_dict(self): return asdict(self)
@@ -96,6 +100,23 @@ class LaSo:
             return self.ngay, self.thang, self.nam
         return None
 
+    def gio_quy_doi(self):
+        """Khi bật giờ mặt trời thật (và biết ngày giờ): → (ngày, tháng, năm, giờ, phút, độ lệch phút); ngược lại None."""
+        if not self.gio_mat_troi or self.khong_ro_gio or self.cach_nhap == 'canchi' or self.gio is None:
+            return None
+        from battu_core import gio_mat_troi as g
+        kd = g.kinh_do_cua(self.noi_sinh, self.kinh_do)
+        if kd is None:
+            raise LoiNhap('Chọn nơi sinh hoặc nhập kinh độ để quy đổi giờ mặt trời thật.')
+        if not -180 <= kd <= 180:
+            raise LoiNhap('Kinh độ phải nằm trong khoảng −180 đến 180.')
+        d, m, y = self.ngay_duong()
+        try:
+            t, lech = g.quy_doi(d, m, y, self.gio, self.phut or 0, kd, self.mui_gio if self.mui_gio is not None else 7.0)
+        except ValueError:
+            raise LoiNhap('Ngày dương lịch không hợp lệ.')
+        return t.day, t.month, t.year, t.hour, t.minute, lech
+
     def o_nhap(self, nam_theo_doi=None):
         """→ {sheet: {ô: giá trị}} đúng như người dùng nhập vào workbook (None = để trống).
         nam_theo_doi: danh sách năm ở THEO_DOI A12:A111 (do lõi tính ra) để đặt đánh giá thực tế đúng dòng năm."""
@@ -120,10 +141,13 @@ class LaSo:
         for col, v in zip('CDEFG', self.phoi_ngau): nl[col + '34'] = float(v) if v not in (None, '') else None
         if self.cach_nhap in ('duong', 'am'):
             d, m, y = self.ngay_duong()
+            gio, phut = self.gio, self.phut
+            q = self.gio_quy_doi()
+            if q: d, m, y, gio, phut = q[:5]
             nl['C12'] = 'Tự động'
             nl['C26'] = float(d); nl['D26'] = float(m); nl['E26'] = float(y)
-            nl['F26'] = float(self.gio) if self.gio is not None else None
-            nl['G26'] = float(self.phut) if self.phut is not None else None
+            nl['F26'] = float(gio) if gio is not None else None
+            nl['G26'] = float(phut) if phut is not None else None
             for i, col in enumerate('CDEF'):
                 nl[col + '7'] = self.can[i] or None; nl[col + '8'] = self.chi[i] or None
         else:

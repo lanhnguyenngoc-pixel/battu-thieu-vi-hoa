@@ -43,3 +43,21 @@ def danh_sach_la_mau():
     """Tên các lá số mẫu trong KIEM_THU B6:B90 (để chọn ở NHAP_LIEU C13)."""
     M = model(); k = M.consts[M.si['KIEM_THU']]
     return ['Tự nhập'] + [k[(r, 2)] for r in range(6, 91) if isinstance(k.get((r, 2)), str) and k.get((r, 2))]
+
+
+def so_voi_gio_dong_ho(la_so: LaSo):
+    """Khi bật giờ mặt trời thật: so tứ trụ với cách tính theo giờ đồng hồ. → (chuỗi giờ, danh sách trụ khác) hoặc None.
+    Chỉ tính phần tứ trụ (NHAP_LIEU hàng 37–38), không tính cả lá số."""
+    import copy
+    q = la_so.gio_quy_doi()
+    if not q: return None
+    d, m, y, gio, phut, lech = q
+    dh = copy.copy(la_so); dh.gio_mat_troi = False
+    def tru(ls):
+        E = Engine(ls.o_nhap())
+        return [(E.gia_tri('NHAP_LIEU', c + '37'), E.gia_tri('NHAP_LIEU', c + '38')) for c in 'CDEF']
+    a, b = tru(dh), tru(la_so)
+    khac = [n for n, x, z in zip(('năm', 'tháng', 'ngày', 'giờ'), a, b) if x != z]
+    gio_dong_ho = '%02d:%02d' % (la_so.gio, la_so.phut or 0)
+    mt = '%02d:%02d %02d/%02d/%d' % (gio, phut, d, m, y)
+    return gio_dong_ho, mt, lech, khac, ['%s %s' % x for x in a], ['%s %s' % x for x in b]

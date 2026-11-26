@@ -282,3 +282,9 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 ## 1.9.6 – Quy tắc 6.13: PA1 mục I không xét nhật chủ Mậu, Kỷ (25/11/2026)
 - Sổ tay 6.13 (tools/step29.py + step29_pa1_tho.py): chỉ ở chế độ PA1 – Theo trang, dòng "cùng hành" (mục I) không tính khi nhật chủ là Mậu/Kỷ (Thổ); PA2 – Theo sách giữ nguyên. Mục II, III, dụng thần, đại vận không đổi.
 - Kiểm (25/11/2026): chỉ sinh lại đáp án B4_PA1 và T8C_PA1 (các bộ khác chạy PA2 mặc định, không đổi); tests.chay_tat_ca đạt 100% (B4_PA1 958.620/958.620, T8C_PA1 1.757.470/1.757.470; B1_KHONG_RO_GIO lệch đã biết MT-13).
+
+## 1.9.7 – Tùy chọn giờ mặt trời thật (26/11/2026)
+- Chủ dự án duyệt 26/11/2026: thêm lựa chọn "Cách tính giờ sinh" gồm hai mức – Giờ đồng hồ (mặc định, như quyết định 3.3 ngày 14/11) và Giờ mặt trời thật (chỉnh theo kinh độ nơi sinh và phương trình thời gian). Chọn nơi sinh từ danh sách tỉnh thành (kinh độ gần đúng của tỉnh lỵ) hoặc nhập kinh độ.
+- Chỉ ở lớp nhập liệu (`battu_core/gio_mat_troi.py`, `LaSo.gio_quy_doi`): giờ đã quy đổi (có thể sang ngày khác) được đặt vào C26:G26; lõi tính và sổ tay không đổi (quy tắc vẫn 6.13); bộ đáp án cũ dùng nguyên. Không áp dụng khi Không rõ giờ hoặc tự nhập can chi.
+- Kết quả ghi giờ đã quy đổi và cảnh báo nếu tứ trụ khác giờ đồng hồ; bản in ghi thêm dòng giờ mặt trời. Múi giờ trước 1975 chỉnh bằng ô UTC+.
+- Kiểm thử mới T19 (tests/t19_gio_mat_troi.py).

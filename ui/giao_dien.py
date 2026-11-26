@@ -14,7 +14,7 @@ from battu_core.nhap_lieu import LaSo, CAN, CHI, VUONG_SUY, CHE_DO_NHT, LoiNhap
 from battu_core.dich_vu import tinh, danh_sach_la_mau, KetQua
 from battu_core import lich_am
 
-PHIEN_BAN = 'Phiên bản 1.9.6 · Quy tắc 6.13'
+PHIEN_BAN = 'Phiên bản 1.9.7 · Quy tắc 6.13'
 # Màu ngũ hành (chỉ để hiển thị): 0 Mộc, 1 Hỏa, 2 Thổ, 3 Kim, 4 Thủy – theo TRUNG_GIAN G7
 MAU_HANH = {0: '#16a34a', 1: '#e11d48', 2: '#a0522d', 3: '#b8860b', 4: '#2563eb'}
 TEN_HANH = {0: 'Mộc', 1: 'Hỏa', 2: 'Thổ', 3: 'Kim', 4: 'Thủy'}
@@ -207,6 +207,19 @@ class TrangNhap(QWidget):
         hg.addWidget(lbl('UTC+', 'nhan')); self.mui = QComboBox(); self.mui.addItems([str(x) for x in range(-12, 15)])
         self.mui.setCurrentText('7'); hg.addWidget(self.mui)
         self.w_gio = QWidget(); self.w_gio.setLayout(hg); hg.setContentsMargins(0, 0, 0, 0); cv.addWidget(self.w_gio)
+        # cách tính giờ sinh: giờ đồng hồ (mặc định) hoặc giờ mặt trời thật (chỉnh theo kinh độ nơi sinh + phương trình thời gian)
+        from battu_core import gio_mat_troi as _gmt
+        hm = QHBoxLayout(); hm.setSpacing(8); hm.setContentsMargins(0, 0, 0, 0)
+        hm.addWidget(lbl('Cách tính giờ sinh', 'nhan')); self.cach_gio = QComboBox(); self.cach_gio.addItems(['Giờ đồng hồ', 'Giờ mặt trời thật'])
+        self.cach_gio.setToolTip('Giờ đồng hồ: dùng đúng giờ ghi trên giấy khai sinh (mặc định, như sách).\nGiờ mặt trời thật: chỉnh theo kinh độ nơi sinh và phương trình thời gian (lệch tối đa khoảng 20 phút so với đồng hồ).')
+        hm.addWidget(self.cach_gio); hm.addStretch()
+        self.w_cach_gio = QWidget(); self.w_cach_gio.setLayout(hm); cv.addWidget(self.w_cach_gio)
+        hn2 = QHBoxLayout(); hn2.setSpacing(8); hn2.setContentsMargins(0, 0, 0, 0)
+        hn2.addWidget(lbl('Nơi sinh', 'nhan')); self.noi_sinh = QComboBox(); self.noi_sinh.addItems(['(chọn)'] + _gmt.DANH_SACH_NOI)
+        self.noi_sinh.setMinimumWidth(190); hn2.addWidget(self.noi_sinh)
+        self.kinh_do = o_tuy_chon('kinh độ Đông, vd 105.85', True); self.kinh_do.setVisible(False); hn2.addWidget(self.kinh_do)
+        self.w_noi = QWidget(); self.w_noi.setLayout(hn2); self.w_noi.setVisible(False); cv.addWidget(self.w_noi)
+        self.gmt_info = lbl('', 'chip_info', True); self.gmt_info.setVisible(False); cv.addWidget(self.gmt_info)
         hk = QHBoxLayout(); self.krg = QCheckBox('Không rõ giờ sinh'); hk.addWidget(self.krg); hk.addStretch()
         hk.addWidget(lbl('Giờ đang xem', 'nhan')); self.gio_xem = QComboBox(); self.gio_xem.addItems(CHI)
         self.gio_xem.setCurrentText('Ngọ'); hk.addWidget(self.gio_xem); cv.addLayout(hk)
@@ -275,6 +288,9 @@ class TrangNhap(QWidget):
         for w in self.cb_can + self.cb_chi + [self.mui, self.gio_xem, self.vs, self.nht, self.mau]:
             w.currentIndexChanged.connect(self.hen.start)
         self.hon_nhan.currentIndexChanged.connect(self.hen.start)
+        for w in (self.cach_gio, self.noi_sinh): w.currentIndexChanged.connect(lambda _: self._hien_noi_sinh())
+        for w in (self.cach_gio, self.noi_sinh): w.currentIndexChanged.connect(self.hen.start)
+        self.kinh_do.textChanged.connect(self.hen.start)
         for w in [self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.ho_ten, self.so_con, self.pt] + self.pn:
             w.textChanged.connect(self.hen.start)
         for w in [self.krg, self.a_nhuan]: w.toggled.connect(self.hen.start)
@@ -300,7 +316,13 @@ class TrangNhap(QWidget):
 
     def doi_cach(self, i):
         for k, p in enumerate(self.trang_nhap): p.setVisible(k == i)
-        self.w_gio.setVisible(i != 2); self.hen.start()
+        self.w_gio.setVisible(i != 2); self.w_cach_gio.setVisible(i != 2); self._hien_noi_sinh(); self.hen.start()
+
+    def _hien_noi_sinh(self):
+        from battu_core import gio_mat_troi as _gmt
+        mt = self.cach_gio.currentIndex() == 1 and self.cach.chon() != 2
+        self.w_noi.setVisible(mt); self.kinh_do.setVisible(mt and self.noi_sinh.currentText() == _gmt.NHAP_TAY)
+        if not mt: self.gmt_info.setVisible(False)
 
     def la_so(self):
         i = self.cach.chon()
@@ -309,6 +331,9 @@ class TrangNhap(QWidget):
         s.am_ngay, s.am_thang, s.am_nam, s.am_nhuan = self.a_ngay.value(), self.a_thang.value(), self.a_nam.value(), self.a_nhuan.isChecked()
         s.gio, s.phut = self.gio.value(), self.phut.value()
         s.mui_gio = float(self.mui.currentText())
+        s.gio_mat_troi = self.cach_gio.currentIndex() == 1 and i != 2
+        ns = self.noi_sinh.currentText(); s.noi_sinh = '' if ns == '(chọn)' else ns
+        s.kinh_do = doc_tuy_chon(self.kinh_do, True) if ns.startswith('Khác') else None
         if i == 2:
             s.can = [c.currentText() for c in self.cb_can]; s.chi = [c.currentText() for c in self.cb_chi]
             s.nam_sinh_tru_nam = doc_tuy_chon(self.c30)
@@ -337,7 +362,7 @@ class TrangNhap(QWidget):
     def dat_la_so(self, s):
         """Nạp lá số đã lưu vào ô nhập rồi tính lại (mở lại từ Danh sách lá số)."""
         ws = [self.d_ngay, self.d_thang, self.d_nam, self.a_ngay, self.a_thang, self.a_nam, self.gio, self.phut, self.nam_xem,
-              self.mui, self.gio_xem, self.vs, self.nht, self.mau, self.krg, self.a_nhuan, self.ho_ten,
+              self.mui, self.gio_xem, self.vs, self.nht, self.mau, self.krg, self.a_nhuan, self.ho_ten, self.cach_gio, self.noi_sinh, self.kinh_do,
               self.c30, self.c11, self.c28, self.c29, self.c32, self.c33, self.hon_nhan, self.so_con, self.pt] + self.cb_can + self.cb_chi + self.pn
         for w in ws: w.blockSignals(True)
         try:
@@ -351,6 +376,10 @@ class TrangNhap(QWidget):
                 if s.can[j]: self.cb_can[j].setCurrentText(s.can[j])
                 if s.chi[j]: self.cb_chi[j].setCurrentText(s.chi[j])
             self.mui.setCurrentText(str(int(s.mui_gio)) if float(s.mui_gio).is_integer() else str(s.mui_gio))
+            self.cach_gio.setCurrentIndex(1 if getattr(s, 'gio_mat_troi', False) else 0)
+            self.noi_sinh.setCurrentText(getattr(s, 'noi_sinh', '') or '(chọn)')
+            self.kinh_do.setText('' if getattr(s, 'kinh_do', None) is None else '%g' % s.kinh_do)
+            self._hien_noi_sinh()
             self.krg.setChecked(bool(s.khong_ro_gio)); self.gio_xem.setCurrentText(s.gio_dang_xem)
             self.gt.dat(0 if s.gioi_tinh == 'Nam' else 1)
             self.vs.setCurrentText(s.vuong_suy); self.nht.setCurrentText(s.che_do_nht); self.mau.setCurrentText(s.la_mau)
@@ -408,6 +437,7 @@ class TrangNhap(QWidget):
             c = self._nho[khoa]; ls = copy.copy(c.la_so); ls.ho_ten, ls.ghi_chu = s.ho_ten, s.ghi_chu
             ls.tinh_trang_hon_nhan, ls.so_con = s.tinh_trang_hon_nhan, s.so_con      # không phải ô workbook – lấy theo ô nhập
             ls.phoi_tu_tru = s.phoi_tu_tru
+            ls.gio_mat_troi, ls.noi_sinh, ls.kinh_do = s.gio_mat_troi, s.noi_sinh, s.kinh_do
             self._xong(KetQua(ls, c.E, c.ms), None); return
         if self._ban: self._cho = True; return                  # đang tính: tính lại lần nữa khi xong
         dong_bo = bool(os.environ.get('BATTU_DONG_BO')) if dong_bo is None else dong_bo
@@ -419,6 +449,21 @@ class TrangNhap(QWidget):
             except Exception as e: self._bao.xong.emit(None, e)
         if dong_bo: chay()
         else: threading.Thread(target=chay, daemon=True).start()
+
+    def _thong_tin_gio(self, s):
+        """Dòng ghi giờ đã quy đổi khi dùng giờ mặt trời thật; cảnh báo nếu đổi trụ."""
+        from battu_core.dich_vu import so_voi_gio_dong_ho
+        self.gmt_info.setVisible(False)
+        try: r = so_voi_gio_dong_ho(s)
+        except Exception: r = None
+        if not r: return
+        gio_dh, mt, lech, khac, a, b = r
+        t = 'Giờ mặt trời thật %s (lệch %+.0f phút so với đồng hồ %s).' % (mt, lech, gio_dh)
+        if khac:
+            t += ' ⚠ Khác giờ đồng hồ ở trụ %s: %s → %s.' % (', '.join(khac), ' | '.join(a), ' | '.join(b))
+        else:
+            t += ' Tứ trụ không đổi so với giờ đồng hồ.'
+        self.chip(t, 'chip_warn' if khac else 'chip_info')
 
     def _xong(self, goi, loi):
         if self._ban:
@@ -453,6 +498,7 @@ class TrangNhap(QWidget):
             w = self.chips.takeAt(0).widget()
             if w: w.hide(); w.setParent(None)
         self.chip(o('NHAP_LIEU', 'G7'))
+        self._thong_tin_gio(s)
         if s.cach_nhap != 'canchi':
             self.chip('Tiết: %s → %s · năm can chi (theo Lập xuân): %s' % (o('DAI_VAN', 'C12'), o('DAI_VAN', 'C13'), so_hien(o('DAI_VAN', 'C14'))), 'chip_info')
         self.chip(o('DAI_VAN', 'C16'))
