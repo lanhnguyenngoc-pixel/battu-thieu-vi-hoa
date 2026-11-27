@@ -36,13 +36,13 @@ NHOM = {
     'Tỉ kiếp': ('tự lực, có bạn bè, cộng sự', 'dễ cạnh tranh, tranh giành, chi tiêu rộng',
                 'hợp tác, làm nhóm, tự lập nghiệp với cộng sự tin cậy')}
 HANH_INFO = {
-    'Mộc': ('xanh lá', 'Đông', 'giáo dục, xuất bản, gỗ – nông lâm, dệt may, dược thảo', 'gan – mật, gân, mắt'),
-    'Hỏa': ('đỏ, cam, hồng, tím', 'Nam', 'công nghệ thông tin, điện – điện tử, truyền thông, năng lượng, ẩm thực, văn hóa, giảng dạy',
+    'Mộc': ('xanh lá', 'Đông', 'Giáo dục, Thời trang, Phân bón, Hương liệu, Đồ chay/thực vật, Nội thất, Ngành giấy, Xuất bản, Sách, Thiết kế đồ họa, Cây cảnh, Thuốc đông y, Tư pháp, Luật sư, Dệt may, Môi trường, Nông nghiệp công nghệ cao', 'gan – mật, gân, mắt'),
+    'Hỏa': ('đỏ, cam, hồng, tím', 'Nam', 'Nhà hàng, Thực phẩm, Mỹ phẩm, Năng lượng/Điện, Dầu khí, Trang sức, Văn hóa/Nghệ thuật, Cao su/Nhựa, Khách sạn, Phần mềm, Bưu điện, Viễn thông, Marketing, Quảng cáo, Truyền thông số, KOL/Influencer, Điện ảnh',
             'tim – mạch, huyết áp, mắt, giấc ngủ'),
-    'Thổ': ('vàng, nâu đất', 'trung tâm, Tây Nam, Đông Bắc', 'bất động sản, xây dựng, kiến trúc, nông sản, tư vấn, môi giới, quản lý',
+    'Thổ': ('vàng, nâu đất', 'trung tâm, Tây Nam, Đông Bắc', 'Bất động sản, Xây dựng, Vật liệu xây dựng, Đầu tư xây dựng, Thương mại, Kinh doanh, Bảo hiểm, Kho bãi, Dệt may, Gốm sứ, Khảo cổ, Đá quý, Nông sản, Chăn nuôi, Logistics, Quản lý dự án, Nhân sự',
             'tỳ vị, dạ dày'),
-    'Kim': ('trắng, bạc, ánh kim', 'Tây, Tây Bắc', 'tài chính – ngân hàng, cơ khí, kim loại, pháp luật, kỹ thuật', 'phổi – đại tràng, da'),
-    'Thủy': ('đen, xanh dương', 'Bắc', 'vận tải, thương mại, du lịch, thủy sản, dịch vụ', 'thận – bàng quang, lưng, xương khớp, tai')}
+    'Kim': ('trắng, bạc, ánh kim', 'Tây, Tây Bắc', 'Thép, Ngân hàng, Chứng khoán, Khoáng sản, Sản xuất công nghiệp, Công nghệ, Bảo vệ/An ninh, Kế toán, Đường sắt, Cơ khí, Đồng hồ, Máy tính/IT, Ô tô, Hàng không, Fintech, AI/Machine Learning, Blockchain', 'phổi – đại tràng, da'),
+    'Thủy': ('đen, xanh dương', 'Bắc', 'Du lịch, Vận tải, Giải khát, Thủy sản, Cảng biển, Dược phẩm/Y tế, Hàng không, Thể thao, Dịch vụ, Truyền thông, Báo chí, Ngoại giao, Ngư nghiệp, Spa/Wellness, E-commerce, Streaming, Game online', 'thận – bàng quang, lưng, xương khớp, tai')}
 THAP_THAN_NAM = {
     'Tỉ kiên': 'bạn bè, cạnh tranh; giữ tiền', 'Kiếp tài': 'dễ hao tài, thị phi; tránh hùn vốn, bảo lãnh',
     'Thực thần': 'ý tưởng, sản phẩm, thu nhập từ tài năng', 'Thương quan': 'tài năng nổi, dễ khẩu thiệt, va chạm cấp trên',
