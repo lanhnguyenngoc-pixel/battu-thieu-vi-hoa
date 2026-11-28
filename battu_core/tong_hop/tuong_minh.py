@@ -23,10 +23,23 @@ def bo_nghieng(t):
     return re.sub(r'(?i)\bhơi\s+', '', t).strip()
 
 
-def _ten_van(d): return '%s (%s–%s)' % (d['ten'], d['nam_bat_dau'], d['nam_ket_thuc'])
+def _ten_van(d):
+    t = d.get('tuoi_bat_dau')
+    return 'vận %s (%s, %s–%s)' % (d['ten'], ('%s–%s tuổi' % (t, t + 9)) if isinstance(t, int) else 'tuổi ?', d['nam_bat_dau'], d['nam_ket_thuc'])
+
+
+def dong_tung_van(pd):
+    """Mỗi đại vận một dòng riêng: tuổi, năm, mức, lý do ngắn (không gộp giai đoạn)."""
+    out = []
+    for d in pd['dai_van']:
+        ly = re.split(r'\s+[–-]\s+', d.get('giai_thich') or '', 1)
+        ly = _gon(re.sub(r'\s*\(P[12] tr[^)]*\)', '', ly[1] if len(ly) > 1 else ly[0]), 140)
+        out.append('%s: %s%s' % (_ten_van(d)[0].upper() + _ten_van(d)[1:], (d.get('muc') or '—').lower(), (' – ' + ly) if ly else ''))
+    return out
 
 
 def _ds_van(ds): return '; '.join(_ten_van(d) for d in ds) if ds else 'không có vận nào'
+def _tom_van(ds): return ', '.join('%s (%s–%s)' % (d['ten'], d['nam_bat_dau'], d['nam_ket_thuc']) for d in ds) if ds else 'không có'
 
 
 def _ds(xs): return ', '.join(str(x) for x in xs) if xs else 'không có'
@@ -49,6 +62,11 @@ def _bo_nguon(t):
 
 
 # ------------------------------------------------------------------ lục thân, hôn nhân
+def _tach_ds(t):
+    """'Tân Hợi (37–46 tuổi, 2010–2019) Canh Tuất (…)' → mỗi vận cách nhau dấu chấm phẩy."""
+    return re.sub(r'\)\s+(?=[A-ZÀ-Ỹ])', '); ', t or '')
+
+
 def _tach_van(chinh):
     """Từ chữ workbook tách: câu kết luận, danh sách vận khởi sắc, danh sách vận kém."""
     t, _ = _bo_nguon(chinh)
@@ -56,7 +74,7 @@ def _tach_van(chinh):
     ks = re.search(r'Khởi sắc trong đại vận[^:]*:\s*(.*?)(?:;|\.)\s*(?:kém đi|Kém đi|$)', t, re.S)
     kem = re.search(r'[kK]ém đi trong đại vận[^:]*:\s*(.*?)(?:\.|$)', t, re.S)
     chinh_cau = re.split(r'\s*Khởi sắc', t, 1)[0].strip()
-    return chinh_cau, (ks.group(1).strip() if ks else ''), (kem.group(1).strip() if kem else '')
+    return chinh_cau, _tach_ds(ks.group(1).strip() if ks else ''), _tach_ds(kem.group(1).strip() if kem else '')
 
 
 def luc_than(ten, d, nam_dv, nam_xau_cha_me=None):
@@ -114,11 +132,11 @@ def tho_yeu(ty, pd, hs, ky, dung, hanh_info, khoi_nam):
     out = '**Thọ – yểu: mệnh %s.** Căn cứ: %d dấu hiệu thọ%s; %d dấu hiệu yểu%s.' % (
         dau.lower(), n_tho, (' (%s)' % tho) if tho else '', n_yeu, (' (%s)' % yeu) if yeu else '')
     if hg or nang:
-        out += ' Theo giai đoạn: yếu tố làm nặng%s phát huy ở các vận xấu – %s, đây là thời kỳ nguy hiểm nhất cho sức khỏe; ' \
-               'yếu tố hóa giải%s giúp qua hạn ở các vận thuận – %s.' % (
-                   (' (%s)' % nang) if nang else '', _ds_van(xau), (' (%s)' % hg) if hg else '', _ds_van(tot))
+        out += ' Theo giai đoạn: yếu tố làm nặng%s phát huy ở các vận xấu (nguy hiểm nhất cho sức khỏe); ' \
+               'yếu tố hóa giải%s giúp qua hạn ở các vận thuận. Từng đại vận xem danh sách ngay dưới.' % (
+                   (' (%s)' % nang) if nang else '', (' (%s)' % hg) if hg else '')
     else:
-        out += ' Giai đoạn thuận: %s. Giai đoạn nguy hiểm: %s.' % (_ds_van(tot), _ds_van(xau))
+        out += ' Từng đại vận xem danh sách ngay dưới.'
     if khoi_nam: out += ' Năm có dấu hiệu nặng nhất trong 10 năm từ năm xem: %s.' % khoi_nam
     cho = [h for h in (ky, dung) if h in hanh_info]
     if cho:
@@ -161,5 +179,5 @@ def tai_hoa(dong_10_nam, tai_uong_cau, van_xau):
                                               ([_gon(re.sub(r'^\[[^\]]*\]\s*', '', d['dau_hieu'][0]), 90)] if d['dau_hieu'] else []))) for d in nam[:6])
     else:
         s += ': 10 năm tới không có năm nào đạt ngưỡng hạn nặng'
-    if van_xau: s += '; vận cần đi lại, lao động, lái xe cẩn thận nhất: %s' % _ds_van(van_xau)
+    if van_xau: s += '; vận cần đi lại, lao động, lái xe cẩn thận nhất: %s' % '; '.join(_ten_van(d) for d in van_xau)
     return s
