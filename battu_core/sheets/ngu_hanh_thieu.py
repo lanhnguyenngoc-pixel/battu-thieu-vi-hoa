@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet NGU_HANH_THIEU – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: 6.13.xlsx (SHA-256 2d62735a45c59ea08d9f0ab1582eb4f404636f044a611f2a1381017526f50634).
+Nguồn: 6.14.xlsx (SHA-256 b6c1126b9b23cc29eb1d8e3cf5b84b07a74bfc629e1cb6a6cc9f6b4d74f758cd).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 
@@ -447,9 +447,9 @@ def f56(E, r, c):
 
 def f57(E, r, c):
     # Ô F27
-    # = IF(E27>=3,"Thân quá vượng",IF(E27>=2,"Thân vượng",IF(E27>=1,"Thân hơi vượng",IF(E27>=0,"Thân trung hòa",IF(E27>-1,"Thân hơi yếu",IF(E27>=-2,"Thân yếu"
-    #   ,IF(E27>=-3,"Thân quá yếu","Thân cực yếu")))))))
-    return ('Thân quá vượng' if X.truthy(X.ge(E.v(29,r,c-1),3.0)) else ('Thân vượng' if X.truthy(X.ge(E.v(29,r,c-1),2.0)) else ('Thân hơi vượng' if X.truthy(X.ge(E.v(29,r,c-1),1.0)) else ('Thân trung hòa' if X.truthy(X.ge(E.v(29,r,c-1),0.0)) else ('Thân hơi yếu' if X.truthy(X.gt(E.v(29,r,c-1),X.neg(1.0))) else ('Thân yếu' if X.truthy(X.ge(E.v(29,r,c-1),X.neg(2.0))) else ('Thân quá yếu' if X.truthy(X.ge(E.v(29,r,c-1),X.neg(3.0))) else 'Thân cực yếu')))))))
+    # = IF(E27>=3,"Thân quá vượng",IF(E27>2,"Thân vượng",IF(E27>=1,"Thân trung hòa",IF(E27>=0,"Thân hơi yếu",IF(E27>-1,"Thân yếu",IF(E27>=-2,"Thân quá yếu","T
+    #   hân cực yếu"))))))
+    return ('Thân quá vượng' if X.truthy(X.ge(E.v(29,r,c-1),3.0)) else ('Thân vượng' if X.truthy(X.gt(E.v(29,r,c-1),2.0)) else ('Thân trung hòa' if X.truthy(X.ge(E.v(29,r,c-1),1.0)) else ('Thân hơi yếu' if X.truthy(X.ge(E.v(29,r,c-1),0.0)) else ('Thân yếu' if X.truthy(X.gt(E.v(29,r,c-1),X.neg(1.0))) else ('Thân quá yếu' if X.truthy(X.ge(E.v(29,r,c-1),X.neg(2.0))) else 'Thân cực yếu'))))))
 
 def f58(E, r, c):
     # Ô F28
@@ -460,13 +460,13 @@ def f58(E, r, c):
 def f59(E, r, c):
     # Ô F29
     # = UPPER(LEFT(IF(E25>0,"có thông căn","không thông căn")&", "&IF(E26>0,"có thông gốc","không thông gốc"),1))&MID(IF(E25>0,"có thông căn","không thông căn
-    #   ")&", "&IF(E26>0,"có thông gốc","không thông gốc"),2,200)&"; "&LOWER(F27)&". "&IF(OR(E25<=0,E26<=0,E27<0),"Cần hóa giải – "&IF((E15<=$H$15),"bổ sung "
+    #   ")&", "&IF(E26>0,"có thông gốc","không thông gốc"),2,200)&"; "&LOWER(F27)&". "&IF(OR(E25<=0,E26<=0,E27<1),"Cần hóa giải – "&IF((E15<=$H$15),"bổ sung "
     #   &INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1),IF((E15>=$H$16),"tiết giảm "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&" bằng "&INDEX(HANH_TEN,MOD(TRUNG_GIAN!$E$7+1,5)+1),
-    #   "ngũ hành cân bằng, không cần bổ sung hay tiết giảm"))&"; bổ sung linh phù thông căn, thông gốc để thông khí cho tứ trụ.","Gốc nhật chủ đã thông, khôn
-    #   g cần linh phù; "&IF(OR((E15<=$H$15),(E15>=$H$16)),"điều chỉnh ngũ hành theo mục I: "&IF((E15<=$H$15),"bổ sung "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1),IF(
-    #   (E15>=$H$16),"tiết giảm "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&" bằng "&INDEX(HANH_TEN,MOD(TRUNG_GIAN!$E$7+1,5)+1),"ngũ hành cân bằng, không cần bổ sung 
-    #   hay tiết giảm"))&".","ngũ hành cân bằng – không cần hóa giải."))
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.UPPER(X.LEFT(X.cat(X.cat(('có thông căn' if X.truthy(X.gt(E.v(29,r-4,c-1),0.0)) else 'không thông căn'),', '),('có thông gốc' if X.truthy(X.gt(E.v(29,r-3,c-1),0.0)) else 'không thông gốc')), 1.0)),X.MID(X.cat(X.cat(('có thông căn' if X.truthy(X.gt(E.v(29,r-4,c-1),0.0)) else 'không thông căn'),', '),('có thông gốc' if X.truthy(X.gt(E.v(29,r-3,c-1),0.0)) else 'không thông gốc')), 2.0, 200.0)),'; '),X.LOWER(E.v(29,r-2,c))),'. '),(X.cat(X.cat('Cần hóa giải – ',(X.cat('bổ sung ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-14,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('tiết giảm ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-14,c-1),E.v(29,16,8))) else 'ngũ hành cân bằng, không cần bổ sung hay tiết giảm'))),'; bổ sung linh phù thông căn, thông gốc để thông khí cho tứ trụ.') if X.truthy(X.OR(X.le(E.v(29,r-4,c-1),0.0), X.le(E.v(29,r-3,c-1),0.0), X.lt(E.v(29,r-2,c-1),0.0))) else X.cat('Gốc nhật chủ đã thông, không cần linh phù; ',(X.cat(X.cat('điều chỉnh ngũ hành theo mục I: ',(X.cat('bổ sung ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-14,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('tiết giảm ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-14,c-1),E.v(29,16,8))) else 'ngũ hành cân bằng, không cần bổ sung hay tiết giảm'))),'.') if X.truthy(X.OR(X.le(E.v(29,r-14,c-1),E.v(29,15,8)), X.ge(E.v(29,r-14,c-1),E.v(29,16,8)))) else 'ngũ hành cân bằng – không cần hóa giải.'))))
+    #   "ngũ hành cân bằng, không cần bổ sung hay tiết giảm"))&"; bổ sung Thông căn phù để thông khí cho tứ trụ.","Gốc nhật chủ đã thông, không cần Thông căn 
+    #   phù; "&IF(OR((E15<=$H$15),(E15>=$H$16)),"điều chỉnh ngũ hành theo mục I: "&IF((E15<=$H$15),"bổ sung "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1),IF((E15>=$H$16
+    #   ),"tiết giảm "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&" bằng "&INDEX(HANH_TEN,MOD(TRUNG_GIAN!$E$7+1,5)+1),"ngũ hành cân bằng, không cần bổ sung hay tiết gi
+    #   ảm"))&".","ngũ hành cân bằng – không cần hóa giải."))
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.UPPER(X.LEFT(X.cat(X.cat(('có thông căn' if X.truthy(X.gt(E.v(29,r-4,c-1),0.0)) else 'không thông căn'),', '),('có thông gốc' if X.truthy(X.gt(E.v(29,r-3,c-1),0.0)) else 'không thông gốc')), 1.0)),X.MID(X.cat(X.cat(('có thông căn' if X.truthy(X.gt(E.v(29,r-4,c-1),0.0)) else 'không thông căn'),', '),('có thông gốc' if X.truthy(X.gt(E.v(29,r-3,c-1),0.0)) else 'không thông gốc')), 2.0, 200.0)),'; '),X.LOWER(E.v(29,r-2,c))),'. '),(X.cat(X.cat('Cần hóa giải – ',(X.cat('bổ sung ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-14,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('tiết giảm ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-14,c-1),E.v(29,16,8))) else 'ngũ hành cân bằng, không cần bổ sung hay tiết giảm'))),'; bổ sung Thông căn phù để thông khí cho tứ trụ.') if X.truthy(X.OR(X.le(E.v(29,r-4,c-1),0.0), X.le(E.v(29,r-3,c-1),0.0), X.lt(E.v(29,r-2,c-1),1.0))) else X.cat('Gốc nhật chủ đã thông, không cần Thông căn phù; ',(X.cat(X.cat('điều chỉnh ngũ hành theo mục I: ',(X.cat('bổ sung ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-14,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('tiết giảm ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-14,c-1),E.v(29,16,8))) else 'ngũ hành cân bằng, không cần bổ sung hay tiết giảm'))),'.') if X.truthy(X.OR(X.le(E.v(29,r-14,c-1),E.v(29,15,8)), X.ge(E.v(29,r-14,c-1),E.v(29,16,8)))) else 'ngũ hành cân bằng – không cần hóa giải.'))))
 
 def f60(E, r, c):
     # Ô B31
@@ -514,20 +514,20 @@ def f60(E, r, c):
 
 def f61(E, r, c):
     # Ô C32
-    # = IF(OR(E25<=0,E26<=0,E27<0),"Cần hóa giải",IF(OR((E15<=$H$15),(E15>=$H$16)),"Điều chỉnh theo mục I","Không cần hóa giải"))
-    return ('Cần hóa giải' if X.truthy(X.OR(X.le(E.v(29,r-7,c+2),0.0), X.le(E.v(29,r-6,c+2),0.0), X.lt(E.v(29,r-5,c+2),0.0))) else ('Điều chỉnh theo mục I' if X.truthy(X.OR(X.le(E.v(29,r-17,c+2),E.v(29,15,8)), X.ge(E.v(29,r-17,c+2),E.v(29,16,8)))) else 'Không cần hóa giải'))
+    # = IF(OR(E25<=0,E26<=0,E27<1),"Cần hóa giải",IF(OR((E15<=$H$15),(E15>=$H$16)),"Điều chỉnh theo mục I","Không cần hóa giải"))
+    return ('Cần hóa giải' if X.truthy(X.OR(X.le(E.v(29,r-7,c+2),0.0), X.le(E.v(29,r-6,c+2),0.0), X.lt(E.v(29,r-5,c+2),1.0))) else ('Điều chỉnh theo mục I' if X.truthy(X.OR(X.le(E.v(29,r-17,c+2),E.v(29,15,8)), X.ge(E.v(29,r-17,c+2),E.v(29,16,8)))) else 'Không cần hóa giải'))
 
 def f62(E, r, c):
     # Ô F32
     # = "(1) Mục I – cân bằng ngũ hành: "&INDEX(CAN_TEN,TRUNG_GIAN!$E$5+1)&" "&IF((E15<=$H$15),"thiếu "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&" – bổ sung "&INDEX(
     #   HANH_TEN,TRUNG_GIAN!$E$7+1),IF((E15>=$H$16),"dư "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&" – tiết giảm bằng "&INDEX(HANH_TEN,MOD(TRUNG_GIAN!$E$7+1,5)+1),"c
     #   ân bằng – không cần bổ sung hay tiết giảm"))&". (2) Mục II – gốc nhật chủ: "&LOWER(F27)&"; "&IF(E25>0,"có thông căn","không thông căn")&", "&IF(E26>0,
-    #   "có thông gốc","không thông gốc")&". "&IF(OR(E25<=0,E26<=0,E27<0),"→ Cần hóa giải: "&IF((E15<=$H$15),"bổ sung "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1),IF((
+    #   "có thông gốc","không thông gốc")&". "&IF(OR(E25<=0,E26<=0,E27<1),"→ Cần hóa giải: "&IF((E15<=$H$15),"bổ sung "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1),IF((
     #   E15>=$H$16),"tiết giảm "&INDEX(HANH_TEN,TRUNG_GIAN!$E$7+1)&" bằng "&INDEX(HANH_TEN,MOD(TRUNG_GIAN!$E$7+1,5)+1),"ngũ hành cân bằng, không cần bổ sung h
-    #   ay tiết giảm"))&", đồng thời bổ sung linh phù thông căn, thông gốc để thông khí cho tứ trụ.","→ Gốc nhật chủ đã thông, không cần linh phù"&IF(OR((E15<
-    #   =$H$15),(E15>=$H$16)),"; điều chỉnh ngũ hành theo mục I.","; ngũ hành cân bằng, không cần hóa giải."))&" Đối chiếu Thiệu Vĩ Hoa (DOI_CHIEU): "&DOI_CHI
-    #   EU!$C$34&" – "&DOI_CHIEU!$C$37&"."
-    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('(1) Mục I – cân bằng ngũ hành: ',X.INDEX(E.rg(24,5,1,14,1), X.add(E.v(23,5,5),1.0))),' '),(X.cat(X.cat(X.cat('thiếu ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' – bổ sung '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-17,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('dư ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' – tiết giảm bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-17,c-1),E.v(29,16,8))) else 'cân bằng – không cần bổ sung hay tiết giảm'))),'. (2) Mục II – gốc nhật chủ: '),X.LOWER(E.v(29,r-5,c))),'; '),('có thông căn' if X.truthy(X.gt(E.v(29,r-7,c-1),0.0)) else 'không thông căn')),', '),('có thông gốc' if X.truthy(X.gt(E.v(29,r-6,c-1),0.0)) else 'không thông gốc')),'. '),(X.cat(X.cat('→ Cần hóa giải: ',(X.cat('bổ sung ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-17,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('tiết giảm ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-17,c-1),E.v(29,16,8))) else 'ngũ hành cân bằng, không cần bổ sung hay tiết giảm'))),', đồng thời bổ sung linh phù thông căn, thông gốc để thông khí cho tứ trụ.') if X.truthy(X.OR(X.le(E.v(29,r-7,c-1),0.0), X.le(E.v(29,r-6,c-1),0.0), X.lt(E.v(29,r-5,c-1),0.0))) else X.cat('→ Gốc nhật chủ đã thông, không cần linh phù',('; điều chỉnh ngũ hành theo mục I.' if X.truthy(X.OR(X.le(E.v(29,r-17,c-1),E.v(29,15,8)), X.ge(E.v(29,r-17,c-1),E.v(29,16,8)))) else '; ngũ hành cân bằng, không cần hóa giải.')))),' Đối chiếu Thiệu Vĩ Hoa (DOI_CHIEU): '),E.v(7,34,3)),' – '),E.v(7,37,3)),'.')
+    #   ay tiết giảm"))&", đồng thời bổ sung Thông căn phù để thông khí cho tứ trụ.","→ Gốc nhật chủ đã thông, không cần Thông căn phù"&IF(OR((E15<=$H$15),(E1
+    #   5>=$H$16)),"; điều chỉnh ngũ hành theo mục I.","; ngũ hành cân bằng, không cần hóa giải."))&" Đối chiếu Thiệu Vĩ Hoa (DOI_CHIEU): "&DOI_CHIEU!$C$34&" 
+    #   – "&DOI_CHIEU!$C$37&"."
+    return X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat(X.cat('(1) Mục I – cân bằng ngũ hành: ',X.INDEX(E.rg(24,5,1,14,1), X.add(E.v(23,5,5),1.0))),' '),(X.cat(X.cat(X.cat('thiếu ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' – bổ sung '),X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-17,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('dư ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' – tiết giảm bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-17,c-1),E.v(29,16,8))) else 'cân bằng – không cần bổ sung hay tiết giảm'))),'. (2) Mục II – gốc nhật chủ: '),X.LOWER(E.v(29,r-5,c))),'; '),('có thông căn' if X.truthy(X.gt(E.v(29,r-7,c-1),0.0)) else 'không thông căn')),', '),('có thông gốc' if X.truthy(X.gt(E.v(29,r-6,c-1),0.0)) else 'không thông gốc')),'. '),(X.cat(X.cat('→ Cần hóa giải: ',(X.cat('bổ sung ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))) if X.truthy(X.le(E.v(29,r-17,c-1),E.v(29,15,8))) else (X.cat(X.cat(X.cat('tiết giảm ',X.INDEX(E.rg(24,33,1,37,1), X.add(E.v(23,7,5),1.0))),' bằng '),X.INDEX(E.rg(24,33,1,37,1), X.add(X.MOD(X.add(E.v(23,7,5),1.0), 5.0),1.0))) if X.truthy(X.ge(E.v(29,r-17,c-1),E.v(29,16,8))) else 'ngũ hành cân bằng, không cần bổ sung hay tiết giảm'))),', đồng thời bổ sung Thông căn phù để thông khí cho tứ trụ.') if X.truthy(X.OR(X.le(E.v(29,r-7,c-1),0.0), X.le(E.v(29,r-6,c-1),0.0), X.lt(E.v(29,r-5,c-1),1.0))) else X.cat('→ Gốc nhật chủ đã thông, không cần Thông căn phù',('; điều chỉnh ngũ hành theo mục I.' if X.truthy(X.OR(X.le(E.v(29,r-17,c-1),E.v(29,15,8)), X.ge(E.v(29,r-17,c-1),E.v(29,16,8)))) else '; ngũ hành cân bằng, không cần hóa giải.')))),' Đối chiếu Thiệu Vĩ Hoa (DOI_CHIEU): '),E.v(7,34,3)),' – '),E.v(7,37,3)),'.')
 
 def f63(E, r, c):
     # Ô B35

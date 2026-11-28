@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module sheet NHAP_LIEU – SINH TỰ ĐỘNG bởi tools/dich_cong_thuc.py, KHÔNG SỬA TAY.
-Nguồn: 6.13.xlsx (SHA-256 2d62735a45c59ea08d9f0ab1582eb4f404636f044a611f2a1381017526f50634).
+Nguồn: 6.14.xlsx (SHA-256 b6c1126b9b23cc29eb1d8e3cf5b84b07a74bfc629e1cb6a6cc9f6b4d74f758cd).
 Phạm vi: toàn sheet. Mỗi hàm f<n>(E, r, c) = một mẫu công thức; r, c là dòng, cột của ô (đánh số từ 1)."""
 from battu_core import xl as X
 

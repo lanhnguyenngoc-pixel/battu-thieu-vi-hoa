@@ -97,7 +97,22 @@ def html_ket_qua(E):
                    range(70, 78), 'BCDEGH', so='EG'))
     nguong = ' · '.join('%s %s' % (_e(o('%s69' % c)), _e(o('%s70' % c))) for c in 'IJKLM' if o('%s69' % c))
     if nguong: H.append('<p class="nho">Mốc so sánh: %s</p>' % nguong)
+    H.append(html_nghe(E))
     return ''.join(H) + '</body></html>'
+
+
+def html_nghe(E):
+    """Mục VI – danh mục nghề theo ngũ hành (ô A83:B87 của sheet; ghi chú ở B81). Đánh dấu hành của can ngày (hành mục I thiếu/dư xét theo nó)."""
+    o = lambda r: _o(E, r)
+    hanh_nc = (o('C27').split() or [''])[-1]
+    H = ['<h2>%s</h2><p class="nho">%s</p>' % (_e(o('A80') or 'VI. Danh mục nghề theo ngũ hành'), _e(o('B81'))),
+         '<table width="100%"><tr><th width="12%">Ngũ hành</th><th>Nghề thuộc hành</th></tr>']
+    for r in range(83, 88):
+        h, nghe = o('A%d' % r), o('B%d' % r)
+        if not h: continue
+        dau = ' class="kl"' if h == hanh_nc else ''
+        H.append('<tr%s><td><b>%s</b>%s</td><td>%s</td></tr>' % (dau, _e(h), '<br><span class="nho">hành can ngày</span>' if h == hanh_nc else '', _e(nghe)))
+    return ''.join(H) + '</table>'
 
 
 def html_ly_thuyet(E):
@@ -118,6 +133,7 @@ def html_ly_thuyet(E):
     H.append('<h2>III. Đại vận – vượng suy – thập thần</h2><p><b>%s</b></p><p>%s</p>' % (_e(o('A33')), _e(o('B43'))))
     H.append('<h2>IV. Biểu đồ năng lực</h2><p><b>%s</b></p><p>%s</p>' % (_e(o('A45')), _e(o('B54'))))
     H.append('<h2>V. Biểu đồ đại vận</h2><p><b>%s</b></p><p>%s</p>' % (_e(o('A67')), _e(o('B78'))))
+    H.append(html_nghe(E))
     return ''.join(H) + '</body></html>'
 
 

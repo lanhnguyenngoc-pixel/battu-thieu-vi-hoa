@@ -1,4 +1,4 @@
-# Phần mềm Bát Tự Thiệu Vĩ Hoa – mã nguồn (phiên bản 1.9.7, quy tắc 6.13 + lớp tổng hợp T3-1)
+# Phần mềm Bát Tự Thiệu Vĩ Hoa – mã nguồn (phiên bản 1.9.8, quy tắc 6.14 + lớp tổng hợp T3-1)
 
 Chuyển workbook **BAT_TU_THIEU_VI_HOA_6.4.xlsx** (SHA-256 `b554826c…ae0e6c`) thành phần mềm chạy không cần mạng.
 Kết quả phải trùng workbook 100% ở mọi ô công thức (đáp án do LibreOffice tính – MT-01).

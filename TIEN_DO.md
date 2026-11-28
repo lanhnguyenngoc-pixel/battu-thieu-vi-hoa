@@ -288,3 +288,8 @@ khi quy tắc gỡ mâu thuẫn chạy ổn trên nhiều lá mới chuyển và
 - Chỉ ở lớp nhập liệu (`battu_core/gio_mat_troi.py`, `LaSo.gio_quy_doi`): giờ đã quy đổi (có thể sang ngày khác) được đặt vào C26:G26; lõi tính và sổ tay không đổi (quy tắc vẫn 6.13); bộ đáp án cũ dùng nguyên. Không áp dụng khi Không rõ giờ hoặc tự nhập can chi.
 - Kết quả ghi giờ đã quy đổi và cảnh báo nếu tứ trụ khác giờ đồng hồ; bản in ghi thêm dòng giờ mặt trời. Múi giờ trước 1975 chỉnh bằng ô UTC+.
 - Kiểm thử mới T19 (tests/t19_gio_mat_troi.py).
+
+## 1.9.8 – Quy tắc 6.14: thang thân vượng/yếu mới, danh mục nghề theo ngũ hành (28/11/2026)
+- Sổ tay 6.14 (tools/step30.py + step30_thang_than.py): bảng NGU_HANH_THIEU mục II đổi thang kết luận (F27) và điều kiện hóa giải (F29, C32, F32: E27<0 → E27<1: cần hóa giải khi thân vượng hoặc trung hòa mà thiếu thông căn/thông gốc, hoặc thân yếu). Đổi tên "linh phù thông căn, thông gốc" thành "Thông căn phù". Thang: ≥3 quá vượng; >2 đến <3 vượng; 1..2 trung hòa; 0..<1 hơi yếu; −1<..<0 yếu; −2..−1 quá yếu; <−2 cực yếu. Điểm 6 tiêu chí không đổi. Quy ước tại −1: quá yếu. Vượng hoặc trung hòa mà đủ thông căn, thông gốc thì không cần hóa giải. Sheet này không ảnh hưởng kết luận nào khác (A2).
+- Thêm mục VI (A80:H87) "Danh mục nghề theo ngũ hành" (5 hành, nguồn duy nhất battu_core/danh_muc_nghe.py); hiển thị ở trang Ngũ hành thiếu (tab Kết quả và Lý thuyết; đánh dấu hành can ngày). Bản luận giải dùng chung danh mục (nghề hợp dụng thần, hỷ thần).
+- Đáp án LibreOffice sinh lại toàn bộ từ 6.14 (nhãn F27/F29/F32/C32 đổi ở mọi bộ).
