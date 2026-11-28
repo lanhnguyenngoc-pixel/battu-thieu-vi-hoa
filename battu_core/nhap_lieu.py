@@ -20,6 +20,9 @@ VUONG_SUY = ['Theo khuyến nghị', 'Theo PP1', 'Theo PP2']          # NHAP_LIE
 CHE_DO_NHT = ['PA2 – Theo sách', 'PA1 – Theo trang']              # NGU_HANH_THIEU E3 (G141: không dùng tên PA3)
 
 
+NGAY_DUONG_SOM_NHAT = (1899, 2, 4)      # (năm, tháng, ngày) – sớm hơn thì các ô tứ trụ của workbook ra #N/A
+
+
 class LoiNhap(ValueError):
     pass
 
@@ -78,7 +81,16 @@ class LaSo:
 
     # ------------------------------------------------------------------
     def ngay_duong(self):
-        """(ngày, tháng, năm) dương lịch dùng để tính (đã đổi nếu nhập âm lịch)."""
+        """(ngày, tháng, năm) dương lịch dùng để tính (đã đổi nếu nhập âm lịch).
+        Bảng tính chỉ tính được từ 04/02/1899 (Lập xuân 1899); trước đó workbook trả #N/A nên chặn sớm."""
+        kq = self._ngay_duong_goc()
+        if kq is not None and (kq[2], kq[1], kq[0]) < NGAY_DUONG_SOM_NHAT:
+            raise LoiNhap('Ngày sinh trước %02d/%02d/%d chưa tính được bằng ngày giờ. Hãy chọn "Tự nhập can chi", '
+                          'nhập 4 trụ và điền năm sinh dương lịch của trụ năm.' % (
+                              NGAY_DUONG_SOM_NHAT[2], NGAY_DUONG_SOM_NHAT[1], NGAY_DUONG_SOM_NHAT[0]))
+        return kq
+
+    def _ngay_duong_goc(self):
         if self.cach_nhap == 'am':
             if None in (self.am_ngay, self.am_thang, self.am_nam):
                 raise LoiNhap('Chưa nhập đủ ngày/tháng/năm âm lịch.')
