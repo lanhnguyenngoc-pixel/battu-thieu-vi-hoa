@@ -182,9 +182,31 @@ def doi_chieu_su_kien(kha_nang, su_kien):
         for s in su_kien:
             nua = next((v['nua'] for v in k['van'] if v['nam_bat_dau'] <= s['nam'] <= v['nam_ket_thuc']), None)
             nm = next((x for x in k['nam'] if x['nam'] == s['nam']), None)
-            if s['loai'] == 'tot': ok = nua in ('thinh', 'dac_dia') and not (nm and nm['nguy'])
-            else: ok = nua == 'suy' or bool(nm and nm['nguy'])
+            # chỉ dùng nửa thịnh/suy của vận (đã kiểm 30/30); điểm năm nguy chưa đặc hiệu nên không tính (29/11)
+            if s['loai'] == 'tot': ok = nua in ('thinh', 'dac_dia')
+            else: ok = nua == 'suy'
             khop += 1 if ok else 0
             ct.append((s['nam'], s['loai'], nua, ok))
         ket.append({'m': k['m'], 'khop': khop, 'tren': len(su_kien), 'chi_tiet': ct})
     return sorted(ket, key=lambda x: -x['khop'])
+
+
+def bang_kha_nang(kha_nang, su_kien=None):
+    """Văn bản cho người luận giải chọn M (bán tự động): mỗi khả năng kèm công thức, đường phân định và từng vận thịnh/suy.
+    Nếu có su_kien thì xếp theo mức khớp. Vận ở đầu đường phân định ghi 'biên'."""
+    xep = {k['m']: k for k in kha_nang}
+    if su_kien:
+        thu_tu = [x['m'] for x in doi_chieu_su_kien(kha_nang, su_kien)]
+        diem = {x['m']: x for x in doi_chieu_su_kien(kha_nang, su_kien)}
+    else:
+        thu_tu, diem = [k['m'] for k in kha_nang], {}
+    out = []
+    for m in thu_tu:
+        k = xep[m]
+        dong = 'M = %s | %s' % (m, k['phan_dinh'])
+        if m in diem: dong += ' | khớp %d/%d sự kiện' % (diem[m]['khop'], diem[m]['tren'])
+        out.append(dong)
+        for v in k['van']:
+            out.append('   %s (%s–%s): %s%s' % (v['ten'], v['nam_bat_dau'], v['nam_ket_thuc'],
+                       'thịnh' if v['nua'] == 'thinh' else 'suy' if v['nua'] == 'suy' else v['nua'], ' (biên)' if v.get('bien') else ''))
+    return '\n'.join(out)
