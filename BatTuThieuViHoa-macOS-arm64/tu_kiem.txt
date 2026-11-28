@@ -1,0 +1,6 @@
+Tự kiểm 1: ĐẠT (11240b302395ddb1)
+Tự kiểm 2: ĐẠT (b9e38bcdcfbdc438)
+Tự kiểm 3: ĐẠT (0eef94e65c6b3f0d)
+Xuất PDF 33 trang, XLSX, JSON: ĐẠT
+Luận giải tổng hợp (không mạng) 6 trang, Word; bảng hiện chữ đầy đủ có sẵn: ĐẠT
+KẾT QUẢ: ĐẠT

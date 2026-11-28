@@ -1,0 +1,1227 @@
+﻿2026-11-28 04:41:26.625   Log opened. (Time zone: UTC+00:00)
+2026-11-28 04:41:26.625   Setup version: Inno Setup version 6.7.1
+2026-11-28 04:41:26.625   Original Setup EXE: D:\a\battu-thieu-vi-hoa\battu-thieu-vi-hoa\dist_cai\BatTuThieuViHoa_Setup_1.9.8_Windows.exe
+2026-11-28 04:41:26.625   Setup command line: /SL5="$230132,41746383,1108480,D:\a\battu-thieu-vi-hoa\battu-thieu-vi-hoa\dist_cai\BatTuThieuViHoa_Setup_1.9.8_Windows.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS /LOG=cai.log
+2026-11-28 04:41:26.627   Windows version: 10.0.26100
+2026-11-28 04:41:26.627   Windows architecture: x64 (64-bit)
+2026-11-28 04:41:26.627   Machine types supported by system: x86 x64
+2026-11-28 04:41:26.627   User privileges: Administrative
+2026-11-28 04:41:26.630   Administrative install mode: Yes
+2026-11-28 04:41:26.630   Install mode root key: HKEY_LOCAL_MACHINE
+2026-11-28 04:41:26.630   64-bit install mode: Yes
+2026-11-28 04:41:26.630   RedirectionGuard status for current process: Enabled in enforcing mode
+2026-11-28 04:41:26.632   Created protected temporary directory: C:\Users\RUNNER~1\AppData\Local\Temp\is-36Q9Z6G5ED.tmp
+2026-11-28 04:41:27.204   Found 101 files to register with RestartManager.
+2026-11-28 04:41:27.204   Calling RestartManager's RmGetList.
+2026-11-28 04:41:27.212   RmGetList finished successfully.
+2026-11-28 04:41:27.212   RestartManager found no applications using one of our files.
+2026-11-28 04:41:27.216   Starting the installation process.
+2026-11-28 04:41:27.216   Creating directory: C:\Program Files\BatTuThieuViHoa
+2026-11-28 04:41:27.218   Directory for uninstall files: C:\Program Files\BatTuThieuViHoa
+2026-11-28 04:41:27.218   Creating new uninstall log: C:\Program Files\BatTuThieuViHoa\unins000.dat
+2026-11-28 04:41:27.294   -- File entry --
+2026-11-28 04:41:27.294   Dest filename: C:\Program Files\BatTuThieuViHoa\unins000.exe
+2026-11-28 04:41:27.294   Non-default bitness: 32-bit
+2026-11-28 04:41:27.388   Time stamp of our file: 2026-11-28 04:41:26.391
+2026-11-28 04:41:27.388   Installing the file.
+2026-11-28 04:41:27.406   Successfully installed the file.
+2026-11-28 04:41:27.406   -- File entry --
+2026-11-28 04:41:27.406   Dest filename: C:\Program Files\BatTuThieuViHoa\BatTuThieuViHoa.exe
+2026-11-28 04:41:27.408   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.408   Installing the file.
+2026-11-28 04:41:27.774   Successfully installed the file.
+2026-11-28 04:41:27.774   -- File entry --
+2026-11-28 04:41:27.776   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-console-l1-1-0.dll
+2026-11-28 04:41:27.776   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.776   Installing the file.
+2026-11-28 04:41:27.776   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal
+2026-11-28 04:41:27.778   Successfully installed the file.
+2026-11-28 04:41:27.778   -- File entry --
+2026-11-28 04:41:27.778   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-datetime-l1-1-0.dll
+2026-11-28 04:41:27.778   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.778   Installing the file.
+2026-11-28 04:41:27.780   Successfully installed the file.
+2026-11-28 04:41:27.780   -- File entry --
+2026-11-28 04:41:27.780   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-debug-l1-1-0.dll
+2026-11-28 04:41:27.780   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.780   Installing the file.
+2026-11-28 04:41:27.784   Successfully installed the file.
+2026-11-28 04:41:27.784   -- File entry --
+2026-11-28 04:41:27.784   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-errorhandling-l1-1-0.dll
+2026-11-28 04:41:27.784   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.784   Installing the file.
+2026-11-28 04:41:27.784   Successfully installed the file.
+2026-11-28 04:41:27.784   -- File entry --
+2026-11-28 04:41:27.784   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-fibers-l1-1-0.dll
+2026-11-28 04:41:27.784   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.784   Installing the file.
+2026-11-28 04:41:27.786   Successfully installed the file.
+2026-11-28 04:41:27.786   -- File entry --
+2026-11-28 04:41:27.786   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-fibers-l1-1-1.dll
+2026-11-28 04:41:27.786   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.786   Installing the file.
+2026-11-28 04:41:27.788   Successfully installed the file.
+2026-11-28 04:41:27.788   -- File entry --
+2026-11-28 04:41:27.788   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-file-l1-1-0.dll
+2026-11-28 04:41:27.788   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.788   Installing the file.
+2026-11-28 04:41:27.788   Successfully installed the file.
+2026-11-28 04:41:27.788   -- File entry --
+2026-11-28 04:41:27.788   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-file-l1-2-0.dll
+2026-11-28 04:41:27.790   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.790   Installing the file.
+2026-11-28 04:41:27.790   Successfully installed the file.
+2026-11-28 04:41:27.790   -- File entry --
+2026-11-28 04:41:27.790   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-file-l2-1-0.dll
+2026-11-28 04:41:27.790   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.790   Installing the file.
+2026-11-28 04:41:27.792   Successfully installed the file.
+2026-11-28 04:41:27.792   -- File entry --
+2026-11-28 04:41:27.792   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-handle-l1-1-0.dll
+2026-11-28 04:41:27.792   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.792   Installing the file.
+2026-11-28 04:41:27.792   Successfully installed the file.
+2026-11-28 04:41:27.794   -- File entry --
+2026-11-28 04:41:27.794   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-heap-l1-1-0.dll
+2026-11-28 04:41:27.794   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.794   Installing the file.
+2026-11-28 04:41:27.794   Successfully installed the file.
+2026-11-28 04:41:27.794   -- File entry --
+2026-11-28 04:41:27.794   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-interlocked-l1-1-0.dll
+2026-11-28 04:41:27.794   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.794   Installing the file.
+2026-11-28 04:41:27.796   Successfully installed the file.
+2026-11-28 04:41:27.796   -- File entry --
+2026-11-28 04:41:27.796   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-kernel32-legacy-l1-1-1.dll
+2026-11-28 04:41:27.796   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.796   Installing the file.
+2026-11-28 04:41:27.798   Successfully installed the file.
+2026-11-28 04:41:27.798   -- File entry --
+2026-11-28 04:41:27.798   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-libraryloader-l1-1-0.dll
+2026-11-28 04:41:27.798   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.798   Installing the file.
+2026-11-28 04:41:27.798   Successfully installed the file.
+2026-11-28 04:41:27.798   -- File entry --
+2026-11-28 04:41:27.798   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-localization-l1-2-0.dll
+2026-11-28 04:41:27.800   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.800   Installing the file.
+2026-11-28 04:41:27.800   Successfully installed the file.
+2026-11-28 04:41:27.800   -- File entry --
+2026-11-28 04:41:27.800   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-memory-l1-1-0.dll
+2026-11-28 04:41:27.800   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.800   Installing the file.
+2026-11-28 04:41:27.802   Successfully installed the file.
+2026-11-28 04:41:27.802   -- File entry --
+2026-11-28 04:41:27.804   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-namedpipe-l1-1-0.dll
+2026-11-28 04:41:27.804   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.804   Installing the file.
+2026-11-28 04:41:27.805   Successfully installed the file.
+2026-11-28 04:41:27.805   -- File entry --
+2026-11-28 04:41:27.805   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-processenvironment-l1-1-0.dll
+2026-11-28 04:41:27.805   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.805   Installing the file.
+2026-11-28 04:41:27.806   Successfully installed the file.
+2026-11-28 04:41:27.806   -- File entry --
+2026-11-28 04:41:27.807   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-processthreads-l1-1-0.dll
+2026-11-28 04:41:27.807   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.807   Installing the file.
+2026-11-28 04:41:27.808   Successfully installed the file.
+2026-11-28 04:41:27.808   -- File entry --
+2026-11-28 04:41:27.808   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-processthreads-l1-1-1.dll
+2026-11-28 04:41:27.808   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.808   Installing the file.
+2026-11-28 04:41:27.809   Successfully installed the file.
+2026-11-28 04:41:27.809   -- File entry --
+2026-11-28 04:41:27.809   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-profile-l1-1-0.dll
+2026-11-28 04:41:27.809   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.809   Installing the file.
+2026-11-28 04:41:27.810   Successfully installed the file.
+2026-11-28 04:41:27.811   -- File entry --
+2026-11-28 04:41:27.811   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-rtlsupport-l1-1-0.dll
+2026-11-28 04:41:27.811   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.811   Installing the file.
+2026-11-28 04:41:27.812   Successfully installed the file.
+2026-11-28 04:41:27.812   -- File entry --
+2026-11-28 04:41:27.812   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-string-l1-1-0.dll
+2026-11-28 04:41:27.812   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.812   Installing the file.
+2026-11-28 04:41:27.813   Successfully installed the file.
+2026-11-28 04:41:27.813   -- File entry --
+2026-11-28 04:41:27.813   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-synch-l1-1-0.dll
+2026-11-28 04:41:27.813   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.813   Installing the file.
+2026-11-28 04:41:27.815   Successfully installed the file.
+2026-11-28 04:41:27.815   -- File entry --
+2026-11-28 04:41:27.815   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-synch-l1-2-0.dll
+2026-11-28 04:41:27.815   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.815   Installing the file.
+2026-11-28 04:41:27.816   Successfully installed the file.
+2026-11-28 04:41:27.816   -- File entry --
+2026-11-28 04:41:27.816   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-sysinfo-l1-1-0.dll
+2026-11-28 04:41:27.816   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.816   Installing the file.
+2026-11-28 04:41:27.816   Successfully installed the file.
+2026-11-28 04:41:27.818   -- File entry --
+2026-11-28 04:41:27.818   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-sysinfo-l1-2-0.dll
+2026-11-28 04:41:27.818   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.818   Installing the file.
+2026-11-28 04:41:27.818   Successfully installed the file.
+2026-11-28 04:41:27.818   -- File entry --
+2026-11-28 04:41:27.818   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-timezone-l1-1-0.dll
+2026-11-28 04:41:27.818   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.818   Installing the file.
+2026-11-28 04:41:27.822   Successfully installed the file.
+2026-11-28 04:41:27.822   -- File entry --
+2026-11-28 04:41:27.822   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-core-util-l1-1-0.dll
+2026-11-28 04:41:27.822   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.822   Installing the file.
+2026-11-28 04:41:27.822   Successfully installed the file.
+2026-11-28 04:41:27.822   -- File entry --
+2026-11-28 04:41:27.822   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-conio-l1-1-0.dll
+2026-11-28 04:41:27.822   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.822   Installing the file.
+2026-11-28 04:41:27.824   Successfully installed the file.
+2026-11-28 04:41:27.824   -- File entry --
+2026-11-28 04:41:27.824   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-convert-l1-1-0.dll
+2026-11-28 04:41:27.824   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.824   Installing the file.
+2026-11-28 04:41:27.826   Successfully installed the file.
+2026-11-28 04:41:27.826   -- File entry --
+2026-11-28 04:41:27.826   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-environment-l1-1-0.dll
+2026-11-28 04:41:27.826   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.826   Installing the file.
+2026-11-28 04:41:27.826   Successfully installed the file.
+2026-11-28 04:41:27.826   -- File entry --
+2026-11-28 04:41:27.826   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-filesystem-l1-1-0.dll
+2026-11-28 04:41:27.826   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.826   Installing the file.
+2026-11-28 04:41:27.828   Successfully installed the file.
+2026-11-28 04:41:27.828   -- File entry --
+2026-11-28 04:41:27.828   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-heap-l1-1-0.dll
+2026-11-28 04:41:27.828   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.828   Installing the file.
+2026-11-28 04:41:27.830   Successfully installed the file.
+2026-11-28 04:41:27.830   -- File entry --
+2026-11-28 04:41:27.830   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-locale-l1-1-0.dll
+2026-11-28 04:41:27.830   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.830   Installing the file.
+2026-11-28 04:41:27.834   Successfully installed the file.
+2026-11-28 04:41:27.834   -- File entry --
+2026-11-28 04:41:27.834   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-math-l1-1-0.dll
+2026-11-28 04:41:27.834   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.834   Installing the file.
+2026-11-28 04:41:27.834   Successfully installed the file.
+2026-11-28 04:41:27.834   -- File entry --
+2026-11-28 04:41:27.836   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-process-l1-1-0.dll
+2026-11-28 04:41:27.836   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.836   Installing the file.
+2026-11-28 04:41:27.836   Successfully installed the file.
+2026-11-28 04:41:27.836   -- File entry --
+2026-11-28 04:41:27.836   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-runtime-l1-1-0.dll
+2026-11-28 04:41:27.836   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.836   Installing the file.
+2026-11-28 04:41:27.838   Successfully installed the file.
+2026-11-28 04:41:27.838   -- File entry --
+2026-11-28 04:41:27.838   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-stdio-l1-1-0.dll
+2026-11-28 04:41:27.838   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.838   Installing the file.
+2026-11-28 04:41:27.840   Successfully installed the file.
+2026-11-28 04:41:27.840   -- File entry --
+2026-11-28 04:41:27.840   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-string-l1-1-0.dll
+2026-11-28 04:41:27.840   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.840   Installing the file.
+2026-11-28 04:41:27.840   Successfully installed the file.
+2026-11-28 04:41:27.840   -- File entry --
+2026-11-28 04:41:27.840   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-time-l1-1-0.dll
+2026-11-28 04:41:27.842   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.842   Installing the file.
+2026-11-28 04:41:27.844   Successfully installed the file.
+2026-11-28 04:41:27.844   -- File entry --
+2026-11-28 04:41:27.844   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\api-ms-win-crt-utility-l1-1-0.dll
+2026-11-28 04:41:27.844   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.844   Installing the file.
+2026-11-28 04:41:27.844   Successfully installed the file.
+2026-11-28 04:41:27.844   -- File entry --
+2026-11-28 04:41:27.844   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\base_library.zip
+2026-11-28 04:41:27.846   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.846   Installing the file.
+2026-11-28 04:41:27.876   Successfully installed the file.
+2026-11-28 04:41:27.876   -- File entry --
+2026-11-28 04:41:27.876   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\libcrypto-3-x64.dll
+2026-11-28 04:41:27.876   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:27.876   Installing the file.
+2026-11-28 04:41:28.038   Successfully installed the file.
+2026-11-28 04:41:28.038   -- File entry --
+2026-11-28 04:41:28.038   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\libcrypto-3.dll
+2026-11-28 04:41:28.038   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.038   Installing the file.
+2026-11-28 04:41:28.142   Successfully installed the file.
+2026-11-28 04:41:28.142   -- File entry --
+2026-11-28 04:41:28.142   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\libffi-8.dll
+2026-11-28 04:41:28.142   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.142   Installing the file.
+2026-11-28 04:41:28.144   Successfully installed the file.
+2026-11-28 04:41:28.144   -- File entry --
+2026-11-28 04:41:28.144   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\libssl-3-x64.dll
+2026-11-28 04:41:28.144   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.144   Installing the file.
+2026-11-28 04:41:28.179   Successfully installed the file.
+2026-11-28 04:41:28.179   -- File entry --
+2026-11-28 04:41:28.179   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\libssl-3.dll
+2026-11-28 04:41:28.179   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.179   Installing the file.
+2026-11-28 04:41:28.197   Successfully installed the file.
+2026-11-28 04:41:28.197   -- File entry --
+2026-11-28 04:41:28.197   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\pyexpat.pyd
+2026-11-28 04:41:28.197   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.197   Installing the file.
+2026-11-28 04:41:28.205   Successfully installed the file.
+2026-11-28 04:41:28.205   -- File entry --
+2026-11-28 04:41:28.205   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\python3.dll
+2026-11-28 04:41:28.205   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.205   Installing the file.
+2026-11-28 04:41:28.207   Successfully installed the file.
+2026-11-28 04:41:28.207   -- File entry --
+2026-11-28 04:41:28.207   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\python312.dll
+2026-11-28 04:41:28.207   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.207   Installing the file.
+2026-11-28 04:41:28.383   Successfully installed the file.
+2026-11-28 04:41:28.383   -- File entry --
+2026-11-28 04:41:28.385   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\select.pyd
+2026-11-28 04:41:28.385   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.385   Installing the file.
+2026-11-28 04:41:28.385   Successfully installed the file.
+2026-11-28 04:41:28.385   -- File entry --
+2026-11-28 04:41:28.385   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\sqlite3.dll
+2026-11-28 04:41:28.387   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.387   Installing the file.
+2026-11-28 04:41:28.439   Successfully installed the file.
+2026-11-28 04:41:28.439   -- File entry --
+2026-11-28 04:41:28.439   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ucrtbase.dll
+2026-11-28 04:41:28.439   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.439   Installing the file.
+2026-11-28 04:41:28.485   Successfully installed the file.
+2026-11-28 04:41:28.485   -- File entry --
+2026-11-28 04:41:28.485   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\unicodedata.pyd
+2026-11-28 04:41:28.485   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.485   Installing the file.
+2026-11-28 04:41:28.518   Successfully installed the file.
+2026-11-28 04:41:28.518   -- File entry --
+2026-11-28 04:41:28.518   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\VCRUNTIME140.dll
+2026-11-28 04:41:28.518   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.518   Installing the file.
+2026-11-28 04:41:28.522   Successfully installed the file.
+2026-11-28 04:41:28.522   -- File entry --
+2026-11-28 04:41:28.522   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\VCRUNTIME140_1.dll
+2026-11-28 04:41:28.522   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.522   Installing the file.
+2026-11-28 04:41:28.524   Successfully installed the file.
+2026-11-28 04:41:28.524   -- File entry --
+2026-11-28 04:41:28.524   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_bz2.pyd
+2026-11-28 04:41:28.524   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.524   Installing the file.
+2026-11-28 04:41:28.528   Successfully installed the file.
+2026-11-28 04:41:28.528   -- File entry --
+2026-11-28 04:41:28.528   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_ctypes.pyd
+2026-11-28 04:41:28.528   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.528   Installing the file.
+2026-11-28 04:41:28.532   Successfully installed the file.
+2026-11-28 04:41:28.532   -- File entry --
+2026-11-28 04:41:28.532   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_decimal.pyd
+2026-11-28 04:41:28.532   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.532   Installing the file.
+2026-11-28 04:41:28.541   Successfully installed the file.
+2026-11-28 04:41:28.541   -- File entry --
+2026-11-28 04:41:28.541   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_elementtree.pyd
+2026-11-28 04:41:28.541   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.541   Installing the file.
+2026-11-28 04:41:28.546   Successfully installed the file.
+2026-11-28 04:41:28.546   -- File entry --
+2026-11-28 04:41:28.546   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_hashlib.pyd
+2026-11-28 04:41:28.546   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.546   Installing the file.
+2026-11-28 04:41:28.548   Successfully installed the file.
+2026-11-28 04:41:28.548   -- File entry --
+2026-11-28 04:41:28.549   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_lzma.pyd
+2026-11-28 04:41:28.549   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.549   Installing the file.
+2026-11-28 04:41:28.555   Successfully installed the file.
+2026-11-28 04:41:28.555   -- File entry --
+2026-11-28 04:41:28.555   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_socket.pyd
+2026-11-28 04:41:28.555   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.555   Installing the file.
+2026-11-28 04:41:28.558   Successfully installed the file.
+2026-11-28 04:41:28.558   -- File entry --
+2026-11-28 04:41:28.559   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_sqlite3.pyd
+2026-11-28 04:41:28.559   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.559   Installing the file.
+2026-11-28 04:41:28.563   Successfully installed the file.
+2026-11-28 04:41:28.563   -- File entry --
+2026-11-28 04:41:28.563   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\_ssl.pyd
+2026-11-28 04:41:28.563   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.563   Installing the file.
+2026-11-28 04:41:28.569   Successfully installed the file.
+2026-11-28 04:41:28.569   -- File entry --
+2026-11-28 04:41:28.569   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data\hang_so_sheet.json
+2026-11-28 04:41:28.569   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.569   Installing the file.
+2026-11-28 04:41:28.569   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\battu_core
+2026-11-28 04:41:28.569   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data
+2026-11-28 04:41:28.592   Successfully installed the file.
+2026-11-28 04:41:28.592   -- File entry --
+2026-11-28 04:41:28.592   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data\quy_tac_tong_hop.json
+2026-11-28 04:41:28.592   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.592   Installing the file.
+2026-11-28 04:41:28.592   Successfully installed the file.
+2026-11-28 04:41:28.592   -- File entry --
+2026-11-28 04:41:28.592   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data\nen\BANG_DUNG_THAN_DU_BI.json
+2026-11-28 04:41:28.592   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.592   Installing the file.
+2026-11-28 04:41:28.594   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data\nen
+2026-11-28 04:41:28.594   Successfully installed the file.
+2026-11-28 04:41:28.594   -- File entry --
+2026-11-28 04:41:28.594   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data\nen\CSDL_toan_bo_gia_tri.json
+2026-11-28 04:41:28.594   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.594   Installing the file.
+2026-11-28 04:41:28.596   Successfully installed the file.
+2026-11-28 04:41:28.596   -- File entry --
+2026-11-28 04:41:28.596   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data\nen\defined_names_5.9.json
+2026-11-28 04:41:28.598   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.598   Installing the file.
+2026-11-28 04:41:28.754   Successfully installed the file.
+2026-11-28 04:41:28.754   -- File entry --
+2026-11-28 04:41:28.754   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\battu_core\data\nen\TIET_KHI.csv
+2026-11-28 04:41:28.755   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.755   Installing the file.
+2026-11-28 04:41:28.758   Successfully installed the file.
+2026-11-28 04:41:28.758   -- File entry --
+2026-11-28 04:41:28.758   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\MSVCP140.dll
+2026-11-28 04:41:28.758   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.758   Installing the file.
+2026-11-28 04:41:28.759   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6
+2026-11-28 04:41:28.773   Successfully installed the file.
+2026-11-28 04:41:28.773   -- File entry --
+2026-11-28 04:41:28.773   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\MSVCP140_1.dll
+2026-11-28 04:41:28.773   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.773   Installing the file.
+2026-11-28 04:41:28.773   Successfully installed the file.
+2026-11-28 04:41:28.773   -- File entry --
+2026-11-28 04:41:28.773   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\MSVCP140_2.dll
+2026-11-28 04:41:28.775   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.775   Installing the file.
+2026-11-28 04:41:28.782   Successfully installed the file.
+2026-11-28 04:41:28.782   -- File entry --
+2026-11-28 04:41:28.782   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\opengl32sw.dll
+2026-11-28 04:41:28.782   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:28.782   Installing the file.
+2026-11-28 04:41:29.299   Successfully installed the file.
+2026-11-28 04:41:29.299   -- File entry --
+2026-11-28 04:41:29.299   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\pyside6.abi3.dll
+2026-11-28 04:41:29.299   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:29.299   Installing the file.
+2026-11-28 04:41:29.309   Successfully installed the file.
+2026-11-28 04:41:29.309   -- File entry --
+2026-11-28 04:41:29.309   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Core.dll
+2026-11-28 04:41:29.309   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:29.309   Installing the file.
+2026-11-28 04:41:29.568   Successfully installed the file.
+2026-11-28 04:41:29.568   -- File entry --
+2026-11-28 04:41:29.568   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Gui.dll
+2026-11-28 04:41:29.568   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:29.568   Installing the file.
+2026-11-28 04:41:29.849   Successfully installed the file.
+2026-11-28 04:41:29.849   -- File entry --
+2026-11-28 04:41:29.849   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Network.dll
+2026-11-28 04:41:29.849   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:29.849   Installing the file.
+2026-11-28 04:41:29.899   Successfully installed the file.
+2026-11-28 04:41:29.899   -- File entry --
+2026-11-28 04:41:29.899   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6OpenGL.dll
+2026-11-28 04:41:29.899   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:29.899   Installing the file.
+2026-11-28 04:41:29.936   Successfully installed the file.
+2026-11-28 04:41:29.936   -- File entry --
+2026-11-28 04:41:29.936   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Pdf.dll
+2026-11-28 04:41:29.936   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:29.936   Installing the file.
+2026-11-28 04:41:30.081   Successfully installed the file.
+2026-11-28 04:41:30.081   -- File entry --
+2026-11-28 04:41:30.081   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6PrintSupport.dll
+2026-11-28 04:41:30.081   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.081   Installing the file.
+2026-11-28 04:41:30.093   Successfully installed the file.
+2026-11-28 04:41:30.093   -- File entry --
+2026-11-28 04:41:30.093   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Qml.dll
+2026-11-28 04:41:30.093   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.093   Installing the file.
+2026-11-28 04:41:30.363   Successfully installed the file.
+2026-11-28 04:41:30.363   -- File entry --
+2026-11-28 04:41:30.363   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6QmlMeta.dll
+2026-11-28 04:41:30.364   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.364   Installing the file.
+2026-11-28 04:41:30.368   Successfully installed the file.
+2026-11-28 04:41:30.368   -- File entry --
+2026-11-28 04:41:30.368   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6QmlModels.dll
+2026-11-28 04:41:30.368   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.368   Installing the file.
+2026-11-28 04:41:30.396   Successfully installed the file.
+2026-11-28 04:41:30.396   -- File entry --
+2026-11-28 04:41:30.396   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6QmlWorkerScript.dll
+2026-11-28 04:41:30.396   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.396   Installing the file.
+2026-11-28 04:41:30.398   Successfully installed the file.
+2026-11-28 04:41:30.398   -- File entry --
+2026-11-28 04:41:30.398   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Quick.dll
+2026-11-28 04:41:30.398   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.398   Installing the file.
+2026-11-28 04:41:30.592   Successfully installed the file.
+2026-11-28 04:41:30.592   -- File entry --
+2026-11-28 04:41:30.592   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Svg.dll
+2026-11-28 04:41:30.592   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.592   Installing the file.
+2026-11-28 04:41:30.608   Successfully installed the file.
+2026-11-28 04:41:30.610   -- File entry --
+2026-11-28 04:41:30.610   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6VirtualKeyboard.dll
+2026-11-28 04:41:30.610   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.610   Installing the file.
+2026-11-28 04:41:30.620   Successfully installed the file.
+2026-11-28 04:41:30.620   -- File entry --
+2026-11-28 04:41:30.620   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\Qt6Widgets.dll
+2026-11-28 04:41:30.620   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.620   Installing the file.
+2026-11-28 04:41:30.813   Successfully installed the file.
+2026-11-28 04:41:30.813   -- File entry --
+2026-11-28 04:41:30.813   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\QtCore.pyd
+2026-11-28 04:41:30.813   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.813   Installing the file.
+2026-11-28 04:41:30.901   Successfully installed the file.
+2026-11-28 04:41:30.901   -- File entry --
+2026-11-28 04:41:30.901   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\QtGui.pyd
+2026-11-28 04:41:30.901   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.901   Installing the file.
+2026-11-28 04:41:30.998   Successfully installed the file.
+2026-11-28 04:41:30.998   -- File entry --
+2026-11-28 04:41:30.998   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\QtNetwork.pyd
+2026-11-28 04:41:30.998   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:30.998   Installing the file.
+2026-11-28 04:41:31.024   Successfully installed the file.
+2026-11-28 04:41:31.024   -- File entry --
+2026-11-28 04:41:31.024   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\QtPrintSupport.pyd
+2026-11-28 04:41:31.024   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.024   Installing the file.
+2026-11-28 04:41:31.032   Successfully installed the file.
+2026-11-28 04:41:31.032   -- File entry --
+2026-11-28 04:41:31.032   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\QtWidgets.pyd
+2026-11-28 04:41:31.034   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.034   Installing the file.
+2026-11-28 04:41:31.148   Successfully installed the file.
+2026-11-28 04:41:31.149   -- File entry --
+2026-11-28 04:41:31.149   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\VCRUNTIME140.dll
+2026-11-28 04:41:31.149   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.149   Installing the file.
+2026-11-28 04:41:31.154   Successfully installed the file.
+2026-11-28 04:41:31.154   -- File entry --
+2026-11-28 04:41:31.154   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\VCRUNTIME140_1.dll
+2026-11-28 04:41:31.154   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.154   Installing the file.
+2026-11-28 04:41:31.155   Successfully installed the file.
+2026-11-28 04:41:31.155   -- File entry --
+2026-11-28 04:41:31.155   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\generic\qtuiotouchplugin.dll
+2026-11-28 04:41:31.156   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.156   Installing the file.
+2026-11-28 04:41:31.156   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins
+2026-11-28 04:41:31.156   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\generic
+2026-11-28 04:41:31.159   Successfully installed the file.
+2026-11-28 04:41:31.159   -- File entry --
+2026-11-28 04:41:31.159   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\iconengines\qsvgicon.dll
+2026-11-28 04:41:31.159   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.159   Installing the file.
+2026-11-28 04:41:31.159   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\iconengines
+2026-11-28 04:41:31.163   Successfully installed the file.
+2026-11-28 04:41:31.163   -- File entry --
+2026-11-28 04:41:31.163   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qgif.dll
+2026-11-28 04:41:31.163   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.163   Installing the file.
+2026-11-28 04:41:31.163   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats
+2026-11-28 04:41:31.165   Successfully installed the file.
+2026-11-28 04:41:31.165   -- File entry --
+2026-11-28 04:41:31.165   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qicns.dll
+2026-11-28 04:41:31.165   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.165   Installing the file.
+2026-11-28 04:41:31.167   Successfully installed the file.
+2026-11-28 04:41:31.167   -- File entry --
+2026-11-28 04:41:31.167   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qico.dll
+2026-11-28 04:41:31.167   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.167   Installing the file.
+2026-11-28 04:41:31.169   Successfully installed the file.
+2026-11-28 04:41:31.169   -- File entry --
+2026-11-28 04:41:31.169   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qjpeg.dll
+2026-11-28 04:41:31.169   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.169   Installing the file.
+2026-11-28 04:41:31.186   Successfully installed the file.
+2026-11-28 04:41:31.186   -- File entry --
+2026-11-28 04:41:31.186   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qpdf.dll
+2026-11-28 04:41:31.186   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.186   Installing the file.
+2026-11-28 04:41:31.188   Successfully installed the file.
+2026-11-28 04:41:31.188   -- File entry --
+2026-11-28 04:41:31.188   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qsvg.dll
+2026-11-28 04:41:31.188   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.188   Installing the file.
+2026-11-28 04:41:31.190   Successfully installed the file.
+2026-11-28 04:41:31.190   -- File entry --
+2026-11-28 04:41:31.190   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qtga.dll
+2026-11-28 04:41:31.190   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.190   Installing the file.
+2026-11-28 04:41:31.192   Successfully installed the file.
+2026-11-28 04:41:31.192   -- File entry --
+2026-11-28 04:41:31.192   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qtiff.dll
+2026-11-28 04:41:31.192   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.192   Installing the file.
+2026-11-28 04:41:31.214   Successfully installed the file.
+2026-11-28 04:41:31.214   -- File entry --
+2026-11-28 04:41:31.214   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qwbmp.dll
+2026-11-28 04:41:31.214   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.214   Installing the file.
+2026-11-28 04:41:31.214   Successfully installed the file.
+2026-11-28 04:41:31.214   -- File entry --
+2026-11-28 04:41:31.214   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\imageformats\qwebp.dll
+2026-11-28 04:41:31.216   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.216   Installing the file.
+2026-11-28 04:41:31.233   Successfully installed the file.
+2026-11-28 04:41:31.233   -- File entry --
+2026-11-28 04:41:31.233   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\networkinformation\qnetworklistmanager.dll
+2026-11-28 04:41:31.233   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.233   Installing the file.
+2026-11-28 04:41:31.233   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\networkinformation
+2026-11-28 04:41:31.239   Successfully installed the file.
+2026-11-28 04:41:31.239   -- File entry --
+2026-11-28 04:41:31.239   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\platforminputcontexts\qtvirtualkeyboardplugin.dll
+2026-11-28 04:41:31.239   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.239   Installing the file.
+2026-11-28 04:41:31.239   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\platforminputcontexts
+2026-11-28 04:41:31.239   Successfully installed the file.
+2026-11-28 04:41:31.241   -- File entry --
+2026-11-28 04:41:31.241   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\platforms\qdirect2d.dll
+2026-11-28 04:41:31.241   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.241   Installing the file.
+2026-11-28 04:41:31.241   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\platforms
+2026-11-28 04:41:31.273   Successfully installed the file.
+2026-11-28 04:41:31.273   -- File entry --
+2026-11-28 04:41:31.273   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\platforms\qminimal.dll
+2026-11-28 04:41:31.273   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.273   Installing the file.
+2026-11-28 04:41:31.275   Successfully installed the file.
+2026-11-28 04:41:31.275   -- File entry --
+2026-11-28 04:41:31.275   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\platforms\qoffscreen.dll
+2026-11-28 04:41:31.275   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.275   Installing the file.
+2026-11-28 04:41:31.279   Successfully installed the file.
+2026-11-28 04:41:31.279   -- File entry --
+2026-11-28 04:41:31.279   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\platforms\qwindows.dll
+2026-11-28 04:41:31.279   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.279   Installing the file.
+2026-11-28 04:41:31.299   Successfully installed the file.
+2026-11-28 04:41:31.299   -- File entry --
+2026-11-28 04:41:31.299   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\styles\qmodernwindowsstyle.dll
+2026-11-28 04:41:31.299   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.299   Installing the file.
+2026-11-28 04:41:31.299   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\styles
+2026-11-28 04:41:31.307   Successfully installed the file.
+2026-11-28 04:41:31.307   -- File entry --
+2026-11-28 04:41:31.307   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\tls\qcertonlybackend.dll
+2026-11-28 04:41:31.307   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.307   Installing the file.
+2026-11-28 04:41:31.307   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\tls
+2026-11-28 04:41:31.311   Successfully installed the file.
+2026-11-28 04:41:31.311   -- File entry --
+2026-11-28 04:41:31.311   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\tls\qopensslbackend.dll
+2026-11-28 04:41:31.313   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.313   Installing the file.
+2026-11-28 04:41:31.322   Successfully installed the file.
+2026-11-28 04:41:31.324   -- File entry --
+2026-11-28 04:41:31.324   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\plugins\tls\qschannelbackend.dll
+2026-11-28 04:41:31.324   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.324   Installing the file.
+2026-11-28 04:41:31.332   Successfully installed the file.
+2026-11-28 04:41:31.332   -- File entry --
+2026-11-28 04:41:31.332   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_ar.qm
+2026-11-28 04:41:31.332   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.332   Installing the file.
+2026-11-28 04:41:31.332   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations
+2026-11-28 04:41:31.338   Successfully installed the file.
+2026-11-28 04:41:31.338   -- File entry --
+2026-11-28 04:41:31.338   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_bg.qm
+2026-11-28 04:41:31.338   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.338   Installing the file.
+2026-11-28 04:41:31.342   Successfully installed the file.
+2026-11-28 04:41:31.342   -- File entry --
+2026-11-28 04:41:31.342   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_ca.qm
+2026-11-28 04:41:31.342   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.342   Installing the file.
+2026-11-28 04:41:31.350   Successfully installed the file.
+2026-11-28 04:41:31.350   -- File entry --
+2026-11-28 04:41:31.351   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_cs.qm
+2026-11-28 04:41:31.351   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.351   Installing the file.
+2026-11-28 04:41:31.355   Successfully installed the file.
+2026-11-28 04:41:31.355   -- File entry --
+2026-11-28 04:41:31.355   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_da.qm
+2026-11-28 04:41:31.355   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.355   Installing the file.
+2026-11-28 04:41:31.359   Successfully installed the file.
+2026-11-28 04:41:31.359   -- File entry --
+2026-11-28 04:41:31.359   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_de.qm
+2026-11-28 04:41:31.359   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.359   Installing the file.
+2026-11-28 04:41:31.362   Successfully installed the file.
+2026-11-28 04:41:31.362   -- File entry --
+2026-11-28 04:41:31.362   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_en.qm
+2026-11-28 04:41:31.364   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.364   Installing the file.
+2026-11-28 04:41:31.364   Successfully installed the file.
+2026-11-28 04:41:31.364   -- File entry --
+2026-11-28 04:41:31.364   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_es.qm
+2026-11-28 04:41:31.364   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.364   Installing the file.
+2026-11-28 04:41:31.368   Successfully installed the file.
+2026-11-28 04:41:31.368   -- File entry --
+2026-11-28 04:41:31.368   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_fa.qm
+2026-11-28 04:41:31.368   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.368   Installing the file.
+2026-11-28 04:41:31.371   Successfully installed the file.
+2026-11-28 04:41:31.371   -- File entry --
+2026-11-28 04:41:31.372   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_fi.qm
+2026-11-28 04:41:31.372   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.372   Installing the file.
+2026-11-28 04:41:31.375   Successfully installed the file.
+2026-11-28 04:41:31.375   -- File entry --
+2026-11-28 04:41:31.376   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_fr.qm
+2026-11-28 04:41:31.376   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.376   Installing the file.
+2026-11-28 04:41:31.378   Successfully installed the file.
+2026-11-28 04:41:31.378   -- File entry --
+2026-11-28 04:41:31.380   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_gd.qm
+2026-11-28 04:41:31.380   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.380   Installing the file.
+2026-11-28 04:41:31.382   Successfully installed the file.
+2026-11-28 04:41:31.384   -- File entry --
+2026-11-28 04:41:31.384   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_he.qm
+2026-11-28 04:41:31.384   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.384   Installing the file.
+2026-11-28 04:41:31.386   Successfully installed the file.
+2026-11-28 04:41:31.386   -- File entry --
+2026-11-28 04:41:31.386   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_hr.qm
+2026-11-28 04:41:31.386   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.386   Installing the file.
+2026-11-28 04:41:31.390   Successfully installed the file.
+2026-11-28 04:41:31.390   -- File entry --
+2026-11-28 04:41:31.390   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_hu.qm
+2026-11-28 04:41:31.390   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.390   Installing the file.
+2026-11-28 04:41:31.394   Successfully installed the file.
+2026-11-28 04:41:31.394   -- File entry --
+2026-11-28 04:41:31.394   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_it.qm
+2026-11-28 04:41:31.394   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.394   Installing the file.
+2026-11-28 04:41:31.398   Successfully installed the file.
+2026-11-28 04:41:31.398   -- File entry --
+2026-11-28 04:41:31.398   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_ja.qm
+2026-11-28 04:41:31.398   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.398   Installing the file.
+2026-11-28 04:41:31.402   Successfully installed the file.
+2026-11-28 04:41:31.402   -- File entry --
+2026-11-28 04:41:31.402   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_ka.qm
+2026-11-28 04:41:31.402   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.402   Installing the file.
+2026-11-28 04:41:31.406   Successfully installed the file.
+2026-11-28 04:41:31.406   -- File entry --
+2026-11-28 04:41:31.406   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_kk.qm
+2026-11-28 04:41:31.406   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.406   Installing the file.
+2026-11-28 04:41:31.412   Successfully installed the file.
+2026-11-28 04:41:31.412   -- File entry --
+2026-11-28 04:41:31.414   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_ko.qm
+2026-11-28 04:41:31.414   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.414   Installing the file.
+2026-11-28 04:41:31.416   Successfully installed the file.
+2026-11-28 04:41:31.416   -- File entry --
+2026-11-28 04:41:31.416   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_lg.qm
+2026-11-28 04:41:31.418   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.418   Installing the file.
+2026-11-28 04:41:31.422   Successfully installed the file.
+2026-11-28 04:41:31.422   -- File entry --
+2026-11-28 04:41:31.424   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_lv.qm
+2026-11-28 04:41:31.424   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.424   Installing the file.
+2026-11-28 04:41:31.425   Successfully installed the file.
+2026-11-28 04:41:31.425   -- File entry --
+2026-11-28 04:41:31.425   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_nl.qm
+2026-11-28 04:41:31.427   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.427   Installing the file.
+2026-11-28 04:41:31.431   Successfully installed the file.
+2026-11-28 04:41:31.431   -- File entry --
+2026-11-28 04:41:31.431   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_nn.qm
+2026-11-28 04:41:31.431   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.431   Installing the file.
+2026-11-28 04:41:31.436   Successfully installed the file.
+2026-11-28 04:41:31.436   -- File entry --
+2026-11-28 04:41:31.436   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_pl.qm
+2026-11-28 04:41:31.436   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.436   Installing the file.
+2026-11-28 04:41:31.438   Successfully installed the file.
+2026-11-28 04:41:31.438   -- File entry --
+2026-11-28 04:41:31.438   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_pt_BR.qm
+2026-11-28 04:41:31.440   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.440   Installing the file.
+2026-11-28 04:41:31.443   Successfully installed the file.
+2026-11-28 04:41:31.443   -- File entry --
+2026-11-28 04:41:31.443   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_ru.qm
+2026-11-28 04:41:31.443   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.443   Installing the file.
+2026-11-28 04:41:31.447   Successfully installed the file.
+2026-11-28 04:41:31.449   -- File entry --
+2026-11-28 04:41:31.449   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_sk.qm
+2026-11-28 04:41:31.449   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.449   Installing the file.
+2026-11-28 04:41:31.451   Successfully installed the file.
+2026-11-28 04:41:31.451   -- File entry --
+2026-11-28 04:41:31.451   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_sv.qm
+2026-11-28 04:41:31.451   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.451   Installing the file.
+2026-11-28 04:41:31.457   Successfully installed the file.
+2026-11-28 04:41:31.457   -- File entry --
+2026-11-28 04:41:31.457   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_tr.qm
+2026-11-28 04:41:31.457   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.457   Installing the file.
+2026-11-28 04:41:31.461   Successfully installed the file.
+2026-11-28 04:41:31.461   -- File entry --
+2026-11-28 04:41:31.461   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_uk.qm
+2026-11-28 04:41:31.461   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.461   Installing the file.
+2026-11-28 04:41:31.465   Successfully installed the file.
+2026-11-28 04:41:31.465   -- File entry --
+2026-11-28 04:41:31.465   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_zh_CN.qm
+2026-11-28 04:41:31.465   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.465   Installing the file.
+2026-11-28 04:41:31.469   Successfully installed the file.
+2026-11-28 04:41:31.469   -- File entry --
+2026-11-28 04:41:31.471   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qtbase_zh_TW.qm
+2026-11-28 04:41:31.471   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.471   Installing the file.
+2026-11-28 04:41:31.473   Successfully installed the file.
+2026-11-28 04:41:31.473   -- File entry --
+2026-11-28 04:41:31.473   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_ar.qm
+2026-11-28 04:41:31.473   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.473   Installing the file.
+2026-11-28 04:41:31.477   Successfully installed the file.
+2026-11-28 04:41:31.477   -- File entry --
+2026-11-28 04:41:31.477   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_bg.qm
+2026-11-28 04:41:31.477   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.477   Installing the file.
+2026-11-28 04:41:31.479   Successfully installed the file.
+2026-11-28 04:41:31.479   -- File entry --
+2026-11-28 04:41:31.479   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_ca.qm
+2026-11-28 04:41:31.479   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.479   Installing the file.
+2026-11-28 04:41:31.479   Successfully installed the file.
+2026-11-28 04:41:31.479   -- File entry --
+2026-11-28 04:41:31.479   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_cs.qm
+2026-11-28 04:41:31.479   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.479   Installing the file.
+2026-11-28 04:41:31.481   Successfully installed the file.
+2026-11-28 04:41:31.481   -- File entry --
+2026-11-28 04:41:31.481   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_da.qm
+2026-11-28 04:41:31.481   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.481   Installing the file.
+2026-11-28 04:41:31.481   Successfully installed the file.
+2026-11-28 04:41:31.481   -- File entry --
+2026-11-28 04:41:31.481   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_de.qm
+2026-11-28 04:41:31.481   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.481   Installing the file.
+2026-11-28 04:41:31.483   Successfully installed the file.
+2026-11-28 04:41:31.483   -- File entry --
+2026-11-28 04:41:31.484   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_en.qm
+2026-11-28 04:41:31.484   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.484   Installing the file.
+2026-11-28 04:41:31.484   Successfully installed the file.
+2026-11-28 04:41:31.484   -- File entry --
+2026-11-28 04:41:31.484   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_es.qm
+2026-11-28 04:41:31.484   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.484   Installing the file.
+2026-11-28 04:41:31.485   Successfully installed the file.
+2026-11-28 04:41:31.485   -- File entry --
+2026-11-28 04:41:31.486   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_fa.qm
+2026-11-28 04:41:31.486   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.486   Installing the file.
+2026-11-28 04:41:31.488   Successfully installed the file.
+2026-11-28 04:41:31.488   -- File entry --
+2026-11-28 04:41:31.488   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_fi.qm
+2026-11-28 04:41:31.488   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.488   Installing the file.
+2026-11-28 04:41:31.489   Successfully installed the file.
+2026-11-28 04:41:31.489   -- File entry --
+2026-11-28 04:41:31.489   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_fr.qm
+2026-11-28 04:41:31.489   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.489   Installing the file.
+2026-11-28 04:41:31.489   Successfully installed the file.
+2026-11-28 04:41:31.489   -- File entry --
+2026-11-28 04:41:31.489   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_gd.qm
+2026-11-28 04:41:31.491   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.491   Installing the file.
+2026-11-28 04:41:31.491   Successfully installed the file.
+2026-11-28 04:41:31.491   -- File entry --
+2026-11-28 04:41:31.491   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_gl.qm
+2026-11-28 04:41:31.491   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.491   Installing the file.
+2026-11-28 04:41:31.499   Successfully installed the file.
+2026-11-28 04:41:31.499   -- File entry --
+2026-11-28 04:41:31.499   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_he.qm
+2026-11-28 04:41:31.499   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.499   Installing the file.
+2026-11-28 04:41:31.501   Successfully installed the file.
+2026-11-28 04:41:31.501   -- File entry --
+2026-11-28 04:41:31.501   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_ar.qm
+2026-11-28 04:41:31.501   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.501   Installing the file.
+2026-11-28 04:41:31.501   Successfully installed the file.
+2026-11-28 04:41:31.501   -- File entry --
+2026-11-28 04:41:31.501   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_bg.qm
+2026-11-28 04:41:31.501   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.501   Installing the file.
+2026-11-28 04:41:31.505   Successfully installed the file.
+2026-11-28 04:41:31.505   -- File entry --
+2026-11-28 04:41:31.505   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_ca.qm
+2026-11-28 04:41:31.505   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.505   Installing the file.
+2026-11-28 04:41:31.505   Successfully installed the file.
+2026-11-28 04:41:31.505   -- File entry --
+2026-11-28 04:41:31.505   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_cs.qm
+2026-11-28 04:41:31.505   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.505   Installing the file.
+2026-11-28 04:41:31.507   Successfully installed the file.
+2026-11-28 04:41:31.507   -- File entry --
+2026-11-28 04:41:31.507   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_da.qm
+2026-11-28 04:41:31.507   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.507   Installing the file.
+2026-11-28 04:41:31.507   Successfully installed the file.
+2026-11-28 04:41:31.507   -- File entry --
+2026-11-28 04:41:31.507   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_de.qm
+2026-11-28 04:41:31.509   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.509   Installing the file.
+2026-11-28 04:41:31.509   Successfully installed the file.
+2026-11-28 04:41:31.509   -- File entry --
+2026-11-28 04:41:31.509   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_en.qm
+2026-11-28 04:41:31.509   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.509   Installing the file.
+2026-11-28 04:41:31.509   Successfully installed the file.
+2026-11-28 04:41:31.509   -- File entry --
+2026-11-28 04:41:31.509   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_es.qm
+2026-11-28 04:41:31.511   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.511   Installing the file.
+2026-11-28 04:41:31.511   Successfully installed the file.
+2026-11-28 04:41:31.511   -- File entry --
+2026-11-28 04:41:31.511   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_fr.qm
+2026-11-28 04:41:31.511   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.511   Installing the file.
+2026-11-28 04:41:31.513   Successfully installed the file.
+2026-11-28 04:41:31.513   -- File entry --
+2026-11-28 04:41:31.513   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_gl.qm
+2026-11-28 04:41:31.513   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.513   Installing the file.
+2026-11-28 04:41:31.513   Successfully installed the file.
+2026-11-28 04:41:31.513   -- File entry --
+2026-11-28 04:41:31.513   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_hr.qm
+2026-11-28 04:41:31.513   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.513   Installing the file.
+2026-11-28 04:41:31.515   Successfully installed the file.
+2026-11-28 04:41:31.515   -- File entry --
+2026-11-28 04:41:31.515   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_hu.qm
+2026-11-28 04:41:31.515   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.515   Installing the file.
+2026-11-28 04:41:31.515   Successfully installed the file.
+2026-11-28 04:41:31.515   -- File entry --
+2026-11-28 04:41:31.515   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_it.qm
+2026-11-28 04:41:31.515   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.515   Installing the file.
+2026-11-28 04:41:31.517   Successfully installed the file.
+2026-11-28 04:41:31.517   -- File entry --
+2026-11-28 04:41:31.517   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_ja.qm
+2026-11-28 04:41:31.517   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.517   Installing the file.
+2026-11-28 04:41:31.517   Successfully installed the file.
+2026-11-28 04:41:31.517   -- File entry --
+2026-11-28 04:41:31.517   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_ka.qm
+2026-11-28 04:41:31.517   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.517   Installing the file.
+2026-11-28 04:41:31.519   Successfully installed the file.
+2026-11-28 04:41:31.519   -- File entry --
+2026-11-28 04:41:31.519   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_kk.qm
+2026-11-28 04:41:31.519   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.519   Installing the file.
+2026-11-28 04:41:31.521   Successfully installed the file.
+2026-11-28 04:41:31.521   -- File entry --
+2026-11-28 04:41:31.521   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_ko.qm
+2026-11-28 04:41:31.521   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.521   Installing the file.
+2026-11-28 04:41:31.523   Successfully installed the file.
+2026-11-28 04:41:31.523   -- File entry --
+2026-11-28 04:41:31.523   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_nl.qm
+2026-11-28 04:41:31.523   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.523   Installing the file.
+2026-11-28 04:41:31.525   Successfully installed the file.
+2026-11-28 04:41:31.525   -- File entry --
+2026-11-28 04:41:31.525   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_nn.qm
+2026-11-28 04:41:31.525   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.525   Installing the file.
+2026-11-28 04:41:31.525   Successfully installed the file.
+2026-11-28 04:41:31.525   -- File entry --
+2026-11-28 04:41:31.527   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_pl.qm
+2026-11-28 04:41:31.527   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.527   Installing the file.
+2026-11-28 04:41:31.527   Successfully installed the file.
+2026-11-28 04:41:31.527   -- File entry --
+2026-11-28 04:41:31.527   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_pt_BR.qm
+2026-11-28 04:41:31.527   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.527   Installing the file.
+2026-11-28 04:41:31.529   Successfully installed the file.
+2026-11-28 04:41:31.529   -- File entry --
+2026-11-28 04:41:31.529   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_ru.qm
+2026-11-28 04:41:31.531   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.531   Installing the file.
+2026-11-28 04:41:31.531   Successfully installed the file.
+2026-11-28 04:41:31.531   -- File entry --
+2026-11-28 04:41:31.531   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_sk.qm
+2026-11-28 04:41:31.531   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.531   Installing the file.
+2026-11-28 04:41:31.533   Successfully installed the file.
+2026-11-28 04:41:31.533   -- File entry --
+2026-11-28 04:41:31.533   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_sl.qm
+2026-11-28 04:41:31.533   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.533   Installing the file.
+2026-11-28 04:41:31.533   Successfully installed the file.
+2026-11-28 04:41:31.533   -- File entry --
+2026-11-28 04:41:31.533   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_sv.qm
+2026-11-28 04:41:31.533   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.533   Installing the file.
+2026-11-28 04:41:31.535   Successfully installed the file.
+2026-11-28 04:41:31.535   -- File entry --
+2026-11-28 04:41:31.535   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_tr.qm
+2026-11-28 04:41:31.535   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.535   Installing the file.
+2026-11-28 04:41:31.535   Successfully installed the file.
+2026-11-28 04:41:31.535   -- File entry --
+2026-11-28 04:41:31.535   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_uk.qm
+2026-11-28 04:41:31.536   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.536   Installing the file.
+2026-11-28 04:41:31.536   Successfully installed the file.
+2026-11-28 04:41:31.536   -- File entry --
+2026-11-28 04:41:31.536   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_zh_CN.qm
+2026-11-28 04:41:31.536   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.536   Installing the file.
+2026-11-28 04:41:31.538   Successfully installed the file.
+2026-11-28 04:41:31.538   -- File entry --
+2026-11-28 04:41:31.538   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_help_zh_TW.qm
+2026-11-28 04:41:31.538   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.538   Installing the file.
+2026-11-28 04:41:31.539   Successfully installed the file.
+2026-11-28 04:41:31.539   -- File entry --
+2026-11-28 04:41:31.539   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_hr.qm
+2026-11-28 04:41:31.539   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.539   Installing the file.
+2026-11-28 04:41:31.540   Successfully installed the file.
+2026-11-28 04:41:31.540   -- File entry --
+2026-11-28 04:41:31.540   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_hu.qm
+2026-11-28 04:41:31.540   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.540   Installing the file.
+2026-11-28 04:41:31.541   Successfully installed the file.
+2026-11-28 04:41:31.541   -- File entry --
+2026-11-28 04:41:31.541   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_it.qm
+2026-11-28 04:41:31.541   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.541   Installing the file.
+2026-11-28 04:41:31.542   Successfully installed the file.
+2026-11-28 04:41:31.542   -- File entry --
+2026-11-28 04:41:31.542   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_ja.qm
+2026-11-28 04:41:31.542   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.542   Installing the file.
+2026-11-28 04:41:31.543   Successfully installed the file.
+2026-11-28 04:41:31.543   -- File entry --
+2026-11-28 04:41:31.543   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_ka.qm
+2026-11-28 04:41:31.543   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.543   Installing the file.
+2026-11-28 04:41:31.544   Successfully installed the file.
+2026-11-28 04:41:31.544   -- File entry --
+2026-11-28 04:41:31.544   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_kk.qm
+2026-11-28 04:41:31.544   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.544   Installing the file.
+2026-11-28 04:41:31.545   Successfully installed the file.
+2026-11-28 04:41:31.545   -- File entry --
+2026-11-28 04:41:31.545   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_ko.qm
+2026-11-28 04:41:31.545   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.545   Installing the file.
+2026-11-28 04:41:31.547   Successfully installed the file.
+2026-11-28 04:41:31.547   -- File entry --
+2026-11-28 04:41:31.547   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_lg.qm
+2026-11-28 04:41:31.547   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.547   Installing the file.
+2026-11-28 04:41:31.548   Successfully installed the file.
+2026-11-28 04:41:31.548   -- File entry --
+2026-11-28 04:41:31.548   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_lt.qm
+2026-11-28 04:41:31.548   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.548   Installing the file.
+2026-11-28 04:41:31.560   Successfully installed the file.
+2026-11-28 04:41:31.560   -- File entry --
+2026-11-28 04:41:31.562   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_lv.qm
+2026-11-28 04:41:31.562   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.562   Installing the file.
+2026-11-28 04:41:31.562   Successfully installed the file.
+2026-11-28 04:41:31.562   -- File entry --
+2026-11-28 04:41:31.562   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_nl.qm
+2026-11-28 04:41:31.562   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.562   Installing the file.
+2026-11-28 04:41:31.564   Successfully installed the file.
+2026-11-28 04:41:31.564   -- File entry --
+2026-11-28 04:41:31.564   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_nn.qm
+2026-11-28 04:41:31.564   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.564   Installing the file.
+2026-11-28 04:41:31.564   Successfully installed the file.
+2026-11-28 04:41:31.564   -- File entry --
+2026-11-28 04:41:31.564   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_pl.qm
+2026-11-28 04:41:31.564   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.564   Installing the file.
+2026-11-28 04:41:31.566   Successfully installed the file.
+2026-11-28 04:41:31.566   -- File entry --
+2026-11-28 04:41:31.566   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_pt_BR.qm
+2026-11-28 04:41:31.566   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.566   Installing the file.
+2026-11-28 04:41:31.566   Successfully installed the file.
+2026-11-28 04:41:31.566   -- File entry --
+2026-11-28 04:41:31.566   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_pt_PT.qm
+2026-11-28 04:41:31.566   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.566   Installing the file.
+2026-11-28 04:41:31.568   Successfully installed the file.
+2026-11-28 04:41:31.568   -- File entry --
+2026-11-28 04:41:31.568   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_ru.qm
+2026-11-28 04:41:31.570   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.570   Installing the file.
+2026-11-28 04:41:31.570   Successfully installed the file.
+2026-11-28 04:41:31.570   -- File entry --
+2026-11-28 04:41:31.570   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_sk.qm
+2026-11-28 04:41:31.570   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.570   Installing the file.
+2026-11-28 04:41:31.570   Successfully installed the file.
+2026-11-28 04:41:31.570   -- File entry --
+2026-11-28 04:41:31.570   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_sl.qm
+2026-11-28 04:41:31.572   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.572   Installing the file.
+2026-11-28 04:41:31.576   Successfully installed the file.
+2026-11-28 04:41:31.576   -- File entry --
+2026-11-28 04:41:31.576   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_sv.qm
+2026-11-28 04:41:31.576   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.576   Installing the file.
+2026-11-28 04:41:31.576   Successfully installed the file.
+2026-11-28 04:41:31.576   -- File entry --
+2026-11-28 04:41:31.576   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_tr.qm
+2026-11-28 04:41:31.576   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.576   Installing the file.
+2026-11-28 04:41:31.578   Successfully installed the file.
+2026-11-28 04:41:31.578   -- File entry --
+2026-11-28 04:41:31.578   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_uk.qm
+2026-11-28 04:41:31.578   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.578   Installing the file.
+2026-11-28 04:41:31.578   Successfully installed the file.
+2026-11-28 04:41:31.578   -- File entry --
+2026-11-28 04:41:31.578   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_zh_CN.qm
+2026-11-28 04:41:31.578   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.578   Installing the file.
+2026-11-28 04:41:31.580   Successfully installed the file.
+2026-11-28 04:41:31.580   -- File entry --
+2026-11-28 04:41:31.580   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\PySide6\translations\qt_zh_TW.qm
+2026-11-28 04:41:31.580   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.580   Installing the file.
+2026-11-28 04:41:31.580   Successfully installed the file.
+2026-11-28 04:41:31.580   -- File entry --
+2026-11-28 04:41:31.580   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\shiboken6\MSVCP140.dll
+2026-11-28 04:41:31.580   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.580   Installing the file.
+2026-11-28 04:41:31.580   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\shiboken6
+2026-11-28 04:41:31.790   Successfully installed the file.
+2026-11-28 04:41:31.790   -- File entry --
+2026-11-28 04:41:31.790   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\shiboken6\Shiboken.pyd
+2026-11-28 04:41:31.790   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.790   Installing the file.
+2026-11-28 04:41:31.792   Successfully installed the file.
+2026-11-28 04:41:31.792   -- File entry --
+2026-11-28 04:41:31.792   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\shiboken6\shiboken6.abi3.dll
+2026-11-28 04:41:31.792   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.792   Installing the file.
+2026-11-28 04:41:31.806   Successfully installed the file.
+2026-11-28 04:41:31.806   -- File entry --
+2026-11-28 04:41:31.806   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\shiboken6\VCRUNTIME140.dll
+2026-11-28 04:41:31.806   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.806   Installing the file.
+2026-11-28 04:41:31.812   Successfully installed the file.
+2026-11-28 04:41:31.812   -- File entry --
+2026-11-28 04:41:31.812   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\shiboken6\VCRUNTIME140_1.dll
+2026-11-28 04:41:31.812   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.812   Installing the file.
+2026-11-28 04:41:31.814   Successfully installed the file.
+2026-11-28 04:41:31.814   -- File entry --
+2026-11-28 04:41:31.814   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ui\bieu_tuong.png
+2026-11-28 04:41:31.814   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.814   Installing the file.
+2026-11-28 04:41:31.814   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\ui
+2026-11-28 04:41:31.816   Successfully installed the file.
+2026-11-28 04:41:31.816   -- File entry --
+2026-11-28 04:41:31.816   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ui\fonts\Inter-Bold.otf
+2026-11-28 04:41:31.816   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.816   Installing the file.
+2026-11-28 04:41:31.816   Creating directory: C:\Program Files\BatTuThieuViHoa\_internal\ui\fonts
+2026-11-28 04:41:31.834   Successfully installed the file.
+2026-11-28 04:41:31.834   -- File entry --
+2026-11-28 04:41:31.834   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ui\fonts\Inter-ExtraBold.otf
+2026-11-28 04:41:31.834   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.834   Installing the file.
+2026-11-28 04:41:31.849   Successfully installed the file.
+2026-11-28 04:41:31.849   -- File entry --
+2026-11-28 04:41:31.849   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ui\fonts\Inter-Medium.otf
+2026-11-28 04:41:31.849   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.849   Installing the file.
+2026-11-28 04:41:31.867   Successfully installed the file.
+2026-11-28 04:41:31.867   -- File entry --
+2026-11-28 04:41:31.867   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ui\fonts\Inter-Regular.otf
+2026-11-28 04:41:31.867   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.867   Installing the file.
+2026-11-28 04:41:31.885   Successfully installed the file.
+2026-11-28 04:41:31.885   -- File entry --
+2026-11-28 04:41:31.885   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ui\fonts\Inter-SemiBold.otf
+2026-11-28 04:41:31.885   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.885   Installing the file.
+2026-11-28 04:41:31.901   Successfully installed the file.
+2026-11-28 04:41:31.901   -- File entry --
+2026-11-28 04:41:31.901   Dest filename: C:\Program Files\BatTuThieuViHoa\_internal\ui\fonts\LICENSE_Inter.txt
+2026-11-28 04:41:31.901   Time stamp of our file: 2026-11-28 04:40:54.000
+2026-11-28 04:41:31.901   Installing the file.
+2026-11-28 04:41:31.902   Successfully installed the file.
+2026-11-28 04:41:31.902   -- Icon entry --
+2026-11-28 04:41:31.902   Dest filename: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Bát Tự Thiệu Vĩ Hoa\Bát Tự Thiệu Vĩ Hoa.lnk
+2026-11-28 04:41:31.903   Creating directory: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Bát Tự Thiệu Vĩ Hoa
+2026-11-28 04:41:31.932   Creating the icon.
+2026-11-28 04:41:32.205   Successfully created the icon.
+2026-11-28 04:41:32.211   -- Icon entry --
+2026-11-28 04:41:32.211   Dest filename: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Bát Tự Thiệu Vĩ Hoa\Gỡ cài đặt Bát Tự Thiệu Vĩ Hoa.lnk
+2026-11-28 04:41:32.211   Creating the icon.
+2026-11-28 04:41:32.215   Successfully created the icon.
+2026-11-28 04:41:32.221   -- Icon entry --
+2026-11-28 04:41:32.221   Dest filename: C:\Users\Public\Desktop\Bát Tự Thiệu Vĩ Hoa.lnk
+2026-11-28 04:41:32.221   Creating the icon.
+2026-11-28 04:41:32.223   Successfully created the icon.
+2026-11-28 04:41:32.235   Saving uninstall information.
+2026-11-28 04:41:32.235   Creating new uninstall key: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{6C1E3A52-8B7D-4E0B-9C61-3B2F7A9D6E31}_is1
+2026-11-28 04:41:32.235   Writing uninstall key values.
+2026-11-28 04:41:32.237   Detected previous non administrative install? No
+2026-11-28 04:41:32.237   Detected previous administrative 32-bit install? No
+2026-11-28 04:41:32.249   Installation process succeeded.
+2026-11-28 04:41:32.249   Need to restart Windows? No
+2026-11-28 04:41:32.253   Deinitializing Setup.
+2026-11-28 04:41:32.263   Log closed.
