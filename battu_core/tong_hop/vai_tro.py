@@ -96,6 +96,33 @@ def thinh_suy_van(vai, can_van, chi_van):
     return {'Y': 'thinh', 'X': 'thinh', 'U': 'suy', 'Z': 'suy'}.get(k2, 'dac_dia')
 
 
+def nua_theo_vong(vai, van, can4=None, chi4=None):
+    """Thịnh/suy từng đại vận theo HÌNH HỆ TRỤC của sách (H-7, H-88..H-96), thay cho quy tắc theo Can.
+    Quy tắc đọc từ hình (29/11/2026, kiểm trên 9 ca sách):
+    - Mười hai chi xếp theo thứ tự trên vòng; mỗi đại vận đặt tại CHI của nó.
+    - Đường phân định là đường kính qua chi p của đại vận (hoặc trụ sinh) mang Can âm của M, và chi đối của p.
+    - Đi ngược chiều tăng của chi từ p (5 chi trước p) là nửa chứa Y, X: thịnh. 5 chi sau p là nửa chứa U, Z: suy.
+    - Vận đúng ở đầu đường (chi p, chi đối p) thuộc về nửa mà nó đang bước vào theo chiều đi của đại vận.
+    van: list {ten} theo thứ tự thời gian. Trả list nhãn 'thinh'|'suy' kèm cờ 'bien' (vận ở đầu đường)."""
+    can_am = CAN_AM_M[next(h for k, h in vai.items() if k == 'M')]
+    chi_van = [_chuan(v['ten'].split()[1]) for v in van]
+    can_van = [v['ten'].split()[0] for v in van]
+    p = next((CHI.index(c) for c, k in zip(chi_van, can_van) if k == can_am), None)
+    if p is None and can4 and chi4:
+        for k, c in zip(can4, chi4):
+            if k == can_am and c: p = CHI.index(_chuan(c)); break
+    if p is None: return None
+    tang = len(van) < 2 or ((CHI.index(chi_van[1]) - CHI.index(chi_van[0])) % 12) < 6   # chiều thuận: chi tăng dần
+    out = []
+    for c in chi_van:
+        d = (CHI.index(c) - p) % 12
+        if 1 <= d <= 5: out.append(('suy', False))
+        elif 7 <= d <= 11: out.append(('thinh', False))
+        elif d == 0: out.append(('suy' if tang else 'thinh', True))
+        else: out.append(('thinh' if tang else 'suy', True))
+    return out
+
+
 def diem_nam(vai, tung_hoanh, can_nam, chi_nam, nua_van, co_mat=None):
     """Điểm nguy của một năm (0–6) và lý do. nua_van: 'thinh' | 'suy' | 'dac_dia'."""
     inv = {h: k for k, h in vai.items()}
@@ -126,10 +153,15 @@ def phan_tich(can4, chi4, dai_van, nam_tu, nam_den, ngong=4):
     for uv in ung_vien(can4, chi4):
         vai = uv['vai']
         van = []
-        for d in dai_van:
+        vong = nua_theo_vong(vai, dai_van, can4, chi4)      # theo hình hệ trục (H-52): vận đặt tại CHI, chia hai nửa bởi đường phân định
+        for i, d in enumerate(dai_van):
             c, ch = d['ten'].split()
+            if vong is not None:
+                nua, bien = vong[i]
+            else:
+                nua, bien = thinh_suy_van(vai, c, _chuan(ch)), False
             van.append({'ten': d['ten'], 'nam_bat_dau': d['nam_bat_dau'], 'nam_ket_thuc': d['nam_ket_thuc'],
-                        'nua': thinh_suy_van(vai, c, _chuan(ch))})
+                        'nua': nua, 'bien': bien})
         nam = []
         for n in range(nam_tu, nam_den + 1):
             nua = next((v['nua'] for v in van if v['nam_bat_dau'] <= n <= v['nam_ket_thuc']), 'dac_dia')
