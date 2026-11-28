@@ -12,6 +12,7 @@ import re
 from battu_core.tong_hop import quan_he as Q
 from battu_core.tong_hop.du_kien import ho_so
 from battu_core.tong_hop.phan_doan import phan_doan
+from battu_core.tong_hop import tuong_minh as TM
 
 NHAT_CAN = {
     'Giáp': ('cây lớn', 'thẳng thắn, có chí vươn lên, nhân hậu, trọng tình nghĩa', 'đôi khi cứng nhắc, khó uốn mình'),
@@ -325,8 +326,8 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     cat_hung = _kl(hs, 'I. Vận trình', 'Cát – hung').split('(')[0].strip().lower()
     sang = _kl(hs, 'F. Sự nghiệp', 'Sang – hèn').split('(')[0].strip().lower()
     B.append(('p', '**Mệnh cục.** Tài lộc: %s. Quyền chức: %s. Cát – hung: %s. Thọ – yểu: %s (lý do xem mục 8).' % (
-        (tl['muc'] or '—').lower(), sang.replace('nghiêng về hèn', 'ở mức vừa (bảng P1 tr.173 nghiêng về "hèn" vì thiếu Quan sát)') or '—',
-        cat_hung or '—', ty['muc'].lower())))
+        (tl['muc'] or '—').lower(), TM.bo_nghieng(sang) or '—',
+        TM.bo_nghieng(cat_hung) or '—', (ty['muc'].split(' – ')[0]).lower())))
 
     # 3. Tính cách
     B.append(('h2', '3. Tính cách – năng khiếu'))
@@ -368,7 +369,7 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     # 5. Tài lộc
     B.append(('h2', '5. Tài lộc'))
     B.append(('p', '**Tài lộc: %s.** %s' % (tl['muc'] or '—', tl['dien_giai'])))
-    ul = ['Thành phần: ' + '; '.join('%s %s' % (k, str(v).lower()) for k, v in tl['thanh_phan'].items() if v)]
+    ul = ['Thành phần: ' + '; '.join('%s %s' % (k, TM.bo_nghieng(str(v)).lower()) for k, v in tl['thanh_phan'].items() if v)]
     ul += ['Nguồn tiền: ' + x for x in _diem(_kl(hs, 'E. Tài lộc', 'Nguồn tiền'), 3)]
     gc = _kl(hs, 'E. Tài lộc', 'Giữ của – hao tài')
     ul += ['Giữ của: ' + x for x in _diem(gc.split('Bất lợi')[0], 1)] + ['Hao tài: ' + x for x in _diem(gc.split('Bất lợi')[-1], 1) if 'Bất lợi' in gc]
@@ -384,7 +385,7 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     # 6. Hôn nhân – con cái
     B.append(('h2', '6. Hôn nhân – con cái'))
     vc = lt.get('Vợ / chồng', {})
-    B.append(('p', '**Hôn nhân: %s.** %s' % (vc.get('muc') or '—', _nam_dv(_cau(vc.get('chinh', '').split(':', 1)[-1], 2), hs))))
+    i_hn = len(B); B.append(('p', ''))       # điền sau khi có năm thuận/xấu gia đạo (luận giải tường minh)
     ul = []
     so_tai = so['Tài'] if (ls.get('gioi_tinh') or 'Nam') == 'Nam' else so['Quan sát']
     if so_tai is not None:
@@ -405,9 +406,9 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     gd_xau = [y['nam'] for y in hs['luu_nien'] if y.get('bat_loi_hon_nhan') or any(q['loai'] == 'xung' and q.get('cham_cung_phu_the') for q in y['quan_he'])]
     lan = [n for n in gd_tot if n in gd_xau]                    # một năm chỉ ở MỘT danh sách
     gd_tot = [n for n in gd_tot if n not in lan]; gd_xau = [n for n in gd_xau if n not in lan]
-    t1, t2 = ('Năm thuận gia đạo', 'Năm cần nhường nhịn') if 'Thời điểm kết hôn' in an_m else ('Năm thuận kết hôn, tin vui', 'Năm cần thận trọng')
-    B.append(('p', '**%s:** %s. **%s:** %s.%s' % (t1, _ds(gd_tot), t2, _ds(gd_xau),
-                                                  ' Năm tốt xấu đan xen (có cả dấu hiệu hợp và dấu hiệu khắc): %s.' % _ds(lan) if lan else '')))
+    la_nam = (ls.get('gioi_tinh') or 'Nam') == 'Nam'
+    van_xc = [TM._ten_van(d) for d in hs['dai_van'] if any(q['loai'] in ('xung', 'thien_khac_dia_xung') and q.get('cham_cung_phu_the') for q in d.get('quan_he', []))]
+    B[i_hn] = ('p', TM.hon_nhan(vc, lambda t: _nam_dv(t, hs), gd_tot, gd_xau, lan, van_xc, la_nam))
     s2 = _cau_con_cai(hs, pd, an_m)
     B.append(('p', s2))
     dp = _dong_hon_phoi(la_so)
@@ -419,11 +420,8 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     for ten in ('Ông bà', 'Cha', 'Mẹ', 'Anh chị em'):
         d = lt.get(ten)
         if not d: continue
-        s3 = '**%s: %s.** %s' % (ten, d['muc'] or '—', _nam_dv(_cau(d['chinh'].split(':', 1)[-1], 1), hs))
-        if d.get('nguon_khac'): s3 += ' (%s)' % d['dien_giai']
-        ul.append(s3)
-    cha = [y['nam'] for y in hs['luu_nien'] if y.get('bat_loi_cha')]; me = [y['nam'] for y in hs['luu_nien'] if y.get('bat_loi_me')]
-    ul.append('Năm nên quan tâm sức khỏe cha: %s; mẹ: %s.' % (_ds(cha), _ds(me)))
+        cha_me = [y['nam'] for y in hs['luu_nien'] if y.get('bat_loi_cha' if ten == 'Cha' else 'bat_loi_me')] if ten in ('Cha', 'Mẹ') else None
+        ul.append(TM.luc_than(ten, d, lambda t: _nam_dv(t, hs), cha_me))
     qn = bm.get('quy_nhan') or ''
     ul.append('Quý nhân: %s.' % ('có trong tứ trụ' if qn and not qn.startswith('Không') else 'không có Thiên ất quý nhân trong tứ trụ – thành công dựa nhiều vào sức mình'))
     if so['Tỉ kiếp'] is not None:
@@ -434,13 +432,17 @@ def soan(hs, pd, la_so=None, ho_ten=''):
 
     # 8. Sức khỏe
     B.append(('h2', '8. Sức khỏe'))
-    B.append(('p', '**Thọ – yểu: %s.** %s' % (ty['muc'].lower(), ty['dien_giai'] or _cau(ty['goc_workbook']))))
+    from battu_core.tong_hop import tai_uong as TU
+    _dong10 = TU.bang_suc_khoe(hs)
+    B.append(('p', TM.tho_yeu(ty, pd, hs, ky, dung, HANH_INFO, TU.khoi_nam_chu_y(hs, _dong10))))
     ul = []
-    for nhan in ('Sức khỏe chung', 'Bệnh tật – tạng phủ', 'Thương tật – tai họa theo vận'):
-        muc, yn = _y_nghia(_kl(hs, 'H. Sức khỏe', nhan))
-        if muc: ul.append('%s: %s%s' % (nhan, muc.lower(), (' – ' + yn) if yn else ''))
-    if ky in HANH_INFO: ul.append('Hành kỵ %s thái quá: %s' % (ky, HANH_INFO[ky][3]))
-    if dung in HANH_INFO: ul.append('Hành dụng %s bị khắc: %s' % (dung, HANH_INFO[dung][3]))
+    muc, yn = _y_nghia(_kl(hs, 'H. Sức khỏe', 'Sức khỏe chung'))
+    if muc:
+        _t, _x = TM.van_tot_xau(pd)
+        ul.append('Sức khỏe chung: %s%s. Giai đoạn thể trạng tốt: %s. Giai đoạn dễ ốm: %s' % (
+            muc.lower(), (' – ' + yn.rstrip('.')) if yn else '', TM._ds_van(_t), TM._ds_van(_x)))
+    ul.append(TM.benh_tat(ky, dung, _dong10, HANH_INFO))
+    ul.append(TM.tai_hoa(_dong10, '', TM.van_tot_xau(pd)[1]))
     dh = _cau(_kl(hs, 'J. Hóa giải', '[Kinh nghiệm] Điều hầu').split('.', 1)[-1], 2)
     if dh: ul.append('Sinh hoạt: %s' % dh.split('(')[0].strip())
     B.append(('ul', [x.rstrip('.') + '.' for x in ul]))
@@ -451,11 +453,10 @@ def soan(hs, pd, la_so=None, ho_ten=''):
         if pln[y['nam']]['muc'] in _XAU or (m2 and m2.group(1) != 'CHÚ Ý'):
             rows.append(['%d %s' % (y['nam'], y['luu_nien']), pln[y['nam']]['muc'], ('%s – %s' % (m2.group(1).capitalize(), m2.group(2).strip())) if m2 else ''])
     if rows: B.append(('bang', ['Năm cần giữ sức', 'Mức năm', 'Tạng phủ cần chú ý'], rows))
-    from battu_core.tong_hop import tai_uong as TU
     _tu = TU.phan_tich(hs); _cy = TU.nam_ngan(hs)
     _ct = TU.cau_tong_hop(hs) if _tu['co_it_nhat_mot'] else ''
     if _cy: _ct = (_ct + ' ' if _ct else '') + '**Năm cần chú ý (10 năm từ năm xem):** %s.' % _cy
-    B.append(('nho', (_ct + ' ' if _ct else '') + 'Đây là xu hướng mệnh lý để tham khảo, không thay cho khám và tư vấn của bác sĩ; xem thêm trang "Sức khỏe 10 năm".'))
+    B.append(('nho', (_ct + ' ' if _ct else '') + 'Lưu ý chung của mục sức khỏe: nội dung dựa trên lá số, không thay cho khám và tư vấn của bác sĩ; xem thêm trang "Sức khỏe 10 năm".'))
 
     # 9. Vận trình
     B.append(('h2', '9. Đại vận và lưu niên'))
@@ -523,11 +524,11 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     tom = ['**Bản mệnh:** %s; dụng thần %s, hỷ thần %s, kỵ thần %s.' % (dau.lower() if chinh_cach else dau, dung, hy, ky),
            '**Sự nghiệp:** %s.' % (nd[2] if nd else 'theo dụng thần %s' % dung),
            '**Tài lộc:** %s. **Hôn nhân:** %s. **Con cái:** %s.' % ((tl['muc'] or '—').lower(), (vc.get('muc') or '—').lower(), (lt.get('Con cái', {}).get('muc') or '—').lower()),
-           '**Sức khỏe:** thọ – yểu %s; chú ý %s.' % (ty['muc'].lower(), HANH_INFO[ky][3] if ky in HANH_INFO else '—'),
+           '**Sức khỏe:** thọ – yểu %s; chú ý %s.' % ((ty['muc'].split(' – ')[0]).lower(), HANH_INFO[ky][3] if ky in HANH_INFO else '—'),
            '**Vận trình:** %s; năm dồn sức: %s; năm cần chậm lại: %s.' % (dang_t, _ds([y['nam'] for y in dep]), _ds(can))]
     B[i_tom:i_tom] = [('h2', 'Tóm tắt nhanh'), ('ul', tom)]
     B.append(('nho', 'Độ tin cậy: vượng suy %s. Bản tổng hợp dựa trên kết quả phần mềm (khớp workbook) và quy tắc tổng hợp %s; '
-                     'mệnh lý là xu hướng để tham khảo, không phải định mệnh.' % (
+                     'quy tắc tổng hợp đã nêu ở trên.' % (
                          'sát ngưỡng – nên đối chiếu sự việc đã qua' if vs['sat_nguong'] else 'rõ', pd['phien_ban_quy_tac'])))
     return B
 
