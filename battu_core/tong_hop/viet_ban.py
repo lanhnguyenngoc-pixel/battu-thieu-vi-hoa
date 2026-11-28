@@ -440,8 +440,8 @@ def soan(hs, pd, la_so=None, ho_ten=''):
     muc, yn = _y_nghia(_kl(hs, 'H. Sức khỏe', 'Sức khỏe chung'))
     if muc:
         _t, _x = TM.van_tot_xau(pd)
-        ul.append('Sức khỏe chung: %s%s. Vận thể trạng tốt: %s. Vận dễ ốm: %s' % (
-            muc.lower(), (' – ' + yn.rstrip('.')) if yn else '', TM._tom_van(_t), TM._tom_van(_x)))
+        ul.append('Sức khỏe chung: %s%s (vận tốt, vận xấu: xem từng đại vận ở trên).' % (
+            muc.lower(), (' – ' + yn.rstrip('.')) if yn else ''))
     ul.append(TM.benh_tat(ky, dung, _dong10, HANH_INFO))
     ul.append(TM.tai_hoa(_dong10, '', TM.van_tot_xau(pd)[1]))
     dh = _cau(_kl(hs, 'J. Hóa giải', '[Kinh nghiệm] Điều hầu').split('.', 1)[-1], 2)

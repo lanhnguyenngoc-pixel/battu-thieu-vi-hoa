@@ -33,7 +33,8 @@ def dong_tung_van(pd):
     out = []
     for d in pd['dai_van']:
         ly = re.split(r'\s+[–-]\s+', d.get('giai_thich') or '', 1)
-        ly = _gon(re.sub(r'\s*\(P[12] tr[^)]*\)', '', ly[1] if len(ly) > 1 else ly[0]), 140)
+        ly = re.sub(r'\s*\(P[12] tr[^)]*\)', '', ly[1] if len(ly) > 1 else ly[0])
+        m = re.search(r'làm chủ cả 10 năm;?\s*(.*)', ly, re.S); ly = _gon(m.group(1) if m else ly, 80)
         out.append('%s: %s%s' % (_ten_van(d)[0].upper() + _ten_van(d)[1:], (d.get('muc') or '—').lower(), (' – ' + ly) if ly else ''))
     return out
 
